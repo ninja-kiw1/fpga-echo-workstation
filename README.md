@@ -55,7 +55,7 @@ PS 负责通信、调度、整病例任务和临床测量；上位机只选文�
 | `board/` | 上板工程、运行脚本、实测输出 | `tcp_image/tcp_image_rx/bitstream/`、`tcp_image/tcp_image_rx/boot/`（boot.bin、部署脚本）、`acceptance/`（最新上板验收记录） |
 | `data/` | 测试数据与参考结果 | 数据集需自行下载（见下）；参考结果与锁文件：`final_test_2026-10-25/`、各线 `results/` |
 | `skill/` | 技能包 | `skill/` |
-| `report/` | 设计报告 | `report/design_report.pdf` |
+| `report/` | 设计报告 + 大模型协作记录 | `report/design_report.pdf`、`report/llm_collaboration/`（工作流设计与 7 个纠错案例） |
 | — | 性能与功能证据 | `perf_j/`、`fpga_evidence/`、`keyframe/`、`quality/`、`live/`、`wallmotion/`、`strain/` |
 
 更早、更细的说明见 `project_notes_20261014.md`（10-14 快照，部分版本号已过时）、`tcp_image/tcp_image_rx/progress_and_handoff.md`（开发全过程记录）以及各目录下的 README。

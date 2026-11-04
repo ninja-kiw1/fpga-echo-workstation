@@ -40,6 +40,10 @@ EXCLUDE = [
     '*/_backup*', '*.bak', '*.bak_*', '*.py.v5*', 'board_station_backup_*', 'Tcp_Image/hardware_info.txt',
     'xu2dp_review_*', '交付包_*', '*/Fz3b_BoardCheck_backup_*', 'Tcp_Image/.board_tools/*', 'EchoNet-Dynamic.zip',
     RX + '&1',
+    # the private tree's ignore rules would hide published files
+    '.gitignore',
+    # host build of the board C (rebuilt by keyframe/build_core.sh)
+    'keyframe/echo_core.dll',
     # generated Vitis platform workspaces (BSP sources, libraries, copies of the bitstream)
     RX + 'vws/*', RX + 'vws_*/*',
     # dataset arrays, videos, raw frames and test-vector images
