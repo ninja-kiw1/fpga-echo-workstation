@@ -1,0 +1,432 @@
+NOTE: Using modified tcl85t.dll from https://gitenterprise.xilinx.com/ACT/vitis_hls_tcl
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+  **** SW Build 3854077 on May  4 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/xlinx2023.1/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/xlinx2023.1/Vitis_HLS/2023.1/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user '21888' on host 'ninja_kiwi' (Windows NT_amd64 version 6.2) on Tue Sep 22 19:54:39 +0800 2026
+INFO: [HLS 200-10] In directory 'E:/PLD/medical_fpga/hls/mean_filter'
+Sourcing Tcl script '.\run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project mean_filter 
+INFO: [HLS 200-10] Creating and opening project 'E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter'.
+INFO: [HLS 200-1510] Running: set_top mean_filter 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp -cflags -IE:/PLD/medical_fpga/hls/mean_filter/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/medical_fpga/hls/mean_filter/tb/test_mean_filter.cpp -cflags -IE:/PLD/medical_fpga/hls/mean_filter/src 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/medical_fpga/hls/mean_filter/tb/test_mean_filter.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -argv E:/PLD/medical_fpga/hls/mean_filter/vectors 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../tb/test_mean_filter.cpp in debug mode
+   Compiling ../../../../../src/mean_filter.cpp in debug mode
+   Generating csim.exe
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.hpp:3,
+                 from ../../../../../tb/test_mean_filter.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.hpp:3,
+                 from ../../../../../tb/test_mean_filter.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../src/mean_filter.hpp:3,
+                 from ../../../../../src/mean_filter.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../src/mean_filter.hpp:3,
+                 from ../../../../../src/mean_filter.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+PASS black 9x8 mismatches=0 max_error=0
+PASS white 9x8 mismatches=0 max_error=0
+PASS single_pixel 1x1 mismatches=0 max_error=0
+PASS single_row 9x1 mismatches=0 max_error=0
+PASS single_column 1x9 mismatches=0 max_error=0
+PASS impulse_center 9x8 mismatches=0 max_error=0
+PASS impulse_corner 9x8 mismatches=0 max_error=0
+PASS impulse_bottom_right 9x8 mismatches=0 max_error=0
+PASS checkerboard 17x13 mismatches=0 max_error=0
+PASS random 48x32 mismatches=0 max_error=0
+PASS stare_im0001_green 700x605 mismatches=0 max_error=0
+PASS after_real_frame 7x11 mismatches=0 max_error=0
+SUMMARY cases=12 mismatches=0
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 9.221 seconds; current allocated memory: 1.043 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.089 seconds; current allocated memory: 1.038 GB.
+INFO: [HLS 200-10] Analyzing design file 'E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 3.558 seconds; current allocated memory: 1.040 GB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-291] Loop 'SHIFT' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:43:13)
+INFO: [HLS 214-291] Loop 'SUM_R' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:57:17)
+INFO: [HLS 214-291] Loop 'SUM_C' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:60:21)
+INFO: [HLS 214-186] Unrolling loop 'SHIFT' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:43:13) in function 'mean_filter' completely with a factor of 3 (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:5:0)
+INFO: [HLS 214-186] Unrolling loop 'SUM_R' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:57:17) in function 'mean_filter' completely with a factor of 3 (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:5:0)
+INFO: [HLS 214-186] Unrolling loop 'SUM_C' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:60:21) in function 'mean_filter' completely with a factor of 3 (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:5:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'input' with compact=none mode in 8-bits
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 8 in loop 'COLUMN'(E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:25:9) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:25:9)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'COLUMN'(E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:25:9) has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:25:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.867 seconds; current allocated memory: 1.041 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.041 GB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.097 seconds; current allocated memory: 1.046 GB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.042 seconds; current allocated memory: 1.048 GB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:20:34) to (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:34:21) in function 'mean_filter'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'mean_filter' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:5:5)...8 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.095 seconds; current allocated memory: 1.069 GB.
+WARNING: [HLS 200-960] Cannot flatten loop 'ROW' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:22:5) in function 'mean_filter' either the parent loop or sub loop is do-while loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'previous' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:14).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'older' (E:/PLD/medical_fpga/hls/mean_filter/src/mean_filter.cpp:15).
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.076 seconds; current allocated memory: 1.073 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'mean_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mean_filter_Pipeline_COLUMN' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=sum_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'COLUMN'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 21, loop 'COLUMN'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.431 seconds; current allocated memory: 1.078 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.244 seconds; current allocated memory: 1.079 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mean_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.229 seconds; current allocated memory: 1.080 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.086 seconds; current allocated memory: 1.080 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mean_filter_Pipeline_COLUMN' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'COLUMN' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'mean_filter_Pipeline_COLUMN' pipeline 'COLUMN' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'am_addmul_11ns_10ns_13ns_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mean_filter_Pipeline_COLUMN'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.122 seconds; current allocated memory: 1.083 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mean_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mean_filter/gmem_in' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mean_filter/gmem_out' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mean_filter/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mean_filter/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mean_filter/width' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mean_filter/height' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'mean_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'input_r', 'output_r', 'width', 'height' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mean_filter'.
+INFO: [RTMG 210-278] Implementing memory 'mean_filter_previous_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.761 seconds; current allocated memory: 1.088 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.9 seconds; current allocated memory: 1.094 GB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.237 seconds; current allocated memory: 1.099 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for mean_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for mean_filter.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 2 seconds. CPU system time: 2 seconds. Elapsed time: 10.952 seconds; current allocated memory: 62.898 MB.
+INFO: [HLS 200-1510] Running: cosim_design -rtl verilog -tool xsim -argv E:/PLD/medical_fpga/hls/mean_filter/vectors 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "D:/xlinx2023.1/Vitis_HLS/2023.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling test_mean_filter.cpp_pre.cpp.tb.cpp
+   Compiling mean_filter.cpp_pre.cpp.tb.cpp
+   Compiling apatb_mean_filter.cpp
+   Compiling apatb_mean_filter_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+PASS black 9x8 mismatches=0 max_error=0
+PASS white 9x8 mismatches=0 max_error=0
+PASS single_pixel 1x1 mismatches=0 max_error=0
+PASS single_row 9x1 mismatches=0 max_error=0
+PASS single_column 1x9 mismatches=0 max_error=0
+PASS impulse_center 9x8 mismatches=0 max_error=0
+PASS impulse_corner 9x8 mismatches=0 max_error=0
+PASS impulse_bottom_right 9x8 mismatches=0 max_error=0
+PASS checkerboard 17x13 mismatches=0 max_error=0
+PASS random 48x32 mismatches=0 max_error=0
+PASS stare_im0001_green 700x605 mismatches=0 max_error=0
+PASS after_real_frame 7x11 mismatches=0 max_error=0
+SUMMARY cases=12 mismatches=0
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+E:\PLD\medical_fpga\hls\mean_filter\build\mean_filter\solution1\sim\verilog>set PATH= 
+
+E:\PLD\medical_fpga\hls\mean_filter\build\mean_filter\solution1\sim\verilog>call D:/xlinx2023.1/Vivado/2023.1/bin/xelab xil_defaultlib.apatb_mean_filter_top glbl -Oenable_linking_all_libraries  -prj mean_filter.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib "ieee_proposed=./ieee_proposed" -s mean_filter  
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/xlinx2023.1/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_mean_filter_top glbl -Oenable_linking_all_libraries -prj mean_filter.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s mean_filter 
+Multi-threading is on. Using 22 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/AESL_axi_master_gmem_in.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/AESL_axi_master_gmem_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_mean_filter_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_am_addmul_11ns_10ns_13ns_25_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_am_addmul_11ns_10ns_13ns_25_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module mean_filter_am_addmul_11ns_10ns_13ns_25_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_gmem_in_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_load
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_store
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_read
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_write
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_srl
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_in_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_gmem_out_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_load
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_store
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_read
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_write
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_srl
+INFO: [VRFC 10-311] analyzing module mean_filter_gmem_out_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_mean_filter_Pipeline_COLUMN.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_mean_filter_Pipeline_COLUMN
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter_previous_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mean_filter_previous_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.mean_filter_previous_RAM_2P_BRAM...
+Compiling module xil_defaultlib.mean_filter_am_addmul_11ns_10ns_...
+Compiling module xil_defaultlib.mean_filter_am_addmul_11ns_10ns_...
+Compiling module xil_defaultlib.mean_filter_flow_control_loop_pi...
+Compiling module xil_defaultlib.mean_filter_mean_filter_Pipeline...
+Compiling module xil_defaultlib.mean_filter_control_s_axi
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_mem(ME...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(M...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_store(...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_mem(ME...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(M...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_load(N...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_reg_sl...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_burst_...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_reg_sl...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_srl(DA...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_fifo(D...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_thrott...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_reg_sl...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_write(...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_reg_sl...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi_read(C...
+Compiling module xil_defaultlib.mean_filter_gmem_in_m_axi(CONSER...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_mem(M...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_store...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_mem(M...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_load(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_reg_s...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_burst...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_reg_s...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_srl(D...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_fifo(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_throt...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_reg_s...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_write...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_reg_s...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi_read(...
+Compiling module xil_defaultlib.mean_filter_gmem_out_m_axi(CONSE...
+Compiling module xil_defaultlib.mean_filter
+Compiling module xil_defaultlib.AESL_axi_master_gmem_in
+Compiling module xil_defaultlib.AESL_axi_master_gmem_out
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=5)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_mean_filter_top
+Compiling module work.glbl
+Built simulation snapshot mean_filter
+
+****** xsim v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/mean_filter/xsim_script.tcl
+# xsim {mean_filter} -autoloadwcfg -tclbatch {mean_filter.tcl}
+Time resolution is 1 ps
+source mean_filter.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 12 [0.00%] @ "125000"
+// RTL Simulation : 1 / 12 [0.00%] @ "4925000"
+// RTL Simulation : 2 / 12 [0.00%] @ "9515000"
+// RTL Simulation : 3 / 12 [0.00%] @ "10685000"
+// RTL Simulation : 4 / 12 [0.00%] @ "11915000"
+// RTL Simulation : 5 / 12 [0.00%] @ "16185000"
+// RTL Simulation : 6 / 12 [0.00%] @ "20855000"
+// RTL Simulation : 7 / 12 [0.00%] @ "25445000"
+// RTL Simulation : 8 / 12 [0.00%] @ "30035000"
+// RTL Simulation : 9 / 12 [0.00%] @ "38405000"
+// RTL Simulation : 10 / 12 [0.00%] @ "69975000"
+// RTL Simulation : 11 / 12 [0.00%] @ "4609945000"
+// RTL Simulation : 12 / 12 [100.00%] @ "4615715000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 4615775 ns : File "E:/PLD/medical_fpga/hls/mean_filter/build/mean_filter/solution1/sim/verilog/mean_filter.autotb.v" Line 588
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:23 . Memory (MB): peak = 200.879 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 61312 KB (Peak: 61312 KB), Simulation CPU Usage: 22437 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep 22 19:56:44 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+PASS black 9x8 mismatches=0 max_error=0
+PASS white 9x8 mismatches=0 max_error=0
+PASS single_pixel 1x1 mismatches=0 max_error=0
+PASS single_row 9x1 mismatches=0 max_error=0
+PASS single_column 1x9 mismatches=0 max_error=0
+PASS impulse_center 9x8 mismatches=0 max_error=0
+PASS impulse_corner 9x8 mismatches=0 max_error=0
+PASS impulse_bottom_right 9x8 mismatches=0 max_error=0
+PASS checkerboard 17x13 mismatches=0 max_error=0
+PASS random 48x32 mismatches=0 max_error=0
+PASS stare_im0001_green 700x605 mismatches=0 max_error=0
+PASS after_real_frame 7x11 mismatches=0 max_error=0
+SUMMARY cases=12 mismatches=0
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 98.829 seconds; current allocated memory: 11.777 MB.
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog -rtl verilog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1466.641 ; gain = 155.074
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinx2023.1/Vivado/2023.1/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 22 19:57:10 2026...
+INFO: [HLS 200-802] Generated output file mean_filter/solution1/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 24.234 seconds; current allocated memory: 3.031 MB.
+INFO: [HLS 200-112] Total CPU user time: 8 seconds. Total CPU system time: 3 seconds. Total elapsed time: 151.027 seconds; peak allocated memory: 1.113 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Tue Sep 22 19:57:10 2026...

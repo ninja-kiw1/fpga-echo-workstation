@@ -1,0 +1,43 @@
+{
+ "op": "sobel",
+ "doc": "L1 gradient magnitude of R: |Gx| + |Gy| (Sobel / 4).",
+ "layout": {
+  "channels_per_stage": [
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "output_terms": 4
+ },
+ "out_range": [
+  0.0,
+  2.0
+ ],
+ "out_mid": 1.0,
+ "anchored_channels": 0,
+ "float_max_abs_error": 1.8645964505736856e-07,
+ "integer": {
+  "output_scale": 0.007874015748031496,
+  "output_mid": 1.0,
+  "interval_bound": [
+   0.0,
+   4.0
+  ],
+  "lsb_in_grey_levels": 2.0078740157480315,
+  "mean_err_lsb": -0.012781049881655637,
+  "max_abs_err_lsb": 0.5083583237216516,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "24e1091f7e658f7debc9e344ddcd2a9572db416ee7e1a7f92afa7574e76a0981",
+ "parameters_sha256": "a9f8529944007a9d86ebc2a581ba08d107050443143b3aab614951eb50f95db8",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

@@ -1,0 +1,946 @@
+[
+  {
+    "name": "x",
+    "inputs": [],
+    "scale": 0.00392156862745098,
+    "zero_point": 0,
+    "qmin": 0,
+    "qmax": 255,
+    "calibration_absmax": 1.0,
+    "bits": 8,
+    "op": "Input"
+  },
+  {
+    "name": "first_block_2",
+    "inputs": [
+      "x"
+    ],
+    "scale": 0.0011107099901372164,
+    "zero_point": 0,
+    "qmin": -32767,
+    "qmax": 32767,
+    "calibration_absmax": 36.39463424682617,
+    "bits": 16,
+    "op": "ConvAffine",
+    "source_module": "first.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 29,
+    "accumulator_abs_bound": 403247,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "first.block.2",
+    "fused_nodes": [
+      "first_block_0",
+      "first_block_1",
+      "first_block_2"
+    ]
+  },
+  {
+    "name": "first_block_5",
+    "inputs": [
+      "first_block_2"
+    ],
+    "scale": 0.2178227732500692,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 27.66349220275879,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "first.block.3",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 107680730,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "first.block.5",
+    "fused_nodes": [
+      "first_block_3",
+      "first_block_4",
+      "first_block_5"
+    ]
+  },
+  {
+    "name": "first_shortcut_1",
+    "inputs": [
+      "x"
+    ],
+    "scale": 0.033320839949480194,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 4.231746673583984,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "first.shortcut.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      1,
+      1
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 78030,
+    "weight_layout": "OIHW",
+    "relu_before_affine": false,
+    "affine_source_module": "first.shortcut.1",
+    "fused_nodes": [
+      "first_shortcut_0",
+      "first_shortcut_1"
+    ]
+  },
+  {
+    "name": "add",
+    "inputs": [
+      "first_block_5",
+      "first_shortcut_1"
+    ],
+    "scale": 0.0008939655786045638,
+    "zero_point": 0,
+    "qmin": -32767,
+    "qmax": 32767,
+    "calibration_absmax": 29.292570114135742,
+    "bits": 16,
+    "op": "Add",
+    "shift": 23
+  },
+  {
+    "name": "down_path_0_pool",
+    "inputs": [
+      "add"
+    ],
+    "scale": 0.0008939655786045638,
+    "zero_point": 0,
+    "qmin": -32767,
+    "qmax": 32767,
+    "calibration_absmax": 29.292570114135742,
+    "bits": 16,
+    "op": "MaxPool2d",
+    "source_module": "down_path.0.pool",
+    "kernel": 2,
+    "stride": 2
+  },
+  {
+    "name": "down_path_0_block_2",
+    "inputs": [
+      "down_path_0_pool"
+    ],
+    "scale": 0.13036568709245816,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 16.556442260742188,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "down_path.0.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 116982402,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "down_path.0.block.2",
+    "fused_nodes": [
+      "down_path_0_block_0",
+      "down_path_0_block_1",
+      "down_path_0_block_2"
+    ]
+  },
+  {
+    "name": "down_path_0_block_5",
+    "inputs": [
+      "down_path_0_block_2"
+    ],
+    "scale": 0.19425605413481944,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 24.67051887512207,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "down_path.0.block.3",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 744184,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "down_path.0.block.5",
+    "fused_nodes": [
+      "down_path_0_block_3",
+      "down_path_0_block_4",
+      "down_path_0_block_5"
+    ]
+  },
+  {
+    "name": "down_path_0_shortcut_1",
+    "inputs": [
+      "down_path_0_pool"
+    ],
+    "scale": 0.06594712715449295,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 8.375285148620605,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "down_path.0.shortcut.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      1,
+      1
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 18251219,
+    "weight_layout": "OIHW",
+    "relu_before_affine": false,
+    "affine_source_module": "down_path.0.shortcut.1",
+    "fused_nodes": [
+      "down_path_0_shortcut_0",
+      "down_path_0_shortcut_1"
+    ]
+  },
+  {
+    "name": "add_1",
+    "inputs": [
+      "down_path_0_block_5",
+      "down_path_0_shortcut_1"
+    ],
+    "scale": 0.19541570708507627,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 24.817794799804688,
+    "bits": 8,
+    "op": "Add",
+    "shift": 30
+  },
+  {
+    "name": "down_path_1_pool",
+    "inputs": [
+      "add_1"
+    ],
+    "scale": 0.19541570708507627,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 24.817794799804688,
+    "bits": 8,
+    "op": "MaxPool2d",
+    "source_module": "down_path.1.pool",
+    "kernel": 2,
+    "stride": 2
+  },
+  {
+    "name": "down_path_1_block_2",
+    "inputs": [
+      "down_path_1_pool"
+    ],
+    "scale": 0.08978487750676674,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 11.402679443359375,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "down_path.1.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 709488,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "down_path.1.block.2",
+    "fused_nodes": [
+      "down_path_1_block_0",
+      "down_path_1_block_1",
+      "down_path_1_block_2"
+    ]
+  },
+  {
+    "name": "down_path_1_block_5",
+    "inputs": [
+      "down_path_1_block_2"
+    ],
+    "scale": 0.23271297845314806,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 29.554548263549805,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "down_path.1.block.3",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 1353667,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "down_path.1.block.5",
+    "fused_nodes": [
+      "down_path_1_block_3",
+      "down_path_1_block_4",
+      "down_path_1_block_5"
+    ]
+  },
+  {
+    "name": "down_path_1_shortcut_1",
+    "inputs": [
+      "down_path_1_pool"
+    ],
+    "scale": 0.047213265276330664,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 5.996084690093994,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "down_path.1.shortcut.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      1,
+      1
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 157099,
+    "weight_layout": "OIHW",
+    "relu_before_affine": false,
+    "affine_source_module": "down_path.1.shortcut.1",
+    "fused_nodes": [
+      "down_path_1_shortcut_0",
+      "down_path_1_shortcut_1"
+    ]
+  },
+  {
+    "name": "add_2",
+    "inputs": [
+      "down_path_1_block_5",
+      "down_path_1_shortcut_1"
+    ],
+    "scale": 0.23184786819097564,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 29.444679260253906,
+    "bits": 8,
+    "op": "Add",
+    "shift": 30
+  },
+  {
+    "name": "up_path_0_up_layer_block_0",
+    "inputs": [
+      "add_2"
+    ],
+    "scale": 0.19213113259142778,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 24.400653839111328,
+    "bits": 8,
+    "op": "ConvTranspose2d",
+    "source_module": "up_path.0.up_layer.block.0",
+    "stride": [
+      2,
+      2
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      2,
+      2
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 774782,
+    "weight_layout": "IOHW"
+  },
+  {
+    "name": "up_path_0_conv_bridge_layer_block_2",
+    "inputs": [
+      "add_1"
+    ],
+    "scale": 0.14196705254982775,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 18.029815673828125,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.0.conv_bridge_layer.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 747506,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "up_path.0.conv_bridge_layer.block.2",
+    "fused_nodes": [
+      "up_path_0_conv_bridge_layer_block_0",
+      "up_path_0_conv_bridge_layer_block_1",
+      "up_path_0_conv_bridge_layer_block_2"
+    ]
+  },
+  {
+    "name": "cat",
+    "inputs": [
+      "up_path_0_up_layer_block_0",
+      "up_path_0_conv_bridge_layer_block_2"
+    ],
+    "scale": 0.19213113259142778,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 24.400653839111328,
+    "bits": 8,
+    "op": "Concat",
+    "dim": 1,
+    "shift": 30
+  },
+  {
+    "name": "up_path_0_conv_layer_block_2",
+    "inputs": [
+      "cat"
+    ],
+    "scale": 0.1466315862700695,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 18.622211456298828,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.0.conv_layer.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 1247555,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "up_path.0.conv_layer.block.2",
+    "fused_nodes": [
+      "up_path_0_conv_layer_block_0",
+      "up_path_0_conv_layer_block_1",
+      "up_path_0_conv_layer_block_2"
+    ]
+  },
+  {
+    "name": "up_path_0_conv_layer_block_5",
+    "inputs": [
+      "up_path_0_conv_layer_block_2"
+    ],
+    "scale": 0.2506790912057471,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 31.836244583129883,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.0.conv_layer.block.3",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 628412,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "up_path.0.conv_layer.block.5",
+    "fused_nodes": [
+      "up_path_0_conv_layer_block_3",
+      "up_path_0_conv_layer_block_4",
+      "up_path_0_conv_layer_block_5"
+    ]
+  },
+  {
+    "name": "up_path_0_conv_layer_shortcut_1",
+    "inputs": [
+      "cat"
+    ],
+    "scale": 0.04845764881043922,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 6.154121398925781,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.0.conv_layer.shortcut.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      1,
+      1
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 237871,
+    "weight_layout": "OIHW",
+    "relu_before_affine": false,
+    "affine_source_module": "up_path.0.conv_layer.shortcut.1",
+    "fused_nodes": [
+      "up_path_0_conv_layer_shortcut_0",
+      "up_path_0_conv_layer_shortcut_1"
+    ]
+  },
+  {
+    "name": "add_3",
+    "inputs": [
+      "up_path_0_conv_layer_block_5",
+      "up_path_0_conv_layer_shortcut_1"
+    ],
+    "scale": 0.2773360304945097,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 35.221675872802734,
+    "bits": 8,
+    "op": "Add",
+    "shift": 30
+  },
+  {
+    "name": "up_path_1_up_layer_block_0",
+    "inputs": [
+      "add_3"
+    ],
+    "scale": 0.33911688496747355,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 43.06784439086914,
+    "bits": 8,
+    "op": "ConvTranspose2d",
+    "source_module": "up_path.1.up_layer.block.0",
+    "stride": [
+      2,
+      2
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      2,
+      2
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 429890,
+    "weight_layout": "IOHW"
+  },
+  {
+    "name": "up_path_1_conv_bridge_layer_block_2",
+    "inputs": [
+      "add"
+    ],
+    "scale": 0.10276402450921968,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 13.051031112670898,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.1.conv_bridge_layer.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 112902967,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "up_path.1.conv_bridge_layer.block.2",
+    "fused_nodes": [
+      "up_path_1_conv_bridge_layer_block_0",
+      "up_path_1_conv_bridge_layer_block_1",
+      "up_path_1_conv_bridge_layer_block_2"
+    ]
+  },
+  {
+    "name": "cat_1",
+    "inputs": [
+      "up_path_1_up_layer_block_0",
+      "up_path_1_conv_bridge_layer_block_2"
+    ],
+    "scale": 0.33911688496747355,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 43.06784439086914,
+    "bits": 8,
+    "op": "Concat",
+    "dim": 1,
+    "shift": 30
+  },
+  {
+    "name": "up_path_1_conv_layer_block_2",
+    "inputs": [
+      "cat_1"
+    ],
+    "scale": 0.1062019227996586,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 13.48764419555664,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.1.conv_layer.block.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 727396,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "up_path.1.conv_layer.block.2",
+    "fused_nodes": [
+      "up_path_1_conv_layer_block_0",
+      "up_path_1_conv_layer_block_1",
+      "up_path_1_conv_layer_block_2"
+    ]
+  },
+  {
+    "name": "up_path_1_conv_layer_block_5",
+    "inputs": [
+      "up_path_1_conv_layer_block_2"
+    ],
+    "scale": 0.12643207339789925,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 16.056873321533203,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.1.conv_layer.block.3",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      1,
+      1
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 416493,
+    "weight_layout": "OIHW",
+    "relu_before_affine": true,
+    "affine_source_module": "up_path.1.conv_layer.block.5",
+    "fused_nodes": [
+      "up_path_1_conv_layer_block_3",
+      "up_path_1_conv_layer_block_4",
+      "up_path_1_conv_layer_block_5"
+    ]
+  },
+  {
+    "name": "up_path_1_conv_layer_shortcut_1",
+    "inputs": [
+      "cat_1"
+    ],
+    "scale": 0.08093082247756597,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 10.278214454650879,
+    "bits": 8,
+    "op": "ConvAffine",
+    "source_module": "up_path.1.conv_layer.shortcut.0",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      1,
+      1
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 146431,
+    "weight_layout": "OIHW",
+    "relu_before_affine": false,
+    "affine_source_module": "up_path.1.conv_layer.shortcut.1",
+    "fused_nodes": [
+      "up_path_1_conv_layer_shortcut_0",
+      "up_path_1_conv_layer_shortcut_1"
+    ]
+  },
+  {
+    "name": "add_4",
+    "inputs": [
+      "up_path_1_conv_layer_block_5",
+      "up_path_1_conv_layer_shortcut_1"
+    ],
+    "scale": 0.13649306710310807,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 17.334619522094727,
+    "bits": 8,
+    "op": "Add",
+    "shift": 30
+  },
+  {
+    "name": "final",
+    "inputs": [
+      "add_4"
+    ],
+    "scale": 0.24494746350866603,
+    "zero_point": 0,
+    "qmin": -127,
+    "qmax": 127,
+    "calibration_absmax": 31.108327865600586,
+    "bits": 8,
+    "op": "Conv2d",
+    "source_module": "final",
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "kernel": [
+      1,
+      1
+    ],
+    "output_padding": [
+      0,
+      0
+    ],
+    "groups": 1,
+    "shift": 30,
+    "accumulator_abs_bound": 108056,
+    "weight_layout": "OIHW"
+  }
+]

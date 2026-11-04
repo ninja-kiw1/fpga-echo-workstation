@@ -1,0 +1,149 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Oct 17 03:05:00 2026
+# Process ID         : 21308
+# Current directory  : E:/PLD/tcp_image/tcp_image_rx/vivado/f_clock
+# Command line       : vivado.exe -mode batch -nojournal -log retime_f_real.log -source retime_f_real.tcl
+# Log file           : E:/PLD/tcp_image/tcp_image_rx/vivado/f_clock/retime_f_real.log
+# Journal file       : 
+# Running On         : Ninja_kiwi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 25534 MB
+# Swap memory        : 45097 MB
+# Total Virtual      : 70631 MB
+# Available Virtual  : 43967 MB
+#-----------------------------------------------------------
+source retime_f_real.tcl
+# set here [file dirname [file normalize [info script]]]
+# foreach tag {f150 f125} {
+#     set dcp [file normalize $here/../ai_sys_$tag/ai_sys_$tag.runs/impl_1/system_wrapper_routed.dcp]
+#     open_checkpoint $dcp
+#     set src [get_property SOURCE_PINS [get_clocks clk_pl_0]]
+#     create_clock -name clk_pl_0 -period 9.8643 [get_pins $src]
+#     foreach c [get_clocks] { puts "### $tag clock [get_property NAME $c] period [get_property PERIOD $c]" }
+#     report_timing_summary -no_detailed_paths -file $here/retime_${tag}_101376_summary.rpt
+#     report_timing -max_paths 5 -nworst 1 -file $here/retime_${tag}_101376_paths.rpt
+#     set p [get_timing_paths -setup -max_paths 1]
+#     set h [get_timing_paths -hold -max_paths 1]
+#     puts "### $tag @pl0_ref 101.376 MHz: WNS [get_property SLACK $p] WHS [get_property SLACK $h]"
+#     close_design
+# }
+Command: open_checkpoint E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150/ai_sys_f150.runs/impl_1/system_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 425.961 ; gain = 4.820
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1560.223 ; gain = 1.957
+INFO: [Netlist 29-17] Analyzing 5475 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 4 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.335 . Memory (MB): peak = 1841.836 ; gain = 40.012
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.142 . Memory (MB): peak = 2527.305 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2527.305 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2659.516 ; gain = 132.211
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2659.516 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3231.770 ; gain = 572.254
+Read Physdb Files: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3231.770 ; gain = 704.465
+Restored from archive | CPU: 12.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3231.770 ; gain = 704.465
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 3231.770 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2512 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 306 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 512 instances
+  RAM256X1D => RAM256X1D (MUXF7(x4), MUXF8(x2), RAMD64E(x8)): 6 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 32 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 11 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 49 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 534 instances
+  RAM32X1S => RAM32X1S (RAMS32): 128 instances
+  SRLC32E => SRL16E: 934 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:52 ; elapsed = 00:01:18 . Memory (MB): peak = 3231.770 ; gain = 2821.168
+WARNING: [Vivado 12-2489] -period contains time 9.864300 which will be rounded to 9.864 to ensure it is an integer multiple of 1 picosecond
+WARNING: [Constraints 18-619] A clock with name 'clk_pl_0' already exists, overwriting the previous clock with the same name.
+INFO: [Timing 38-2] Deriving generated clocks
+### f150 clock clk_pl_0 period 9.864
+### f150 clock clk_out1_system_clk_wiz_0_0 period 6.572
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:52 ; elapsed = 00:00:33 . Memory (MB): peak = 3562.504 ; gain = 330.734
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+### f150 @pl0_ref 101.376 MHz: WNS 0.470 WHS 0.013
+Command: open_checkpoint E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f125/ai_sys_f125.runs/impl_1/system_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3562.504 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5475 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.314 . Memory (MB): peak = 3562.504 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.148 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Restored from archive | CPU: 12.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 3562.504 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 3562.504 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2512 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 306 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 512 instances
+  RAM256X1D => RAM256X1D (MUXF7(x4), MUXF8(x2), RAMD64E(x8)): 6 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 32 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 11 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 49 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 534 instances
+  RAM32X1S => RAM32X1S (RAMS32): 128 instances
+  SRLC32E => SRL16E: 934 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 3562.504 ; gain = 0.000
+WARNING: [Vivado 12-2489] -period contains time 9.864300 which will be rounded to 9.864 to ensure it is an integer multiple of 1 picosecond
+WARNING: [Constraints 18-619] A clock with name 'clk_pl_0' already exists, overwriting the previous clock with the same name.
+INFO: [Timing 38-2] Deriving generated clocks
+### f125 clock clk_pl_0 period 9.864
+### f125 clock clk_out1_system_clk_wiz_0_0 period 7.891
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:52 ; elapsed = 00:00:32 . Memory (MB): peak = 3622.555 ; gain = 60.051
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+### f125 @pl0_ref 101.376 MHz: WNS 0.779 WHS 0.011
+# exit
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 17 03:08:45 2026...

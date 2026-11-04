@@ -1,0 +1,37 @@
+{
+ "rule": "highest mean per-case 3D Dice on validation (FP32, raw mask)",
+ "candidates": {
+  "rep_r128": {
+   "input": "rep",
+   "best_iter": 14000,
+   "dice": 0.9245437874384886,
+   "dice_lcc": 0.9323466813896133,
+   "per_case": {
+    "spleen_10": 0.9504,
+    "spleen_25": 0.9124,
+    "spleen_41": 0.9099,
+    "spleen_47": 0.9301,
+    "spleen_52": 0.9466,
+    "spleen_56": 0.9038,
+    "spleen_59": 0.9185
+   }
+  },
+  "z3_r128": {
+   "input": "z3",
+   "best_iter": 16000,
+   "dice": 0.932128966288529,
+   "dice_lcc": 0.9366475400203612,
+   "per_case": {
+    "spleen_10": 0.9524,
+    "spleen_25": 0.92,
+    "spleen_41": 0.9179,
+    "spleen_47": 0.9285,
+    "spleen_52": 0.956,
+    "spleen_56": 0.9107,
+    "spleen_59": 0.9394
+   }
+  }
+ },
+ "chosen": "z3_r128",
+ "cases_better_than_other": "6/7"
+}

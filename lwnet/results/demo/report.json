@@ -1,0 +1,26 @@
+{
+  "image": "E:\\PLD\\medical_fpga\\data\\stare\\png\\images\\im0001.png",
+  "weights": "E:\\PLD\\lwnet\\experiments\\wnet_drive\\model_checkpoint.pth",
+  "weights_sha256": "91f0cada4b26ece63464b05be60f9b3a51f1bcd1f764081d07d3a35961118de1",
+  "torch": "2.14.0+cpu",
+  "device": "cpu",
+  "input_shape": [
+    1,
+    3,
+    512,
+    512
+  ],
+  "parameters": 68482,
+  "preprocessing": "RGB, direct bilinear resize 512x512, divide by 255; no FOV crop or masking",
+  "tta": false,
+  "threshold": 0.4196,
+  "forward_seconds_one_warm_run": 0.08226170000000366,
+  "probability_range": [
+    8.978741243481636e-05,
+    0.9998470544815063
+  ],
+  "foreground_pixels": 23854,
+  "dice_full_resized_image": 0.7447354904982023,
+  "iou_full_resized_image": 0.5932896890343698,
+  "scope": "Single-image smoke test with DRIVE weights on STARE; not paper reproduction, dataset accuracy, or FPGA timing."
+}

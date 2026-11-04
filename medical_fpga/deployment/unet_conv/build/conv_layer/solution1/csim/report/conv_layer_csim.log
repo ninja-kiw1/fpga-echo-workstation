@@ -1,0 +1,52 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../../tb/test_conv_layer.cpp in release mode
+   Compiling ../../../../../src/conv_layer.cpp in release mode
+   Generating csim.exe
+PASS invalid mode=3
+PASS invalid cin=0
+PASS invalid cout=33
+PASS invalid width=513
+PASS invalid height=0
+PASS invalid tconv width=257
+PASS invalid shift=32
+PASS invalid relu=2
+PASS invalid qmin>qmax
+PASS syn_rgb_3x3_int16 mode=0 3->8 in=7x9 values=504 mismatches=0 max_error=0 overrun_words=0
+PASS syn_c32_3x3_int8 mode=0 32->32 in=5x6 values=960 mismatches=0 max_error=0 overrun_words=0
+PASS syn_int16_in_3x3 mode=0 16->8 in=4x5 values=160 mismatches=0 max_error=0 overrun_words=0
+PASS syn_1x1_c13_c5 mode=1 13->5 in=6x7 values=336 mismatches=0 max_error=0 overrun_words=0
+PASS syn_tconv_c16_c8 mode=2 16->8 in=3x4 values=384 mismatches=0 max_error=0 overrun_words=0
+PASS syn_single_pixel_3x3 mode=0 8->8 in=1x1 values=8 mismatches=0 max_error=0 overrun_words=0
+PASS syn_single_row_3x3 mode=0 9->3 in=1x11 values=88 mismatches=0 max_error=0 overrun_words=0
+PASS syn_single_col_3x3 mode=0 9->3 in=11x1 values=88 mismatches=0 max_error=0 overrun_words=0
+PASS syn_shift0 mode=1 8->8 in=4x4 values=128 mismatches=0 max_error=0 overrun_words=0
+PASS syn_ties_shift1 mode=1 2->8 in=8x8 values=512 mismatches=0 max_error=0 overrun_words=0
+PASS syn_ties_shift2 mode=1 2->8 in=8x8 values=512 mismatches=0 max_error=0 overrun_words=0
+PASS syn_saturate mode=0 8->8 in=6x6 values=288 mismatches=0 max_error=0 overrun_words=0
+PASS syn_max_width_rows mode=0 8->8 in=2x512 values=8192 mismatches=0 max_error=0 overrun_words=0
+PASS syn_tconv_max_width mode=2 8->8 in=2x256 values=16384 mismatches=0 max_error=0 overrun_words=0
+PASS first_block_2 mode=0 3->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS first_block_5 mode=0 8->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS first_shortcut_1 mode=1 3->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_0_block_2 mode=0 8->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_0_block_5 mode=0 16->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_0_shortcut_1 mode=1 8->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_block_2 mode=0 16->32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_block_5 mode=0 32->32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_shortcut_1 mode=1 16->32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_up_layer_block_0 mode=2 32->16 in=128x128 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_bridge_layer_block_2 mode=0 16->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_layer_block_2 mode=0 32->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_layer_block_5 mode=0 16->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_layer_shortcut_1 mode=1 32->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_up_layer_block_0 mode=2 16->8 in=256x256 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_bridge_layer_block_2 mode=0 8->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_layer_block_2 mode=0 16->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_layer_block_5 mode=0 8->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_layer_shortcut_1 mode=1 16->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS final mode=1 8->1 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS syn_after_large mode=0 5->7 in=3x3 values=72 mismatches=0 max_error=0 overrun_words=0
+SUMMARY cases=35 values=28864456 failures=0
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

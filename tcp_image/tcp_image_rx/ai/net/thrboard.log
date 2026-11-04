@@ -1,0 +1,9 @@
+proto self-check: OK
+模式: 1 (阈值分割)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total=   56.5 ms  (send    2.3 + reply   54.2)  proc(rows_ok=512)
+summary: n=1  min=56.5  max=56.5  avg=56.5 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx/ai/net/e2e_out/thr_auto.png
+CLI_DONE

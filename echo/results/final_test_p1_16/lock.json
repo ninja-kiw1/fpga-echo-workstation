@@ -1,0 +1,73 @@
+{
+ "what": "P1 1.6 CAMUS new programs (left atrium la_r128, LV epicardium epi_r128) and the LA volume / LV mass measurements",
+ "rule": "the official 50 test patients are evaluated ONCE, after the models, quantization, thresholds and measurement code are frozen on train / val only; no tuning afterwards",
+ "locked_utc": "2026-10-14",
+ "frozen_inputs_to_record_before_unlock": [
+  "quant_plan sha256 of la_r128 / epi_r128",
+  "measurement code sha256",
+  "thresholds + sources"
+ ],
+ "status": "used",
+ "started_utc": "2026-10-25T10:59:24.380275+00:00",
+ "frozen_sha256": {
+  "lv_r128/quant_plan.json": "ff9cd75e6377cac26433aafd0c441f0baa8bf8b661770be85cfdc0d13bc718d4",
+  "lv_r128/parameters.npz": "656982527bd95a69c60c200c5edf037534619ab61c51f3ac1223b804ae99db47",
+  "epi_r128/quant_plan.json": "e94b5ecc09b49956b39ede5f1d2261f33c63fcbcfcd156eedab6750d6a472db2",
+  "epi_r128/parameters.npz": "af799cb68e5652def833b7a73375af62a9a0d4f074065a2c63dfa278ed771146",
+  "la_r128/quant_plan.json": "8b1f344be303f978052c7fe32765668c9bbdee5f66541e56d9afcb8dd5a43402",
+  "la_r128/parameters.npz": "85a465e18539773bffb50dd9c620353ca335a8724fb3742b1af00a49bbf6a5f6",
+  "cardiac_measure.py": "90b2827a5eb440ce4e967c6eaf2d2b36b643e0c5ea4abe43518b616bea3105c8",
+  "ef_simpson.py": "3e63d1eaed60fc370641137fa59503d412bcfc1dcc4b15e0a3c3710ee2e068d2",
+  "eval_p1_16.py": "ff3c45d0d68e27ecd1bbe0393e87ffcdc1225f3e44b46c7eac263a53feb33826",
+  "final_test_p1_16.py": "c5b3949b3375c7127d2a25bd829dafa64032a1852a4e7f3a48245971bc147100",
+  "la_calib.json": "89f79b072179dabc34e6adbde72e2179a9b34a83d5f8abd3461451202ef314a5",
+  "job_simpson.c": "24d2b2c6f51e377d7ec3f50e5f64973a8da1869fe30a10fe0177be5ac8849275"
+ },
+ "la_cal": {
+  "a": 0.9533886925323705,
+  "b": 9.024183337520322,
+  "n_fit": 192,
+  "fit": "train",
+  "json_sha256_16": "89f79b072179dabc"
+ },
+ "la_edge_rows": 2,
+ "thresholds": {
+  "lavi": [
+   [
+    34,
+    "\u6b63\u5e38"
+   ],
+   [
+    41,
+    "\u8f7b\u5ea6\u589e\u5927"
+   ],
+   [
+    48,
+    "\u4e2d\u5ea6\u589e\u5927"
+   ]
+  ],
+  "lvmi_2d": {
+   "F": [
+    44,
+    88
+   ],
+   "M": [
+    50,
+    102
+   ]
+  },
+  "wall_linear_cm": {
+   "F": [
+    0.6,
+    0.9
+   ],
+   "M": [
+    0.6,
+    1.0
+   ]
+  },
+  "density": 1.05,
+  "source": "Lang RM et al. EHJ-CVI 2015;16:233-271 (ASE/EACVI), Table 4 / Table 6"
+ },
+ "finished_utc": "2026-10-25T11:05:39.137386+00:00"
+}

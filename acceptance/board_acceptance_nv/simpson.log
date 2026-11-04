@@ -1,0 +1,76 @@
+caps: {'ok': True, 'job_version': 1, 'jobs': ['caps', 'ct_seg', 'reg_search', 'echo_ef', 'simpson_ef', 'render3d', 'overlay', 'strain', 'tile'], 'vis': False, 'cardiac': True, 'server': 'v5.26', 'echo_modes': [0, 1, 2, 3], 'live_roll': True, 'live_roll_camus': True, 'live_f1_engine': True, 'live_sources': ['file', 'v4l2'], 'heart': ['wall_motion', 'right_heart'], 'pp': True, 'ai': True, 'models': 17, 'cores': 4, 'max_data': 335544320}
+== A expert masks (training + validation)
+E:\PLD\tcp_image\tcp_image_ui\ef_simpson.py:62: RuntimeWarning: invalid value encountered in divide
+  return np.abs(v[0] * w[:, 1] - v[1] * w[:, 0]) / np.linalg.norm(v)
+  A  25/450 patient0025 OK  board 123/84/32  PC 123/84  ref EF 32
+  A  50/450 patient0054 OK  board 110/67/39  PC 110/67  ref EF 39
+  A  75/450 patient0079 OK  board 118/65/45  PC 118/65  ref EF 45
+  A 100/450 patient0104 OK  board 98/60/39  PC 98/60  ref EF 39
+  A 125/450 patient0129 OK  board 120/50/58  PC 120/50  ref EF 58
+  A 150/450 patient0154 OK  board 77/57/26  PC 77/57  ref EF 26
+  A 175/450 patient0179 OK  board 121/58/52  PC 121/58  ref EF 52
+  A 200/450 patient0222 OK  board 156/139/11  PC 156/139  ref EF 11
+  A 225/450 patient0321 OK  board 149/105/30  PC 149/105  ref EF 30
+  A 250/450 patient0350 OK  board 94/59/37  PC 94/59  ref EF 37
+  A 275/450 patient0375 OK  board 87/60/31  PC 87/60  ref EF 31
+  A 300/450 patient0400 OK  board 118/66/44  PC 118/66  ref EF 44
+  A 325/450 patient0425 OK  board 109/53/51  PC 109/53  ref EF 51
+  A 350/450 patient0450 OK  board 69/34/51  PC 69/34  ref EF 51
+  A 375/450 patient0475 OK  board 77/37/52  PC 77/37  ref EF 52
+  A 400/450 patient0500 OK  board 90/58/36  PC 90/58  ref EF 36
+  A 425/450 patient0279 OK  board 106/62/42  PC 106/62  ref EF 42
+  A 450/450 patient0341 OK  board 125/82/34  PC 125/82  ref EF 34
+   identical 450/450, board EF == CAMUS reference EF 450/450, board 76.9 s vs PC 583.0 s
+== B UI path: F3 masks, 512 -> original size + clean on the board (validation)
+  B patient0200 OK  board (55, 30, 45)  eval_f4 (55, 30, 45)  ref 45
+  B patient0206 OK  board (106, 49, 54)  eval_f4 (106, 49, 54)  ref 52
+  B patient0230 OK  board (92, 54, 41)  eval_f4 (92, 54, 41)  ref 32
+  B patient0232 OK  board (136, 92, 32)  eval_f4 (136, 92, 32)  ref 32
+  B patient0233 OK  board (59, 26, 56)  eval_f4 (59, 26, 56)  ref 63
+  B patient0235 OK  board (99, 41, 59)  eval_f4 (99, 41, 59)  ref 58
+  B patient0236 OK  board (95, 42, 56)  eval_f4 (95, 42, 56)  ref 55
+  B patient0244 OK  board (87, 52, 40)  eval_f4 (87, 52, 40)  ref 44
+  B patient0245 OK  board (73, 37, 49)  eval_f4 (73, 37, 49)  ref 33
+  B patient0247 OK  board (103, 56, 46)  eval_f4 (103, 56, 46)  ref 39
+  B patient0249 OK  board (65, 24, 63)  eval_f4 (65, 24, 63)  ref 53
+  B patient0250 OK  board (119, 60, 50)  eval_f4 (119, 60, 50)  ref 45
+  B patient0253 OK  board (79, 34, 57)  eval_f4 (79, 34, 57)  ref 52
+  B patient0255 OK  board (113, 74, 35)  eval_f4 (113, 74, 35)  ref 37
+  B patient0256 OK  board (106, 61, 42)  eval_f4 (106, 61, 42)  ref 42
+  B patient0257 OK  board (142, 67, 53)  eval_f4 (142, 67, 53)  ref 54
+  B patient0259 OK  board (113, 60, 47)  eval_f4 (113, 60, 47)  ref 47
+  B patient0264 OK  board (81, 52, 36)  eval_f4 (81, 52, 36)  ref 28
+  B patient0265 OK  board (188, 118, 37)  eval_f4 (188, 118, 37)  ref 26
+  B patient0267 OK  board (38, 20, 47)  eval_f4 (38, 20, 47)  ref 68
+  B patient0268 OK  board (79, 42, 47)  eval_f4 (79, 42, 47)  ref 52
+  B patient0270 OK  board (79, 41, 48)  eval_f4 (79, 41, 48)  ref 43
+  B patient0271 OK  board (58, 23, 60)  eval_f4 (58, 23, 60)  ref 61
+  B patient0272 OK  board (153, 69, 55)  eval_f4 (153, 69, 55)  ref 56
+  B patient0279 OK  board (101, 60, 41)  eval_f4 (101, 60, 41)  ref 42
+  B patient0280 OK  board (112, 69, 38)  eval_f4 (112, 69, 38)  ref 37
+  B patient0282 OK  board (91, 62, 32)  eval_f4 (91, 62, 32)  ref 34
+  B patient0283 OK  board (77, 34, 56)  eval_f4 (77, 34, 56)  ref 46
+  B patient0284 OK  board (115, 66, 43)  eval_f4 (115, 66, 43)  ref 39
+  B patient0286 OK  board (104, 94, 10)  eval_f4 (104, 94, 10)  ref 6
+  B patient0287 OK  board (41, 25, 39)  eval_f4 (41, 25, 39)  ref 36
+  B patient0288 OK  board (63, 35, 44)  eval_f4 (63, 35, 44)  ref 50
+  B patient0289 OK  board (68, 32, 53)  eval_f4 (68, 32, 53)  ref 60
+  B patient0290 OK  board (114, 63, 45)  eval_f4 (114, 63, 45)  ref 40
+  B patient0291 OK  board (80, 59, 26)  eval_f4 (80, 59, 26)  ref 57
+  B patient0292 OK  board (117, 81, 31)  eval_f4 (117, 81, 31)  ref 32
+  B patient0294 OK  board (77, 28, 64)  eval_f4 (77, 28, 64)  ref 63
+  B patient0297 OK  board (51, 22, 57)  eval_f4 (51, 22, 57)  ref 53
+  B patient0298 OK  board (50, 28, 44)  eval_f4 (50, 28, 44)  ref 34
+  B patient0299 OK  board (57, 30, 47)  eval_f4 (57, 30, 47)  ref 53
+  B patient0303 OK  board (71, 49, 31)  eval_f4 (71, 49, 31)  ref 42
+  B patient0304 OK  board (101, 40, 60)  eval_f4 (101, 40, 60)  ref 56
+  B patient0305 OK  board (137, 92, 33)  eval_f4 (137, 92, 33)  ref 32
+  B patient0308 OK  board (84, 61, 27)  eval_f4 (84, 61, 27)  ref 24
+  B patient0314 OK  board (111, 64, 42)  eval_f4 (111, 64, 42)  ref 47
+  B patient0315 OK  board (122, 85, 30)  eval_f4 (122, 85, 30)  ref 25
+  B patient0328 OK  board (62, 42, 32)  eval_f4 (62, 42, 32)  ref 26
+  B patient0333 OK  board (78, 36, 54)  eval_f4 (78, 36, 54)  ref 47
+  B patient0334 OK  board (59, 27, 54)  eval_f4 (59, 27, 54)  ref 49
+  B patient0341 OK  board (140, 93, 34)  eval_f4 (140, 93, 34)  ref 34
+   identical 50/50, EF MAE vs reference 5.30
+SIMPSON_BOARD_PASS -> E:\PLD\tcp_image\tcp_image_ui\board_check_v5\simpson_acceptance.json

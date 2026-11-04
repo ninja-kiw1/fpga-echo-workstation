@@ -1,0 +1,9 @@
+F1 Dice 0.9175 (good+med 0.9242), HD 11.90 mm, MAD 1.99 mm (19s)
+F2 from F1 0.9182 0.9385 0.9466 0.9522 0.9557 0.9585 | from empty 0.8970 0.9299 0.9409 0.9494 0.9536 0.9566 (175s)
+Traceback (most recent call last):
+  File "E:\PLD\echo\final_test_echo.py", line 152, in <module>
+    main()
+  File "E:\PLD\echo\final_test_echo.py", line 109, in main
+    assert np.array_equal(simg[s['start']], img128[s['ed']]) and np.array_equal(simg[s['start'] + s['length'] - 1], img128[s['es']])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

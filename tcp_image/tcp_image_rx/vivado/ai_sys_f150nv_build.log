@@ -1,0 +1,1571 @@
+START 周二 2026/11/03  4:37:40.14 
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Tue Nov  3 04:37:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {E:\PLD\tcp_image\tcp_image_rx\ai\bd\build_ai_sys_f_novis.tcl}
+# set here    [file dirname [file normalize [info script]]]
+# set R       [file normalize [file join [file dirname [info script]] ../..]]
+# set share   [file normalize [file join [file dirname [info script]] ../../../..]]
+# set preset_file [file join $share edgeboard board_files fz3b a.0 preset.xml]
+# proc argval {name def} { set i [lsearch -exact $::argv $name]; if {$i >= 0} { return [lindex $::argv [expr {$i+1}]] }; return $def }
+# set fmhz [argval --mhz 150]
+# set ftag [argval --tag f150nv]
+# set fips [argval --ips orig]
+# if {$fips eq "orig"} {
+#     set ip_repos [list $R/ai/build/conv_ip_xu2/solution1/impl/ip $R/ai/build/elt_ip_e2b/solution1/impl/ip $R/ai/build/pp_ip_v3]
+# } else {
+#     set ip_repos {}
+#     foreach c {conv elt pp} {
+#         set d $R/ai/build/f_${c}_${fips}/solution1/impl/ip
+#         if {![file exists $d/component.xml]} { error "IP repo missing: $d" }
+#         lappend ip_repos $d
+#     }
+# }
+# puts "### F clock: $fmhz MHz, tag $ftag, ips $fips"
+### F clock: 150.0 MHz, tag f150nv, ips p6757
+# file mkdir $R/bitstream
+# set prjdir  $R/vivado
+# set prjname ai_sys_$ftag
+# set part    xazu3eg-sfvc784-1-i
+# set bdname  system
+# set preflight [expr {[lsearch -exact $argv --preflight] >= 0}]
+# if {$preflight} {
+#     set prjdir $R/vivado/preflight
+#     append prjname _preflight
+# }
+# proc logmsg {m} { puts "### $m" }
+# create_project $prjname "$prjdir/$prjname" -part $part -force
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 632.465 ; gain = 221.672
+# add_files -norecurse [glob $R/rtl_lb/*.v]
+# set_property ip_repo_paths $ip_repos [current_project]
+# update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/f_conv_p6757/solution1/impl/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/f_elt_p6757/solution1/impl/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/f_pp_p6757/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+# logmsg "project + rtl + ip repos ready"
+### project + rtl + ip repos ready
+# create_bd_design system
+Wrote  : <E:\PLD\tcp_image\tcp_image_rx\vivado\ai_sys_f150nv\ai_sys_f150nv.srcs\sources_1\bd\system\system.bd> 
+# proc read_ps_preset {path} {
+#     set f [open $path r]; set xml [read $f]; close $f
+#     if {![regexp {<ip_preset preset_proc_name="zynq_ultra_ps_e_preset">(.*?)</ip_preset>} $xml -> block]} {
+#         error "zynq_ultra_ps_e_preset not found in $path"
+#     }
+#     set cfg {}
+#     foreach {- name value} [regexp -all -inline {<user_parameter name="([^"]+)" value="([^"]*)"} $block] {
+#         dict set cfg $name $value
+#     }
+#     return $cfg
+# }
+# set ps [create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.5 zynq_ultra_ps_e_0]
+# if {[file exists $preset_file]} {
+#     set preset [read_ps_preset $preset_file]
+#     puts "### applying [dict size $preset] PS preset params"
+#     set_property -dict $preset $ps
+# } else {
+#     error "FZ3B preset not found: $preset_file"
+# }
+### applying 359 PS preset params
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# set_property -dict [list \
+#     CONFIG.PSU__USE__M_AXI_GP0 {1} CONFIG.PSU__MAXIGP0__DATA_WIDTH {32} \
+#     CONFIG.PSU__USE__M_AXI_GP1 {1} CONFIG.PSU__MAXIGP1__DATA_WIDTH {128} \
+#     CONFIG.PSU__USE__M_AXI_GP2 {0} \
+#     CONFIG.PSU__FPGA_PL0_ENABLE {1} \
+#     CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ {100} \
+# ] $ps
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# for {set i 0} {$i <= 6} {incr i} { catch {set_property CONFIG.PSU__USE__S_AXI_GP$i {0} $ps} }
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# catch {set_property CONFIG.PSU__USE__S_AXI_ACP {0} $ps}
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# catch {set_property CONFIG.PSU__USE__S_AXI_ACE {0} $ps}
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# set rst [create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_pl]
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+create_bd_cell: Time (s): cpu = 00:00:03 ; elapsed = 00:00:19 . Memory (MB): peak = 1525.867 ; gain = 675.898
+# set cw [create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz clk_wiz_0]
+# set_property -dict [list CONFIG.PRIMITIVE {MMCM} CONFIG.PRIM_SOURCE {Global_buffer} CONFIG.PRIM_IN_FREQ {100.000}     CONFIG.CLKOUT1_REQUESTED_OUT_FREQ $fmhz CONFIG.USE_LOCKED {true} CONFIG.USE_RESET {true} CONFIG.RESET_TYPE {ACTIVE_LOW}     CONFIG.CLKOUT1_DRIVES {Buffer} CONFIG.JITTER_SEL {No_Jitter} CONFIG.MMCM_BANDWIDTH {OPTIMIZED}] $cw
+# set pc [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_protocol_converter:2.1 pc_axil]
+# set_property -dict [list CONFIG.SI_PROTOCOL {AXI4} CONFIG.MI_PROTOCOL {AXI4LITE} \
+#     CONFIG.DATA_WIDTH {32} CONFIG.ADDR_WIDTH {32} CONFIG.TRANSLATION_MODE {2}] $pc
+# set xb [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_crossbar:2.1 ctl_xbar]
+# set_property -dict [list CONFIG.PROTOCOL {AXI4LITE} CONFIG.NUM_SI {1} CONFIG.NUM_MI {4} \
+#     CONFIG.DATA_WIDTH {32} CONFIG.ADDR_WIDTH {32} CONFIG.CONNECTIVITY_MODE {SASD}] $xb
+INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'FDEPTH' by 1024 for port or parameter 'fmem'
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'in_last' has a dependency on the module local parameter or undefined parameter 'LAST_CNT'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'out_space_ok' has a dependency on the module local parameter or undefined parameter 'FSPACE'.
+INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'FDEPTH' by 1024 for port or parameter 'f_push'
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'wr_go' has a dependency on the module local parameter or undefined parameter 'A_IN'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'out_read' has a dependency on the module local parameter or undefined parameter 'A_OUT'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi' of definition 'xilinx.com:interface:aximm:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi_aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi_aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axi'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_RESET' with value 's_axi_aresetn'.
+WARNING: [IP_Flow 19-11770] Clock interface 's_axi_aclk' has no FREQ_HZ parameter.
+# set iproc [create_bd_cell -type module -reference img_proc_axil img_proc_axil_0]
+# set conv  [create_bd_cell -type ip -vlnv xilinx.com:hls:conv_layer:1.0 conv_layer_0]
+# set elt   [create_bd_cell -type ip -vlnv xilinx.com:hls:eltwise_layer:1.0 eltwise_layer_0]
+# set ppl   [create_bd_cell -type ip -vlnv xilinx.com:hls:pp_layer:1.0 pp_layer_0]
+# set dai [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ai_data_ic]
+# set_property -dict [list CONFIG.NUM_SI {9} CONFIG.NUM_MI {1}] $dai
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] system_bram_ctrl_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] system_bram_ctrl_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+# set bctl [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl bram_ctrl]
+# set_property -dict [list CONFIG.DATA_WIDTH {128} CONFIG.SINGLE_PORT_BRAM {0} \
+#     CONFIG.SUPPORTS_NARROW_BURST {1} CONFIG.PROTOCOL {AXI4}] $bctl
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] system_bram_ctrl_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] system_bram_ctrl_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+create_bd_cell: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1626.793 ; gain = 51.707
+# set bgen [create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen bram_gen]
+# set_property -dict [list \
+#   CONFIG.use_bram_block {BRAM_Controller} CONFIG.Memory_Type {True_Dual_Port_RAM} \
+#   CONFIG.Byte_Size {8} CONFIG.Use_Byte_Write_Enable {true} \
+#   CONFIG.Write_Width_A {128} CONFIG.Read_Width_A {128} CONFIG.Write_Depth_A {16384} \
+#   CONFIG.Write_Width_B {128} CONFIG.Read_Width_B {128} \
+#   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+#   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+#   CONFIG.Register_PortA_Output_of_Memory_Core {false} \
+#   CONFIG.Register_PortB_Output_of_Memory_Core {false} \
+#   CONFIG.EN_SAFETY_CKT {true} CONFIG.Load_Init_File {false} CONFIG.Interface_Type {Native} \
+# ] $bgen
+# connect_bd_intf_net [get_bd_intf_pins ${ps}/M_AXI_HPM0_FPD] [get_bd_intf_pins pc_axil/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins pc_axil/M_AXI]    [get_bd_intf_pins ctl_xbar/S00_AXI]
+# connect_bd_intf_net [get_bd_intf_pins ctl_xbar/M00_AXI] [get_bd_intf_pins img_proc_axil_0/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins ctl_xbar/M01_AXI] [get_bd_intf_pins conv_layer_0/s_axi_control]
+# connect_bd_intf_net [get_bd_intf_pins ctl_xbar/M02_AXI] [get_bd_intf_pins eltwise_layer_0/s_axi_control]
+# connect_bd_intf_net [get_bd_intf_pins ctl_xbar/M03_AXI] [get_bd_intf_pins pp_layer_0/s_axi_control]
+# connect_bd_intf_net [get_bd_intf_pins ${ps}/M_AXI_HPM1_FPD]    [get_bd_intf_pins ai_data_ic/S00_AXI]
+# connect_bd_intf_net [get_bd_intf_pins conv_layer_0/m_axi_gmem_in]   [get_bd_intf_pins ai_data_ic/S01_AXI]
+# connect_bd_intf_net [get_bd_intf_pins conv_layer_0/m_axi_gmem_out]  [get_bd_intf_pins ai_data_ic/S02_AXI]
+# connect_bd_intf_net [get_bd_intf_pins conv_layer_0/m_axi_gmem_par]  [get_bd_intf_pins ai_data_ic/S03_AXI]
+# connect_bd_intf_net [get_bd_intf_pins eltwise_layer_0/m_axi_gmem_a]   [get_bd_intf_pins ai_data_ic/S04_AXI]
+# connect_bd_intf_net [get_bd_intf_pins eltwise_layer_0/m_axi_gmem_b]   [get_bd_intf_pins ai_data_ic/S05_AXI]
+# connect_bd_intf_net [get_bd_intf_pins eltwise_layer_0/m_axi_gmem_out] [get_bd_intf_pins ai_data_ic/S06_AXI]
+# connect_bd_intf_net [get_bd_intf_pins pp_layer_0/m_axi_gmem_in]  [get_bd_intf_pins ai_data_ic/S07_AXI]
+# connect_bd_intf_net [get_bd_intf_pins pp_layer_0/m_axi_gmem_out] [get_bd_intf_pins ai_data_ic/S08_AXI]
+# connect_bd_intf_net [get_bd_intf_pins ai_data_ic/M00_AXI] [get_bd_intf_pins bram_ctrl/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins bram_ctrl/BRAM_PORTA] [get_bd_intf_pins bram_gen/BRAM_PORTA]
+# connect_bd_intf_net [get_bd_intf_pins bram_ctrl/BRAM_PORTB] [get_bd_intf_pins bram_gen/BRAM_PORTB]
+# set plhz [get_property CONFIG.FREQ_HZ [get_bd_pins ${ps}/pl_clk0]]
+# set_property CONFIG.PRIM_IN_FREQ [format %.6f [expr {$plhz / 1e6}]] $cw
+# logmsg "pl_clk0 $plhz Hz -> clk_wiz in [get_property CONFIG.PRIM_IN_FREQ $cw] MHz, clk_in1 [get_property CONFIG.FREQ_HZ [get_bd_pins clk_wiz_0/clk_in1]] Hz"
+### pl_clk0 99999001 Hz -> clk_wiz in 99.999001 MHz, clk_in1 99999001 Hz
+# connect_bd_net [get_bd_pins ${ps}/pl_clk0] [get_bd_pins clk_wiz_0/clk_in1]
+# connect_bd_net [get_bd_pins ${ps}/pl_resetn0] [get_bd_pins clk_wiz_0/resetn]
+# connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins rst_pl/dcm_locked]
+# set plclk [get_bd_pins clk_wiz_0/clk_out1]
+# foreach p [list ctl_xbar/aclk \
+#                 pc_axil/aclk pc_axil/s_axi_aclk pc_axil/m_axi_aclk \
+#                 img_proc_axil_0/s_axi_aclk conv_layer_0/ap_clk eltwise_layer_0/ap_clk pp_layer_0/ap_clk \
+#                 ai_data_ic/ACLK ai_data_ic/S00_ACLK ai_data_ic/S01_ACLK ai_data_ic/S02_ACLK \
+#                 ai_data_ic/S03_ACLK ai_data_ic/S04_ACLK ai_data_ic/S05_ACLK ai_data_ic/S06_ACLK \
+#                 ai_data_ic/S07_ACLK ai_data_ic/S08_ACLK \
+#                 ai_data_ic/M00_ACLK bram_ctrl/s_axi_aclk bram_gen/clka bram_gen/clkb \
+#                 rst_pl/slowest_sync_clk \
+#                 "${ps}/maxihpm0_fpd_aclk" "${ps}/maxihpm1_fpd_aclk" "${ps}/maxihpm0_lpd_aclk"] {
+#     if {[llength [get_bd_pins -quiet $p]] > 0} { catch { connect_bd_net $plclk [get_bd_pins $p] } } else { puts "WARN clk $p" }
+# }
+WARN clk pc_axil/s_axi_aclk
+WARN clk pc_axil/m_axi_aclk
+WARNING: [BD 41-1306] The connection to interface pin </bram_gen/clka> is being overridden by the user with net </clk_wiz_0_clk_out1>. This pin will not be connected as a part of interface connection <BRAM_PORTA>, and might not recreate the connectivity as expected using the writ_bd_tcl command.
+WARNING: [BD 41-1306] The connection to interface pin </bram_gen/clkb> is being overridden by the user with net </clk_wiz_0_clk_out1>. This pin will not be connected as a part of interface connection <BRAM_PORTB>, and might not recreate the connectivity as expected using the writ_bd_tcl command.
+WARN clk /zynq_ultra_ps_e_0/maxihpm0_lpd_aclk
+# connect_bd_net [get_bd_pins ${ps}/pl_resetn0] [get_bd_pins rst_pl/ext_reset_in]
+# set prstn [get_bd_pins rst_pl/peripheral_aresetn]
+# set irstn [get_bd_pins rst_pl/interconnect_aresetn]
+# foreach p [list pp_layer_0/ap_rst_n \
+#                 pc_axil/aresetn pc_axil/s_axi_aresetn pc_axil/m_axi_aresetn img_proc_axil_0/s_axi_aresetn \
+#                 conv_layer_0/ap_rst_n eltwise_layer_0/ap_rst_n bram_ctrl/s_axi_aresetn] {
+#     if {[llength [get_bd_pins -quiet $p]] > 0} { catch { connect_bd_net $prstn [get_bd_pins $p] } }
+# }
+# foreach p [list ai_data_ic/ARESETN ai_data_ic/S00_ARESETN ai_data_ic/S01_ARESETN ai_data_ic/S02_ARESETN \
+#                 ai_data_ic/S03_ARESETN ai_data_ic/S04_ARESETN ai_data_ic/S05_ARESETN ai_data_ic/S06_ARESETN \
+#                 ai_data_ic/S07_ARESETN ai_data_ic/S08_ARESETN \
+#                 ai_data_ic/M00_ARESETN ctl_xbar/aresetn] {
+#     if {[llength [get_bd_pins -quiet $p]] > 0} { catch { connect_bd_net $irstn [get_bd_pins $p] } }
+# }
+# logmsg "wired"
+### wired
+# assign_bd_address -offset 0xA0000000 -range 4K   [get_bd_addr_segs img_proc_axil_0/S_AXI/reg0]
+Slave segment '/img_proc_axil_0/s_axi/reg0' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA000_0000 [ 4K ]>.
+# assign_bd_address -offset 0xA0010000 -range 64K  [get_bd_addr_segs conv_layer_0/s_axi_control/Reg]
+Slave segment '/conv_layer_0/s_axi_control/Reg' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA001_0000 [ 64K ]>.
+# assign_bd_address -offset 0xA0020000 -range 64K  [get_bd_addr_segs eltwise_layer_0/s_axi_control/Reg]
+Slave segment '/eltwise_layer_0/s_axi_control/Reg' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA002_0000 [ 64K ]>.
+# assign_bd_address -offset 0xA0030000 -range 64K  [get_bd_addr_segs pp_layer_0/s_axi_control/Reg]
+Slave segment '/pp_layer_0/s_axi_control/Reg' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA003_0000 [ 64K ]>.
+# assign_bd_address -offset 0xB0000000 -range 256K [get_bd_addr_segs bram_ctrl/S_AXI/Mem0]
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/pp_layer_0/Data_m_axi_gmem_in' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/pp_layer_0/Data_m_axi_gmem_out' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/eltwise_layer_0/Data_m_axi_gmem_a' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/eltwise_layer_0/Data_m_axi_gmem_b' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/eltwise_layer_0/Data_m_axi_gmem_out' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/conv_layer_0/Data_m_axi_gmem_out' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/conv_layer_0/Data_m_axi_gmem_par' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/conv_layer_0/Data_m_axi_gmem_in' at <0xB000_0000 [ 256K ]>.
+# catch {assign_bd_address}
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+# foreach seg [get_bd_addr_segs -quiet {/conv_layer_0/Data_m_axi_*/SEG_* /eltwise_layer_0/Data_m_axi_*/SEG_* /pp_layer_0/Data_m_axi_*/SEG_*}] {
+#   if {![string match *bram* $seg]} { catch { exclude_bd_addr_seg $seg } }
+# }
+# logmsg "=== PS Data segments ==="
+### === PS Data segments ===
+# foreach seg [get_bd_addr_segs -quiet {/zynq_ultra_ps_e_0/Data/*}] {
+#   catch { puts "   [get_property NAME $seg] off=[get_property OFFSET $seg] rng=[get_property RANGE $seg]" }
+# }
+   SEG_bram_ctrl_Mem0 off=0x00B0000000 rng=0x0000040000
+   SEG_conv_layer_0_Reg off=0x00A0010000 rng=0x0000010000
+   SEG_eltwise_layer_0_Reg off=0x00A0020000 rng=0x0000010000
+   SEG_img_proc_axil_0_reg0 off=0x00A0000000 rng=0x0000001000
+   SEG_pp_layer_0_Reg off=0x00A0030000 rng=0x0000010000
+# validate_bd_design -force
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+WARNING: [BD 41-2180] Resetting the memory initialization file of </bram_gen> to default.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /pc_axil/S_AXI(0) and /zynq_ultra_ps_e_0/M_AXI_HPM0_FPD(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /pc_axil/S_AXI(0) and /zynq_ultra_ps_e_0/M_AXI_HPM0_FPD(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S01_AXI(16) and /conv_layer_0/m_axi_gmem_in(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S01_AXI(16) and /conv_layer_0/m_axi_gmem_in(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S02_AXI(16) and /conv_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S02_AXI(16) and /conv_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S04_AXI(16) and /eltwise_layer_0/m_axi_gmem_a(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S04_AXI(16) and /eltwise_layer_0/m_axi_gmem_a(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S05_AXI(16) and /eltwise_layer_0/m_axi_gmem_b(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S05_AXI(16) and /eltwise_layer_0/m_axi_gmem_b(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S06_AXI(16) and /eltwise_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S06_AXI(16) and /eltwise_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S07_AXI(16) and /pp_layer_0/m_axi_gmem_in(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S07_AXI(16) and /pp_layer_0/m_axi_gmem_in(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S08_AXI(16) and /pp_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S08_AXI(16) and /pp_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /bram_ctrl/S_AXI(0) and /ai_data_ic/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /bram_ctrl/S_AXI(0) and /ai_data_ic/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S03_AXI(16) and /ai_data_ic/s03_couplers/auto_us/M_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S03_AXI(16) and /ai_data_ic/s03_couplers/auto_us/M_AXI(0)
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clka has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTA 
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clkb has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTB 
+# logmsg "VALIDATE_OK"
+### VALIDATE_OK
+# logmsg "clk_wiz actual: [get_property CONFIG.CLKOUT1_REQUESTED_OUT_FREQ $cw] MHz req, M=[get_property CONFIG.MMCM_CLKFBOUT_MULT_F $cw] D=[get_property CONFIG.MMCM_DIVCLK_DIVIDE $cw] O=[get_property CONFIG.MMCM_CLKOUT0_DIVIDE_F $cw] jitter=[get_property CONFIG.CLKOUT1_JITTER $cw]"
+### clk_wiz actual: 150.0 MHz req, M=116.500 D=9 O=8.625 jitter=178.617
+# foreach p {maxihpm0_fpd_aclk maxihpm1_fpd_aclk} { logmsg "$p freq = [get_property CONFIG.FREQ_HZ [get_bd_pins ${ps}/$p]]" }
+### maxihpm0_fpd_aclk freq = 150079015
+### maxihpm1_fpd_aclk freq = 150079015
+# save_bd_design
+Wrote  : <E:\PLD\tcp_image\tcp_image_rx\vivado\ai_sys_f150nv\ai_sys_f150nv.srcs\sources_1\bd\system\system.bd> 
+# if {$preflight} {
+#     logmsg "PREFLIGHT_OK: IP catalog, FZ3B preset and dual-port BD validated; no synthesis run"
+#     close_project
+#     exit 0
+# }
+# set bdfile [get_files -quiet "${bdname}.bd"]
+# make_wrapper -files $bdfile -top
+INFO: [BD 41-1662] The design 'system.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clka has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTA 
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clkb has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTB 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/s03_couplers/auto_us/s_axi_arlock'(1) to pin: '/ai_data_ic/s03_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_arid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_awid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_bid'(16) to pin: '/ai_data_ic/S00_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_rid'(16) to pin: '/ai_data_ic/S00_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S01_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S01_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S02_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S02_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_BID'(1) to pin: '/ai_data_ic/S04_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_RID'(1) to pin: '/ai_data_ic/S04_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_BID'(1) to pin: '/ai_data_ic/S05_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_RID'(1) to pin: '/ai_data_ic/S05_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S06_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S06_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S07_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S07_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S08_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S08_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addra'(32) to pin: '/bram_ctrl/bram_addr_a'(18) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addrb'(32) to pin: '/bram_ctrl/bram_addr_b'(18) - Only lower order bits will be connected.
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/synth/system.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/s03_couplers/auto_us/s_axi_arlock'(1) to pin: '/ai_data_ic/s03_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_arid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_awid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_bid'(16) to pin: '/ai_data_ic/S00_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_rid'(16) to pin: '/ai_data_ic/S00_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S01_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S01_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S02_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S02_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_BID'(1) to pin: '/ai_data_ic/S04_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_RID'(1) to pin: '/ai_data_ic/S04_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_BID'(1) to pin: '/ai_data_ic/S05_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_RID'(1) to pin: '/ai_data_ic/S05_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S06_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S06_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S07_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S07_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S08_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S08_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addra'(32) to pin: '/bram_ctrl/bram_addr_a'(18) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addrb'(32) to pin: '/bram_ctrl/bram_addr_b'(18) - Only lower order bits will be connected.
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/sim/system.v
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/hdl/system_wrapper.v
+# set wrap [glob -nocomplain "$prjdir/$prjname/$prjname.gen/sources_1/bd/${bdname}/hdl/${bdname}_wrapper.v"]
+# if {[llength $wrap] > 0} {
+#     add_files -norecurse $wrap
+#     set_property top ${bdname}_wrapper [get_filesets sources_1]
+# }
+# update_compile_order -fileset sources_1
+# logmsg "wrapper ready -> launching build"
+### wrapper ready -> launching build
+# set_property STEPS.WRITE_BITSTREAM.ARGS.BIN_FILE true [get_runs impl_1]
+# set build_jobs 2
+# if {[info exists ::env(PLD_BUILD_JOBS)]} {
+#     set build_jobs $::env(PLD_BUILD_JOBS)
+# }
+# if {![string is integer -strict $build_jobs] || $build_jobs < 1} {
+#     error "PLD_BUILD_JOBS must be a positive integer"
+# }
+# logmsg "build jobs: $build_jobs"
+### build jobs: 2
+# launch_runs impl_1 -to_step write_bitstream -jobs $build_jobs
+INFO: [BD 41-1662] The design 'system.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clka has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTA 
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clkb has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTB 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/s03_couplers/auto_us/s_axi_arlock'(1) to pin: '/ai_data_ic/s03_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_arid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_awid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_bid'(16) to pin: '/ai_data_ic/S00_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_rid'(16) to pin: '/ai_data_ic/S00_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S01_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S01_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S02_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S02_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_BID'(1) to pin: '/ai_data_ic/S04_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_RID'(1) to pin: '/ai_data_ic/S04_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_BID'(1) to pin: '/ai_data_ic/S05_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_RID'(1) to pin: '/ai_data_ic/S05_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S06_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S06_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S07_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S07_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S08_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S08_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addra'(32) to pin: '/bram_ctrl/bram_addr_a'(18) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addrb'(32) to pin: '/bram_ctrl/bram_addr_b'(18) - Only lower order bits will be connected.
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/synth/system.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/s03_couplers/auto_us/s_axi_arlock'(1) to pin: '/ai_data_ic/s03_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_arid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s00_couplers/M_AXI_awid'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s01_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s01_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s02_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s02_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s04_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s04_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s05_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s05_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s06_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s06_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s07_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s07_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_awlock'(1) to pin: '/ai_data_ic/s08_couplers/M_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/ai_data_ic/xbar/s_axi_arid'(20) to pin: '/ai_data_ic/s08_couplers/M_AXI_arid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_bid'(16) to pin: '/ai_data_ic/S00_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_rid'(16) to pin: '/ai_data_ic/S00_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S01_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S01_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S02_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/conv_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S02_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_BID'(1) to pin: '/ai_data_ic/S04_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_a_RID'(1) to pin: '/ai_data_ic/S04_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_BID'(1) to pin: '/ai_data_ic/S05_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_b_RID'(1) to pin: '/ai_data_ic/S05_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S06_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/eltwise_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S06_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_BID'(1) to pin: '/ai_data_ic/S07_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_in_RID'(1) to pin: '/ai_data_ic/S07_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_BID'(1) to pin: '/ai_data_ic/S08_AXI_bid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/pp_layer_0/m_axi_gmem_out_RID'(1) to pin: '/ai_data_ic/S08_AXI_rid'(20) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addra'(32) to pin: '/bram_ctrl/bram_addr_a'(18) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/bram_gen/addrb'(32) to pin: '/bram_ctrl/bram_addr_b'(18) - Only lower order bits will be connected.
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/sim/system.v
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [xilinx.com:ip:zynq_ultra_ps_e:3.5-0] system_zynq_ultra_ps_e_0_0: 
+Changes in your design (including the PCW configuration settings) are not automatically exported from Vivado to Amd's SDK, Petalinux or Yocto.
+This is by design to avoid disrupting existing embedded development efforts. To have any changes of your design taking effect in the embedded software flow please export your
+design by going through Vivado's main menu, click on File, then Export finally select Export Hardware, please ensure you click on the Include BitStream option.
+The auto-generated HDF file is all you need to import in Amd's SDK, Petalinux or Yocto for your changes to be reflected in the Embedded Software Flow.
+For more information, please consult PG201, section: Exporting PCW Settings to Embedded Software Flows
+INFO: [PSU-0] Address Range of DDR (0x7ff00000 to 0x7fffffff) is reserved by PMU for internal purpose.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_HPM0_FPD'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_HPM1_FPD'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block zynq_ultra_ps_e_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_pl .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_pc_axil_0/system_pc_axil_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pc_axil .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ctl_xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block img_proc_axil_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block conv_layer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block eltwise_layer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pp_layer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ai_data_ic/xbar .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_ai_data_ic_imp_auto_us_0/system_ai_data_ic_imp_auto_us_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ai_data_ic/s03_couplers/auto_us .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block bram_ctrl .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block bram_gen .
+Exporting to file E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/hw_handoff/system.hwh
+Generated Hardware Definition File E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/synth/system.hwdef
+INFO: [BD 41-3262] Generated VHDL Instantiation Template file e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/system.vho
+INFO: [BD 41-3262] Generated Verilog Instantiation Template file e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/system.veo
+INFO: [BD 41-3262] Generated System Verilog Instantiation Template file e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/system_sv.sveo
+[Tue Nov  3 04:39:37 2026] Launched system_zynq_ultra_ps_e_0_0_synth_1, system_pc_axil_0_synth_1, system_rst_pl_0_synth_1, system_ctl_xbar_0_synth_1, system_conv_layer_0_0_synth_1, system_ai_data_ic_imp_auto_us_0_synth_1, system_img_proc_axil_0_0_synth_1, system_clk_wiz_0_0_synth_1, system_eltwise_layer_0_0_synth_1, system_ai_data_ic_imp_xbar_0_synth_1, system_bram_ctrl_0_synth_1, system_pp_layer_0_0_synth_1, system_bram_gen_0_synth_1, synth_1...
+Run output will be captured here:
+system_zynq_ultra_ps_e_0_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_zynq_ultra_ps_e_0_0_synth_1/runme.log
+system_pc_axil_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_pc_axil_0_synth_1/runme.log
+system_rst_pl_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_rst_pl_0_synth_1/runme.log
+system_ctl_xbar_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_ctl_xbar_0_synth_1/runme.log
+system_conv_layer_0_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_conv_layer_0_0_synth_1/runme.log
+system_ai_data_ic_imp_auto_us_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_ai_data_ic_imp_auto_us_0_synth_1/runme.log
+system_img_proc_axil_0_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_img_proc_axil_0_0_synth_1/runme.log
+system_clk_wiz_0_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_clk_wiz_0_0_synth_1/runme.log
+system_eltwise_layer_0_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_eltwise_layer_0_0_synth_1/runme.log
+system_ai_data_ic_imp_xbar_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_ai_data_ic_imp_xbar_0_synth_1/runme.log
+system_bram_ctrl_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_bram_ctrl_0_synth_1/runme.log
+system_pp_layer_0_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_pp_layer_0_0_synth_1/runme.log
+system_bram_gen_0_synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/system_bram_gen_0_synth_1/runme.log
+synth_1: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/synth_1/runme.log
+[Tue Nov  3 04:39:37 2026] Launched impl_1...
+Run output will be captured here: E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1737.629 ; gain = 80.977
+# wait_on_run impl_1
+[Tue Nov  3 04:39:37 2026] Waiting for impl_1 to finish...
+
+
+*** Running vivado
+    with args -log system_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source system_wrapper.tcl -notrace
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Tue Nov  3 04:52:32 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source system_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 628.016 ; gain = 220.316
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/f_conv_p6757/solution1/impl/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/f_elt_p6757/solution1/impl/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/f_pp_p6757/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+Command: link_design -top system_wrapper -part xazu3eg-sfvc784-1-i
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+INFO: [Project 1-5699] Read binary netlist with skipMacroContent - 1
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_bram_ctrl_0/system_bram_ctrl_0.dcp' for cell 'system_i/bram_ctrl'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_bram_gen_0/system_bram_gen_0.dcp' for cell 'system_i/bram_gen'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.dcp' for cell 'system_i/clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_conv_layer_0_0/system_conv_layer_0_0.dcp' for cell 'system_i/conv_layer_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_ctl_xbar_0/system_ctl_xbar_0.dcp' for cell 'system_i/ctl_xbar'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_eltwise_layer_0_0/system_eltwise_layer_0_0.dcp' for cell 'system_i/eltwise_layer_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_img_proc_axil_0_0/system_img_proc_axil_0_0.dcp' for cell 'system_i/img_proc_axil_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_pc_axil_0/system_pc_axil_0.dcp' for cell 'system_i/pc_axil'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_pp_layer_0_0/system_pp_layer_0_0.dcp' for cell 'system_i/pp_layer_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_rst_pl_0/system_rst_pl_0.dcp' for cell 'system_i/rst_pl'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_zynq_ultra_ps_e_0_0/system_zynq_ultra_ps_e_0_0.dcp' for cell 'system_i/zynq_ultra_ps_e_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_ai_data_ic_imp_xbar_0/system_ai_data_ic_imp_xbar_0.dcp' for cell 'system_i/ai_data_ic/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_ai_data_ic_imp_auto_us_0/system_ai_data_ic_imp_auto_us_0.dcp' for cell 'system_i/ai_data_ic/s03_couplers/auto_us'
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1543.371 ; gain = 8.707
+INFO: [Netlist 29-17] Analyzing 5133 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_zynq_ultra_ps_e_0_0/system_zynq_ultra_ps_e_0_0.xdc] for cell 'system_i/zynq_ultra_ps_e_0/inst'
+Finished Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_zynq_ultra_ps_e_0_0/system_zynq_ultra_ps_e_0_0.xdc] for cell 'system_i/zynq_ultra_ps_e_0/inst'
+Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_rst_pl_0/system_rst_pl_0_board.xdc] for cell 'system_i/rst_pl/U0'
+Finished Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_rst_pl_0/system_rst_pl_0_board.xdc] for cell 'system_i/rst_pl/U0'
+Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc] for cell 'system_i/clk_wiz_0/inst'
+Finished Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc] for cell 'system_i/clk_wiz_0/inst'
+Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc] for cell 'system_i/clk_wiz_0/inst'
+Finished Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc] for cell 'system_i/clk_wiz_0/inst'
+Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_ai_data_ic_imp_auto_us_0/system_ai_data_ic_imp_auto_us_0_clocks.xdc] for cell 'system_i/ai_data_ic/s03_couplers/auto_us/inst'
+Finished Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.gen/sources_1/bd/system/ip/system_ai_data_ic_imp_auto_us_0/system_ai_data_ic_imp_auto_us_0_clocks.xdc] for cell 'system_i/ai_data_ic/s03_couplers/auto_us/inst'
+INFO: [Project 1-1714] 2 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[15].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[16].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[17].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[19].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[20].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[21].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[23].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[24].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[25].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[26].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[27].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[30].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[31].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[32].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[33].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[34].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[35].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[36].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[37].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[40].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[41].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[42].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[46].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[48].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[49].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[57].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[58].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[59].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[60].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[61].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[62].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[63].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell system_i/bram_gen/U0/inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.WITH_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.SERIES8_TDP_SP36_NO_ECC_ATTR.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 2919.418 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1524 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 290 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 512 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 11 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 49 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 534 instances
+  RAM32X1S => RAM32X1S (RAMS32): 128 instances
+
+91 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 2919.418 ; gain = 2223.758
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xazu3eg'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xazu3eg'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2919.418 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 2919.418 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.125 . Memory (MB): peak = 3347.094 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.180 . Memory (MB): peak = 3347.094 ; gain = 0.000
+Phase 1 Initialization | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.187 . Memory (MB): peak = 3347.094 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Detect if minReqCache needed
+Phase 2.1 Detect if minReqCache needed | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.276 . Memory (MB): peak = 3374.363 ; gain = 27.270
+
+Phase 2.2 Timer Update
+Phase 2.2 Timer Update | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3374.363 ; gain = 27.270
+
+Phase 2.3 Timing Data Collection
+Phase 2.3 Timing Data Collection | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Phase 2 Timer Update And Timing Data Collection | Checksum: 190a6b39a
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3374.363 ; gain = 27.270
+
+Phase 3 Retarget
+INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-1566] Pulled 19 inverters resulting in an inversion of 338 pins
+INFO: [Opt 31-138] Pushed 23 inverter(s) to 9217 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 19b4187bd
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Retarget | Checksum: 19b4187bd
+INFO: [Opt 31-389] Phase Retarget created 1077 cells and removed 1419 cells
+INFO: [Opt 31-1021] In phase Retarget, 8 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 3 inverter(s) to 3 load pin(s).
+Phase 4 Constant propagation | Checksum: 17fbe56fb
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Constant propagation | Checksum: 17fbe56fb
+INFO: [Opt 31-389] Phase Constant propagation created 251 cells and removed 611 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 8 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Sweep
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.120 . Memory (MB): peak = 3374.363 ; gain = 0.000
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.120 . Memory (MB): peak = 3374.363 ; gain = 0.000
+Phase 5 Sweep | Checksum: b47cab3d
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Sweep | Checksum: b47cab3d
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 749 cells
+INFO: [Opt 31-1021] In phase Sweep, 17 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 6 BUFG optimization
+INFO: [Opt 31-1077] Phase BUFG optimization inserted 0 global clock buffer(s) for CLOCK_LOW_FANOUT.
+INFO: [Opt 31-274] Optimized connectivity to 1 cascaded buffer cells
+Phase 6 BUFG optimization | Checksum: 191f487e4
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 3374.363 ; gain = 27.270
+BUFG optimization | Checksum: 191f487e4
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 1 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 12ac2ce81
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Shift Register Optimization | Checksum: 12ac2ce81
+INFO: [Opt 31-389] Phase Shift Register Optimization created 4 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 14a58ed5b
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Post Processing Netlist | Checksum: 14a58ed5b
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 8 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 1cd9b2c80
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:16 . Memory (MB): peak = 3374.363 ; gain = 27.270
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.129 . Memory (MB): peak = 3374.363 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 1cd9b2c80
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Phase 9 Finalization | Checksum: 1cd9b2c80
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 3374.363 ; gain = 27.270
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |            1077  |            1419  |                                              8  |
+|  Constant propagation         |             251  |             611  |                                              8  |
+|  Sweep                        |               0  |             749  |                                             17  |
+|  BUFG optimization            |               0  |               1  |                                              0  |
+|  Shift Register Optimization  |               4  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              8  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 1cd9b2c80
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 3374.363 ; gain = 27.270
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 64 BRAM(s) out of a total of 145 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 4 WE to EN ports
+Number of BRAM Ports augmented: 65 newly gated: 11 Total Ports: 290
+Ending PowerOpt Patch Enables Task | Checksum: 13a959cf7
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.865 . Memory (MB): peak = 4054.660 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 13a959cf7
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:30 . Memory (MB): peak = 4054.660 ; gain = 680.297
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 12adcbfe6
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:15 . Memory (MB): peak = 4054.660 ; gain = 0.000
+Ending Final Cleanup Task | Checksum: 12adcbfe6
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:18 . Memory (MB): peak = 4054.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 4054.660 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+125 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:01:51 ; elapsed = 00:01:18 . Memory (MB): peak = 4054.660 ; gain = 1135.242
+INFO: [Vivado 12-24828] Executing command : report_drc -file system_wrapper_drc_opted.rpt -pb system_wrapper_drc_opted.pb -rpx system_wrapper_drc_opted.rpx
+Command: report_drc -file system_wrapper_drc_opted.rpt -pb system_wrapper_drc_opted.pb -rpx system_wrapper_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_drc_opted.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 4054.660 ; gain = 0.000
+generate_parallel_reports: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 4054.660 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.200 . Memory (MB): peak = 4054.660 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 4054.660 ; gain = 0.000
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xazu3eg'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xazu3eg'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 4054.660 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: f0fb5859
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 4054.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 4054.660 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 17465484f
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 4178.254 ; gain = 123.594
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1f800c237
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:51 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1f800c237
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:51 . Memory (MB): peak = 4486.688 ; gain = 432.027
+Phase 1 Placer Initialization | Checksum: 1f800c237
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:51 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 22ef180e2
+
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:38 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+INFO: [Place 30-3162] Check ILP status : ILP-based clock placer completed successfully.
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 1f4b2057a
+
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:40 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.1.1.3 PBP: Discrete Incremental
+Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 17c560967
+
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:40 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.1.1.4 PBP: Compute Congestion
+Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 17c560967
+
+Time (s): cpu = 00:02:25 ; elapsed = 00:01:47 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.1.1.5 PBP: Macro Placement
+Phase 2.1.1.5 PBP: Macro Placement | Checksum: 1c6f7457d
+
+Time (s): cpu = 00:02:28 ; elapsed = 00:01:50 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.1.1.6 PBP: UpdateTiming
+Phase 2.1.1.6 PBP: UpdateTiming | Checksum: 1fbfc7862
+
+Time (s): cpu = 00:02:36 ; elapsed = 00:01:55 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.1.1.7 PBP: Add part constraints
+Phase 2.1.1.7 PBP: Add part constraints | Checksum: 1fbfc7862
+
+Time (s): cpu = 00:02:36 ; elapsed = 00:01:55 . Memory (MB): peak = 4486.688 ; gain = 432.027
+Phase 2.1.1 Partition Driven Placement | Checksum: 1fbfc7862
+
+Time (s): cpu = 00:02:36 ; elapsed = 00:01:55 . Memory (MB): peak = 4486.688 ; gain = 432.027
+Phase 2.1 Floorplanning | Checksum: 22c9d1388
+
+Time (s): cpu = 00:02:37 ; elapsed = 00:01:56 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 22c9d1388
+
+Time (s): cpu = 00:02:37 ; elapsed = 00:01:56 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 22c9d1388
+
+Time (s): cpu = 00:02:37 ; elapsed = 00:01:56 . Memory (MB): peak = 4486.688 ; gain = 432.027
+
+Phase 2.4 Global Place Phase1
+Phase 2.4 Global Place Phase1 | Checksum: 18348484d
+
+Time (s): cpu = 00:04:27 ; elapsed = 00:03:08 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 2.5 Global Place Phase2
+
+Phase 2.5.1 UpdateTiming Before Physical Synthesis
+Phase 2.5.1 UpdateTiming Before Physical Synthesis | Checksum: 1c1a27f26
+
+Time (s): cpu = 00:04:43 ; elapsed = 00:03:18 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 2.5.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 1489 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 648 nets or LUTs. Breaked 0 LUT, combined 648 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-670] No setup violation found.  Equivalent Driver Rewiring was not performed.
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 4511.527 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            648  |                   648  |           0  |           1  |  00:00:02  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Equivalent Driver Rewiring                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            648  |                   648  |           0  |           4  |  00:00:02  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.5.2 Physical Synthesis In Placer | Checksum: c5120b59
+
+Time (s): cpu = 00:05:00 ; elapsed = 00:03:31 . Memory (MB): peak = 4511.527 ; gain = 456.867
+Phase 2.5 Global Place Phase2 | Checksum: abe682cb
+
+Time (s): cpu = 00:05:17 ; elapsed = 00:03:42 . Memory (MB): peak = 4511.527 ; gain = 456.867
+Phase 2 Global Placement | Checksum: abe682cb
+
+Time (s): cpu = 00:05:18 ; elapsed = 00:03:42 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 160a6ce8a
+
+Time (s): cpu = 00:05:35 ; elapsed = 00:03:52 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: d354045b
+
+Time (s): cpu = 00:05:52 ; elapsed = 00:04:05 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 3.3 Small Shape DP
+
+Phase 3.3.1 Small Shape Clustering
+Phase 3.3.1 Small Shape Clustering | Checksum: acde22b0
+
+Time (s): cpu = 00:06:16 ; elapsed = 00:04:20 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 3.3.2 Slice Area Swap
+
+Phase 3.3.2.1 Slice Area Swap Initial
+Phase 3.3.2.1 Slice Area Swap Initial | Checksum: 7b601c5e
+
+Time (s): cpu = 00:06:40 ; elapsed = 00:04:45 . Memory (MB): peak = 4511.527 ; gain = 456.867
+Phase 3.3.2 Slice Area Swap | Checksum: 7b601c5e
+
+Time (s): cpu = 00:06:41 ; elapsed = 00:04:46 . Memory (MB): peak = 4511.527 ; gain = 456.867
+Phase 3.3 Small Shape DP | Checksum: 1f19bb3a5
+
+Time (s): cpu = 00:07:20 ; elapsed = 00:05:08 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 3.4 Re-assign LUT pins
+Phase 3.4 Re-assign LUT pins | Checksum: 17587e8f1
+
+Time (s): cpu = 00:07:25 ; elapsed = 00:05:13 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 3.5 Pipeline Register Optimization
+Phase 3.5 Pipeline Register Optimization | Checksum: 11fc0ca74
+
+Time (s): cpu = 00:07:26 ; elapsed = 00:05:14 . Memory (MB): peak = 4511.527 ; gain = 456.867
+Phase 3 Detail Placement | Checksum: 11fc0ca74
+
+Time (s): cpu = 00:07:26 ; elapsed = 00:05:14 . Memory (MB): peak = 4511.527 ; gain = 456.867
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 19cc84b12
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=1.044 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 162c826ec
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 4695.566 ; gain = 0.000
+INFO: [Place 46-35] Processed net system_i/rst_pl/U0/peripheral_aresetn[0], inserted BUFG to drive 8040 loads.
+INFO: [Place 46-45] Replicated bufg driver system_i/rst_pl/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N_replica
+INFO: [Place 46-35] Processed net system_i/eltwise_layer_0/inst/grp_eltwise_layer_Pipeline_ADD_fu_403/mul_32s_16s_48_1_1_U60/ap_block_pp0_stage0_subdone, inserted BUFG to drive 1357 loads.
+INFO: [Place 46-35] Processed net system_i/eltwise_layer_0/inst/grp_eltwise_layer_Pipeline_CONCAT_MERGE_fu_368/mul_32s_16s_48_1_1_U8/full_n_reg, inserted BUFG to drive 1125 loads.
+INFO: [Place 46-56] BUFG insertion identified 3 candidate nets. Inserted BUFG: 3, Replicated BUFG Driver: 1, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 14b3fca8d
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 4695.566 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 18a318639
+
+Time (s): cpu = 00:08:38 ; elapsed = 00:06:07 . Memory (MB): peak = 4695.566 ; gain = 640.906
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=1.044. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 18730b2f2
+
+Time (s): cpu = 00:08:39 ; elapsed = 00:06:08 . Memory (MB): peak = 4695.566 ; gain = 640.906
+
+Time (s): cpu = 00:08:39 ; elapsed = 00:06:08 . Memory (MB): peak = 4695.566 ; gain = 640.906
+Phase 4.1 Post Commit Optimization | Checksum: 18730b2f2
+
+Time (s): cpu = 00:08:40 ; elapsed = 00:06:08 . Memory (MB): peak = 4695.566 ; gain = 640.906
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.564 . Memory (MB): peak = 4706.094 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 246b8b519
+
+Time (s): cpu = 00:08:54 ; elapsed = 00:06:18 . Memory (MB): peak = 4706.094 ; gain = 651.434
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ________________________________________________________________________
+|           | Global Congestion | Long Congestion   | Short Congestion  |
+| Direction | Region Size       | Region Size       | Region Size       |
+|___________|___________________|___________________|___________________|
+|      North|                2x2|                1x1|                8x8|
+|___________|___________________|___________________|___________________|
+|      South|                1x1|                1x1|                2x2|
+|___________|___________________|___________________|___________________|
+|       East|                1x1|                1x1|                8x8|
+|___________|___________________|___________________|___________________|
+|       West|                1x1|                1x1|                8x8|
+|___________|___________________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 246b8b519
+
+Time (s): cpu = 00:08:55 ; elapsed = 00:06:18 . Memory (MB): peak = 4706.094 ; gain = 651.434
+Phase 4.3 Placer Reporting | Checksum: 246b8b519
+
+Time (s): cpu = 00:08:56 ; elapsed = 00:06:19 . Memory (MB): peak = 4706.094 ; gain = 651.434
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 4706.094 ; gain = 0.000
+
+Time (s): cpu = 00:08:56 ; elapsed = 00:06:19 . Memory (MB): peak = 4706.094 ; gain = 651.434
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 25400e69d
+
+Time (s): cpu = 00:08:56 ; elapsed = 00:06:19 . Memory (MB): peak = 4706.094 ; gain = 651.434
+Ending Placer Task | Checksum: 1dea0ac50
+
+Time (s): cpu = 00:08:57 ; elapsed = 00:06:19 . Memory (MB): peak = 4706.094 ; gain = 651.434
+166 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:09:18 ; elapsed = 00:06:34 . Memory (MB): peak = 4706.094 ; gain = 651.434
+INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
+Running report generation with 2 threads.
+INFO: [Vivado 12-24828] Executing command : report_io -file system_wrapper_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.151 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file system_wrapper_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.246 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_utilization -file system_wrapper_utilization_placed.rpt -pb system_wrapper_utilization_placed.pb
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.306 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.326 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.208 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xazu3eg'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xazu3eg'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:21 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Vivado_Tcl 4-2279] Estimated Timing Summary | WNS= 1.044 | TNS= 0.000 | 
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. All physical synthesis setup optimizations will be skipped.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+177 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:22 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.328 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.246 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.170 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_physopt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xazu3eg'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xazu3eg'
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: cb34fc08 ConstDB: 0 ShapeSum: 399d91e4 RouteDB: d9ce1e64
+Nodegraph reading from file.  Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.420 . Memory (MB): peak = 4706.094 ; gain = 0.000
+Post Restoration Checksum: NetGraph: e8f63164 | NumContArr: bd39e1ac | Constraints: 1b8154ea | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 2845a6297
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:22 . Memory (MB): peak = 4706.094 ; gain = 0.000
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 2845a6297
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:22 . Memory (MB): peak = 4706.094 ; gain = 0.000
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 2845a6297
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:23 . Memory (MB): peak = 4706.094 ; gain = 0.000
+
+Phase 2.3 Global Clock Net Routing
+ Number of Nodes with overlaps = 0
+Phase 2.3 Global Clock Net Routing | Checksum: 1c034c084
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:25 . Memory (MB): peak = 4706.094 ; gain = 0.000
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 183109bde
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:37 . Memory (MB): peak = 4706.094 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.178  | TNS=0.000  | WHS=-0.063 | THS=-1.909 |
+
+
+Phase 2.5 Soft Constraint Pins - Fast Budgeting
+Phase 2.5 Soft Constraint Pins - Fast Budgeting | Checksum: 13e5a80a0
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:56 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 101667
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 86335
+  Number of Partially Routed Nets     = 15332
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: dd929e7d
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:00:57 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: dd929e7d
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:00:58 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 1aea34b33
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:01:13 . Memory (MB): peak = 4830.059 ; gain = 123.965
+Phase 4 Initial Routing | Checksum: 200792e95
+
+Time (s): cpu = 00:01:57 ; elapsed = 00:01:14 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 25915
+ Number of Nodes with overlaps = 2915
+ Number of Nodes with overlaps = 488
+ Number of Nodes with overlaps = 157
+INFO: [Route 35-443] CLB routing congestion detected. Several CLBs have high routing utilization, which can impact timing closure. Congested CLBs and Nets are dumped in: iter_20_CongestedCLBsAndNets.txt
+ Number of Nodes with overlaps = 65
+ Number of Nodes with overlaps = 34
+ Number of Nodes with overlaps = 19
+ Number of Nodes with overlaps = 15
+INFO: [Route 35-443] CLB routing congestion detected. Several CLBs have high routing utilization, which can impact timing closure. Congested CLBs and Nets are dumped in: iter_40_CongestedCLBsAndNets.txt
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 13
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+INFO: [Route 35-443] CLB routing congestion detected. Several CLBs have high routing utilization, which can impact timing closure. Congested CLBs and Nets are dumped in: iter_80_CongestedCLBsAndNets.txt
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.574  | TNS=0.000  | WHS=-0.020 | THS=-0.020 |
+
+Phase 5.1 Global Iteration 0 | Checksum: 27c3fab03
+
+Time (s): cpu = 00:07:27 ; elapsed = 00:05:14 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 5.2 Additional Iteration for Hold
+Phase 5.2 Additional Iteration for Hold | Checksum: 2a3f72c16
+
+Time (s): cpu = 00:07:28 ; elapsed = 00:05:14 . Memory (MB): peak = 4830.059 ; gain = 123.965
+Phase 5 Rip-up And Reroute | Checksum: 2a3f72c16
+
+Time (s): cpu = 00:07:28 ; elapsed = 00:05:14 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.574  | TNS=0.000  | WHS=0.014  | THS=0.000  |
+
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.574  | TNS=0.000  | WHS=0.014  | THS=0.000  |
+
+Phase 6.1 Delay CleanUp | Checksum: 28999c820
+
+Time (s): cpu = 00:07:48 ; elapsed = 00:05:25 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 28999c820
+
+Time (s): cpu = 00:07:48 ; elapsed = 00:05:26 . Memory (MB): peak = 4830.059 ; gain = 123.965
+Phase 6 Delay and Skew Optimization | Checksum: 28999c820
+
+Time (s): cpu = 00:07:49 ; elapsed = 00:05:26 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.574  | TNS=0.000  | WHS=0.014  | THS=0.000  |
+
+Phase 7.1 Hold Fix Iter | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:04 ; elapsed = 00:05:34 . Memory (MB): peak = 4830.059 ; gain = 123.965
+Phase 7 Post Hold Fix | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:04 ; elapsed = 00:05:34 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 28.9388 %
+  Global Horizontal Routing Utilization  = 31.2256 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 8 Route finalize | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:05 ; elapsed = 00:05:35 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:05 ; elapsed = 00:05:35 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:13 ; elapsed = 00:05:42 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 11 Resolve XTalk
+Phase 11 Resolve XTalk | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:14 ; elapsed = 00:05:42 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 12 Post Process Routing
+Phase 12 Post Process Routing | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:15 ; elapsed = 00:05:43 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Phase 13 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.574  | TNS=0.000  | WHS=0.014  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 13 Post Router Timing | Checksum: 1c4290804
+
+Time (s): cpu = 00:08:15 ; elapsed = 00:05:43 . Memory (MB): peak = 4830.059 ; gain = 123.965
+Total Elapsed time in route_design: 343.217 secs
+
+Phase 14 Post-Route Event Processing
+Phase 14 Post-Route Event Processing | Checksum: 136ad331a
+
+Time (s): cpu = 00:08:16 ; elapsed = 00:05:44 . Memory (MB): peak = 4830.059 ; gain = 123.965
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: 136ad331a
+
+Time (s): cpu = 00:08:17 ; elapsed = 00:05:45 . Memory (MB): peak = 4830.059 ; gain = 123.965
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+193 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:08:18 ; elapsed = 00:05:45 . Memory (MB): peak = 4830.059 ; gain = 123.965
+INFO: [Vivado 12-24828] Executing command : report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
+Command: report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_drc_routed.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 4830.059 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
+Command: report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:01:08 ; elapsed = 00:00:38 . Memory (MB): peak = 4830.059 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -routable_nets -report_unconstrained -file system_wrapper_timing_summary_routed.rpt -pb system_wrapper_timing_summary_routed.pb -rpx system_wrapper_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 4830.059 ; gain = 0.000
+INFO: [Vivado 12-24838] Running report commands "report_incremental_reuse, report_route_status" in parallel.
+Running report generation with 2 threads.
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file system_wrapper_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [Vivado 12-24828] Executing command : report_route_status -file system_wrapper_route_status.rpt -pb system_wrapper_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
+Command: report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+210 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:32 ; elapsed = 00:00:26 . Memory (MB): peak = 4830.059 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file system_wrapper_clock_utilization_routed.rpt
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file system_wrapper_bus_skew_routed.rpt -pb system_wrapper_bus_skew_routed.pb -rpx system_wrapper_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+generate_parallel_reports: Time (s): cpu = 00:02:26 ; elapsed = 00:01:34 . Memory (MB): peak = 4830.059 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.274 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.971 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.172 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 4830.059 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 4830.059 ; gain = 0.000
+Command: write_bitstream -force system_wrapper.bit -bin_file
+Attempting to get a license for feature 'Implementation' and/or device 'xazu3eg'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xazu3eg'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Integrating Hard IP ELF/MEM with the PDI.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./system_wrapper.bit...
+Writing bitstream ./system_wrapper.bin...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+224 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:56 ; elapsed = 00:00:36 . Memory (MB): peak = 5008.215 ; gain = 178.156
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 05:10:38 2026...
+[Tue Nov  3 05:10:44 2026] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:31:07 . Memory (MB): peak = 1737.629 ; gain = 0.000
+# if {[get_property PROGRESS [get_runs impl_1]] ne "100%"} {
+#     logmsg "IMPL_FAILED: [get_property STATUS [get_runs impl_1]]"
+#     exit 1
+# }
+# open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1843.168 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5089 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.278 . Memory (MB): peak = 2088.766 ; gain = 32.391
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 2738.328 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2738.328 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2864.516 ; gain = 126.188
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2864.516 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3429.871 ; gain = 565.355
+Read Physdb Files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 3429.871 ; gain = 691.543
+Restored from archive | CPU: 9.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 3429.871 ; gain = 691.543
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 3429.871 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2455 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 290 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 512 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 11 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 49 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 534 instances
+  RAM32X1S => RAM32X1S (RAMS32): 128 instances
+  SRLC32E => SRL16E: 931 instances
+
+open_run: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 3429.871 ; gain = 1692.242
+# set wns [get_property STATS.WNS [get_runs impl_1]]
+# set whs [get_property STATS.WHS [get_runs impl_1]]
+# logmsg "WNS $wns WHS $whs"
+### WNS 0.574260 WHS 0.014875
+# set impl_dir [get_property DIRECTORY [get_runs impl_1]]
+# file copy -force [file join $impl_dir ${bdname}_wrapper.bit] $R/bitstream/ai_sys_$ftag.bit
+# file copy -force [file join $impl_dir ${bdname}_wrapper.bin] $R/bitstream/ai_sys_$ftag.bin
+# report_utilization -file $R/vivado/ai_sys_${ftag}_util.rpt
+# report_timing_summary -file $R/vivado/ai_sys_${ftag}_timing.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:43 ; elapsed = 00:00:27 . Memory (MB): peak = 3721.703 ; gain = 291.832
+# report_utilization -hierarchical -hierarchical_depth 2 -file $R/vivado/ai_sys_${ftag}_util_hier.rpt
+# logmsg "AI_SYS_F_NOVIS_BUILD_DONE $ftag"
+### AI_SYS_F_NOVIS_BUILD_DONE f150nv
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 05:11:53 2026...
+EXITCODE 0 周二 2026/11/03  5:11:54.75 

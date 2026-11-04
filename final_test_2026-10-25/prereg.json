@@ -1,0 +1,89 @@
+{
+ "utc": "2026-10-25T10:58:45.663865+00:00",
+ "rule": "each test set evaluated once; nothing tuned afterwards",
+ "scope": {
+  "echonet_test": {
+   "data": "EchoNet-Dynamic official TEST (1,277 videos), never used before",
+   "order": [
+    "echonet/final_test_echonet.py (its lock test_set_used.txt first): LV Dice on TEST ED / ES, beat EF full / realtime, QC — the 10-10 pre-registered evaluation, unchanged",
+    "quality/echonet_q.py --split test: program 16 integer logits of every TEST frame (only after the lock)",
+    "quality/final_test_kf.py: board C (echo_core.dll) full + recommended keyframe schedule; deployed calibration a/b, eq_model (q80 / q90 from VAL) — no test fitting"
+   ],
+   "metrics": [
+    "EF MAE / RMSE / r (full, keyframe) vs FileList EF",
+    "keyframe share",
+    "80 / 90 % interval coverage",
+    "review rate",
+    "EF<50 and EF<=40: AUC, sens, spec, PPV, NPV (bootstrap CI)",
+    "3-class agreement, kappa",
+    "review split, safety (called or flagged, silent misses), silent misgrades",
+    "by quality light"
+   ]
+  },
+  "hmcqu_test": {
+   "data": "HMC-QU A4C TEST split (65 recordings, wallmotion/results/split.json, 10-25 before any feature)",
+   "order": [
+    "wallmotion/final_test.py (lock first)"
+   ],
+   "metrics": [
+    "segment level: sens / spec / F1 / AUC (pooled z) and per position",
+    "recording level (MI = any segment): sens / spec / F1 / AUC of the clip score",
+    "LV EF of MI vs non-MI"
+   ]
+  },
+  "cardiacuda_test": {
+   "data": "CardiacUDA TEST (Site_G_20 + Site_R_52 even, 47 videos / 237 labelled frames)",
+   "order": [
+    "cardiac_rv/final_test_rv.py (lock first)"
+   ],
+   "metrics": [
+    "RV / RA Dice at the native crop (integer models = the board), per site, P5",
+    "plausibility rules on TEST frames vs the expert LV"
+   ]
+  },
+  "camus_p1_16_test": {
+   "data": "CAMUS official test split (50 patients), P1 1.6 LA / epicardium",
+   "order": [
+    "echo/final_test_p1_16.py --i-am-sure (its lock.json, status locked -> running -> used)"
+   ],
+   "metrics": [
+    "as pre-registered 10-14 in lock.json"
+   ]
+  }
+ },
+ "frozen": {
+  "echonet/results/quant/t3/quant_plan.json": "a44aa03728f5b2cedfa777a2d985bf7b6969f68de90a16d62eb5d2ac98a3ec68",
+  "echonet/results/quant/t3/parameters.npz": "0bf18ba1c126d744dd1da733949d1d1f7a6665ea5825fc9638bf82e01c6edf13",
+  "echonet/results/beats_config_t3_int.json": "351ee9e88b7f76659f196d976e6e5324e9a540a39c842afdfc8e621229191982",
+  "quality/results/c/eq_model_full.json": "74106bb12259172728dd7243b40f27bcc8cb3c7986f797e5279674cd6a08cf10",
+  "quality/results/c/eq_model_keyframe.json": "89b5aba4b56b53979621944335de2b6943588bad37905b0c6c060b7018ffc36f",
+  "tcp_image/tcp_image_ui/echo_kf_config.json": "908aa88fa621ae37146ac96f7d56a38aaa4338bda0a0ebb000e1ce119092dd28",
+  "tcp_image/tcp_image_ui/echo_heart_config.json": "27a1127d09fe043f4b12fa9ee6dde2fecfbbfe33ee55c2798aa30677cb891de5",
+  "keyframe/echo_core.dll": "322bad1e51c678cf6904947f82c82e73366977e928012b77c08577e96a58e994",
+  "tcp_image/tcp_image_rx/src/echo_num.c": "bebb0dcd0250995922876d6f1706f9facc0aa332a93713c2718cfa730a57ace1",
+  "tcp_image/tcp_image_rx/src/kf.c": "2e740782f8f35b44740b465b0803cbea4f179c5584a307a3d1fe964d2f22595b",
+  "tcp_image/tcp_image_rx/src/echo_quality.c": "b8a7093dcf569814a06208e873fdfa63e4ac6a7999f87ee58286488270b4759f",
+  "tcp_image/tcp_image_rx/src/cardiac_ext.c": "334c7bf3a71810c5b8fd49b58dd3f802af6183d534f4b1aed06a908ea6e82758",
+  "tcp_image/tcp_image_rx/src/job_echo.c": "9df13da4394c7233029a6d9607cc4372f066bf87baaf97bcb06a729bd2d764f4",
+  "echonet/final_test_echonet.py": "b8fecbecfcd62ce22b1cfb2055d88903848be0e27ee682ce33330864722a5536",
+  "quality/final_test_kf.py": "63ef772dedd35b444dd66fcc2a2c18bb9e64511d32929e4196154584cedca2b2",
+  "quality/hf_class.py": "100911e9023f842c9d532e416efd96d55a079d85fffdfb6a8ad755079620d050",
+  "quality/quality_kf.py": "0cd71fed2ef3207321bebbceb0569df6a98f260a03f39f8d52d92649e6cf3da7",
+  "wallmotion/results/split.json": "602933333aec0ec050ad4cd17c456731a35159c936f735505a41e2305d4ffd1e",
+  "wallmotion/results/wm_params.json": "366375566b935d21dfd550ed8202e049edab519a57ce0d48f85212cda2fa93f0",
+  "wallmotion/prep_hmcqu.py": "b2eec908fea3960620c130182ff1cbc2985626fcd0ba0994b788b64d9dfbbf4f",
+  "wallmotion/engine_masks.py": "3a4948532038949748dc9c1a716e7fcd2233f9635f613b12045a8f0f5b437ea9",
+  "wallmotion/fit_wm.py": "ea81dbff7b3a0c0251deb5d79cc8e1933510a6abdf61014a064c58509bbeae70",
+  "wallmotion/final_test.py": "eb11f2f98580f8501bb54da175ad5229c7a474aa2a33b295f30bbb2e97e2fe83",
+  "cardiac_rv/results/split.json": "8c54a2ee9b3318b64c5ea54f21b1170df94d942858bcf4bc1163b2d6ae74205e",
+  "cardiac_rv/results/quant/rv_pl1_5/quant_plan.json": "26e41d6be748fc7ab27875ace272345a660a0052142a75f9257988572dc3c957",
+  "cardiac_rv/results/quant/rv_pl1_5/parameters.npz": "396119fdd28df4fd3131d018135e644880d927717916571522d801a43073d927",
+  "cardiac_rv/results/quant/ra_pl1_5/quant_plan.json": "e3eb2ead4601c6d47ae56683a4294d3cc9893425cec6255cfc05529b4454b263",
+  "cardiac_rv/results/quant/ra_pl1_5/parameters.npz": "de1425c3af8d18e1395589ea7f0d606a84c46b3dfb8657d47fa01a7c4ed836cd",
+  "cardiac_rv/final_test_rv.py": "3684733ad7e2b3cc18c3cc931252a4829e3331d176a55aa17f38d26cd0a333b2",
+  "tcp_image/tcp_image_rx/programs_rh/cardiac_rv.upk": "cb5cb5efeeb5e3fad1bac443126ef8a8b117c058e45308696c688c2e8cfc2e31",
+  "tcp_image/tcp_image_rx/programs_rh/cardiac_ra.upk": "c594f0e8feb521360609f6d7b4ee12c098fbddb16dd3cf56835a2f5f3e6d959c",
+  "echo/final_test_p1_16.py": "c5b3949b3375c7127d2a25bd829dafa64032a1852a4e7f3a48245971bc147100",
+  "echo/results/final_test_p1_16/lock.json": "55118907947782b1827a3e0ac2cf5eebfb193377ec200881d840a6a93fcd2af2"
+ }
+}

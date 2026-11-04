@@ -1,0 +1,14 @@
+start Thu Oct  1 15:50:38 2026
+vitis module: E:\fpga\vivado\2025.2.1\Vitis\cli\vitis\__init__.py
+client ok
+EXC:
+Traceback (most recent call last):
+  File "E:\fpga\my_project\tcp_image_rx\boot\vitis_fsbl.py", line 34, in <module>
+    client.set_workspace(WS)
+    ~~~~~~~~~~~~~~~~~~~~^^^^
+  File "E:\fpga\vivado\2025.2.1\Vitis\cli\vitis\cli_client.py", line 149, in set_workspace
+    raise exc_type(f"{exc_value}") from None
+Exception: [31m[31mCannot set workspace, status = StatusCode.INVALID_ARGUMENT,
+                                details = 'Vitis IDE cannot recognize the workspace version. Click 'Update' to initialize the workspace metadata.'[0m'[0m
+
+done Thu Oct  1 15:50:40 2026

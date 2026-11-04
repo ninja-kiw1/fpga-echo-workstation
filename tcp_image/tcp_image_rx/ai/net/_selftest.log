@@ -1,0 +1,22 @@
+shift=0 -> input 512x512, output 512x512
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f800b6000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+timing: 1 iter(s) in 783.6 ms  ->  783.56 ms/frame (whole net, shift=0)
+run: 783560 us, logits min=-127 max=127
+profile us : ap(PL)=765485  put(->BRAM)=131232  get(BRAM->)=266510  zero=229  other=-379896
+profile mem: put=8040096 get=5341184 params=116384 words  strips=1809
+compare: mismatch = 233879 / 262144  ->  FAIL
+  first diff at pixel 0 (y=0 x=0): want=-55 got=-26
+logit range [-127..127], non-zero 260688/262144
+SELFTEST_DONE
+SELFTEST_RC=0
+--- dmesg ---
+[14569.835952] plbdma: bounce buffer: 2048 KB (order 9) phys 0x85f600000
+[14569.836095] plbdma: ready: bram=0xb0000000 window 256KB, /dev/plbdma
+[14817.203380] plbdma: unloaded (xfers=12979 errs=0)
+[14818.813637] plbdma: dma channel: fd500000.dma
+[14818.813910] plbdma: bounce buffer: 2048 KB (order 9) phys 0x85f600000
+[14818.814027] plbdma: ready: bram=0xb0000000 window 256KB, /dev/plbdma
+EXIT=0 

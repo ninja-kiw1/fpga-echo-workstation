@@ -1,0 +1,153 @@
+=== PC_UTC 2026-10-17T05:08:13.501219+00:00
+$ sh j1_v517_ab.sh
+== round=1 variant=noj1 case=fundus512
+[ai] J1 OFF (UNET_NOJ1): readback not overlapped with put
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":304510,"put_us":75153,"get_us":79574,"run_us":470678,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":304535,"put_us":75068,"get_us":79513,"run_us":470429,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":304545,"put_us":74998,"get_us":79517,"run_us":470341,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":304559,"put_us":75037,"get_us":79442,"run_us":470259,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":304565,"put_us":75194,"get_us":79491,"run_us":470501,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":304500,"put_us":75138,"get_us":79455,"run_us":470356,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":304543,"put_us":74956,"get_us":79550,"run_us":470383,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":304580,"put_us":75014,"get_us":79502,"run_us":470392,"strips":853}
+STRICT_NET_PASS
+== round=1 variant=noj1 case=skin128
+[ai] J1 OFF (UNET_NOJ1): readback not overlapped with put
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":20730,"put_us":4388,"get_us":5700,"run_us":31908,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":20732,"put_us":4375,"get_us":5696,"run_us":31925,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":20732,"put_us":4393,"get_us":5686,"run_us":31926,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":3,"ap_us":20728,"put_us":4404,"get_us":5718,"run_us":31952,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":4,"ap_us":20743,"put_us":4433,"get_us":5695,"run_us":31950,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":5,"ap_us":20730,"put_us":4349,"get_us":5695,"run_us":31875,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":6,"ap_us":20729,"put_us":4418,"get_us":5710,"run_us":31953,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":7,"ap_us":20720,"put_us":4433,"get_us":5713,"run_us":31988,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":8,"ap_us":20729,"put_us":4387,"get_us":5712,"run_us":31952,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":9,"ap_us":20740,"put_us":4381,"get_us":5709,"run_us":31924,"strips":66}
+STRICT_NET_PASS
+== round=1 variant=noj1 case=echo128
+[ai] J1 OFF (UNET_NOJ1): readback not overlapped with put
+SAMPLE {"model":2,"res":128,"sample":0,"ap_us":20720,"put_us":4417,"get_us":5696,"run_us":31938,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":1,"ap_us":20728,"put_us":4471,"get_us":5722,"run_us":32022,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":2,"ap_us":20720,"put_us":4401,"get_us":5718,"run_us":31939,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":3,"ap_us":20733,"put_us":4417,"get_us":5706,"run_us":31961,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":4,"ap_us":20720,"put_us":4439,"get_us":5740,"run_us":32002,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":5,"ap_us":20723,"put_us":4405,"get_us":5717,"run_us":31961,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":6,"ap_us":20726,"put_us":4412,"get_us":5726,"run_us":31977,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":7,"ap_us":20722,"put_us":4449,"get_us":5731,"run_us":32035,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":8,"ap_us":20725,"put_us":4411,"get_us":5722,"run_us":31972,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":9,"ap_us":20726,"put_us":4443,"get_us":5732,"run_us":32005,"strips":66}
+STRICT_NET_PASS
+== round=1 variant=j1 case=fundus512
+[ai] J1: readback DMA overlapped with put (worker thread)
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":305579,"put_us":78130,"get_us":83307,"run_us":418576,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":306335,"put_us":78413,"get_us":83359,"run_us":419344,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":304525,"put_us":77988,"get_us":83440,"run_us":417227,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":304583,"put_us":78284,"get_us":83365,"run_us":417458,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":304502,"put_us":78122,"get_us":83533,"run_us":417474,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":304528,"put_us":78024,"get_us":83356,"run_us":417301,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":304668,"put_us":78937,"get_us":83421,"run_us":418367,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":304561,"put_us":78195,"get_us":83393,"run_us":417562,"strips":853}
+STRICT_NET_PASS
+== round=1 variant=j1 case=skin128
+[ai] J1: readback DMA overlapped with put (worker thread)
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":20721,"put_us":4409,"get_us":5844,"run_us":30361,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":20726,"put_us":4410,"get_us":5847,"run_us":30338,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":20724,"put_us":4444,"get_us":5838,"run_us":30362,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":3,"ap_us":20722,"put_us":4451,"get_us":5854,"run_us":31289,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":4,"ap_us":20739,"put_us":4431,"get_us":5846,"run_us":30409,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":5,"ap_us":20733,"put_us":4426,"get_us":5844,"run_us":30407,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":6,"ap_us":20722,"put_us":4392,"get_us":5838,"run_us":30304,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":7,"ap_us":20722,"put_us":4435,"get_us":5850,"run_us":32109,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":8,"ap_us":20740,"put_us":4422,"get_us":5856,"run_us":30384,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":9,"ap_us":20725,"put_us":4492,"get_us":5842,"run_us":30398,"strips":66}
+STRICT_NET_PASS
+== round=1 variant=j1 case=echo128
+[ai] J1: readback DMA overlapped with put (worker thread)
+SAMPLE {"model":2,"res":128,"sample":0,"ap_us":20739,"put_us":4496,"get_us":5873,"run_us":30442,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":1,"ap_us":20721,"put_us":4435,"get_us":5891,"run_us":30385,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":2,"ap_us":20724,"put_us":4443,"get_us":5871,"run_us":30425,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":3,"ap_us":20724,"put_us":4456,"get_us":5820,"run_us":30384,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":4,"ap_us":20720,"put_us":4467,"get_us":5859,"run_us":30403,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":5,"ap_us":20736,"put_us":4478,"get_us":5867,"run_us":30427,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":6,"ap_us":20728,"put_us":4523,"get_us":5863,"run_us":30448,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":7,"ap_us":20721,"put_us":4474,"get_us":5856,"run_us":30840,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":8,"ap_us":20751,"put_us":4489,"get_us":5849,"run_us":30425,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":9,"ap_us":20732,"put_us":4453,"get_us":5863,"run_us":30399,"strips":66}
+STRICT_NET_PASS
+== round=2 variant=noj1 case=fundus512
+[ai] J1 OFF (UNET_NOJ1): readback not overlapped with put
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":304480,"put_us":77293,"get_us":79544,"run_us":472682,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":304546,"put_us":77244,"get_us":79594,"run_us":472764,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":304520,"put_us":76932,"get_us":79512,"run_us":472423,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":304523,"put_us":77376,"get_us":79622,"run_us":472859,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":304531,"put_us":77177,"get_us":79580,"run_us":472734,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":304712,"put_us":77394,"get_us":79544,"run_us":473164,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":304487,"put_us":77225,"get_us":79534,"run_us":472615,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":304495,"put_us":77299,"get_us":79471,"run_us":472598,"strips":853}
+STRICT_NET_PASS
+== round=2 variant=noj1 case=skin128
+[ai] J1 OFF (UNET_NOJ1): readback not overlapped with put
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":20728,"put_us":4365,"get_us":5754,"run_us":31954,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":20727,"put_us":4338,"get_us":5732,"run_us":31929,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":20733,"put_us":4339,"get_us":5746,"run_us":31943,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":3,"ap_us":20729,"put_us":4393,"get_us":5708,"run_us":31927,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":4,"ap_us":20733,"put_us":4418,"get_us":5687,"run_us":31945,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":5,"ap_us":20722,"put_us":4350,"get_us":5715,"run_us":31924,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":6,"ap_us":20728,"put_us":4412,"get_us":5706,"run_us":31950,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":7,"ap_us":20727,"put_us":4321,"get_us":5725,"run_us":31909,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":8,"ap_us":20726,"put_us":4388,"get_us":5726,"run_us":31940,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":9,"ap_us":20727,"put_us":4388,"get_us":5725,"run_us":31935,"strips":66}
+STRICT_NET_PASS
+== round=2 variant=noj1 case=echo128
+[ai] J1 OFF (UNET_NOJ1): readback not overlapped with put
+SAMPLE {"model":2,"res":128,"sample":0,"ap_us":20722,"put_us":4376,"get_us":5761,"run_us":31964,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":1,"ap_us":20722,"put_us":4362,"get_us":5735,"run_us":31923,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":2,"ap_us":20726,"put_us":4400,"get_us":5716,"run_us":31951,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":3,"ap_us":20732,"put_us":4437,"get_us":5733,"run_us":32010,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":4,"ap_us":20751,"put_us":4378,"get_us":5745,"run_us":31967,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":5,"ap_us":20719,"put_us":4416,"get_us":5732,"run_us":31978,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":6,"ap_us":20829,"put_us":4394,"get_us":6022,"run_us":32560,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":7,"ap_us":20726,"put_us":4343,"get_us":5739,"run_us":31954,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":8,"ap_us":20727,"put_us":4377,"get_us":5723,"run_us":31990,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":9,"ap_us":20753,"put_us":4431,"get_us":6545,"run_us":32827,"strips":66}
+STRICT_NET_PASS
+== round=2 variant=j1 case=fundus512
+[ai] J1: readback DMA overlapped with put (worker thread)
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":304524,"put_us":79284,"get_us":83665,"run_us":420005,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":305382,"put_us":79214,"get_us":83716,"run_us":420955,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":304853,"put_us":79446,"get_us":83767,"run_us":420033,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":305268,"put_us":78855,"get_us":83822,"run_us":419899,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":304504,"put_us":79469,"get_us":83844,"run_us":419825,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":304525,"put_us":78609,"get_us":83622,"run_us":419971,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":304524,"put_us":78442,"get_us":83683,"run_us":418888,"strips":853}
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":304812,"put_us":79516,"get_us":83750,"run_us":420068,"strips":853}
+STRICT_NET_PASS
+== round=2 variant=j1 case=skin128
+[ai] J1: readback DMA overlapped with put (worker thread)
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":20794,"put_us":4503,"get_us":5851,"run_us":30477,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":20734,"put_us":4442,"get_us":5809,"run_us":30361,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":20773,"put_us":4496,"get_us":6354,"run_us":30956,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":3,"ap_us":20726,"put_us":4469,"get_us":5838,"run_us":30411,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":4,"ap_us":21580,"put_us":4490,"get_us":5819,"run_us":32218,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":5,"ap_us":20734,"put_us":4500,"get_us":5753,"run_us":30298,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":6,"ap_us":20721,"put_us":4489,"get_us":5816,"run_us":30413,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":7,"ap_us":20727,"put_us":4505,"get_us":5834,"run_us":30379,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":8,"ap_us":20723,"put_us":4425,"get_us":5821,"run_us":30318,"strips":66}
+SAMPLE {"model":1,"res":128,"sample":9,"ap_us":20721,"put_us":4436,"get_us":5837,"run_us":30389,"strips":66}
+STRICT_NET_PASS
+== round=2 variant=j1 case=echo128
+[ai] J1: readback DMA overlapped with put (worker thread)
+SAMPLE {"model":2,"res":128,"sample":0,"ap_us":20728,"put_us":4410,"get_us":5842,"run_us":30355,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":1,"ap_us":20733,"put_us":4486,"get_us":5854,"run_us":30410,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":2,"ap_us":20734,"put_us":4439,"get_us":5835,"run_us":30356,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":3,"ap_us":20732,"put_us":4461,"get_us":5851,"run_us":30416,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":4,"ap_us":20724,"put_us":4518,"get_us":5854,"run_us":30398,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":5,"ap_us":20724,"put_us":4431,"get_us":5840,"run_us":30352,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":6,"ap_us":21972,"put_us":4502,"get_us":5875,"run_us":31681,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":7,"ap_us":20726,"put_us":4441,"get_us":5830,"run_us":30409,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":8,"ap_us":20759,"put_us":4379,"get_us":5846,"run_us":30317,"strips":66}
+SAMPLE {"model":2,"res":128,"sample":9,"ap_us":20727,"put_us":4406,"get_us":5842,"run_us":30366,"strips":66}
+STRICT_NET_PASS
+
+exit=0
+restore: active

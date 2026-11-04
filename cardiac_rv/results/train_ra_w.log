@@ -1,0 +1,61 @@
+﻿python.exe : E:\PLD\cardiac_rv\train_rv.py:115: UserWarning: The given NumPy array is not writable, and PyTorch does no
+t support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to co
+py the array to protect its data or make it writable before converting it to a tensor. This type of warning will be sup
+pressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils
+\tensor_numpy.cpp:219.)
+At line:1 char:441
++ ... n_rv_w.log; & 'E:\PLD\skin\.venv\Scripts\python.exe' -I train_rv.py - ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (E:\PLD\cardiac_...numpy.cpp:219.):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  xg = torch.from_numpy(np.ascontiguousarray(xtr)).to(device)
+[ra_w] it    500 loss 0.4099 val Dice 0.7844 G 0.7830 R 0.7859 P5 0.579 (12s) *
+[ra_w] it   1000 loss 0.2670 val Dice 0.8359 G 0.8180 R 0.8558 P5 0.631 (24s) *
+[ra_w] it   1500 loss 0.2476 val Dice 0.8337 G 0.8250 R 0.8434 P5 0.616 (36s)
+[ra_w] it   2000 loss 0.2295 val Dice 0.8461 G 0.8244 R 0.8702 P5 0.630 (48s) *
+[ra_w] it   2500 loss 0.2063 val Dice 0.8454 G 0.8293 R 0.8634 P5 0.612 (60s)
+[ra_w] it   3000 loss 0.1941 val Dice 0.8187 G 0.8014 R 0.8380 P5 0.551 (71s)
+[ra_w] it   3500 loss 0.1936 val Dice 0.8355 G 0.8261 R 0.8460 P5 0.610 (83s)
+[ra_w] it   4000 loss 0.1886 val Dice 0.8674 G 0.8465 R 0.8907 P5 0.700 (95s) *
+[ra_w] it   4500 loss 0.1847 val Dice 0.8751 G 0.8604 R 0.8915 P5 0.684 (107s) *
+[ra_w] it   5000 loss 0.1808 val Dice 0.8649 G 0.8531 R 0.8781 P5 0.701 (119s)
+[ra_w] it   5500 loss 0.1861 val Dice 0.8663 G 0.8552 R 0.8787 P5 0.673 (130s)
+[ra_w] it   6000 loss 0.1659 val Dice 0.8678 G 0.8513 R 0.8862 P5 0.652 (142s)
+[ra_w] it   6500 loss 0.1680 val Dice 0.8535 G 0.8326 R 0.8767 P5 0.631 (154s)
+[ra_w] it   7000 loss 0.1666 val Dice 0.8714 G 0.8539 R 0.8910 P5 0.685 (166s)
+[ra_w] it   7500 loss 0.1667 val Dice 0.8559 G 0.8354 R 0.8788 P5 0.643 (177s)
+[ra_w] it   8000 loss 0.1590 val Dice 0.8749 G 0.8599 R 0.8917 P5 0.673 (189s)
+[ra_w] it   8500 loss 0.1589 val Dice 0.8734 G 0.8536 R 0.8955 P5 0.703 (201s)
+[ra_w] it   9000 loss 0.1576 val Dice 0.8786 G 0.8576 R 0.9021 P5 0.706 (213s) *
+[ra_w] it   9500 loss 0.1574 val Dice 0.8738 G 0.8556 R 0.8940 P5 0.692 (225s)
+[ra_w] it  10000 loss 0.1490 val Dice 0.8727 G 0.8533 R 0.8942 P5 0.697 (237s)
+[ra_w] it  10500 loss 0.1513 val Dice 0.8644 G 0.8523 R 0.8778 P5 0.681 (248s)
+[ra_w] it  11000 loss 0.1453 val Dice 0.8747 G 0.8555 R 0.8961 P5 0.713 (260s)
+[ra_w] it  11500 loss 0.1466 val Dice 0.8692 G 0.8512 R 0.8892 P5 0.662 (272s)
+[ra_w] it  12000 loss 0.1439 val Dice 0.8714 G 0.8508 R 0.8943 P5 0.698 (284s)
+[ra_w] it  12500 loss 0.1420 val Dice 0.8753 G 0.8564 R 0.8963 P5 0.694 (296s)
+[ra_w] it  13000 loss 0.1437 val Dice 0.8772 G 0.8585 R 0.8981 P5 0.691 (308s)
+[ra_w] it  13500 loss 0.1416 val Dice 0.8767 G 0.8583 R 0.8971 P5 0.701 (320s)
+[ra_w] it  14000 loss 0.1411 val Dice 0.8733 G 0.8502 R 0.8991 P5 0.694 (332s)
+[ra_w] it  14500 loss 0.1412 val Dice 0.8704 G 0.8487 R 0.8946 P5 0.678 (343s)
+[ra_w] it  15000 loss 0.1356 val Dice 0.8750 G 0.8546 R 0.8978 P5 0.706 (355s)
+[ra_w] it  15500 loss 0.1346 val Dice 0.8741 G 0.8527 R 0.8979 P5 0.689 (367s)
+[ra_w] it  16000 loss 0.1412 val Dice 0.8763 G 0.8561 R 0.8989 P5 0.704 (379s)
+[ra_w] it  16500 loss 0.1409 val Dice 0.8746 G 0.8552 R 0.8962 P5 0.706 (390s)
+[ra_w] it  17000 loss 0.1352 val Dice 0.8739 G 0.8537 R 0.8965 P5 0.696 (402s)
+[ra_w] it  17500 loss 0.1341 val Dice 0.8800 G 0.8596 R 0.9029 P5 0.713 (414s) *
+[ra_w] it  18000 loss 0.1353 val Dice 0.8775 G 0.8568 R 0.9006 P5 0.710 (426s)
+[ra_w] it  18500 loss 0.1353 val Dice 0.8778 G 0.8569 R 0.9012 P5 0.706 (437s)
+[ra_w] it  19000 loss 0.1361 val Dice 0.8759 G 0.8554 R 0.8987 P5 0.704 (449s)
+[ra_w] it  19500 loss 0.1296 val Dice 0.8782 G 0.8575 R 0.9012 P5 0.704 (461s)
+[ra_w] it  20000 loss 0.1365 val Dice 0.8778 G 0.8576 R 0.9004 P5 0.702 (473s)
+{
+ "iter": 17500,
+ "loss": 0.13406988205016385,
+ "seconds": 413.68592166900635,
+ "all": 0.8800458058509911,
+ "site_G": 0.8595680307349571,
+ "site_R": 0.9028864011727212,
+ "p5": 0.7126610006678122
+}

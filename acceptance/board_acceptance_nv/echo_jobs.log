@@ -1,0 +1,21 @@
+caps: {'ok': True, 'job_version': 1, 'jobs': ['caps', 'ct_seg', 'reg_search', 'echo_ef', 'simpson_ef', 'render3d', 'overlay', 'strain', 'tile'], 'vis': False, 'cardiac': True, 'server': 'v5.26', 'echo_modes': [0, 1, 2, 3], 'live_roll': True, 'live_roll_camus': True, 'live_f1_engine': True, 'live_sources': ['file', 'v4l2'], 'heart': ['wall_motion', 'right_heart'], 'pp': True, 'ai': True, 'models': 17, 'cores': 4, 'max_data': 335544320}
+== A full mode, PC-decoded frames (10 VAL videos)
+  0X100009310A3BD7FC.avi     full     174/174 fr  PASS  EF 69.5199 (PC 69.5201)  beats 4  QC 0  vol rel 2.5e-04 (5 fr)  job 4.47 s  stream 4.06 + PC 1.17 s  clean PL 174/174
+  0X10094BA0A028EAC3.avi     full     207/207 fr  PASS  EF 37.6547 (PC 37.6547)  beats 4  QC 0  vol rel 2.4e-04 (3 fr)  job 5.40 s  stream 4.84 + PC 0.11 s  clean PL 207/207
+  0X1013E8A4864781B.avi      full     140/140 fr  PASS  EF 69.5956 (PC 69.5956)  beats 4  QC 1  vol rel 2.3e-04 (2 fr)  job 3.57 s  stream 3.26 + PC 0.07 s  clean PL 140/140
+  0X1039B49145DF4F25.avi     full     154/154 fr  PASS  EF 53.5967 (PC 53.5967)  beats 4  QC 0  vol rel 4.8e-05 (1 fr)  job 3.93 s  stream 3.59 + PC 0.08 s  clean PL 154/154
+  0X105039B849CDB1CD.avi     full     212/212 fr  PASS  EF 56.9280 (PC 56.9280)  beats 4  QC 0  vol rel 1.2e-04 (10 fr)  job 5.42 s  stream 4.94 + PC 0.12 s  clean PL 212/212
+  0X10ABB3401FC5EC2D.avi     full     195/195 fr  PASS  EF 65.6827 (PC 65.6827)  beats 4  QC 0  vol rel 1.3e-04 (5 fr)  job 4.97 s  stream 4.55 + PC 0.10 s  clean PL 195/195
+  0X10AD385C206C85C.avi      full     174/174 fr  PASS  EF 43.7776 (PC 43.7776)  beats 4  QC 0  vol rel 3.4e-04 (3 fr)  job 4.44 s  stream 4.06 + PC 0.10 s  clean PL 174/174
+  0X10B063E16BA7BEE3.avi     full     124/124 fr  PASS  EF 40.2632 (PC 40.2632)  beats 4  QC 0  vol rel 5.4e-16 (0 fr)  job 3.18 s  stream 2.90 + PC 0.07 s  clean PL 124/124
+  0X10E47D630E15DE12.avi     full     164/164 fr  PASS  EF 32.6727 (PC 32.6727)  beats 6  QC 0  vol rel 4.5e-05 (5 fr)  job 4.22 s  stream 3.83 + PC 0.11 s  clean PL 164/164
+  0X1108EED6EC60971E.avi     full     197/197 fr  PASS  EF 57.9854 (PC 57.9854)  beats 4  QC 0  vol rel 2.2e-04 (6 fr)  job 5.02 s  stream 4.60 + PC 0.10 s  clean PL 197/197
+== B realtime mode
+  0X100009310A3BD7FC.avi     realtime  87/174 fr  PASS  EF 70.5083 (PC 70.5083)  beats 4  QC 0  vol rel 1.2e-04 (1 fr)  job 2.23 s  stream 2.03 + PC 0.05 s  clean PL 87/87
+  0X10094BA0A028EAC3.avi     realtime  69/207 fr  PASS  EF 38.9849 (PC 38.9849)  beats 4  QC 0  vol rel 3.5e-15 (0 fr)  job 1.79 s  stream 1.61 + PC 0.04 s  clean PL 69/69
+  0X1013E8A4864781B.avi      realtime  70/140 fr  PASS  EF 67.9710 (PC 67.9710)  beats 4  QC 0  vol rel 2.3e-04 (2 fr)  job 1.80 s  stream 1.63 + PC 0.05 s  clean PL 70/70
+== C PS-worker clean / live + paced
+  0X100009310A3BD7FC.avi     full     174/174 fr  PASS  EF 69.5199 (PC 69.5201)  beats 4  QC 0  vol rel 2.5e-04 (5 fr)  job 4.35 s  stream - + PC 0.10 s  clean PL 0/174
+  live+paced 0X100009310A3BD7FC.avi: 87 frame blobs / 87 analysed, 12 rolling-EF updates, wall 3.49 s for a 3.48 s clip, last frame lag 24 ms, EF 70.51 (= realtime run: True)
+summary: {'videos': 10, 'job_s': 44.602999999999994, 'old_s': 42.666000000000004, 'pl_s': 38.810036, 'video_s': 34.83949263502455, 'vol_rel_max': 0.0003433897473632275, 'vol_frames_differ': 40, 'frames': 1741, 'ef_diff_abs_max': 0.00021943749575825677, 'worker_ms': 2369.13}
+ECHO_JOBS_BOARD_PASS -> E:\PLD\tcp_image\tcp_image_ui\board_check_v5\echo_jobs_acceptance.json

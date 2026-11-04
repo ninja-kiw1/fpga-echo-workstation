@@ -1,0 +1,18 @@
+[Unit]
+Description=plbdma: use the PS FPD GDMA to move tensors between DDR and PL BRAM (/dev/plbdma)
+Documentation=file:///root/tcp_image_rx/kmod/README.md
+After=local-fs.target
+Before=tcp-image-server.service
+# 张量 BRAM 的窗口由 plbram 提供(驱动侧两块映射指向同一片 BRAM), 顺序无所谓, 但排一下更清楚
+After=plbram.service
+Wants=plbram.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# bounce 缓冲会自动挑最大能拿到的连续块(order 9=2MB); bram 窗口默认 0xB0000000/256KB
+ExecStart=/sbin/modprobe plbdma bram=0xB0000000 window=0x40000
+ExecStop=/sbin/rmmod plbdma
+
+[Install]
+WantedBy=multi-user.target

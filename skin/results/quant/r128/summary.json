@@ -1,0 +1,4147 @@
+{
+ "tag": "r128",
+ "shift": 2,
+ "resolution": 128,
+ "selected_int16": [
+  "first_block_2",
+  "down_path_0_block_2"
+ ],
+ "groups": {
+  "calibration": {
+   "count": 8,
+   "fp32": {
+    "jaccard": 0.8202766636995544,
+    "dice": 0.8989507816672381,
+    "accuracy": 0.9328597435901578,
+    "sensitivity": 0.9014337913140258,
+    "specificity": 0.9597976583948813,
+    "thresholded_jaccard": 0.8202766636995544
+   },
+   "quantized": {
+    "jaccard": 0.8124449416322739,
+    "dice": 0.8936727904024443,
+    "accuracy": 0.9275883377211834,
+    "sensitivity": 0.8831904945598171,
+    "specificity": 0.9658518546254156,
+    "thresholded_jaccard": 0.731205114794107
+   }
+  },
+  "val": {
+   "count": 180,
+   "fp32": {
+    "jaccard": 0.8354148101208119,
+    "dice": 0.9058129113044844,
+    "accuracy": 0.9473443562668648,
+    "sensitivity": 0.9104415422111113,
+    "specificity": 0.9639895107831958,
+    "thresholded_jaccard": 0.7957237190586217
+   },
+   "quantized": {
+    "jaccard": 0.8335641078115704,
+    "dice": 0.9043130185401497,
+    "accuracy": 0.9462061397531266,
+    "sensitivity": 0.893624712628666,
+    "specificity": 0.971992538124099,
+    "thresholded_jaccard": 0.7834146068049594
+   }
+  }
+ },
+ "val_all_int8": {
+  "jaccard": 0.8130491160728759,
+  "dice": 0.8884888363604229
+ },
+ "output_scale": 0.4723758547324834,
+ "output_integer_threshold_ge": 1,
+ "golden_image": "ISIC_0000010",
+ "golden_layer_stats": [
+  {
+   "name": "x",
+   "op": "Input",
+   "shape": [
+    1,
+    3,
+    128,
+    128
+   ],
+   "scale": 0.00392156862745098,
+   "clipped_count": 0,
+   "elements": 49152,
+   "qmin": 13,
+   "qmax": 227,
+   "mae": 2.1000834542722822e-08,
+   "max_abs_error": 2.9685450542160652e-08
+  },
+  {
+   "name": "first_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.002004813117642178,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -2326,
+   "qmax": 15933,
+   "mae": 0.024488381571215856,
+   "max_abs_error": 0.21850145978930513
+  },
+  {
+   "name": "first_block_5",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.11567456703486405,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -19,
+   "qmax": 81,
+   "mae": 0.05428141765473739,
+   "max_abs_error": 0.22440637002779784
+  },
+  {
+   "name": "first_shortcut_1",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.07892420911413478,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -38,
+   "qmax": 35,
+   "mae": 0.02124565114365403,
+   "max_abs_error": 0.066877389517356
+  },
+  {
+   "name": "add",
+   "op": "Add",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.11183255113015964,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -33,
+   "qmax": 80,
+   "mae": 0.06694447687049626,
+   "max_abs_error": 0.27998070454034263
+  },
+  {
+   "name": "down_path_0_pool",
+   "op": "MaxPool2d",
+   "shape": [
+    1,
+    8,
+    64,
+    64
+   ],
+   "scale": 0.11183255113015964,
+   "clipped_count": 0,
+   "elements": 32768,
+   "qmin": -32,
+   "qmax": 80,
+   "mae": 0.06571120841396094,
+   "max_abs_error": 0.2762259244918823
+  },
+  {
+   "name": "down_path_0_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.0009319123107964175,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -2332,
+   "qmax": 11487,
+   "mae": 0.06247917352260898,
+   "max_abs_error": 0.5291796315049953
+  },
+  {
+   "name": "down_path_0_block_5",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.18102666899913877,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -8,
+   "qmax": 57,
+   "mae": 0.0926836335912966,
+   "max_abs_error": 0.9188401135872668
+  },
+  {
+   "name": "down_path_0_shortcut_1",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.06075351820217343,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -57,
+   "qmax": 100,
+   "mae": 0.0311148352900469,
+   "max_abs_error": 0.22537992131991658
+  },
+  {
+   "name": "add_1",
+   "op": "Add",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.19750297726608637,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -25,
+   "qmax": 63,
+   "mae": 0.11138492055859558,
+   "max_abs_error": 0.9478538824817329
+  },
+  {
+   "name": "down_path_1_pool",
+   "op": "MaxPool2d",
+   "shape": [
+    1,
+    16,
+    32,
+    32
+   ],
+   "scale": 0.19750297726608637,
+   "clipped_count": 0,
+   "elements": 16384,
+   "qmin": -16,
+   "qmax": 63,
+   "mae": 0.12428998185619701,
+   "max_abs_error": 0.9478538824817329
+  },
+  {
+   "name": "down_path_1_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    32,
+    32,
+    32
+   ],
+   "scale": 0.16265637855830156,
+   "clipped_count": 0,
+   "elements": 32768,
+   "qmin": -9,
+   "qmax": 67,
+   "mae": 0.08456519607127225,
+   "max_abs_error": 1.680041337576438
+  },
+  {
+   "name": "down_path_1_block_5",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    32,
+    32,
+    32
+   ],
+   "scale": 0.1576273309902882,
+   "clipped_count": 0,
+   "elements": 32768,
+   "qmin": -8,
+   "qmax": 94,
+   "mae": 0.14109044771774773,
+   "max_abs_error": 2.870080360746759
+  },
+  {
+   "name": "down_path_1_shortcut_1",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    32,
+    32,
+    32
+   ],
+   "scale": 0.07080791503425658,
+   "clipped_count": 0,
+   "elements": 32768,
+   "qmin": -50,
+   "qmax": 49,
+   "mae": 0.04040670805922902,
+   "max_abs_error": 0.3191466200070119
+  },
+  {
+   "name": "add_2",
+   "op": "Add",
+   "shape": [
+    1,
+    32,
+    32,
+    32
+   ],
+   "scale": 0.16178891039270116,
+   "clipped_count": 0,
+   "elements": 32768,
+   "qmin": -25,
+   "qmax": 92,
+   "mae": 0.15907735159940717,
+   "max_abs_error": 2.771602864575198
+  },
+  {
+   "name": "up_path_0_up_layer_block_0",
+   "op": "ConvTranspose2d",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.24991915545125645,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -90,
+   "qmax": 62,
+   "mae": 0.29607843720642557,
+   "max_abs_error": 2.731828813477764
+  },
+  {
+   "name": "up_path_0_conv_bridge_layer_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.16278678413451186,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -5,
+   "qmax": 97,
+   "mae": 0.06703747826879553,
+   "max_abs_error": 1.712737251219787
+  },
+  {
+   "name": "cat",
+   "op": "Concat",
+   "shape": [
+    1,
+    32,
+    64,
+    64
+   ],
+   "scale": 0.24991915545125645,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -90,
+   "qmax": 63,
+   "mae": 0.19565651437328407,
+   "max_abs_error": 2.731828813477764
+  },
+  {
+   "name": "up_path_0_conv_layer_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.10853233487587276,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -8,
+   "qmax": 105,
+   "mae": 0.06907855724647528,
+   "max_abs_error": 1.344808736185389
+  },
+  {
+   "name": "up_path_0_conv_layer_block_5",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.1663812952717458,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -19,
+   "qmax": 87,
+   "mae": 0.18028445942261856,
+   "max_abs_error": 7.158829098611365
+  },
+  {
+   "name": "up_path_0_conv_layer_shortcut_1",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.04951560403418353,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -92,
+   "qmax": 93,
+   "mae": 0.08230101684140204,
+   "max_abs_error": 0.6195409307329673
+  },
+  {
+   "name": "add_3",
+   "op": "Add",
+   "shape": [
+    1,
+    16,
+    64,
+    64
+   ],
+   "scale": 0.17163081431952049,
+   "clipped_count": 0,
+   "elements": 65536,
+   "qmin": -33,
+   "qmax": 98,
+   "mae": 0.2180692836771429,
+   "max_abs_error": 7.235294624576419
+  },
+  {
+   "name": "up_path_1_up_layer_block_0",
+   "op": "ConvTranspose2d",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.2855377798005352,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -95,
+   "qmax": 103,
+   "mae": 0.33961855579473454,
+   "max_abs_error": 5.361491214571975
+  },
+  {
+   "name": "up_path_1_conv_bridge_layer_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.05964853632168507,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -16,
+   "qmax": 89,
+   "mae": 0.0312465931495382,
+   "max_abs_error": 0.2803945841751698
+  },
+  {
+   "name": "cat_1",
+   "op": "Concat",
+   "shape": [
+    1,
+    16,
+    128,
+    128
+   ],
+   "scale": 0.2855377798005352,
+   "clipped_count": 0,
+   "elements": 262144,
+   "qmin": -95,
+   "qmax": 103,
+   "mae": 0.21449981359567277,
+   "max_abs_error": 5.361491214571975
+  },
+  {
+   "name": "up_path_1_conv_layer_block_2",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.09058633188563069,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -17,
+   "qmax": 114,
+   "mae": 0.09390916554671733,
+   "max_abs_error": 4.282189599172336
+  },
+  {
+   "name": "up_path_1_conv_layer_block_5",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.10302715601883536,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -22,
+   "qmax": 111,
+   "mae": 0.14493564333108533,
+   "max_abs_error": 4.887040780285212
+  },
+  {
+   "name": "up_path_1_conv_layer_shortcut_1",
+   "op": "ConvAffine",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.06037083197766402,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -89,
+   "qmax": 89,
+   "mae": 0.12522480104430508,
+   "max_abs_error": 1.4819902716659188
+  },
+  {
+   "name": "add_4",
+   "op": "Add",
+   "shape": [
+    1,
+    8,
+    128,
+    128
+   ],
+   "scale": 0.13863905959241973,
+   "clipped_count": 0,
+   "elements": 131072,
+   "qmin": -44,
+   "qmax": 101,
+   "mae": 0.22940626724009555,
+   "max_abs_error": 5.585179208770512
+  },
+  {
+   "name": "final",
+   "op": "Conv2d",
+   "shape": [
+    1,
+    1,
+    128,
+    128
+   ],
+   "scale": 0.4723758547324834,
+   "clipped_count": 0,
+   "elements": 16384,
+   "qmin": -93,
+   "qmax": 35,
+   "mae": 0.9342686048956874,
+   "max_abs_error": 17.73131079185666
+  }
+ ],
+ "max_accumulator_abs_bound": 211613251,
+ "checkpoint_sha256": "54e4bb8cddd1ae64b29550034c4cb571121736dad25402c609db6f4dee1f8065",
+ "plan_sha256": "7bbd48a6860f77f547093148d14444ea9704ab11476b2d7b85722da8d5ac3f4d",
+ "parameters_sha256": "41c9e67c635cc53b4e73db9c732f41a826712e8cd9b630bc8df9bdfab0b8b28c",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops",
+ "per_image": [
+  {
+   "image": "ISIC_0000079",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.8805919452120189,
+    "dice": 0.9365050695383473,
+    "accuracy": 0.9923398837231215,
+    "sensitivity": 0.9742131402281107,
+    "specificity": 0.9934556798609613
+   },
+   "quantized": {
+    "jaccard": 0.8902656353508682,
+    "dice": 0.9419476487341616,
+    "accuracy": 0.9930736812845109,
+    "sensitivity": 0.9690740496237089,
+    "specificity": 0.994550984492562
+   },
+   "changed_pixels": 22
+  },
+  {
+   "image": "ISIC_0000295",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.915221988596082,
+    "dice": 0.955734629244695,
+    "accuracy": 0.9366625018108069,
+    "sensitivity": 0.9814547675672866,
+    "specificity": 0.8337810811617563
+   },
+   "quantized": {
+    "jaccard": 0.9178746469196122,
+    "dice": 0.957178977670781,
+    "accuracy": 0.9391251991887585,
+    "sensitivity": 0.9765845322104826,
+    "specificity": 0.8530864750305961
+   },
+   "changed_pixels": 214
+  },
+  {
+   "image": "ISIC_0008403",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.7072140430196104,
+    "dice": 0.8285007330056116,
+    "accuracy": 0.9649032934933233,
+    "sensitivity": 0.90534532472401,
+    "specificity": 0.9710563511554547
+   },
+   "quantized": {
+    "jaccard": 0.716457614277296,
+    "dice": 0.8348095616435669,
+    "accuracy": 0.9668505133534896,
+    "sensitivity": 0.894533453387381,
+    "specificity": 0.9743217392720698
+   },
+   "changed_pixels": 99
+  },
+  {
+   "image": "ISIC_0010490",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.8771289404353434,
+    "dice": 0.9345430902918367,
+    "accuracy": 0.9572423299153646,
+    "sensitivity": 0.8793041554331262,
+    "specificity": 0.9986814428170769
+   },
+   "quantized": {
+    "jaccard": 0.8261149856414464,
+    "dice": 0.9047787156198851,
+    "accuracy": 0.93963623046875,
+    "sensitivity": 0.8261634040557965,
+    "specificity": 0.9999688376441259
+   },
+   "changed_pixels": 316
+  },
+  {
+   "image": "ISIC_0010589",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.7790800384363438,
+    "dice": 0.8758234836034552,
+    "accuracy": 0.8769238789876302,
+    "sensitivity": 0.7811196316561514,
+    "specificity": 0.9967262747926021
+   },
+   "quantized": {
+    "jaccard": 0.7464613907557263,
+    "dice": 0.8548272463472193,
+    "accuracy": 0.8589668273925781,
+    "sensitivity": 0.747276209829673,
+    "specificity": 0.9986349939476147
+   },
+   "changed_pixels": 322
+  },
+  {
+   "image": "ISIC_0011158",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.6788491313066679,
+    "dice": 0.8087077256052325,
+    "accuracy": 0.7855682373046875,
+    "sensitivity": 0.6982980523983592,
+    "specificity": 0.9470028047746396
+   },
+   "quantized": {
+    "jaccard": 0.6499186147053354,
+    "dice": 0.787818997752694,
+    "accuracy": 0.7678120930989584,
+    "sensitivity": 0.6640749577843338,
+    "specificity": 0.9597076366693482
+   },
+   "changed_pixels": 457
+  },
+  {
+   "image": "ISIC_0011353",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.8714126601076666,
+    "dice": 0.931288623491018,
+    "accuracy": 0.9911918640136719,
+    "sensitivity": 0.999701854888515,
+    "specificity": 0.9906514757091179
+   },
+   "quantized": {
+    "jaccard": 0.8851188230856281,
+    "dice": 0.9390589200492251,
+    "accuracy": 0.992254892985026,
+    "sensitivity": 0.9994037097770301,
+    "specificity": 0.991800939855979
+   },
+   "changed_pixels": 18
+  },
+  {
+   "image": "ISIC_0011358",
+   "group": "calibration",
+   "fp32": {
+    "jaccard": 0.8527145624827019,
+    "dice": 0.9205028985577085,
+    "accuracy": 0.9580459594726562,
+    "sensitivity": 0.9920334036166478,
+    "specificity": 0.9470261568874415
+   },
+   "quantized": {
+    "jaccard": 0.867347822322279,
+    "dice": 0.9289622554020217,
+    "accuracy": 0.9629872639973959,
+    "sensitivity": 0.9884136398101312,
+    "specificity": 0.9547432300910288
+   },
+   "changed_pixels": 112
+  },
+  {
+   "image": "ISIC_0000010",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9315671265526883,
+    "dice": 0.9645713200920718,
+    "accuracy": 0.9942860714859786,
+    "sensitivity": 0.9820413291027107,
+    "specificity": 0.9953393452639075
+   },
+   "quantized": {
+    "jaccard": 0.9391361358704984,
+    "dice": 0.9686128977725542,
+    "accuracy": 0.9950259863192299,
+    "sensitivity": 0.9689951197513167,
+    "specificity": 0.9972651211506995
+   },
+   "changed_pixels": 46
+  },
+  {
+   "image": "ISIC_0000025",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7142844564193324,
+    "dice": 0.8333324772847509,
+    "accuracy": 0.9235602020240092,
+    "sensitivity": 0.9982311121228808,
+    "specificity": 0.9058809733472304
+   },
+   "quantized": {
+    "jaccard": 0.768786921931746,
+    "dice": 0.8692815538144418,
+    "accuracy": 0.9425600229915384,
+    "sensitivity": 0.997658915348717,
+    "specificity": 0.9295147029796359
+   },
+   "changed_pixels": 316
+  },
+  {
+   "image": "ISIC_0000031",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8403559632961972,
+    "dice": 0.9132537183633378,
+    "accuracy": 0.9473656314192563,
+    "sensitivity": 0.851743828166301,
+    "specificity": 0.9934666936669262
+   },
+   "quantized": {
+    "jaccard": 0.8324762679490992,
+    "dice": 0.9085806812448421,
+    "accuracy": 0.944938092456137,
+    "sensitivity": 0.841154489560929,
+    "specificity": 0.9949741111735686
+   },
+   "changed_pixels": 77
+  },
+  {
+   "image": "ISIC_0000032",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.742271395590598,
+    "dice": 0.8520732159974211,
+    "accuracy": 0.8875764421536664,
+    "sensitivity": 0.9856948717397073,
+    "specificity": 0.8395799495546568
+   },
+   "quantized": {
+    "jaccard": 0.75542404944876,
+    "dice": 0.8606741484326582,
+    "accuracy": 0.8960698839115768,
+    "sensitivity": 0.9772451826194215,
+    "specificity": 0.85636144544501
+   },
+   "changed_pixels": 229
+  },
+  {
+   "image": "ISIC_0000044",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9537825765366752,
+    "dice": 0.9763446434529829,
+    "accuracy": 0.9754919859412396,
+    "sensitivity": 0.9996775620431159,
+    "specificity": 0.9507256811008229
+   },
+   "quantized": {
+    "jaccard": 0.963033657180176,
+    "dice": 0.9811687676955448,
+    "accuracy": 0.9805991227408929,
+    "sensitivity": 0.9989977650509848,
+    "specificity": 0.9617587038820601
+   },
+   "changed_pixels": 95
+  },
+  {
+   "image": "ISIC_0000048",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9102562942315698,
+    "dice": 0.9530200706368928,
+    "accuracy": 0.9883198980457193,
+    "sensitivity": 0.9469747254350906,
+    "specificity": 0.9942319174414996
+   },
+   "quantized": {
+    "jaccard": 0.9111175817576298,
+    "dice": 0.9534919153636658,
+    "accuracy": 0.9884948080583458,
+    "sensitivity": 0.942723853370805,
+    "specificity": 0.995039677865143
+   },
+   "changed_pixels": 24
+  },
+  {
+   "image": "ISIC_0000054",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8612129904973207,
+    "dice": 0.9254319574324511,
+    "accuracy": 0.966549785161035,
+    "sensitivity": 0.9964941446561152,
+    "specificity": 0.9586713599866699
+   },
+   "quantized": {
+    "jaccard": 0.8924862909812157,
+    "dice": 0.9431891741931506,
+    "accuracy": 0.9750361598477282,
+    "sensitivity": 0.9948627910001301,
+    "specificity": 0.9698197306895223
+   },
+   "changed_pixels": 154
+  },
+  {
+   "image": "ISIC_0000061",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9392864609111587,
+    "dice": 0.9686928464089233,
+    "accuracy": 0.9799889989258052,
+    "sensitivity": 0.9807884264122289,
+    "specificity": 0.9796202702667816
+   },
+   "quantized": {
+    "jaccard": 0.9448550930800218,
+    "dice": 0.9716457503100416,
+    "accuracy": 0.9820784963157002,
+    "sensitivity": 0.9728105019039925,
+    "specificity": 0.986353274465443
+   },
+   "changed_pixels": 118
+  },
+  {
+   "image": "ISIC_0000065",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9202775070432447,
+    "dice": 0.958483868782326,
+    "accuracy": 0.9779854842357198,
+    "sensitivity": 1.0,
+    "specificity": 0.970484987066801
+   },
+   "quantized": {
+    "jaccard": 0.9320143418722191,
+    "dice": 0.9648109971782615,
+    "accuracy": 0.9814630721971995,
+    "sensitivity": 0.9999907301834496,
+    "specificity": 0.9751505714926396
+   },
+   "changed_pixels": 61
+  },
+  {
+   "image": "ISIC_0000067",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9018874930984105,
+    "dice": 0.9484130858120572,
+    "accuracy": 0.9710897771839601,
+    "sensitivity": 0.9804945419776367,
+    "specificity": 0.9675929126284541
+   },
+   "quantized": {
+    "jaccard": 0.9050770446463848,
+    "dice": 0.9501736921242288,
+    "accuracy": 0.9723279640177147,
+    "sensitivity": 0.9734668401901676,
+    "specificity": 0.9719045089066163
+   },
+   "changed_pixels": 89
+  },
+  {
+   "image": "ISIC_0000078",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9425678134389653,
+    "dice": 0.9704349129210778,
+    "accuracy": 0.9934935830993348,
+    "sensitivity": 0.9663696250026649,
+    "specificity": 0.996863057704378
+   },
+   "quantized": {
+    "jaccard": 0.938769621421976,
+    "dice": 0.9684179193332341,
+    "accuracy": 0.9931266843186402,
+    "sensitivity": 0.9536796213784723,
+    "specificity": 0.9980269970365231
+   },
+   "changed_pixels": 42
+  },
+  {
+   "image": "ISIC_0000089",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9046571279221016,
+    "dice": 0.949942238589728,
+    "accuracy": 0.9875338872273763,
+    "sensitivity": 0.9742539726594104,
+    "specificity": 0.9893690039637384
+   },
+   "quantized": {
+    "jaccard": 0.9064304807617264,
+    "dice": 0.9509189974759072,
+    "accuracy": 0.987804094950358,
+    "sensitivity": 0.9731045263050405,
+    "specificity": 0.9898353899786707
+   },
+   "changed_pixels": 11
+  },
+  {
+   "image": "ISIC_0000094",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7211055276381909,
+    "dice": 0.8379562043795621,
+    "accuracy": 0.9771347045898438,
+    "sensitivity": 0.9946091644204852,
+    "specificity": 0.9760303696433351
+   },
+   "quantized": {
+    "jaccard": 0.7407569873433004,
+    "dice": 0.851074552886127,
+    "accuracy": 0.9795220692952474,
+    "sensitivity": 0.984399734736662,
+    "specificity": 0.9792138150512515
+   },
+   "changed_pixels": 71
+  },
+  {
+   "image": "ISIC_0000104",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8966826401653444,
+    "dice": 0.9455273340691045,
+    "accuracy": 0.9727150599161783,
+    "sensitivity": 0.9997865998102214,
+    "specificity": 0.9643129836973252
+   },
+   "quantized": {
+    "jaccard": 0.9026001500902603,
+    "dice": 0.9488069787521466,
+    "accuracy": 0.9744609196980795,
+    "sensitivity": 0.9992202169165955,
+    "specificity": 0.9667764841923996
+   },
+   "changed_pixels": 47
+  },
+  {
+   "image": "ISIC_0000109",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.835072102929617,
+    "dice": 0.9101245685076448,
+    "accuracy": 0.9318993886311849,
+    "sensitivity": 0.9813879549641168,
+    "specificity": 0.9050932233459251
+   },
+   "quantized": {
+    "jaccard": 0.8501910803925031,
+    "dice": 0.9190305686828216,
+    "accuracy": 0.9395866394042969,
+    "sensitivity": 0.9758245178475136,
+    "specificity": 0.9199578921780996
+   },
+   "changed_pixels": 202
+  },
+  {
+   "image": "ISIC_0000124",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9448563306699447,
+    "dice": 0.9716464046930089,
+    "accuracy": 0.9863100051879883,
+    "sensitivity": 0.9898266751980941,
+    "specificity": 0.9852177836549458
+   },
+   "quantized": {
+    "jaccard": 0.9490316885503591,
+    "dice": 0.9738494187913641,
+    "accuracy": 0.9874455134073893,
+    "sensitivity": 0.986427518414335,
+    "specificity": 0.9877616863917035
+   },
+   "changed_pixels": 49
+  },
+  {
+   "image": "ISIC_0000133",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.5798260841416091,
+    "dice": 0.7340378665245989,
+    "accuracy": 0.9009723663330078,
+    "sensitivity": 0.9649100360933038,
+    "specificity": 0.8904232105875974
+   },
+   "quantized": {
+    "jaccard": 0.6026370839936609,
+    "dice": 0.7520568318460857,
+    "accuracy": 0.9103298187255859,
+    "sensitivity": 0.960236761299359,
+    "specificity": 0.9020956101289674
+   },
+   "changed_pixels": 301
+  },
+  {
+   "image": "ISIC_0000137",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9445398410785013,
+    "dice": 0.9714790318254736,
+    "accuracy": 0.9856669108072916,
+    "sensitivity": 0.9971898147667183,
+    "specificity": 0.9819318491778326
+   },
+   "quantized": {
+    "jaccard": 0.9523402648756595,
+    "dice": 0.9755884074196586,
+    "accuracy": 0.9878005981445312,
+    "sensitivity": 0.9958132915008778,
+    "specificity": 0.9852033445694524
+   },
+   "changed_pixels": 46
+  },
+  {
+   "image": "ISIC_0000142",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9361981024086954,
+    "dice": 0.9670478462343637,
+    "accuracy": 0.9766823450724283,
+    "sensitivity": 0.9457031068092535,
+    "specificity": 0.9942444143922017
+   },
+   "quantized": {
+    "jaccard": 0.9314260486423164,
+    "dice": 0.9644956888689126,
+    "accuracy": 0.9750649134318033,
+    "sensitivity": 0.9361293650103285,
+    "specificity": 0.9971373993519674
+   },
+   "changed_pixels": 87
+  },
+  {
+   "image": "ISIC_0000143",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7475665559456081,
+    "dice": 0.8555514562832772,
+    "accuracy": 0.9289025983716913,
+    "sensitivity": 0.7578163225801382,
+    "specificity": 0.9947249977396774
+   },
+   "quantized": {
+    "jaccard": 0.7247917385186187,
+    "dice": 0.840439714931757,
+    "accuracy": 0.9228778085784687,
+    "sensitivity": 0.7310353596140535,
+    "specificity": 0.996685776126101
+   },
+   "changed_pixels": 151
+  },
+  {
+   "image": "ISIC_0000151",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9178613833872271,
+    "dice": 0.9571717657364247,
+    "accuracy": 0.991731325785319,
+    "sensitivity": 0.9332179630836606,
+    "specificity": 0.9981614293925025
+   },
+   "quantized": {
+    "jaccard": 0.9034887831235561,
+    "dice": 0.9492977223022704,
+    "accuracy": 0.9902791976928711,
+    "sensitivity": 0.9191038364353804,
+    "specificity": 0.9981007435079334
+   },
+   "changed_pixels": 28
+  },
+  {
+   "image": "ISIC_0000154",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8627161919389239,
+    "dice": 0.9262991277709485,
+    "accuracy": 0.9844287236531576,
+    "sensitivity": 0.9973011589141133,
+    "specificity": 0.9830283069511332
+   },
+   "quantized": {
+    "jaccard": 0.8850970443746476,
+    "dice": 0.9390466628929071,
+    "accuracy": 0.9873005549112955,
+    "sensitivity": 0.9970063275349829,
+    "specificity": 0.9862446454572787
+   },
+   "changed_pixels": 48
+  },
+  {
+   "image": "ISIC_0000157",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9387887565452,
+    "dice": 0.9684281006643165,
+    "accuracy": 0.9791374662182799,
+    "sensitivity": 0.9633617154530949,
+    "specificity": 0.9869828745451669
+   },
+   "quantized": {
+    "jaccard": 0.9393720396503735,
+    "dice": 0.9687383549364997,
+    "accuracy": 0.9795023170504205,
+    "sensitivity": 0.9562139942241641,
+    "specificity": 0.9910837881664294
+   },
+   "changed_pixels": 88
+  },
+  {
+   "image": "ISIC_0000159",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8648688534621463,
+    "dice": 0.9275385256786387,
+    "accuracy": 0.946265708642258,
+    "sensitivity": 0.9033411407324418,
+    "specificity": 0.9726537130812415
+   },
+   "quantized": {
+    "jaccard": 0.8543364848679013,
+    "dice": 0.9214470964030698,
+    "accuracy": 0.9427318008759625,
+    "sensitivity": 0.8822611631395519,
+    "specificity": 0.9799063033746039
+   },
+   "changed_pixels": 207
+  },
+  {
+   "image": "ISIC_0000173",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.5195710455764075,
+    "dice": 0.6838390966831334,
+    "accuracy": 0.6925970164426034,
+    "sensitivity": 0.996268230455809,
+    "specificity": 0.5405152850086771
+   },
+   "quantized": {
+    "jaccard": 0.5557096605388664,
+    "dice": 0.7144130741546977,
+    "accuracy": 0.7346057078960075,
+    "sensitivity": 0.9947755226381326,
+    "specificity": 0.6043099338253524
+   },
+   "changed_pixels": 812
+  },
+  {
+   "image": "ISIC_0000182",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8999483972087386,
+    "dice": 0.9473398314721339,
+    "accuracy": 0.9703997587739025,
+    "sensitivity": 0.9999976207640678,
+    "specificity": 0.9596598114994488
+   },
+   "quantized": {
+    "jaccard": 0.9127161139983017,
+    "dice": 0.9543665234151022,
+    "accuracy": 0.9745401310780044,
+    "sensitivity": 0.9999262436861026,
+    "specificity": 0.9653284687287134
+   },
+   "changed_pixels": 69
+  },
+  {
+   "image": "ISIC_0000189",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8538435132907782,
+    "dice": 0.9211602890635695,
+    "accuracy": 0.9306829713886084,
+    "sensitivity": 0.9951569515103587,
+    "specificity": 0.8864466086614728
+   },
+   "quantized": {
+    "jaccard": 0.8819053093253696,
+    "dice": 0.937247272703128,
+    "accuracy": 0.9461175141042517,
+    "sensitivity": 0.9888505582504623,
+    "specificity": 0.9167978655000117
+   },
+   "changed_pixels": 339
+  },
+  {
+   "image": "ISIC_0000191",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.5659117417814163,
+    "dice": 0.7227888094607713,
+    "accuracy": 0.9005107050415494,
+    "sensitivity": 0.9952606174321782,
+    "specificity": 0.8863126320673562
+   },
+   "quantized": {
+    "jaccard": 0.6264435526428825,
+    "dice": 0.7703231404802777,
+    "accuracy": 0.9228722629263107,
+    "sensitivity": 0.9924899014694516,
+    "specificity": 0.9124402077677639
+   },
+   "changed_pixels": 449
+  },
+  {
+   "image": "ISIC_0000192",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8428052435162847,
+    "dice": 0.9146981174289641,
+    "accuracy": 0.9154682434204442,
+    "sensitivity": 0.8603156737829147,
+    "specificity": 0.9768696518265452
+   },
+   "quantized": {
+    "jaccard": 0.8346447883203338,
+    "dice": 0.9098707211704706,
+    "accuracy": 0.9119949170215165,
+    "sensitivity": 0.8432188817461863,
+    "specificity": 0.9885633427222003
+   },
+   "changed_pixels": 308
+  },
+  {
+   "image": "ISIC_0000205",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9625620913073575,
+    "dice": 0.9809239621724767,
+    "accuracy": 0.9740644702450014,
+    "sensitivity": 0.9784097519825495,
+    "specificity": 0.9647650699013577
+   },
+   "quantized": {
+    "jaccard": 0.9572245253213741,
+    "dice": 0.9781448300257722,
+    "accuracy": 0.9705324674313391,
+    "sensitivity": 0.967545123294636,
+    "specificity": 0.976925725859529
+   },
+   "changed_pixels": 185
+  },
+  {
+   "image": "ISIC_0000209",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9065293386199939,
+    "dice": 0.9509733946986291,
+    "accuracy": 0.9389150678210383,
+    "sensitivity": 0.9979853810987421,
+    "specificity": 0.8526241652098452
+   },
+   "quantized": {
+    "jaccard": 0.9235259125588378,
+    "dice": 0.9602427568342815,
+    "accuracy": 0.9510507916713516,
+    "sensitivity": 0.9957813535828361,
+    "specificity": 0.8857076379368892
+   },
+   "changed_pixels": 255
+  },
+  {
+   "image": "ISIC_0000210",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.829666113902433,
+    "dice": 0.9069043882906769,
+    "accuracy": 0.9824135498972718,
+    "sensitivity": 0.9748444134240679,
+    "specificity": 0.9831427306703124
+   },
+   "quantized": {
+    "jaccard": 0.8854822496164224,
+    "dice": 0.9392634163451421,
+    "accuracy": 0.988937555580542,
+    "sensitivity": 0.9734484964811261,
+    "specificity": 0.9904297104819324
+   },
+   "changed_pixels": 118
+  },
+  {
+   "image": "ISIC_0000219",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6879459256477657,
+    "dice": 0.8151279199110122,
+    "accuracy": 0.8628645193927093,
+    "sensitivity": 0.8125111395731522,
+    "specificity": 0.8927028401177999
+   },
+   "quantized": {
+    "jaccard": 0.6636733161022378,
+    "dice": 0.7978409098453715,
+    "accuracy": 0.859116763419434,
+    "sensitivity": 0.7471493055123789,
+    "specificity": 0.9254662504206262
+   },
+   "changed_pixels": 738
+  },
+  {
+   "image": "ISIC_0000229",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9093041056056703,
+    "dice": 0.9524979315091563,
+    "accuracy": 0.9579172356083433,
+    "sensitivity": 0.9891380385358213,
+    "specificity": 0.9346943277132693
+   },
+   "quantized": {
+    "jaccard": 0.921157144789005,
+    "dice": 0.9589607464309464,
+    "accuracy": 0.9640715358344063,
+    "sensitivity": 0.9841043539090896,
+    "specificity": 0.9491705645138484
+   },
+   "changed_pixels": 177
+  },
+  {
+   "image": "ISIC_0000236",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9622665519681152,
+    "dice": 0.980770477897593,
+    "accuracy": 0.9811477661132812,
+    "sensitivity": 0.9883671687518626,
+    "specificity": 0.9743100912615686
+   },
+   "quantized": {
+    "jaccard": 0.9656278995852792,
+    "dice": 0.9825134246303826,
+    "accuracy": 0.9829483032226562,
+    "sensitivity": 0.9848224228704077,
+    "specificity": 0.981173278137333
+   },
+   "changed_pixels": 86
+  },
+  {
+   "image": "ISIC_0000251",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8654210028382214,
+    "dice": 0.9278559655128693,
+    "accuracy": 0.9855295817057291,
+    "sensitivity": 0.8730613218802196,
+    "specificity": 0.9989467871314467
+   },
+   "quantized": {
+    "jaccard": 0.857964265348793,
+    "dice": 0.9235530320468555,
+    "accuracy": 0.9847971598307291,
+    "sensitivity": 0.861608208064901,
+    "specificity": 0.9994933192145878
+   },
+   "changed_pixels": 28
+  },
+  {
+   "image": "ISIC_0000256",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9150805270863837,
+    "dice": 0.9556574923547401,
+    "accuracy": 0.9934361775716146,
+    "sensitivity": 0.9936584494462308,
+    "specificity": 0.9934191432154338
+   },
+   "quantized": {
+    "jaccard": 0.9216656427966594,
+    "dice": 0.9592362191118023,
+    "accuracy": 0.9940007527669271,
+    "sensitivity": 0.99162200785995,
+    "specificity": 0.994183053780399
+   },
+   "changed_pixels": 14
+  },
+  {
+   "image": "ISIC_0000260",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8068736649374428,
+    "dice": 0.8931157508074902,
+    "accuracy": 0.9613723754882812,
+    "sensitivity": 1.0,
+    "specificity": 0.9539388094869858
+   },
+   "quantized": {
+    "jaccard": 0.8244143898351327,
+    "dice": 0.9037578243500182,
+    "accuracy": 0.9656295776367188,
+    "sensitivity": 0.9999527253817425,
+    "specificity": 0.9590243724924717
+   },
+   "changed_pixels": 70
+  },
+  {
+   "image": "ISIC_0000265",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8609142740785991,
+    "dice": 0.9252594663500731,
+    "accuracy": 0.9652582804361979,
+    "sensitivity": 0.863384351484087,
+    "specificity": 0.9990483512092035
+   },
+   "quantized": {
+    "jaccard": 0.8414944777275135,
+    "dice": 0.913925605431036,
+    "accuracy": 0.9604365030924479,
+    "sensitivity": 0.8432902112539438,
+    "specificity": 0.9992921900452795
+   },
+   "changed_pixels": 85
+  },
+  {
+   "image": "ISIC_0000292",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8574310221830312,
+    "dice": 0.9232439987734199,
+    "accuracy": 0.9041964213053385,
+    "sensitivity": 0.8964249751226064,
+    "specificity": 0.918178485369439
+   },
+   "quantized": {
+    "jaccard": 0.8460796692509643,
+    "dice": 0.9166231374989965,
+    "accuracy": 0.8983141581217448,
+    "sensitivity": 0.8696286096949626,
+    "specificity": 0.9499240086420149
+   },
+   "changed_pixels": 474
+  },
+  {
+   "image": "ISIC_0000316",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.686789909493549,
+    "dice": 0.8143158856099092,
+    "accuracy": 0.874825709836303,
+    "sensitivity": 0.6875453597024404,
+    "specificity": 0.9992690939779372
+   },
+   "quantized": {
+    "jaccard": 0.6237922979225257,
+    "dice": 0.7683153796462804,
+    "accuracy": 0.849813939591482,
+    "sensitivity": 0.6237922979225257,
+    "specificity": 1.0
+   },
+   "changed_pixels": 425
+  },
+  {
+   "image": "ISIC_0000317",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8075091971434755,
+    "dice": 0.8935049386411255,
+    "accuracy": 0.9919464363320295,
+    "sensitivity": 0.9808121960835853,
+    "specificity": 0.9923436496364054
+   },
+   "quantized": {
+    "jaccard": 0.8523250460405156,
+    "dice": 0.9202758963524513,
+    "accuracy": 0.9941918368825149,
+    "sensitivity": 0.9731896438428177,
+    "specificity": 0.9949410887677167
+   },
+   "changed_pixels": 47
+  },
+  {
+   "image": "ISIC_0000326",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8828101805619282,
+    "dice": 0.9377580275229358,
+    "accuracy": 0.9803436911487758,
+    "sensitivity": 0.968552900417518,
+    "specificity": 0.9824716098864396
+   },
+   "quantized": {
+    "jaccard": 0.9024505774669471,
+    "dice": 0.9487243328744251,
+    "accuracy": 0.9841509126466753,
+    "sensitivity": 0.9590625092535016,
+    "specificity": 0.9886786907147629
+   },
+   "changed_pixels": 110
+  },
+  {
+   "image": "ISIC_0000332",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.90538715835545,
+    "dice": 0.9503445579394947,
+    "accuracy": 0.9862016514558888,
+    "sensitivity": 0.9688429024596834,
+    "specificity": 0.9889407491463149
+   },
+   "quantized": {
+    "jaccard": 0.9080539779468764,
+    "dice": 0.9518116242434292,
+    "accuracy": 0.98684448790381,
+    "sensitivity": 0.9532975702114231,
+    "specificity": 0.9921379733267641
+   },
+   "changed_pixels": 79
+  },
+  {
+   "image": "ISIC_0000341",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9530055793335371,
+    "dice": 0.9759373853491501,
+    "accuracy": 0.9888658011009706,
+    "sensitivity": 0.9764962703369423,
+    "specificity": 0.9925862241563076
+   },
+   "quantized": {
+    "jaccard": 0.9513911557441579,
+    "dice": 0.9750901585708452,
+    "accuracy": 0.9885398558597711,
+    "sensitivity": 0.9700550149773871,
+    "specificity": 0.994099600162526
+   },
+   "changed_pixels": 44
+  },
+  {
+   "image": "ISIC_0000348",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9401463090223897,
+    "dice": 0.9691499085923218,
+    "accuracy": 0.9871659061277706,
+    "sensitivity": 0.9652007109415641,
+    "specificity": 0.9929646372167544
+   },
+   "quantized": {
+    "jaccard": 0.9424168694241687,
+    "dice": 0.9703549060542798,
+    "accuracy": 0.9877861074894974,
+    "sensitivity": 0.9570834055834923,
+    "specificity": 0.9958915083543145
+   },
+   "changed_pixels": 66
+  },
+  {
+   "image": "ISIC_0000349",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8080991190747289,
+    "dice": 0.8938659507652026,
+    "accuracy": 0.9710067180935825,
+    "sensitivity": 0.9903969740369432,
+    "specificity": 0.9682802777992926
+   },
+   "quantized": {
+    "jaccard": 0.8467673296976956,
+    "dice": 0.9170265426303661,
+    "accuracy": 0.9779941692017963,
+    "sensitivity": 0.98644926737909,
+    "specificity": 0.9768053081351818
+   },
+   "changed_pixels": 131
+  },
+  {
+   "image": "ISIC_0000366",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9020752057174705,
+    "dice": 0.9485168651648598,
+    "accuracy": 0.9932388997537303,
+    "sensitivity": 0.9696926980546942,
+    "specificity": 0.9948550612458154
+   },
+   "quantized": {
+    "jaccard": 0.9032950343370312,
+    "dice": 0.9491907644803719,
+    "accuracy": 0.9933701832536578,
+    "sensitivity": 0.9641598533972371,
+    "specificity": 0.9953751185246822
+   },
+   "changed_pixels": 14
+  },
+  {
+   "image": "ISIC_0000369",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8924266636228742,
+    "dice": 0.9431558757626112,
+    "accuracy": 0.95733512603216,
+    "sensitivity": 0.9948467053906006,
+    "specificity": 0.9366187533159295
+   },
+   "quantized": {
+    "jaccard": 0.9029028913052294,
+    "dice": 0.9489742176868677,
+    "accuracy": 0.9620613320295524,
+    "sensitivity": 0.9915956763222018,
+    "specificity": 0.9457505156160514
+   },
+   "changed_pixels": 116
+  },
+  {
+   "image": "ISIC_0000381",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8767539398233162,
+    "dice": 0.9343301977091965,
+    "accuracy": 0.9568746887434187,
+    "sensitivity": 0.9132207028358881,
+    "specificity": 0.9789586757835901
+   },
+   "quantized": {
+    "jaccard": 0.8687667443857793,
+    "dice": 0.929775475720297,
+    "accuracy": 0.9548586402132357,
+    "sensitivity": 0.8895548812990061,
+    "specificity": 0.9878949674936626
+   },
+   "changed_pixels": 227
+  },
+  {
+   "image": "ISIC_0000391",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8767787117283307,
+    "dice": 0.9343442636568514,
+    "accuracy": 0.9519820036711516,
+    "sensitivity": 0.8983140754234499,
+    "specificity": 0.9849237340036125
+   },
+   "quantized": {
+    "jaccard": 0.8591571643226129,
+    "dice": 0.9242437173251551,
+    "accuracy": 0.9455704865632234,
+    "sensitivity": 0.8729557430868772,
+    "specificity": 0.9901418977553642
+   },
+   "changed_pixels": 269
+  },
+  {
+   "image": "ISIC_0000395",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6956436641417167,
+    "dice": 0.8205069011286996,
+    "accuracy": 0.8719140511971933,
+    "sensitivity": 0.7017998715683831,
+    "specificity": 0.9936662251681314
+   },
+   "quantized": {
+    "jaccard": 0.6794478548286411,
+    "dice": 0.80913242155764,
+    "accuracy": 0.8656378851996528,
+    "sensitivity": 0.6827183608440721,
+    "specificity": 0.9965549539626272
+   },
+   "changed_pixels": 158
+  },
+  {
+   "image": "ISIC_0000410",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7872929665916473,
+    "dice": 0.8809892740673717,
+    "accuracy": 0.9587476763142505,
+    "sensitivity": 0.8939912926155564,
+    "specificity": 0.9720856295652672
+   },
+   "quantized": {
+    "jaccard": 0.7462202793978926,
+    "dice": 0.8546691253124078,
+    "accuracy": 0.9532403096723044,
+    "sensitivity": 0.8050300830695698,
+    "specificity": 0.9837673552057278
+   },
+   "changed_pixels": 408
+  },
+  {
+   "image": "ISIC_0000416",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9108800272316538,
+    "dice": 0.9533618168078,
+    "accuracy": 0.9879411768030237,
+    "sensitivity": 0.9413037965805418,
+    "specificity": 0.9949677563466763
+   },
+   "quantized": {
+    "jaccard": 0.9081494343593791,
+    "dice": 0.9518640605464646,
+    "accuracy": 0.9876684965910735,
+    "sensitivity": 0.9311727479215111,
+    "specificity": 0.9961803784766156
+   },
+   "changed_pixels": 39
+  },
+  {
+   "image": "ISIC_0000419",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9068891086905067,
+    "dice": 0.9511713130642221,
+    "accuracy": 0.9664306640625,
+    "sensitivity": 0.9990795776763912,
+    "specificity": 0.9505481396853133
+   },
+   "quantized": {
+    "jaccard": 0.9159546900784064,
+    "dice": 0.9561339783467665,
+    "accuracy": 0.9700727109555844,
+    "sensitivity": 0.9966243986171216,
+    "specificity": 0.9571562681138115
+   },
+   "changed_pixels": 88
+  },
+  {
+   "image": "ISIC_0000425",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.906250156016755,
+    "dice": 0.9508197580011524,
+    "accuracy": 0.9575511791087963,
+    "sensitivity": 0.9660202441646355,
+    "specificity": 0.9512972467401812
+   },
+   "quantized": {
+    "jaccard": 0.9000136165750623,
+    "dice": 0.9473759648074671,
+    "accuracy": 0.955596923828125,
+    "sensitivity": 0.9409452066458761,
+    "specificity": 0.9664164000911728
+   },
+   "changed_pixels": 319
+  },
+  {
+   "image": "ISIC_0000434",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.779913034308039,
+    "dice": 0.8763495960478079,
+    "accuracy": 0.9366055241337529,
+    "sensitivity": 0.7799727162891407,
+    "specificity": 0.999969043374796
+   },
+   "quantized": {
+    "jaccard": 0.7591480791510811,
+    "dice": 0.8630860450558842,
+    "accuracy": 0.9306243613914207,
+    "sensitivity": 0.7592057997261819,
+    "specificity": 0.9999692418147011
+   },
+   "changed_pixels": 98
+  },
+  {
+   "image": "ISIC_0000451",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8848461000425561,
+    "dice": 0.9389054098608667,
+    "accuracy": 0.9812287224663628,
+    "sensitivity": 0.8887685572184347,
+    "specificity": 0.9991412010805485
+   },
+   "quantized": {
+    "jaccard": 0.8578523212324292,
+    "dice": 0.9234881711839854,
+    "accuracy": 0.9768887272587529,
+    "sensitivity": 0.8594139170541414,
+    "specificity": 0.9996473392496911
+   },
+   "changed_pixels": 87
+  },
+  {
+   "image": "ISIC_0000455",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.912739254113241,
+    "dice": 0.9543791733770771,
+    "accuracy": 0.9736128881665399,
+    "sensitivity": 0.9897626057819576,
+    "specificity": 0.9673678528411477
+   },
+   "quantized": {
+    "jaccard": 0.9246358157742826,
+    "dice": 0.9608423663281989,
+    "accuracy": 0.9776148650206331,
+    "sensitivity": 0.9848652251529193,
+    "specificity": 0.9748111779081899
+   },
+   "changed_pixels": 110
+  },
+  {
+   "image": "ISIC_0000457",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9554902683520884,
+    "dice": 0.9772385818695889,
+    "accuracy": 0.9840882901597243,
+    "sensitivity": 0.9728430037896906,
+    "specificity": 0.9901730858819735
+   },
+   "quantized": {
+    "jaccard": 0.9510278443451288,
+    "dice": 0.9748993045912633,
+    "accuracy": 0.9826026632768536,
+    "sensitivity": 0.9622355495051327,
+    "specificity": 0.9936232564991817
+   },
+   "changed_pixels": 105
+  },
+  {
+   "image": "ISIC_0000468",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8395567939825587,
+    "dice": 0.9127815968812308,
+    "accuracy": 0.8807062865143995,
+    "sensitivity": 0.999795730773159,
+    "specificity": 0.6827649975980726
+   },
+   "quantized": {
+    "jaccard": 0.8660958871782286,
+    "dice": 0.9282437125863605,
+    "accuracy": 0.9037675126655613,
+    "sensitivity": 0.9969164039054538,
+    "specificity": 0.7489426101906733
+   },
+   "changed_pixels": 449
+  },
+  {
+   "image": "ISIC_0000477",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6429704844794945,
+    "dice": 0.7826926783571433,
+    "accuracy": 0.8577400351135219,
+    "sensitivity": 0.6919201172590692,
+    "specificity": 0.9552374509305422
+   },
+   "quantized": {
+    "jaccard": 0.6544957653864562,
+    "dice": 0.7911724878106042,
+    "accuracy": 0.8648346489597551,
+    "sensitivity": 0.6915207035544155,
+    "specificity": 0.9667383407521039
+   },
+   "changed_pixels": 421
+  },
+  {
+   "image": "ISIC_0000480",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8038171358183676,
+    "dice": 0.8912401593897561,
+    "accuracy": 0.9619680396397472,
+    "sensitivity": 0.8368258455619836,
+    "specificity": 0.9906034091818497
+   },
+   "quantized": {
+    "jaccard": 0.7638312363336559,
+    "dice": 0.8661046710130554,
+    "accuracy": 0.9553048825162339,
+    "sensitivity": 0.7762922052373111,
+    "specificity": 0.9962670392402699
+   },
+   "changed_pixels": 260
+  },
+  {
+   "image": "ISIC_0000504",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8836483391807473,
+    "dice": 0.9382306886062091,
+    "accuracy": 0.9834055118737884,
+    "sensitivity": 0.9962131713587217,
+    "specificity": 0.9815505739993795
+   },
+   "quantized": {
+    "jaccard": 0.8975600356824264,
+    "dice": 0.9460149020893914,
+    "accuracy": 0.9856974097030915,
+    "sensitivity": 0.9905817602137258,
+    "specificity": 0.9849900074829808
+   },
+   "changed_pixels": 61
+  },
+  {
+   "image": "ISIC_0000505",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8107930682064022,
+    "dice": 0.8955115661111912,
+    "accuracy": 0.9655879344077238,
+    "sensitivity": 0.9993379797348241,
+    "specificity": 0.9597456548035908
+   },
+   "quantized": {
+    "jaccard": 0.8340333392200373,
+    "dice": 0.9095072825390712,
+    "accuracy": 0.9706731538943718,
+    "sensitivity": 0.99874951727689,
+    "specificity": 0.9658130133061692
+   },
+   "changed_pixels": 98
+  },
+  {
+   "image": "ISIC_0000507",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9260275624981152,
+    "dice": 0.9615932612065321,
+    "accuracy": 0.9798555479364871,
+    "sensitivity": 0.9985367281240854,
+    "specificity": 0.9735435493174389
+   },
+   "quantized": {
+    "jaccard": 0.9358217162408481,
+    "dice": 0.9668470070251205,
+    "accuracy": 0.982747600335604,
+    "sensitivity": 0.9961142002406269,
+    "specificity": 0.9782312925170068
+   },
+   "changed_pixels": 68
+  },
+  {
+   "image": "ISIC_0000520",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.5163698116749846,
+    "dice": 0.6810605271871005,
+    "accuracy": 0.855873531765408,
+    "sensitivity": 0.9872385784869572,
+    "specificity": 0.8316163264035445
+   },
+   "quantized": {
+    "jaccard": 0.5350897309218968,
+    "dice": 0.6971445644425609,
+    "accuracy": 0.8682436060022425,
+    "sensitivity": 0.972881865982867,
+    "specificity": 0.8489216339525671
+   },
+   "changed_pixels": 294
+  },
+  {
+   "image": "ISIC_0000521",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9186626535299143,
+    "dice": 0.9576072707099171,
+    "accuracy": 0.956016116672092,
+    "sensitivity": 0.9280735275835338,
+    "specificity": 0.9882007218017134
+   },
+   "quantized": {
+    "jaccard": 0.9107458797605482,
+    "dice": 0.9532883356259615,
+    "accuracy": 0.9518258836534288,
+    "sensitivity": 0.9183441248644955,
+    "specificity": 0.9903905700628316
+   },
+   "changed_pixels": 110
+  },
+  {
+   "image": "ISIC_0000524",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9449365856960343,
+    "dice": 0.971688838233119,
+    "accuracy": 0.982340123575718,
+    "sensitivity": 0.9849718221665623,
+    "specificity": 0.9811705313328003
+   },
+   "quantized": {
+    "jaccard": 0.9474542117490021,
+    "dice": 0.9730182163287903,
+    "accuracy": 0.9833360016715557,
+    "sensitivity": 0.9765537495480081,
+    "specificity": 0.9863502030321559
+   },
+   "changed_pixels": 101
+  },
+  {
+   "image": "ISIC_0000538",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9616495538805468,
+    "dice": 0.9804498994004367,
+    "accuracy": 0.9934560541204748,
+    "sensitivity": 0.9769374547793231,
+    "specificity": 0.9967907105066701
+   },
+   "quantized": {
+    "jaccard": 0.9540642025477833,
+    "dice": 0.9764921759518834,
+    "accuracy": 0.9922154556625302,
+    "sensitivity": 0.962587426642013,
+    "specificity": 0.9981965497095004
+   },
+   "changed_pixels": 57
+  },
+  {
+   "image": "ISIC_0000545",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8553797660180639,
+    "dice": 0.9220535673446985,
+    "accuracy": 0.9395955142660383,
+    "sensitivity": 0.9081968901246009,
+    "specificity": 0.959957372451251
+   },
+   "quantized": {
+    "jaccard": 0.8476177818020211,
+    "dice": 0.9175250315845319,
+    "accuracy": 0.9380747262243947,
+    "sensitivity": 0.8756178560395428,
+    "specificity": 0.9785777090196777
+   },
+   "changed_pixels": 430
+  },
+  {
+   "image": "ISIC_0000900",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8102461183483152,
+    "dice": 0.8951778546970077,
+    "accuracy": 0.9870498643130091,
+    "sensitivity": 0.8108093157050396,
+    "specificity": 0.9999491252088463
+   },
+   "quantized": {
+    "jaccard": 0.7953730449443337,
+    "dice": 0.8860253830634898,
+    "accuracy": 0.9860441861929957,
+    "sensitivity": 0.7953921750194217,
+    "specificity": 0.9999982396266037
+   },
+   "changed_pixels": 18
+  },
+  {
+   "image": "ISIC_0001105",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.817057436229518,
+    "dice": 0.899319327984427,
+    "accuracy": 0.973576581036603,
+    "sensitivity": 0.8206948931387114,
+    "specificity": 0.9992523250364679
+   },
+   "quantized": {
+    "jaccard": 0.7891903719483058,
+    "dice": 0.882175965533429,
+    "accuracy": 0.9696454648618344,
+    "sensitivity": 0.7902596662500688,
+    "specificity": 0.9997724467502294
+   },
+   "changed_pixels": 79
+  },
+  {
+   "image": "ISIC_0001118",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9338643329001645,
+    "dice": 0.9658012891728275,
+    "accuracy": 0.9583322373035915,
+    "sensitivity": 0.985967988084862,
+    "specificity": 0.9174370750770161
+   },
+   "quantized": {
+    "jaccard": 0.941294907561448,
+    "dice": 0.9697598277263838,
+    "accuracy": 0.963662329577339,
+    "sensitivity": 0.9763861199328103,
+    "specificity": 0.9448337667189497
+   },
+   "changed_pixels": 277
+  },
+  {
+   "image": "ISIC_0001133",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8554623847634073,
+    "dice": 0.9221015653976607,
+    "accuracy": 0.9598221955475984,
+    "sensitivity": 0.9822665606838924,
+    "specificity": 0.9526530636592858
+   },
+   "quantized": {
+    "jaccard": 0.8571413828795871,
+    "dice": 0.9230760681780168,
+    "accuracy": 0.9608835290979456,
+    "sensitivity": 0.9694575852968743,
+    "specificity": 0.9581448221069189
+   },
+   "changed_pixels": 131
+  },
+  {
+   "image": "ISIC_0001163",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8063873537227684,
+    "dice": 0.8928177581191449,
+    "accuracy": 0.9767554012345679,
+    "sensitivity": 0.9993853395871785,
+    "specificity": 0.9743280466793829
+   },
+   "quantized": {
+    "jaccard": 0.8359413005277393,
+    "dice": 0.910640552927753,
+    "accuracy": 0.9810256374926514,
+    "sensitivity": 0.9980324093672215,
+    "specificity": 0.9792014405136098
+   },
+   "changed_pixels": 76
+  },
+  {
+   "image": "ISIC_0001188",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8750304274662123,
+    "dice": 0.9333506428998792,
+    "accuracy": 0.9951654997484488,
+    "sensitivity": 0.8986632928343018,
+    "specificity": 0.9989428374043254
+   },
+   "quantized": {
+    "jaccard": 0.8613576641406911,
+    "dice": 0.9255154780135638,
+    "accuracy": 0.9946471666422103,
+    "sensitivity": 0.8828723660955934,
+    "specificity": 0.9990223117977866
+   },
+   "changed_pixels": 13
+  },
+  {
+   "image": "ISIC_0001216",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.838303391229364,
+    "dice": 0.912040303280678,
+    "accuracy": 0.994272705774149,
+    "sensitivity": 0.8773053780662768,
+    "specificity": 0.9983701866369373
+   },
+   "quantized": {
+    "jaccard": 0.8469457515863861,
+    "dice": 0.9171311619292813,
+    "accuracy": 0.9946653451492538,
+    "sensitivity": 0.8722028805280081,
+    "specificity": 0.9989553260783613
+   },
+   "changed_pixels": 28
+  },
+  {
+   "image": "ISIC_0001254",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8892142896582188,
+    "dice": 0.9413588437541283,
+    "accuracy": 0.9917720078000336,
+    "sensitivity": 0.9943222371225424,
+    "specificity": 0.9915905747389383
+   },
+   "quantized": {
+    "jaccard": 0.9247696507262174,
+    "dice": 0.9609146220456053,
+    "accuracy": 0.9947017773158646,
+    "sensitivity": 0.9805760743665923,
+    "specificity": 0.9957067338127524
+   },
+   "changed_pixels": 78
+  },
+  {
+   "image": "ISIC_0001286",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.838251421073551,
+    "dice": 0.9120095450099058,
+    "accuracy": 0.9889191691337028,
+    "sensitivity": 0.9835894698395752,
+    "specificity": 0.9892496307783322
+   },
+   "quantized": {
+    "jaccard": 0.859810544776396,
+    "dice": 0.9246216472869504,
+    "accuracy": 0.9906903830204922,
+    "sensitivity": 0.9779731969769336,
+    "specificity": 0.9914788969652923
+   },
+   "changed_pixels": 40
+  },
+  {
+   "image": "ISIC_0001306",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6320109947255033,
+    "dice": 0.7745180599494731,
+    "accuracy": 0.9804992598891409,
+    "sensitivity": 1.0,
+    "specificity": 0.9798235091656704
+   },
+   "quantized": {
+    "jaccard": 0.7563401662008736,
+    "dice": 0.8612684271030565,
+    "accuracy": 0.9892313213865793,
+    "sensitivity": 0.9980556371828778,
+    "specificity": 0.9889255361830649
+   },
+   "changed_pixels": 147
+  },
+  {
+   "image": "ISIC_0001742",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8792291756380861,
+    "dice": 0.9357338498531418,
+    "accuracy": 0.993191537803393,
+    "sensitivity": 0.9813235561559845,
+    "specificity": 0.9938228778105941
+   },
+   "quantized": {
+    "jaccard": 0.8918687444419908,
+    "dice": 0.9428442084707612,
+    "accuracy": 0.9940563127257076,
+    "sensitivity": 0.9705742900937882,
+    "specificity": 0.9953054838803301
+   },
+   "changed_pixels": 32
+  },
+  {
+   "image": "ISIC_0002469",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8272176339600305,
+    "dice": 0.9054396351979662,
+    "accuracy": 0.9849177807697153,
+    "sensitivity": 0.8287750280050079,
+    "specificity": 0.9998203128748161
+   },
+   "quantized": {
+    "jaccard": 0.7991855184886174,
+    "dice": 0.8883858949242354,
+    "accuracy": 0.9824963453745695,
+    "sensitivity": 0.7995255622181849,
+    "specificity": 0.9999593907097084
+   },
+   "changed_pixels": 44
+  },
+  {
+   "image": "ISIC_0003051",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8702213429327939,
+    "dice": 0.930607862241753,
+    "accuracy": 0.9957135571702582,
+    "sensitivity": 0.9313053860440436,
+    "specificity": 0.9977646577313811
+   },
+   "quantized": {
+    "jaccard": 0.8856163221481949,
+    "dice": 0.9393388376477919,
+    "accuracy": 0.9963012470128291,
+    "sensitivity": 0.927909259750597,
+    "specificity": 0.9984792135813096
+   },
+   "changed_pixels": 15
+  },
+  {
+   "image": "ISIC_0004166",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8356134186206442,
+    "dice": 0.9104459687907039,
+    "accuracy": 0.9857112021528593,
+    "sensitivity": 0.8378012312772376,
+    "specificity": 0.9997514678370512
+   },
+   "quantized": {
+    "jaccard": 0.8033825860854295,
+    "dice": 0.890972988520775,
+    "accuracy": 0.9829289079532114,
+    "sensitivity": 0.8045777142220266,
+    "specificity": 0.9998587885437791
+   },
+   "changed_pixels": 49
+  },
+  {
+   "image": "ISIC_0006350",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8556253188667052,
+    "dice": 0.9221962108053853,
+    "accuracy": 0.9825931240551776,
+    "sensitivity": 0.8657060344186789,
+    "specificity": 0.9984061209128333
+   },
+   "quantized": {
+    "jaccard": 0.8417310369298796,
+    "dice": 0.9140651051122259,
+    "accuracy": 0.9809772481523473,
+    "sensitivity": 0.84900050380885,
+    "specificity": 0.9988316395147934
+   },
+   "changed_pixels": 39
+  },
+  {
+   "image": "ISIC_0006940",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7995783528132288,
+    "dice": 0.8886285518641309,
+    "accuracy": 0.985030408875566,
+    "sensitivity": 0.9632045494766147,
+    "specificity": 0.9864731134021555
+   },
+   "quantized": {
+    "jaccard": 0.8043511041020194,
+    "dice": 0.8915682787827759,
+    "accuracy": 0.9858692405249035,
+    "sensitivity": 0.9369705726202017,
+    "specificity": 0.9891014765730153
+   },
+   "changed_pixels": 69
+  },
+  {
+   "image": "ISIC_0007760",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8482780660200016,
+    "dice": 0.9179117380824036,
+    "accuracy": 0.9867610045561435,
+    "sensitivity": 0.999997783938429,
+    "specificity": 0.9857029054939892
+   },
+   "quantized": {
+    "jaccard": 0.864848492981047,
+    "dice": 0.9275268165067356,
+    "accuracy": 0.9884352757306626,
+    "sensitivity": 0.9997894741507498,
+    "specificity": 0.9875276632100608
+   },
+   "changed_pixels": 28
+  },
+  {
+   "image": "ISIC_0008396",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7153125034344056,
+    "dice": 0.8340317020976691,
+    "accuracy": 0.9915153865503941,
+    "sensitivity": 0.7161763290007565,
+    "specificity": 0.9999629495187615
+   },
+   "quantized": {
+    "jaccard": 0.6196199331750637,
+    "dice": 0.7651423898696724,
+    "accuracy": 0.9886643088105819,
+    "sensitivity": 0.6203204731449006,
+    "specificity": 0.9999653126474054
+   },
+   "changed_pixels": 47
+  },
+  {
+   "image": "ISIC_0008528",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9386030892338397,
+    "dice": 0.9683293031424884,
+    "accuracy": 0.9946194075706439,
+    "sensitivity": 0.9630373154861712,
+    "specificity": 0.9975688380802649
+   },
+   "quantized": {
+    "jaccard": 0.9424334682272235,
+    "dice": 0.9703637047474707,
+    "accuracy": 0.9949865806588546,
+    "sensitivity": 0.960931051243482,
+    "specificity": 0.9981670038306424
+   },
+   "changed_pixels": 14
+  },
+  {
+   "image": "ISIC_0009188",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.763131684031762,
+    "dice": 0.8656547788724492,
+    "accuracy": 0.9915483862726396,
+    "sensitivity": 0.7709215764008188,
+    "specificity": 0.9996262590414456
+   },
+   "quantized": {
+    "jaccard": 0.711974154776389,
+    "dice": 0.8317580645595484,
+    "accuracy": 0.9897648454532114,
+    "sensitivity": 0.716316940118747,
+    "specificity": 0.999776672163989
+   },
+   "changed_pixels": 34
+  },
+  {
+   "image": "ISIC_0009252",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8138367817942731,
+    "dice": 0.8973649558360088,
+    "accuracy": 0.9886211236037625,
+    "sensitivity": 0.8168245494482408,
+    "specificity": 0.999761926262817
+   },
+   "quantized": {
+    "jaccard": 0.8008553805153775,
+    "dice": 0.8894166507542486,
+    "accuracy": 0.9878406609557403,
+    "sensitivity": 0.8029369698895943,
+    "specificity": 0.9998314444927501
+   },
+   "changed_pixels": 15
+  },
+  {
+   "image": "ISIC_0009430",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8633233313584211,
+    "dice": 0.9266489790894544,
+    "accuracy": 0.9894425941672965,
+    "sensitivity": 0.864803520945499,
+    "specificity": 0.9998567437862618
+   },
+   "quantized": {
+    "jaccard": 0.8499302104733153,
+    "dice": 0.9188781346036354,
+    "accuracy": 0.9884131314562862,
+    "sensitivity": 0.8510149946500858,
+    "specificity": 0.9998933576572668
+   },
+   "changed_pixels": 20
+  },
+  {
+   "image": "ISIC_0009583",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8898632976121875,
+    "dice": 0.9417223973146795,
+    "accuracy": 0.9944128112946503,
+    "sensitivity": 0.9447612943470854,
+    "specificity": 0.9969042976593604
+   },
+   "quantized": {
+    "jaccard": 0.901265772200965,
+    "dice": 0.9480692130249959,
+    "accuracy": 0.9951443733753983,
+    "sensitivity": 0.9276154112441347,
+    "specificity": 0.9985329403058054
+   },
+   "changed_pixels": 39
+  },
+  {
+   "image": "ISIC_0009870",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7287740560697876,
+    "dice": 0.8431108200762683,
+    "accuracy": 0.9896418253580729,
+    "sensitivity": 0.7287740560697876,
+    "specificity": 1.0
+   },
+   "quantized": {
+    "jaccard": 0.7159885463141773,
+    "dice": 0.8344910551437774,
+    "accuracy": 0.9891535441080729,
+    "sensitivity": 0.7159885463141773,
+    "specificity": 1.0
+   },
+   "changed_pixels": 8
+  },
+  {
+   "image": "ISIC_0009877",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9324323647921515,
+    "dice": 0.9650349288084316,
+    "accuracy": 0.9828351338704427,
+    "sensitivity": 0.9837300057560188,
+    "specificity": 0.9825513135085795
+   },
+   "quantized": {
+    "jaccard": 0.9392400052777411,
+    "dice": 0.968668140840279,
+    "accuracy": 0.9847755432128906,
+    "sensitivity": 0.9773667006394989,
+    "specificity": 0.9871253548608611
+   },
+   "changed_pixels": 82
+  },
+  {
+   "image": "ISIC_0009883",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9485017085779375,
+    "dice": 0.9735703124121727,
+    "accuracy": 0.9910316467285156,
+    "sensitivity": 0.9571185429146128,
+    "specificity": 0.998105143773945
+   },
+   "quantized": {
+    "jaccard": 0.9415961712964318,
+    "dice": 0.9699196828017171,
+    "accuracy": 0.9898516337076823,
+    "sensitivity": 0.948041231036744,
+    "specificity": 0.9985723264931021
+   },
+   "changed_pixels": 36
+  },
+  {
+   "image": "ISIC_0009888",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8808505050283976,
+    "dice": 0.9366512677891944,
+    "accuracy": 0.9861551920572916,
+    "sensitivity": 0.9779724442932471,
+    "specificity": 0.9871116817160565
+   },
+   "quantized": {
+    "jaccard": 0.9064160993697551,
+    "dice": 0.9509110835450966,
+    "accuracy": 0.9896341959635416,
+    "sensitivity": 0.9593103783442276,
+    "specificity": 0.9931787776619525
+   },
+   "changed_pixels": 121
+  },
+  {
+   "image": "ISIC_0009912",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7385710653445208,
+    "dice": 0.8496299979525579,
+    "accuracy": 0.9803886413574219,
+    "sensitivity": 0.7387213264839021,
+    "specificity": 0.9999835039982184
+   },
+   "quantized": {
+    "jaccard": 0.7157894736842105,
+    "dice": 0.8343558282208589,
+    "accuracy": 0.9786796569824219,
+    "sensitivity": 0.7159350999440517,
+    "specificity": 0.9999835039982184
+   },
+   "changed_pixels": 28
+  },
+  {
+   "image": "ISIC_0009938",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7642178933862125,
+    "dice": 0.8663531826212062,
+    "accuracy": 0.9357426961263021,
+    "sensitivity": 0.8309708383221381,
+    "specificity": 0.9707851708058725
+   },
+   "quantized": {
+    "jaccard": 0.7715323173373181,
+    "dice": 0.8710338612359736,
+    "accuracy": 0.9403152465820312,
+    "sensitivity": 0.8041733465917162,
+    "specificity": 0.9858498890253918
+   },
+   "changed_pixels": 303
+  },
+  {
+   "image": "ISIC_0009940",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8778425831537565,
+    "dice": 0.9349479993998829,
+    "accuracy": 0.9277737935384115,
+    "sensitivity": 0.9969372427857902,
+    "specificity": 0.8526593049812068
+   },
+   "quantized": {
+    "jaccard": 0.898572849954002,
+    "dice": 0.946577161867423,
+    "accuracy": 0.9415397644042969,
+    "sensitivity": 0.9948001514281877,
+    "specificity": 0.883696687241543
+   },
+   "changed_pixels": 262
+  },
+  {
+   "image": "ISIC_0009942",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8653556252097685,
+    "dice": 0.9278183886383112,
+    "accuracy": 0.969903310139974,
+    "sensitivity": 0.9952045429268643,
+    "specificity": 0.9637993052168712
+   },
+   "quantized": {
+    "jaccard": 0.8737464599099308,
+    "dice": 0.9326197312222604,
+    "accuracy": 0.9723370869954427,
+    "sensitivity": 0.9849790321419927,
+    "specificity": 0.9692871765004838
+   },
+   "changed_pixels": 105
+  },
+  {
+   "image": "ISIC_0009960",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.818485358862985,
+    "dice": 0.9001836114586549,
+    "accuracy": 0.9921887715657552,
+    "sensitivity": 0.9981622283881662,
+    "specificity": 0.9919702747267956
+   },
+   "quantized": {
+    "jaccard": 0.8808946461617,
+    "dice": 0.9366762226255704,
+    "accuracy": 0.9952532450358073,
+    "sensitivity": 0.9948830672768549,
+    "specificity": 0.9952667853814713
+   },
+   "changed_pixels": 54
+  },
+  {
+   "image": "ISIC_0009961",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8176319380739521,
+    "dice": 0.8996672218913068,
+    "accuracy": 0.9284617106119791,
+    "sensitivity": 0.8434948066800875,
+    "specificity": 0.980592703233934
+   },
+   "quantized": {
+    "jaccard": 0.8028677343984545,
+    "dice": 0.8906562795260625,
+    "accuracy": 0.9231847127278646,
+    "sensitivity": 0.8227516235394833,
+    "specificity": 0.984804901168254
+   },
+   "changed_pixels": 188
+  },
+  {
+   "image": "ISIC_0009962",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8215774448155543,
+    "dice": 0.9020505245647066,
+    "accuracy": 0.8784103393554688,
+    "sensitivity": 0.827201917766013,
+    "specificity": 0.9856617849582523
+   },
+   "quantized": {
+    "jaccard": 0.8041652030284232,
+    "dice": 0.8914540660451417,
+    "accuracy": 0.8667271931966146,
+    "sensitivity": 0.8085615627688874,
+    "specificity": 0.9885498886466834
+   },
+   "changed_pixels": 226
+  },
+  {
+   "image": "ISIC_0009963",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9035926741299358,
+    "dice": 0.9493550657237486,
+    "accuracy": 0.986914316813151,
+    "sensitivity": 0.9724852041176412,
+    "specificity": 0.9889967100716043
+   },
+   "quantized": {
+    "jaccard": 0.9074463408573995,
+    "dice": 0.9514777128141925,
+    "accuracy": 0.9876848856608073,
+    "sensitivity": 0.9573918917556437,
+    "specificity": 0.9920567363502893
+   },
+   "changed_pixels": 77
+  },
+  {
+   "image": "ISIC_0009968",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7593667546174142,
+    "dice": 0.8632273545290942,
+    "accuracy": 0.89215087890625,
+    "sensitivity": 0.7605967604433077,
+    "specificity": 0.9986882439037862
+   },
+   "quantized": {
+    "jaccard": 0.7154055228471377,
+    "dice": 0.8340949277809787,
+    "accuracy": 0.8725814819335938,
+    "sensitivity": 0.7158141517476556,
+    "specificity": 0.9995374333765983
+   },
+   "changed_pixels": 342
+  },
+  {
+   "image": "ISIC_0009969",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.924917415579255,
+    "dice": 0.9609943866614398,
+    "accuracy": 0.9762140909830729,
+    "sensitivity": 0.993091589236153,
+    "specificity": 0.9691502103189777
+   },
+   "quantized": {
+    "jaccard": 0.9435044072823132,
+    "dice": 0.9709310704385348,
+    "accuracy": 0.9825592041015625,
+    "sensitivity": 0.9871916426761365,
+    "specificity": 0.9806203507961818
+   },
+   "changed_pixels": 161
+  },
+  {
+   "image": "ISIC_0009973",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9509381969660664,
+    "dice": 0.9748522002848525,
+    "accuracy": 0.9864616394042969,
+    "sensitivity": 0.9893948038374317,
+    "specificity": 0.9854029124953492
+   },
+   "quantized": {
+    "jaccard": 0.9567444692888056,
+    "dice": 0.9778941341651443,
+    "accuracy": 0.9881680806477865,
+    "sensitivity": 0.9867435047967896,
+    "specificity": 0.9886822818873247
+   },
+   "changed_pixels": 53
+  },
+  {
+   "image": "ISIC_0009976",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7275362019885309,
+    "dice": 0.8422818591599749,
+    "accuracy": 0.9664090474446615,
+    "sensitivity": 0.7416492308986342,
+    "specificity": 0.997331196361748
+   },
+   "quantized": {
+    "jaccard": 0.6975766798132563,
+    "dice": 0.8218499795720496,
+    "accuracy": 0.9628512064615885,
+    "sensitivity": 0.7085195192985039,
+    "specificity": 0.9978418129928065
+   },
+   "changed_pixels": 73
+  },
+  {
+   "image": "ISIC_0010032",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6107374096188245,
+    "dice": 0.7583326816297803,
+    "accuracy": 0.9214121500651041,
+    "sensitivity": 0.9597371234015598,
+    "specificity": 0.9157625664579309
+   },
+   "quantized": {
+    "jaccard": 0.6237587754333327,
+    "dice": 0.7682899515254291,
+    "accuracy": 0.9263331095377604,
+    "sensitivity": 0.950621560631854,
+    "specificity": 0.9227526860384362
+   },
+   "changed_pixels": 121
+  },
+  {
+   "image": "ISIC_0010042",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7543475781851355,
+    "dice": 0.8599750557589102,
+    "accuracy": 0.9561729431152344,
+    "sensitivity": 0.8966764658539271,
+    "specificity": 0.9666798824048654
+   },
+   "quantized": {
+    "jaccard": 0.7719708710109384,
+    "dice": 0.871313274546682,
+    "accuracy": 0.9614575703938802,
+    "sensitivity": 0.869346052508959,
+    "specificity": 0.9777242498821804
+   },
+   "changed_pixels": 241
+  },
+  {
+   "image": "ISIC_0010060",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6988401929590475,
+    "dice": 0.8227262291714497,
+    "accuracy": 0.9813448588053385,
+    "sensitivity": 0.8274554602240964,
+    "specificity": 0.9898401828015709
+   },
+   "quantized": {
+    "jaccard": 0.714535974114301,
+    "dice": 0.8335036241901167,
+    "accuracy": 0.9823875427246094,
+    "sensitivity": 0.842670685171232,
+    "specificity": 0.9901004845100357
+   },
+   "changed_pixels": 69
+  },
+  {
+   "image": "ISIC_0010064",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9275026361885507,
+    "dice": 0.962387930138033,
+    "accuracy": 0.9894218444824219,
+    "sensitivity": 0.9828874338538829,
+    "specificity": 0.9904652222446689
+   },
+   "quantized": {
+    "jaccard": 0.9393839432978202,
+    "dice": 0.9687446846656339,
+    "accuracy": 0.9913546244303385,
+    "sensitivity": 0.9730613300333386,
+    "specificity": 0.9942755943015473
+   },
+   "changed_pixels": 80
+  },
+  {
+   "image": "ISIC_0010066",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9496203130337295,
+    "dice": 0.974159231605524,
+    "accuracy": 0.9853719075520834,
+    "sensitivity": 0.9622539361343344,
+    "specificity": 0.9946567715350999
+   },
+   "quantized": {
+    "jaccard": 0.9460871860291207,
+    "dice": 0.9722968146761783,
+    "accuracy": 0.9844156901041666,
+    "sensitivity": 0.9544082929513463,
+    "specificity": 0.9964675520955864
+   },
+   "changed_pixels": 58
+  },
+  {
+   "image": "ISIC_0010068",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.747343206778029,
+    "dice": 0.855405170408479,
+    "accuracy": 0.9185880025227865,
+    "sensitivity": 0.7563027894810407,
+    "specificity": 0.9943995358442765
+   },
+   "quantized": {
+    "jaccard": 0.7318643316688692,
+    "dice": 0.8451751309684008,
+    "accuracy": 0.9138298034667969,
+    "sensitivity": 0.7386713524090973,
+    "specificity": 0.9956550696140306
+   },
+   "changed_pixels": 188
+  },
+  {
+   "image": "ISIC_0010070",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6974737077838741,
+    "dice": 0.8217785107192693,
+    "accuracy": 0.9106775919596354,
+    "sensitivity": 0.7046109133941857,
+    "specificity": 0.9957742379434624
+   },
+   "quantized": {
+    "jaccard": 0.6932671359505603,
+    "dice": 0.818851463223346,
+    "accuracy": 0.9101282755533854,
+    "sensitivity": 0.6950044812613663,
+    "specificity": 0.9989651194963581
+   },
+   "changed_pixels": 87
+  },
+  {
+   "image": "ISIC_0010075",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6632890913758747,
+    "dice": 0.7975632075205894,
+    "accuracy": 0.7898699442545573,
+    "sensitivity": 0.664918920795861,
+    "specificity": 0.9959474345542684
+   },
+   "quantized": {
+    "jaccard": 0.6149747547811062,
+    "dice": 0.7615905486577838,
+    "accuracy": 0.7597185770670573,
+    "sensitivity": 0.6164858665435687,
+    "specificity": 0.9959474345542684
+   },
+   "changed_pixels": 512
+  },
+  {
+   "image": "ISIC_0010087",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7040026628942332,
+    "dice": 0.8262929140010744,
+    "accuracy": 0.9864311218261719,
+    "sensitivity": 0.9998818106606784,
+    "specificity": 0.9859825057256497
+   },
+   "quantized": {
+    "jaccard": 0.72425306052564,
+    "dice": 0.8400774539496549,
+    "accuracy": 0.9877128601074219,
+    "sensitivity": 0.9998818106606784,
+    "specificity": 0.9873069933736198
+   },
+   "changed_pixels": 31
+  },
+  {
+   "image": "ISIC_0010102",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7389621431341548,
+    "dice": 0.8498887063778322,
+    "accuracy": 0.9109878540039062,
+    "sensitivity": 0.8875939479176931,
+    "specificity": 0.9202620878242804
+   },
+   "quantized": {
+    "jaccard": 0.7535568806871866,
+    "dice": 0.8594610063539901,
+    "accuracy": 0.9200693766276041,
+    "sensitivity": 0.8609122913885928,
+    "specificity": 0.943521494397784
+   },
+   "changed_pixels": 401
+  },
+  {
+   "image": "ISIC_0010169",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8726530476825307,
+    "dice": 0.9319965049184816,
+    "accuracy": 0.8926251729329427,
+    "sensitivity": 0.8804136636191154,
+    "specificity": 0.95475410851273
+   },
+   "quantized": {
+    "jaccard": 0.8536367834409323,
+    "dice": 0.9210399697143625,
+    "accuracy": 0.8766746520996094,
+    "sensitivity": 0.8606464216758032,
+    "specificity": 0.9582220570818142
+   },
+   "changed_pixels": 290
+  },
+  {
+   "image": "ISIC_0010170",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8006566995016418,
+    "dice": 0.889294111113168,
+    "accuracy": 0.9695841471354166,
+    "sensitivity": 0.9921310256516171,
+    "specificity": 0.9664180186660015
+   },
+   "quantized": {
+    "jaccard": 0.8427416872598078,
+    "dice": 0.9146606853106806,
+    "accuracy": 0.9772618611653646,
+    "sensitivity": 0.9896009748440663,
+    "specificity": 0.9755291504011044
+   },
+   "changed_pixels": 136
+  },
+  {
+   "image": "ISIC_0010176",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8691616387494199,
+    "dice": 0.930001580099772,
+    "accuracy": 0.9881706237792969,
+    "sensitivity": 0.9997573404513468,
+    "specificity": 0.9871821941798219
+   },
+   "quantized": {
+    "jaccard": 0.8773212561758191,
+    "dice": 0.9346522373724769,
+    "accuracy": 0.9890124003092448,
+    "sensitivity": 0.999676453935129,
+    "specificity": 0.9881026804505001
+   },
+   "changed_pixels": 14
+  },
+  {
+   "image": "ISIC_0010186",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7163478756605443,
+    "dice": 0.8347350625348658,
+    "accuracy": 0.9013036092122396,
+    "sensitivity": 0.7238712822292961,
+    "specificity": 0.9944845026937502
+   },
+   "quantized": {
+    "jaccard": 0.6361540727647665,
+    "dice": 0.7776212318315425,
+    "accuracy": 0.8743616739908854,
+    "sensitivity": 0.6379535735651455,
+    "specificity": 0.998514461695996
+   },
+   "changed_pixels": 544
+  },
+  {
+   "image": "ISIC_0010189",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8815199525127997,
+    "dice": 0.9370296087857223,
+    "accuracy": 0.8835042317708334,
+    "sensitivity": 0.8847086339058813,
+    "specificity": 0.8253540543927811
+   },
+   "quantized": {
+    "jaccard": 0.8500578462557814,
+    "dice": 0.9189527213715629,
+    "accuracy": 0.8526687622070312,
+    "sensitivity": 0.8525556994785028,
+    "specificity": 0.8581275849103898
+   },
+   "changed_pixels": 557
+  },
+  {
+   "image": "ISIC_0010191",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8860969791387746,
+    "dice": 0.9396091388083154,
+    "accuracy": 0.9524002075195312,
+    "sensitivity": 0.9668780504000797,
+    "specificity": 0.9434138017731358
+   },
+   "quantized": {
+    "jaccard": 0.9023516195234,
+    "dice": 0.94866964683371,
+    "accuracy": 0.9604314168294271,
+    "sensitivity": 0.9547328928583286,
+    "specificity": 0.9639684940709996
+   },
+   "changed_pixels": 302
+  },
+  {
+   "image": "ISIC_0010205",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9641023511991254,
+    "dice": 0.9817231272194352,
+    "accuracy": 0.9967015584309896,
+    "sensitivity": 0.9888015215169751,
+    "specificity": 0.9974789657753891
+   },
+   "quantized": {
+    "jaccard": 0.9662647921794391,
+    "dice": 0.9828429985855729,
+    "accuracy": 0.9969151814778646,
+    "sensitivity": 0.9862467355512661,
+    "specificity": 0.9979650155871147
+   },
+   "changed_pixels": 11
+  },
+  {
+   "image": "ISIC_0010225",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9312763629221574,
+    "dice": 0.9644154309568317,
+    "accuracy": 0.9906565348307291,
+    "sensitivity": 0.9822341034190226,
+    "specificity": 0.9919028753769754
+   },
+   "quantized": {
+    "jaccard": 0.9338620578564863,
+    "dice": 0.9658000725156055,
+    "accuracy": 0.9911244710286459,
+    "sensitivity": 0.9722118097342514,
+    "specificity": 0.9939231422740848
+   },
+   "changed_pixels": 50
+  },
+  {
+   "image": "ISIC_0010228",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9138180836268296,
+    "dice": 0.9549685954425463,
+    "accuracy": 0.9245147705078125,
+    "sensitivity": 0.920184897142924,
+    "specificity": 0.9534461201844182
+   },
+   "quantized": {
+    "jaccard": 0.892928119007496,
+    "dice": 0.943435844226011,
+    "accuracy": 0.906280517578125,
+    "sensitivity": 0.8985463178453226,
+    "specificity": 0.9579588966163944
+   },
+   "changed_pixels": 336
+  },
+  {
+   "image": "ISIC_0010239",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8686735808501392,
+    "dice": 0.9297221192102931,
+    "accuracy": 0.9004783630371094,
+    "sensitivity": 0.8923519242138793,
+    "specificity": 0.923334609958647
+   },
+   "quantized": {
+    "jaccard": 0.849837978949928,
+    "dice": 0.9188242306846179,
+    "accuracy": 0.8869234720865885,
+    "sensitivity": 0.8674863270241434,
+    "specificity": 0.941591967926001
+   },
+   "changed_pixels": 389
+  },
+  {
+   "image": "ISIC_0010244",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8116427432216906,
+    "dice": 0.8960295800686681,
+    "accuracy": 0.9924914042154948,
+    "sensitivity": 0.8254127874914847,
+    "specificity": 0.9993078394134501
+   },
+   "quantized": {
+    "jaccard": 0.7868319381841596,
+    "dice": 0.88070055316312,
+    "accuracy": 0.9915809631347656,
+    "sensitivity": 0.792779057319882,
+    "specificity": 0.9996916378266423
+   },
+   "changed_pixels": 27
+  },
+  {
+   "image": "ISIC_0010247",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8234576871361878,
+    "dice": 0.9031826654880714,
+    "accuracy": 0.9462407430013021,
+    "sensitivity": 0.9999695749622223,
+    "specificity": 0.9282584271569823
+   },
+   "quantized": {
+    "jaccard": 0.8456700345367569,
+    "dice": 0.9163826889013896,
+    "accuracy": 0.9542592366536459,
+    "sensitivity": 0.9995284119144447,
+    "specificity": 0.9391082538788172
+   },
+   "changed_pixels": 141
+  },
+  {
+   "image": "ISIC_0010264",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.825334061125987,
+    "dice": 0.9043101519914292,
+    "accuracy": 0.8966496785481771,
+    "sensitivity": 0.8771646133958222,
+    "specificity": 0.921123140386811
+   },
+   "quantized": {
+    "jaccard": 0.8123917995444191,
+    "dice": 0.8964858478708964,
+    "accuracy": 0.8900375366210938,
+    "sensitivity": 0.8552752387869486,
+    "specificity": 0.9336993752043925
+   },
+   "changed_pixels": 313
+  },
+  {
+   "image": "ISIC_0010267",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8862796139626978,
+    "dice": 0.9397118087925478,
+    "accuracy": 0.9373397827148438,
+    "sensitivity": 0.9157998655087062,
+    "specificity": 0.9619477271612809
+   },
+   "quantized": {
+    "jaccard": 0.8704409082715076,
+    "dice": 0.9307333949147748,
+    "accuracy": 0.9296315511067709,
+    "sensitivity": 0.8865957010477921,
+    "specificity": 0.9787971907571771
+   },
+   "changed_pixels": 390
+  },
+  {
+   "image": "ISIC_0010321",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7946013309917074,
+    "dice": 0.8855463520163622,
+    "accuracy": 0.9272778828938802,
+    "sensitivity": 0.7955155886509012,
+    "specificity": 0.9993704666219436
+   },
+   "quantized": {
+    "jaccard": 0.7607365050155804,
+    "dice": 0.8641116974045459,
+    "accuracy": 0.915350596110026,
+    "sensitivity": 0.7610483282335978,
+    "specificity": 0.9997757287340674
+   },
+   "changed_pixels": 216
+  },
+  {
+   "image": "ISIC_0010324",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.2597692442530175,
+    "dice": 0.41240766186040384,
+    "accuracy": 0.39859263102213544,
+    "sensitivity": 0.2616785593789513,
+    "specificity": 0.969359185014788
+   },
+   "quantized": {
+    "jaccard": 0.2358713183840742,
+    "dice": 0.3817085401617388,
+    "accuracy": 0.38071950276692706,
+    "sensitivity": 0.2370144509855238,
+    "specificity": 0.9797962536970095
+   },
+   "changed_pixels": 507
+  },
+  {
+   "image": "ISIC_0010339",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8981679531293593,
+    "dice": 0.9463524570084758,
+    "accuracy": 0.9874687194824219,
+    "sensitivity": 0.9688680822604916,
+    "specificity": 0.9898638902165442
+   },
+   "quantized": {
+    "jaccard": 0.8973920523687634,
+    "dice": 0.9459215887917641,
+    "accuracy": 0.9875628153483073,
+    "sensitivity": 0.9534971855319623,
+    "specificity": 0.9919493854750207
+   },
+   "changed_pixels": 61
+  },
+  {
+   "image": "ISIC_0010352",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8808841888815452,
+    "dice": 0.9366703107918163,
+    "accuracy": 0.9938125610351562,
+    "sensitivity": 0.8853705343962208,
+    "specificity": 0.9997224412299474
+   },
+   "quantized": {
+    "jaccard": 0.875064380840262,
+    "dice": 0.9333699576204677,
+    "accuracy": 0.9935226440429688,
+    "sensitivity": 0.8778417478594627,
+    "specificity": 0.9998270285925759
+   },
+   "changed_pixels": 8
+  },
+  {
+   "image": "ISIC_0010358",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.846700771698604,
+    "dice": 0.9169875105643722,
+    "accuracy": 0.9707743326822916,
+    "sensitivity": 0.8577712609970675,
+    "specificity": 0.9969691653692293
+   },
+   "quantized": {
+    "jaccard": 0.8324542144157653,
+    "dice": 0.9085675460449893,
+    "accuracy": 0.9681727091471354,
+    "sensitivity": 0.840317850723678,
+    "specificity": 0.9978102807163733
+   },
+   "changed_pixels": 65
+  },
+  {
+   "image": "ISIC_0010445",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6483861880231809,
+    "dice": 0.786692090402377,
+    "accuracy": 0.8889045715332031,
+    "sensitivity": 0.8564313014634354,
+    "specificity": 0.8991146774347206
+   },
+   "quantized": {
+    "jaccard": 0.6896865921295888,
+    "dice": 0.8163485410159353,
+    "accuracy": 0.9103584289550781,
+    "sensitivity": 0.832893009212254,
+    "specificity": 0.9347147730368552
+   },
+   "changed_pixels": 580
+  },
+  {
+   "image": "ISIC_0010465",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9495155269893049,
+    "dice": 0.9741040928826764,
+    "accuracy": 0.9900423685709635,
+    "sensitivity": 0.9926872502038808,
+    "specificity": 0.9894273431537111
+   },
+   "quantized": {
+    "jaccard": 0.95790524927873,
+    "dice": 0.9785001083495858,
+    "accuracy": 0.9917996724446615,
+    "sensitivity": 0.989094903990672,
+    "specificity": 0.9924286235955496
+   },
+   "changed_pixels": 51
+  },
+  {
+   "image": "ISIC_0010479",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8779902850594761,
+    "dice": 0.9350317645883564,
+    "accuracy": 0.9388046264648438,
+    "sensitivity": 0.9918093350669286,
+    "specificity": 0.8964766474406181
+   },
+   "quantized": {
+    "jaccard": 0.885741844291838,
+    "dice": 0.9394094392856462,
+    "accuracy": 0.9433644612630209,
+    "sensitivity": 0.9888337753237604,
+    "specificity": 0.9070540235195104
+   },
+   "changed_pixels": 138
+  },
+  {
+   "image": "ISIC_0010495",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6988528931938102,
+    "dice": 0.822735030200267,
+    "accuracy": 0.7756055196126302,
+    "sensitivity": 0.7008753989782733,
+    "specificity": 0.9916339727003319
+   },
+   "quantized": {
+    "jaccard": 0.638290044253088,
+    "dice": 0.7792149460861681,
+    "accuracy": 0.7312278747558594,
+    "sensitivity": 0.6383566801584789,
+    "specificity": 0.9996982095415259
+   },
+   "changed_pixels": 801
+  },
+  {
+   "image": "ISIC_0010554",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8707641663151452,
+    "dice": 0.9309181584660073,
+    "accuracy": 0.9801317850748698,
+    "sensitivity": 0.9955460571731175,
+    "specificity": 0.9777370670341408
+   },
+   "quantized": {
+    "jaccard": 0.8847460794807754,
+    "dice": 0.9388490992107671,
+    "accuracy": 0.9827486673990885,
+    "sensitivity": 0.9848509205760811,
+    "specificity": 0.9824220672471621
+   },
+   "changed_pixels": 90
+  },
+  {
+   "image": "ISIC_0010568",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.893304670779601,
+    "dice": 0.9436459800331737,
+    "accuracy": 0.9427579243977865,
+    "sensitivity": 0.9274737497446952,
+    "specificity": 0.95910065648393
+   },
+   "quantized": {
+    "jaccard": 0.8750558011606642,
+    "dice": 0.9333650770489097,
+    "accuracy": 0.9338035583496094,
+    "sensitivity": 0.8971939848957987,
+    "specificity": 0.972948652168765
+   },
+   "changed_pixels": 378
+  },
+  {
+   "image": "ISIC_0010590",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9491186818238071,
+    "dice": 0.9738952180538423,
+    "accuracy": 0.9963404337565104,
+    "sensitivity": 0.9760909090909091,
+    "specificity": 0.9978630959542377
+   },
+   "quantized": {
+    "jaccard": 0.9403632228027153,
+    "dice": 0.969265147629863,
+    "accuracy": 0.9957326253255209,
+    "sensitivity": 0.9621454545454545,
+    "specificity": 0.9982582112896345
+   },
+   "changed_pixels": 24
+  },
+  {
+   "image": "ISIC_0010595",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9015301440428757,
+    "dice": 0.9482154641273444,
+    "accuracy": 0.9572931925455729,
+    "sensitivity": 0.9756602911500044,
+    "specificity": 0.9450100579712605
+   },
+   "quantized": {
+    "jaccard": 0.912301399560429,
+    "dice": 0.9541397603642764,
+    "accuracy": 0.9627583821614584,
+    "sensitivity": 0.9667157416456195,
+    "specificity": 0.9601118684060874
+   },
+   "changed_pixels": 223
+  },
+  {
+   "image": "ISIC_0010603",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.926626272460946,
+    "dice": 0.9619159519477894,
+    "accuracy": 0.9463373819986979,
+    "sensitivity": 0.9410454982060626,
+    "specificity": 0.9599554707379135
+   },
+   "quantized": {
+    "jaccard": 0.9128217772438504,
+    "dice": 0.9544242836456185,
+    "accuracy": 0.9366073608398438,
+    "sensitivity": 0.9217041698449021,
+    "specificity": 0.9749591057797165
+   },
+   "changed_pixels": 297
+  },
+  {
+   "image": "ISIC_0010849",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6793262830389063,
+    "dice": 0.8090462108526028,
+    "accuracy": 0.890960693359375,
+    "sensitivity": 0.6873978325361748,
+    "specificity": 0.9939865175425157
+   },
+   "quantized": {
+    "jaccard": 0.6300704304922602,
+    "dice": 0.7730591497227357,
+    "accuracy": 0.8751068115234375,
+    "sensitivity": 0.6330220379003451,
+    "specificity": 0.9976290792094378
+   },
+   "changed_pixels": 385
+  },
+  {
+   "image": "ISIC_0010852",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9213542164072199,
+    "dice": 0.9590675249148793,
+    "accuracy": 0.9937171936035156,
+    "sensitivity": 0.9364231982528513,
+    "specificity": 0.9986047801804263
+   },
+   "quantized": {
+    "jaccard": 0.9147967739359578,
+    "dice": 0.9555027315567789,
+    "accuracy": 0.9932161966959635,
+    "sensitivity": 0.9266359297905039,
+    "specificity": 0.9988959684909408
+   },
+   "changed_pixels": 17
+  },
+  {
+   "image": "ISIC_0010853",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9089702172854803,
+    "dice": 0.9523147182233349,
+    "accuracy": 0.9947687784830729,
+    "sensitivity": 0.9878324436108306,
+    "specificity": 0.9951560456792411
+   },
+   "quantized": {
+    "jaccard": 0.9089754162301914,
+    "dice": 0.9523175715119673,
+    "accuracy": 0.9948069254557291,
+    "sensitivity": 0.9806906170345789,
+    "specificity": 0.9955950626035449
+   },
+   "changed_pixels": 15
+  },
+  {
+   "image": "ISIC_0010858",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.516268857016188,
+    "dice": 0.6809727109110917,
+    "accuracy": 0.7946637471516927,
+    "sensitivity": 0.8676379526472913,
+    "specificity": 0.7700031473557958
+   },
+   "quantized": {
+    "jaccard": 0.48697845833794134,
+    "dice": 0.6549906027317407,
+    "accuracy": 0.7817522684733073,
+    "sensitivity": 0.8202097293052151,
+    "specificity": 0.7687561139512925
+   },
+   "changed_pixels": 607
+  },
+  {
+   "image": "ISIC_0010860",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9585005147745095,
+    "dice": 0.9788105824264904,
+    "accuracy": 0.9890314737955729,
+    "sensitivity": 0.9759289919959245,
+    "specificity": 0.9936251257972886
+   },
+   "quantized": {
+    "jaccard": 0.9571827340075145,
+    "dice": 0.9781230105658999,
+    "accuracy": 0.9887262980143229,
+    "sensitivity": 0.970873786407767,
+    "specificity": 0.994985282146574
+   },
+   "changed_pixels": 38
+  },
+  {
+   "image": "ISIC_0011095",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.87420057860268,
+    "dice": 0.9328783574001933,
+    "accuracy": 0.9708607991536459,
+    "sensitivity": 0.9140254611826019,
+    "specificity": 0.987035409649693
+   },
+   "quantized": {
+    "jaccard": 0.8498402733409262,
+    "dice": 0.9188255716868592,
+    "accuracy": 0.9656321207682291,
+    "sensitivity": 0.877980324406231,
+    "specificity": 0.990576701306423
+   },
+   "changed_pixels": 176
+  },
+  {
+   "image": "ISIC_0011100",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8971870014274919,
+    "dice": 0.9458076623468593,
+    "accuracy": 0.9766464233398438,
+    "sensitivity": 0.9013193413416115,
+    "specificity": 0.9986543239086715
+   },
+   "quantized": {
+    "jaccard": 0.8865433434016823,
+    "dice": 0.9398600318433498,
+    "accuracy": 0.9742558797200521,
+    "sensitivity": 0.8896893417915148,
+    "specificity": 0.9989632214729813
+   },
+   "changed_pixels": 53
+  },
+  {
+   "image": "ISIC_0011114",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8783807089885702,
+    "dice": 0.9352531196527691,
+    "accuracy": 0.9802729288736979,
+    "sensitivity": 0.8842590400429313,
+    "specificity": 0.9987146022997705
+   },
+   "quantized": {
+    "jaccard": 0.8456560248789513,
+    "dice": 0.9163744635833909,
+    "accuracy": 0.9750722249348959,
+    "sensitivity": 0.8476648199883201,
+    "specificity": 0.9995437444483856
+   },
+   "changed_pixels": 108
+  },
+  {
+   "image": "ISIC_0011120",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.899546171466952,
+    "dice": 0.9471169324326184,
+    "accuracy": 0.9022496541341146,
+    "sensitivity": 0.9247473173457709,
+    "specificity": 0.503688719657306
+   },
+   "quantized": {
+    "jaccard": 0.8803700124548741,
+    "dice": 0.9363795493691448,
+    "accuracy": 0.88446044921875,
+    "sensitivity": 0.8982633272972493,
+    "specificity": 0.6399333650642551
+   },
+   "changed_pixels": 538
+  },
+  {
+   "image": "ISIC_0011126",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8890445517164365,
+    "dice": 0.9412637207615107,
+    "accuracy": 0.9444096883138021,
+    "sensitivity": 0.8916696788119759,
+    "specificity": 0.9970526807900848
+   },
+   "quantized": {
+    "jaccard": 0.8783321767467634,
+    "dice": 0.9352256087823811,
+    "accuracy": 0.9391377766927084,
+    "sensitivity": 0.8795506727690185,
+    "specificity": 0.9986152681298244
+   },
+   "changed_pixels": 112
+  },
+  {
+   "image": "ISIC_0011127",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.847785151097103,
+    "dice": 0.9176230803605488,
+    "accuracy": 0.9807790120442709,
+    "sensitivity": 0.8931215920904674,
+    "specificity": 0.9927170649815218
+   },
+   "quantized": {
+    "jaccard": 0.8126037681368656,
+    "dice": 0.8966148944643568,
+    "accuracy": 0.9768931070963541,
+    "sensitivity": 0.8359217533363037,
+    "specificity": 0.9960919779359286
+   },
+   "changed_pixels": 163
+  },
+  {
+   "image": "ISIC_0011140",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.873437941451329,
+    "dice": 0.9324439546416867,
+    "accuracy": 0.9851900736490885,
+    "sensitivity": 0.9963062582892274,
+    "specificity": 0.9839193487825095
+   },
+   "quantized": {
+    "jaccard": 0.8912248730456813,
+    "dice": 0.942484297608066,
+    "accuracy": 0.9875526428222656,
+    "sensitivity": 0.9941371146671294,
+    "specificity": 0.9867999518246416
+   },
+   "changed_pixels": 52
+  },
+  {
+   "image": "ISIC_0011146",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.4927359328495816,
+    "dice": 0.660178296785508,
+    "accuracy": 0.8758188883463541,
+    "sensitivity": 0.8970157157176087,
+    "specificity": 0.8725256288582854
+   },
+   "quantized": {
+    "jaccard": 0.5159500926387202,
+    "dice": 0.6806953542126679,
+    "accuracy": 0.8900400797526041,
+    "sensitivity": 0.8715982374189156,
+    "specificity": 0.8929053091182615
+   },
+   "changed_pixels": 421
+  },
+  {
+   "image": "ISIC_0011207",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7080041222947441,
+    "dice": 0.829042638777152,
+    "accuracy": 0.9827067057291666,
+    "sensitivity": 0.7080041222947441,
+    "specificity": 1.0
+   },
+   "quantized": {
+    "jaccard": 0.6770869117141876,
+    "dice": 0.8074559606718558,
+    "accuracy": 0.9808756510416666,
+    "sensitivity": 0.6770869117141876,
+    "specificity": 1.0
+   },
+   "changed_pixels": 32
+  },
+  {
+   "image": "ISIC_0011212",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8906019956510443,
+    "dice": 0.9421358886742931,
+    "accuracy": 0.9405695597330729,
+    "sensitivity": 0.8953403550384971,
+    "specificity": 0.9937448819246176
+   },
+   "quantized": {
+    "jaccard": 0.8762437008123517,
+    "dice": 0.9340403919096086,
+    "accuracy": 0.9329554239908854,
+    "sensitivity": 0.8784684964514975,
+    "specificity": 0.997014917114844
+   },
+   "changed_pixels": 180
+  },
+  {
+   "image": "ISIC_0011214",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9463935669418649,
+    "dice": 0.9724585849601012,
+    "accuracy": 0.9714164733886719,
+    "sensitivity": 0.9849742745880583,
+    "specificity": 0.9571733637878302
+   },
+   "quantized": {
+    "jaccard": 0.9504086248383204,
+    "dice": 0.9745738536375728,
+    "accuracy": 0.9738197326660156,
+    "sensitivity": 0.9793377660960664,
+    "specificity": 0.9680227782949132
+   },
+   "changed_pixels": 134
+  },
+  {
+   "image": "ISIC_0011215",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7656266223652788,
+    "dice": 0.8672576780017348,
+    "accuracy": 0.988519032796224,
+    "sensitivity": 0.7767770140370283,
+    "specificity": 0.9992611505475903
+   },
+   "quantized": {
+    "jaccard": 0.7518208302986161,
+    "dice": 0.8583307348508471,
+    "accuracy": 0.9878679911295573,
+    "sensitivity": 0.7611861683916673,
+    "specificity": 0.9993680365443223
+   },
+   "changed_pixels": 14
+  },
+  {
+   "image": "ISIC_0011220",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8675783855903936,
+    "dice": 0.9290944811573495,
+    "accuracy": 0.9949518839518229,
+    "sensitivity": 0.9532360917686726,
+    "specificity": 0.9964512755122203
+   },
+   "quantized": {
+    "jaccard": 0.8704784130688448,
+    "dice": 0.9307548346849657,
+    "accuracy": 0.9952011108398438,
+    "sensitivity": 0.9295609470057905,
+    "specificity": 0.99756041657336
+   },
+   "changed_pixels": 33
+  },
+  {
+   "image": "ISIC_0011226",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.861082117036763,
+    "dice": 0.9253563925570228,
+    "accuracy": 0.9493993123372396,
+    "sensitivity": 0.8898890267836528,
+    "specificity": 0.9817907974110845
+   },
+   "quantized": {
+    "jaccard": 0.8341643582640813,
+    "dice": 0.9095851792186871,
+    "accuracy": 0.9406229654947916,
+    "sensitivity": 0.8473937889632879,
+    "specificity": 0.9913676636923464
+   },
+   "changed_pixels": 361
+  },
+  {
+   "image": "ISIC_0011295",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8410419534426566,
+    "dice": 0.9136586506026656,
+    "accuracy": 0.9173304239908854,
+    "sensitivity": 0.9462774678418556,
+    "specificity": 0.892449091545366
+   },
+   "quantized": {
+    "jaccard": 0.8525576276552441,
+    "dice": 0.9204114516365294,
+    "accuracy": 0.925384521484375,
+    "sensitivity": 0.9334004555507873,
+    "specificity": 0.9184944527991374
+   },
+   "changed_pixels": 335
+  },
+  {
+   "image": "ISIC_0011301",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9396209447154837,
+    "dice": 0.9688706932924087,
+    "accuracy": 0.9829254150390625,
+    "sensitivity": 0.957080306680468,
+    "specificity": 0.9928585762215408
+   },
+   "quantized": {
+    "jaccard": 0.9343547825615198,
+    "dice": 0.9660635070514049,
+    "accuracy": 0.981536865234375,
+    "sensitivity": 0.946555340801876,
+    "specificity": 0.9949814643351277
+   },
+   "changed_pixels": 79
+  },
+  {
+   "image": "ISIC_0011327",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9458088610409826,
+    "dice": 0.9721498138671104,
+    "accuracy": 0.9789288838704427,
+    "sensitivity": 0.994129071066426,
+    "specificity": 0.9700044600782632
+   },
+   "quantized": {
+    "jaccard": 0.9554787571970743,
+    "dice": 0.9772325612645667,
+    "accuracy": 0.9829800923665365,
+    "sensitivity": 0.9873953768153304,
+    "specificity": 0.9803877644513599
+   },
+   "changed_pixels": 148
+  },
+  {
+   "image": "ISIC_0011334",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.7826958025735211,
+    "dice": 0.8781036017963492,
+    "accuracy": 0.7921549479166666,
+    "sensitivity": 0.7844237897412804,
+    "specificity": 0.9538311507383672
+   },
+   "quantized": {
+    "jaccard": 0.7518951456878704,
+    "dice": 0.8583791644592332,
+    "accuracy": 0.7627410888671875,
+    "sensitivity": 0.7534088698567168,
+    "specificity": 0.9578991362496517
+   },
+   "changed_pixels": 544
+  },
+  {
+   "image": "ISIC_0011343",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8838752672645989,
+    "dice": 0.9383585873474442,
+    "accuracy": 0.9840469360351562,
+    "sensitivity": 0.886855009472863,
+    "specificity": 0.9994651980976964
+   },
+   "quantized": {
+    "jaccard": 0.8537245380238355,
+    "dice": 0.9210910472533845,
+    "accuracy": 0.9799296061197916,
+    "sensitivity": 0.8555481258590587,
+    "specificity": 0.9996611448001933
+   },
+   "changed_pixels": 73
+  },
+  {
+   "image": "ISIC_0011347",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.6844622057728902,
+    "dice": 0.8126774271659423,
+    "accuracy": 0.7471936543782552,
+    "sensitivity": 0.6956036458593754,
+    "specificity": 0.939365901430537
+   },
+   "quantized": {
+    "jaccard": 0.6529249690532285,
+    "dice": 0.7900237231302936,
+    "accuracy": 0.7236951192220052,
+    "sensitivity": 0.659332151595749,
+    "specificity": 0.9634465065698956
+   },
+   "changed_pixels": 606
+  },
+  {
+   "image": "ISIC_0011350",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9224591716655665,
+    "dice": 0.959665812685502,
+    "accuracy": 0.9312947591145834,
+    "sensitivity": 0.9306380810081425,
+    "specificity": 0.9360324224951951
+   },
+   "quantized": {
+    "jaccard": 0.9037528915733758,
+    "dice": 0.9494434866769501,
+    "accuracy": 0.9149805704752604,
+    "sensitivity": 0.9089802170564184,
+    "specificity": 0.9582706609843737
+   },
+   "changed_pixels": 372
+  },
+  {
+   "image": "ISIC_0011356",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.601289079748898,
+    "dice": 0.7510062828170758,
+    "accuracy": 0.6073354085286459,
+    "sensitivity": 0.6014708009588362,
+    "specificity": 0.9807565789473685
+   },
+   "quantized": {
+    "jaccard": 0.5713083045393741,
+    "dice": 0.7271753135764811,
+    "accuracy": 0.5778299967447916,
+    "sensitivity": 0.5714529261034882,
+    "specificity": 0.9838815789473684
+   },
+   "changed_pixels": 667
+  },
+  {
+   "image": "ISIC_0011366",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.851556465438743,
+    "dice": 0.9198277031610365,
+    "accuracy": 0.9398854573567709,
+    "sensitivity": 0.8545132587215164,
+    "specificity": 0.9976506003547551
+   },
+   "quantized": {
+    "jaccard": 0.8284434603190579,
+    "dice": 0.9061734511325792,
+    "accuracy": 0.9306437174479166,
+    "sensitivity": 0.8299052228271829,
+    "specificity": 0.9988061127029608
+   },
+   "changed_pixels": 174
+  },
+  {
+   "image": "ISIC_0011378",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9370239753430342,
+    "dice": 0.9674882575235997,
+    "accuracy": 0.9864896138509115,
+    "sensitivity": 0.9895158514067537,
+    "specificity": 0.9857180927031421
+   },
+   "quantized": {
+    "jaccard": 0.9435779430672546,
+    "dice": 0.97097000553335,
+    "accuracy": 0.9880587259928385,
+    "sensitivity": 0.983012549682346,
+    "specificity": 0.9893452184333944
+   },
+   "changed_pixels": 69
+  },
+  {
+   "image": "ISIC_0011382",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.9155673129358256,
+    "dice": 0.9559228816998492,
+    "accuracy": 0.9722404479980469,
+    "sensitivity": 0.991219585725232,
+    "specificity": 0.9639630755745473
+   },
+   "quantized": {
+    "jaccard": 0.9274709954868742,
+    "dice": 0.9623708970547672,
+    "accuracy": 0.9765815734863281,
+    "sensitivity": 0.9861070984436433,
+    "specificity": 0.9724272057413647
+   },
+   "changed_pixels": 122
+  },
+  {
+   "image": "ISIC_0011398",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.8649820148539192,
+    "dice": 0.927603599353393,
+    "accuracy": 0.9469248453776041,
+    "sensitivity": 0.8679580893522546,
+    "specificity": 0.9977840400712452
+   },
+   "quantized": {
+    "jaccard": 0.851787768327258,
+    "dice": 0.9199626251950979,
+    "accuracy": 0.9418360392252604,
+    "sensitivity": 0.8532835200789395,
+    "specificity": 0.9988690242250412
+   },
+   "changed_pixels": 105
+  },
+  {
+   "image": "ISIC_0011402",
+   "group": "val",
+   "fp32": {
+    "jaccard": 0.5585495173050792,
+    "dice": 0.7167555616338439,
+    "accuracy": 0.6839777628580729,
+    "sensitivity": 0.5604059737667522,
+    "specificity": 0.9917225891208635
+   },
+   "quantized": {
+    "jaccard": 0.5102616703704165,
+    "dice": 0.6757261743195355,
+    "accuracy": 0.6499964396158854,
+    "sensitivity": 0.5111010122611919,
+    "specificity": 0.9959034583155801
+   },
+   "changed_pixels": 630
+  }
+ ]
+}

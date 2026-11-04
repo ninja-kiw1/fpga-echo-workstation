@@ -1,0 +1,233 @@
+{
+  "image": "im0002",
+  "time": "20260928_233150",
+  "xsct_returncode": 0,
+  "steps": [
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 10000000 Hz",
+    "bitstream programmed",
+    "psu_init done (clocks, DDR, PS-PL isolation removed)",
+    "DDR read/write ok",
+    "both IPs idle",
+    "parameters and input loaded"
+  ],
+  "elapsed_s": 137.1681501865387,
+  "ddr_base": 268435456,
+  "ddr_bytes": 89751552,
+  "loads": [
+    [
+      "first_block_2.bin",
+      "768",
+      "38",
+      "attempts=1"
+    ],
+    [
+      "first_block_5.bin",
+      "768",
+      "24",
+      "attempts=1"
+    ],
+    [
+      "first_shortcut_1.bin",
+      "256",
+      "21",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_block_2.bin",
+      "1536",
+      "31",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_block_5.bin",
+      "2688",
+      "38",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_shortcut_1.bin",
+      "512",
+      "21",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_block_2.bin",
+      "5376",
+      "63",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_block_5.bin",
+      "9984",
+      "126",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_shortcut_1.bin",
+      "1280",
+      "28",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2432",
+      "58",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_bridge_layer_block_2.bin",
+      "2688",
+      "40",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "4992",
+      "68",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_block_5.bin",
+      "2688",
+      "40",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_shortcut_1.bin",
+      "896",
+      "24",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_up_layer_block_0.bin",
+      "704",
+      "21",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_bridge_layer_block_2.bin",
+      "768",
+      "25",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_block_2.bin",
+      "1344",
+      "78",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_block_5.bin",
+      "768",
+      "34",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_shortcut_1.bin",
+      "320",
+      "26",
+      "attempts=1"
+    ],
+    [
+      "final.bin",
+      "256",
+      "19",
+      "attempts=1"
+    ],
+    [
+      "input.bin",
+      "4194304",
+      "43032",
+      "attempts=1"
+    ]
+  ],
+  "dumps": [
+    [
+      "first_block_2.bin",
+      "4194304",
+      "34667"
+    ]
+  ],
+  "node_us_upper_bound": {
+    "first_block_2": 36963,
+    "first_block_5": 30644,
+    "first_shortcut_1": 9715,
+    "add": 5506,
+    "down_path_0_pool": 3765,
+    "down_path_0_block_2": 14780,
+    "down_path_0_block_5": 30969,
+    "down_path_0_shortcut_1": 9427,
+    "add_1": 2886,
+    "down_path_1_pool": 2292,
+    "down_path_1_block_2": 13600,
+    "down_path_1_block_5": 25956,
+    "down_path_1_shortcut_1": 3539,
+    "add_2": 1995,
+    "up_path_0_up_layer_block_0": 8105,
+    "up_path_0_conv_bridge_layer_block_2": 30040,
+    "cat": 4590,
+    "up_path_0_conv_layer_block_2": 52323,
+    "up_path_0_conv_layer_block_5": 27425,
+    "up_path_0_conv_layer_shortcut_1": 26992,
+    "add_3": 3339,
+    "up_path_1_up_layer_block_0": 9996,
+    "up_path_1_conv_bridge_layer_block_2": 30615,
+    "cat_1": 8676,
+    "up_path_1_conv_layer_block_2": 57389,
+    "up_path_1_conv_layer_block_5": 30725,
+    "up_path_1_conv_layer_shortcut_1": 14796,
+    "add_4": 5842,
+    "final": 22060
+  },
+  "network_us_upper_bound": 1437263,
+  "jtag_hz": 10000000,
+  "jtag_retries": [
+    "DUMPRETRY 8 chunk re-reads at 0x10018000",
+    "DUMPRETRY 22 chunk re-reads at 0x10418000",
+    "JTAGRETRY 1: Memory read error at 0x112B31E8. Invalid DAP IDCODE ffb7fff2. AXI AP transaction error, DAP status 0x0003FFFB",
+    "JTAGRETRY 2: Invalid context",
+    "JTAGRETRY 3: Invalid context",
+    "JTAGRETRY 4: Invalid context",
+    "JTAGRETRY 5: Invalid context"
+  ],
+  "compare": [
+    {
+      "node": "first_block_2",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "add",
+      "status": "not dumped"
+    },
+    {
+      "node": "down_path_0_pool",
+      "status": "not dumped"
+    },
+    {
+      "node": "add_2",
+      "status": "not dumped"
+    },
+    {
+      "node": "up_path_0_up_layer_block_0",
+      "status": "not dumped"
+    },
+    {
+      "node": "cat",
+      "status": "not dumped"
+    },
+    {
+      "node": "up_path_0_conv_layer_block_2",
+      "status": "not dumped"
+    },
+    {
+      "node": "add_4",
+      "status": "not dumped"
+    },
+    {
+      "node": "final",
+      "status": "not dumped"
+    }
+  ],
+  "passed": false
+}

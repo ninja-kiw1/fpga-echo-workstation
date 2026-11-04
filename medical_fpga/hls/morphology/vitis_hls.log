@@ -1,0 +1,927 @@
+NOTE: Using modified tcl85t.dll from https://gitenterprise.xilinx.com/ACT/vitis_hls_tcl
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+  **** SW Build 3854077 on May  4 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/xlinx2023.1/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/xlinx2023.1/Vitis_HLS/2023.1/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user '21888' on host 'ninja_kiwi' (Windows NT_amd64 version 6.2) on Tue Sep 22 20:26:09 +0800 2026
+INFO: [HLS 200-10] In directory 'E:/PLD/medical_fpga/hls/morphology'
+Sourcing Tcl script '.\run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project morphology 
+INFO: [HLS 200-10] Opening project 'E:/PLD/medical_fpga/hls/morphology/build/morphology'.
+INFO: [HLS 200-1510] Running: set_top morphology_binary 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp -cflags -IE:/PLD/medical_fpga/hls/morphology/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/medical_fpga/hls/morphology/tb/test_morphology.cpp -cflags -IE:/PLD/medical_fpga/hls/morphology/src 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/medical_fpga/hls/morphology/tb/test_morphology.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: csim_design -argv E:/PLD/medical_fpga/hls/morphology/vectors 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src/morphology.cpp in debug mode
+   Generating csim.exe
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../src/morphology.hpp:3,
+                 from ../../../../../src/morphology.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../src/morphology.hpp:3,
+                 from ../../../../../src/morphology.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+PASS shapes_erode mode=0 pixels=1147 mismatches=0
+PASS shapes_dilate mode=1 pixels=1147 mismatches=0
+PASS shapes_open mode=2 pixels=1147 mismatches=0
+PASS shapes_close mode=3 pixels=1147 mismatches=0
+PASS edges_erode mode=0 pixels=99 mismatches=0
+PASS edges_dilate mode=1 pixels=99 mismatches=0
+PASS edges_open mode=2 pixels=99 mismatches=0
+PASS edges_close mode=3 pixels=99 mismatches=0
+PASS black_erode mode=0 pixels=72 mismatches=0
+PASS black_dilate mode=1 pixels=72 mismatches=0
+PASS black_open mode=2 pixels=72 mismatches=0
+PASS black_close mode=3 pixels=72 mismatches=0
+PASS white_erode mode=0 pixels=72 mismatches=0
+PASS white_dilate mode=1 pixels=72 mismatches=0
+PASS white_open mode=2 pixels=72 mismatches=0
+PASS white_close mode=3 pixels=72 mismatches=0
+PASS one_pixel_erode mode=0 pixels=1 mismatches=0
+PASS one_pixel_dilate mode=1 pixels=1 mismatches=0
+PASS one_pixel_open mode=2 pixels=1 mismatches=0
+PASS one_pixel_close mode=3 pixels=1 mismatches=0
+PASS single_row_erode mode=0 pixels=7 mismatches=0
+PASS single_row_dilate mode=1 pixels=7 mismatches=0
+PASS single_row_open mode=2 pixels=7 mismatches=0
+PASS single_row_close mode=3 pixels=7 mismatches=0
+PASS single_column_erode mode=0 pixels=7 mismatches=0
+PASS single_column_dilate mode=1 pixels=7 mismatches=0
+PASS single_column_open mode=2 pixels=7 mismatches=0
+PASS single_column_close mode=3 pixels=7 mismatches=0
+PASS nonbinary_erode mode=0 pixels=221 mismatches=0
+PASS nonbinary_dilate mode=1 pixels=221 mismatches=0
+PASS nonbinary_open mode=2 pixels=221 mismatches=0
+PASS nonbinary_close mode=3 pixels=221 mismatches=0
+PASS random_erode mode=0 pixels=667 mismatches=0
+PASS random_dilate mode=1 pixels=667 mismatches=0
+PASS random_open mode=2 pixels=667 mismatches=0
+PASS random_close mode=3 pixels=667 mismatches=0
+PASS stare_manual_ah_erode mode=0 pixels=423500 mismatches=0
+PASS stare_manual_ah_dilate mode=1 pixels=423500 mismatches=0
+PASS stare_manual_ah_open mode=2 pixels=423500 mismatches=0
+PASS stare_manual_ah_close mode=3 pixels=423500 mismatches=0
+PASS after_real_frame_open mode=2 pixels=1147 mismatches=0
+PASS zero_width mode=0 pixels=0 mismatches=0
+PASS negative_height mode=1 pixels=0 mismatches=0
+PASS too_wide mode=2 pixels=0 mismatches=0
+PASS too_tall mode=3 pixels=0 mismatches=0
+PASS bad_mode mode=4 pixels=0 mismatches=0
+SUMMARY cases=46 mismatches=0
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 423500
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 4.397 seconds; current allocated memory: 0.395 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.131 seconds; current allocated memory: 1.040 GB.
+INFO: [HLS 200-10] Analyzing design file 'E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.953 seconds; current allocated memory: 1.041 GB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-291] Loop 'SHIFT' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:65:13)
+INFO: [HLS 214-291] Loop 'REDUCE_R' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:79:17)
+INFO: [HLS 214-291] Loop 'REDUCE_C' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:82:21)
+INFO: [HLS 214-186] Unrolling loop 'SHIFT' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:65:13) in function 'morph_stage<1>' completely with a factor of 3 (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'REDUCE_R' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:79:17) in function 'morph_stage<1>' completely with a factor of 3 (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'REDUCE_C' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:82:21) in function 'morph_stage<1>' completely with a factor of 3 (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'SHIFT' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:65:13) in function 'morph_stage<0>' completely with a factor of 3 (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'REDUCE_R' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:79:17) in function 'morph_stage<0>' completely with a factor of 3 (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'REDUCE_C' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:82:21) in function 'morph_stage<0>' completely with a factor of 3 (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:27:0)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 8 in loop 'READ_PIXELS'(E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:8:5) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:8:5)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'WRITE_PIXELS'(E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:17:5) has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:17:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.596 seconds; current allocated memory: 1.042 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.042 GB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 1.048 GB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.050 GB.
+INFO: [XFORM 203-712] Applying dataflow to function 'process' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:96:1), detected/extracted 5 process function(s): 
+	 'entry_proc'
+	 'read_pixels'
+	 'morph_stage<0>'
+	 'morph_stage<1>'
+	 'write_pixels'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:43:34) to (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:57:21) in function 'morph_stage<1>'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:43:34) to (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:57:21) in function 'morph_stage<0>'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'morph_stage<1>' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:29:13)...16 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'morph_stage<0>' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:38:13)...16 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.175 seconds; current allocated memory: 1.072 GB.
+WARNING: [HLS 200-960] Cannot flatten loop 'ROW' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:45:5) in function 'morph_stage<1>' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'ROW' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:45:5) in function 'morph_stage<0>' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'previous' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:38).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'older' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:38).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'previous' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:38).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'older' (E:/PLD/medical_fpga/hls/morphology/src/morphology.cpp:38).
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.215 seconds; current allocated memory: 1.162 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'morphology_binary' ...
+WARNING: [SYN 201-103] Legalizing function name 'morph_stage<0>_Pipeline_COLUMN' to 'morph_stage_0_Pipeline_COLUMN'.
+WARNING: [SYN 201-103] Legalizing function name 'morph_stage<0>' to 'morph_stage_0_s'.
+WARNING: [SYN 201-103] Legalizing function name 'morph_stage<1>_Pipeline_BYPASS' to 'morph_stage_1_Pipeline_BYPASS'.
+WARNING: [SYN 201-103] Legalizing function name 'morph_stage<1>_Pipeline_COLUMN' to 'morph_stage_1_Pipeline_COLUMN'.
+WARNING: [SYN 201-103] Legalizing function name 'morph_stage<1>' to 'morph_stage_1_s'.
+WARNING: [SYN 201-103] Legalizing function name 'process' to 'process_r'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.371 seconds; current allocated memory: 1.165 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.082 seconds; current allocated memory: 1.167 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'read_pixels_Pipeline_READ_PIXELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'READ_PIXELS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'READ_PIXELS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.128 seconds; current allocated memory: 1.168 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.088 seconds; current allocated memory: 1.168 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'read_pixels' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.092 seconds; current allocated memory: 1.168 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.145 seconds; current allocated memory: 1.168 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'morph_stage_0_Pipeline_COLUMN' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'COLUMN'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'COLUMN'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 1.169 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.084 seconds; current allocated memory: 1.170 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'morph_stage_0_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.122 seconds; current allocated memory: 1.170 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.087 seconds; current allocated memory: 1.170 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'morph_stage_1_Pipeline_BYPASS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'BYPASS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'BYPASS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.134 seconds; current allocated memory: 1.171 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.082 seconds; current allocated memory: 1.171 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'morph_stage_1_Pipeline_COLUMN' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'COLUMN'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'COLUMN'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.182 seconds; current allocated memory: 1.171 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.084 seconds; current allocated memory: 1.172 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'morph_stage_1_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 1.172 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.116 seconds; current allocated memory: 1.172 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'write_pixels_Pipeline_WRITE_PIXELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'WRITE_PIXELS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'WRITE_PIXELS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.139 seconds; current allocated memory: 1.173 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.087 seconds; current allocated memory: 1.173 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'write_pixels' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.094 seconds; current allocated memory: 1.173 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.121 seconds; current allocated memory: 1.173 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'process_r' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+WARNING: [HLS 200-1020] Increasing the depth of FIFO start_for_morph_stage_1_U0 (from entry_proc_U0 to morph_stage_1_U0) to 3 to improve performance and/or avoid deadlocks.
+WARNING: [HLS 200-1020] Increasing the depth of FIFO start_for_write_pixels_U0 (from entry_proc_U0 to write_pixels_U0) to 4 to improve performance and/or avoid deadlocks.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.133 seconds; current allocated memory: 1.173 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.124 seconds; current allocated memory: 1.173 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'morphology_binary' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.132 seconds; current allocated memory: 1.174 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.095 seconds; current allocated memory: 1.174 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.093 seconds; current allocated memory: 1.175 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'read_pixels_Pipeline_READ_PIXELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'read_pixels_Pipeline_READ_PIXELS' pipeline 'READ_PIXELS' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'read_pixels_Pipeline_READ_PIXELS/m_axi_gmem_in_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'read_pixels_Pipeline_READ_PIXELS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.367 seconds; current allocated memory: 1.178 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'read_pixels' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'read_pixels'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.158 seconds; current allocated memory: 1.179 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'morph_stage_0_Pipeline_COLUMN' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'COLUMN' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'morph_stage_0_Pipeline_COLUMN' pipeline 'COLUMN' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'morph_stage_0_Pipeline_COLUMN'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 1.180 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'morph_stage_0_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'morph_stage_0_s'.
+INFO: [RTMG 210-278] Implementing memory 'morphology_binary_morph_stage_0_s_previous_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.329 seconds; current allocated memory: 1.183 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'morph_stage_1_Pipeline_BYPASS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'morph_stage_1_Pipeline_BYPASS' pipeline 'BYPASS' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'morph_stage_1_Pipeline_BYPASS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 1.184 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'morph_stage_1_Pipeline_COLUMN' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'COLUMN' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'morph_stage_1_Pipeline_COLUMN' pipeline 'COLUMN' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'morph_stage_1_Pipeline_COLUMN'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.22 seconds; current allocated memory: 1.185 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'morph_stage_1_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'morph_stage_1_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.348 seconds; current allocated memory: 1.188 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'write_pixels_Pipeline_WRITE_PIXELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'write_pixels_Pipeline_WRITE_PIXELS' pipeline 'WRITE_PIXELS' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'write_pixels_Pipeline_WRITE_PIXELS/m_axi_gmem_out_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'write_pixels_Pipeline_WRITE_PIXELS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.501 seconds; current allocated memory: 1.189 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'write_pixels' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'write_pixels'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.174 seconds; current allocated memory: 1.190 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'process_r' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_WVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_WDATA' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_WLAST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_WID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_WUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_in_BREADY' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'process_r/m_axi_gmem_out_RREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'process_r'.
+INFO: [RTMG 210-285] Implementing FIFO 'output_c_U(morphology_binary_fifo_w64_d5_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'width_c11_U(morphology_binary_fifo_w32_d3_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'height_c12_U(morphology_binary_fifo_w32_d3_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'first_dilate_c_U(morphology_binary_fifo_w1_d3_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'second_dilate_c_U(morphology_binary_fifo_w1_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'second_enabled_c_U(morphology_binary_fifo_w1_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'raw_U(morphology_binary_fifo_w8_d64_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'count_c_U(morphology_binary_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'first_U(morphology_binary_fifo_w8_d64_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'width_c_U(morphology_binary_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'height_c_U(morphology_binary_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'second_U(morphology_binary_fifo_w8_d64_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_morph_stage_0_U0_U(morphology_binary_start_for_morph_stage_0_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_morph_stage_1_U0_U(morphology_binary_start_for_morph_stage_1_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_write_pixels_U0_U(morphology_binary_start_for_write_pixels_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.05 seconds; current allocated memory: 1.193 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'morphology_binary' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/gmem_in' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/gmem_out' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/width' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/height' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'morphology_binary/mode' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'morphology_binary' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'input_r', 'output_r', 'width', 'height', 'mode' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'morphology_binary'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.44 seconds; current allocated memory: 1.195 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.038 seconds; current allocated memory: 1.200 GB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.306 seconds; current allocated memory: 1.207 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for morphology_binary.
+INFO: [VLOG 209-307] Generating Verilog RTL for morphology_binary.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 4 seconds. CPU system time: 2 seconds. Elapsed time: 16.187 seconds; current allocated memory: 171.859 MB.
+INFO: [HLS 200-1510] Running: cosim_design -rtl verilog -tool xsim -argv E:/PLD/medical_fpga/hls/morphology/vectors 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "D:/xlinx2023.1/Vitis_HLS/2023.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling test_morphology.cpp_pre.cpp.tb.cpp
+   Compiling apatb_morphology_binary.cpp
+   Compiling morphology.cpp_pre.cpp.tb.cpp
+   Compiling apatb_morphology_binary_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+PASS shapes_erode mode=0 pixels=1147 mismatches=0
+PASS shapes_dilate mode=1 pixels=1147 mismatches=0
+PASS shapes_open mode=2 pixels=1147 mismatches=0
+PASS shapes_close mode=3 pixels=1147 mismatches=0
+PASS edges_erode mode=0 pixels=99 mismatches=0
+PASS edges_dilate mode=1 pixels=99 mismatches=0
+PASS edges_open mode=2 pixels=99 mismatches=0
+PASS edges_close mode=3 pixels=99 mismatches=0
+PASS black_erode mode=0 pixels=72 mismatches=0
+PASS black_dilate mode=1 pixels=72 mismatches=0
+PASS black_open mode=2 pixels=72 mismatches=0
+PASS black_close mode=3 pixels=72 mismatches=0
+PASS white_erode mode=0 pixels=72 mismatches=0
+PASS white_dilate mode=1 pixels=72 mismatches=0
+PASS white_open mode=2 pixels=72 mismatches=0
+PASS white_close mode=3 pixels=72 mismatches=0
+PASS one_pixel_erode mode=0 pixels=1 mismatches=0
+PASS one_pixel_dilate mode=1 pixels=1 mismatches=0
+PASS one_pixel_open mode=2 pixels=1 mismatches=0
+PASS one_pixel_close mode=3 pixels=1 mismatches=0
+PASS single_row_erode mode=0 pixels=7 mismatches=0
+PASS single_row_dilate mode=1 pixels=7 mismatches=0
+PASS single_row_open mode=2 pixels=7 mismatches=0
+PASS single_row_close mode=3 pixels=7 mismatches=0
+PASS single_column_erode mode=0 pixels=7 mismatches=0
+PASS single_column_dilate mode=1 pixels=7 mismatches=0
+PASS single_column_open mode=2 pixels=7 mismatches=0
+PASS single_column_close mode=3 pixels=7 mismatches=0
+PASS nonbinary_erode mode=0 pixels=221 mismatches=0
+PASS nonbinary_dilate mode=1 pixels=221 mismatches=0
+PASS nonbinary_open mode=2 pixels=221 mismatches=0
+PASS nonbinary_close mode=3 pixels=221 mismatches=0
+PASS random_erode mode=0 pixels=667 mismatches=0
+PASS random_dilate mode=1 pixels=667 mismatches=0
+PASS random_open mode=2 pixels=667 mismatches=0
+PASS random_close mode=3 pixels=667 mismatches=0
+PASS stare_manual_ah_erode mode=0 pixels=423500 mismatches=0
+PASS stare_manual_ah_dilate mode=1 pixels=423500 mismatches=0
+PASS stare_manual_ah_open mode=2 pixels=423500 mismatches=0
+PASS stare_manual_ah_close mode=3 pixels=423500 mismatches=0
+PASS after_real_frame_open mode=2 pixels=1147 mismatches=0
+PASS zero_width mode=0 pixels=0 mismatches=0
+PASS negative_height mode=1 pixels=0 mismatches=0
+PASS too_wide mode=2 pixels=0 mismatches=0
+PASS too_tall mode=3 pixels=0 mismatches=0
+PASS bad_mode mode=4 pixels=0 mismatches=0
+SUMMARY cases=46 mismatches=0
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 423500
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+E:\PLD\medical_fpga\hls\morphology\build\morphology\solution1\sim\verilog>set PATH= 
+
+E:\PLD\medical_fpga\hls\morphology\build\morphology\solution1\sim\verilog>call D:/xlinx2023.1/Vivado/2023.1/bin/xelab xil_defaultlib.apatb_morphology_binary_top glbl -Oenable_linking_all_libraries  -prj morphology_binary.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib "ieee_proposed=./ieee_proposed" -s morphology_binary  
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/xlinx2023.1/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_morphology_binary_top glbl -Oenable_linking_all_libraries -prj morphology_binary.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s morphology_binary 
+Multi-threading is on. Using 22 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_axi_master_gmem_in.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_axi_master_gmem_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_morphology_binary_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_entry_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_entry_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w1_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d2_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w1_d3_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d3_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d3_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w1_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d4_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w2_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w2_d2_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w2_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w32_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d2_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w32_d3_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d3_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d3_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w32_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d4_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w64_d5_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d5_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d5_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w64_d6_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d6_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d6_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w8_d64_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w8_d64_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w8_d64_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_gmem_in_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_load
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_store
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_read
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_write
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_srl
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_gmem_out_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_load
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_store
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_read
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_write
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_srl
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_0_Pipeline_COLUMN.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_0_Pipeline_COLUMN
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_0_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_0_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_0_s_previous_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_0_s_previous_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_1_Pipeline_BYPASS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_1_Pipeline_BYPASS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_1_Pipeline_COLUMN.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_1_Pipeline_COLUMN
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_1_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_1_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_mul_32s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_mul_32s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_process_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_process_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_read_pixels.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_read_pixels
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_read_pixels_Pipeline_READ_PIXELS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_read_pixels_Pipeline_READ_PIXELS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_start_for_morph_stage_0_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_0_U0
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_0_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_start_for_morph_stage_1_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_1_U0
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_1_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_start_for_write_pixels_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_write_pixels_U0
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_write_pixels_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_write_pixels.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_write_pixels
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_write_pixels_Pipeline_WRITE_PIXELS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_write_pixels_Pipeline_WRITE_PIXELS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.morphology_binary_entry_proc
+Compiling module xil_defaultlib.morphology_binary_flow_control_l...
+Compiling module xil_defaultlib.morphology_binary_read_pixels_Pi...
+Compiling module xil_defaultlib.morphology_binary_read_pixels
+Compiling module xil_defaultlib.morphology_binary_morph_stage_0_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_0_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_0_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_1_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_1_...
+Compiling module xil_defaultlib.morphology_binary_mul_32s_32s_32...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_1_...
+Compiling module xil_defaultlib.morphology_binary_write_pixels_P...
+Compiling module xil_defaultlib.morphology_binary_write_pixels
+Compiling module xil_defaultlib.morphology_binary_fifo_w64_d5_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w64_d5_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d3_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d3_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d3_S_S...
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d3_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d4_S_S...
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d4_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w8_d64_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w8_d64_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d4_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d4_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d2_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d2_S
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_writ...
+Compiling module xil_defaultlib.morphology_binary_start_for_writ...
+Compiling module xil_defaultlib.morphology_binary_process_r
+Compiling module xil_defaultlib.morphology_binary_control_s_axi
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi(...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary
+Compiling module xil_defaultlib.AESL_axi_master_gmem_in
+Compiling module xil_defaultlib.AESL_axi_master_gmem_out
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=5)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=7)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_morphology_binary_top
+Compiling module work.glbl
+Built simulation snapshot morphology_binary
+
+****** xsim v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/morphology_binary/xsim_script.tcl
+# xsim {morphology_binary} -autoloadwcfg -tclbatch {morphology_binary.tcl}
+Time resolution is 1 ps
+source morphology_binary.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 46 [0.00%] @ "125000"
+// RTL Simulation : 1 / 46 [0.00%] @ "14985000"
+// RTL Simulation : 2 / 46 [0.00%] @ "29535000"
+// RTL Simulation : 3 / 46 [0.00%] @ "44525000"
+// RTL Simulation : 4 / 46 [0.00%] @ "59515000"
+// RTL Simulation : 5 / 46 [0.00%] @ "62045000"
+// RTL Simulation : 6 / 46 [0.00%] @ "64495000"
+// RTL Simulation : 7 / 46 [0.00%] @ "67165000"
+// RTL Simulation : 8 / 46 [0.00%] @ "69835000"
+// RTL Simulation : 9 / 46 [0.00%] @ "72035000"
+// RTL Simulation : 10 / 46 [0.00%] @ "74155000"
+// RTL Simulation : 11 / 46 [0.00%] @ "76385000"
+// RTL Simulation : 12 / 46 [0.00%] @ "78615000"
+// RTL Simulation : 13 / 46 [0.00%] @ "80735000"
+// RTL Simulation : 14 / 46 [0.00%] @ "82855000"
+// RTL Simulation : 15 / 46 [0.00%] @ "85085000"
+// RTL Simulation : 16 / 46 [0.00%] @ "87315000"
+// RTL Simulation : 17 / 46 [0.00%] @ "88195000"
+// RTL Simulation : 18 / 46 [0.00%] @ "88995000"
+// RTL Simulation : 19 / 46 [0.00%] @ "89905000"
+// RTL Simulation : 20 / 46 [0.00%] @ "90815000"
+// RTL Simulation : 21 / 46 [0.00%] @ "91765000"
+// RTL Simulation : 22 / 46 [0.00%] @ "92675000"
+// RTL Simulation : 23 / 46 [0.00%] @ "93805000"
+// RTL Simulation : 24 / 46 [0.00%] @ "94935000"
+// RTL Simulation : 25 / 46 [0.00%] @ "96255000"
+// RTL Simulation : 26 / 46 [0.00%] @ "97495000"
+// RTL Simulation : 27 / 46 [0.00%] @ "98845000"
+// RTL Simulation : 28 / 46 [0.00%] @ "100195000"
+// RTL Simulation : 29 / 46 [0.00%] @ "104265000"
+// RTL Simulation : 30 / 46 [0.00%] @ "108255000"
+// RTL Simulation : 31 / 46 [0.00%] @ "112465000"
+// RTL Simulation : 32 / 46 [0.00%] @ "116675000"
+// RTL Simulation : 33 / 46 [0.00%] @ "125915000"
+// RTL Simulation : 34 / 46 [0.00%] @ "135075000"
+// RTL Simulation : 35 / 46 [0.00%] @ "144565000"
+// RTL Simulation : 36 / 46 [0.00%] @ "154055000"
+// RTL Simulation : 37 / 46 [0.00%] @ "4433165000"
+// RTL Simulation : 38 / 46 [0.00%] @ "8712195000"
+// RTL Simulation : 39 / 46 [0.00%] @ "12998375000"
+// RTL Simulation : 40 / 46 [0.00%] @ "17284555000"
+// RTL Simulation : 41 / 46 [0.00%] @ "17299625000"
+// RTL Simulation : 42 / 46 [0.00%] @ "17300065000"
+// RTL Simulation : 43 / 46 [0.00%] @ "17300505000"
+// RTL Simulation : 44 / 46 [0.00%] @ "17300945000"
+// RTL Simulation : 45 / 46 [0.00%] @ "17301385000"
+// RTL Simulation : 46 / 46 [100.00%] @ "17301785000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 17301845 ns : File "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary.autotb.v" Line 593
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:01:47 . Memory (MB): peak = 203.219 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 281672 KB (Peak: 281672 KB), Simulation CPU Usage: 102483 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep 22 20:29:39 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+PASS shapes_erode mode=0 pixels=1147 mismatches=0
+PASS shapes_dilate mode=1 pixels=1147 mismatches=0
+PASS shapes_open mode=2 pixels=1147 mismatches=0
+PASS shapes_close mode=3 pixels=1147 mismatches=0
+PASS edges_erode mode=0 pixels=99 mismatches=0
+PASS edges_dilate mode=1 pixels=99 mismatches=0
+PASS edges_open mode=2 pixels=99 mismatches=0
+PASS edges_close mode=3 pixels=99 mismatches=0
+PASS black_erode mode=0 pixels=72 mismatches=0
+PASS black_dilate mode=1 pixels=72 mismatches=0
+PASS black_open mode=2 pixels=72 mismatches=0
+PASS black_close mode=3 pixels=72 mismatches=0
+PASS white_erode mode=0 pixels=72 mismatches=0
+PASS white_dilate mode=1 pixels=72 mismatches=0
+PASS white_open mode=2 pixels=72 mismatches=0
+PASS white_close mode=3 pixels=72 mismatches=0
+PASS one_pixel_erode mode=0 pixels=1 mismatches=0
+PASS one_pixel_dilate mode=1 pixels=1 mismatches=0
+PASS one_pixel_open mode=2 pixels=1 mismatches=0
+PASS one_pixel_close mode=3 pixels=1 mismatches=0
+PASS single_row_erode mode=0 pixels=7 mismatches=0
+PASS single_row_dilate mode=1 pixels=7 mismatches=0
+PASS single_row_open mode=2 pixels=7 mismatches=0
+PASS single_row_close mode=3 pixels=7 mismatches=0
+PASS single_column_erode mode=0 pixels=7 mismatches=0
+PASS single_column_dilate mode=1 pixels=7 mismatches=0
+PASS single_column_open mode=2 pixels=7 mismatches=0
+PASS single_column_close mode=3 pixels=7 mismatches=0
+PASS nonbinary_erode mode=0 pixels=221 mismatches=0
+PASS nonbinary_dilate mode=1 pixels=221 mismatches=0
+PASS nonbinary_open mode=2 pixels=221 mismatches=0
+PASS nonbinary_close mode=3 pixels=221 mismatches=0
+PASS random_erode mode=0 pixels=667 mismatches=0
+PASS random_dilate mode=1 pixels=667 mismatches=0
+PASS random_open mode=2 pixels=667 mismatches=0
+PASS random_close mode=3 pixels=667 mismatches=0
+PASS stare_manual_ah_erode mode=0 pixels=423500 mismatches=0
+PASS stare_manual_ah_dilate mode=1 pixels=423500 mismatches=0
+PASS stare_manual_ah_open mode=2 pixels=423500 mismatches=0
+PASS stare_manual_ah_close mode=3 pixels=423500 mismatches=0
+PASS after_real_frame_open mode=2 pixels=1147 mismatches=0
+PASS zero_width mode=0 pixels=0 mismatches=0
+PASS negative_height mode=1 pixels=0 mismatches=0
+PASS too_wide mode=2 pixels=0 mismatches=0
+PASS too_tall mode=3 pixels=0 mismatches=0
+PASS bad_mode mode=4 pixels=0 mismatches=0
+SUMMARY cases=46 mismatches=0
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 189.507 seconds; current allocated memory: 11.199 MB.
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog -rtl verilog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinx2023.1/Vivado/2023.1/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 22 20:30:01 2026...
+INFO: [HLS 200-802] Generated output file morphology/solution1/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 17.629 seconds; current allocated memory: 5.191 MB.
+INFO: [HLS 200-112] Total CPU user time: 10 seconds. Total CPU system time: 5 seconds. Total elapsed time: 231.817 seconds; peak allocated memory: 1.224 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Tue Sep 22 20:30:01 2026...

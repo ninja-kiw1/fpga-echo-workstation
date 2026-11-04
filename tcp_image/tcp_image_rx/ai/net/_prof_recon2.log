@@ -1,0 +1,42 @@
+connecting...
+connected
+uploaded
+
+===== 读宽度 / 指令数 实验 =====
+BUILD_OK
+== 读: 单条指令的宽度 (基准 ldr 64bit / ld1 16B / 32B / 64B / 128B每轮) ==
+   [Device /dev/mem  0xB0000000]
+  ldr 64-bit                          52153 us |  397.90 ns/16B |    40.21 MB/s | chk=0
+  ld1 x1   16B/instr                  51743 us |  394.77 ns/16B |    40.53 MB/s | chk=0
+  ld1 x2   32B/instr                  51828 us |  395.42 ns/16B |    40.46 MB/s | chk=0
+  ld1 x4   64B/instr                  51704 us |  394.47 ns/16B |    40.56 MB/s | chk=0
+  ld1 x4 twice 128B/iter              51715 us |  394.55 ns/16B |    40.55 MB/s | chk=0
+   [Normal-NC /dev/plbram 0xB0000000]
+  ldr 64-bit                          53305 us |  406.68 ns/16B |    39.34 MB/s | chk=0
+  ld1 x1   16B/instr                  51777 us |  395.03 ns/16B |    40.50 MB/s | chk=0
+  ld1 x2   32B/instr                  51872 us |  395.75 ns/16B |    40.43 MB/s | chk=0
+  ld1 x4   64B/instr                  51718 us |  394.58 ns/16B |    40.55 MB/s | chk=0
+  ld1 x4 twice 128B/iter              53494 us |  408.13 ns/16B |    39.20 MB/s | chk=0
+   [普通可缓存堆内存 (上限参考)]
+  ld1 x1   16B/instr                    699 us |    5.33 ns/16B |  3000.22 MB/s | chk=0
+  ld1 x4   64B/instr                    506 us |    3.86 ns/16B |  4144.57 MB/s | chk=0
+== 搬运 BRAM -> heap ==
+  NEON 64B copy (ld1+st1)             51738 us |  394.73 ns/16B |    40.53 MB/s | chk=1
+  glibc memcpy (现用)               25928 us |  197.81 ns/16B |    80.88 MB/s | chk=1
+== 写 ==
+  Device 64-bit store                 10366 us |   79.09 ns/16B |   202.31 MB/s | chk=0
+  Device st1 x4 64B/instr              5184 us |   39.55 ns/16B |   404.54 MB/s | chk=0
+  Normal-NC 64-bit store               1946 us |   14.85 ns/16B |  1077.67 MB/s | chk=0
+  Normal-NC st1 x4 64B/instr           1938 us |   14.79 ns/16B |  1082.12 MB/s | chk=0
+RC=0
+--- disasm (找 ld1) ---
+0
+     a28:	4c407300 	ld1	{v0.16b}, [x24]
+     af8:	4c40a2c0 	ld1	{v0.16b, v1.16b}, [x22]
+     bc8:	4c402000 	ld1	{v0.16b-v3.16b}, [x0]
+     cc8:	4c407380 	ld1	{v0.16b}, [x28]
+     d98:	4c40a360 	ld1	{v0.16b, v1.16b}, [x27]
+     e70:	4c402000 	ld1	{v0.16b-v3.16b}, [x0]
+
+RECON2_DONE
+EXIT=0 

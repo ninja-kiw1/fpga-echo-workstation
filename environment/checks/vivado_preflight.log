@@ -1,0 +1,246 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Oct 11 21:14:44 2026
+# Process ID         : 12580
+# Current directory  : E:/PLD/environment/checks
+# Command line       : vivado.exe -mode batch -source E:\PLD\tcp_image\tcp_image_rx\ai\bd\build_ai_sys_xu2dp.tcl -log E:\PLD\environment\checks\vivado_preflight.log -journal E:\PLD\environment\checks\vivado_preflight.jou -tclargs --preflight
+# Log file           : E:/PLD/environment/checks/vivado_preflight.log
+# Journal file       : E:\PLD\environment\checks\vivado_preflight.jou
+# Running On         : Ninja_kiwi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 25534 MB
+# Swap memory        : 44023 MB
+# Total Virtual      : 69558 MB
+# Available Virtual  : 47460 MB
+#-----------------------------------------------------------
+source {E:\PLD\tcp_image\tcp_image_rx\ai\bd\build_ai_sys_xu2dp.tcl}
+# set here    [file dirname [file normalize [info script]]]
+# set R       [file normalize [file join [file dirname [info script]] ../..]]
+# set share   [file normalize [file join [file dirname [info script]] ../../../..]]
+# set preset_file [file join $share edgeboard board_files fz3b a.0 preset.xml]
+# set ip_repos [list $R/ai/build/conv_ip_xu2/solution1/impl/ip $R/ai/build/elt_ip/solution1/impl/ip]
+# file mkdir $R/bitstream
+# set prjdir  $R/vivado
+# set prjname ai_sys_xu2dp
+# set part    xazu3eg-sfvc784-1-i
+# set bdname  system
+# set preflight [expr {[lsearch -exact $argv --preflight] >= 0}]
+# if {$preflight} {
+#     set prjdir $R/vivado/preflight
+#     append prjname _preflight
+# }
+# proc logmsg {m} { puts "### $m" }
+# create_project $prjname "$prjdir/$prjname" -part $part -force
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 628.523 ; gain = 219.418
+# add_files -norecurse [glob $R/rtl/*.v]
+# set_property ip_repo_paths $ip_repos [current_project]
+# update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/conv_ip_xu2/solution1/impl/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+# logmsg "project + rtl + ip repos ready"
+### project + rtl + ip repos ready
+# create_bd_design system
+Wrote  : <E:\PLD\tcp_image\tcp_image_rx\vivado\preflight\ai_sys_xu2dp_preflight\ai_sys_xu2dp_preflight.srcs\sources_1\bd\system\system.bd> 
+# proc read_ps_preset {path} {
+#     set f [open $path r]; set xml [read $f]; close $f
+#     if {![regexp {<ip_preset preset_proc_name="zynq_ultra_ps_e_preset">(.*?)</ip_preset>} $xml -> block]} {
+#         error "zynq_ultra_ps_e_preset not found in $path"
+#     }
+#     set cfg {}
+#     foreach {- name value} [regexp -all -inline {<user_parameter name="([^"]+)" value="([^"]*)"} $block] {
+#         dict set cfg $name $value
+#     }
+#     return $cfg
+# }
+# set ps [create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.5 zynq_ultra_ps_e_0]
+# if {[file exists $preset_file]} {
+#     set preset [read_ps_preset $preset_file]
+#     puts "### applying [dict size $preset] PS preset params"
+#     set_property -dict $preset $ps
+# } else {
+#     error "FZ3B preset not found: $preset_file"
+# }
+### applying 359 PS preset params
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# set_property -dict [list \
+#     CONFIG.PSU__USE__M_AXI_GP0 {1} CONFIG.PSU__MAXIGP0__DATA_WIDTH {32} \
+#     CONFIG.PSU__USE__M_AXI_GP1 {1} CONFIG.PSU__MAXIGP1__DATA_WIDTH {128} \
+#     CONFIG.PSU__USE__M_AXI_GP2 {0} \
+#     CONFIG.PSU__FPGA_PL0_ENABLE {1} \
+#     CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ {100} \
+# ] $ps
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# for {set i 0} {$i <= 6} {incr i} { catch {set_property CONFIG.PSU__USE__S_AXI_GP$i {0} $ps} }
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# catch {set_property CONFIG.PSU__USE__S_AXI_ACP {0} $ps}
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# catch {set_property CONFIG.PSU__USE__S_AXI_ACE {0} $ps}
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# set rst [create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_pl]
+# set sc [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 sc_axil]
+# set_property -dict [list CONFIG.NUM_SI {1} CONFIG.NUM_MI {3}] $sc
+# set pc [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_protocol_converter:2.1 pc_axil]
+# set_property -dict [list CONFIG.SI_PROTOCOL {AXI4} CONFIG.MI_PROTOCOL {AXI4LITE} \
+#     CONFIG.DATA_WIDTH {32} CONFIG.ADDR_WIDTH {32} CONFIG.TRANSLATION_MODE {2}] $pc
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'in_last' has a dependency on the module local parameter or undefined parameter 'LAST_CNT'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'out_take' has a dependency on the module local parameter or undefined parameter 'A_OUT'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'wr_go' has a dependency on the module local parameter or undefined parameter 'A_IN'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi' of definition 'xilinx.com:interface:aximm:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi_aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi_aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axi'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_RESET' with value 's_axi_aresetn'.
+WARNING: [IP_Flow 19-11770] Clock interface 's_axi_aclk' has no FREQ_HZ parameter.
+# set iproc [create_bd_cell -type module -reference img_proc_axil img_proc_axil_0]
+# set conv  [create_bd_cell -type ip -vlnv xilinx.com:hls:conv_layer:1.0 conv_layer_0]
+# set elt   [create_bd_cell -type ip -vlnv xilinx.com:hls:eltwise_layer:1.0 eltwise_layer_0]
+# set dai [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ai_data_ic]
+# set_property -dict [list CONFIG.NUM_SI {7} CONFIG.NUM_MI {1}] $dai
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] system_bram_ctrl_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] system_bram_ctrl_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+# set bctl [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl bram_ctrl]
+# set_property -dict [list CONFIG.DATA_WIDTH {128} CONFIG.SINGLE_PORT_BRAM {0} \
+#     CONFIG.SUPPORTS_NARROW_BURST {1} CONFIG.PROTOCOL {AXI4}] $bctl
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] system_bram_ctrl_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] system_bram_ctrl_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+create_bd_cell: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 934.484 ; gain = 51.246
+# set bgen [create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen bram_gen]
+# set_property -dict [list \
+#   CONFIG.use_bram_block {BRAM_Controller} CONFIG.Memory_Type {True_Dual_Port_RAM} \
+#   CONFIG.Byte_Size {8} CONFIG.Use_Byte_Write_Enable {true} \
+#   CONFIG.Write_Width_A {128} CONFIG.Read_Width_A {128} CONFIG.Write_Depth_A {16384} \
+#   CONFIG.Write_Width_B {128} CONFIG.Read_Width_B {128} \
+#   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+#   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+#   CONFIG.Register_PortA_Output_of_Memory_Core {false} \
+#   CONFIG.Register_PortB_Output_of_Memory_Core {false} \
+#   CONFIG.EN_SAFETY_CKT {true} CONFIG.Load_Init_File {false} CONFIG.Interface_Type {Native} \
+# ] $bgen
+# connect_bd_intf_net [get_bd_intf_pins ${ps}/M_AXI_HPM0_FPD] [get_bd_intf_pins sc_axil/S00_AXI]
+# connect_bd_intf_net [get_bd_intf_pins sc_axil/M00_AXI] [get_bd_intf_pins pc_axil/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins pc_axil/M_AXI]   [get_bd_intf_pins img_proc_axil_0/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins sc_axil/M01_AXI] [get_bd_intf_pins conv_layer_0/s_axi_control]
+# connect_bd_intf_net [get_bd_intf_pins sc_axil/M02_AXI] [get_bd_intf_pins eltwise_layer_0/s_axi_control]
+# connect_bd_intf_net [get_bd_intf_pins ${ps}/M_AXI_HPM1_FPD]    [get_bd_intf_pins ai_data_ic/S00_AXI]
+# connect_bd_intf_net [get_bd_intf_pins conv_layer_0/m_axi_gmem_in]   [get_bd_intf_pins ai_data_ic/S01_AXI]
+# connect_bd_intf_net [get_bd_intf_pins conv_layer_0/m_axi_gmem_out]  [get_bd_intf_pins ai_data_ic/S02_AXI]
+# connect_bd_intf_net [get_bd_intf_pins conv_layer_0/m_axi_gmem_par]  [get_bd_intf_pins ai_data_ic/S03_AXI]
+# connect_bd_intf_net [get_bd_intf_pins eltwise_layer_0/m_axi_gmem_a]   [get_bd_intf_pins ai_data_ic/S04_AXI]
+# connect_bd_intf_net [get_bd_intf_pins eltwise_layer_0/m_axi_gmem_b]   [get_bd_intf_pins ai_data_ic/S05_AXI]
+# connect_bd_intf_net [get_bd_intf_pins eltwise_layer_0/m_axi_gmem_out] [get_bd_intf_pins ai_data_ic/S06_AXI]
+# connect_bd_intf_net [get_bd_intf_pins ai_data_ic/M00_AXI] [get_bd_intf_pins bram_ctrl/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins bram_ctrl/BRAM_PORTA] [get_bd_intf_pins bram_gen/BRAM_PORTA]
+# connect_bd_intf_net [get_bd_intf_pins bram_ctrl/BRAM_PORTB] [get_bd_intf_pins bram_gen/BRAM_PORTB]
+# set plclk [get_bd_pins ${ps}/pl_clk0]
+# foreach p [list sc_axil/ACLK sc_axil/S00_ACLK sc_axil/M00_ACLK sc_axil/M01_ACLK sc_axil/M02_ACLK \
+#                 pc_axil/aclk pc_axil/s_axi_aclk pc_axil/m_axi_aclk \
+#                 img_proc_axil_0/s_axi_aclk conv_layer_0/ap_clk eltwise_layer_0/ap_clk \
+#                 ai_data_ic/ACLK ai_data_ic/S00_ACLK ai_data_ic/S01_ACLK ai_data_ic/S02_ACLK \
+#                 ai_data_ic/S03_ACLK ai_data_ic/S04_ACLK ai_data_ic/S05_ACLK ai_data_ic/S06_ACLK \
+#                 ai_data_ic/M00_ACLK bram_ctrl/s_axi_aclk bram_gen/clka bram_gen/clkb \
+#                 rst_pl/slowest_sync_clk \
+#                 "${ps}/maxihpm0_fpd_aclk" "${ps}/maxihpm1_fpd_aclk" "${ps}/maxihpm0_lpd_aclk"] {
+#     if {[llength [get_bd_pins -quiet $p]] > 0} { catch { connect_bd_net $plclk [get_bd_pins $p] } } else { puts "WARN clk $p" }
+# }
+WARN clk pc_axil/s_axi_aclk
+WARN clk pc_axil/m_axi_aclk
+WARNING: [BD 41-1306] The connection to interface pin </bram_gen/clka> is being overridden by the user with net </zynq_ultra_ps_e_0_pl_clk0>. This pin will not be connected as a part of interface connection <BRAM_PORTA>, and might not recreate the connectivity as expected using the writ_bd_tcl command.
+WARNING: [BD 41-1306] The connection to interface pin </bram_gen/clkb> is being overridden by the user with net </zynq_ultra_ps_e_0_pl_clk0>. This pin will not be connected as a part of interface connection <BRAM_PORTB>, and might not recreate the connectivity as expected using the writ_bd_tcl command.
+WARN clk /zynq_ultra_ps_e_0/maxihpm0_lpd_aclk
+# connect_bd_net [get_bd_pins ${ps}/pl_resetn0] [get_bd_pins rst_pl/ext_reset_in]
+# set prstn [get_bd_pins rst_pl/peripheral_aresetn]
+# set irstn [get_bd_pins rst_pl/interconnect_aresetn]
+# foreach p [list sc_axil/ARESETN sc_axil/S00_ARESETN sc_axil/M00_ARESETN sc_axil/M01_ARESETN sc_axil/M02_ARESETN \
+#                 pc_axil/aresetn pc_axil/s_axi_aresetn pc_axil/m_axi_aresetn img_proc_axil_0/s_axi_aresetn \
+#                 conv_layer_0/ap_rst_n eltwise_layer_0/ap_rst_n bram_ctrl/s_axi_aresetn] {
+#     if {[llength [get_bd_pins -quiet $p]] > 0} { catch { connect_bd_net $prstn [get_bd_pins $p] } }
+# }
+# foreach p [list ai_data_ic/ARESETN ai_data_ic/S00_ARESETN ai_data_ic/S01_ARESETN ai_data_ic/S02_ARESETN \
+#                 ai_data_ic/S03_ARESETN ai_data_ic/S04_ARESETN ai_data_ic/S05_ARESETN ai_data_ic/S06_ARESETN \
+#                 ai_data_ic/M00_ARESETN] {
+#     if {[llength [get_bd_pins -quiet $p]] > 0} { catch { connect_bd_net $irstn [get_bd_pins $p] } }
+# }
+# logmsg "wired"
+### wired
+# assign_bd_address -offset 0xA0000000 -range 4K   [get_bd_addr_segs img_proc_axil_0/S_AXI/reg0]
+Slave segment '/img_proc_axil_0/s_axi/reg0' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA000_0000 [ 4K ]>.
+# assign_bd_address -offset 0xA0010000 -range 64K  [get_bd_addr_segs conv_layer_0/s_axi_control/Reg]
+Slave segment '/conv_layer_0/s_axi_control/Reg' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA001_0000 [ 64K ]>.
+# assign_bd_address -offset 0xA0020000 -range 64K  [get_bd_addr_segs eltwise_layer_0/s_axi_control/Reg]
+Slave segment '/eltwise_layer_0/s_axi_control/Reg' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xA002_0000 [ 64K ]>.
+# assign_bd_address -offset 0xB0000000 -range 256K [get_bd_addr_segs bram_ctrl/S_AXI/Mem0]
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/conv_layer_0/Data_m_axi_gmem_out' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/conv_layer_0/Data_m_axi_gmem_in' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/conv_layer_0/Data_m_axi_gmem_par' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/eltwise_layer_0/Data_m_axi_gmem_out' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/eltwise_layer_0/Data_m_axi_gmem_a' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/eltwise_layer_0/Data_m_axi_gmem_b' at <0xB000_0000 [ 256K ]>.
+Slave segment '/bram_ctrl/S_AXI/Mem0' is being assigned into address space '/zynq_ultra_ps_e_0/Data' at <0xB000_0000 [ 256K ]>.
+# catch {assign_bd_address}
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+# foreach seg [get_bd_addr_segs -quiet {/conv_layer_0/Data_m_axi_*/SEG_* /eltwise_layer_0/Data_m_axi_*/SEG_*}] {
+#   if {![string match *bram* $seg]} { catch { exclude_bd_addr_seg $seg } }
+# }
+# logmsg "=== PS Data segments ==="
+### === PS Data segments ===
+# foreach seg [get_bd_addr_segs -quiet {/zynq_ultra_ps_e_0/Data/*}] {
+#   catch { puts "   [get_property NAME $seg] off=[get_property OFFSET $seg] rng=[get_property RANGE $seg]" }
+# }
+   SEG_bram_ctrl_Mem0 off=0x00B0000000 rng=0x0000040000
+   SEG_conv_layer_0_Reg off=0x00A0010000 rng=0x0000010000
+   SEG_eltwise_layer_0_Reg off=0x00A0020000 rng=0x0000010000
+   SEG_img_proc_axil_0_reg0 off=0x00A0000000 rng=0x0000001000
+# validate_bd_design -force
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+WARNING: [BD 41-2180] Resetting the memory initialization file of </bram_gen> to default.
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S01_AXI(16) and /conv_layer_0/m_axi_gmem_in(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S01_AXI(16) and /conv_layer_0/m_axi_gmem_in(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S02_AXI(16) and /conv_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S02_AXI(16) and /conv_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S04_AXI(16) and /eltwise_layer_0/m_axi_gmem_a(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S04_AXI(16) and /eltwise_layer_0/m_axi_gmem_a(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S05_AXI(16) and /eltwise_layer_0/m_axi_gmem_b(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S05_AXI(16) and /eltwise_layer_0/m_axi_gmem_b(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S06_AXI(16) and /eltwise_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S06_AXI(16) and /eltwise_layer_0/m_axi_gmem_out(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /pc_axil/S_AXI(0) and /sc_axil/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /pc_axil/S_AXI(0) and /sc_axil/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /sc_axil/m01_couplers/auto_pc/S_AXI(0) and /sc_axil/xbar/M01_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /sc_axil/m01_couplers/auto_pc/S_AXI(0) and /sc_axil/xbar/M01_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /sc_axil/m02_couplers/auto_pc/S_AXI(0) and /sc_axil/xbar/M02_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /sc_axil/m02_couplers/auto_pc/S_AXI(0) and /sc_axil/xbar/M02_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /bram_ctrl/S_AXI(0) and /ai_data_ic/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /bram_ctrl/S_AXI(0) and /ai_data_ic/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ai_data_ic/xbar/S03_AXI(16) and /ai_data_ic/s03_couplers/auto_us/M_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ai_data_ic/xbar/S03_AXI(16) and /ai_data_ic/s03_couplers/auto_us/M_AXI(0)
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clka has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTA 
+WARNING: [BD 41-1271] The connection to the pin: /bram_gen/clkb has been overridden by the user. This pin will not be connected as a part of the interface connection: bram_ctrl_BRAM_PORTB 
+# logmsg "VALIDATE_OK"
+### VALIDATE_OK
+# save_bd_design
+Wrote  : <E:\PLD\tcp_image\tcp_image_rx\vivado\preflight\ai_sys_xu2dp_preflight\ai_sys_xu2dp_preflight.srcs\sources_1\bd\system\system.bd> 
+# if {$preflight} {
+#     logmsg "PREFLIGHT_OK: IP catalog, FZ3B preset and dual-port BD validated; no synthesis run"
+#     close_project
+#     exit 0
+# }
+### PREFLIGHT_OK: IP catalog, FZ3B preset and dual-port BD validated; no synthesis run
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 11 21:15:38 2026...
+EXITCODE 0 

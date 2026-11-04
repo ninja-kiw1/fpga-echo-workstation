@@ -1,0 +1,129 @@
+attempting to launch hw_server
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2023.1
+
+  **** Build date : May  7 2023 at 15:26:57
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 10000000 Hz
+STEP bitstream programmed
+STEP psu_init done (clocks, DDR, PS-PL isolation removed)
+WARNING: If the reset is being triggered after powering on the device,
+ 
+         write bootloop at reset vector address (0xffff0000), or use
+ 
+         -clear-registers option, to avoid unpredictable behavior.
+ 
+         Further warnings will be suppressed
+STEP DDR read/write ok
+IP conv_layer_0 ctrl=0x4
+IP eltwise_layer_0 ctrl=0x4
+STEP both IPs idle
+LOAD first_block_2.bin 768 34 attempts=1
+LOAD first_block_5.bin 768 55 attempts=1
+LOAD first_shortcut_1.bin 256 53 attempts=1
+LOAD down_path_0_block_2.bin 1536 73 attempts=1
+LOAD down_path_0_block_5.bin 2688 123 attempts=1
+LOAD down_path_0_shortcut_1.bin 512 46 attempts=1
+LOAD down_path_1_block_2.bin 5376 161 attempts=1
+LOAD down_path_1_block_5.bin 9984 323 attempts=1
+LOAD down_path_1_shortcut_1.bin 1280 67 attempts=1
+LOAD up_path_0_up_layer_block_0.bin 2432 102 attempts=1
+LOAD up_path_0_conv_bridge_layer_block_2.bin 2688 90 attempts=1
+LOAD up_path_0_conv_layer_block_2.bin 4992 144 attempts=1
+LOAD up_path_0_conv_layer_block_5.bin 2688 84 attempts=1
+LOAD up_path_0_conv_layer_shortcut_1.bin 896 58 attempts=1
+LOAD up_path_1_up_layer_block_0.bin 704 56 attempts=1
+LOAD up_path_1_conv_bridge_layer_block_2.bin 768 47 attempts=1
+LOAD up_path_1_conv_layer_block_2.bin 1344 59 attempts=1
+LOAD up_path_1_conv_layer_block_5.bin 768 54 attempts=1
+LOAD up_path_1_conv_layer_shortcut_1.bin 320 48 attempts=1
+LOAD final.bin 256 34 attempts=1
+LOAD input.bin 4194304 86348 attempts=1
+STEP parameters and input loaded
+NODE first_block_2 31513 0
+NODE first_block_5 36393 0
+NODE first_shortcut_1 25393 0
+NODE add 27044 0
+NODE down_path_0_pool 4333 0
+NODE down_path_0_block_2 15567 0
+NODE down_path_0_block_5 30040 0
+NODE down_path_0_shortcut_1 6819 0
+NODE add_1 3191 0
+NODE down_path_1_pool 3839 0
+NODE down_path_1_block_2 13326 0
+NODE down_path_1_block_5 25724 0
+NODE down_path_1_shortcut_1 3479 0
+NODE add_2 2617 0
+NODE up_path_0_up_layer_block_0 13034 0
+NODE up_path_0_conv_bridge_layer_block_2 48815 0
+NODE cat 4389 0
+NODE up_path_0_conv_layer_block_2 52579 0
+NODE up_path_0_conv_layer_block_5 46811 0
+NODE up_path_0_conv_layer_shortcut_1 10355 0
+NODE add_3 8153 0
+NODE up_path_1_up_layer_block_0 26718 0
+NODE up_path_1_conv_bridge_layer_block_2 29742 0
+NODE cat_1 6681 0
+NODE up_path_1_conv_layer_block_2 57748 0
+NODE up_path_1_conv_layer_block_5 41572 0
+NODE up_path_1_conv_layer_shortcut_1 20673 0
+NODE add_4 29031 0
+NODE final 11784 0
+NETWORK_US 2970214
+DUMPRETRY 9 chunk re-reads at 0x10418000
+DUMP first_block_2.bin 4194304 43031
+DUMPRETRY 5 chunk re-reads at 0x11018000
+DUMP add.bin 4194304 40356
+DUMP down_path_0_pool.bin 1048576 9815
+DUMP add_2.bin 1048576 9543
+DUMPRETRY 6 chunk re-reads at 0x12198000
+DUMP up_path_0_up_layer_block_0.bin 2097152 21963
+DUMPRETRY 5 chunk re-reads at 0x12598000
+DUMP cat.bin 4194304 41220
+DUMPRETRY 3 chunk re-reads at 0x12998000
+DUMP up_path_0_conv_layer_block_2.bin 2097152 21777
+JTAGRETRY 1: Memory read error at 0x150EA600. Cortex-A53 #0: EDITR not ready
+JTAGRETRY 2: Invalid context
+JTAGRETRY 3: Invalid context
+JTAGRETRY 4: Invalid context
+JTAGRETRY 5: Invalid context
+JTAG access failed after 5 tries: mrd -bin -file E:/PLD/medical_fpga/embedded/jtag/results/20260928_232539_im0002/chunk.tmp 353271808 16384
+    while executing
+"error "JTAG access failed after $tries tries: $script""
+    (procedure "retry" line 7)
+    invoked from within
+"retry [list mrd -bin -file $tmp $a $n]"
+    (procedure "stable_read" line 10)
+    invoked from within
+"stable_read $addr $words"
+    (procedure "timed_dump" line 3)
+    invoked from within
+"timed_dump {E:/PLD/medical_fpga/embedded/jtag/results/20260928_232539_im0002/add_4.bin} 0x14d98000 1048576"
+    (file "E:\PLD\medical_fpga\embedded\jtag\results\20260928_232539_im0002\run.tcl" line 624)

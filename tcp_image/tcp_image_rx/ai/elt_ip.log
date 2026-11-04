@@ -1,0 +1,426 @@
+
+****** vitis-run v2025.2.1 (64-bit)
+  **** SW Build 6397637 on 2026-03-13-19:08:23
+  **** Start of session at: Thu Oct  1 20:35:33 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2.1 6397637
+Sourcing Tcl script 'E:/fpga/my_project/tcp_image_rx/ai/run_elt_ip_export.tcl'
+INFO: [HLS 200-1510] Running: open_project elt_ip -reset 
+WARNING: [HLS 200-2182] The 'elt_ip' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip'.
+INFO: [HLS 200-1510] Running: set_top eltwise_layer 
+INFO: [HLS 200-1510] Running: add_files E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp -cflags -IE:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src 
+INFO: [HLS 200-10] Adding design file 'E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -reset -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.682 seconds; current allocated memory: 159.793 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 4.546 seconds; current allocated memory: 163.012 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 4,834 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,425 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,043 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,008 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,005 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 979 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 948 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 948 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 948 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 992 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 988 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 987 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 983 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 983 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,026 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,028 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'lane(ap_uint<128> const&, int)' into 'lane_max(ap_uint<128> const&, ap_uint<128> const&)' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:38:19)
+INFO: [HLS 214-131] Inlining function 'lane_max(ap_uint<128> const&, ap_uint<128> const&)' into 'eltwise_layer(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int)' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:167:34)
+INFO: [HLS 214-131] Inlining function 'round_clamp(ap_int<50>, ap_uint<5>, int, int)' into 'eltwise_layer(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int)' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:132:52)
+INFO: [HLS 214-131] Inlining function 'lane(ap_uint<128> const&, int)' into 'eltwise_layer(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int)' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:131:42)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_95_1' is marked as complete unroll implied by the pipeline pragma (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:95:30)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_129_2' is marked as complete unroll implied by the pipeline pragma (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:129:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_36_1' is marked as complete unroll implied by the pipeline pragma (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:36:22)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_95_1' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:95:30) in function 'eltwise_layer' completely with a factor of 8 (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:46:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_129_2' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:129:35) in function 'eltwise_layer' completely with a factor of 8 (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:46:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_36_1' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:36:22) in function 'eltwise_layer' completely with a factor of 8 (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:46:0)
+INFO: [HLS 214-248] Applying array_partition to 'hold': Complete partitioning on dimension 1. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:155:24)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'ADD'(E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9) has been inferred on bundle 'gmem_a'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'ADD'(E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9) has been inferred on bundle 'gmem_b'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 in loop 'ADD'(E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9) has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 has been inferred on bundle 'gmem_a'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:106:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 has been inferred on bundle 'gmem_b'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:106:9)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:106:9)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:147:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD_TOP'(E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:150:13) has been inferred on bundle 'gmem_a'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:150:13)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'POOL'(E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:159:13) has been inferred on bundle 'gmem_a'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:159:13)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 8.884 seconds; current allocated memory: 166.074 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.001 seconds; current allocated memory: 166.078 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.038 seconds; current allocated memory: 173.387 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.049 seconds; current allocated memory: 176.266 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:92:1) to (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9) in function 'eltwise_layer'... converting 57 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:124:1) to (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:122:13) in function 'eltwise_layer'... converting 60 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'eltwise_layer' (E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:14:29)...6 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.246 seconds; current allocated memory: 204.223 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.257 seconds; current allocated memory: 258.812 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'eltwise_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_LOAD_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_A'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_A'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.414 seconds; current allocated memory: 262.695 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.015 seconds; current allocated memory: 263.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_LOAD_B' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_B'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_B'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.018 seconds; current allocated memory: 263.781 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.012 seconds; current allocated memory: 263.781 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_MERGE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'MERGE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 6, loop 'MERGE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.111 seconds; current allocated memory: 266.930 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.046 seconds; current allocated memory: 266.949 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_ADD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'ADD'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 6, loop 'ADD'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.155 seconds; current allocated memory: 269.168 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.053 seconds; current allocated memory: 269.219 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_LOAD_TOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_TOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_TOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.581 seconds; current allocated memory: 269.324 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.014 seconds; current allocated memory: 269.324 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_POOL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'POOL'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'POOL'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.045 seconds; current allocated memory: 269.816 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 269.852 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer_Pipeline_STORE_POOL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'STORE_POOL'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'STORE_POOL'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.031 seconds; current allocated memory: 270.078 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.013 seconds; current allocated memory: 270.129 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'eltwise_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.104 seconds; current allocated memory: 272.449 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.049 seconds; current allocated memory: 272.535 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_LOAD_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_LOAD_A' pipeline 'LOAD_A' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_A/m_axi_gmem_a_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_LOAD_A'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.715 seconds; current allocated memory: 274.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_LOAD_B' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_LOAD_B' pipeline 'LOAD_B' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_B/m_axi_gmem_b_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_LOAD_B'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.053 seconds; current allocated memory: 275.738 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_MERGE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_MERGE' pipeline 'MERGE' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_MERGE/m_axi_gmem_out_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_16s_48_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_47_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_MERGE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.98 seconds; current allocated memory: 279.051 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_ADD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_ADD' pipeline 'ADD' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_a_0_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_b_0_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_ADD/m_axi_gmem_out_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_16s_48_1_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_48_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_ADD'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.003 seconds; current allocated memory: 287.320 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_LOAD_TOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_LOAD_TOP' pipeline 'LOAD_TOP' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_LOAD_TOP/m_axi_gmem_a_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_LOAD_TOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 295.355 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_POOL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_POOL' pipeline 'POOL' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_POOL/m_axi_gmem_a_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_128_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_POOL'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.824 seconds; current allocated memory: 295.609 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer_Pipeline_STORE_POOL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'eltwise_layer_Pipeline_STORE_POOL' pipeline 'STORE_POOL' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'eltwise_layer_Pipeline_STORE_POOL/m_axi_gmem_out_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer_Pipeline_STORE_POOL'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.086 seconds; current allocated memory: 298.867 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'eltwise_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/gmem_a' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/gmem_b' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/gmem_out' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/in_a' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/in_b' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/out_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/mode' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/ca' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/cb' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/h' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/w' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/m0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/m1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/shift' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/qmin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'eltwise_layer/qmax' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'eltwise_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'in_a', 'in_b', 'out_r', 'mode', 'ca', 'h', 'w', 'm0', 'm1', 'shift', 'qmin' and 'qmax' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_31ns_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_32s_32_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_31s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_31ns_62_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'eltwise_layer'.
+INFO: [RTMG 210-278] Implementing memory 'eltwise_layer_buf_a_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.043 seconds; current allocated memory: 303.703 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.461 seconds; current allocated memory: 312.461 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-2225] Wrote inferred directives to file E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.146 seconds; current allocated memory: 326.473 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for eltwise_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for eltwise_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:29; Allocated memory: 166.852 MB.
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog -rtl verilog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2025.2.1 (64-bit)
+  **** SW Build 6403652 on Thu Mar 19 19:48:24 GMT 2026
+  **** IP Build 6403511 on Thu Mar 19 12:41:45 MDT 2026
+  **** SharedData Build 6403650 on Thu Mar 19 14:02:13 MDT 2026
+  **** Start of session at: Thu Oct  1 20:36:07 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/solution1_data.json outdir=E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip srcdir=E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1 ippack_options_dict= ippack_options_dict=
+INFO: Copied 1 ipmisc file(s) to E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/misc
+INFO: Copied 24 verilog file(s) to E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/hdl/verilog
+INFO: Copied 23 vhdl file(s) to E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/drivers
+INFO: Import ports from HDL: E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/hdl/vhdl/eltwise_layer.vhd (eltwise_layer)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/fpga/vivado/2025.2.1/Vivado/data/ip'.
+INFO: Add axi4full interface m_axi_gmem_a
+INFO: Add axi4full interface m_axi_gmem_b
+INFO: Add axi4full interface m_axi_gmem_out
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/component.xml
+INFO: Created IP archive E:/fpga/my_project/tcp_image_rx/ai/build/elt_ip/solution1/impl/ip/xilinx_com_hls_eltwise_layer_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  1 20:36:14 2026...
+INFO: [HLS 200-802] Generated output file elt_ip/solution1/impl/export.zip
+INFO: [HLS 200-2161] Finished Command export_design Elapsed time: 00:00:09; Allocated memory: 4.078 MB.
+INFO: [HLS 200-112] Total CPU user time: 5 seconds. Total CPU system time: 2 seconds. Total elapsed time: 40.939 seconds; peak allocated memory: 330.602 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 42s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

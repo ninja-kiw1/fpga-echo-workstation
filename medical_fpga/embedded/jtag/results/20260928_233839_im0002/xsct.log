@@ -1,0 +1,94 @@
+
+##### run.tcl
+attempting to launch hw_server
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2023.1
+
+  **** Build date : May  7 2023 at 15:26:57
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz
+STEP read-back only (no reset, no reprogramming)
+JTAGRETRY 1: Memory read error at 0x11118000. Invalid DAP IDCODE 30800000. Invalid DAP ACK value: 7
+JTAGRETRY 2: Invalid context
+JTAGRETRY 3: Invalid context
+JTAGRETRY 4: Invalid context
+JTAGRETRY 5: Invalid context
+JTAG access failed after 5 tries: mrd -bin -file E:/PLD/medical_fpga/embedded/jtag/results/20260928_233839_im0002/chunk.tmp 286359552 16384
+    while executing
+"error "JTAG access failed after $tries tries: $script""
+    (procedure "retry" line 11)
+    invoked from within
+"retry [list mrd -bin -file $tmp $a $n]"
+    (procedure "stable_read" line 14)
+    invoked from within
+"stable_read $addr $words"
+    (procedure "timed_dump" line 3)
+    invoked from within
+"timed_dump {E:/PLD/medical_fpga/embedded/jtag/results/20260928_233839_im0002/add.bin} 0x11018000 1048576"
+    (file "E:\PLD\medical_fpga\embedded\jtag\results\20260928_233839_im0002\run.tcl" line 104)
+
+##### readback_1.tcl
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz
+STEP read-back only (no reset, no reprogramming)
+DUMPRETRY 20 chunk re-reads at 0x11018000
+DUMP add.bin 4194304 42030
+DUMPRETRY 2 chunk re-reads at 0x11418000
+DUMP down_path_0_pool.bin 1048576 9584
+JTAGRETRY 1: Memory read error at 0x120C6C00. Invalid DAP IDCODE ffe000b2. Cannot access Debug Port: invalid status: ACK_OK 0xFFFD0004
+JTAGRETRY 2: Invalid context
+JTAGRETRY 3: Invalid context
+JTAGRETRY 4: Invalid context
+JTAGRETRY 5: Invalid context
+JTAG access failed after 5 tries: mrd -bin -file E:/PLD/medical_fpga/embedded/jtag/results/20260928_233839_im0002/chunk.tmp 302743552 16384
+    while executing
+"error "JTAG access failed after $tries tries: $script""
+    (procedure "retry" line 11)
+    invoked from within
+"retry [list mrd -bin -file $tmp $a $n]"
+    (procedure "stable_read" line 14)
+    invoked from within
+"stable_read $addr $words"
+    (procedure "timed_dump" line 3)
+    invoked from within
+"timed_dump {E:/PLD/medical_fpga/embedded/jtag/results/20260928_233839_im0002/add_2.bin} 0x12098000 262144"
+    (file "E:\PLD\medical_fpga\embedded\jtag\results\20260928_233839_im0002\readback_1.tcl" line 106)
+
+##### readback_2.tcl
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz
+STEP read-back only (no reset, no reprogramming)
+DUMPRETRY 2 chunk re-reads at 0x12098000
+DUMP add_2.bin 1048576 9746
+DUMPRETRY 6 chunk re-reads at 0x12198000
+DUMP up_path_0_up_layer_block_0.bin 2097152 20134
+DUMPRETRY 6 chunk re-reads at 0x12598000
+DUMP cat.bin 4194304 38527
+DUMPRETRY 5 chunk re-reads at 0x12998000
+DUMP up_path_0_conv_layer_block_2.bin 2097152 20178
+STEP finished

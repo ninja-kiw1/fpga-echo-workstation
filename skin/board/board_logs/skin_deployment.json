@@ -1,0 +1,36 @@
+{
+ "tag": "skin_20261008T125556Z",
+ "remote": "/root/skin_build/skin_20261008T125556Z",
+ "sources": {
+  "src/ai_view.c": "550e289b57d72c9e1a450b1d60a6b8c46834a749e48eab6079608ab6db483e38",
+  "src/ai_view.h": "ec7e78af247fddbfb6b44835fd85aa5d8fa252f5950d26bb59eadcbfb026dc85",
+  "src/axidma.c": "93af1f7712a217b54f248945ff6c301d0df478ae7161013e78745e749843d701",
+  "src/axidma.h": "3bf1997aa98f9679bec9e92fe0f555124e7af8633d5a9bf038d01ac75439dee6",
+  "src/axigpio.c": "cdf89369140fb4912c7b96b9b416aa0e909ea714192e4e07f82c5b23a1df2bcb",
+  "src/axigpio.h": "85ad7f20a5050376372a94454fc4b263f0be147e82ef6baf79510979ca35b7fa",
+  "src/axilproc.c": "a8fa0f975b274639fe60ef144eea69b7153e1f7a637188a7d705271acce0882c",
+  "src/axilproc.h": "da7da1fa9b497b994ba6894f07116a154413c2631fce1d9c22bd31e8c6d68ec6",
+  "src/crc16.c": "50e823f9cea580e176b160b0eb6a6d3255e025f7871fe0771a072fd574e070ab",
+  "src/crc16.h": "beea4535212fe177b2090ac22052958cae2a199c5d60a9d7b3f2f4840dcf8599",
+  "src/ddr_layout.h": "c6f4814e05a361ab68319f8c9f78995bcc4e41c6ceec23cb746ee25dc162f10c",
+  "src/image_proto.h": "a76d67ac0d7ec0bfdd568e7b89259dea07ee0d34bf8dc94b5a993aebf2cc7b84",
+  "src/tcp_image_server.c": "4ce9a836261216b794700278749b304eb2850a61e04a749070d4b1134ff292e3",
+  "src/unet_ai.c": "940b97b1ab2078e0f37ba3dc331016c48e698db999a19ca749bd29cbce3738bc",
+  "src/unet_ai.h": "9129f28c0b7210801bce5fcb298b08e1cd519015016970ecf07070cae3e99efa",
+  "src/unet_net.h": "7c233033f6c61e68bdd903b1f271be4859ec021b1c3b848c71e63b0601437e58",
+  "src/unet_net_data.c": "3ada3aadd891b02c1163301d9c97339497594d6de9b3a8c23aa70c191230181f",
+  "src/vessel_morph.c": "5edc963acfeb82d46bbb9d887587c2cc553ffcc90e3287fe91c7ce65cd0ee482",
+  "src/vessel_morph.h": "481919a46ebee138885a54afb726d15f81f2a20b8519bef8fe8f82800465a636",
+  "makefile": "44fa0a9b7a60481e4061248d7cbaaf036e510b1e7cb32409769876836f87dfbb",
+  "install_skin.sh": "147f6b26f29d42128dc89a97be2eb8d815b60b6914abdb11f63ff6d51a3da272",
+  "skin_mode.sh": "053da58a0e97ddca70ae46d7cc318eb22147739dd99e9433086c48c9149df3d9"
+ },
+ "utc": "2026-10-08T12:56:07.069977+00:00",
+ "skin_sha256": "b5814741a4ea1d1093b05f5e26f6865f0ab05abd73535efa0fe8607517dfb7e9",
+ "skin_unit": "[Unit]\nConflicts=tcp-image-server.service\nDescription=tcp_image server with ISIC skin-lesion weights (same bitstream)\nDocumentation=file:/root/tcp_image_rx/README.md\n# \u7ed1\u5b9a 0.0.0.0, \u5176\u5b9e\u4e0d\u4f9d\u8d56 IP \u5c31\u7eea; \u4f46\u7b49\u7f51\u7edc\u8d77\u6765\u66f4\u7a33\u59a5\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nType=simple\nWorkingDirectory=/root/tcp_image_rx\n\n# \u2500\u2500 \u542f\u52a8\u53c2\u6570(\u6539\u8fd9\u91cc\u4e4b\u540e\u6267\u884c: systemctl daemon-reload && systemctl restart tcp-image-server) \u2500\u2500\n#   -p 5060          \u76d1\u542c\u7aef\u53e3, \u8981\u548c PC \u7aef GUI/CLI \u7684 -P \u4e00\u81f4\n#   -a 0x40000000    \u56fe\u50cf\u7f13\u51b2\u533a, \u7528\u8bbe\u5907\u6811\u91cc\u5df2\u4fdd\u7559\u7684 no-map \u533a(\u5382\u5546\u7559\u7684 buffer@0)\n#   --no-dma         \u6682\u4e0d\u5f00 AXI DMA(PL \u4fa7\u7684 Block Design \u8fd8\u6ca1\u505a)\n#   --echo           \u6536\u5230\u540e\u539f\u6837\u56de\u53d1, PC \u7aef GUI \u9760\u5b83\u663e\u793a\u53f3\u56fe; \u5c06\u6765 PL \u505a\u597d\u53ef\u53bb\u6389\n#   -n 0             \u4e00\u76f4\u8dd1, \u4e0d\u9000\u51fa\nExecStart=/root/skin/tcp_image_server_skin -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 --ai-res 128\n\n# \u5d29\u4e86\u81ea\u52a8\u62c9\u8d77(\u6bcf 2 \u79d2\u6700\u591a\u4e00\u6b21)\nRestart=always\nRestartSec=2\n\nStandardOutput=journal\nStandardError=journal\n\n[Install]\nWantedBy=multi-user.target\n",
+ "protected_sha256": [
+  "73e3ad89bcaa924fe1c5c0e572e172969b136a1f046072743f9ebca3d3fce51d",
+  "131e8e09853896a4cf89a5d2f07b7b62d23e79214df938a4b764d47f75d02d11",
+  "4a744c89343240b7048a958d59ca413a5044ae4c6d897136c4a0d339c7cc06d2"
+ ]
+}

@@ -1,0 +1,29 @@
+--- ps (∞¥ CPU ≈≈) ---
+  PID  PPID %CPU STAT COMMAND         COMMAND
+ 7777     1  2.9 Ss   tcp_image_serve /root/Tcp_Image_Rx/tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+ 3309  3307  0.1 Ssl+ Xorg            /usr/lib/xorg/Xorg :0 vt07 -nolisten tcp -novtswitch -auth /var/run/lxdm/lxdm-:0.auth
+ 3622  3604  0.1 Sl   python3         python3 /root/Fz3b_BoardCheck/gui/board_check_gui.py
+ 3635     1  0.1 Sl   clipit          clipit
+    1     0  0.0 Ss   systemd         /sbin/init
+    2     0  0.0 S    kthreadd        [kthreadd]
+    4     2  0.0 I<   kworker/0:0H    [kworker/0:0H]
+    6     2  0.0 I<   mm_percpu_wq    [mm_percpu_wq]
+    7     2  0.0 S    ksoftirqd/0     [ksoftirqd/0]
+    8     2  0.0 I    rcu_sched       [rcu_sched]
+    9     2  0.0 I    rcu_bh          [rcu_bh]
+
+--- dmesg Œ≤ ---
+[13016.914173] gdmatest: GDMA_DONE mode=3
+[14569.835673] plbdma: dma channel: fd500000.dma
+[14569.835952] plbdma: bounce buffer: 2048 KB (order 9) phys 0x85f600000
+[14569.836095] plbdma: ready: bram=0xb0000000 window 256KB, /dev/plbdma
+[14817.203380] plbdma: unloaded (xfers=12979 errs=0)
+[14818.813637] plbdma: dma channel: fd500000.dma
+[14818.813910] plbdma: bounce buffer: 2048 KB (order 9) phys 0x85f600000
+[14818.814027] plbdma: ready: bram=0xb0000000 window 256KB, /dev/plbdma
+
+--- uptime/load ---
+ 00:31:58 up  4:38,  0 users,  load average: 1.30, 1.30, 1.13
+
+PS_DONE
+EXIT=0 

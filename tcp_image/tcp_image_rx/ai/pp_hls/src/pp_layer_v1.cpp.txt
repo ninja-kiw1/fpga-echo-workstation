@@ -1,0 +1,327 @@
+// pp_layer.cpp -- PL post-processing of the U-Net logits, prototype (interface: pp_layer.hpp).
+//
+// Three raster passes over the window, all reading the logits again instead of storing a label image:
+//   pass 1  mask row by row (threshold or integer bilinear up-sampling), count, connected components with
+//           provisional labels from a local rule + union-find whose roots are always the smallest label
+//           (= the component's first pixel in raster order, the scipy / ai_view numbering)
+//   pass 2  (CLEAN) replay the local rule -> keep the largest component; label its background (4-conn),
+//           flag background components that touch the window border
+//   pass 3  (CLEAN) replay both -> kept | background-not-touching-border, written as bits
+// Tile sums read the whole frame once more. Bit-level spec: ../ppref.py.
+#include "pp_layer.hpp"
+
+typedef ap_uint<PP_LBITS> lab_t;
+typedef ap_uint<PP_LBITS + 1> nlab_t;        // 0 = no label, else label + 1
+typedef ap_uint<19> area_t;                  // up to 512 * 512
+
+struct Cfg {
+    int op, h, w, x0, y0, cw, ch, k, kshift, thr, tn, oh, ow;
+};
+
+static ap_int<8> logit_of(const word_t& wd) {
+#pragma HLS INLINE
+    return (ap_int<8>)wd.range(7, 0);
+}
+
+// one output row of the mask
+static void mask_row(const word_t* in, const Cfg& c, int oy, bool m[PP_MAXW]) {
+    if (c.k == 1) {
+    ROW1:
+        for (int x = 0; x < c.ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+            m[x] = logit_of(in[(c.y0 + oy) * c.w + c.x0 + x]) >= c.thr;
+        }
+        return;
+    }
+    static ap_int<12> r[PP_MAXW];
+    const int d = 2 * c.k, ds = c.kshift + 1;   // weights in units of 1 / (2k)
+    int ny = 2 * (c.y0 * c.k + oy) + 1 - c.k;
+    if (ny < 0) ny = 0;
+    const int i0 = ny >> ds, f = ny & (d - 1);
+    const int i1 = (i0 + 1 < c.h) ? i0 + 1 : c.h - 1;
+ROWS:
+    for (int x = 0; x < c.w; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=128
+#pragma HLS PIPELINE II=2
+        r[x] = logit_of(in[i0 * c.w + x]) * (d - f) + logit_of(in[i1 * c.w + x]) * f;
+    }
+COLS:
+    for (int ox = 0; ox < c.ow; ox++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+        int nx = 2 * (c.x0 * c.k + ox) + 1 - c.k;
+        if (nx < 0) nx = 0;
+        const int j0 = nx >> ds, g = nx & (d - 1);
+        const int j1 = (j0 + 1 < c.w) ? j0 + 1 : c.w - 1;
+        const int v = r[j0] * (d - g) + r[j1] * g;
+        m[ox] = 2 * v > c.tn * d * d;
+    }
+}
+
+static lab_t find_root(const lab_t par[PP_MAXL], lab_t a) {
+FIND:
+    while (par[a] != a) {
+#pragma HLS LOOP_TRIPCOUNT max=16
+        a = par[a];
+    }
+    return a;
+}
+
+static void unite(lab_t par[PP_MAXL], lab_t a, lab_t b) {
+    const lab_t ra = find_root(par, a), rb = find_root(par, b);
+    if (ra < rb) {
+        par[rb] = ra;
+    } else if (rb < ra) {
+        par[ra] = rb;
+    }
+}
+
+// Label one row. record: create labels, unite, count area / border (pass 1, background in pass 2);
+// otherwise replay the same local rule only (labels come out identical, tables untouched).
+// use_area: foreground (component sizes); otherwise background (border flags). Only one table is
+// touched per call, so the foreground has no border table and the background no area table.
+static void label_row(const bool m[PP_MAXW], int ow, bool conn8, bool edge_row, bool record, bool use_area,
+                      nlab_t prev[PP_MAXW], nlab_t cur[PP_MAXW], lab_t par[PP_MAXL], area_t area[PP_MAXL],
+                      ap_uint<1> bor[PP_MAXL], int& next, bool& ovf) {
+    nlab_t left = 0;
+LAB:
+    for (int x = 0; x < ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+        nlab_t out = 0;
+        if (m[x]) {
+            const nlab_t up = prev[x];
+            const nlab_t ul = (conn8 && x > 0) ? prev[x - 1] : nlab_t(0);
+            const nlab_t ur = (conn8 && x < ow - 1) ? prev[x + 1] : nlab_t(0);
+            lab_t lab;
+            if (up != 0) {
+                lab = up - 1;
+            } else if (left != 0) {
+                lab = left - 1;
+            } else if (ul != 0) {
+                lab = ul - 1;
+            } else if (ur != 0) {
+                lab = ur - 1;
+            } else {
+                if (next < PP_MAXL) {
+                    lab = next;
+                    next++;
+                    if (record) {
+                        par[lab] = lab;
+                        if (use_area) area[lab] = 0;
+                        else bor[lab] = 0;
+                    }
+                } else {
+                    lab = PP_MAXL - 1;          // result flagged invalid; keeps memory accesses in range
+                    ovf = true;
+                }
+            }
+            if (record) {
+                if (left != 0) unite(par, lab, left - 1);
+                if (ul != 0) unite(par, lab, ul - 1);
+                if (ur != 0) unite(par, lab, ur - 1);
+                if (use_area) area[lab] = area[lab] + 1;
+                else if (edge_row || x == 0 || x == ow - 1) bor[lab] = 1;
+            }
+            out = lab + 1;
+        }
+        cur[x] = out;
+        left = out;
+    }
+COPY:
+    for (int x = 0; x < ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+        prev[x] = cur[x];
+    }
+}
+
+static void clear_row(nlab_t prev[PP_MAXW], int ow) {
+CLR:
+    for (int x = 0; x < ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+        prev[x] = 0;
+    }
+}
+
+// parent[l] <= l, so one forward sweep makes every entry point at its root and sums area / border into it
+static void flatten(lab_t par[PP_MAXL], area_t area[PP_MAXL], ap_uint<1> bor[PP_MAXL], int n, bool use_area) {
+FLAT:
+    for (int l = 0; l < n; l++) {
+#pragma HLS LOOP_TRIPCOUNT max=4096
+        const lab_t p = par[l];
+        if (p != lab_t(l)) {
+            const lab_t r = par[p];
+            par[l] = r;
+            if (use_area) area[r] = area[r] + area[l];
+            else bor[r] = bor[r] | bor[l];
+        }
+    }
+}
+
+static void write_bits(word_t* out, int oy, int ow, const bool b[PP_MAXW]) {
+#pragma HLS INLINE off
+    const int words = (ow + 127) >> 7;
+WB:
+    for (int j = 0; j < words; j++) {
+#pragma HLS LOOP_TRIPCOUNT max=4
+        word_t wd = 0;
+    BIT:
+        for (int i = 0; i < 128; i++) {
+#pragma HLS PIPELINE II=1
+            const int x = (j << 7) + i;
+            if (x < ow && b[x]) wd[i] = 1;
+        }
+        out[PP_MASK_BASE + oy * words + j] = wd;
+    }
+}
+
+int pp_layer(const word_t* in, word_t* out, int op, int h, int w, int x0, int y0, int cw, int ch,
+             int k, int thr, int tn) {
+#pragma HLS INTERFACE m_axi port=in offset=slave bundle=gmem_in depth=262144 max_read_burst_length=16 num_read_outstanding=2 max_write_burst_length=2 num_write_outstanding=1
+#pragma HLS INTERFACE m_axi port=out offset=slave bundle=gmem_out depth=2056 max_write_burst_length=16 num_write_outstanding=2 max_read_burst_length=2 num_read_outstanding=1
+#pragma HLS INTERFACE s_axilite port=in bundle=control
+#pragma HLS INTERFACE s_axilite port=out bundle=control
+#pragma HLS INTERFACE s_axilite port=op bundle=control
+#pragma HLS INTERFACE s_axilite port=h bundle=control
+#pragma HLS INTERFACE s_axilite port=w bundle=control
+#pragma HLS INTERFACE s_axilite port=x0 bundle=control
+#pragma HLS INTERFACE s_axilite port=y0 bundle=control
+#pragma HLS INTERFACE s_axilite port=cw bundle=control
+#pragma HLS INTERFACE s_axilite port=ch bundle=control
+#pragma HLS INTERFACE s_axilite port=k bundle=control
+#pragma HLS INTERFACE s_axilite port=thr bundle=control
+#pragma HLS INTERFACE s_axilite port=tn bundle=control
+#pragma HLS INTERFACE s_axilite port=return bundle=control
+
+    static lab_t fpar[PP_MAXL], bpar[PP_MAXL];
+    static area_t farea[PP_MAXL];                // foreground sizes
+    static ap_uint<1> bbor[PP_MAXL];             // background: touches the window border
+    static nlab_t fprev[PP_MAXW], fcur[PP_MAXW], bprev[PP_MAXW], bcur[PP_MAXW];
+    bool m[PP_MAXW], kept[PP_MAXW], res[PP_MAXW];
+
+    Cfg c;
+    c.op = op; c.h = h; c.w = w; c.x0 = x0; c.y0 = y0; c.cw = cw; c.ch = ch; c.k = k; c.thr = thr; c.tn = tn;
+    c.kshift = (k == 4) ? 2 : (k == 2) ? 1 : 0;
+    c.oh = ch * k;
+    c.ow = cw * k;
+    const bool bad = h < 1 || w < 1 || h > PP_MAXH || w > PP_MAXW || x0 < 0 || y0 < 0 || cw < 1 || ch < 1 ||
+                     x0 + cw > w || y0 + ch > h || (k != 1 && k != 2 && k != 4) || c.ow > PP_MAXW ||
+                     c.oh > PP_MAXH || thr < -128 || thr > 127;
+    if (bad) {
+        word_t s = 0;
+        s.range(127, 96) = PP_BAD_CONFIG;
+        out[0] = s;
+        return PP_BAD_CONFIG;
+    }
+    const bool conn8 = (op & PP_CONN8) != 0, clean = (op & PP_CLEAN) != 0, mask_out = (op & PP_MASK) != 0;
+
+    // ---- pass 1 ----
+    int nf = 0, count = 0;
+    bool fovf = false, bovf = false;
+    clear_row(fprev, c.ow);
+P1:
+    for (int oy = 0; oy < c.oh; oy++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+        mask_row(in, c, oy, m);
+    CNT:
+        for (int x = 0; x < c.ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+            count += m[x] ? 1 : 0;
+        }
+        label_row(m, c.ow, conn8, false, true, true, fprev, fcur, fpar, farea, bbor, nf, fovf);
+        if (mask_out && !clean) write_bits(out, oy, c.ow, m);
+    }
+    flatten(fpar, farea, bbor, nf, true);
+    int comps = 0, best = -1;
+    area_t best_area = 0;
+ROOTS:
+    for (int l = 0; l < nf; l++) {
+#pragma HLS LOOP_TRIPCOUNT max=4096
+#pragma HLS PIPELINE II=1
+        if (fpar[l] == lab_t(l)) {
+            comps++;
+            if (farea[l] > best_area) {             // strict: ties keep the earliest component
+                best_area = farea[l];
+                best = l;
+            }
+        }
+    }
+
+    // ---- passes 2 and 3: keep the largest component, fill its holes ----
+    if (clean) {
+        int rf = 0, nb = 0, rb = 0;
+        bool dummy = false;
+        for (int pass = 2; pass <= 3; pass++) {
+            rf = 0;
+            rb = 0;
+            clear_row(fprev, c.ow);
+            clear_row(bprev, c.ow);
+        P23:
+            for (int oy = 0; oy < c.oh; oy++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+                mask_row(in, c, oy, m);
+                label_row(m, c.ow, conn8, false, false, true, fprev, fcur, fpar, farea, bbor, rf, dummy);
+            KEEP:
+                for (int x = 0; x < c.ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+                    kept[x] = fcur[x] != 0 && best >= 0 && fpar[fcur[x] - 1] == lab_t(best);
+                    m[x] = !kept[x];
+                }
+                const bool edge = (oy == 0) || (oy == c.oh - 1);
+                if (pass == 2) {
+                    label_row(m, c.ow, false, edge, true, false, bprev, bcur, bpar, farea, bbor, nb, bovf);
+                } else {
+                    label_row(m, c.ow, false, edge, false, false, bprev, bcur, bpar, farea, bbor, rb, dummy);
+                FILL:
+                    for (int x = 0; x < c.ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+                        res[x] = kept[x] || (bcur[x] != 0 && bbor[bpar[bcur[x] - 1]] == 0);
+                    }
+                    if (mask_out) write_bits(out, oy, c.ow, res);
+                }
+            }
+            if (pass == 2) flatten(bpar, farea, bbor, nb, false);
+        }
+    }
+
+    // ---- tile sums of the raw logits over the whole frame (ai_view_fill_reg) ----
+    word_t t[4];
+    for (int i = 0; i < 4; i++) t[i] = 0;
+    if ((op & PP_TILES) != 0 && (h & 3) == 0 && (w & 3) == 0) {
+        const int th = h >> 2, tw = w >> 2;
+    TY:
+        for (int ty = 0; ty < 4; ty++) {
+        TX:
+            for (int tx = 0; tx < 4; tx++) {
+                int acc = 0;
+            TROW:
+                for (int yy = ty * th; yy < (ty + 1) * th; yy++) {
+#pragma HLS LOOP_TRIPCOUNT max=128
+                TPIX:
+                    for (int xx = tx * tw; xx < (tx + 1) * tw; xx++) {
+#pragma HLS LOOP_TRIPCOUNT max=128
+#pragma HLS PIPELINE II=1
+                        acc += logit_of(in[yy * w + xx]);
+                    }
+                }
+                const int n = ty * 4 + tx;
+                t[n >> 2].range(32 * (n & 3) + 31, 32 * (n & 3)) = (ap_uint<32>)acc;
+            }
+        }
+    }
+    for (int i = 0; i < 4; i++) out[1 + i] = t[i];
+
+    const int status = (fovf ? PP_FG_OVERFLOW : 0) | (bovf ? PP_BG_OVERFLOW : 0);
+    word_t s = 0;
+    s.range(31, 0) = count;
+    s.range(63, 32) = comps;
+    s.range(95, 64) = (int)best_area;
+    s.range(127, 96) = status;
+    out[0] = s;
+    return status;
+}

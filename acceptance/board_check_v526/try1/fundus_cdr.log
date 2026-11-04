@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\tcp_image_ui\verify_board_fundus_cdr.py", line 90, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "E:\PLD\tcp_image\tcp_image_ui\verify_board_fundus_cdr.py", line 55, in main
+    _, lg, _, _ = link.v6c_round_trip(p1.tobytes(), 128, kind=proto.V6C_KIND_RGB, model0=ID_DISC, thr=1, flags=F)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\tcp_image_ui\imagelink.py", line 147, in v6c_round_trip
+    st, logit, mask = self.recv_v6c(flags, w, len(kw.get("extra", ())))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\tcp_image_ui\imagelink.py", line 108, in recv_v6c
+    st = proto.unpack_stats(self._recv_exact(proto.AI_STAT_BYTES))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\tcp_image_ui\imagelink.py", line 93, in _recv_exact
+    raise LinkError("peer closed after %d/%d bytes" % (len(buf), n))
+imagelink.LinkError: peer closed after 0/64 bytes

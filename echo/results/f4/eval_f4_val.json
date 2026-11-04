@@ -1,0 +1,4918 @@
+{
+ "seq_tag": "seq_none_ex",
+ "clean": true,
+ "patients": 50,
+ "summary": {
+  "gt": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 0.0,
+    "bias": 0.0,
+    "sd": 0.0,
+    "loa": [
+     0.0,
+     0.0
+    ],
+    "r": 1.0,
+    "within_5": 1.0
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 0.0,
+    "bias": 0.0,
+    "sd": 0.0,
+    "loa": [
+     0.0,
+     0.0
+    ],
+    "r": 1.0,
+    "within_5": 1.0
+   },
+   "edv": {
+    "n": 50,
+    "mae": 0.0,
+    "bias": 0.0,
+    "sd": 0.0,
+    "loa": [
+     0.0,
+     0.0
+    ],
+    "r": 0.9999999999999999,
+    "within_5": 1.0
+   },
+   "esv": {
+    "n": 50,
+    "mae": 0.0,
+    "bias": 0.0,
+    "sd": 0.0,
+    "loa": [
+     0.0,
+     0.0
+    ],
+    "r": 1.0,
+    "within_5": 1.0
+   }
+  },
+  "f1_expert": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 5.92,
+    "bias": -2.56,
+    "sd": 7.242617634811438,
+    "loa": [
+     -16.75553056423042,
+     11.635530564230418
+    ],
+    "r": 0.8534340693377727,
+    "within_5": 0.52
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 5.878048780487805,
+    "bias": -1.975609756097561,
+    "sd": 7.254267036986054,
+    "loa": [
+     -16.193973148590228,
+     12.242753636395104
+    ],
+    "r": 0.8491680054404619,
+    "within_5": 0.5121951219512195
+   },
+   "edv": {
+    "n": 50,
+    "mae": 10.26,
+    "bias": -6.54,
+    "sd": 13.748781022033798,
+    "loa": [
+     -33.48761080318624,
+     20.407610803186245
+    ],
+    "r": 0.8968845277909157,
+    "within_5": 0.4
+   },
+   "esv": {
+    "n": 50,
+    "mae": 5.42,
+    "bias": -1.5,
+    "sd": 7.324128422062051,
+    "loa": [
+     -15.85529170724162,
+     12.85529170724162
+    ],
+    "r": 0.9577140380065763,
+    "within_5": 0.66
+   }
+  },
+  "f3_expert": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 5.58,
+    "bias": -1.42,
+    "sd": 8.887252967375376,
+    "loa": [
+     -18.839015816055735,
+     15.999015816055737
+    ],
+    "r": 0.7870198304312008,
+    "within_5": 0.64
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 5.2682926829268295,
+    "bias": -1.024390243902439,
+    "sd": 8.371044752233884,
+    "loa": [
+     -17.43163795828085,
+     15.382857470475972
+    ],
+    "r": 0.8239751148157083,
+    "within_5": 0.6341463414634146
+   },
+   "edv": {
+    "n": 50,
+    "mae": 10.24,
+    "bias": -6.52,
+    "sd": 13.178894692125073,
+    "loa": [
+     -32.350633596565146,
+     19.310633596565143
+    ],
+    "r": 0.9056171737349876,
+    "within_5": 0.38
+   },
+   "esv": {
+    "n": 50,
+    "mae": 4.9,
+    "bias": -2.38,
+    "sd": 5.7565933803716565,
+    "loa": [
+     -13.662923025528446,
+     8.902923025528448
+    ],
+    "r": 0.9743688909943273,
+    "within_5": 0.62
+   }
+  },
+  "f1_auto": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 5.88,
+    "bias": 0.72,
+    "sd": 7.874111546902369,
+    "loa": [
+     -14.713258631928642,
+     16.153258631928644
+    ],
+    "r": 0.7938469782077322,
+    "within_5": 0.54
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 5.390243902439025,
+    "bias": 0.5609756097560976,
+    "sd": 7.470103012970453,
+    "loa": [
+     -14.08042629566599,
+     15.202377515178185
+    ],
+    "r": 0.8138747535444764,
+    "within_5": 0.6097560975609756
+   },
+   "edv": {
+    "n": 50,
+    "mae": 6.92,
+    "bias": -3.16,
+    "sd": 7.73637050375876,
+    "loa": [
+     -18.32328618736717,
+     12.00328618736717
+    ],
+    "r": 0.9684997848901125,
+    "within_5": 0.48
+   },
+   "esv": {
+    "n": 50,
+    "mae": 5.92,
+    "bias": -2.64,
+    "sd": 8.948286804449994,
+    "loa": [
+     -20.17864213672199,
+     14.898642136721989
+    ],
+    "r": 0.9365086946272421,
+    "within_5": 0.7
+   }
+  },
+  "f3_auto": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 5.3,
+    "bias": 0.82,
+    "sd": 7.739878182873054,
+    "loa": [
+     -14.350161238431184,
+     15.990161238431185
+    ],
+    "r": 0.7912097211431858,
+    "within_5": 0.66
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 4.780487804878049,
+    "bias": 1.4146341463414633,
+    "sd": 6.557345536709566,
+    "loa": [
+     -11.437763105609287,
+     14.267031398292213
+    ],
+    "r": 0.8472351992097827,
+    "within_5": 0.6829268292682927
+   },
+   "edv": {
+    "n": 50,
+    "mae": 8.34,
+    "bias": -4.46,
+    "sd": 10.14227362506624,
+    "loa": [
+     -24.33885630512983,
+     15.418856305129829
+    ],
+    "r": 0.9468849415197357,
+    "within_5": 0.46
+   },
+   "esv": {
+    "n": 50,
+    "mae": 6.02,
+    "bias": -3.58,
+    "sd": 7.131676964538608,
+    "loa": [
+     -17.55808685049567,
+     10.398086850495671
+    ],
+    "r": 0.9622961410460432,
+    "within_5": 0.56
+   }
+  },
+  "click1_auto": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 4.86,
+    "bias": 1.78,
+    "sd": 6.360881725557442,
+    "loa": [
+     -10.687328182092585,
+     14.247328182092584
+    ],
+    "r": 0.8625650970989653,
+    "within_5": 0.6
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 4.195121951219512,
+    "bias": 2.0,
+    "sd": 5.412947441089743,
+    "loa": [
+     -8.609376984535897,
+     12.609376984535897
+    ],
+    "r": 0.9003524715806346,
+    "within_5": 0.6829268292682927
+   },
+   "edv": {
+    "n": 50,
+    "mae": 5.14,
+    "bias": -1.82,
+    "sd": 6.46399762578255,
+    "loa": [
+     -14.4894353465338,
+     10.849435346533799
+    ],
+    "r": 0.9781046642394858,
+    "within_5": 0.64
+   },
+   "esv": {
+    "n": 50,
+    "mae": 4.84,
+    "bias": -2.48,
+    "sd": 5.711570783622184,
+    "loa": [
+     -13.67467873589948,
+     8.71467873589948
+    ],
+    "r": 0.974495726502005,
+    "within_5": 0.6
+   }
+  },
+  "click2_auto": {
+   "failed": 0,
+   "ef": {
+    "n": 50,
+    "mae": 4.3,
+    "bias": 1.1,
+    "sd": 5.870194517515531,
+    "loa": [
+     -10.405581254330441,
+     12.60558125433044
+    ],
+    "r": 0.8818642269513987,
+    "within_5": 0.68
+   },
+   "ef_good_medium": {
+    "n": 41,
+    "mae": 3.7560975609756095,
+    "bias": 1.170731707317073,
+    "sd": 5.398622227126057,
+    "loa": [
+     -9.41056785785,
+     11.752031272484144
+    ],
+    "r": 0.8997530281500373,
+    "within_5": 0.7317073170731707
+   },
+   "edv": {
+    "n": 50,
+    "mae": 5.16,
+    "bias": -1.84,
+    "sd": 6.4724218726809815,
+    "loa": [
+     -14.525946870454723,
+     10.845946870454723
+    ],
+    "r": 0.978024783586259,
+    "within_5": 0.64
+   },
+   "esv": {
+    "n": 50,
+    "mae": 4.48,
+    "bias": -2.04,
+    "sd": 5.383117979728242,
+    "loa": [
+     -12.590911240267353,
+     8.510911240267355
+    ],
+    "r": 0.977555454665714,
+    "within_5": 0.68
+   }
+  }
+ },
+ "rows": [
+  {
+   "patient": "patient0200",
+   "ef_ref": 45.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 20,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 4,
+       "es": 20,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 56,
+    "esv": 31,
+    "ef": 45
+   },
+   "f1_expert": {
+    "edv": 54,
+    "esv": 29,
+    "ef": 46
+   },
+   "f3_expert": {
+    "edv": 54,
+    "esv": 31,
+    "ef": 43
+   },
+   "f1_auto": {
+    "edv": 55,
+    "esv": 29,
+    "ef": 47
+   },
+   "f3_auto": {
+    "edv": 55,
+    "esv": 30,
+    "ef": 45
+   },
+   "click1_auto": {
+    "edv": 56,
+    "esv": 31,
+    "ef": 45
+   },
+   "click2_auto": {
+    "edv": 56,
+    "esv": 31,
+    "ef": 45
+   }
+  },
+  {
+   "patient": "patient0206",
+   "ef_ref": 52.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 20
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 20
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 19,
+       "length": 20
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 20
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 95,
+    "esv": 46,
+    "ef": 52
+   },
+   "f1_expert": {
+    "edv": 106,
+    "esv": 51,
+    "ef": 52
+   },
+   "f3_expert": {
+    "edv": 106,
+    "esv": 48,
+    "ef": 55
+   },
+   "f1_auto": {
+    "edv": 105,
+    "esv": 50,
+    "ef": 52
+   },
+   "f3_auto": {
+    "edv": 106,
+    "esv": 49,
+    "ef": 54
+   },
+   "click1_auto": {
+    "edv": 102,
+    "esv": 48,
+    "ef": 53
+   },
+   "click2_auto": {
+    "edv": 102,
+    "esv": 50,
+    "ef": 51
+   }
+  },
+  {
+   "patient": "patient0230",
+   "ef_ref": 32.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 9,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 91,
+    "esv": 62,
+    "ef": 32
+   },
+   "f1_expert": {
+    "edv": 89,
+    "esv": 55,
+    "ef": 38
+   },
+   "f3_expert": {
+    "edv": 85,
+    "esv": 53,
+    "ef": 38
+   },
+   "f1_auto": {
+    "edv": 89,
+    "esv": 57,
+    "ef": 36
+   },
+   "f3_auto": {
+    "edv": 92,
+    "esv": 54,
+    "ef": 41
+   },
+   "click1_auto": {
+    "edv": 96,
+    "esv": 55,
+    "ef": 43
+   },
+   "click2_auto": {
+    "edv": 96,
+    "esv": 56,
+    "ef": 42
+   }
+  },
+  {
+   "patient": "patient0232",
+   "ef_ref": 32.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 22,
+       "length": 25
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 22,
+       "length": 25
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 22,
+       "length": 25
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 22,
+       "length": 25
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 140,
+    "esv": 95,
+    "ef": 32
+   },
+   "f1_expert": {
+    "edv": 138,
+    "esv": 98,
+    "ef": 29
+   },
+   "f3_expert": {
+    "edv": 138,
+    "esv": 95,
+    "ef": 31
+   },
+   "f1_auto": {
+    "edv": 138,
+    "esv": 96,
+    "ef": 30
+   },
+   "f3_auto": {
+    "edv": 136,
+    "esv": 92,
+    "ef": 32
+   },
+   "click1_auto": {
+    "edv": 142,
+    "esv": 93,
+    "ef": 35
+   },
+   "click2_auto": {
+    "edv": 142,
+    "esv": 93,
+    "ef": 35
+   }
+  },
+  {
+   "patient": "patient0233",
+   "ef_ref": 63.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 12,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 62,
+    "esv": 23,
+    "ef": 63
+   },
+   "f1_expert": {
+    "edv": 59,
+    "esv": 29,
+    "ef": 51
+   },
+   "f3_expert": {
+    "edv": 59,
+    "esv": 26,
+    "ef": 56
+   },
+   "f1_auto": {
+    "edv": 60,
+    "esv": 31,
+    "ef": 48
+   },
+   "f3_auto": {
+    "edv": 59,
+    "esv": 26,
+    "ef": 56
+   },
+   "click1_auto": {
+    "edv": 61,
+    "esv": 26,
+    "ef": 57
+   },
+   "click2_auto": {
+    "edv": 61,
+    "esv": 31,
+    "ef": 49
+   }
+  },
+  {
+   "patient": "patient0235",
+   "ef_ref": 58.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 20,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 102,
+    "esv": 43,
+    "ef": 58
+   },
+   "f1_expert": {
+    "edv": 100,
+    "esv": 41,
+    "ef": 59
+   },
+   "f3_expert": {
+    "edv": 100,
+    "esv": 41,
+    "ef": 59
+   },
+   "f1_auto": {
+    "edv": 100,
+    "esv": 40,
+    "ef": 60
+   },
+   "f3_auto": {
+    "edv": 99,
+    "esv": 41,
+    "ef": 59
+   },
+   "click1_auto": {
+    "edv": 103,
+    "esv": 41,
+    "ef": 60
+   },
+   "click2_auto": {
+    "edv": 103,
+    "esv": 41,
+    "ef": 60
+   }
+  },
+  {
+   "patient": "patient0236",
+   "ef_ref": 55.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 20,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 20,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 20,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 19,
+       "length": 21
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 21,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 21,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 21,
+       "length": 22
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 100,
+    "esv": 45,
+    "ef": 55
+   },
+   "f1_expert": {
+    "edv": 92,
+    "esv": 44,
+    "ef": 52
+   },
+   "f3_expert": {
+    "edv": 92,
+    "esv": 42,
+    "ef": 54
+   },
+   "f1_auto": {
+    "edv": 92,
+    "esv": 43,
+    "ef": 53
+   },
+   "f3_auto": {
+    "edv": 95,
+    "esv": 42,
+    "ef": 56
+   },
+   "click1_auto": {
+    "edv": 95,
+    "esv": 42,
+    "ef": 56
+   },
+   "click2_auto": {
+    "edv": 95,
+    "esv": 42,
+    "ef": 56
+   }
+  },
+  {
+   "patient": "patient0244",
+   "ef_ref": 44.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 20
+      },
+      "f3_auto": {
+       "ed": 7,
+       "es": 18,
+       "length": 20
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 20
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 20
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 93,
+    "esv": 52,
+    "ef": 44
+   },
+   "f1_expert": {
+    "edv": 88,
+    "esv": 58,
+    "ef": 34
+   },
+   "f3_expert": {
+    "edv": 88,
+    "esv": 50,
+    "ef": 43
+   },
+   "f1_auto": {
+    "edv": 91,
+    "esv": 50,
+    "ef": 45
+   },
+   "f3_auto": {
+    "edv": 87,
+    "esv": 52,
+    "ef": 40
+   },
+   "click1_auto": {
+    "edv": 97,
+    "esv": 52,
+    "ef": 46
+   },
+   "click2_auto": {
+    "edv": 97,
+    "esv": 52,
+    "ef": 46
+   }
+  },
+  {
+   "patient": "patient0245",
+   "ef_ref": 33.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 20
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 17,
+       "length": 20
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 20
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 20
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 70,
+    "esv": 47,
+    "ef": 33
+   },
+   "f1_expert": {
+    "edv": 75,
+    "esv": 45,
+    "ef": 40
+   },
+   "f3_expert": {
+    "edv": 75,
+    "esv": 38,
+    "ef": 49
+   },
+   "f1_auto": {
+    "edv": 77,
+    "esv": 36,
+    "ef": 53
+   },
+   "f3_auto": {
+    "edv": 73,
+    "esv": 37,
+    "ef": 49
+   },
+   "click1_auto": {
+    "edv": 74,
+    "esv": 36,
+    "ef": 51
+   },
+   "click2_auto": {
+    "edv": 74,
+    "esv": 38,
+    "ef": 49
+   }
+  },
+  {
+   "patient": "patient0247",
+   "ef_ref": 39.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 100,
+    "esv": 61,
+    "ef": 39
+   },
+   "f1_expert": {
+    "edv": 103,
+    "esv": 56,
+    "ef": 46
+   },
+   "f3_expert": {
+    "edv": 103,
+    "esv": 56,
+    "ef": 46
+   },
+   "f1_auto": {
+    "edv": 103,
+    "esv": 56,
+    "ef": 46
+   },
+   "f3_auto": {
+    "edv": 103,
+    "esv": 56,
+    "ef": 46
+   },
+   "click1_auto": {
+    "edv": 99,
+    "esv": 59,
+    "ef": 40
+   },
+   "click2_auto": {
+    "edv": 99,
+    "esv": 59,
+    "ef": 40
+   }
+  },
+  {
+   "patient": "patient0249",
+   "ef_ref": 53.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 18,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 22
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 62,
+    "esv": 29,
+    "ef": 53
+   },
+   "f1_expert": {
+    "edv": 65,
+    "esv": 19,
+    "ef": 71
+   },
+   "f3_expert": {
+    "edv": 65,
+    "esv": 25,
+    "ef": 62
+   },
+   "f1_auto": {
+    "edv": 65,
+    "esv": 19,
+    "ef": 71
+   },
+   "f3_auto": {
+    "edv": 65,
+    "esv": 24,
+    "ef": 63
+   },
+   "click1_auto": {
+    "edv": 63,
+    "esv": 24,
+    "ef": 62
+   },
+   "click2_auto": {
+    "edv": 63,
+    "esv": 25,
+    "ef": 60
+   }
+  },
+  {
+   "patient": "patient0250",
+   "ef_ref": 45.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 16,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 119,
+    "esv": 66,
+    "ef": 45
+   },
+   "f1_expert": {
+    "edv": 115,
+    "esv": 62,
+    "ef": 46
+   },
+   "f3_expert": {
+    "edv": 115,
+    "esv": 59,
+    "ef": 49
+   },
+   "f1_auto": {
+    "edv": 122,
+    "esv": 61,
+    "ef": 50
+   },
+   "f3_auto": {
+    "edv": 119,
+    "esv": 60,
+    "ef": 50
+   },
+   "click1_auto": {
+    "edv": 120,
+    "esv": 60,
+    "ef": 50
+   },
+   "click2_auto": {
+    "edv": 120,
+    "esv": 60,
+    "ef": 50
+   }
+  },
+  {
+   "patient": "patient0253",
+   "ef_ref": 52.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 20
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 20
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 20
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 20
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 80,
+    "esv": 38,
+    "ef": 52
+   },
+   "f1_expert": {
+    "edv": 77,
+    "esv": 35,
+    "ef": 55
+   },
+   "f3_expert": {
+    "edv": 77,
+    "esv": 34,
+    "ef": 56
+   },
+   "f1_auto": {
+    "edv": 75,
+    "esv": 35,
+    "ef": 53
+   },
+   "f3_auto": {
+    "edv": 79,
+    "esv": 34,
+    "ef": 57
+   },
+   "click1_auto": {
+    "edv": 77,
+    "esv": 35,
+    "ef": 55
+   },
+   "click2_auto": {
+    "edv": 77,
+    "esv": 37,
+    "ef": 52
+   }
+  },
+  {
+   "patient": "patient0255",
+   "ef_ref": 37.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 30,
+       "length": 31
+      },
+      "f3_auto": {
+       "ed": 4,
+       "es": 30,
+       "length": 31
+      },
+      "click1_auto": {
+       "ed": 3,
+       "es": 30,
+       "length": 31
+      },
+      "click2_auto": {
+       "ed": 3,
+       "es": 30,
+       "length": 31
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 115,
+    "esv": 72,
+    "ef": 37
+   },
+   "f1_expert": {
+    "edv": 109,
+    "esv": 75,
+    "ef": 31
+   },
+   "f3_expert": {
+    "edv": 109,
+    "esv": 74,
+    "ef": 32
+   },
+   "f1_auto": {
+    "edv": 111,
+    "esv": 77,
+    "ef": 31
+   },
+   "f3_auto": {
+    "edv": 113,
+    "esv": 74,
+    "ef": 35
+   },
+   "click1_auto": {
+    "edv": 113,
+    "esv": 74,
+    "ef": 35
+   },
+   "click2_auto": {
+    "edv": 113,
+    "esv": 71,
+    "ef": 37
+   }
+  },
+  {
+   "patient": "patient0256",
+   "ef_ref": 42.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 21,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 102,
+    "esv": 59,
+    "ef": 42
+   },
+   "f1_expert": {
+    "edv": 106,
+    "esv": 61,
+    "ef": 42
+   },
+   "f3_expert": {
+    "edv": 106,
+    "esv": 61,
+    "ef": 42
+   },
+   "f1_auto": {
+    "edv": 106,
+    "esv": 62,
+    "ef": 42
+   },
+   "f3_auto": {
+    "edv": 106,
+    "esv": 61,
+    "ef": 42
+   },
+   "click1_auto": {
+    "edv": 106,
+    "esv": 62,
+    "ef": 42
+   },
+   "click2_auto": {
+    "edv": 106,
+    "esv": 62,
+    "ef": 42
+   }
+  },
+  {
+   "patient": "patient0257",
+   "ef_ref": 54.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 135,
+    "esv": 62,
+    "ef": 54
+   },
+   "f1_expert": {
+    "edv": 142,
+    "esv": 71,
+    "ef": 50
+   },
+   "f3_expert": {
+    "edv": 142,
+    "esv": 67,
+    "ef": 53
+   },
+   "f1_auto": {
+    "edv": 142,
+    "esv": 70,
+    "ef": 51
+   },
+   "f3_auto": {
+    "edv": 142,
+    "esv": 67,
+    "ef": 53
+   },
+   "click1_auto": {
+    "edv": 144,
+    "esv": 68,
+    "ef": 53
+   },
+   "click2_auto": {
+    "edv": 144,
+    "esv": 70,
+    "ef": 51
+   }
+  },
+  {
+   "patient": "patient0259",
+   "ef_ref": 47.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 24,
+       "length": 25
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 24,
+       "length": 25
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 24,
+       "length": 25
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 23,
+       "length": 25
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 20,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 3,
+       "es": 20,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 129,
+    "esv": 68,
+    "ef": 47
+   },
+   "f1_expert": {
+    "edv": 111,
+    "esv": 61,
+    "ef": 45
+   },
+   "f3_expert": {
+    "edv": 111,
+    "esv": 60,
+    "ef": 46
+   },
+   "f1_auto": {
+    "edv": 115,
+    "esv": 65,
+    "ef": 43
+   },
+   "f3_auto": {
+    "edv": 113,
+    "esv": 60,
+    "ef": 47
+   },
+   "click1_auto": {
+    "edv": 115,
+    "esv": 59,
+    "ef": 49
+   },
+   "click2_auto": {
+    "edv": 115,
+    "esv": 60,
+    "ef": 48
+   }
+  },
+  {
+   "patient": "patient0264",
+   "ef_ref": 28.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 14,
+       "length": 15
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 15
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 23
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 22,
+       "length": 23
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 22,
+       "length": 23
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 23
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 68,
+    "esv": 49,
+    "ef": 28
+   },
+   "f1_expert": {
+    "edv": 81,
+    "esv": 56,
+    "ef": 31
+   },
+   "f3_expert": {
+    "edv": 81,
+    "esv": 52,
+    "ef": 36
+   },
+   "f1_auto": {
+    "edv": 81,
+    "esv": 52,
+    "ef": 36
+   },
+   "f3_auto": {
+    "edv": 81,
+    "esv": 52,
+    "ef": 36
+   },
+   "click1_auto": {
+    "edv": 77,
+    "esv": 48,
+    "ef": 38
+   },
+   "click2_auto": {
+    "edv": 77,
+    "esv": 49,
+    "ef": 36
+   }
+  },
+  {
+   "patient": "patient0265",
+   "ef_ref": 26.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 21,
+       "length": 29
+      },
+      "f3_auto": {
+       "ed": 5,
+       "es": 0,
+       "length": 29
+      },
+      "click1_auto": {
+       "ed": 3,
+       "es": 24,
+       "length": 29
+      },
+      "click2_auto": {
+       "ed": 3,
+       "es": 28,
+       "length": 29
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 198,
+    "esv": 147,
+    "ef": 26
+   },
+   "f1_expert": {
+    "edv": 127,
+    "esv": 118,
+    "ef": 7
+   },
+   "f3_expert": {
+    "edv": 133,
+    "esv": 148,
+    "ef": -11
+   },
+   "f1_auto": {
+    "edv": 187,
+    "esv": 104,
+    "ef": 44
+   },
+   "f3_auto": {
+    "edv": 188,
+    "esv": 118,
+    "ef": 37
+   },
+   "click1_auto": {
+    "edv": 194,
+    "esv": 147,
+    "ef": 24
+   },
+   "click2_auto": {
+    "edv": 193,
+    "esv": 144,
+    "ef": 25
+   }
+  },
+  {
+   "patient": "patient0267",
+   "ef_ref": 68.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 9,
+       "length": 13
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 12,
+       "length": 13
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 11,
+       "length": 13
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 11,
+       "length": 13
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 5,
+       "es": 19,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 66,
+    "esv": 21,
+    "ef": 68
+   },
+   "f1_expert": {
+    "edv": 39,
+    "esv": 17,
+    "ef": 56
+   },
+   "f3_expert": {
+    "edv": 39,
+    "esv": 19,
+    "ef": 51
+   },
+   "f1_auto": {
+    "edv": 49,
+    "esv": 18,
+    "ef": 63
+   },
+   "f3_auto": {
+    "edv": 38,
+    "esv": 20,
+    "ef": 47
+   },
+   "click1_auto": {
+    "edv": 55,
+    "esv": 21,
+    "ef": 62
+   },
+   "click2_auto": {
+    "edv": 55,
+    "esv": 21,
+    "ef": 62
+   }
+  },
+  {
+   "patient": "patient0268",
+   "ef_ref": 52.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 12,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 92,
+    "esv": 44,
+    "ef": 52
+   },
+   "f1_expert": {
+    "edv": 79,
+    "esv": 43,
+    "ef": 46
+   },
+   "f3_expert": {
+    "edv": 79,
+    "esv": 43,
+    "ef": 46
+   },
+   "f1_auto": {
+    "edv": 77,
+    "esv": 36,
+    "ef": 53
+   },
+   "f3_auto": {
+    "edv": 79,
+    "esv": 42,
+    "ef": 47
+   },
+   "click1_auto": {
+    "edv": 86,
+    "esv": 42,
+    "ef": 51
+   },
+   "click2_auto": {
+    "edv": 86,
+    "esv": 42,
+    "ef": 51
+   }
+  },
+  {
+   "patient": "patient0270",
+   "ef_ref": 43.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 3,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 3,
+       "es": 16,
+       "length": 17
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 88,
+    "esv": 50,
+    "ef": 43
+   },
+   "f1_expert": {
+    "edv": 77,
+    "esv": 40,
+    "ef": 48
+   },
+   "f3_expert": {
+    "edv": 77,
+    "esv": 43,
+    "ef": 44
+   },
+   "f1_auto": {
+    "edv": 77,
+    "esv": 42,
+    "ef": 45
+   },
+   "f3_auto": {
+    "edv": 79,
+    "esv": 41,
+    "ef": 48
+   },
+   "click1_auto": {
+    "edv": 85,
+    "esv": 43,
+    "ef": 49
+   },
+   "click2_auto": {
+    "edv": 85,
+    "esv": 44,
+    "ef": 48
+   }
+  },
+  {
+   "patient": "patient0271",
+   "ef_ref": 61.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 56,
+    "esv": 22,
+    "ef": 61
+   },
+   "f1_expert": {
+    "edv": 58,
+    "esv": 26,
+    "ef": 55
+   },
+   "f3_expert": {
+    "edv": 58,
+    "esv": 23,
+    "ef": 60
+   },
+   "f1_auto": {
+    "edv": 59,
+    "esv": 24,
+    "ef": 59
+   },
+   "f3_auto": {
+    "edv": 58,
+    "esv": 23,
+    "ef": 60
+   },
+   "click1_auto": {
+    "edv": 57,
+    "esv": 22,
+    "ef": 61
+   },
+   "click2_auto": {
+    "edv": 57,
+    "esv": 22,
+    "ef": 61
+   }
+  },
+  {
+   "patient": "patient0272",
+   "ef_ref": 56.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 18
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 147,
+    "esv": 65,
+    "ef": 56
+   },
+   "f1_expert": {
+    "edv": 153,
+    "esv": 56,
+    "ef": 63
+   },
+   "f3_expert": {
+    "edv": 153,
+    "esv": 69,
+    "ef": 55
+   },
+   "f1_auto": {
+    "edv": 152,
+    "esv": 56,
+    "ef": 63
+   },
+   "f3_auto": {
+    "edv": 153,
+    "esv": 69,
+    "ef": 55
+   },
+   "click1_auto": {
+    "edv": 150,
+    "esv": 69,
+    "ef": 54
+   },
+   "click2_auto": {
+    "edv": 150,
+    "esv": 68,
+    "ef": 55
+   }
+  },
+  {
+   "patient": "patient0279",
+   "ef_ref": 42.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 106,
+    "esv": 62,
+    "ef": 42
+   },
+   "f1_expert": {
+    "edv": 101,
+    "esv": 65,
+    "ef": 36
+   },
+   "f3_expert": {
+    "edv": 101,
+    "esv": 62,
+    "ef": 39
+   },
+   "f1_auto": {
+    "edv": 101,
+    "esv": 62,
+    "ef": 39
+   },
+   "f3_auto": {
+    "edv": 101,
+    "esv": 60,
+    "ef": 41
+   },
+   "click1_auto": {
+    "edv": 108,
+    "esv": 62,
+    "ef": 43
+   },
+   "click2_auto": {
+    "edv": 108,
+    "esv": 63,
+    "ef": 42
+   }
+  },
+  {
+   "patient": "patient0280",
+   "ef_ref": 37.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 10,
+       "length": 12
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 11,
+       "length": 12
+      },
+      "click1_auto": {
+       "ed": 3,
+       "es": 10,
+       "length": 12
+      },
+      "click2_auto": {
+       "ed": 3,
+       "es": 10,
+       "length": 12
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 11,
+       "length": 12
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 10,
+       "length": 12
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 10,
+       "length": 12
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 10,
+       "length": 12
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 120,
+    "esv": 76,
+    "ef": 37
+   },
+   "f1_expert": {
+    "edv": 110,
+    "esv": 80,
+    "ef": 27
+   },
+   "f3_expert": {
+    "edv": 110,
+    "esv": 71,
+    "ef": 35
+   },
+   "f1_auto": {
+    "edv": 116,
+    "esv": 80,
+    "ef": 31
+   },
+   "f3_auto": {
+    "edv": 112,
+    "esv": 69,
+    "ef": 38
+   },
+   "click1_auto": {
+    "edv": 110,
+    "esv": 71,
+    "ef": 35
+   },
+   "click2_auto": {
+    "edv": 110,
+    "esv": 71,
+    "ef": 35
+   }
+  },
+  {
+   "patient": "patient0282",
+   "ef_ref": 34.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 15
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 15
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 15
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 94,
+    "esv": 62,
+    "ef": 34
+   },
+   "f1_expert": {
+    "edv": 91,
+    "esv": 66,
+    "ef": 27
+   },
+   "f3_expert": {
+    "edv": 91,
+    "esv": 64,
+    "ef": 30
+   },
+   "f1_auto": {
+    "edv": 91,
+    "esv": 61,
+    "ef": 33
+   },
+   "f3_auto": {
+    "edv": 91,
+    "esv": 62,
+    "ef": 32
+   },
+   "click1_auto": {
+    "edv": 96,
+    "esv": 61,
+    "ef": 36
+   },
+   "click2_auto": {
+    "edv": 96,
+    "esv": 65,
+    "ef": 32
+   }
+  },
+  {
+   "patient": "patient0283",
+   "ef_ref": 46.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 14,
+       "length": 15
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 15
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 19
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 70,
+    "esv": 38,
+    "ef": 46
+   },
+   "f1_expert": {
+    "edv": 77,
+    "esv": 41,
+    "ef": 47
+   },
+   "f3_expert": {
+    "edv": 77,
+    "esv": 35,
+    "ef": 55
+   },
+   "f1_auto": {
+    "edv": 78,
+    "esv": 41,
+    "ef": 47
+   },
+   "f3_auto": {
+    "edv": 77,
+    "esv": 34,
+    "ef": 56
+   },
+   "click1_auto": {
+    "edv": 73,
+    "esv": 34,
+    "ef": 53
+   },
+   "click2_auto": {
+    "edv": 73,
+    "esv": 35,
+    "ef": 52
+   }
+  },
+  {
+   "patient": "patient0284",
+   "ef_ref": 39.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 121,
+    "esv": 74,
+    "ef": 39
+   },
+   "f1_expert": {
+    "edv": 114,
+    "esv": 67,
+    "ef": 41
+   },
+   "f3_expert": {
+    "edv": 114,
+    "esv": 65,
+    "ef": 43
+   },
+   "f1_auto": {
+    "edv": 117,
+    "esv": 71,
+    "ef": 39
+   },
+   "f3_auto": {
+    "edv": 115,
+    "esv": 66,
+    "ef": 43
+   },
+   "click1_auto": {
+    "edv": 117,
+    "esv": 66,
+    "ef": 44
+   },
+   "click2_auto": {
+    "edv": 117,
+    "esv": 69,
+    "ef": 41
+   }
+  },
+  {
+   "patient": "patient0286",
+   "ef_ref": 6.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 4,
+       "es": 11,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 8,
+       "es": 3,
+       "length": 12
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 7,
+       "length": 12
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 7,
+       "length": 12
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 7,
+       "length": 12
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 112,
+    "esv": 105,
+    "ef": 6
+   },
+   "f1_expert": {
+    "edv": 104,
+    "esv": 93,
+    "ef": 11
+   },
+   "f3_expert": {
+    "edv": 104,
+    "esv": 104,
+    "ef": 0
+   },
+   "f1_auto": {
+    "edv": 104,
+    "esv": 92,
+    "ef": 12
+   },
+   "f3_auto": {
+    "edv": 104,
+    "esv": 94,
+    "ef": 10
+   },
+   "click1_auto": {
+    "edv": 106,
+    "esv": 99,
+    "ef": 7
+   },
+   "click2_auto": {
+    "edv": 106,
+    "esv": 100,
+    "ef": 6
+   }
+  },
+  {
+   "patient": "patient0287",
+   "ef_ref": 36.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 12,
+       "length": 13
+      },
+      "f3_auto": {
+       "ed": 3,
+       "es": 12,
+       "length": 13
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 12,
+       "length": 13
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 12,
+       "length": 13
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 9,
+       "length": 10
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 9,
+       "length": 10
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 9,
+       "length": 10
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 9,
+       "length": 10
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 39,
+    "esv": 25,
+    "ef": 36
+   },
+   "f1_expert": {
+    "edv": 36,
+    "esv": 24,
+    "ef": 33
+   },
+   "f3_expert": {
+    "edv": 36,
+    "esv": 25,
+    "ef": 31
+   },
+   "f1_auto": {
+    "edv": 41,
+    "esv": 24,
+    "ef": 41
+   },
+   "f3_auto": {
+    "edv": 41,
+    "esv": 25,
+    "ef": 39
+   },
+   "click1_auto": {
+    "edv": 40,
+    "esv": 25,
+    "ef": 38
+   },
+   "click2_auto": {
+    "edv": 40,
+    "esv": 24,
+    "ef": 40
+   }
+  },
+  {
+   "patient": "patient0288",
+   "ef_ref": 50.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 13,
+       "length": 14
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 13,
+       "length": 14
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 14
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 14
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 10,
+       "length": 15
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 15
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 82,
+    "esv": 41,
+    "ef": 50
+   },
+   "f1_expert": {
+    "edv": 62,
+    "esv": 40,
+    "ef": 35
+   },
+   "f3_expert": {
+    "edv": 62,
+    "esv": 35,
+    "ef": 44
+   },
+   "f1_auto": {
+    "edv": 63,
+    "esv": 39,
+    "ef": 38
+   },
+   "f3_auto": {
+    "edv": 63,
+    "esv": 35,
+    "ef": 44
+   },
+   "click1_auto": {
+    "edv": 69,
+    "esv": 37,
+    "ef": 46
+   },
+   "click2_auto": {
+    "edv": 69,
+    "esv": 36,
+    "ef": 48
+   }
+  },
+  {
+   "patient": "patient0289",
+   "ef_ref": 60.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 21,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 18,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 70,
+    "esv": 28,
+    "ef": 60
+   },
+   "f1_expert": {
+    "edv": 65,
+    "esv": 31,
+    "ef": 52
+   },
+   "f3_expert": {
+    "edv": 65,
+    "esv": 32,
+    "ef": 51
+   },
+   "f1_auto": {
+    "edv": 68,
+    "esv": 32,
+    "ef": 53
+   },
+   "f3_auto": {
+    "edv": 68,
+    "esv": 32,
+    "ef": 53
+   },
+   "click1_auto": {
+    "edv": 69,
+    "esv": 34,
+    "ef": 51
+   },
+   "click2_auto": {
+    "edv": 69,
+    "esv": 34,
+    "ef": 51
+   }
+  },
+  {
+   "patient": "patient0290",
+   "ef_ref": 40.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 5,
+       "es": 16,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 5,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 17
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 117,
+    "esv": 70,
+    "ef": 40
+   },
+   "f1_expert": {
+    "edv": 113,
+    "esv": 70,
+    "ef": 38
+   },
+   "f3_expert": {
+    "edv": 113,
+    "esv": 63,
+    "ef": 44
+   },
+   "f1_auto": {
+    "edv": 111,
+    "esv": 70,
+    "ef": 37
+   },
+   "f3_auto": {
+    "edv": 114,
+    "esv": 63,
+    "ef": 45
+   },
+   "click1_auto": {
+    "edv": 113,
+    "esv": 64,
+    "ef": 43
+   },
+   "click2_auto": {
+    "edv": 113,
+    "esv": 65,
+    "ef": 42
+   }
+  },
+  {
+   "patient": "patient0291",
+   "ef_ref": 57.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 21,
+       "length": 22
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 22
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 6,
+       "es": 20,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 115,
+    "esv": 50,
+    "ef": 57
+   },
+   "f1_expert": {
+    "edv": 80,
+    "esv": 49,
+    "ef": 39
+   },
+   "f3_expert": {
+    "edv": 80,
+    "esv": 59,
+    "ef": 26
+   },
+   "f1_auto": {
+    "edv": 121,
+    "esv": 52,
+    "ef": 57
+   },
+   "f3_auto": {
+    "edv": 80,
+    "esv": 59,
+    "ef": 26
+   },
+   "click1_auto": {
+    "edv": 95,
+    "esv": 61,
+    "ef": 36
+   },
+   "click2_auto": {
+    "edv": 95,
+    "esv": 54,
+    "ef": 43
+   }
+  },
+  {
+   "patient": "patient0292",
+   "ef_ref": 32.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 23
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 23
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 23
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 23
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 27,
+       "length": 28
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 27,
+       "length": 28
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 27,
+       "length": 28
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 25,
+       "length": 28
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 132,
+    "esv": 90,
+    "ef": 32
+   },
+   "f1_expert": {
+    "edv": 117,
+    "esv": 95,
+    "ef": 19
+   },
+   "f3_expert": {
+    "edv": 117,
+    "esv": 84,
+    "ef": 28
+   },
+   "f1_auto": {
+    "edv": 117,
+    "esv": 85,
+    "ef": 27
+   },
+   "f3_auto": {
+    "edv": 117,
+    "esv": 81,
+    "ef": 31
+   },
+   "click1_auto": {
+    "edv": 126,
+    "esv": 80,
+    "ef": 37
+   },
+   "click2_auto": {
+    "edv": 126,
+    "esv": 80,
+    "ef": 37
+   }
+  },
+  {
+   "patient": "patient0294",
+   "ef_ref": 63.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 17
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 1,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 81,
+    "esv": 30,
+    "ef": 63
+   },
+   "f1_expert": {
+    "edv": 75,
+    "esv": 27,
+    "ef": 64
+   },
+   "f3_expert": {
+    "edv": 75,
+    "esv": 28,
+    "ef": 63
+   },
+   "f1_auto": {
+    "edv": 77,
+    "esv": 29,
+    "ef": 62
+   },
+   "f3_auto": {
+    "edv": 77,
+    "esv": 28,
+    "ef": 64
+   },
+   "click1_auto": {
+    "edv": 82,
+    "esv": 28,
+    "ef": 66
+   },
+   "click2_auto": {
+    "edv": 82,
+    "esv": 29,
+    "ef": 65
+   }
+  },
+  {
+   "patient": "patient0297",
+   "ef_ref": 53.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 15,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 15,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 64,
+    "esv": 30,
+    "ef": 53
+   },
+   "f1_expert": {
+    "edv": 50,
+    "esv": 25,
+    "ef": 50
+   },
+   "f3_expert": {
+    "edv": 50,
+    "esv": 24,
+    "ef": 52
+   },
+   "f1_auto": {
+    "edv": 53,
+    "esv": 23,
+    "ef": 57
+   },
+   "f3_auto": {
+    "edv": 51,
+    "esv": 22,
+    "ef": 57
+   },
+   "click1_auto": {
+    "edv": 65,
+    "esv": 25,
+    "ef": 62
+   },
+   "click2_auto": {
+    "edv": 65,
+    "esv": 27,
+    "ef": 58
+   }
+  },
+  {
+   "patient": "patient0298",
+   "ef_ref": 34.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 18,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 20,
+       "length": 21
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 21
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 58,
+    "esv": 38,
+    "ef": 34
+   },
+   "f1_expert": {
+    "edv": 50,
+    "esv": 29,
+    "ef": 42
+   },
+   "f3_expert": {
+    "edv": 50,
+    "esv": 29,
+    "ef": 42
+   },
+   "f1_auto": {
+    "edv": 50,
+    "esv": 28,
+    "ef": 44
+   },
+   "f3_auto": {
+    "edv": 50,
+    "esv": 28,
+    "ef": 44
+   },
+   "click1_auto": {
+    "edv": 51,
+    "esv": 29,
+    "ef": 43
+   },
+   "click2_auto": {
+    "edv": 51,
+    "esv": 29,
+    "ef": 43
+   }
+  },
+  {
+   "patient": "patient0299",
+   "ef_ref": 53.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 22,
+       "length": 28
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 27,
+       "length": 28
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 27,
+       "length": 28
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 26,
+       "length": 28
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 7,
+       "es": 32,
+       "length": 33
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 32,
+       "length": 33
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 31,
+       "length": 33
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 31,
+       "length": 33
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 74,
+    "esv": 35,
+    "ef": 53
+   },
+   "f1_expert": {
+    "edv": 57,
+    "esv": 30,
+    "ef": 47
+   },
+   "f3_expert": {
+    "edv": 57,
+    "esv": 30,
+    "ef": 47
+   },
+   "f1_auto": {
+    "edv": 62,
+    "esv": 34,
+    "ef": 45
+   },
+   "f3_auto": {
+    "edv": 57,
+    "esv": 30,
+    "ef": 47
+   },
+   "click1_auto": {
+    "edv": 62,
+    "esv": 30,
+    "ef": 52
+   },
+   "click2_auto": {
+    "edv": 62,
+    "esv": 31,
+    "ef": 50
+   }
+  },
+  {
+   "patient": "patient0303",
+   "ef_ref": 42.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 12,
+       "length": 14
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 14
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 14
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 14
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 86,
+    "esv": 50,
+    "ef": 42
+   },
+   "f1_expert": {
+    "edv": 71,
+    "esv": 49,
+    "ef": 31
+   },
+   "f3_expert": {
+    "edv": 71,
+    "esv": 50,
+    "ef": 30
+   },
+   "f1_auto": {
+    "edv": 80,
+    "esv": 54,
+    "ef": 32
+   },
+   "f3_auto": {
+    "edv": 71,
+    "esv": 49,
+    "ef": 31
+   },
+   "click1_auto": {
+    "edv": 77,
+    "esv": 52,
+    "ef": 32
+   },
+   "click2_auto": {
+    "edv": 77,
+    "esv": 53,
+    "ef": 31
+   }
+  },
+  {
+   "patient": "patient0304",
+   "ef_ref": 56.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 19,
+       "length": 20
+      },
+      "f3_auto": {
+       "ed": 3,
+       "es": 19,
+       "length": 20
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 20
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 20
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 20,
+       "length": 23
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 22,
+       "length": 23
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 22,
+       "length": 23
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 21,
+       "length": 23
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 115,
+    "esv": 51,
+    "ef": 56
+   },
+   "f1_expert": {
+    "edv": 98,
+    "esv": 39,
+    "ef": 60
+   },
+   "f3_expert": {
+    "edv": 98,
+    "esv": 40,
+    "ef": 59
+   },
+   "f1_auto": {
+    "edv": 108,
+    "esv": 49,
+    "ef": 55
+   },
+   "f3_auto": {
+    "edv": 101,
+    "esv": 40,
+    "ef": 60
+   },
+   "click1_auto": {
+    "edv": 102,
+    "esv": 38,
+    "ef": 63
+   },
+   "click2_auto": {
+    "edv": 102,
+    "esv": 38,
+    "ef": 63
+   }
+  },
+  {
+   "patient": "patient0305",
+   "ef_ref": 32.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 10,
+       "length": 12
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 10,
+       "length": 12
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 12
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 12
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 17
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 17
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 152,
+    "esv": 104,
+    "ef": 32
+   },
+   "f1_expert": {
+    "edv": 137,
+    "esv": 104,
+    "ef": 24
+   },
+   "f3_expert": {
+    "edv": 137,
+    "esv": 93,
+    "ef": 32
+   },
+   "f1_auto": {
+    "edv": 137,
+    "esv": 104,
+    "ef": 24
+   },
+   "f3_auto": {
+    "edv": 137,
+    "esv": 92,
+    "ef": 33
+   },
+   "click1_auto": {
+    "edv": 143,
+    "esv": 92,
+    "ef": 36
+   },
+   "click2_auto": {
+    "edv": 143,
+    "esv": 96,
+    "ef": 33
+   }
+  },
+  {
+   "patient": "patient0308",
+   "ef_ref": 24.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 19
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 2,
+       "es": 23,
+       "length": 27
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 23,
+       "length": 27
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 26,
+       "length": 27
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 23,
+       "length": 27
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 100,
+    "esv": 76,
+    "ef": 24
+   },
+   "f1_expert": {
+    "edv": 84,
+    "esv": 71,
+    "ef": 15
+   },
+   "f3_expert": {
+    "edv": 84,
+    "esv": 64,
+    "ef": 24
+   },
+   "f1_auto": {
+    "edv": 88,
+    "esv": 53,
+    "ef": 40
+   },
+   "f3_auto": {
+    "edv": 84,
+    "esv": 61,
+    "ef": 27
+   },
+   "click1_auto": {
+    "edv": 96,
+    "esv": 64,
+    "ef": 33
+   },
+   "click2_auto": {
+    "edv": 96,
+    "esv": 63,
+    "ef": 34
+   }
+  },
+  {
+   "patient": "patient0314",
+   "ef_ref": 47.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 8,
+       "es": 13,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 19
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 13
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 13
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 95,
+    "esv": 50,
+    "ef": 47
+   },
+   "f1_expert": {
+    "edv": 111,
+    "esv": 63,
+    "ef": 43
+   },
+   "f3_expert": {
+    "edv": 111,
+    "esv": 64,
+    "ef": 42
+   },
+   "f1_auto": {
+    "edv": 90,
+    "esv": 63,
+    "ef": 30
+   },
+   "f3_auto": {
+    "edv": 111,
+    "esv": 64,
+    "ef": 42
+   },
+   "click1_auto": {
+    "edv": 102,
+    "esv": 64,
+    "ef": 37
+   },
+   "click2_auto": {
+    "edv": 102,
+    "esv": 64,
+    "ef": 37
+   }
+  },
+  {
+   "patient": "patient0315",
+   "ef_ref": 25.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 8,
+       "length": 13
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 13
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 13
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 13
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 15,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 19
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 132,
+    "esv": 99,
+    "ef": 25
+   },
+   "f1_expert": {
+    "edv": 123,
+    "esv": 91,
+    "ef": 26
+   },
+   "f3_expert": {
+    "edv": 122,
+    "esv": 86,
+    "ef": 30
+   },
+   "f1_auto": {
+    "edv": 124,
+    "esv": 85,
+    "ef": 31
+   },
+   "f3_auto": {
+    "edv": 122,
+    "esv": 85,
+    "ef": 30
+   },
+   "click1_auto": {
+    "edv": 129,
+    "esv": 89,
+    "ef": 31
+   },
+   "click2_auto": {
+    "edv": 129,
+    "esv": 89,
+    "ef": 31
+   }
+  },
+  {
+   "patient": "patient0328",
+   "ef_ref": 26.0,
+   "views": {
+    "2CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 9,
+       "length": 12
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 11,
+       "length": 12
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 12
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 8,
+       "length": 12
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 12,
+       "length": 13
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 13
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 11,
+       "length": 13
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 65,
+    "esv": 48,
+    "ef": 26
+   },
+   "f1_expert": {
+    "edv": 61,
+    "esv": 46,
+    "ef": 25
+   },
+   "f3_expert": {
+    "edv": 61,
+    "esv": 41,
+    "ef": 33
+   },
+   "f1_auto": {
+    "edv": 68,
+    "esv": 45,
+    "ef": 34
+   },
+   "f3_auto": {
+    "edv": 62,
+    "esv": 42,
+    "ef": 32
+   },
+   "click1_auto": {
+    "edv": 62,
+    "esv": 42,
+    "ef": 32
+   },
+   "click2_auto": {
+    "edv": 62,
+    "esv": 42,
+    "ef": 32
+   }
+  },
+  {
+   "patient": "patient0333",
+   "ef_ref": 47.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 19,
+       "length": 20
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 19,
+       "length": 20
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 19,
+       "length": 20
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 18,
+       "length": 20
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 3,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 4,
+       "es": 17,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 4,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 4,
+       "es": 16,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 78,
+    "esv": 41,
+    "ef": 47
+   },
+   "f1_expert": {
+    "edv": 71,
+    "esv": 36,
+    "ef": 49
+   },
+   "f3_expert": {
+    "edv": 71,
+    "esv": 36,
+    "ef": 49
+   },
+   "f1_auto": {
+    "edv": 76,
+    "esv": 36,
+    "ef": 53
+   },
+   "f3_auto": {
+    "edv": 78,
+    "esv": 36,
+    "ef": 54
+   },
+   "click1_auto": {
+    "edv": 80,
+    "esv": 37,
+    "ef": 54
+   },
+   "click2_auto": {
+    "edv": 80,
+    "esv": 39,
+    "ef": 51
+   }
+  },
+  {
+   "patient": "patient0334",
+   "ef_ref": 49.0,
+   "views": {
+    "2CH": {
+     "quality": "Poor",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 1,
+       "es": 17,
+       "length": 19
+      },
+      "f3_auto": {
+       "ed": 3,
+       "es": 17,
+       "length": 19
+      },
+      "click1_auto": {
+       "ed": 2,
+       "es": 18,
+       "length": 19
+      },
+      "click2_auto": {
+       "ed": 2,
+       "es": 16,
+       "length": 19
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Medium",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 16
+      },
+      "f3_auto": {
+       "ed": 1,
+       "es": 13,
+       "length": 16
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 16
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 13,
+       "length": 16
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 55,
+    "esv": 28,
+    "ef": 49
+   },
+   "f1_expert": {
+    "edv": 56,
+    "esv": 28,
+    "ef": 50
+   },
+   "f3_expert": {
+    "edv": 56,
+    "esv": 27,
+    "ef": 52
+   },
+   "f1_auto": {
+    "edv": 62,
+    "esv": 27,
+    "ef": 56
+   },
+   "f3_auto": {
+    "edv": 59,
+    "esv": 27,
+    "ef": 54
+   },
+   "click1_auto": {
+    "edv": 60,
+    "esv": 27,
+    "ef": 55
+   },
+   "click2_auto": {
+    "edv": 60,
+    "esv": 29,
+    "ef": 52
+   }
+  },
+  {
+   "patient": "patient0341",
+   "ef_ref": 34.0,
+   "views": {
+    "2CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 0,
+       "es": 14,
+       "length": 15
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 15
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 15
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 12,
+       "length": 15
+      }
+     }
+    },
+    "4CH": {
+     "quality": "Good",
+     "keyframes": {
+      "f1_auto": {
+       "ed": 4,
+       "es": 17,
+       "length": 18
+      },
+      "f3_auto": {
+       "ed": 0,
+       "es": 16,
+       "length": 18
+      },
+      "click1_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      },
+      "click2_auto": {
+       "ed": 0,
+       "es": 17,
+       "length": 18
+      }
+     }
+    }
+   },
+   "gt": {
+    "edv": 125,
+    "esv": 82,
+    "ef": 34
+   },
+   "f1_expert": {
+    "edv": 140,
+    "esv": 100,
+    "ef": 29
+   },
+   "f3_expert": {
+    "edv": 140,
+    "esv": 93,
+    "ef": 34
+   },
+   "f1_auto": {
+    "edv": 135,
+    "esv": 100,
+    "ef": 26
+   },
+   "f3_auto": {
+    "edv": 140,
+    "esv": 93,
+    "ef": 34
+   },
+   "click1_auto": {
+    "edv": 133,
+    "esv": 88,
+    "ef": 34
+   },
+   "click2_auto": {
+    "edv": 133,
+    "esv": 85,
+    "ef": 36
+   }
+  }
+ ],
+ "test_set_used": false,
+ "seconds": 247.9569616317749
+}

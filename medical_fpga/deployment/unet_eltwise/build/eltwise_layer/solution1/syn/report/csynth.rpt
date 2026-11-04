@@ -1,0 +1,397 @@
+
+
+================================================================
+== Synthesis Summary Report of 'eltwise_layer'
+================================================================
++ General Information: 
+    * Date:           Wed Sep 23 08:59:29 2026
+    * Version:        2023.1 (Build 3854077 on May  4 2023)
+    * Project:        eltwise_layer
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: azynquplus
+    * Target device:  xazu3eg-sfvc784-1-i
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------+------+------+---------+-----------+----------+---------+---------+----------+----------+----------+------------+-------------+-----+
+    |                Modules                | Issue|      | Latency |  Latency  | Iteration|         |   Trip  |          |          |          |            |             |     |
+    |                & Loops                | Type | Slack| (cycles)|    (ns)   |  Latency | Interval|  Count  | Pipelined|   BRAM   |    DSP   |     FF     |     LUT     | URAM|
+    +---------------------------------------+------+------+---------+-----------+----------+---------+---------+----------+----------+----------+------------+-------------+-----+
+    |+ eltwise_layer                        |     -|  0.00|  2103314|  2.103e+07|         -|  2103315|        -|        no|  78 (18%)|  72 (20%)|   9677 (6%)|  22088 (31%)|    -|
+    | + eltwise_layer_Pipeline_ADD          |     -|  0.00|  1048582|  1.049e+07|         -|  1048582|        -|        no|         -|   32 (8%)|   1512 (1%)|    6708 (9%)|    -|
+    |  o ADD                                |     -|  7.30|  1048580|  1.049e+07|         6|        1|  1048576|       yes|         -|         -|           -|            -|    -|
+    | o CONCAT_ROWS                         |     -|  7.30|  2103296|  2.103e+07|      4108|        -|      512|        no|         -|         -|           -|            -|    -|
+    |  + eltwise_layer_Pipeline_LOAD_A      |     -|  0.00|     2051|  2.051e+04|         -|     2051|        -|        no|         -|         -|   170 (~0%)|    109 (~0%)|    -|
+    |   o LOAD_A                            |     -|  7.30|     2049|  2.049e+04|         3|        1|     2048|       yes|         -|         -|           -|            -|    -|
+    |  + eltwise_layer_Pipeline_LOAD_B      |     -|  0.00|     2051|  2.051e+04|         -|     2051|        -|        no|         -|         -|   170 (~0%)|    109 (~0%)|    -|
+    |   o LOAD_B                            |     -|  7.30|     2049|  2.049e+04|         3|        1|     2048|       yes|         -|         -|           -|            -|    -|
+    |  + eltwise_layer_Pipeline_MERGE       |     -|  0.00|     2053|  2.053e+04|         -|     2053|        -|        no|         -|   16 (4%)|  1312 (~0%)|    6542 (9%)|    -|
+    |   o MERGE                             |     -|  7.30|     2051|  2.051e+04|         5|        1|     2048|       yes|         -|         -|           -|            -|    -|
+    | o POOL_ROWS                           |     -|  7.30|  1318912|  1.319e+07|      5152|        -|      256|        no|         -|         -|           -|            -|    -|
+    |  + eltwise_layer_Pipeline_LOAD_TOP    |     -|  0.00|     2051|  2.051e+04|         -|     2051|        -|        no|         -|         -|   170 (~0%)|    108 (~0%)|    -|
+    |   o LOAD_TOP                          |     -|  7.30|     2049|  2.049e+04|         3|        1|     2048|       yes|         -|         -|           -|            -|    -|
+    |  + eltwise_layer_Pipeline_POOL        |     -|  0.00|     2051|  2.051e+04|         -|     2051|        -|        no|         -|         -|   843 (~0%)|    1018 (1%)|    -|
+    |   o POOL                              |     -|  7.30|     2049|  2.049e+04|         3|        1|     2048|       yes|         -|         -|           -|            -|    -|
+    |  + eltwise_layer_Pipeline_STORE_POOL  |     -|  0.00|     1027|  1.027e+04|         -|     1027|        -|        no|         -|         -|   165 (~0%)|    126 (~0%)|    -|
+    |   o STORE_POOL                        |     -|  7.30|     1025|  1.025e+04|         3|        1|     1024|       yes|         -|         -|           -|            -|    -|
+    +---------------------------------------+------+------+---------+-----------+----------+---------+---------+----------+----------+----------+------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++----------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface      | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|                | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++----------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem_a   | 128 -> 128 | 64            | 0       | slave  | 0        | 0         | 64           | 16           | 16          | 16          | BRAM=16           |
+| m_axi_gmem_b   | 128 -> 128 | 64            | 0       | slave  | 0        | 0         | 64           | 16           | 16          | 16          | BRAM=16           |
+| m_axi_gmem_out | 128 -> 128 | 64            | 0       | slave  | 0        | 0         | 16           | 64           | 16          | 16          | BRAM=16           |
++----------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 8             | 24     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | ap_return | 0x10   | 32    | R      | Data signal of ap_return         |                                                                      |
+| s_axi_control | in_a_1    | 0x18   | 32    | W      | Data signal of in_a              |                                                                      |
+| s_axi_control | in_a_2    | 0x1c   | 32    | W      | Data signal of in_a              |                                                                      |
+| s_axi_control | in_b_1    | 0x24   | 32    | W      | Data signal of in_b              |                                                                      |
+| s_axi_control | in_b_2    | 0x28   | 32    | W      | Data signal of in_b              |                                                                      |
+| s_axi_control | out_r_1   | 0x30   | 32    | W      | Data signal of out_r             |                                                                      |
+| s_axi_control | out_r_2   | 0x34   | 32    | W      | Data signal of out_r             |                                                                      |
+| s_axi_control | mode      | 0x3c   | 32    | W      | Data signal of mode              |                                                                      |
+| s_axi_control | ca        | 0x44   | 32    | W      | Data signal of ca                |                                                                      |
+| s_axi_control | cb        | 0x4c   | 32    | W      | Data signal of cb                |                                                                      |
+| s_axi_control | h         | 0x54   | 32    | W      | Data signal of h                 |                                                                      |
+| s_axi_control | w         | 0x5c   | 32    | W      | Data signal of w                 |                                                                      |
+| s_axi_control | m0        | 0x64   | 32    | W      | Data signal of m0                |                                                                      |
+| s_axi_control | m1        | 0x6c   | 32    | W      | Data signal of m1                |                                                                      |
+| s_axi_control | shift     | 0x74   | 32    | W      | Data signal of shift             |                                                                      |
+| s_axi_control | qmin      | 0x7c   | 32    | W      | Data signal of qmin              |                                                                      |
+| s_axi_control | qmax      | 0x84   | 32    | W      | Data signal of qmax              |                                                                      |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------------------+
+| Argument | Direction | Datatype             |
++----------+-----------+----------------------+
+| in_a     | in        | ap_uint<128> const * |
+| in_b     | in        | ap_uint<128> const * |
+| out      | out       | ap_uint<128>*        |
+| mode     | in        | int                  |
+| ca       | in        | int                  |
+| cb       | in        | int                  |
+| h        | in        | int                  |
+| w        | in        | int                  |
+| m0       | in        | int                  |
+| m1       | in        | int                  |
+| shift    | in        | int                  |
+| qmin     | in        | int                  |
+| qmax     | in        | int                  |
+| return   | out       | int                  |
++----------+-----------+----------------------+
+
+* SW-to-HW Mapping
++----------+----------------+-----------+----------+-------------------------------------+
+| Argument | HW Interface   | HW Type   | HW Usage | HW Info                             |
++----------+----------------+-----------+----------+-------------------------------------+
+| in_a     | m_axi_gmem_a   | interface |          |                                     |
+| in_a     | s_axi_control  | register  | offset   | name=in_a_1 offset=0x18 range=32    |
+| in_a     | s_axi_control  | register  | offset   | name=in_a_2 offset=0x1c range=32    |
+| in_b     | m_axi_gmem_b   | interface |          |                                     |
+| in_b     | s_axi_control  | register  | offset   | name=in_b_1 offset=0x24 range=32    |
+| in_b     | s_axi_control  | register  | offset   | name=in_b_2 offset=0x28 range=32    |
+| out      | m_axi_gmem_out | interface |          |                                     |
+| out      | s_axi_control  | interface | offset   |                                     |
+| mode     | s_axi_control  | register  |          | name=mode offset=0x3c range=32      |
+| ca       | s_axi_control  | register  |          | name=ca offset=0x44 range=32        |
+| cb       | s_axi_control  | register  |          | name=cb offset=0x4c range=32        |
+| h        | s_axi_control  | register  |          | name=h offset=0x54 range=32         |
+| w        | s_axi_control  | register  |          | name=w offset=0x5c range=32         |
+| m0       | s_axi_control  | register  |          | name=m0 offset=0x64 range=32        |
+| m1       | s_axi_control  | register  |          | name=m1 offset=0x6c range=32        |
+| shift    | s_axi_control  | register  |          | name=shift offset=0x74 range=32     |
+| qmin     | s_axi_control  | register  |          | name=qmin offset=0x7c range=32      |
+| qmax     | s_axi_control  | register  |          | name=qmax offset=0x84 range=32      |
+| return   | s_axi_control  | register  |          | name=ap_return offset=0x10 range=32 |
++----------+----------------+-----------+----------+-------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++----------------+-----------+----------+-------+----------+--------------------------------------------------------------------------+
+| HW Interface   | Direction | Length   | Width | Loop     | Loop Location                                                            |
++----------------+-----------+----------+-------+----------+--------------------------------------------------------------------------+
+| m_axi_gmem_a   | read      | variable | 128   | ADD      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   |
+| m_axi_gmem_a   | read      | variable | 128   |          |                                                                          |
+| m_axi_gmem_a   | read      | variable | 128   | LOAD_TOP | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:150:13 |
+| m_axi_gmem_a   | read      | variable | 128   | POOL     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:159:13 |
+| m_axi_gmem_b   | read      | variable | 128   | ADD      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   |
+| m_axi_gmem_b   | read      | variable | 128   |          |                                                                          |
+| m_axi_gmem_out | write     | variable | 128   | ADD      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   |
+| m_axi_gmem_out | write     | variable | 128   |          |                                                                          |
++----------------+-----------+----------+-------+----------+--------------------------------------------------------------------------+
+
+* All M_AXI Variable Accesses
++----------------+----------+--------------------------------------------------------------------------+-----------+--------------+----------+-------------+--------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------------------+
+| HW Interface   | Variable | Access Location                                                          | Direction | Burst Status | Length   | Loop        | Loop Location                                                            | Resolution | Problem                                                                                                |
++----------------+----------+--------------------------------------------------------------------------+-----------+--------------+----------+-------------+--------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------------------+
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:14:20  | read      | Widen Fail   |          | POOL        | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:159:13 | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:14:20  | read      | Fail         |          | POOL_ROWS   | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:147:9  | 214-230    | Stride is incompatible                                                                                 |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:14:20  | read      | Inferred     | variable | POOL        | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:159:13 |            |                                                                                                        |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:93:23  | read      | Widen Fail   |          | ADD         | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:93:23  | read      | Inferred     | variable | ADD         | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   |            |                                                                                                        |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:112:11 | read      | Widen Fail   |          | LOAD_A      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:109:13 | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:112:11 | read      | Inferred     | variable | CONCAT_ROWS | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:106:9  |            |                                                                                                        |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:153:11 | read      | Widen Fail   |          | LOAD_TOP    | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:150:13 | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:153:11 | read      | Fail         |          | POOL_ROWS   | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:147:9  | 214-230    | Stride is incompatible                                                                                 |
+| m_axi_gmem_a   | in_a     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:153:11 | read      | Inferred     | variable | LOAD_TOP    | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:150:13 |            |                                                                                                        |
+| m_axi_gmem_b   | in_b     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:93:36  | read      | Widen Fail   |          | ADD         | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_b   | in_b     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:93:36  | read      | Inferred     | variable | ADD         | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   |            |                                                                                                        |
+| m_axi_gmem_b   | in_b     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:118:11 | read      | Widen Fail   |          | LOAD_B      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:115:13 | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_b   | in_b     | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:118:11 | read      | Inferred     | variable | CONCAT_ROWS | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:106:9  |            |                                                                                                        |
+| m_axi_gmem_out | out      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:100:20 | write     | Widen Fail   |          | ADD         | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_out | out      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:100:20 | write     | Inferred     | variable | ADD         | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:90:9   |            |                                                                                                        |
+| m_axi_gmem_out | out      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:134:32 | write     | Widen Fail   |          | MERGE       | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:122:13 | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_out | out      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:134:32 | write     | Inferred     | variable | CONCAT_ROWS | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:106:9  |            |                                                                                                        |
+| m_axi_gmem_out | out      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:175:17 | write     | Widen Fail   |          | STORE_POOL  | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:172:13 | 214-353    | Could not widen since type i128 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem_out | out      | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:175:17 | write     | Inferred     | variable | POOL_ROWS   | E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:147:9  |            |                                                                                                        |
++----------------+----------+--------------------------------------------------------------------------+-----------+--------------+----------+-------------+--------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------+-----+--------+--------------+-----+--------+---------+
+| Name                                 | DSP | Pragma | Variable     | Op  | Impl   | Latency |
++--------------------------------------+-----+--------+--------------+-----+--------+---------+
+| + eltwise_layer                      | 72  |        |              |     |        |         |
+|   add_ln65_fu_606_p2                 | -   |        | add_ln65     | add | fabric | 0       |
+|   add_ln65_1_fu_628_p2               | -   |        | add_ln65_1   | add | fabric | 0       |
+|   add_ln65_2_fu_634_p2               | -   |        | add_ln65_2   | add | fabric | 0       |
+|   add_ln74_fu_778_p2                 | -   |        | add_ln74     | add | fabric | 0       |
+|   add_ln78_fu_808_p2                 | -   |        | add_ln78     | add | fabric | 0       |
+|   sub_ln78_fu_822_p2                 | -   |        | sub_ln78     | sub | fabric | 0       |
+|   sub_ln78_1_fu_842_p2               | -   |        | sub_ln78_1   | sub | fabric | 0       |
+|   add_ln79_fu_870_p2                 | -   |        | add_ln79     | add | fabric | 0       |
+|   sub_ln79_fu_884_p2                 | -   |        | sub_ln79     | sub | fabric | 0       |
+|   sub_ln79_1_fu_904_p2               | -   |        | sub_ln79_1   | sub | fabric | 0       |
+|   go_fu_951_p2                       | -   |        | go           | add | fabric | 0       |
+|   mul_30s_32s_32_1_1_U84             | 3   |        | mul98        | mul | auto   | 0       |
+|   mul_30s_32s_32_1_1_U85             | 3   |        | mul112       | mul | auto   | 0       |
+|   mul_31s_32s_32_1_1_U86             | 3   |        | mul126       | mul | auto   | 0       |
+|   add_ln23_1_fu_1105_p2              | -   |        | add_ln23_1   | add | fabric | 0       |
+|   mul_32s_31ns_32_1_1_U87            | 3   |        | mul_ln106    | mul | auto   | 0       |
+|   mul_32s_31ns_32_1_1_U88            | 3   |        | mul_ln106_1  | mul | auto   | 0       |
+|   mul_32s_31ns_32_1_1_U87            | 3   |        | mul_ln106_2  | mul | auto   | 0       |
+|   y_17_fu_1143_p2                    | -   |        | y_17         | add | fabric | 0       |
+|   mul_30s_32s_32_1_1_U84             | 3   |        | mul_ln88     | mul | auto   | 0       |
+|   mul_32s_32s_32_1_1_U89             | 3   |        | total        | mul | auto   | 0       |
+|   add_ln23_fu_1223_p2                | -   |        | add_ln23     | add | fabric | 0       |
+|   mul_30s_32s_32_1_1_U83             | 3   |        | row_words    | mul | auto   | 0       |
+|   mul_30s_31ns_32_1_1_U82            | 3   |        | out_words    | mul | auto   | 0       |
+|   mul_32s_31ns_32_1_1_U87            | 3   |        | mul_ln147    | mul | auto   | 0       |
+|   add_ln147_fu_1306_p2               | -   |        | add_ln147    | add | fabric | 0       |
+|   add_ln150_fu_1316_p2               | -   |        | add_ln150    | add | fabric | 0       |
+|   add_ln150_1_fu_1329_p2             | -   |        | add_ln150_1  | add | fabric | 0       |
+|   add_ln150_2_fu_1342_p2             | -   |        | add_ln150_2  | add | fabric | 0       |
+|   add_ln177_fu_1387_p2               | -   |        | add_ln177    | add | fabric | 0       |
+|  + eltwise_layer_Pipeline_LOAD_A     | 0   |        |              |     |        |         |
+|    add_ln109_fu_114_p2               | -   |        | add_ln109    | add | fabric | 0       |
+|  + eltwise_layer_Pipeline_LOAD_B     | 0   |        |              |     |        |         |
+|    add_ln115_fu_114_p2               | -   |        | add_ln115    | add | fabric | 0       |
+|  + eltwise_layer_Pipeline_MERGE      | 16  |        |              |     |        |         |
+|    add_ln122_fu_344_p2               | -   |        | add_ln122    | add | fabric | 0       |
+|    mul_32s_16s_48_1_1_U9             | 2   |        | v_33         | mul | auto   | 0       |
+|    magnitude_fu_643_p2               | -   |        | magnitude    | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U10            | 2   |        | v_35         | mul | auto   | 0       |
+|    magnitude_2_fu_676_p2             | -   |        | magnitude_2  | sub | fabric | 0       |
+|    rounded_31_fu_771_p2              | -   |        | rounded_31   | add | fabric | 0       |
+|    rounded_32_fu_1243_p2             | -   |        | rounded_32   | sub | fabric | 0       |
+|    rounded_fu_785_p2                 | -   |        | rounded      | add | fabric | 0       |
+|    rounded_4_fu_1290_p2              | -   |        | rounded_4    | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U11            | 2   |        | v_37         | mul | auto   | 0       |
+|    magnitude_4_fu_791_p2             | -   |        | magnitude_4  | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U12            | 2   |        | v_39         | mul | auto   | 0       |
+|    magnitude_6_fu_824_p2             | -   |        | magnitude_6  | sub | fabric | 0       |
+|    rounded_35_fu_919_p2              | -   |        | rounded_35   | add | fabric | 0       |
+|    rounded_36_fu_1337_p2             | -   |        | rounded_36   | sub | fabric | 0       |
+|    rounded_11_fu_933_p2              | -   |        | rounded_11   | add | fabric | 0       |
+|    rounded_12_fu_1384_p2             | -   |        | rounded_12   | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U13            | 2   |        | v_41         | mul | auto   | 0       |
+|    magnitude_8_fu_939_p2             | -   |        | magnitude_8  | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U14            | 2   |        | v_43         | mul | auto   | 0       |
+|    magnitude_10_fu_972_p2            | -   |        | magnitude_10 | sub | fabric | 0       |
+|    rounded_39_fu_1067_p2             | -   |        | rounded_39   | add | fabric | 0       |
+|    rounded_40_fu_1431_p2             | -   |        | rounded_40   | sub | fabric | 0       |
+|    rounded_19_fu_1081_p2             | -   |        | rounded_19   | add | fabric | 0       |
+|    rounded_20_fu_1478_p2             | -   |        | rounded_20   | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U15            | 2   |        | v_45         | mul | auto   | 0       |
+|    magnitude_12_fu_1087_p2           | -   |        | magnitude_12 | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U16            | 2   |        | v_47         | mul | auto   | 0       |
+|    magnitude_14_fu_1120_p2           | -   |        | magnitude_14 | sub | fabric | 0       |
+|    rounded_43_fu_1215_p2             | -   |        | rounded_43   | add | fabric | 0       |
+|    rounded_44_fu_1525_p2             | -   |        | rounded_44   | sub | fabric | 0       |
+|    rounded_27_fu_1229_p2             | -   |        | rounded_27   | add | fabric | 0       |
+|    rounded_28_fu_1572_p2             | -   |        | rounded_28   | sub | fabric | 0       |
+|    ia_1_fu_374_p2                    | -   |        | ia_1         | add | fabric | 0       |
+|    ib_1_fu_380_p2                    | -   |        | ib_1         | add | fabric | 0       |
+|    g_fu_402_p2                       | -   |        | g            | add | fabric | 0       |
+|  + eltwise_layer_Pipeline_ADD        | 32  |        |              |     |        |         |
+|    add_ln90_fu_344_p2                | -   |        | add_ln90     | add | fabric | 0       |
+|    mul_32s_16s_48_1_1_U34            | 2   |        | mul_ln97     | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U35            | 2   |        | mul_ln97_1   | mul | auto   | 0       |
+|    v_49_fu_531_p2                    | -   |        | v_49         | add | fabric | 0       |
+|    magnitude_fu_755_p2               | -   |        | magnitude    | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U36            | 2   |        | mul_ln97_2   | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U37            | 2   |        | mul_ln97_3   | mul | auto   | 0       |
+|    v_51_fu_561_p2                    | -   |        | v_51         | add | fabric | 0       |
+|    magnitude_17_fu_788_p2            | -   |        | magnitude_17 | sub | fabric | 0       |
+|    rounded_78_fu_883_p2              | -   |        | rounded_78   | add | fabric | 0       |
+|    rounded_79_fu_1355_p2             | -   |        | rounded_79   | sub | fabric | 0       |
+|    rounded_fu_897_p2                 | -   |        | rounded      | add | fabric | 0       |
+|    rounded_51_fu_1402_p2             | -   |        | rounded_51   | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U38            | 2   |        | mul_ln97_4   | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U39            | 2   |        | mul_ln97_5   | mul | auto   | 0       |
+|    v_54_fu_591_p2                    | -   |        | v_54         | add | fabric | 0       |
+|    magnitude_19_fu_903_p2            | -   |        | magnitude_19 | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U40            | 2   |        | mul_ln97_6   | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U41            | 2   |        | mul_ln97_7   | mul | auto   | 0       |
+|    v_56_fu_621_p2                    | -   |        | v_56         | add | fabric | 0       |
+|    magnitude_21_fu_936_p2            | -   |        | magnitude_21 | sub | fabric | 0       |
+|    rounded_82_fu_1031_p2             | -   |        | rounded_82   | add | fabric | 0       |
+|    rounded_83_fu_1449_p2             | -   |        | rounded_83   | sub | fabric | 0       |
+|    rounded_58_fu_1045_p2             | -   |        | rounded_58   | add | fabric | 0       |
+|    rounded_59_fu_1496_p2             | -   |        | rounded_59   | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U42            | 2   |        | mul_ln97_8   | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U43            | 2   |        | mul_ln97_9   | mul | auto   | 0       |
+|    v_59_fu_651_p2                    | -   |        | v_59         | add | fabric | 0       |
+|    magnitude_23_fu_1051_p2           | -   |        | magnitude_23 | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U44            | 2   |        | mul_ln97_10  | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U45            | 2   |        | mul_ln97_11  | mul | auto   | 0       |
+|    v_61_fu_681_p2                    | -   |        | v_61         | add | fabric | 0       |
+|    magnitude_25_fu_1084_p2           | -   |        | magnitude_25 | sub | fabric | 0       |
+|    rounded_86_fu_1179_p2             | -   |        | rounded_86   | add | fabric | 0       |
+|    rounded_87_fu_1543_p2             | -   |        | rounded_87   | sub | fabric | 0       |
+|    rounded_66_fu_1193_p2             | -   |        | rounded_66   | add | fabric | 0       |
+|    rounded_67_fu_1590_p2             | -   |        | rounded_67   | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U46            | 2   |        | mul_ln97_12  | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U47            | 2   |        | mul_ln97_13  | mul | auto   | 0       |
+|    v_64_fu_711_p2                    | -   |        | v_64         | add | fabric | 0       |
+|    magnitude_27_fu_1199_p2           | -   |        | magnitude_27 | sub | fabric | 0       |
+|    mul_32s_16s_48_1_1_U48            | 2   |        | mul_ln97_14  | mul | auto   | 0       |
+|    mul_32s_16s_48_1_1_U49            | 2   |        | mul_ln97_15  | mul | auto   | 0       |
+|    v_66_fu_741_p2                    | -   |        | v_66         | add | fabric | 0       |
+|    magnitude_29_fu_1232_p2           | -   |        | magnitude_29 | sub | fabric | 0       |
+|    rounded_90_fu_1327_p2             | -   |        | rounded_90   | add | fabric | 0       |
+|    rounded_91_fu_1637_p2             | -   |        | rounded_91   | sub | fabric | 0       |
+|    rounded_74_fu_1341_p2             | -   |        | rounded_74   | add | fabric | 0       |
+|    rounded_75_fu_1684_p2             | -   |        | rounded_75   | sub | fabric | 0       |
+|  + eltwise_layer_Pipeline_LOAD_TOP   | 0   |        |              |     |        |         |
+|    add_ln150_fu_114_p2               | -   |        | add_ln150    | add | fabric | 0       |
+|  + eltwise_layer_Pipeline_POOL       | 0   |        |              |     |        |         |
+|    add_ln159_fu_223_p2               | -   |        | add_ln159    | add | fabric | 0       |
+|    o_1_fu_814_p2                     | -   |        | o_1          | add | fabric | 0       |
+|    g_2_fu_237_p2                     | -   |        | g_2          | add | fabric | 0       |
+|    add_ln169_fu_248_p2               | -   |        | add_ln169    | add | fabric | 0       |
+|  + eltwise_layer_Pipeline_STORE_POOL | 0   |        |              |     |        |         |
+|    add_ln172_fu_119_p2               | -   |        | add_ln172    | add | fabric | 0       |
++--------------------------------------+-----+--------+--------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-----------------+------+------+--------+----------+---------+------+---------+
+| Name            | BRAM | URAM | Pragma | Variable | Storage | Impl | Latency |
++-----------------+------+------+--------+----------+---------+------+---------+
+| + eltwise_layer | 78   | 0    |        |          |         |      |         |
+|   buf_a_U       | 15   | -    |        | buf_a    | ram_1p  | auto | 1       |
+|   buf_b_U       | 15   | -    |        | buf_b    | ram_1p  | auto | 1       |
++-----------------+------+------+--------+----------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+------------------------------------------------------------------------------------+------------------------------------------------------+
+| Type            | Options                                                                            | Location                                             |
++-----------------+------------------------------------------------------------------------------------+------------------------------------------------------+
+| inline          |                                                                                    | ../src/eltwise_layer.cpp:12 in lane                  |
+| inline          |                                                                                    | ../src/eltwise_layer.cpp:19 in round_clamp           |
+| inline          |                                                                                    | ../src/eltwise_layer.cpp:34 in lane_max              |
+| unroll          |                                                                                    | ../src/eltwise_layer.cpp:37 in lane_max              |
+| interface       | m_axi port=in_a offset=slave bundle=gmem_a depth=262144 max_read_burst_length=64   | ../src/eltwise_layer.cpp:47 in eltwise_layer, in_a   |
+| interface       | m_axi port=in_b offset=slave bundle=gmem_b depth=262144 max_read_burst_length=64   | ../src/eltwise_layer.cpp:48 in eltwise_layer, in_b   |
+| interface       | m_axi port=out offset=slave bundle=gmem_out depth=262144 max_write_burst_length=64 | ../src/eltwise_layer.cpp:49 in eltwise_layer, out    |
+| interface       | s_axilite port=in_a bundle=control                                                 | ../src/eltwise_layer.cpp:50 in eltwise_layer, in_a   |
+| interface       | s_axilite port=in_b bundle=control                                                 | ../src/eltwise_layer.cpp:51 in eltwise_layer, in_b   |
+| interface       | s_axilite port=out bundle=control                                                  | ../src/eltwise_layer.cpp:52 in eltwise_layer, out    |
+| interface       | s_axilite port=mode bundle=control                                                 | ../src/eltwise_layer.cpp:53 in eltwise_layer, mode   |
+| interface       | s_axilite port=ca bundle=control                                                   | ../src/eltwise_layer.cpp:54 in eltwise_layer, ca     |
+| interface       | s_axilite port=cb bundle=control                                                   | ../src/eltwise_layer.cpp:55 in eltwise_layer, cb     |
+| interface       | s_axilite port=h bundle=control                                                    | ../src/eltwise_layer.cpp:56 in eltwise_layer, h      |
+| interface       | s_axilite port=w bundle=control                                                    | ../src/eltwise_layer.cpp:57 in eltwise_layer, w      |
+| interface       | s_axilite port=m0 bundle=control                                                   | ../src/eltwise_layer.cpp:58 in eltwise_layer, m0     |
+| interface       | s_axilite port=m1 bundle=control                                                   | ../src/eltwise_layer.cpp:59 in eltwise_layer, m1     |
+| interface       | s_axilite port=shift bundle=control                                                | ../src/eltwise_layer.cpp:60 in eltwise_layer, shift  |
+| interface       | s_axilite port=qmin bundle=control                                                 | ../src/eltwise_layer.cpp:61 in eltwise_layer, qmin   |
+| interface       | s_axilite port=qmax bundle=control                                                 | ../src/eltwise_layer.cpp:62 in eltwise_layer, qmax   |
+| interface       | s_axilite port=return bundle=control                                               | ../src/eltwise_layer.cpp:63 in eltwise_layer, return |
+| loop_tripcount  | min=1 max=1048576                                                                  | ../src/eltwise_layer.cpp:91 in eltwise_layer         |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:92 in eltwise_layer         |
+| unroll          |                                                                                    | ../src/eltwise_layer.cpp:96 in eltwise_layer         |
+| loop_tripcount  | min=1 max=512                                                                      | ../src/eltwise_layer.cpp:107 in eltwise_layer        |
+| loop_tripcount  | min=1 max=2048                                                                     | ../src/eltwise_layer.cpp:110 in eltwise_layer        |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:111 in eltwise_layer        |
+| loop_tripcount  | min=1 max=2048                                                                     | ../src/eltwise_layer.cpp:116 in eltwise_layer        |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:117 in eltwise_layer        |
+| loop_tripcount  | min=1 max=2048                                                                     | ../src/eltwise_layer.cpp:123 in eltwise_layer        |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:124 in eltwise_layer        |
+| unroll          |                                                                                    | ../src/eltwise_layer.cpp:130 in eltwise_layer        |
+| loop_tripcount  | min=1 max=256                                                                      | ../src/eltwise_layer.cpp:148 in eltwise_layer        |
+| loop_tripcount  | min=2 max=2048                                                                     | ../src/eltwise_layer.cpp:151 in eltwise_layer        |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:152 in eltwise_layer        |
+| array_partition | variable=hold complete                                                             | ../src/eltwise_layer.cpp:156 in eltwise_layer, hold  |
+| loop_tripcount  | min=2 max=2048                                                                     | ../src/eltwise_layer.cpp:160 in eltwise_layer        |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:161 in eltwise_layer        |
+| loop_tripcount  | min=1 max=1024                                                                     | ../src/eltwise_layer.cpp:173 in eltwise_layer        |
+| pipeline        | II=1                                                                               | ../src/eltwise_layer.cpp:174 in eltwise_layer        |
++-----------------+------------------------------------------------------------------------------------+------------------------------------------------------+
+
+

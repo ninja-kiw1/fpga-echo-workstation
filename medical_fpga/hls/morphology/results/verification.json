@@ -1,0 +1,488 @@
+{
+  "csim": "PASS",
+  "cosim": "PASS",
+  "case_count": 46,
+  "total_pixels": 1704319,
+  "reference_crosscheck": "NumPy reference exactly matches OpenCV with explicit replicate borders",
+  "target_part": "xazu3eg-sfvc784-1-i",
+  "target_clock_ns": "10.00",
+  "estimated_clock_ns": "7.300",
+  "hls_estimated_resources": {
+    "BRAM_18K": 8,
+    "DSP": 6,
+    "FF": 4401,
+    "LUT": 6621,
+    "URAM": 0
+  },
+  "ip_packages": [
+    "build/morphology/solution1/impl/ip/xilinx_com_hls_morphology_binary_1_0.zip"
+  ],
+  "source_sha256": {
+    "src/morphology.cpp": "08bcbe5834f0742a04c193866dfff050651d6539edbcac17213e56366b2ba82c",
+    "src/morphology.hpp": "24bd35b3b70113382a30464adba84eaad74620b87acbb2eadf7b1482230c50b4",
+    "tb/test_morphology.cpp": "154ae881547a5cda21f8c03b1bf9c39f2664f73b75ed6d9e64835cab08f5f2fd"
+  },
+  "cases": [
+    {
+      "name": "shapes_erode",
+      "width": 37,
+      "height": 31,
+      "mode": 0,
+      "pixels": 1147,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "shapes_dilate",
+      "width": 37,
+      "height": 31,
+      "mode": 1,
+      "pixels": 1147,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "shapes_open",
+      "width": 37,
+      "height": 31,
+      "mode": 2,
+      "pixels": 1147,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "shapes_close",
+      "width": 37,
+      "height": 31,
+      "mode": 3,
+      "pixels": 1147,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "edges_erode",
+      "width": 11,
+      "height": 9,
+      "mode": 0,
+      "pixels": 99,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "edges_dilate",
+      "width": 11,
+      "height": 9,
+      "mode": 1,
+      "pixels": 99,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "edges_open",
+      "width": 11,
+      "height": 9,
+      "mode": 2,
+      "pixels": 99,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "edges_close",
+      "width": 11,
+      "height": 9,
+      "mode": 3,
+      "pixels": 99,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "black_erode",
+      "width": 9,
+      "height": 8,
+      "mode": 0,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "black_dilate",
+      "width": 9,
+      "height": 8,
+      "mode": 1,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "black_open",
+      "width": 9,
+      "height": 8,
+      "mode": 2,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "black_close",
+      "width": 9,
+      "height": 8,
+      "mode": 3,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "white_erode",
+      "width": 9,
+      "height": 8,
+      "mode": 0,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "white_dilate",
+      "width": 9,
+      "height": 8,
+      "mode": 1,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "white_open",
+      "width": 9,
+      "height": 8,
+      "mode": 2,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "white_close",
+      "width": 9,
+      "height": 8,
+      "mode": 3,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "one_pixel_erode",
+      "width": 1,
+      "height": 1,
+      "mode": 0,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "one_pixel_dilate",
+      "width": 1,
+      "height": 1,
+      "mode": 1,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "one_pixel_open",
+      "width": 1,
+      "height": 1,
+      "mode": 2,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "one_pixel_close",
+      "width": 1,
+      "height": 1,
+      "mode": 3,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_row_erode",
+      "width": 7,
+      "height": 1,
+      "mode": 0,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_row_dilate",
+      "width": 7,
+      "height": 1,
+      "mode": 1,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_row_open",
+      "width": 7,
+      "height": 1,
+      "mode": 2,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_row_close",
+      "width": 7,
+      "height": 1,
+      "mode": 3,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_column_erode",
+      "width": 1,
+      "height": 7,
+      "mode": 0,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_column_dilate",
+      "width": 1,
+      "height": 7,
+      "mode": 1,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_column_open",
+      "width": 1,
+      "height": 7,
+      "mode": 2,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_column_close",
+      "width": 1,
+      "height": 7,
+      "mode": 3,
+      "pixels": 7,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "nonbinary_erode",
+      "width": 17,
+      "height": 13,
+      "mode": 0,
+      "pixels": 221,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "nonbinary_dilate",
+      "width": 17,
+      "height": 13,
+      "mode": 1,
+      "pixels": 221,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "nonbinary_open",
+      "width": 17,
+      "height": 13,
+      "mode": 2,
+      "pixels": 221,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "nonbinary_close",
+      "width": 17,
+      "height": 13,
+      "mode": 3,
+      "pixels": 221,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "random_erode",
+      "width": 29,
+      "height": 23,
+      "mode": 0,
+      "pixels": 667,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "random_dilate",
+      "width": 29,
+      "height": 23,
+      "mode": 1,
+      "pixels": 667,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "random_open",
+      "width": 29,
+      "height": 23,
+      "mode": 2,
+      "pixels": 667,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "random_close",
+      "width": 29,
+      "height": 23,
+      "mode": 3,
+      "pixels": 667,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_manual_ah_erode",
+      "width": 700,
+      "height": 605,
+      "mode": 0,
+      "pixels": 423500,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_manual_ah_dilate",
+      "width": 700,
+      "height": 605,
+      "mode": 1,
+      "pixels": 423500,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_manual_ah_open",
+      "width": 700,
+      "height": 605,
+      "mode": 2,
+      "pixels": 423500,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_manual_ah_close",
+      "width": 700,
+      "height": 605,
+      "mode": 3,
+      "pixels": 423500,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "after_real_frame_open",
+      "width": 37,
+      "height": 31,
+      "mode": 2,
+      "pixels": 1147,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "zero_width",
+      "width": 0,
+      "height": 8,
+      "mode": 0,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "negative_height",
+      "width": 8,
+      "height": -1,
+      "mode": 1,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "too_wide",
+      "width": 701,
+      "height": 8,
+      "mode": 2,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "too_tall",
+      "width": 8,
+      "height": 606,
+      "mode": 3,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "bad_mode",
+      "width": 8,
+      "height": 8,
+      "mode": 4,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    }
+  ],
+  "boundary": "Independent HLS simulation only; no board or full processing-chain integration."
+}

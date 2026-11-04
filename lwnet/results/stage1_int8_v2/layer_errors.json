@@ -1,0 +1,9102 @@
+{
+  "im0001": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -53,
+      "qmax": 45
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 91
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -123,
+      "qmax": 126
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -53,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -53,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 124
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 108
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -56,
+      "qmax": 72
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -29,
+      "qmax": 97
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -25,
+      "qmax": 97
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 95
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 122
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -94,
+      "qmax": 45
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -21,
+      "qmax": 123
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -105,
+      "qmax": 110
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 120
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -72,
+      "qmax": 120
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 107
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 85
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -108,
+      "qmax": 106
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -40,
+      "qmax": 90
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -82,
+      "qmax": 93
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 93
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -81,
+      "qmax": 93
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 89
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 84
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -99,
+      "qmax": 48
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -57,
+      "qmax": 91
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -112,
+      "qmax": 88
+    }
+  ],
+  "im0002": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255,
+      "mae": 6.086970424996407e-09,
+      "max_abs_error": 2.9685450542160652e-08
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -42,
+      "qmax": 52,
+      "mae": 0.0340408354921765,
+      "max_abs_error": 0.1338274554004819
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 73,
+      "mae": 0.09074457862943347,
+      "max_abs_error": 0.6624433750242698
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -97,
+      "qmax": 94,
+      "mae": 0.02036124590954181,
+      "max_abs_error": 0.08161745672150911
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -42,
+      "qmax": 77,
+      "mae": 0.10007532138473713,
+      "max_abs_error": 0.7429233995948251
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -41,
+      "qmax": 77,
+      "mae": 0.0975697505557516,
+      "max_abs_error": 0.6681633286588775
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 86,
+      "mae": 0.09500104074424504,
+      "max_abs_error": 0.9287073180431455
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 81,
+      "mae": 0.12471980759864318,
+      "max_abs_error": 1.84439616503678
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -53,
+      "qmax": 66,
+      "mae": 0.06304096519394939,
+      "max_abs_error": 0.5521989901234785
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -27,
+      "qmax": 71,
+      "mae": 0.15559982655071702,
+      "max_abs_error": 2.0052796980058116
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -18,
+      "qmax": 71,
+      "mae": 0.18195305254534785,
+      "max_abs_error": 1.7604835298587018
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 73,
+      "mae": 0.14045885929490198,
+      "max_abs_error": 2.110789588117224
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 116,
+      "mae": 0.1645204172421122,
+      "max_abs_error": 3.8639811774877115
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -66,
+      "qmax": 48,
+      "mae": 0.03570820443802637,
+      "max_abs_error": 0.5165389600231891
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -18,
+      "qmax": 118,
+      "mae": 0.1894258965839209,
+      "max_abs_error": 3.9836176737086983
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -84,
+      "qmax": 104,
+      "mae": 0.3187481582088805,
+      "max_abs_error": 3.362623875535379
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 89,
+      "mae": 0.2024472742784201,
+      "max_abs_error": 3.2466879679462104
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -58,
+      "qmax": 89,
+      "mae": 0.2621869120505083,
+      "max_abs_error": 3.3514745517039866
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 93,
+      "mae": 0.13896790707364484,
+      "max_abs_error": 2.6723739105885422
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 90,
+      "mae": 0.1431041708069336,
+      "max_abs_error": 2.718999303232028
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -86,
+      "qmax": 84,
+      "mae": 0.06312958635516987,
+      "max_abs_error": 0.7765686374714994
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -31,
+      "qmax": 96,
+      "mae": 0.17764830319857788,
+      "max_abs_error": 2.8113175433451736
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 93,
+      "mae": 0.21038465585194882,
+      "max_abs_error": 2.7388917780297946
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 73,
+      "mae": 0.08955369257050201,
+      "max_abs_error": 1.2978360221141905
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -77,
+      "qmax": 92,
+      "mae": 0.15218335526250146,
+      "max_abs_error": 2.7589823767894837
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 98,
+      "mae": 0.07731084122423575,
+      "max_abs_error": 1.8579304218292236
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 94,
+      "mae": 0.0745741423412626,
+      "max_abs_error": 1.986273059225458
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -101,
+      "qmax": 49,
+      "mae": 0.07081101989778238,
+      "max_abs_error": 1.025995427229273
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -59,
+      "qmax": 99,
+      "mae": 0.10951391602817635,
+      "max_abs_error": 2.2712300091277893
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -108,
+      "qmax": 97,
+      "mae": 0.3093792608466864,
+      "max_abs_error": 2.4542372508311834
+    }
+  ],
+  "im0003": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -64,
+      "qmax": 109
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 32,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 127
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -109,
+      "qmax": 111
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 3,
+      "elements": 2097152,
+      "qmin": -47,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -46,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 3,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 100
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -91,
+      "qmax": 118
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -46,
+      "qmax": 95
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -36,
+      "qmax": 95
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 96
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 1,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -104,
+      "qmax": 51
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 1,
+      "elements": 524288,
+      "qmin": -22,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -98,
+      "qmax": 122
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 2,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 127
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -67,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 99
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 83
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -108,
+      "qmax": 93
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -40,
+      "qmax": 90
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -77,
+      "qmax": 102
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 3,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 127
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -76,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 123
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 98
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -105,
+      "qmax": 79
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -73,
+      "qmax": 109
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -126,
+      "qmax": 82
+    }
+  ],
+  "im0004": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -71,
+      "qmax": 63
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 106
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -63,
+      "qmax": 53
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -29,
+      "qmax": 105
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -29,
+      "qmax": 105
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 82
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 76
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -48,
+      "qmax": 105
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -25,
+      "qmax": 87
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -20,
+      "qmax": 87
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 76
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 60
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -70,
+      "qmax": 39
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -15,
+      "qmax": 64
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -88,
+      "qmax": 77
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 72
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -60,
+      "qmax": 72
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 70
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 87
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -69,
+      "qmax": 56
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -22,
+      "qmax": 90
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -63,
+      "qmax": 73
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 84
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -62,
+      "qmax": 84
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 74
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 74
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -81,
+      "qmax": 47
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -55,
+      "qmax": 84
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -103,
+      "qmax": 68
+    }
+  ],
+  "im0005": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 84
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 117
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -41,
+      "qmax": 38
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -26,
+      "qmax": 115
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -24,
+      "qmax": 115
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 79
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -78,
+      "qmax": 119
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -39,
+      "qmax": 92
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -25,
+      "qmax": 92
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 107
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 71
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -78,
+      "qmax": 52
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -21,
+      "qmax": 76
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -106,
+      "qmax": 112
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 127
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -73,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 119
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 114
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -106,
+      "qmax": 93
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -29,
+      "qmax": 121
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -85,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 95
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -84,
+      "qmax": 125
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 121
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 105
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -117,
+      "qmax": 83
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -70,
+      "qmax": 115
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -116,
+      "qmax": 118
+    }
+  ],
+  "im0044": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 67,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 127
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 11,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 127
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -77,
+      "qmax": 81
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -34,
+      "qmax": 126
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -31,
+      "qmax": 126
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 96
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 99
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -94,
+      "qmax": 122
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -47,
+      "qmax": 87
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -27,
+      "qmax": 87
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 100
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 85
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -80,
+      "qmax": 58
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -23,
+      "qmax": 91
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 8,
+      "elements": 1048576,
+      "qmin": -93,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 122
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -64,
+      "qmax": 122
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 3,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 100
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -109,
+      "qmax": 108
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -32,
+      "qmax": 110
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -84,
+      "qmax": 108
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 28,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 127
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -83,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 123
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 97
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -112,
+      "qmax": 80
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 105
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -103,
+      "qmax": 105
+    }
+  ],
+  "im0077": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 75
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 125
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -95,
+      "qmax": 96
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -42,
+      "qmax": 125
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -36,
+      "qmax": 125
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 101
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -71,
+      "qmax": 124
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -36,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -25,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 87
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -85,
+      "qmax": 65
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -24,
+      "qmax": 87
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 2,
+      "elements": 1048576,
+      "qmin": -122,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 121
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -84,
+      "qmax": 121
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 126
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 125
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -108,
+      "qmax": 99
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 1,
+      "elements": 1048576,
+      "qmin": -31,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -99,
+      "qmax": 121
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 101
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -98,
+      "qmax": 119
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 2,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 105
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -124,
+      "qmax": 71
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -74,
+      "qmax": 121
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -109,
+      "qmax": 114
+    }
+  ],
+  "im0081": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -62,
+      "qmax": 59
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 101
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -50,
+      "qmax": 44
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -23,
+      "qmax": 101
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -22,
+      "qmax": 101
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 83
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 99
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -62,
+      "qmax": 98
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -32,
+      "qmax": 89
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -20,
+      "qmax": 89
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 79
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 81
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -87,
+      "qmax": 60
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -25,
+      "qmax": 87
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -93,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 92
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -64,
+      "qmax": 92
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 114
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 103
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -102,
+      "qmax": 85
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -26,
+      "qmax": 118
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -86,
+      "qmax": 119
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 79
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -85,
+      "qmax": 117
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 110
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 112
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -120,
+      "qmax": 59
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -68,
+      "qmax": 125
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -105,
+      "qmax": 120
+    }
+  ],
+  "im0082": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -63,
+      "qmax": 80
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 107
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -95,
+      "qmax": 95
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -42,
+      "qmax": 111
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -39,
+      "qmax": 111
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 99
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -73,
+      "qmax": 102
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -37,
+      "qmax": 82
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -27,
+      "qmax": 82
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 87
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 92
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -77,
+      "qmax": 68
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -20,
+      "qmax": 99
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -113,
+      "qmax": 123
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 108
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 108
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 1,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -100,
+      "qmax": 120
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -32,
+      "qmax": 124
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -108,
+      "qmax": 120
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 101
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -106,
+      "qmax": 118
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 2,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 3,
+      "elements": 2097152,
+      "qmin": -127,
+      "qmax": 71
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -72,
+      "qmax": 127
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 3,
+      "elements": 262144,
+      "qmin": -104,
+      "qmax": 127
+    }
+  ],
+  "im0139": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -55,
+      "qmax": 62
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 97
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -81,
+      "qmax": 82
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -36,
+      "qmax": 95
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -32,
+      "qmax": 95
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 113
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 85
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -60,
+      "qmax": 90
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -31,
+      "qmax": 81
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -17,
+      "qmax": 81
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 88
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 78
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -98,
+      "qmax": 53
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -28,
+      "qmax": 84
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -108,
+      "qmax": 104
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 96
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -74,
+      "qmax": 96
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 110
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 111
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -100,
+      "qmax": 90
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -29,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -87,
+      "qmax": 110
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 83
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -86,
+      "qmax": 108
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 117
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 101
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -118,
+      "qmax": 48
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -69,
+      "qmax": 106
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -106,
+      "qmax": 107
+    }
+  ],
+  "im0162": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -76,
+      "qmax": 74
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 120
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -99,
+      "qmax": 99
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -43,
+      "qmax": 120
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -40,
+      "qmax": 120
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 105
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -72,
+      "qmax": 118
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -36,
+      "qmax": 93
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -26,
+      "qmax": 93
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 114
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 113
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -82,
+      "qmax": 60
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -22,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -91,
+      "qmax": 113
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 104
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -62,
+      "qmax": 104
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 109
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 108
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -95,
+      "qmax": 88
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -31,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -82,
+      "qmax": 118
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 93
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -81,
+      "qmax": 116
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 7,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 99
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -120,
+      "qmax": 62
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -73,
+      "qmax": 121
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -105,
+      "qmax": 105
+    }
+  ],
+  "im0163": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 79
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 122
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -101,
+      "qmax": 102
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -44,
+      "qmax": 122
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -43,
+      "qmax": 122
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 114
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -76,
+      "qmax": 120
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -38,
+      "qmax": 93
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -25,
+      "qmax": 93
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 107
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 80
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -88,
+      "qmax": 56
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -20,
+      "qmax": 87
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -99,
+      "qmax": 123
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 103
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -68,
+      "qmax": 103
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 111
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 103
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -96,
+      "qmax": 95
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -29,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -89,
+      "qmax": 111
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 107
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -88,
+      "qmax": 109
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 4,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 110
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -123,
+      "qmax": 61
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -69,
+      "qmax": 115
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -106,
+      "qmax": 108
+    }
+  ],
+  "im0235": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -63,
+      "qmax": 66
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 98
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -65,
+      "qmax": 77
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -32,
+      "qmax": 97
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -30,
+      "qmax": 97
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 90
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 84
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -58,
+      "qmax": 96
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -30,
+      "qmax": 88
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -22,
+      "qmax": 88
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 102
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 84
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -86,
+      "qmax": 54
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -24,
+      "qmax": 89
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -118,
+      "qmax": 117
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 106
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -81,
+      "qmax": 106
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 121
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 118
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -107,
+      "qmax": 89
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 1,
+      "elements": 1048576,
+      "qmin": -26,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -103,
+      "qmax": 117
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 82
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -101,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 120
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 104
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -127,
+      "qmax": 58
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -73,
+      "qmax": 112
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -109,
+      "qmax": 111
+    }
+  ],
+  "im0236": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -59,
+      "qmax": 70
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 95
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -66,
+      "qmax": 77
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -31,
+      "qmax": 94
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -30,
+      "qmax": 94
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 89
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 88
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -62,
+      "qmax": 95
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -32,
+      "qmax": 82
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -19,
+      "qmax": 82
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 101
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 88
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -81,
+      "qmax": 52
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -22,
+      "qmax": 92
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 1,
+      "elements": 1048576,
+      "qmin": -127,
+      "qmax": 122
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 98
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -87,
+      "qmax": 98
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 122
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 124
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -113,
+      "qmax": 86
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 1,
+      "elements": 1048576,
+      "qmin": -27,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -110,
+      "qmax": 114
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 79
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -108,
+      "qmax": 112
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 122
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 111
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -127,
+      "qmax": 55
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -72,
+      "qmax": 117
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -109,
+      "qmax": 116
+    }
+  ],
+  "im0239": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 127
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 123
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -65,
+      "qmax": 84
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -30,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -28,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 108
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 79
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -112,
+      "qmax": 127
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -56,
+      "qmax": 83
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -32,
+      "qmax": 83
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 92
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 71
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -88,
+      "qmax": 53
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -22,
+      "qmax": 79
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 2,
+      "elements": 1048576,
+      "qmin": -127,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 107
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -87,
+      "qmax": 107
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 118
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 112
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 1,
+      "elements": 1048576,
+      "qmin": -127,
+      "qmax": 100
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 2,
+      "elements": 1048576,
+      "qmin": -29,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -113,
+      "qmax": 102
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 127
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -111,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 119
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -124,
+      "qmax": 95
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -76,
+      "qmax": 121
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -112,
+      "qmax": 122
+    }
+  ],
+  "im0240": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 205
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -66,
+      "qmax": 38
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 104
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -27,
+      "qmax": 26
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -23,
+      "qmax": 102
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -23,
+      "qmax": 102
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 77
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 57
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -45,
+      "qmax": 102
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -24,
+      "qmax": 67
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -18,
+      "qmax": 67
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 74
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 58
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -53,
+      "qmax": 39
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -14,
+      "qmax": 61
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -76,
+      "qmax": 97
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 90
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -52,
+      "qmax": 90
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 92
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 95
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -75,
+      "qmax": 81
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -23,
+      "qmax": 100
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -73,
+      "qmax": 106
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 85
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -72,
+      "qmax": 104
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 112
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 85
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -110,
+      "qmax": 51
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -64,
+      "qmax": 91
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -103,
+      "qmax": 86
+    }
+  ],
+  "im0255": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -62,
+      "qmax": 57
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 100
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -40,
+      "qmax": 42
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -24,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 75
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 73
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -49,
+      "qmax": 102
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -25,
+      "qmax": 70
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -18,
+      "qmax": 70
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 84
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 88
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -70,
+      "qmax": 50
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -20,
+      "qmax": 92
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -92,
+      "qmax": 119
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 123
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -63,
+      "qmax": 123
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 109
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 109
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -91,
+      "qmax": 86
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -29,
+      "qmax": 116
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -84,
+      "qmax": 117
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 85
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -83,
+      "qmax": 115
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 97
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -113,
+      "qmax": 62
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -67,
+      "qmax": 118
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -106,
+      "qmax": 105
+    }
+  ],
+  "im0291": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -73,
+      "qmax": 127
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 178,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 127
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -34,
+      "qmax": 47
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 81,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -23,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 2,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 95
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 2,
+      "elements": 1048576,
+      "qmin": -98,
+      "qmax": 127
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -49,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -38,
+      "qmax": 98
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 96
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 69
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -93,
+      "qmax": 50
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -21,
+      "qmax": 72
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -90,
+      "qmax": 101
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 93
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -62,
+      "qmax": 93
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 124
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 106
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -102,
+      "qmax": 82
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -31,
+      "qmax": 111
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -83,
+      "qmax": 119
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 3,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 127
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -82,
+      "qmax": 127
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 126
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 114
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -107,
+      "qmax": 102
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 1,
+      "elements": 2097152,
+      "qmin": -79,
+      "qmax": 127
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -118,
+      "qmax": 105
+    }
+  ],
+  "im0319": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 76
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 126
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -108,
+      "qmax": 108
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -47,
+      "qmax": 126
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -47,
+      "qmax": 126
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 124
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -85,
+      "qmax": 123
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -43,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -25,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 1,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 97
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 1,
+      "elements": 524288,
+      "qmin": -127,
+      "qmax": 70
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -26,
+      "qmax": 100
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -87,
+      "qmax": 108
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 97
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -60,
+      "qmax": 97
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 107
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 79
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -90,
+      "qmax": 74
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -28,
+      "qmax": 81
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -61,
+      "qmax": 94
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 112
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -60,
+      "qmax": 112
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 104
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 85
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -89,
+      "qmax": 57
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -63,
+      "qmax": 92
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -102,
+      "qmax": 64
+    }
+  ],
+  "im0324": [
+    {
+      "name": "x",
+      "op": "Input",
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "scale": 0.00392156862745098,
+      "clipped_count": 0,
+      "elements": 786432,
+      "qmin": 0,
+      "qmax": 255
+    },
+    {
+      "name": "first_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14904633469468964,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -78,
+      "qmax": 88
+    },
+    {
+      "name": "first_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.1793530832125446,
+      "clipped_count": 68,
+      "elements": 2097152,
+      "qmin": -20,
+      "qmax": 127
+    },
+    {
+      "name": "first_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07420695297361359,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -97,
+      "qmax": 94
+    },
+    {
+      "name": "add",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 33,
+      "elements": 2097152,
+      "qmin": -42,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        8,
+        256,
+        256
+      ],
+      "scale": 0.18227728896253692,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -41,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.14558581855353409,
+      "clipped_count": 25,
+      "elements": 1048576,
+      "qmin": -10,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.26202152282234253,
+      "clipped_count": 22,
+      "elements": 1048576,
+      "qmin": -4,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_0_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.13374220480130414,
+      "clipped_count": 21,
+      "elements": 1048576,
+      "qmin": -106,
+      "qmax": 127
+    },
+    {
+      "name": "add_1",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 36,
+      "elements": 1048576,
+      "qmin": -53,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_pool",
+      "op": "MaxPool2d",
+      "shape": [
+        1,
+        16,
+        128,
+        128
+      ],
+      "scale": 0.278214942751907,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -26,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.20173098346379797,
+      "clipped_count": 10,
+      "elements": 524288,
+      "qmin": -7,
+      "qmax": 127
+    },
+    {
+      "name": "down_path_1_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.2734559126726286,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -5,
+      "qmax": 105
+    },
+    {
+      "name": "down_path_1_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.06836816081850547,
+      "clipped_count": 7,
+      "elements": 524288,
+      "qmin": -127,
+      "qmax": 71
+    },
+    {
+      "name": "add_2",
+      "op": "Add",
+      "shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "scale": 0.25908066156342274,
+      "clipped_count": 0,
+      "elements": 524288,
+      "qmin": -27,
+      "qmax": 99
+    },
+    {
+      "name": "up_path_0_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.16824545071819635,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -74,
+      "qmax": 118
+    },
+    {
+      "name": "up_path_0_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 86
+    },
+    {
+      "name": "cat",
+      "op": "Concat",
+      "shape": [
+        1,
+        32,
+        256,
+        256
+      ],
+      "scale": 0.24503955690879523,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -51,
+      "qmax": 86
+    },
+    {
+      "name": "up_path_0_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.1307105116956816,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -7,
+      "qmax": 91
+    },
+    {
+      "name": "up_path_0_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.149485415361059,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -14,
+      "qmax": 65
+    },
+    {
+      "name": "up_path_0_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.0503011538287786,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -100,
+      "qmax": 66
+    },
+    {
+      "name": "add_3",
+      "op": "Add",
+      "shape": [
+        1,
+        16,
+        256,
+        256
+      ],
+      "scale": 0.15392452149879277,
+      "clipped_count": 0,
+      "elements": 1048576,
+      "qmin": -36,
+      "qmax": 64
+    },
+    {
+      "name": "up_path_1_up_layer_block_0",
+      "op": "ConvTranspose2d",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.14918366379625214,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -55,
+      "qmax": 77
+    },
+    {
+      "name": "up_path_1_conv_bridge_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -13,
+      "qmax": 126
+    },
+    {
+      "name": "cat_1",
+      "op": "Concat",
+      "shape": [
+        1,
+        16,
+        512,
+        512
+      ],
+      "scale": 0.15141595254732867,
+      "clipped_count": 0,
+      "elements": 4194304,
+      "qmin": -54,
+      "qmax": 126
+    },
+    {
+      "name": "up_path_1_conv_layer_block_2",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.10514462838961383,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -14,
+      "qmax": 121
+    },
+    {
+      "name": "up_path_1_conv_layer_block_5",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07410604371799259,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -25,
+      "qmax": 90
+    },
+    {
+      "name": "up_path_1_conv_layer_shortcut_1",
+      "op": "ConvAffine",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.06962976680965874,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -75,
+      "qmax": 74
+    },
+    {
+      "name": "add_4",
+      "op": "Add",
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "scale": 0.07360792535496509,
+      "clipped_count": 0,
+      "elements": 2097152,
+      "qmin": -75,
+      "qmax": 102
+    },
+    {
+      "name": "final",
+      "op": "Conv2d",
+      "shape": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "scale": 0.1017041844645823,
+      "clipped_count": 0,
+      "elements": 262144,
+      "qmin": -107,
+      "qmax": 53
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+========== a. mode0 proc+mask+overlay+stats, AI src=raw ==========
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000F ['proc', 'overlay', 'mask']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total= 2119.6 ms  (send    2.1 + reply 2117.5)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=2019202 gray[0..197] mode=0 frame=32
+summary: n=1  min=2119.6  max=2119.6  avg=2119.6 ms
+CLI_DONE
+
+========== b. mode0 mask+stats, AI src=preprocessed ==========
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000A ['mask']   aiparam=0xFD01 (src=proc thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total= 2093.7 ms  (send    2.1 + reply 2091.6)  mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=31360/262144 (12.0%) comps=26742 logit[-105..93] ai_us=2016731 gray[0..197] mode=0 frame=33
+summary: n=1  min=2093.7  max=2093.7  avg=2093.7 ms
+save: mask -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\test_mask_fromproc.png
+CLI_DONE
+
+========== c. mode3 pcolor + mask ==========
+proto self-check: OK
+模式: 3 (伪彩色映射)   flags=0x000B ['proc', 'mask']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total= 2139.7 ms  (send    2.0 + reply 2137.7)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=2016852 gray[0..197] mode=3 frame=34
+summary: n=1  min=2139.7  max=2139.7  avg=2139.7 ms
+save: proc -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\test_mode3_proc.png
+save: mask -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\test_mode3_mask.png
+CLI_DONE
+
+========== d. tighter threshold (0) ==========
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000A ['mask']   aiparam=0x0000 (src=raw thr=0 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total= 2090.8 ms  (send    2.9 + reply 2087.8)  mask(rows_ok=512)
+      AI: 512x512 thr=0 vessels=14754/262144 (5.6%) comps=11159 logit[-107..100] ai_us=2016874 gray[0..197] mode=0 frame=35
+summary: n=1  min=2090.8  max=2090.8  avg=2090.8 ms
+CLI_DONE
+
+========== e. legacy v2 header (no flags) ==========
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v2
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789508 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total=   56.2 ms  (send    2.0 + reply   54.2)  proc(rows_ok=512)
+summary: n=1  min=56.2  max=56.2  avg=56.2 ms
+CLI_DONE
+
+========== f. stats only, no image ==========
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0018 []   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total= 2066.8 ms  (send    1.9 + reply 2065.0)  (no image)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=2016890 gray[0..197] mode=0 frame=37
+summary: n=1  min=2066.8  max=2066.8  avg=2066.8 ms
+CLI_DONE
+TESTPPM_ALL_DONE

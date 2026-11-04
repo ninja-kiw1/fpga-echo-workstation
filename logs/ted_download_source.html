@@ -1,0 +1,206 @@
+<!doctype html>
+<!--
+ CREATIS - Centre de Recherche en Acquisition et Traitement de l'Image pour la Santé
+ http://www.creatis.insa-lyon.fr
+
+ Author:  William A. Romero R. <romero@creatis.insa-lyon.fr>
+ All rights reverved.
+ 2017
+
+ Version 180120171721
+ -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TED project</title>
+        <meta name="Keywords" content="Medical Imaging,
+                                       Cardiac Imaging,
+                                       Ultrasound,
+                                       US,
+                                       Public Biomedical Image Database,
+                                       CREATIS"/>
+        <meta name="Author" content="Olivier Bernard (olivier.bernard@creatis.insa-lyon.fr)"/>
+        <meta name="Description" content="Ultrasound sequence dataset, CREATIS"/>
+        <link rel="stylesheet" href="css/style_static.css" media="screen"/>
+    </head>
+    <body>
+        <!--MAIN_HEADER-->
+        <div id="header">
+            <div class="header_container">
+                <div class="header_section_left">
+                    <a href="http://www.creatis.insa-lyon.fr">
+                        <img class="header_img" src="css/logo_creatis.png" alt="CREATIS INSA Lyon"/>
+                    </a>
+                    <img class="header_img" src="css/vline.png" alt="INSA Lyon"/>
+                    <h1>Medical Imaging Research Laboratory</h1>
+                </div>
+                <div class="header_section_right">
+                    <a href="http://www.universite-lyon.fr/">
+                        <img class="header_img" src="css/logo_udl.png" alt="CREATIS INSA Lyon"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--PAGE-->
+        <div id="page">
+            <div id="page_title">
+                <h1>TED project</h1>
+            </div>
+            <div id="sections">
+                <div class="section">
+                    <h1>Contents</h1>
+                    <a href="#overview">Overview</a>
+                    <a href="#database">Open-access database</a>
+                    <a href="#devteam">R&amp;D Team</a>
+                </div>
+                <div class="section">
+                    <h1>Links of Interest</h1>
+                    <a href="http://humanheart-project.creatis.insa-lyon.fr">The Human Heart Project</a>
+                </div>
+                <div class="section">
+                    <h1>Research Centers</h1>
+                    <a href="http://www.creatis.insa-lyon.fr"><img src="multimodalityStrausResources/logo_creatis.png" alt="CREATIS INSA Lyon"/></a>
+                    <a href="http://www.creatis.insa-lyon.fr">University of Lyon, France</a>
+                    <a href="https://vitalab.github.io/"><img src="TedRessources/logo_uds.png" alt="VITALab university of Sherbrooke"/></a>
+                    <a href="https://vitalab.github.io/">University of Sherbrooke, Canada</a>
+                </div>
+            </div><!--END_sections-->
+            <!--CONTENT-->
+            <div id="content">
+              <div id="overview" class="content_section">
+                    <h1>Echocardiography Segmentation with Enforced Temporal Consistency</h1>
+                    <ul>
+                      <li>This is a joint venture between <a href="http://www.creatis.insa-lyon.fr">CREATIS</a> and <a href="https://vitalab.github.io/">VITALab</a> laboratories.</li>
+                      <li>The code is available on github through the following <a href="https://github.com/vitalab/castor">repo</a>.</li>
+                      <li>The dataset is available at the following <a href="http://humanheart-project.creatis.insa-lyon.fr/database/#collection/62840fcd73e9f00479084885">warehouse</a>.</li>
+                      <li>Please refer to our <a href="https://ieeexplore.ieee.org/document/9771186/">paper</a> for any use of the data or code.</li>
+                    </ul>
+                    <h2>Overview</h2>
+                    <p> Convolutional neural networks (CNN) have demonstrated their ability to segment 2D cardiac ultrasound images. However, despite recent successes according to which the intra-observer variability on end-diastole and end-systole images has been reached, CNNs still struggle to leverage temporal information to provide accurate and temporally consistent segmentation maps across the whole cycle. Such consistency is required to accurately describe the cardiac function, a necessary step in diagnosing many cardiovascular diseases.</p>
+                    <h2>Objectives</h2>
+                    <p>We propose a framework to learn the 2D+time apical long-axis cardiac shape such that the segmented sequences can benefit from temporal and anatomical consistency constraints. Our method is a post-processing that takes as input segmented echocardiographic sequences produced by any state-of-the-art method and processes it in two steps to (i) identify spatio-temporal inconsistencies according to the overall dynamics of the cardiac sequence and (ii) correct the inconsistencies. The identification and correction of cardiac inconsistencies relies on a constrained autoencoder trained to learn a physiologically interpretable embedding of cardiac shapes, where we can both detect and fix anomalies.</p>
+
+                    <h2>Main contributions</h2>
+                    <p>The main contributions achieved in this project are:</p>
+                    <ul>
+                        <li>We define clinically interpretable indicators to quantitatively evaluate the temporal consistency of 2D+time segmentations;</li>
+                        <li>We introduce a generic post-processing algorithm, based on an interpretable embedding of cardiac shapes, which can be plugged at the end of any segmentation method, which enforces temporal consistency on top of improving the overall accuracy of the segmentations;</li>
+                        <li>We make public a new fully-annotated dataset of 98 full cycle apical 4 chamber (A4C) sequences from the CAMUS dataset. Up until now, only ED and ES expert annotations were available for these US sequences. As far as we know, this is the first public dataset of its kind for 2D echocardiograph.</li>
+                    </ul>
+                </div><!--END_overview-->
+
+                <div id="dataset" class="content_section">
+                  <h1>Temporal Echocardiography Dataset</h1>
+
+
+                  <h2>Open access dataset</h2>
+                    <p>Some examples of the annotated sequences. Don't hesitate to download each animation by right clicking on it for a better visualization.</p>
+
+                    <figure>
+                        <img src="TedRessources/patient0008_bis.gif" width="300" alt="patient0008"/ class="center_bis">
+                    </figure>
+                    <figure>
+                        <img src="TedRessources/patient0010_bis.gif" width="300" alt="patient0010"/ class="center_bis">
+                    </figure>
+                    <figure>
+                        <img src="TedRessources/patient0012_bis.gif" width="300" alt="patient0012"/ class="center_bis">
+                    </figure>
+
+
+                    <h2>Get Started</h2>
+                        <p>To browse through the image database, simply connect to the <a href="http://humanheart-project.creatis.insa-lyon.fr/database/#collection/62840fcd73e9f00479084885">TED database</a>, explore and download the images of interest or the entire collection. This database is public, so no login is required.</p>
+                </div><!--END_overview-->
+
+                <div id="Temporal analysis and correction" class="content_section">
+
+                    <h1>Enforced Temporal Consistency</h1>
+
+                    <h2>Overall scheme</h2>
+                    <p>The figure below shows a schematic representation of our temporal regularization method. Starting with the raw echocardiography sequence, a SOTA segmentation method predicts a segmentation mask (1), which is then encoded frame-by-frame (2) by a pretrained autoencoder. There, the encodings of the sequence are split between dimensions (3.1) to produce sequences of attributes with respect to time (sa). These sequences are then processed invidually (3.2), and the results (s∗a) are merged back together as encodings for each frame (3.3). Finally, the modified encodings are decoded into now temporally consistent segmentations (4).</p>
+
+                    <figure>
+                        <p><img src="TedRessources/tmi_main_figure.png" width="520" alt="Illustration of the temporal consistency scheme"/>
+                    </figure>
+
+
+                    <h2>Results on real patients</h2>
+
+                    <p>For all animations, the superimposed masks correspond to those estimated by a standard U-Net method (left) which was then post-processed by our method (right). Don't hesitate to download each animation by right clicking on it for a better visualization.</p>
+
+                    <figure>
+                        <img src="TedRessources/patient0008_processing.gif" width="520" alt="result on patient 0008"/>
+                    </figure>
+
+                    <figure>
+                        <img src="TedRessources/patient0010_processing.gif" width="520" alt="result on patient 0010"/>
+                    </figure>
+
+                    <figure>
+                        <img src="TedRessources/patient0012_processing.gif" width="520" alt="result on patient 0012"/>
+                    </figure>
+
+                </div>
+
+                <div id="devteam" class="content_section">
+                    <h1>R&amp;D Team</h1>
+                    <table>
+				                <tr>
+                            <td>Nathan PAINCHAUD</td>
+                            <td> PhD student, <a href="https://vitalab.github.io/">VITALab</a> (Canada) and
+                              <a href="https://vitalab.github.io/">CREATIS</a> (France)
+                                <ul>
+                                    <li>Contact: <a href="mailto:nathan.painchaud@usherbrooke.ca">nathan.painchaud@usherbrooke.ca</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Nicolas DUCHATEAU</td>
+                            <td> Associate professor, <a href="https://www.creatis.insa-lyon.fr/">CREATIS</a>, France
+                                <ul>
+                                    <li>Contact: <a href="mailto:nicolas.duchateau@creatis.insa-lyon.fr">nicolas.duchateau@creatis.insa-lyon.fr</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Olivier BERNARD</td>
+                            <td> Full professor, <a href="https://www.creatis.insa-lyon.fr/">CREATIS</a>, France
+                                <ul>
+                                    <li>Contact: <a href="mailto:olivier.bernard@creatis.insa-lyon.fr">olivier.bernard@creatis.insa-lyon.fr</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Pierre-Marc JODOIN</td>
+                            <td> Full professor, <a href="https://vitalab.github.io/">VITALab</a>, Canada
+                                <ul>
+                                    <li>Contact: <a href="mailto:pierre-marc.jodoin@usherbrooke.ca">pierre-marc.jodoin@usherbrooke.ca</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        </table>
+                </div><!--END_devteam-->
+            </div><!--END_CONTENT-->
+        </div><!--END_PAGE-->
+        <!--FOOTER-->
+        <div id="footer">
+            <div class="footer_section">
+                <a href="http://www.insa-lyon.fr/"><img class="footer_logo" src="css/logo_insa.png" alt="Institut national des sciences appliquées de Lyon"/></a>
+                <a href="http://www.cnrs.fr/"><img class="footer_logo" src="css/logo_cnrs.jpg" alt="Centre national de la recherche scientifique"/></a>
+                <a href="http://www.univ-lyon1.fr/"><img class="footer_logo" src="css/logo_ucbl.jpg" alt="Universite Claude Bernard Lyon 1"/></a>
+                <a href="http://www.universite-lyon.fr/"><img class="footer_logo" src="css/logo_universitelyon_2016.jpg" alt="INSA Lyon"/></a>
+                <a href="http://www.inserm.fr/"><img class="footer_logo" src="css/logo_inserm.jpg" alt="Institut national de la santé et de la recherche médicale"/></a>
+                <a href="https://www.univ-st-etienne.fr/"><img class="footer_logo" src="css/logo_ujm.png" alt="Université Jean Monnet"/></a>
+            </div>
+            <div class="footer_section">
+                <h1>Centre de Recherche en Acquisition et Traitement de l'Image pour la Santé</h1>
+                <h2>CNRS UMR 5220 – INSERM U1206 – Université Lyon 1 – INSA Lyon - Université Jean Monnet Saint-Etienne.</h2>
+            </div>
+        </div>
+        <!--END_FOOTER-->
+    </body>
+</html>

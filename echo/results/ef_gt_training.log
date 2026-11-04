@@ -1,0 +1,27 @@
+E:\PLD\echo\ef.py:45: RuntimeWarning: invalid value encountered in divide
+  return np.abs(v[0] * w[:, 1] - v[1] * w[:, 0]) / np.linalg.norm(v)
+50 patients (92s)
+100 patients (147s)
+150 patients (184s)
+200 patients (223s)
+250 patients (262s)
+300 patients (298s)
+350 patients (340s)
+400 patients (378s)
+{
+ "patients": 400,
+ "splits": [
+  "training"
+ ],
+ "exact_match": 1.0,
+ "within_1": 1.0,
+ "mae": 0.0,
+ "max_abs": 0.0,
+ "ref_2ch_equals_4ch": 1.0,
+ "seconds": 378.4335238933563
+}
+patient0001 54 54.0 95 44
+patient0002 40 40.0 119 71
+patient0003 51 51.0 106 52
+patient0004 56 56.0 97 43
+patient0005 46 46.0 71 38

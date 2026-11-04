@@ -1,0 +1,825 @@
+
+****** vitis-run v2025.2.1 (64-bit)
+  **** SW Build 6397637 on 2026-03-13-19:08:23
+  **** Start of session at: Tue Oct  6 19:33:57 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2.1 6397637
+Sourcing Tcl script 'E:/fpga/my_project/tcp_image_rx/ai/opt_hls/run_conv_par.tcl'
+INFO: [HLS 200-1510] Running: open_project conv_par_xu2_w1 -reset 
+WARNING: [HLS 200-2182] The 'conv_par_xu2_w1' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1'.
+INFO: [HLS 200-1510] Running: set_top conv_layer 
+INFO: [HLS 200-1510] Running: add_files E:/fpga/my_project/tcp_image_rx/ai/opt_hls/src/conv_layer.cpp -cflags -DXU=2 -IE:/fpga/my_project/tcp_image_rx/ai/opt_hls/src 
+INFO: [HLS 200-10] Adding design file 'E:/fpga/my_project/tcp_image_rx/ai/opt_hls/src/conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -reset -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.806 seconds; current allocated memory: 159.770 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file '../src/conv_layer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 5.536 seconds; current allocated memory: 163.262 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 3,453 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,963 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,869 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,749 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,738 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 13,813 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,079 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,079 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,079 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,150 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,133 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,114 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 6,996 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,878 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,916 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,865 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'requantize(ap_int<32>, bool, ap_int<32>, ap_int<64>, ap_uint<5>, int, int)' into 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)' (../src/conv_layer.cpp:289:50)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_183_2' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:183:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_204_4' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:204:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_262_14' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:262:40)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_266_15' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:266:44)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_275_16' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:275:40)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_277_17' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:277:44)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_282_18' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:282:48)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_312_19' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:312:40)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_321_20' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:321:40)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_357_27' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:357:32)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_133_1' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer.cpp:133:31)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_183_2' (../src/conv_layer.cpp:183:35) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_204_4' (../src/conv_layer.cpp:204:35) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_234_13' (../src/conv_layer.cpp:234:52) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_226_9' (../src/conv_layer.cpp:226:51) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_262_14' (../src/conv_layer.cpp:262:40) in function 'conv_layer' completely with a factor of 2 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_266_15' (../src/conv_layer.cpp:266:44) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_275_16' (../src/conv_layer.cpp:275:40) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_277_17' (../src/conv_layer.cpp:277:44) in function 'conv_layer' completely with a factor of 2 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_282_18' (../src/conv_layer.cpp:282:48) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_312_19' (../src/conv_layer.cpp:312:40) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_321_20' (../src/conv_layer.cpp:321:40) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_332_23' (../src/conv_layer.cpp:332:40) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_343_26' (../src/conv_layer.cpp:343:40) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_357_27' (../src/conv_layer.cpp:357:32) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_133_1' (../src/conv_layer.cpp:133:31) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer.cpp:62:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB': Complete partitioning on dimension 1. (../src/conv_layer.cpp:120:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA': Complete partitioning on dimension 1. (../src/conv_layer.cpp:119:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win': Complete partitioning on dimension 1. (../src/conv_layer.cpp:116:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf': Complete partitioning on dimension 2. (../src/conv_layer.cpp:108:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf': Complete partitioning on dimension 2. (../src/conv_layer.cpp:107:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf': Complete partitioning on dimension 2. (../src/conv_layer.cpp:106:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf': Complete partitioning on dimension 4. Complete partitioning on dimension 5. (../src/conv_layer.cpp:103:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4orow': Complete partitioning on dimension 3. (../src/conv_layer.cpp:101:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows': Complete partitioning on dimension 1. Complete partitioning on dimension 4. (../src/conv_layer.cpp:98:0)
+INFO: [HLS 214-248] Applying array_partition to 'acc': Complete partitioning on dimension 1. (../src/conv_layer.cpp:241:19)
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_342_25> at ../src/conv_layer.cpp:342:36 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_331_22> at ../src/conv_layer.cpp:331:36 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_225_8> at ../src/conv_layer.cpp:225:47 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_233_12> at ../src/conv_layer.cpp:233:48 due to pipeline_loops threshold
+INFO: [HLS 214-421] Partitioning small array 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)::bias_buf' due to array size.
+INFO: [HLS 214-421] Partitioning small array 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)::mult_buf' due to array size.
+INFO: [HLS 214-421] Partitioning small array 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)::offset_buf' due to array size.
+INFO: [HLS 214-449] Partitioning array 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)::win' dimension 3 due to constant index.
+INFO: [HLS 214-449] Partitioning array 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)::resA' dimension 2 due to constant index.
+INFO: [HLS 214-449] Partitioning array 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)::resB' dimension 2 due to constant index.
+INFO: [HLS 214-449] Partitioning array 'acc_0' dimension 1 due to constant index. (../src/conv_layer.cpp:241:19)
+INFO: [HLS 214-449] Partitioning array 'acc_1' dimension 1 due to constant index. (../src/conv_layer.cpp:241:19)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_7': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_6': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_5': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_4': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_3': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_2': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_0': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_7': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_6': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_5': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_4': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_3': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_2': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_0': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1': Complete partitioning on dimension 2.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0': Complete partitioning on dimension 2.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1': Complete partitioning on dimension 2.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0': Complete partitioning on dimension 2.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2': Complete partitioning on dimension 3.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1': Complete partitioning on dimension 3.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0': Complete partitioning on dimension 3.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_7': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_6': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_5': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_4': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_3': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_2': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_0': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'acc_0': Complete partitioning on dimension 1. (../src/conv_layer.cpp:241:19)
+INFO: [HLS 214-248] Applying array_partition to 'acc_1': Complete partitioning on dimension 1. (../src/conv_layer.cpp:241:19)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 64 in loop 'PARAM_WEIGHTS'(../src/conv_layer.cpp:129:9) has been inferred on bundle 'gmem_par'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src/conv_layer.cpp:129:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD'(../src/conv_layer.cpp:179:13) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src/conv_layer.cpp:179:13)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 in loop 'STORE'(../src/conv_layer.cpp:353:9) has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src/conv_layer.cpp:353:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 13.283 seconds; current allocated memory: 167.465 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.004 seconds; current allocated memory: 167.469 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.492 seconds; current allocated memory: 184.020 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.38 seconds; current allocated memory: 190.195 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:208:21) to (../src/conv_layer.cpp:197:31) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:254:25) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:48) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer.cpp:280:39) to (../src/conv_layer.cpp:288:33) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer.cpp:292:29) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'conv_layer' (../src/conv_layer.cpp:43:25)...125 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 3.648 seconds; current allocated memory: 220.828 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'LOAD_ROWS'(../src/conv_layer.cpp:173:9) and 'LOAD'(../src/conv_layer.cpp:179:13) in function 'conv_layer' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_224_7'(../src/conv_layer.cpp:224:43) and 'VITIS_LOOP_225_8'(../src/conv_layer.cpp:225:47) in function 'conv_layer' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_223_6'(../src/conv_layer.cpp:223:39) and 'VITIS_LOOP_224_7'(../src/conv_layer.cpp:224:43) in function 'conv_layer' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_232_11'(../src/conv_layer.cpp:232:44) and 'VITIS_LOOP_233_12'(../src/conv_layer.cpp:233:48) in function 'conv_layer' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_231_10'(../src/conv_layer.cpp:231:40) and 'VITIS_LOOP_232_11'(../src/conv_layer.cpp:232:44) in function 'conv_layer' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_330_21'(../src/conv_layer.cpp:330:32) and 'VITIS_LOOP_331_22'(../src/conv_layer.cpp:331:36) in function 'conv_layer' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'LOAD_ROWS' (../src/conv_layer.cpp:173:9) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_224_7' (../src/conv_layer.cpp:224:43) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_223_6' (../src/conv_layer.cpp:223:39) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_232_11' (../src/conv_layer.cpp:232:44) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_231_10' (../src/conv_layer.cpp:231:40) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_330_21' (../src/conv_layer.cpp:330:32) in function 'conv_layer'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.685 seconds; current allocated memory: 310.840 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_WEIGHTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_WEIGHTS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'PARAM_WEIGHTS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 12.658 seconds; current allocated memory: 318.367 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.049 seconds; current allocated memory: 319.418 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_CHANNELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_CHANNELS'.
+WARNING: [HLS 200-448] Lower bound of II is 3 due to multiple bus read operation ('b', ../src/conv_layer.cpp:151) on port 'gmem_par' (../src/conv_layer.cpp:151), bus read operation ('m', ../src/conv_layer.cpp:152) on port 'gmem_par' (../src/conv_layer.cpp:152), bus read operation ('f', ../src/conv_layer.cpp:153) on port 'gmem_par' (../src/conv_layer.cpp:153) accessing 'gmem_par' m_axi read
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 3, Depth = 12, loop 'PARAM_CHANNELS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.121 seconds; current allocated memory: 322.004 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.078 seconds; current allocated memory: 322.332 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_LOAD_ROWS_LOAD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_ROWS_LOAD'.
+INFO: [SCHED 204-61] Discarding stage scheduling solution.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 37, loop 'LOAD_ROWS_LOAD'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.099 seconds; current allocated memory: 323.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.035 seconds; current allocated memory: 323.469 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_VITIS_LOOP_197_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_197_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 37, loop 'VITIS_LOOP_197_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.876 seconds; current allocated memory: 325.609 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.042 seconds; current allocated memory: 325.840 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.091 seconds; current allocated memory: 326.969 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.037 seconds; current allocated memory: 327.273 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.077 seconds; current allocated memory: 328.234 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.037 seconds; current allocated memory: 328.258 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_STEP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_18) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_17) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_14) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_25) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_24) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_22) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_21) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_32) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_31) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_29) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_28) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_39) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_38) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_36) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_35) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_46) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_45) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_43) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_42) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_53) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_52) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_50) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_49) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_60) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_59) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_57) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_56) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_67) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_66) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_64) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_63) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_74) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_73) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_71) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_70) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_81) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_80) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_78) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_77) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_88) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_87) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_85) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_84) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_95) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_94) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_92) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_91) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_102) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_101) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_99) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_98) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_109) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_108) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_106) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln284_105) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'STEP'.
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_1583585591', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_3587589', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_5593', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_7', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_1583585591', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_3587589', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_5593', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_7', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_1583585591', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_3587589', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_5593', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6_addr_3_write_ln314', ../src/conv_layer.cpp:314) of constant 0 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6
+WARNING: [HLS 200-448] Lower bound of II is 2 due to multiple 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7_load', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7', 'load' operation 16 bit ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7_load_1', ../src/conv_layer.cpp:268) on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7', 'store' operation ('p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7_addr_3_write_ln314', ../src/conv_layer.cpp:314) of variable 'ref_tmp585_0_7', ../src/conv_layer.cpp:314 16 bit on array 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7' accessing core:RAM:p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 45, loop 'STEP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 6.509 seconds; current allocated memory: 356.000 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.564 seconds; current allocated memory: 356.031 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_VITIS_LOOP_330_21_VITIS_LOOP_331_22' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_330_21_VITIS_LOOP_331_22'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_330_21_VITIS_LOOP_331_22'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.395 seconds; current allocated memory: 356.059 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.027 seconds; current allocated memory: 356.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_VITIS_LOOP_342_25' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_342_25'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_342_25'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.049 seconds; current allocated memory: 356.059 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.022 seconds; current allocated memory: 356.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_STORE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'STORE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'STORE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.038 seconds; current allocated memory: 356.059 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.019 seconds; current allocated memory: 356.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.246 seconds; current allocated memory: 356.156 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.086 seconds; current allocated memory: 356.184 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_WEIGHTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_WEIGHTS' pipeline 'PARAM_WEIGHTS' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_WEIGHTS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.18 seconds; current allocated memory: 359.391 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_CHANNELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_CHANNELS' pipeline 'PARAM_CHANNELS' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_CHANNELS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.383 seconds; current allocated memory: 365.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_LOAD_ROWS_LOAD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_LOAD_ROWS_LOAD' pipeline 'LOAD_ROWS_LOAD' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_60s_34s_60_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'srem_32ns_3ns_3_36_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_LOAD_ROWS_LOAD'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.431 seconds; current allocated memory: 372.355 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_VITIS_LOOP_197_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_VITIS_LOOP_197_3' pipeline 'VITIS_LOOP_197_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_16_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'srem_32ns_3ns_2_36_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_VITIS_LOOP_197_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.311 seconds; current allocated memory: 378.781 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12' pipeline 'VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_16_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_VITIS_LOOP_231_10_VITIS_LOOP_232_11_VITIS_LOOP_233_12'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.371 seconds; current allocated memory: 385.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8' pipeline 'VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_16_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_VITIS_LOOP_223_6_VITIS_LOOP_224_7_VITIS_LOOP_225_8'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 389.281 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_STEP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_STEP' pipeline 'STEP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'conv_layer_Pipeline_STEP' is 26443 from HDL expression: ((1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8s_24s_25_4_1': 64 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_8s_24_1_1': 64 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_1_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_16_1_1': 24 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_4_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_64_1_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_32_1_1': 24 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_64_1_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'srem_32ns_3ns_2_36_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_STEP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.294 seconds; current allocated memory: 432.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_VITIS_LOOP_330_21_VITIS_LOOP_331_22' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_VITIS_LOOP_330_21_VITIS_LOOP_331_22' pipeline 'VITIS_LOOP_330_21_VITIS_LOOP_331_22' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_VITIS_LOOP_330_21_VITIS_LOOP_331_22'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 3.201 seconds; current allocated memory: 484.367 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_VITIS_LOOP_342_25' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_VITIS_LOOP_342_25' pipeline 'VITIS_LOOP_342_25' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_VITIS_LOOP_342_25'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.207 seconds; current allocated memory: 484.367 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_STORE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_STORE' pipeline 'STORE' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_STORE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.164 seconds; current allocated memory: 484.367 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/gmem_in' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/gmem_out' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/gmem_par' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/out_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/params' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/mode' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/cin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/cout' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_h' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_w' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/relu' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/shift' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/qmin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/qmax' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_0_RAM_AUTObkb' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_1_RAM_AUTOcud' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_2_RAM_AUTOdEe' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_3_RAM_AUTOeOg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_4_RAM_AUTOfYi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_5_RAM_AUTOg8j' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_0_RAM_AUTOhbi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_1_RAM_AUTOibs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_2_RAM_AUTOjbC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_3_RAM_AUTOkbM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_4_RAM_AUTOlbW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_5_RAM_AUTOmb6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_0_RAM_AUTOncg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_1_RAM_AUTOocq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_2_RAM_AUTOpcA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_3_RAM_AUTOqcK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_4_RAM_AUTOrcU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_5_RAM_AUTOsc4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_0_RAM_AUTOtde' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_1_RAM_AUTOudo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_2_RAM_AUTOvdy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_3_RAM_AUTOwdI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_4_RAM_AUTOxdS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_5_RAM_AUTOyd2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_0_RAM_AUTOzec' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_1_RAM_AUTOAem' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_2_RAM_AUTOBew' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_3_RAM_AUTOCeG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_4_RAM_AUTODeQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_5_RAM_AUTOEe0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_0_RAM_AUTOFfa' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_1_RAM_AUTOGfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_2_RAM_AUTOHfu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_3_RAM_AUTOIfE' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_4_RAM_AUTOJfO' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_5_RAM_AUTOKfY' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_0_RAM_AUTOLf8' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_1_RAM_AUTOMgi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_2_RAM_AUTONgs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_3_RAM_AUTOOgC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_4_RAM_AUTOPgM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_5_RAM_AUTOQgW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_0_RAM_AUTORg6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_1_RAM_AUTOShg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_2_RAM_AUTOThq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_3_RAM_AUTOUhA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_4_RAM_AUTOVhK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_5_RAM_AUTOWhU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_6_RAM_AUTOXh4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_7_RAM_AUTOYie' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_6_RAM_AUTOZio' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_7_RAM_AUTO0iy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_6_RAM_AUTO1iI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_7_RAM_AUTO2iS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_6_RAM_AUTO3i2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_7_RAM_AUTO4jc' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_6_RAM_AUTO5jm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_7_RAM_AUTO6jw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_6_RAM_AUTO7jG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_7_RAM_AUTO8jQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_6_RAM_AUTO9j0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_7_RAM_AUTObak' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_6_RAM_AUTObbk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_7_RAM_AUTObck' due to the length limit 80
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_0_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_0_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_0_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_0_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_0_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_0_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_1_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_1_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_1_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_1_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_1_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_1_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_2_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_2_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_2_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_2_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_2_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_2_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_2_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_2_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_2_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_3_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_3_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_3_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_3_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_3_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_3_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_3_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_3_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_3_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_3_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_3_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_3_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_4_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_4_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_4_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_4_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_4_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_4_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_4_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_4_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_4_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_4_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_4_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_4_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_5_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_5_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_5_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_5_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_5_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_5_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_5_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_5_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_5_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_5_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_5_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_5_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_6_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_6_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_6_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_6_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_6_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_6_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_6_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_6_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_6_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_6_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_6_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_6_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_7_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_7_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_7_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_7_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_7_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_7_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_7_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf_7_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf_7_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_7_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_7_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf_7_3' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_0_RAM_AUTObdk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_1_RAM_AUTObek' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_2_RAM_AUTObfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_3_RAM_AUTObgk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_4_RAM_AUTObhl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_5_RAM_AUTObil' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_6_RAM_AUTObjl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_7_RAM_AUTObkl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_0_RAM_AUTObll' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_1_RAM_AUTObml' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_2_RAM_AUTObnm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_3_RAM_AUTObom' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_4_RAM_AUTObpm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_5_RAM_AUTObqm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_6_RAM_AUTObrm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_7_RAM_AUTObsm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_0_RAM_AUTObtn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_1_RAM_AUTObun' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_2_RAM_AUTObvn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_3_RAM_AUTObwn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_4_RAM_AUTObxn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_5_RAM_AUTObyn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_6_RAM_AUTObzo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_7_RAM_AUTObAo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0_RAM_AUTO_bBo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_2_RAM_AUTO_bCo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_4_RAM_AUTO_bDo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_6_RAM_AUTO_bEo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_0_RAM_AUTO_bFp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_2_RAM_AUTO_bGp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_4_RAM_AUTO_bHp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_6_RAM_AUTO_bIp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_0_RAM_AUTO_bJp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_2_RAM_AUTO_bKp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_4_RAM_AUTO_bLp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_6_RAM_AUTO_bMq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_1_RAM_AUTO_bNq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_3_RAM_AUTO_bOq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_5_RAM_AUTO_bPq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_7_RAM_AUTO_bQq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_1_RAM_AUTO_bRq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_3_RAM_AUTO_bSr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_5_RAM_AUTO_bTr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_1_7_RAM_AUTO_bUr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_1_RAM_AUTO_bVr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_3_RAM_AUTO_bWr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_5_RAM_AUTO_bXr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_2_7_RAM_AUTO_bYs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_7_RAM_AUTObZs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_6_RAM_AUTOb0s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_5_RAM_AUTOb1s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_4_RAM_AUTOb2s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_3_RAM_AUTOb3s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_2_RAM_AUTOb4t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_1_RAM_AUTOb5t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_0_RAM_AUTOb6t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_0_RAM_AUTOb7t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_1_RAM_AUTOb8t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_2_RAM_AUTOb9t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_3_RAM_AUTOcau' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_4_RAM_AUTOcbu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_5_RAM_AUTOccu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_6_RAM_AUTOcdu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_1_7_RAM_AUTOceu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_0_RAM_AUTOcfu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_0_RAM_AUTOcgu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_1_RAM_AUTOchv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_1_RAM_AUTOciv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_2_RAM_AUTOcjv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_2_RAM_AUTOckv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_3_RAM_AUTOclv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_3_RAM_AUTOcmv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_4_RAM_AUTOcnw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_4_RAM_AUTOcow' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_5_RAM_AUTOcpw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_5_RAM_AUTOcqw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_6_RAM_AUTOcrw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_6_RAM_AUTOcsw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_0_7_RAM_AUTOctx' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resB_1_7_RAM_AUTOcux' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_7_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incvx' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_6_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incwx' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_5_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incxx' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_4_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incyx' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_3_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inczy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_2_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incAy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_1_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incBy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_incCy' due to the length limit 80
+INFO: [RTGEN 206-100] Bundling port 'return', 'in_r', 'out_r', 'params', 'mode', 'cin', 'cout', 'in_h', 'in_w', 'shift', 'qmin' and 'qmax' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_32s_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_30s_60_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_30s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_33ns_31ns_64_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_30s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_60s_31ns_60_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_7ns_30s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer'.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_0_RAM_AUTObkb' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_0_RAM_AUTObdk' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE3win_0_0_RAM_AUTO_bBo' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4resA_0_7_RAM_AUTObZs' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 10.579 seconds; current allocated memory: 497.875 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.529 seconds; current allocated memory: 518.195 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-2225] Wrote inferred directives to file E:/fpga/my_project/tcp_image_rx/ai/opt_hls/build/conv_par_xu2_w1/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 1.903 seconds; current allocated memory: 545.422 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:01:09; Allocated memory: 385.887 MB.
+INFO: [HLS 200-112] Total CPU user time: 16 seconds. Total CPU system time: 6 seconds. Total elapsed time: 71.961 seconds; peak allocated memory: 545.469 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 1m 13s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

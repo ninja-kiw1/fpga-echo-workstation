@@ -1,0 +1,46 @@
+{
+  "image": "im0002",
+  "time": "20260928_233544",
+  "xsct_returncode": 0,
+  "steps": [
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz",
+    "read-back only (no reset, no reprogramming)",
+    "finished"
+  ],
+  "elapsed_s": 86.817067861557,
+  "ddr_base": 268435456,
+  "ddr_bytes": 89751552,
+  "loads": [],
+  "dumps": [
+    [
+      "add_4.bin",
+      "4194304",
+      "40965"
+    ],
+    [
+      "final.bin",
+      "4194304",
+      "39012"
+    ]
+  ],
+  "node_us_upper_bound": {},
+  "network_us_upper_bound": null,
+  "jtag_hz": 5000000,
+  "jtag_retries": [
+    "DUMPRETRY 15 chunk re-reads at 0x14d98000",
+    "DUMPRETRY 7 chunk re-reads at 0x15198000"
+  ],
+  "compare": [
+    {
+      "node": "add_4",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "final",
+      "values": 2097152,
+      "mismatches": 0
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,35 @@
+{
+ "frozen_at": "2026-10-07T08:59:43.629136",
+ "chosen": "r128",
+ "rule": "highest validation mean Jaccard (180 images from the official training set); test set not used",
+ "candidates": {
+  "r128": {
+   "resolution": 128,
+   "best_iter": 17500,
+   "val_jaccard": 0.8353929129554896,
+   "val_dice": 0.9058002558381333,
+   "val_thresholded_jaccard": 0.7957108462073866,
+   "train_seconds": 599.609605550766
+  },
+  "r256": {
+   "resolution": 256,
+   "best_iter": 19000,
+   "val_jaccard": 0.8053289715134716,
+   "val_dice": 0.8850273146791371,
+   "val_thresholded_jaccard": 0.733921000426245,
+   "train_seconds": 1745.3054330348969
+  },
+  "r512": {
+   "resolution": 512,
+   "best_iter": 18000,
+   "val_jaccard": 0.738696692129336,
+   "val_dice": 0.8361479757424667,
+   "val_thresholded_jaccard": 0.6212789926816157,
+   "train_seconds": 3344.198957681656
+  }
+ },
+ "quantization": [
+  "first_block_2",
+  "down_path_0_block_2"
+ ]
+}

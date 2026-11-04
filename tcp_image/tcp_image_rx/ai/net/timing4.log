@@ -1,0 +1,16 @@
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000B ['proc', 'mask']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789512 字节
+[1] total=   75.8 ms  (send    2.1 + reply   73.7)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=2869 gray[0..197] mode=0 frame=2
+[2] total=   75.0 ms  (send    2.1 + reply   72.9)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=2870 gray[0..197] mode=0 frame=3
+[3] total=   75.8 ms  (send    2.0 + reply   73.8)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=2868 gray[0..197] mode=0 frame=4
+[4] total=   71.8 ms  (send    2.1 + reply   69.6)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=2869 gray[0..197] mode=0 frame=5
+[5] total=   72.2 ms  (send    2.0 + reply   70.1)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=2868 gray[0..197] mode=0 frame=6
+summary: n=5  min=71.8  max=75.8  avg=74.1 ms
+CLI_DONE

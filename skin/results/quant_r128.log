@@ -1,0 +1,34 @@
+PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops
+screen 1/26 first_block_2: JA 0.80928 gain +0.03872
+screen 2/26 first_block_5: JA 0.76799 gain -0.00258
+screen 3/26 first_shortcut_1: JA 0.76947 gain -0.00109
+screen 4/26 add: JA 0.76926 gain -0.00130
+screen 5/26 down_path_0_block_2: JA 0.77880 gain +0.00824
+screen 6/26 down_path_0_block_5: JA 0.77390 gain +0.00334
+screen 7/26 down_path_0_shortcut_1: JA 0.77204 gain +0.00148
+screen 8/26 add_1: JA 0.77214 gain +0.00157
+screen 9/26 down_path_1_block_2: JA 0.77384 gain +0.00328
+screen 10/26 down_path_1_block_5: JA 0.77044 gain -0.00012
+screen 11/26 down_path_1_shortcut_1: JA 0.76983 gain -0.00073
+screen 12/26 add_2: JA 0.77054 gain -0.00003
+screen 13/26 up_path_0_up_layer_block_0: JA 0.77028 gain -0.00028
+screen 14/26 up_path_0_conv_bridge_layer_block_2: JA 0.76960 gain -0.00097
+screen 15/26 cat: JA 0.77175 gain +0.00118
+screen 16/26 up_path_0_conv_layer_block_2: JA 0.76759 gain -0.00297
+screen 17/26 up_path_0_conv_layer_block_5: JA 0.77002 gain -0.00055
+screen 18/26 up_path_0_conv_layer_shortcut_1: JA 0.77084 gain +0.00028
+screen 19/26 add_3: JA 0.77078 gain +0.00022
+screen 20/26 up_path_1_up_layer_block_0: JA 0.77043 gain -0.00013
+screen 21/26 up_path_1_conv_bridge_layer_block_2: JA 0.77298 gain +0.00241
+screen 22/26 cat_1: JA 0.77168 gain +0.00112
+screen 23/26 up_path_1_conv_layer_block_2: JA 0.76998 gain -0.00058
+screen 24/26 up_path_1_conv_layer_block_5: JA 0.77015 gain -0.00042
+screen 25/26 up_path_1_conv_layer_shortcut_1: JA 0.77102 gain +0.00046
+screen 26/26 add_4: JA 0.77031 gain -0.00025
+confirm all INT8: val JA 0.81305 DI 0.88849
+confirm ['first_block_2']: val JA 0.83322 DI 0.90404
+confirm ['down_path_0_block_2']: val JA 0.81510 DI 0.89032
+confirm ['down_path_0_block_5']: val JA 0.81472 DI 0.88979
+confirm ['first_block_2', 'down_path_0_block_2']: val JA 0.83356 DI 0.90431
+selected INT16: ['first_block_2', 'down_path_0_block_2']  output scale 0.472376  q >= 1
+val FP32 JA 0.83541 DI 0.90581 | all-INT8 JA 0.81305 | mixed JA 0.83356 DI 0.90431

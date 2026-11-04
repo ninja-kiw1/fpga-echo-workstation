@@ -1,0 +1,82 @@
+{
+ "rule": "highest mean validation two-stage 3D Dice; adopt only if above single stage",
+ "candidates": {
+  "roi_z3": {
+   "best_iter": 18000,
+   "dice": 0.9487413685114132,
+   "single": 0.9490808587213101,
+   "per_case": {
+    "spleen_10": {
+     "two": 0.9727,
+     "single": 0.9671
+    },
+    "spleen_25": {
+     "two": 0.9499,
+     "single": 0.9601
+    },
+    "spleen_41": {
+     "two": 0.9597,
+     "single": 0.9332
+    },
+    "spleen_47": {
+     "two": 0.9275,
+     "single": 0.9324
+    },
+    "spleen_52": {
+     "two": 0.9652,
+     "single": 0.9708
+    },
+    "spleen_56": {
+     "two": 0.9016,
+     "single": 0.9266
+    },
+    "spleen_59": {
+     "two": 0.9646,
+     "single": 0.9534
+    }
+   },
+   "last_dice": 0.9468229315847971
+  },
+  "roi_prior": {
+   "best_iter": 15000,
+   "dice": 0.9566647834981803,
+   "single": 0.9490808587213101,
+   "per_case": {
+    "spleen_10": {
+     "two": 0.971,
+     "single": 0.9671
+    },
+    "spleen_25": {
+     "two": 0.9642,
+     "single": 0.9601
+    },
+    "spleen_41": {
+     "two": 0.9499,
+     "single": 0.9332
+    },
+    "spleen_47": {
+     "two": 0.9571,
+     "single": 0.9324
+    },
+    "spleen_52": {
+     "two": 0.9723,
+     "single": 0.9708
+    },
+    "spleen_56": {
+     "two": 0.9273,
+     "single": 0.9266
+    },
+    "spleen_59": {
+     "two": 0.955,
+     "single": 0.9534
+    }
+   },
+   "last_dice": 0.9561967992840964
+  }
+ },
+ "chosen": "roi_prior",
+ "adopt_stage2": true,
+ "cases_better_than_single": 7,
+ "cases_worse_than_single": 0,
+ "note": "checkpoint picked on the same validation cases (20 evaluations), so the gain is optimistic; the test set decides"
+}

@@ -1,0 +1,109 @@
+attempting to launch hw_server
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2023.1
+
+  **** Build date : May  7 2023 at 15:26:57
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+STEP connected:   1  Digilent JTAG-SMT2 C305A5A0ABCD
+STEP bitstream programmed
+STEP psu_init done (clocks, DDR, PS-PL isolation removed)
+WARNING: If the reset is being triggered after powering on the device,
+ 
+         write bootloop at reset vector address (0xffff0000), or use
+ 
+         -clear-registers option, to avoid unpredictable behavior.
+ 
+         Further warnings will be suppressed
+STEP DDR read/write ok
+IP conv_layer_0 ctrl=0x4
+IP eltwise_layer_0 ctrl=0x4
+STEP both IPs idle
+LOAD first_block_2.bin 768 85
+LOAD first_block_5.bin 768 32
+LOAD first_shortcut_1.bin 256 49
+LOAD down_path_0_block_2.bin 1536 38
+LOAD down_path_0_block_5.bin 2688 53
+LOAD down_path_0_shortcut_1.bin 512 34
+LOAD down_path_1_block_2.bin 5376 74
+LOAD down_path_1_block_5.bin 9984 98
+LOAD down_path_1_shortcut_1.bin 1280 38
+LOAD up_path_0_up_layer_block_0.bin 2432 46
+LOAD up_path_0_conv_bridge_layer_block_2.bin 2688 82
+LOAD up_path_0_conv_layer_block_2.bin 4992 71
+LOAD up_path_0_conv_layer_block_5.bin 2688 49
+LOAD up_path_0_conv_layer_shortcut_1.bin 896 31
+LOAD up_path_1_up_layer_block_0.bin 704 26
+LOAD up_path_1_conv_bridge_layer_block_2.bin 768 36
+LOAD up_path_1_conv_layer_block_2.bin 1344 39
+LOAD up_path_1_conv_layer_block_5.bin 768 34
+LOAD up_path_1_conv_layer_shortcut_1.bin 320 47
+LOAD final.bin 256 32
+LOAD input.bin 4194304 40571
+STEP parameters and input loaded
+NODE first_block_2 31280 0
+NODE first_block_5 48219 0
+NODE first_shortcut_1 9813 0
+NODE add 8556 0
+NODE down_path_0_pool 4564 0
+NODE down_path_0_block_2 28563 0
+NODE down_path_0_block_5 31834 0
+NODE down_path_0_shortcut_1 5339 0
+NODE add_1 5089 0
+NODE down_path_1_pool 2317 0
+NODE down_path_1_block_2 23408 0
+NODE down_path_1_block_5 26221 0
+NODE down_path_1_shortcut_1 4071 0
+NODE add_2 3272 0
+NODE up_path_0_up_layer_block_0 9371 0
+NODE up_path_0_conv_bridge_layer_block_2 38130 0
+NODE cat 5343 0
+NODE up_path_0_conv_layer_block_2 50104 0
+NODE up_path_0_conv_layer_block_5 27521 0
+NODE up_path_0_conv_layer_shortcut_1 34565 0
+NODE add_3 4879 0
+NODE up_path_1_up_layer_block_0 15641 0
+NODE up_path_1_conv_bridge_layer_block_2 38020 0
+NODE cat_1 8148 0
+NODE up_path_1_conv_layer_block_2 61309 0
+NODE up_path_1_conv_layer_block_5 42811 0
+NODE up_path_1_conv_layer_shortcut_1 19791 0
+NODE add_4 6168 0
+NODE final 10653 0
+NETWORK_US 1859998
+DUMP first_block_2.bin 4194304 15564
+DUMP add.bin 4194304 15062
+DUMP down_path_0_pool.bin 1048576 3835
+DUMP add_2.bin 1048576 4032
+DUMP up_path_0_up_layer_block_0.bin 2097152 7470
+DUMP cat.bin 4194304 14901
+DUMP up_path_0_conv_layer_block_2.bin 2097152 7733
+DUMP add_4.bin 4194304 15935
+DUMP final.bin 4194304 14994
+STEP finished

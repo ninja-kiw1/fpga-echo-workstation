@@ -1,0 +1,13 @@
+ssh ok
+[up] src/*.c,*.h + makefile
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axigpio.o src/axigpio.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/ai_view.o src/ai_view.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_net_data.o src/unet_net_data.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+active
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*
+
+GDMA_DEPLOY_DEPLOY_DONE
+EXIT=0 

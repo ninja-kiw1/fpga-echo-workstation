@@ -1,0 +1,43 @@
+{
+ "op": "gauss11",
+ "doc": "11 x 11 binomial blur of R (5 cascaded [1 2 1] passes, sigma ~ 1.58 px).",
+ "layout": {
+  "channels_per_stage": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "output_terms": 1
+ },
+ "out_range": [
+  0.0,
+  1.0
+ ],
+ "out_mid": 0.5,
+ "anchored_channels": 0,
+ "float_max_abs_error": 2.0013903334614724e-07,
+ "integer": {
+  "output_scale": 0.003937007874015748,
+  "output_mid": 0.5,
+  "interval_bound": [
+   0.0,
+   1.0
+  ],
+  "lsb_in_grey_levels": 1.0039370078740157,
+  "mean_err_lsb": -0.0004945329091810283,
+  "max_abs_err_lsb": 0.514660974898594,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "f35abbe83352aaf26fcb3e902bc0c1f2b67c441e432855099e447f098a5a9332",
+ "parameters_sha256": "6a254a16b75c6d90f0aa2d2682e9aff6f10d81f13c6732de33943104b85f23b0",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

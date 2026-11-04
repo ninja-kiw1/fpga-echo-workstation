@@ -1,0 +1,66 @@
+{
+ "utc": "2026-10-08T13:35:09.596741+00:00",
+ "seconds": 10,
+ "phases": [
+  {
+   "phase": "idle",
+   "start": "06:35:09",
+   "end": "06:35:19",
+   "ps_temp_c": 36.8,
+   "pl_temp_c": 35.5,
+   "loadavg": "2.20 2.09 1.70 1/214 4861"
+  },
+  {
+   "phase": "fpga_512",
+   "start": "06:35:24",
+   "end": "06:35:35",
+   "frames": 17,
+   "fps": 1.624832351185186,
+   "ai_ms_mean": 564.8784705882352,
+   "frame_ms": 615.4481102438534,
+   "ps_temp_c": 38.2,
+   "pl_temp_c": 35.5,
+   "loadavg": "2.09 2.07 1.70 1/215 4887"
+  },
+  {
+   "phase": "fpga_128",
+   "start": "06:35:40",
+   "end": "06:35:50",
+   "frames": 118,
+   "fps": 11.730455522520886,
+   "ai_ms_mean": 37.82888983050847,
+   "frame_ms": 85.24818137540656,
+   "ps_temp_c": 37.6,
+   "pl_temp_c": 36.0,
+   "loadavg": "2.00 2.05 1.70 1/216 4913"
+  },
+  {
+   "phase": "cpu4_512",
+   "start": "06:35:55",
+   "end": "06:36:06",
+   "frames": 18,
+   "frame_ms": 567.04,
+   "fps": 1.7635440180586908,
+   "bit_exact": true,
+   "wall_s": 10.470523595809937,
+   "result": "RESULT impl=neon_blocked res=512x512 threads=4 runs=17 min_ms=565.25 median_ms=566.78 mean_ms=567.04 gmac=2.0279 gmacps=3.588 mismatches=0/262144 BIT_EXACT",
+   "ps_temp_c": 37.6,
+   "pl_temp_c": 36.9,
+   "loadavg": "2.39 2.13 1.73 1/217 4955"
+  },
+  {
+   "phase": "cpu1_512",
+   "start": "06:36:11",
+   "end": "06:36:22",
+   "frames": 5,
+   "frame_ms": 2224.3,
+   "fps": 0.4495796430337634,
+   "bit_exact": true,
+   "wall_s": 11.431243896484375,
+   "result": "RESULT impl=neon_blocked res=512x512 threads=1 runs=4 min_ms=2223.82 median_ms=2224.48 mean_ms=2224.30 gmac=2.0279 gmacps=0.912 mismatches=0/262144 BIT_EXACT",
+   "ps_temp_c": 38.3,
+   "pl_temp_c": 35.9,
+   "loadavg": "2.22 2.10 1.73 1/217 4994"
+  }
+ ]
+}

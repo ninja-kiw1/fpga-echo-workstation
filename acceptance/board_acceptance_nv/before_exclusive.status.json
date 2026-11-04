@@ -1,0 +1,6 @@
+{
+  "label": "before_exclusive",
+  "pc_utc": "2026-11-03T13:34:46.915593+00:00",
+  "exitcode": 0,
+  "command": "set -eu; systemctl stop tcp-image-server; test -z \"$(pgrep -x tcp_image_serve || true)\"; pids=$(pgrep -f \"^python3 /root/Fz3b_BoardCheck/gui/board_check_gui.py$\" || true); if [ -n \"$pids\" ]; then kill -STOP $pids; fi"
+}

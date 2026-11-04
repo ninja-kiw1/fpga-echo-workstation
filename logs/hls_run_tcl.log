@@ -1,0 +1,1296 @@
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script 'E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/run_hls_vis.tcl'
+INFO: [HLS 200-1510] Running: open_project vis_ip 
+WARNING: [HLS 200-2182] The 'vis_ip' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip'.
+INFO: [HLS 200-1510] Running: set_top vis_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src/vis_layer.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src/vis_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/tb/test_vis.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/tb/test_vis.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/tcp_image/tcp_image_rx/src/ai_view.c -cflags -IE:/PLD/tcp_image/tcp_image_rx/src -D_GNU_SOURCE 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/tcp_image/tcp_image_rx/src/ai_view.c' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -flow=syn
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_addr64=0
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64=false 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.549 seconds; current allocated memory: 465.961 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file '../vis_hls/src/vis_layer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.554 seconds; current allocated memory: 468.184 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 40,141 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,696 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,937 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,906 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,896 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,178 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,995 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,995 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,995 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,118 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,945 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,875 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,831 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,831 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,862 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,860 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'ceil4(ap_int<9>)' into 'reg_eval(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128> const*, ap_uint<8> const (*) [256], ap_uint<9>, bool, ap_int<9>, ap_int<9>)' (../vis_hls/src/vis_layer.cpp:82:26)
+INFO: [HLS 214-131] Inlining function 'ap_int<(12) + (2)> mul2<12>(ap_uint<2>, ap_int<12>)' into 'reg_eval(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128> const*, ap_uint<8> const (*) [256], ap_uint<9>, bool, ap_int<9>, ap_int<9>)' (../vis_hls/src/vis_layer.cpp:125:57)
+INFO: [HLS 214-131] Inlining function 'ap_int<(9) + (2)> mul2<9>(ap_uint<2>, ap_int<9>)' into 'reg_eval(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128> const*, ap_uint<8> const (*) [256], ap_uint<9>, bool, ap_int<9>, ap_int<9>)' (../vis_hls/src/vis_layer.cpp:124:59)
+INFO: [HLS 214-131] Inlining function 'uabs9(ap_int<9>)' into 'better(cand_t const&, cand_t const&)' (../vis_hls/src/vis_layer.cpp:72:73)
+INFO: [HLS 214-131] Inlining function 'fld(ap_uint<128> const*, int)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:144:20)
+INFO: [HLS 214-131] Inlining function 'better(cand_t const&, cand_t const&)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:256:30)
+INFO: [HLS 214-131] Inlining function 'ceil4(ap_int<9>)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:248:67)
+INFO: [HLS 214-131] Inlining function 'uabs9(ap_int<9>)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:248:73)
+INFO: [HLS 214-131] Inlining function 'span_ok(int, int)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:174:82)
+INFO: [HLS 214-131] Inlining function 'rowpos_step(rowpos_t&, ap_uint<10>, ap_uint<10>)' into 'ovl_compute(ap_uint<128>*, ovl_t const&, rowpos_t&, rowpos_t&, int&, ap_uint<8>*, ap_uint<128>*, ap_uint<1> (*) [512], ap_uint<9> (*) [512], int, int)' (../vis_hls/src/vis_layer.cpp:346:5)
+INFO: [HLS 214-131] Inlining function 'fld(ap_uint<128> const*, int)' into 'run_ovl(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:483:20)
+INFO: [HLS 214-131] Inlining function 'span_ok(int, int)' into 'run_ovl(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:553:16)
+INFO: [HLS 214-131] Inlining function 'rowpos_step(rowpos_t&, ap_uint<10>, ap_uint<10>)' into 'run_ovl(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:546:9)
+INFO: [HLS 214-131] Inlining function 'span_ok(int, int)' into 'vis_layer(ap_uint<128>*, int)' (../vis_hls/src/vis_layer.cpp:600:10)
+INFO: [HLS 214-131] Inlining function 'fld(ap_uint<128> const*, int)' into 'vis_layer(ap_uint<128>*, int)' (../vis_hls/src/vis_layer.cpp:608:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_437_1' is marked as complete unroll implied by the pipeline pragma (../vis_hls/src/vis_layer.cpp:437:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_202_2' is marked as complete unroll implied by the pipeline pragma (../vis_hls/src/vis_layer.cpp:202:27)
+INFO: [HLS 214-291] Loop 'LANE' is marked as complete unroll implied by the pipeline pragma (../vis_hls/src/vis_layer.cpp:119:9)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_437_1' (../vis_hls/src/vis_layer.cpp:437:31) in function 'ovl_emit' completely with a factor of 3 (../vis_hls/src/vis_layer.cpp:382:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_282_4' (../vis_hls/src/vis_layer.cpp:282:23) in function 'run_reg' completely with a factor of 8 (../vis_hls/src/vis_layer.cpp:137:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_222_3' (../vis_hls/src/vis_layer.cpp:222:23) in function 'run_reg' completely with a factor of 8 (../vis_hls/src/vis_layer.cpp:137:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_202_2' (../vis_hls/src/vis_layer.cpp:202:27) in function 'run_reg' completely with a factor of 4 (../vis_hls/src/vis_layer.cpp:137:0)
+INFO: [HLS 214-186] Unrolling loop 'LANE' (../vis_hls/src/vis_layer.cpp:119:9) in function 'reg_eval' completely with a factor of 4 (../vis_hls/src/vis_layer.cpp:80:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'mem'. (../vis_hls/src/vis_layer.cpp:467:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_ovlP7ap_uintILi128EEPKS0_E2mb': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:469:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_ovlP7ap_uintILi128EEPKS0_E4vrow': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:471:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_ovlP7ap_uintILi128EEPKS0_E4ring': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:470:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_regP7ap_uintILi128EEPKS0_E3tab': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:139:0)
+INFO: [HLS 214-248] Applying array_partition to 'steps': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:150:16)
+INFO: [HLS 214-248] Applying array_partition to 'ppx': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:219:16)
+INFO: [HLS 214-248] Applying array_partition to 'ppy': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:219:24)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../vis_hls/src/vis_layer.cpp:355:27)
+INFO: [HLS 214-248] Applying array_partition to 'kc': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../vis_hls/src/vis_layer.cpp:565:17)
+INFO: [HLS 214-248] Applying array_partition to 'ki': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:566:16)
+INFO: [HLS 214-248] Applying array_partition to 'd': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:601:12)
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_569_1> at ../vis_hls/src/vis_layer.cpp:569:23 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_155_1> at ../vis_hls/src/vis_layer.cpp:155:23 due to pipeline_loops threshold
+INFO: [HLS 214-437] Disabling loop flattening for loop 'PH'. (../vis_hls/src/vis_layer.cpp:228:5)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD_A'(../vis_hls/src/vis_layer.cpp:178:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:178:5)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD_B'(../vis_hls/src/vis_layer.cpp:185:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:185:5)
+INFO: [HLS 214-115] Multiple burst reads of length 16 and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:198:5)
+INFO: [HLS 214-115] Multiple burst writes of length 4 and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:328:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LB'(../vis_hls/src/vis_layer.cpp:340:9) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:340:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LBASE'(../vis_hls/src/vis_layer.cpp:386:9) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:386:9)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 in loop 'SOUT'(../vis_hls/src/vis_layer.cpp:460:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:460:5)
+INFO: [HLS 214-115] Multiple burst reads of length 64 and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:559:9)
+INFO: [HLS 214-115] Multiple burst reads of length 5 and bit width 128 in loop 'DESC'(../vis_hls/src/vis_layer.cpp:604:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:604:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 12.033 seconds; current allocated memory: 471.590 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.006 seconds; current allocated memory: 471.590 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.202 seconds; current allocated memory: 480.434 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] ../vis_hls/src/vis_layer.cpp:201: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.162 seconds; current allocated memory: 485.793 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:150:16) to (../vis_hls/src/vis_layer.cpp:155:23) in function 'run_reg'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:180:1) to (../vis_hls/src/vis_layer.cpp:178:5) in function 'run_reg'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:229:1) to (../vis_hls/src/vis_layer.cpp:240:9) in function 'run_reg'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:266:19) to (../vis_hls/src/vis_layer.cpp:228:5) in function 'run_reg'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../vis_hls/src/vis_layer.cpp:155:23) in function 'run_reg'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:166:23) to (../vis_hls/src/vis_layer.cpp:174:13) in function 'run_reg'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:538:1) to (../vis_hls/src/vis_layer.cpp:536:5) in function 'run_ovl'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../vis_hls/src/vis_layer.cpp:511:9) in function 'run_ovl'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:517:22) to (../vis_hls/src/vis_layer.cpp:552:9) in function 'run_ovl'... converting 14 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:92:1) to (../vis_hls/src/vis_layer.cpp:90:5) in function 'reg_eval'... converting 31 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:403:1) to (../vis_hls/src/vis_layer.cpp:454:13) in function 'ovl_emit'... converting 51 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:352:1) to (../vis_hls/src/vis_layer.cpp:359:23) in function 'ovl_compute'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:365:30) to (../vis_hls/src/vis_layer.cpp:350:5) in function 'ovl_compute'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:336:21) to (../vis_hls/src/vis_layer.cpp:337:9) in function 'ovl_compute'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:346:21) to (../vis_hls/src/vis_layer.cpp:350:5) in function 'ovl_compute'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'run_reg' (../vis_hls/src/vis_layer.cpp:22:21)...9 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'run_ovl' (../vis_hls/src/vis_layer.cpp:22:5)...33 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'reg_eval' (../vis_hls/src/vis_layer.cpp:46:5)...3 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'ovl_emit' (../vis_hls/src/vis_layer.cpp:383:5)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.73 seconds; current allocated memory: 511.945 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.71 seconds; current allocated memory: 697.141 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'vis_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'vis_layer_Pipeline_DESC' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'DESC'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'DESC'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.274 seconds; current allocated memory: 702.258 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.039 seconds; current allocated memory: 703.258 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl_Pipeline_STEP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'STEP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'STEP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.062 seconds; current allocated memory: 703.988 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.034 seconds; current allocated memory: 704.012 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl_Pipeline_LUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LUT'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'LUT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.053 seconds; current allocated memory: 704.406 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.023 seconds; current allocated memory: 704.434 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl_Pipeline_VITIS_LOOP_569_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_569_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_569_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.721 seconds; current allocated memory: 704.738 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.027 seconds; current allocated memory: 704.738 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute_Pipeline_LL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LL'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'LL'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.038 seconds; current allocated memory: 705.234 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.027 seconds; current allocated memory: 705.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute_Pipeline_LB' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'LB'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.036 seconds; current allocated memory: 705.598 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.025 seconds; current allocated memory: 705.602 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute_Pipeline_CPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'CPIX'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'CPIX'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 706.418 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.039 seconds; current allocated memory: 706.500 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln328_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln340_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.756 seconds; current allocated memory: 707.199 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.043 seconds; current allocated memory: 707.809 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit_Pipeline_LBASE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LBASE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LBASE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.058 seconds; current allocated memory: 707.898 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.022 seconds; current allocated memory: 707.902 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit_Pipeline_EPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'EPIX'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'EPIX'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.162 seconds; current allocated memory: 711.148 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 711.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit_Pipeline_SOUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'SOUT'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'SOUT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 711.266 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.021 seconds; current allocated memory: 711.270 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=base) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=obase) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.534 seconds; current allocated memory: 711.547 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.035 seconds; current allocated memory: 711.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.167 seconds; current allocated memory: 715.297 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 715.418 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_VITIS_LOOP_155_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_155_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_155_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.104 seconds; current allocated memory: 715.762 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.034 seconds; current allocated memory: 715.766 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_LOAD_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_A'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_A'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.044 seconds; current allocated memory: 716.027 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.026 seconds; current allocated memory: 716.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_LOAD_B' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_B'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_B'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.498 seconds; current allocated memory: 716.422 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.023 seconds; current allocated memory: 716.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_FILL_T' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FILL_T'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'FILL_T'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 716.773 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.023 seconds; current allocated memory: 716.773 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_eval_Pipeline_EVAL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'EVAL'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'EVAL'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.178 seconds; current allocated memory: 720.008 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.071 seconds; current allocated memory: 720.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_eval' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.086 seconds; current allocated memory: 720.645 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.026 seconds; current allocated memory: 720.645 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mul42' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.036 seconds; current allocated memory: 720.742 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.018 seconds; current allocated memory: 720.742 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=maxrec_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=qy) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=qx) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.226 seconds; current allocated memory: 727.566 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.104 seconds; current allocated memory: 727.602 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'vis_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.119 seconds; current allocated memory: 727.637 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.033 seconds; current allocated memory: 727.684 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'vis_layer_Pipeline_DESC' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'vis_layer_Pipeline_DESC' pipeline 'DESC' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'vis_layer_Pipeline_DESC'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.518 seconds; current allocated memory: 729.238 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl_Pipeline_STEP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_ovl_Pipeline_STEP' pipeline 'STEP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl_Pipeline_STEP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.165 seconds; current allocated memory: 730.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl_Pipeline_LUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_ovl_Pipeline_LUT' pipeline 'LUT' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'partselect_24ns_128ns_7ns_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl_Pipeline_LUT'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.244 seconds; current allocated memory: 732.352 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl_Pipeline_VITIS_LOOP_569_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_5ns_12_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl_Pipeline_VITIS_LOOP_569_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 732.695 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute_Pipeline_LL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_compute_Pipeline_LL' pipeline 'LL' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'partselect_8ns_128ns_7ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute_Pipeline_LL'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.453 seconds; current allocated memory: 733.758 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute_Pipeline_LB' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_compute_Pipeline_LB' pipeline 'LB' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute_Pipeline_LB'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.156 seconds; current allocated memory: 734.691 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute_Pipeline_CPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_compute_Pipeline_CPIX' pipeline 'CPIX' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'bitselect_1ns_128ns_7ns_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_128_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute_Pipeline_CPIX'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.164 seconds; current allocated memory: 736.164 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb_6' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_3ns_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_6ns_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_ovl_compute_lb_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.334 seconds; current allocated memory: 740.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit_Pipeline_LBASE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_emit_Pipeline_LBASE' pipeline 'LBASE' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit_Pipeline_LBASE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.329 seconds; current allocated memory: 743.184 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit_Pipeline_EPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_emit_Pipeline_EPIX' pipeline 'EPIX' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_1_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit_Pipeline_EPIX'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.221 seconds; current allocated memory: 745.223 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit_Pipeline_SOUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_emit_Pipeline_SOUT' pipeline 'SOUT' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit_Pipeline_SOUT'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.453 seconds; current allocated memory: 751.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_7ns_15ns_19_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_7ns_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_ovl_emit_bb_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.169 seconds; current allocated memory: 751.457 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] RTL name 'sparsemux_7_2_1_1_1' is changed to 'sparsemux_7_2_1_1_1_x' due to conflict.
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_7ns_17_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16ns_3ns_19_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16ns_6ns_22_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_1_1_1_x': 3 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_ovl_lut_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_vrow_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_ring_RAM_2P_LUTRAM_1R1W' using distributed RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.328 seconds; current allocated memory: 757.902 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_VITIS_LOOP_155_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_VITIS_LOOP_155_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.8 seconds; current allocated memory: 766.297 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_LOAD_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_reg_Pipeline_LOAD_A' pipeline 'LOAD_A' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_LOAD_A'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.718 seconds; current allocated memory: 767.219 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_LOAD_B' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_reg_Pipeline_LOAD_B' pipeline 'LOAD_B' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_LOAD_B'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.155 seconds; current allocated memory: 767.945 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_FILL_T' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_reg_Pipeline_FILL_T' pipeline 'FILL_T' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'partselect_8ns_128ns_7ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_FILL_T'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.174 seconds; current allocated memory: 769.227 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_eval_Pipeline_EVAL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'reg_eval_Pipeline_EVAL' pipeline 'EVAL' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_eval_Pipeline_EVAL'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.745 seconds; current allocated memory: 771.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_eval' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_eval'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 0.772 seconds; current allocated memory: 778.344 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mul42' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_25ns_17ns_42_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mul42'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.181 seconds; current allocated memory: 780.027 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_7ns_7ns_5ns_13_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_7s_9s_9_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_11ns_11ns_17_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_7ns_7ns_13_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_6_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_reg_A_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_reg_run_reg_ap_uint_128_ap_uint_128_const_tab_RAM_1P_LUTRAM_1R1W' using distributed RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.217 seconds; current allocated memory: 782.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'vis_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'vis_layer/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'vis_layer/mem' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'vis_layer/desc' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'vis_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'mem' and 'desc' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'vis_layer'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.042 seconds; current allocated memory: 793.531 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.662 seconds; current allocated memory: 799.348 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-2225] Wrote inferred directives to file E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 2.5 seconds; current allocated memory: 815.484 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for vis_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for vis_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:54; Allocated memory: 349.660 MB.
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog -rtl verilog -flow syn 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 15 20:28:53 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/solution1_data.json outdir=E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip srcdir=E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1 ippack_options_dict= ippack_options_dict=
+INFO: Copied 1 ipmisc file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/misc
+INFO: Copied 65 verilog file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/hdl/verilog
+INFO: Copied 54 vhdl file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/drivers
+ipx::create_core: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 633.316 ; gain = 213.391
+INFO: Import ports from HDL: E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/hdl/vhdl/vis_layer.vhd (vis_layer)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+INFO: Add axi4full interface m_axi_gmem
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/component.xml
+INFO: Created IP archive E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip/xilinx_com_hls_vis_layer_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 20:29:17 2026...
+INFO: [IMPL 213-8] Starting RTL evaluation using Vivado ...
+
+E:\PLD\tcp_image\tcp_image_rx\ai\build\vis_ip\solution1\impl\verilog>E:/AMD/Xilinx/2025.2/Vivado/bin/vivado  -mode batch -source run_vivadosyn.tcl   || exit $? 
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 15 20:29:20 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_vivadosyn.tcl
+# source ./settings.tcl
+## set top_module vis_layer
+## set language verilog
+## set family zynquplus
+## set device xazu3eg
+## set package -sfvc784
+## set speed -1-i
+## set clock ap_clk
+## set fsm_ext "off"
+## set add_io_buffers false 
+# source -notrace ./extraction.tcl
+# set vivado_proj_name project
+# set vivado_proj_dir .
+# set target_device "${device}${package}${speed}"
+# set target_clk_period_ns "10.000"
+# set target_clk_freq_hz [expr {floor(1000 / $target_clk_period_ns) * 1000000}]
+# set other_clks_freq_hz {}
+# set ip_vlnv xilinx.com:hls:vis_layer:1.0
+# set ip_repo_path ../ip
+# set bd_design_name bd_0
+# set bd_inst_name hls_inst
+# set bd_props {}
+# set has_synth true
+# set synth_design_args {-directive sdx_optimization_effort_high}
+# set synth_dcp ""
+# set synth_props {}
+# set has_impl false
+# set impl_props {}
+# set has_subcore 0
+# set report_options [dict create]
+# dict set report_options report_level 2
+# dict set report_options report_max_paths 10
+# dict set report_options stdout_hls_reports 1
+# dict set report_options stdout_vivado_reports 0
+# dict set report_options hls_project vis_ip
+# dict set report_options hls_solution solution1
+# dict set report_options has_synth $has_synth
+# dict set report_options has_impl $has_impl
+# dict set report_options vivado_reportbasename $top_module
+# dict set report_options vivado_reportdir ./report
+# dict set report_options hls_impl_dir ..
+# dict set report_options hls_reportdir ../report/$language
+# dict set report_options target_clk_period $target_clk_period_ns
+# dict set report_options target_device $target_device
+# dict set report_options language $language
+# dict set report_options clock_name $clock
+# dict set report_options error_if_impl_timing_fails false
+# dict set report_options topmodule "vis_layer"
+# dict set report_options funcmodules {vis_layer_vis_layer_Pipeline_DESC vis_layer_run_ovl_Pipeline_STEP vis_layer_run_ovl_Pipeline_LUT vis_layer_run_ovl_Pipeline_VITIS_LOOP_569_1 vis_layer_ovl_compute_Pipeline_LL vis_layer_ovl_compute_Pipeline_LB vis_layer_ovl_compute_Pipeline_CPIX vis_layer_ovl_compute vis_layer_ovl_emit_Pipeline_LBASE vis_layer_ovl_emit_Pipeline_EPIX vis_layer_ovl_emit_Pipeline_SOUT vis_layer_ovl_emit vis_layer_run_ovl vis_layer_run_reg_Pipeline_VITIS_LOOP_155_1 vis_layer_run_reg_Pipeline_LOAD_A vis_layer_run_reg_Pipeline_LOAD_B vis_layer_run_reg_Pipeline_FILL_T vis_layer_reg_eval_Pipeline_EVAL vis_layer_reg_eval vis_layer_mul42 vis_layer_run_reg}
+# dict set report_options bindmodules {vis_layer_flow_control_loop_pipe_sequential_init vis_layer_partselect_24ns_128ns_7ns_24_1_1 vis_layer_mul_8ns_5ns_12_1_1 vis_layer_partselect_8ns_128ns_7ns_8_1_1 vis_layer_sparsemux_9_2_128_1_1 vis_layer_bitselect_1ns_128ns_7ns_1_1_1 vis_layer_mac_muladd_11s_6ns_28s_28_4_1 vis_layer_mac_muladd_11s_3ns_28s_28_4_1 vis_layer_ovl_compute_lb_RAM_2P_BRAM_1R1W vis_layer_sparsemux_7_2_1_1_1 vis_layer_sparsemux_9_3_24_1_1 vis_layer_mac_muladd_11s_7ns_28s_28_4_1 vis_layer_mac_muladd_11s_7ns_15ns_19_4_1 vis_layer_ovl_emit_bb_RAM_2P_BRAM_1R1W vis_layer_mul_16ns_6ns_22_1_1 vis_layer_mul_10ns_7ns_17_1_1 vis_layer_sparsemux_7_2_1_1_1_x vis_layer_mul_16ns_3ns_19_1_1 vis_layer_run_ovl_lut_RAM_2P_BRAM_1R1W vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_vrow_RAM_AUTO_1R1W vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_ring_RAM_2P_LUTRAM_1R1W vis_layer_mul_25ns_17ns_42_4_1 vis_layer_mul_7ns_7ns_13_1_1 vis_layer_sparsemux_9_2_6_1_1 vis_layer_mul_11ns_11ns_17_1_1 vis_layer_mac_muladd_7ns_7ns_5ns_13_4_1 vis_layer_mac_muladd_8ns_7s_9s_9_4_1 vis_layer_run_reg_A_RAM_AUTO_1R1W vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W vis_layer_run_reg_run_reg_ap_uint_128_ap_uint_128_const_tab_RAM_1P_LUTRAM_1R1W vis_layer_gmem_m_axi vis_layer_control_s_axi}
+# dict set report_options max_module_depth 8
+# create_project $vivado_proj_name $vivado_proj_dir -part $target_device -force
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 631.012 ; gain = 223.402
+# set_property target_language $language [current_project]
+# if { ![file exists $ip_repo_path] } {
+#   error "Cannot find packaged HLS IP"
+# }
+# set_property ip_repo_paths [file normalize $ip_repo_path] [current_project]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+# create_bd_design bd_0
+Wrote  : <E:\PLD\tcp_image\tcp_image_rx\ai\build\vis_ip\solution1\impl\verilog\project.srcs\sources_1\bd\bd_0\bd_0.bd> 
+# set cell_inst [create_bd_cell -type ip -vlnv $ip_vlnv $bd_inst_name]
+# if { [llength $bd_props] } { 
+#   set_property -dict $bd_props $cell_inst 
+# }
+# make_bd_pins_external $cell_inst
+# make_bd_intf_pins_external $cell_inst
+# set bd_clk_ports [get_bd_ports -filter {TYPE==clk}]
+# if { $target_clk_freq_hz ne "" } { 
+#   foreach bd_clk_port $bd_clk_ports {
+#     # Remove "_0" suffix from BD ports & interfaces so they match IP ports 
+#     set clk_name [regsub {_0$} [get_property name $bd_clk_port] {}]
+#     set port_freq_hz $target_clk_freq_hz
+#     if { [dict exists $other_clks_freq_hz $clk_name] } {
+#         set port_freq_hz [dict get $other_clks_freq_hz $clk_name]
+#     }
+#     set_property CONFIG.FREQ_HZ $port_freq_hz $bd_clk_port
+#   }
+# }
+# foreach bd_port [get_bd_intf_ports] {
+#   set_property name [regsub {_0$} [get_property name $bd_port] {}] $bd_port
+# }
+# foreach bd_port [get_bd_ports -filter {INTF!=TRUE}] {
+#   set_property name [regsub {_0$} [get_property name $bd_port] {}] $bd_port
+# }
+# set s_axi_addr_width_min 32
+# foreach bd_port [get_bd_intf_ports -filter {MODE == "Slave" && VLNV =~ "xilinx.com:interface:aximm_rtl:*"}] {
+#   set bd_port_addr_width [get_property CONFIG.ADDR_WIDTH $bd_port]
+#   if { $bd_port_addr_width < $s_axi_addr_width_min } {
+#     puts "INFO: Updating $bd_port CONFIG.ADDR_WIDTH to $s_axi_addr_width_min"
+#     set_property CONFIG.ADDR_WIDTH $s_axi_addr_width_min $bd_port
+#   }
+# }
+INFO: Updating /s_axi_control CONFIG.ADDR_WIDTH to 32
+# set_msg_config -id {[BD 41-1265]} -severity {CRITICAL WARNING} -new_severity {INFO}
+# assign_bd_address
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+Slave segment '/hls_inst/s_axi_control/Reg' is being assigned into address space '/s_axi_control' at <0x0000_0000 [ 64K ]>.
+Slave segment '/m_axi_gmem/Reg' is being assigned into address space '/hls_inst/Data_m_axi_gmem' at <0x44A0_0000 [ 64K ]>.
+Wrote  : <E:\PLD\tcp_image\tcp_image_rx\ai\build\vis_ip\solution1\impl\verilog\project.srcs\sources_1\bd\bd_0\bd_0.bd> 
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/synth/bd_0.v
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/sim/bd_0.v
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/hdl/bd_0_wrapper.v
+# set toprtl [make_wrapper -files [get_files ${bd_design_name}.bd] -top]
+# add_files -norecurse $toprtl
+# set top_inst_name [file root [file tail $toprtl]]
+# puts "Using BD top: $top_inst_name"
+Using BD top: bd_0_wrapper
+# set xdc_files [glob -nocomplain ./*.xdc]
+# if { [llength $xdc_files] } {
+#     add_files -fileset constrs_1 -norecurse $xdc_files
+# }
+# launch_runs synth_1 -scripts_only
+INFO: [BD 41-1662] The design 'bd_0.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/synth/bd_0.v
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/sim/bd_0.v
+Verilog Output written to : E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/hdl/bd_0_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block hls_inst .
+Exporting to file E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/hw_handoff/bd_0.hwh
+Generated Hardware Definition File E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/synth/bd_0.hwdef
+INFO: [BD 41-3262] Generated VHDL Instantiation Template file e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/bd_0.vho
+INFO: [BD 41-3262] Generated Verilog Instantiation Template file e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/bd_0.veo
+INFO: [BD 41-3262] Generated System Verilog Instantiation Template file e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/bd_0_sv.sveo
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+# foreach run [get_runs -filter {IS_SYNTHESIS == 1}] {
+#   reset_run [get_runs $run]
+# }
+# set_property XPM_LIBRARIES {XPM_MEMORY XPM_FIFO} [current_project]
+# hls_vivado_reports_setup $report_options
+TIMESTAMP: HLS-REPORT: initialize report directories: 2026-10-15 20:29:48 -0700
+# if { $has_subcore } { report_ip_status }
+# if { $has_synth || $has_impl } {
+#   # synth properties setting
+#   set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} -value {-mode out_of_context} -objects [get_runs synth_1]
+#   set ip_inst [get_ips -quiet ${bd_design_name}*${bd_inst_name}*]
+#   if { ![llength $ip_inst] } {
+#       error "Cannot find HLS IP instance: ${bd_design_name}*${bd_inst_name}*"
+#   }
+#   set synth_run [get_runs -filter {IS_SYNTHESIS == 1} ${ip_inst}*]
+#   if { ![llength $synth_run] } {
+#       error "Cannot find synth run for HLS IP: ${ip_inst}*"
+#   }
+# 
+#   if { [llength $synth_design_args] } {
+#       set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} -value $synth_design_args -objects $synth_run
+#   }
+# 
+#   if { [llength $synth_props] } {
+#     set_property -dict $synth_props $synth_run
+#   }
+# 
+#   # launch run synth
+#   launch_runs synth_1
+#   wait_on_run synth_1
+#   # synth reports
+#   hls_vivado_reports_synth synth_1 $report_options
+#   if { $synth_dcp ne "" } {
+#     file mkdir [file dirname $synth_dcp]
+#     set run_dcp [glob -nocomplain [get_property DIRECTORY $synth_run]/*.dcp]
+#     if { [llength $run_dcp] != 1 } { error "Cannot find single dcp file for run $synth_run" }
+#     file copy -force $run_dcp $synth_dcp
+#   }
+# }
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Thu Oct 15 20:29:50 2026] Launched bd_0_hls_inst_0_synth_1...
+Run output will be captured here: E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/runme.log
+[Thu Oct 15 20:29:50 2026] Launched synth_1...
+Run output will be captured here: E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/synth_1/runme.log
+[Thu Oct 15 20:29:50 2026] Waiting for synth_1 to finish...
+
+
+*** Running vivado
+    with args -log bd_0_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_0_wrapper.tcl
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 15 20:32:06 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source bd_0_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 631.762 ; gain = 222.496
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.cache/ip 
+Command: synth_design -top bd_0_wrapper -part xazu3eg-sfvc784-1-i -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xazu3eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xazu3eg'
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 34904
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1843.879 ; gain = 499.426
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'bd_0_wrapper' [e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/hdl/bd_0_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'bd_0' [e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/synth/bd_0.v:13]
+INFO: [Synth 8-6157] synthesizing module 'bd_0_hls_inst_0' [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/synth_1/.Xil/Vivado-15476-Ninja_kiwi/realtime/bd_0_hls_inst_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0_hls_inst_0' (0#1) [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/synth_1/.Xil/Vivado-15476-Ninja_kiwi/realtime/bd_0_hls_inst_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0' (0#1) [e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/synth/bd_0.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0_wrapper' (0#1) [e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/hdl/bd_0_wrapper.v:13]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1968.281 ; gain = 623.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1968.281 ; gain = 623.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1968.281 ; gain = 623.828
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1968.281 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/bd_0_hls_inst_0/bd_0_hls_inst_0_in_context.xdc] for cell 'bd_0_i/hls_inst'
+Finished Parsing XDC File [e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/bd_0_hls_inst_0/bd_0_hls_inst_0_in_context.xdc] for cell 'bd_0_i/hls_inst'
+Parsing XDC File [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/vis_layer.xdc]
+create_clock: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1972.629 ; gain = 0.074
+Finished Parsing XDC File [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/vis_layer.xdc]
+Parsing XDC File [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1972.629 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1972.629 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1972.629 ; gain = 628.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xazu3eg-sfvc784-1-i
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1972.629 ; gain = 628.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1972.629 ; gain = 628.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1972.629 ; gain = 628.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 360 (col length:72)
+BRAMs: 432 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1975.590 ; gain = 631.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2672.336 ; gain = 1327.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2672.637 ; gain = 1328.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2682.516 ; gain = 1338.062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+----------------+----------+
+|      |BlackBox name   |Instances |
++------+----------------+----------+
+|1     |bd_0_hls_inst_0 |         1|
++------+----------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |bd_0_hls_inst |     1|
++------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:26 . Memory (MB): peak = 2932.578 ; gain = 1583.777
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2932.578 ; gain = 1588.125
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2932.578 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2932.578 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: d9e4eaad
+INFO: [Common 17-83] Releasing license: Synthesis
+22 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:42 . Memory (MB): peak = 2932.578 ; gain = 2249.371
+INFO: [Common 17-1381] The checkpoint 'E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.runs/synth_1/bd_0_wrapper.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file bd_0_wrapper_utilization_synth.rpt -pb bd_0_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 20:33:05 2026...
+[Thu Oct 15 20:33:10 2026] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:03:21 . Memory (MB): peak = 722.711 ; gain = 0.000
+TIMESTAMP: HLS-REPORT: synthesis open_run: 2026-10-15 20:33:10 -0700
+INFO: HLS-REPORT: Opening synthesis design database: open_run synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xazu3eg-sfvc784-1-i
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+INFO: [Project 1-5699] Read binary netlist with skipMacroContent - 1
+INFO: [Project 1-454] Reading design checkpoint 'e:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/bd_0_hls_inst_0.dcp' for cell 'bd_0_i/hls_inst'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.174 . Memory (MB): peak = 1408.609 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 405 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/vis_layer.xdc]
+create_clock: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1574.840 ; gain = 39.859
+Finished Parsing XDC File [E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/vis_layer.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2045.047 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 54 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 16 instances
+  RAM256X1D => RAM256X1D (MUXF7(x4), MUXF8(x2), RAMD64E(x8)): 6 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 32 instances
+
+open_run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2045.047 ; gain = 1322.336
+TIMESTAMP: HLS-REPORT: synthesis generate_reports_vivado: 2026-10-15 20:33:28 -0700
+INFO: HLS-REPORT: Running report: report_utilization -file ./report/vis_layer_utilization_synth.rpt
+INFO: HLS-REPORT: Running report: report_utilization -hierarchical -hierarchical_depth 8 -file ./report/vis_layer_utilization_hierarchical_synth.rpt
+INFO: HLS-REPORT: Running report: report_timing_summary -file ./report/vis_layer_timing_synth.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "ap_clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3352.414 ; gain = 1307.367
+INFO: HLS-REPORT: Running report: report_power -file ./report/vis_layer_power_synth.rpt -xpe ./vis_layer_power.xpe
+Command: report_power -file ./report/vis_layer_power_synth.rpt -xpe ./vis_layer_power.xpe
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+12 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: HLS-REPORT: Running report: report_timing -max_paths 10 -file ./report/vis_layer_timing_paths_synth.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 10 -nworst 1 -delay_type max -sort_by slack.
+INFO: HLS-REPORT: Running report: report_design_analysis -file ./report/vis_layer_design_analysis_synth.rpt
+INFO: [Implflow 30-839]  
+INFO: HLS-REPORT: Running report: ::tclapp::xilinx::designutils::report_failfast -detailed_report synth -file ./report/vis_layer_failfast_synth.rpt
+ -I- design metrics completed in 1 seconds
+ -I- Generated file E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/report/synth.DONT_TOUCH.rpt
+ -I- DONT_TOUCH metric completed in 1 seconds
+ -I- MARK_DEBUG metric completed in 0 seconds
+ -I- utilization metrics completed in 1 seconds
+ -I- control set metrics completed in 0 seconds
+ -I- methodology check metrics completed in 2 seconds
+ -I- average fanout metrics completed in 3 seconds (0 modules)
+ -I- non-FD high fanout nets completed in 1 seconds
+ -I- path budgeting metrics completed in 1 seconds
+#  +-----------------------------------------------------------------------------------------+
+#  | Design Summary                                                                          |
+#  | design_1                                                                                |
+#  | xazu3eg-sfvc784-1-i                                                                     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | Criteria                                                  | Guideline | Actual | Status |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | LUT                                                       | 70%       | 9.12%  | OK     |
+#  | FD                                                        | 50%       | 5.39%  | OK     |
+#  | LUTRAM+SRL                                                | 25%       | 1.90%  | OK     |
+#  | CARRY8                                                    | 25%       | 3.39%  | OK     |
+#  | MUXF7                                                     | 15%       | 0.35%  | OK     |
+#  | DSP                                                       | 80%       | 4.44%  | OK     |
+#  | RAMB/FIFO                                                 | 80%       | 16.44% | OK     |
+#  | DSP+RAMB+URAM (Avg)                                       | 70%       | 10.44% | OK     |
+#  | BUFGCE* + BUFGCTRL                                        | 24        | 0      | OK     |
+#  | DONT_TOUCH (cells/nets)                                   | 0         | 4      | REVIEW |
+#  | MARK_DEBUG (nets)                                         | 0         | 0      | OK     |
+#  | Control Sets                                              | 1323      | 200    | OK     |
+#  | Average Fanout for modules > 100k cells                   | 4         | 2.07   | OK     |
+#  | Max Average Fanout for modules > 100k cells               | 4         | 0      | OK     |
+#  | Non-FD high fanout nets > 10k loads                       | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | TIMING-6 (No common primary clock between related clocks) | 0         | 0      | OK     |
+#  | TIMING-7 (No common node between related clocks)          | 0         | 0      | OK     |
+#  | TIMING-8 (No common period between related clocks)        | 0         | 0      | OK     |
+#  | TIMING-14 (LUT on the clock tree)                         | 0         | 0      | OK     |
+#  | TIMING-35 (No common node in paths with the same clock)   | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+#  | Number of paths above max LUT budgeting (0.350ns)         | 0         | 0      | OK     |
+#  | Number of paths above max Net budgeting (0.239ns)         | 0         | 0      | OK     |
+#  +-----------------------------------------------------------+-----------+--------+--------+
+ -I- Generated file E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/report/vis_layer_failfast_synth.rpt
+ -I- Number of criteria to review: 1
+ -I- This report should be run before placing the design and uses conservative guidelines beyond which runtime and timing closure will likely be more challenging
+ -I- report_failfast completed in 10 seconds
+TIMESTAMP: HLS-REPORT: synthesis gen_data_dict_vivado: 2026-10-15 20:34:00 -0700
+TIMESTAMP: HLS-REPORT: synth extract_util_hier: 2026-10-15 20:34:00 -0700
+TIMESTAMP: HLS-REPORT: synth get_cell_hier_data: 2026-10-15 20:34:00 -0700
+TIMESTAMP: HLS-REPORT: synth get_timing_paths: 2026-10-15 20:34:00 -0700
+TIMESTAMP: HLS-REPORT: synth process timing paths: 2026-10-15 20:34:00 -0700
+TIMESTAMP: HLS-REPORT: synth get_all_vv_rpt_files: 2026-10-15 20:34:00 -0700
+TIMESTAMP: HLS-REPORT: synthesis write_reports_vivado: 2026-10-15 20:34:00 -0700
+HLS EXTRACTION: synth area_totals:  0 70560 141120 360 432 0 0
+HLS EXTRACTION: synth area_current: 0 6434 7610 16 71 0 372 0 0 0
+HLS EXTRACTION: synth resources_dict: AVAIL_LUT 70560 LUT 6434 AVAIL_FF 141120 FF 7610 AVAIL_DSP 360 DSP 16 AVAIL_BRAM 432 BRAM 71 AVAIL_URAM 0 URAM 0 LATCH 0 SRL 372 AVAIL_CLB 0 CLB 0
+INFO: HLS-REPORT: generated E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/verilog/report/vivado_syn.xml
+INFO: HLS-REPORT: generated E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/impl/report/verilog/vis_layer_export.rpt
+
+
+Implementation tool: Xilinx Vivado v.2025.2
+Project:             vis_ip
+Solution:            solution1
+Device target:       xazu3eg-sfvc784-1-i
+Report date:         Thu Oct 15 20:34:02 -0700 2026
+
+#=== Post-Synthesis Resource usage ===
+SLICE:            0
+LUT:           6434
+FF:            7610
+DSP:             16
+BRAM:            71
+URAM:             0
+LATCH:            0
+SRL:            372
+CLB:              0
+
+#=== Final timing ===
+CP required:                     10.000
+CP achieved post-synthesis:      5.387
+Timing met
+
+TIMESTAMP: HLS-REPORT: synthesis end: 2026-10-15 20:34:02 -0700
+# if { $has_impl } {
+#   # launch run impl
+#   if { [llength $impl_props] } {
+#     set_property -dict $impl_props [get_runs impl_1]
+#   }
+#   launch_runs impl_1
+#   wait_on_run impl_1
+#   # impl reports
+#   hls_vivado_reports_impl impl_1 $report_options
+# }
+# hls_vivado_reports_finalize $report_options
+TIMESTAMP: HLS-REPORT: all reports complete: 2026-10-15 20:34:02 -0700
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 20:34:02 2026...
+INFO: [HLS 200-802] Generated output file vis_ip/solution1/impl/export.zip
+INFO: [HLS 200-2161] Finished Command export_design Elapsed time: 00:05:13; Allocated memory: 5.105 MB.
+INFO: [HLS 200-112] Total CPU user time: 12 seconds. Total CPU system time: 11 seconds. Total elapsed time: 375.281 seconds; peak allocated memory: 820.598 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 6m 18s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

@@ -1,0 +1,69 @@
+START 2026/10/16 周五 20:50:34.43 
+
+****** vitis-run v2025.2 (64-bit)
+  **** SW Build 6295257 on 2025-11-13-08:29:27
+  **** Start of session at: Fri Oct 16 20:50:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/f_clock/run_hls_f.tcl'
+INFO: [HLS 200-1510] Running: open_project f_pp_p6757 
+WARNING: [HLS 200-2182] The 'f_pp_p6757' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening solution 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757'.
+INFO: [HLS 200-1510] Running: set_top pp_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src/pp_layer.cpp -cflags -IE:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src/pp_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/tb/test_pp.cpp -cflags -IE:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/tb/test_pp.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/Tcp_Image/Tcp_Image_Rx/src/ai_view.c -cflags -IE:/PLD/Tcp_Image/Tcp_Image_Rx/src -D_GNU_SOURCE 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/Tcp_Image/Tcp_Image_Rx/src/ai_view.c' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.757ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 6.757 -name default 
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog -rtl verilog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 16 20:50:52 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/solution1_data.json outdir=E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip srcdir=E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1 ippack_options_dict= ippack_options_dict=
+INFO: Copied 1 ipmisc file(s) to E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/misc
+INFO: Copied 57 verilog file(s) to E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/hdl/verilog
+INFO: Copied 49 vhdl file(s) to E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/drivers
+ipx::create_core: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 636.211 ; gain = 215.070
+INFO: Import ports from HDL: E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/hdl/vhdl/pp_layer.vhd (pp_layer)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+INFO: Add axi4full interface m_axi_gmem_in
+INFO: Add axi4full interface m_axi_gmem_out
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/component.xml
+INFO: Created IP archive E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/impl/ip/xilinx_com_hls_pp_layer_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 16 20:51:18 2026...
+INFO: [HLS 200-802] Generated output file f_pp_p6757/solution1/impl/export.zip
+INFO: [HLS 200-2161] Finished Command export_design Elapsed time: 00:00:30; Allocated memory: 10.523 MB.
+INFO: [HLS 200-112] Total CPU user time: 4 seconds. Total CPU system time: 6 seconds. Total elapsed time: 40.161 seconds; peak allocated memory: 475.496 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 43s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
+EXITCODE 0 2026/10/16 周五 20:51:19.18 

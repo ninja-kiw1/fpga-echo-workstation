@@ -1,0 +1,161 @@
+
+
+================================================================
+== Vitis HLS Report for 'pp_layer_Pipeline_AREA'
+================================================================
+* Date:           Fri Oct 16 20:44:52 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        f_pp_p6757
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: azynquplus
+* Target device:  xazu3eg-sfvc784-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.76 ns|  4.189 ns|     1.82 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |      Pipeline     |
+    |   min   |   max   |    min    |    max   | min | max |        Type       |
+    +---------+---------+-----------+----------+-----+-----+-------------------+
+    |        2|       35|  13.514 ns|  0.236 us|    0|    0|  loop pipeline stp|
+    +---------+---------+-----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- AREA    |        0|       33|         3|          1|          1|  0 ~ 32|       yes|
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    195|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     54|    -|
+|Register         |        -|    -|     163|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     163|    249|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      432|  360|  141120|  70560|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |add_ln357_fu_129_p2     |         +|   0|  0|  38|          31|           1|
+    |add_ln359_fu_178_p2     |         +|   0|  0|  26|          19|          19|
+    |addr_cmp_fu_153_p2      |      icmp|   0|  0|  71|          64|          64|
+    |icmp_ln357_fu_123_p2    |      icmp|   0|  0|  39|          32|          32|
+    |reuse_select_fu_167_p3  |    select|   0|  0|  19|           1|          19|
+    |ap_enable_pp0           |       xor|   0|  0|   2|           1|           2|
+    +------------------------+----------+----+---+----+------------+------------+
+    |Total                   |          |   0|  0| 195|         148|         137|
+    +------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_3     |   9|          2|   31|         62|
+    |i_fu_48                  |   9|          2|   31|         62|
+    |reuse_addr_reg_fu_40     |   9|          2|   64|        128|
+    |reuse_reg_fu_44          |   9|          2|   19|         38|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  54|         12|  147|        294|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |addr_cmp_reg_231                  |   1|   0|    1|          0|
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |farea_addr_reg_225                |  12|   0|   12|          0|
+    |i_fu_48                           |  31|   0|   31|          0|
+    |reuse_addr_reg_fu_40              |  64|   0|   64|          0|
+    |reuse_reg_fu_44                   |  19|   0|   19|          0|
+    |zext_ln357_reg_215                |  31|   0|   64|         33|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             | 163|   0|  196|         33|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+------------------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++----------------+-----+-----+------------+------------------------+--------------+
+|ap_clk          |   in|    1|  ap_ctrl_hs|  pp_layer_Pipeline_AREA|  return value|
+|ap_rst          |   in|    1|  ap_ctrl_hs|  pp_layer_Pipeline_AREA|  return value|
+|ap_start        |   in|    1|  ap_ctrl_hs|  pp_layer_Pipeline_AREA|  return value|
+|ap_done         |  out|    1|  ap_ctrl_hs|  pp_layer_Pipeline_AREA|  return value|
+|ap_idle         |  out|    1|  ap_ctrl_hs|  pp_layer_Pipeline_AREA|  return value|
+|ap_ready        |  out|    1|  ap_ctrl_hs|  pp_layer_Pipeline_AREA|  return value|
+|nrun_3          |   in|   32|     ap_none|                  nrun_3|        scalar|
+|rlab_address0   |  out|    9|   ap_memory|                    rlab|         array|
+|rlab_ce0        |  out|    1|   ap_memory|                    rlab|         array|
+|rlab_q0         |   in|   12|   ap_memory|                    rlab|         array|
+|farea_address0  |  out|   12|   ap_memory|                   farea|         array|
+|farea_ce0       |  out|    1|   ap_memory|                   farea|         array|
+|farea_we0       |  out|    1|   ap_memory|                   farea|         array|
+|farea_d0        |  out|   19|   ap_memory|                   farea|         array|
+|farea_address1  |  out|   12|   ap_memory|                   farea|         array|
+|farea_ce1       |  out|    1|   ap_memory|                   farea|         array|
+|farea_q1        |   in|   19|   ap_memory|                   farea|         array|
+|rlen_address0   |  out|    9|   ap_memory|                    rlen|         array|
+|rlen_ce0        |  out|    1|   ap_memory|                    rlen|         array|
+|rlen_q0         |   in|   10|   ap_memory|                    rlen|         array|
++----------------+-----+-----+------------+------------------------+--------------+
+

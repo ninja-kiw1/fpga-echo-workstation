@@ -1,0 +1,458 @@
+// conv_layer.cpp —— 并行化版本之四 (V8)：整行一条流水线 + **循环槽位 LUTRAM 滑窗**
+//
+// 与原版（PLD deployment/unet_conv/src/conv_layer.cpp）功能完全等价：
+//   同样的接口 / 寄存器映射 / 内存布局（128bit 字 = 8 个 int16 lane）/
+//   同样的整数语义（累加是 mod 2^32 加法 → 结合律成立，重排累加顺序逐位等价）。
+//
+// ── 两条实测结论决定了这一版的形状 ──────────────────────────────────────────
+// (A) 【II 的瓶颈是滑窗的读口，不是 BRAM 分 bank】
+//     csynth 的 storage report 显示：`ARRAY_PARTITION variable=win complete`（不带 dim）
+//     在 Vitis HLS 2025.2.1 上**只切开了第 1、4 维**，中间两维被实现成 24 个 LUTRAM
+//     （ram_2p, bitwidth=16, depth=16）→ 每拍只有 1 读 1 写口，XU=2 的 COMPUTE 一拍要读
+//     2 列，于是报 "Lower bound of II is 2 due to multiple 'load' operation ... on array win_*"。
+//     逐维显式 complete 之后 II 确实回到 1（实测 Target II=1 / Final II=1）。
+//
+// (B) 【但"真 FF 滑窗"太贵，而且流水线每个 x 步重启才是真瓶颈】
+//     * 逐维 complete 把 win 变成 384 个真寄存器后，运行时索引 (ky, u+kx, ig) 要铺成
+//       48 选 1 的 mux：STEP 自身 LUT 8409 → 22239，整体 LUT **46159 → 72497(102%)**，装不下。
+//     * STEP 的 iteration latency = 39~40 拍，而它每个 x 步只有 work=9 次迭代
+//       → 每步都要排空再重灌一次流水线：40 + 9 拍算 2 个像素 = 24.5 拍/像素，
+//       而原版是整行一条循环 41 + 4607 拍 = 9 拍/像素。**XU=2 会比原版慢 2.7 倍。**
+//
+// ── 于是这一版：两个结构性改动 ──────────────────────────────────────────────
+// 【1】整行一条流水线（slot = k，一个 slot 一拍），total = nsteps * NSLOT：
+//     slot [0, work)  计算：第 k 个 (cg,ky,kx,ig)，一拍 XU 个像素 x 8 x 8 个 MAC
+//     slot [0, nfill) 补窗：一拍读 rows 的**一行**（行槽位是运行时索引，HLS 证不了多行
+//                     并行读落在不同分片上，会误判成撞同一块 RAM → II=2），写进滑窗"下一格"
+//     slot [0, nq)    requantize：读**上一步**的 raw 累加器（8 份单元就够），
+//                     顺手用"读旧值"把**上上步**的结果(resA)写进 orow
+//     ncyc = max(work, nfill, nq)：对 3x3 恒等于 work（nfill=6*cig <= 9*cog*cig，
+//     nq=2*cog <= 9*cog*cig），所以补窗和 requantize 都是"搭在计算 slot 上白跑"，
+//     不额外占拍。3x3/cog=cig=1：9 slot / 2 像素 = 4.5 拍/像素，原版 9 拍/像素 → **2.0x**
+//
+// 【2】滑窗换成"循环槽位 + 双份 LUTRAM"，同时解决 (A) 的读口和 (B) 的 LUT 爆炸：
+//     * 列索引是 LUTRAM 的**地址**（不是寄存器选择）→ 不产生 48 选 1 的 mux，LUT 很便宜；
+//     * 存 **A/B 两份**（内容始终相同），u=0 只读 A、u=1 只读 B → 两份各出一个读口，
+//       两条 load 落在两块不同的 RAM 上，不再撞 ram_2p 的 1R1W；
+//     * 窗口宽度取 WS = 2*XU+2 = 6 格，每步右移 sft = XU = 2 格 —— 用**取模寻址**代替移位：
+//         逻辑列 c 在步 s 的物理槽位 = (c + XU*s) mod WS
+//       这样"移位"变成免费的（只改相位 phase = s mod 3），滑窗**没有任何读改写**。
+//       本步计算读槽位 {(2*phase + c) mod 6, c=0..3}，补窗写槽位 {(4 + fc + 2*phase) mod 6}
+//       —— 两组**天然不相交**（差 4 格），所以补窗可以和计算同拍跑，不需要 tail/双缓冲。
+//
+// ── 1x1 / 转置为什么走另一条路 ─────────────────────────────────────────────
+// 这两档 work = cog*cig*1 太小（3x3 是它的 9 倍），slot 结构摊不开固定开销反而会变慢；
+// 而 kk=1 本来就不需要滑窗（一拍读 1 列就够），所以直接用原版"一拍一个输出像素、
+// 直接读 rows"的循环，保持原速。
+//
+// ⚠ 本版按 XU=2 手写相位（phase = s mod 3、WS=6）。换 XU 要重算相位周期。
+#if XU != 2
+#error "conv_layer_v8 requires XU == 2"
+#endif
+
+#include "conv_layer.hpp"
+
+typedef ap_int<16> act_t;
+typedef ap_int<8> wgt_t;
+typedef ap_int<32> acc_t;
+
+static act_t requantize(acc_t acc, bool relu, ap_int<32> mult, ap_int<64> offset,
+                        ap_uint<5> shift, int qmin, int qmax) {
+#pragma HLS INLINE
+    acc_t a = (relu && acc < 0) ? acc_t(0) : acc;
+    ap_int<64> product = a * mult;
+    ap_int<65> v = ap_int<65>(product) + offset;
+    bool negative = v < 0;
+    ap_uint<65> magnitude = negative ? ap_uint<65>(-v) : ap_uint<65>(v);
+    ap_uint<65> quotient = magnitude >> shift;
+    ap_uint<65> remainder = magnitude & ((ap_uint<65>(1) << shift) - 1);
+    ap_uint<65> half = (ap_uint<65>(1) << shift) >> 1;
+    // shift == 0 has no fractional part; ties go to the even quotient.
+    bool round_up = shift != 0 && (remainder > half || (remainder == half && quotient[0] == 1));
+    ap_int<67> rounded = ap_int<67>(quotient) + (round_up ? 1 : 0);
+    if (negative) rounded = -rounded;
+    if (rounded < qmin) rounded = qmin;
+    if (rounded > qmax) rounded = qmax;
+    return act_t(rounded);
+}
+
+int conv_layer(const act_word_t* in, act_word_t* out, const param_word_t* params,
+               int mode, int cin, int cout, int in_h, int in_w,
+               int relu, int shift, int qmin, int qmax) {
+#pragma HLS INTERFACE m_axi port=in offset=slave bundle=gmem_in depth=65536 max_read_burst_length=64
+#pragma HLS INTERFACE m_axi port=out offset=slave bundle=gmem_out depth=131072 max_write_burst_length=64
+#pragma HLS INTERFACE m_axi port=params offset=slave bundle=gmem_par depth=2048
+#pragma HLS INTERFACE s_axilite port=in bundle=control
+#pragma HLS INTERFACE s_axilite port=out bundle=control
+#pragma HLS INTERFACE s_axilite port=params bundle=control
+#pragma HLS INTERFACE s_axilite port=mode bundle=control
+#pragma HLS INTERFACE s_axilite port=cin bundle=control
+#pragma HLS INTERFACE s_axilite port=cout bundle=control
+#pragma HLS INTERFACE s_axilite port=in_h bundle=control
+#pragma HLS INTERFACE s_axilite port=in_w bundle=control
+#pragma HLS INTERFACE s_axilite port=relu bundle=control
+#pragma HLS INTERFACE s_axilite port=shift bundle=control
+#pragma HLS INTERFACE s_axilite port=qmin bundle=control
+#pragma HLS INTERFACE s_axilite port=qmax bundle=control
+#pragma HLS INTERFACE s_axilite port=return bundle=control
+
+    if (mode < MODE_CONV3 || mode > MODE_TCONV2 || cin < 1 || cin > MAX_C ||
+        cout < 1 || cout > MAX_C || in_h < 1 || in_w < 1 || (relu != 0 && relu != 1) ||
+        shift < 0 || shift > MAX_SHIFT || qmin < -32768 || qmax > 32767 || qmin > qmax)
+        return CONV_BAD_CONFIG;
+    const bool transposed = mode == MODE_TCONV2;
+    if (in_h > (transposed ? MAX_H / 2 : MAX_H) || in_w > (transposed ? MAX_W / 2 : MAX_W))
+        return CONV_BAD_CONFIG;
+
+    const int cig = (cin + LANES - 1) / LANES;
+    const int cog = (cout + LANES - 1) / LANES;
+    const int kk = mode == MODE_CONV3 ? 3 : 1;
+    const int taps = mode == MODE_CONV3 ? 9 : (mode == MODE_CONV1 ? 1 : 4);
+    const int out_h = transposed ? 2 * in_h : in_h;
+    const int out_w = transposed ? 2 * in_w : in_w;
+    const ap_uint<5> shift_bits = shift;
+    const bool use_relu = relu != 0;
+
+    // 行缓冲：形状与原版**完全一样**（不分 bank）——它只负责"每拍喂 1 列"。
+    static act_t rows[3][MAX_W][MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=rows complete dim=1
+#pragma HLS ARRAY_PARTITION variable=rows complete dim=4
+    static act_t orow[MAX_W][MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=orow complete dim=3
+    static wgt_t wbuf[MAX_TAPS][MAX_G][MAX_G][LANES][LANES];
+#pragma HLS ARRAY_PARTITION variable=wbuf complete dim=4
+#pragma HLS ARRAY_PARTITION variable=wbuf complete dim=5
+    static acc_t bias_buf[MAX_G][LANES];
+    static ap_int<32> mult_buf[MAX_G][LANES];
+    static ap_int<64> offset_buf[MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=bias_buf complete dim=2
+#pragma HLS ARRAY_PARTITION variable=mult_buf complete dim=2
+#pragma HLS ARRAY_PARTITION variable=offset_buf complete dim=2
+
+    // ── 3x3 滑窗：循环槽位 LUTRAM，A/B 两份 ─────────────────────────────────
+    //   wst[r][slot][g][i]：输入行 r、物理槽位 slot 的 8 个 lane。
+    //   逻辑列 c 在相位 phase 下落在槽位 (c + XU*phase) mod WS。
+    //   ★ 只切 dim1(行) 与 dim4(lane)：列/组留在 RAM 地址里 → 列索引是地址而非
+    //     寄存器选择，不产生大 mux（这是 V6a 爆 LUT 的根因）。
+    //   ★ A/B 两份内容永远相同：u=0 读 A、u=1 读 B —— 一条 load 一块 RAM，
+    //     避开 ram_2p 只有 1 个读口的限制（这是 V6 卡在 II=2 的根因）。
+    static act_t wstA[3][2 * XU + 2][MAX_G][LANES];
+    static act_t wstB[3][2 * XU + 2][MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=wstA complete dim=1
+#pragma HLS ARRAY_PARTITION variable=wstA complete dim=4
+#pragma HLS ARRAY_PARTITION variable=wstB complete dim=1
+#pragma HLS ARRAY_PARTITION variable=wstB complete dim=4
+
+    // 累加器暂存（上一步的）与 requantize 结果暂存
+    //   ★ 这两个是真寄存器（逐维 complete）：数据量很小（raw 4x2x8x32b、resA 2x4x8x16b），
+    //     但同一拍要"读旧值 + 写新值"，用寄存器语义最干净。
+    static acc_t raw[MAX_G][XU][LANES];
+#pragma HLS ARRAY_PARTITION variable=raw complete dim=1
+#pragma HLS ARRAY_PARTITION variable=raw complete dim=2
+#pragma HLS ARRAY_PARTITION variable=raw complete dim=3
+    static act_t resA[XU][MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=resA complete dim=1
+#pragma HLS ARRAY_PARTITION variable=resA complete dim=2
+#pragma HLS ARRAY_PARTITION variable=resA complete dim=3
+
+    // Weights: word order (tap, og, ig, o), input lanes packed in each word.
+    const int weight_words = taps * cog * cig * LANES;
+    {
+        int t = 0, og = 0, ig = 0, o = 0;
+PARAM_WEIGHTS:
+        for (int n = 0; n < weight_words; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=8 max=1152
+#pragma HLS PIPELINE II=1
+            param_word_t word = params[n];
+            for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                wbuf[t][og][ig][o][i].range(7, 0) = word.range(8 * i + 7, 8 * i);
+            }
+            if (++o == LANES) {
+                o = 0;
+                if (++ig == cig) {
+                    ig = 0;
+                    if (++og == cog) { og = 0; ++t; }
+                }
+            }
+        }
+    }
+    const int cop = cog * LANES;
+PARAM_CHANNELS:
+    for (int c = 0; c < cop; ++c) {
+#pragma HLS LOOP_TRIPCOUNT min=8 max=32
+#pragma HLS PIPELINE
+        ap_int<64> b = params[weight_words + c];
+        ap_int<64> m = params[weight_words + cop + c];
+        ap_int<64> f = params[weight_words + 2 * cop + c];
+        bias_buf[c / LANES][c % LANES] = acc_t(b);
+        mult_buf[c / LANES][c % LANES] = ap_int<32>(m);
+        offset_buf[c / LANES][c % LANES] = ap_int<64>(f);
+    }
+
+    const int WS = 2 * XU + 2;      // 滑窗物理槽位数
+
+    int loaded = 0;
+ROWS:
+    for (int y = 0; y < out_h; ++y) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=512
+        // Input rows needed by output row y: base_row .. base_row + kk - 1.
+        const int base_row = mode == MODE_CONV3 ? y - 1 : (transposed ? y >> 1 : y);
+        int need = base_row + kk - 1;
+        if (need > in_h - 1) need = in_h - 1;
+LOAD_ROWS:
+        for (; loaded <= need; ++loaded) {
+#pragma HLS LOOP_TRIPCOUNT min=0 max=2
+            const int slot = loaded % 3;
+            const act_word_t* src = in + loaded * in_w * cig;
+            int px = 0, g = 0;
+LOAD:
+            for (int n = 0; n < in_w * cig; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2048
+#pragma HLS PIPELINE II=1
+                act_word_t word = src[n];
+                for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                    rows[slot][px][g][i].range(15, 0) = word.range(16 * i + 15, 16 * i);
+                }
+                if (++g == cig) { g = 0; ++px; }
+            }
+        }
+
+        if (mode == MODE_CONV3) {
+            // ================= 3x3：整行一条流水线 =================
+            int phase = 0;      // 槽位相位 = s mod 3（XU=2 时 WS=6、每步转 2 → 周期 3）
+            // ---- 滑窗初始化：相位 0 下，逻辑列 0..3 = 输入列 -1..2 落在槽位 0..3 ----
+            //     槽位 4..5 由本步的补窗写入，不用初始化。
+            {
+                int ir = 0, ic = 0, ig = 0;
+                const int ninit = 3 * (XU + 2) * cig;
+                for (int n = 0; n < ninit; ++n) {
+#pragma HLS PIPELINE II=1
+                    const int  col = -1 + ic;
+                    const int  iy  = base_row + ir;
+                    const bool v   = (iy >= 0) && (iy < in_h) && (col >= 0) && (col < in_w);
+                    const int  cc  = v ? col : 0;
+                    const int  sl  = (iy + 6) % 3;
+                    for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                        const act_t px = v ? rows[sl][cc][ig][i] : act_t(0);
+                        wstA[ir][ic][ig][i] = px;
+                        wstB[ir][ic][ig][i] = px;
+                    }
+                    if (++ig == cig) { ig = 0; if (++ic == XU + 2) { ic = 0; ++ir; } }
+                }
+            }
+
+            const int work  = cog * 9 * cig;   // 计算 slot 数
+            const int nfill = 3 * XU * cig;    // 补窗 slot 数（一拍读 1 行；<= work 恒成立）
+            const int nq    = XU * cog;        // requantize / 存回 slot 数
+            int ncyc = work;
+            if (nfill > ncyc) ncyc = nfill;
+            if (nq    > ncyc) ncyc = nq;
+            const int nsteps = (out_w + XU - 1) / XU;
+            const int total  = nsteps * ncyc;
+
+            acc_t acc[XU][LANES];
+#pragma HLS ARRAY_PARTITION variable=acc complete dim=1
+#pragma HLS ARRAY_PARTITION variable=acc complete dim=2
+
+            int k = 0;                              // 当前 slot
+            int cg = 0, ky = 0, kx = 0, ig = 0;     // 计算计数器
+            int fr = 0, fc = 0, fg = 0;             // 补窗计数器
+            int su = 0, sg = 0;                     // requantize/存回计数器
+            int wcol0 = -1;                         // 窗口逻辑列 0 对应的输入列
+            int st_x0 = -2 * XU;                    // 正在写 orow 的那一步的 x0（落后两步）
+
+STEP_ALL:
+            for (int n = 0; n < total; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=36864
+#pragma HLS PIPELINE II=1
+                const int base6 = XU * phase;       // 0 / 2 / 4
+
+                // ---- (1) 计算：第 k 个 (cg,ky,kx,ig)，一拍算 XU 个像素 ----
+                if (k < work) {
+                    // 逻辑列 c = u + kx 落在槽位 (c + XU*phase) mod WS
+                    int s0 = kx + base6;
+                    if (s0 >= WS) s0 -= WS;
+                    int s1 = s0 + 1;
+                    if (s1 >= WS) s1 -= WS;
+                    const int tap = ky * 3 + kx;
+                    act_t pixel[XU][LANES];
+#pragma HLS ARRAY_PARTITION variable=pixel complete dim=1
+#pragma HLS ARRAY_PARTITION variable=pixel complete dim=2
+                    for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                        pixel[0][i] = wstA[ky][s0][ig][i];   // u = 0 -> 读 A 份
+                        pixel[1][i] = wstB[ky][s1][ig][i];   // u = 1 -> 读 B 份
+                    }
+                    const bool first = (ky == 0) && (kx == 0) && (ig == 0);
+                    const bool last  = (ky == 2) && (kx == 2) && (ig == cig - 1);
+                    for (int o = 0; o < LANES; ++o) {
+#pragma HLS UNROLL
+                        for (int u = 0; u < XU; ++u) {
+#pragma HLS UNROLL
+                            ap_int<28> dot = 0;
+                            for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                                dot += pixel[u][i] * wbuf[tap][cg][ig][o][i];
+                            }
+                            const acc_t sum = (first ? bias_buf[cg][o] : acc[u][o]) + dot;
+                            acc[u][o] = sum;
+                            // 只把累加器寄存下来；requantize 挪到下面 (3)
+                            if (last) raw[cg][u][o] = sum;
+                        }
+                    }
+                    if (++ig == cig) {
+                        ig = 0;
+                        if (++kx == 3) { kx = 0; if (++ky == 3) { ky = 0; ++cg; } }
+                    }
+                }
+
+                // ---- (2) 补窗：写下一步要用的槽位（与计算槽位不相交）----
+                //   ⚠ 一拍**只读一行** rows：行槽位 sl=(iy+6)%3 是运行时索引，HLS 证明不了
+                //     "3 条 load 落在不同分片"，一次读 3 行会被判成 3 条 load 撞同一块 RAM
+                //     → II=2。摊成 3*XU*cig 个 token 后每条 load 都是 1 条，而且
+                //     6*cig <= 9*cog*cig 恒成立（cog>=1），所以 ncyc 完全不变，免费。
+                if (k < nfill) {
+                    int sf = 4 + fc + base6;            // 逻辑列 4+fc 的槽位
+                    if (sf >= WS) sf -= WS;
+                    const int  col = wcol0 + 4 + fc;    // 对应的输入列
+                    const int  iy  = base_row + fr;
+                    const bool v   = (col >= 0) && (col < in_w) && (iy >= 0) && (iy < in_h);
+                    const int  sl  = (iy + 6) % 3;
+                    for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                        const act_t px = v ? rows[sl][col][fg][i] : act_t(0);
+                        wstA[fr][sf][fg][i] = px;
+                        wstB[fr][sf][fg][i] = px;
+                    }
+                    if (++fg == cig) { fg = 0; if (++fc == XU) { fc = 0; ++fr; } }
+                }
+
+                // ---- (3) requantize(上一步的 raw) + 存回(上上步的 resA) ----
+                //   orow 拿到的是 resA 的**旧值**（硬件先读后写），正好是上上步的结果。
+                if (k < nq) {
+                    for (int o = 0; o < LANES; ++o) {
+#pragma HLS UNROLL
+                        if (st_x0 >= 0 && (st_x0 + su) < out_w)
+                            orow[st_x0 + su][sg][o] = resA[su][sg][o];
+                        resA[su][sg][o] = requantize(raw[sg][su][o], use_relu,
+                                                     mult_buf[sg][o], offset_buf[sg][o],
+                                                     shift_bits, qmin, qmax);
+                    }
+                    if (++sg == cog) { sg = 0; ++su; }
+                }
+
+                // ---- 步末：推进槽位相位 / 列号（纯计数，不占 slot）----
+                if (++k == ncyc) {
+                    k = 0;
+                    cg = 0; ky = 0; kx = 0; ig = 0;
+                    fr = 0; fc = 0; fg = 0;
+                    su = 0; sg = 0;
+                    wcol0 += XU;
+                    st_x0 += XU;
+                    if (++phase == 3) phase = 0;
+                }
+            }
+
+            // ---- 收尾 ----
+            //   循环结束时 resA 里是第 nsteps-2 步的结果（第 nsteps-1 步的 store 写的是
+            //   第 nsteps-3 步），而 raw 里还压着最后一步的累加器没 requantize。
+            //   所以顺序必须是：先把 resA 写进 orow（同时 requantize raw 覆盖 resA），
+            //   再写一次 resA。两次都在同一拍用"读旧值"完成，不能颠倒。
+            {
+                const int xa = (nsteps - 2) * XU;
+                const int xb = (nsteps - 1) * XU;
+                for (int u = 0; u < XU; ++u)
+                    for (int g = 0; g < cog; ++g)
+                        for (int o = 0; o < LANES; ++o) {
+#pragma HLS UNROLL
+                            if (xa >= 0 && (xa + u) < out_w)
+                                orow[xa + u][g][o] = resA[u][g][o];   // 旧值 = 第 nsteps-2 步
+                            resA[u][g][o] = requantize(raw[g][u][o], use_relu,
+                                                       mult_buf[g][o], offset_buf[g][o],
+                                                       shift_bits, qmin, qmax);
+                        }
+                for (int u = 0; u < XU; ++u) {
+#pragma HLS UNROLL
+                    if ((xb + u) < out_w)
+                        for (int g = 0; g < cog; ++g)
+                            for (int o = 0; o < LANES; ++o) {
+#pragma HLS UNROLL
+                                orow[xb + u][g][o] = resA[u][g][o];   // 第 nsteps-1 步
+                            }
+                }
+            }
+        } else {
+            // ============ 1x1 / 转置：直接读 rows，一拍一个输出像素 ============
+            // kk=1 → 不需要滑窗（一拍读 1 列就够），沿用原版循环结构。
+            const int slot0 = (base_row + 6) % 3;
+            const int slot1 = (base_row + 7) % 3;
+            const int slot2 = (base_row + 8) % 3;
+            const int work2 = out_w * cog * kk * kk * cig;
+            int x = 0, cg = 0, ky = 0, kx = 0, ig = 0;
+            acc_t acc1[LANES];
+#pragma HLS ARRAY_PARTITION variable=acc1 complete dim=1
+DIRECT:
+            for (int n = 0; n < work2; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=73728
+#pragma HLS PIPELINE II=1
+                const int iy = base_row + ky;
+                int ix, tap;
+                if (mode == MODE_CONV1) { ix = x; tap = 0; }
+                else { ix = x >> 1; tap = ((y & 1) << 1) | (x & 1); }
+                const bool valid = (iy >= 0) && (iy < in_h) && (ix >= 0) && (ix < in_w);
+                const int  slot  = (ky == 0) ? slot0 : ((ky == 1) ? slot1 : slot2);
+                const int  col   = valid ? ix : 0;
+                act_t pixel[LANES];
+#pragma HLS ARRAY_PARTITION variable=pixel complete dim=1
+                for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                    pixel[i] = valid ? rows[slot][col][ig][i] : act_t(0);
+                }
+                const bool is_first = (ky == 0) && (kx == 0) && (ig == 0);
+                const bool is_last  = (ky == kk - 1) && (kx == kk - 1) && (ig == cig - 1);
+                for (int o = 0; o < LANES; ++o) {
+#pragma HLS UNROLL
+                    ap_int<28> dot = 0;
+                    for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                        dot += pixel[i] * wbuf[tap][cg][ig][o][i];
+                    }
+                    const acc_t sum = (is_first ? bias_buf[cg][o] : acc1[o]) + dot;
+                    acc1[o] = sum;
+                    if (is_last)
+                        orow[x][cg][o] = requantize(sum, use_relu, mult_buf[cg][o],
+                                                    offset_buf[cg][o], shift_bits, qmin, qmax);
+                }
+                if (++ig == cig) {
+                    ig = 0;
+                    if (++kx == kk) {
+                        kx = 0;
+                        if (++ky == kk) {
+                            ky = 0;
+                            if (++cg == cog) { cg = 0; ++x; }
+                        }
+                    }
+                }
+            }
+        }
+
+        act_word_t* dst = out + y * out_w * cog;
+        int px = 0, g = 0;
+STORE:
+        for (int n = 0; n < out_w * cog; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2048
+#pragma HLS PIPELINE II=1
+            act_word_t word;
+            for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                word.range(16 * i + 15, 16 * i) = orow[px][g][i].range(15, 0);
+            }
+            dst[n] = word;
+            if (++g == cog) { g = 0; ++px; }
+        }
+    }
+    return CONV_OK;
+}

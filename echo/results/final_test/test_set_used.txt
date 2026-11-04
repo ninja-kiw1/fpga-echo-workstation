@@ -1,0 +1,7 @@
+test evaluation (stage A) started 2026-10-09T09:32:04.049213
+models {'f1': 'lv_r128', 'f2': 'inter2_r128', 'f3': 'seq_none_ex'}
+stage A restarted 2026-10-09T09:36:26.197873 after a crash: first run stopped at the F3 data check (patient0052_4CH half sequence stored ES->ED, cfg ED:10 ES:1) after F1/F2 had printed; fix = orient sequences by Info cfg ED/ES; models and metrics unchanged
+stage A restarted 2026-10-09T09:37:23.588144 after a crash: previous rerun stopped by hand before F3: Info-cfg orientation was wrong for patient0217_2CH (cfg ED:21 ES:1 but stored ED first); orientation now by matching the stored end frames with the expert ED/ES images (test: only patient0052_4CH turned around); models and metrics unchanged
+stage A finished 2026-10-09T09:47:20.293186
+stage B (EF) started Fri Oct  9 09:47:36 2026
+stage B (EF) finished Fri Oct  9 09:51:41 2026

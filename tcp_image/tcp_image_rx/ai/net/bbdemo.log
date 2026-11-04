@@ -1,0 +1,32 @@
+proto self-check: OK
+模式: 1 (阈值分割)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test_blackborder.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级(背景/物体)=101（全图黑占 62%）（已排除纯黑/纯白 93040 个，35.5%）；二级(物体内部)=131
+[1] total=   56.9 ms  (send    2.4 + reply   54.4)  proc(rows_ok=512)
+summary: n=1  min=56.9  max=56.9  avg=56.9 ms
+save: proc -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\bb_auto101.png
+CLI_DONE
+
+========== same image, forced 54 (what Otsu would say WITHOUT the exclusion) ==========
+proto self-check: OK
+模式: 1 (阈值分割)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test_blackborder.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: 54 (手动指定)
+[1] total=   57.0 ms  (send    2.0 + reply   55.0)  proc(rows_ok=512)
+summary: n=1  min=57.0  max=57.0  avg=57.0 ms
+save: proc -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\bb_thr54.png
+CLI_DONE
+
+========== second level 131 ==========
+proto self-check: OK
+模式: 1 (阈值分割)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test_blackborder.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: 131 (手动指定)
+[1] total=   56.2 ms  (send    2.3 + reply   53.9)  proc(rows_ok=512)
+summary: n=1  min=56.2  max=56.2  avg=56.2 ms
+save: proc -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\bb_thr131.png
+CLI_DONE
+BB_DONE

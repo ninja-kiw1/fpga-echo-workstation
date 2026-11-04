@@ -1,0 +1,115 @@
+=== tcp_image_server ===
+[cfg] tcp port       : 5060
+[cfg] ddr reserved   : 0x40000000 (4194304 bytes, in=+0x0 out=+0x100000 status=+0x200000)
+[cfg] axi dma        : 0xA0000000 (disabled)
+[cfg] axi gpio mode  : 0xA0010000 (disabled)
+[cfg] threshold m1   : 128
+[cfg] ai conv/elt/bram: 0xA0010000 / 0xA0020000 / 0xB0000000 (enabled)
+[cfg] ai resolution  : 512 x 512 (default; client may override per frame)
+[cfg] mem device     : /dev/mem
+[self] OK: CRC16 check value 0x29B1, image 512x512 RGB888, 786432 bytes/frame, 512 pkts x 1542 bytes
+[mem] ddr mapped @0x40000000: img=0x7fa7ca9000
+[mem] recv staging = 0x7fa7be9000 ; send staging = 0x7fa7b29000 ; image destination = 0x7fa7ca9000
+[axil] register file at 0xA0000000, VERSION ok (4 px/word)
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fa234b000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[tcp] listening on 0.0.0.0:5060, waiting for sender...
+
+[tcp] client 192.168.1.111:59922 connected
+[rx] control header: magic=0x4D45 mode=0 flags=0x000F aiparam=0xFD00 thr=99
+[rx]   recv detail: wait-first-byte=31 us, transfer=7440 us
+[rx] frame done: rows_ok=512/512, crc_err=0, seq_err=0, bytes=789504
+[rx] frame CRC16 = 0x5505
+[rx] timing: recv=35 ms  parse(crc+copy)=8 ms  frame_crc=7 ms  total=50 ms
+[ok ] frame 1 stored (mode=0 thr=99) at 0x40000000, 50 ms, 126.32 Mbit/s
+[mem] expand to 32bpp = 2742 us
+[axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 21 ms
+[prof] total=840275 us  ap=533686  put=108063  get=183686  zero=227  other=14613
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     33888     13512
+[prof]    2     34404     13387
+[prof]    3      8908     12809
+[prof]    4      8109     17112
+[prof]    5      3639      6287
+[prof]    6     15571      5442
+[prof]    7     30424      6720
+[prof]    8      3781      5354
+[prof]    9      4088      8497
+[prof]   10      1819      3158
+[prof]   11     14342      2707
+[prof]   12     28878      3484
+[prof]   13      2553      2637
+[prof]   14      2028      4254
+[prof]   15      7681      5368
+[prof]   16     30426      6710
+[prof]   17      5700     12982
+[prof]   18     63565      9482
+[prof]   19     30425      6757
+[prof]   20      9747      8522
+[prof]   21      4064      8498
+[prof]   22     10115     10696
+[prof]   23     34877     13454
+[prof]   24     11383     25714
+[prof]   25     68077     18674
+[prof]   26     33890     13306
+[prof]   27     14287     16872
+[prof]   28      8109     16899
+[prof]   29      8908     12682
+[ai] src=raw 512x512->512x512 thr=-3  vessels=16458/262144 (62 permille)  comps=12587  logit[-107..100]  850 ms
+[ok ] status published: frame_count=1 mode=0 dma=off
+[echo] flags=0x000F sent in 51 ms
+[rx] no control header (peer idle/closed); back to accept
+[warn] frame not stored (rc=-1); buffer may be partial
+
+[tcp] client 192.168.1.111:59923 connected
+[rx] control header: magic=0x4D45 mode=0 flags=0x0018 aiparam=0xFD00 thr=99
+[rx]   recv detail: wait-first-byte=17 us, transfer=6678 us
+[rx] frame done: rows_ok=512/512, crc_err=0, seq_err=0, bytes=789504
+[rx] frame CRC16 = 0x5505
+[rx] timing: recv=9 ms  parse(crc+copy)=8 ms  frame_crc=6 ms  total=23 ms
+[ok ] frame 2 stored (mode=0 thr=99) at 0x40000000, 23 ms, 274.61 Mbit/s
+[mem] expand to 32bpp = 2773 us
+[axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+[prof] total=777095 us  ap=531811  put=107472  get=125921  zero=223  other=11668
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     33891     10585
+[prof]    2     33894     10491
+[prof]    3      9018      9920
+[prof]    4      8100     14086
+[prof]    5      3640      5547
+[prof]    6     15569      4029
+[prof]    7     30432      5325
+[prof]    8      3781      3902
+[prof]    9      4056      7050
+[prof]   10      1818      2761
+[prof]   11     14343      2064
+[prof]   12     28878      2734
+[prof]   13      2554      1975
+[prof]   14      2027      3514
+[prof]   15      7681      3968
+[prof]   16     30426      5272
+[prof]   17      5692     10064
+[prof]   18     62842      8110
+[prof]   19     30432      5310
+[prof]   20      9950      7038
+[prof]   21      4090      7037
+[prof]   22     10118      7882
+[prof]   23     33896     10492
+[prof]   24     11375     20032
+[prof]   25     68073     15881
+[prof]   26     33893     10510
+[prof]   27     14328     14051
+[prof]   28      8106     14041
+[prof]   29      8908      9945
+[ai] src=raw 512x512->512x512 thr=-3  vessels=16458/262144 (62 permille)  comps=12587  logit[-107..100]  786 ms
+[ok ] status published: frame_count=2 mode=0 dma=off
+[echo] flags=0x0018 sent in 0 ms
+[tcp] reached frame limit 2, exiting
+
+[tcp] shutting down

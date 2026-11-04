@@ -1,0 +1,171 @@
+
+
+================================================================
+== Vitis HLS Report for 'entry_proc'
+================================================================
+* Date:           Tue Sep 22 20:26:27 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        morphology
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: azynquplus
+* Target device:  xazu3eg-sfvc784-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.167 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      2|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|     72|    -|
+|Register         |        -|    -|       3|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|       3|     74|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      432|  360|  141120|  70560|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |ap_done                 |   9|          2|    1|          2|
+    |first_dilate_c_blk_n    |   9|          2|    1|          2|
+    |height_c12_blk_n        |   9|          2|    1|          2|
+    |output_c_blk_n          |   9|          2|    1|          2|
+    |real_start              |   9|          2|    1|          2|
+    |second_dilate_c_blk_n   |   9|          2|    1|          2|
+    |second_enabled_c_blk_n  |   9|          2|    1|          2|
+    |width_c11_blk_n         |   9|          2|    1|          2|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   |  72|         16|    8|         16|
+    +------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  1|   0|    1|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           |  3|   0|    3|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------------+-----+-----+------------+------------------+--------------+
+|            RTL Ports            | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++---------------------------------+-----+-----+------------+------------------+--------------+
+|ap_clk                           |   in|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|ap_rst                           |   in|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|ap_start                         |   in|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|start_full_n                     |   in|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|ap_done                          |  out|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|ap_continue                      |   in|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|ap_idle                          |  out|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|ap_ready                         |  out|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|start_out                        |  out|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|start_write                      |  out|    1|  ap_ctrl_hs|        entry_proc|  return value|
+|output_r                         |   in|   64|     ap_none|          output_r|        scalar|
+|output_c_din                     |  out|   64|     ap_fifo|          output_c|       pointer|
+|output_c_num_data_valid          |   in|    4|     ap_fifo|          output_c|       pointer|
+|output_c_fifo_cap                |   in|    4|     ap_fifo|          output_c|       pointer|
+|output_c_full_n                  |   in|    1|     ap_fifo|          output_c|       pointer|
+|output_c_write                   |  out|    1|     ap_fifo|          output_c|       pointer|
+|width                            |   in|   32|     ap_none|             width|        scalar|
+|width_c11_din                    |  out|   32|     ap_fifo|         width_c11|       pointer|
+|width_c11_num_data_valid         |   in|    3|     ap_fifo|         width_c11|       pointer|
+|width_c11_fifo_cap               |   in|    3|     ap_fifo|         width_c11|       pointer|
+|width_c11_full_n                 |   in|    1|     ap_fifo|         width_c11|       pointer|
+|width_c11_write                  |  out|    1|     ap_fifo|         width_c11|       pointer|
+|height                           |   in|   32|     ap_none|            height|        scalar|
+|height_c12_din                   |  out|   32|     ap_fifo|        height_c12|       pointer|
+|height_c12_num_data_valid        |   in|    3|     ap_fifo|        height_c12|       pointer|
+|height_c12_fifo_cap              |   in|    3|     ap_fifo|        height_c12|       pointer|
+|height_c12_full_n                |   in|    1|     ap_fifo|        height_c12|       pointer|
+|height_c12_write                 |  out|    1|     ap_fifo|        height_c12|       pointer|
+|first_dilate                     |   in|    1|     ap_none|      first_dilate|        scalar|
+|first_dilate_c_din               |  out|    1|     ap_fifo|    first_dilate_c|       pointer|
+|first_dilate_c_num_data_valid    |   in|    3|     ap_fifo|    first_dilate_c|       pointer|
+|first_dilate_c_fifo_cap          |   in|    3|     ap_fifo|    first_dilate_c|       pointer|
+|first_dilate_c_full_n            |   in|    1|     ap_fifo|    first_dilate_c|       pointer|
+|first_dilate_c_write             |  out|    1|     ap_fifo|    first_dilate_c|       pointer|
+|second_dilate                    |   in|    1|     ap_none|     second_dilate|        scalar|
+|second_dilate_c_din              |  out|    1|     ap_fifo|   second_dilate_c|       pointer|
+|second_dilate_c_num_data_valid   |   in|    3|     ap_fifo|   second_dilate_c|       pointer|
+|second_dilate_c_fifo_cap         |   in|    3|     ap_fifo|   second_dilate_c|       pointer|
+|second_dilate_c_full_n           |   in|    1|     ap_fifo|   second_dilate_c|       pointer|
+|second_dilate_c_write            |  out|    1|     ap_fifo|   second_dilate_c|       pointer|
+|second_enabled                   |   in|    1|     ap_none|    second_enabled|        scalar|
+|second_enabled_c_din             |  out|    1|     ap_fifo|  second_enabled_c|       pointer|
+|second_enabled_c_num_data_valid  |   in|    3|     ap_fifo|  second_enabled_c|       pointer|
+|second_enabled_c_fifo_cap        |   in|    3|     ap_fifo|  second_enabled_c|       pointer|
+|second_enabled_c_full_n          |   in|    1|     ap_fifo|  second_enabled_c|       pointer|
+|second_enabled_c_write           |  out|    1|     ap_fifo|  second_enabled_c|       pointer|
++---------------------------------+-----+-----+------------+------------------+--------------+
+

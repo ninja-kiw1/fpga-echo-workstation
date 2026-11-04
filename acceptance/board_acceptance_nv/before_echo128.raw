@@ -1,0 +1,28 @@
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fa30b5000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=2 res=128 iter=-2 mismatch=0/16384
+CHECK model=2 res=128 iter=-1 mismatch=0/16384
+CHECK model=2 res=128 iter=0 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":0,"ap_us":13947,"put_us":4130,"get_us":5213,"run_us":22873,"strips":66}
+CHECK model=2 res=128 iter=1 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":1,"ap_us":13969,"put_us":4107,"get_us":4574,"run_us":22999,"strips":66}
+CHECK model=2 res=128 iter=2 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":2,"ap_us":13949,"put_us":3996,"get_us":4636,"run_us":22632,"strips":66}
+CHECK model=2 res=128 iter=3 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":3,"ap_us":13944,"put_us":4029,"get_us":4601,"run_us":22194,"strips":66}
+CHECK model=2 res=128 iter=4 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":4,"ap_us":13967,"put_us":4023,"get_us":4929,"run_us":23085,"strips":66}
+CHECK model=2 res=128 iter=5 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":5,"ap_us":13974,"put_us":4001,"get_us":4580,"run_us":22183,"strips":66}
+CHECK model=2 res=128 iter=6 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":6,"ap_us":13958,"put_us":3982,"get_us":5200,"run_us":23012,"strips":66}
+CHECK model=2 res=128 iter=7 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":7,"ap_us":13952,"put_us":4021,"get_us":4634,"run_us":22583,"strips":66}
+CHECK model=2 res=128 iter=8 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":8,"ap_us":13969,"put_us":4013,"get_us":4631,"run_us":22941,"strips":66}
+CHECK model=2 res=128 iter=9 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":9,"ap_us":13944,"put_us":4044,"get_us":4572,"run_us":22232,"strips":66}
+STRICT_NET_PASS

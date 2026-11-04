@@ -1,0 +1,29 @@
+E:\PLD\fundus_cdr\train.py:165: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  xg = torch.from_numpy(np.ascontiguousarray(tr['img512'])).to(device)                       # uint8 N,512,512,3
+[cup_roi_a] it   1000 loss 0.1587 dice_roi 0.8798 (92s) *
+[cup_roi_a] it   2000 loss 0.1330 dice_roi 0.8926 (185s) *
+[cup_roi_a] it   3000 loss 0.1203 dice_roi 0.8934 (278s) *
+[cup_roi_a] it   4000 loss 0.1181 dice_roi 0.9023 (369s) *
+[cup_roi_a] it   5000 loss 0.1154 dice_roi 0.9022 (458s)
+[cup_roi_a] it   6000 loss 0.1149 dice_roi 0.9030 (549s) *
+[cup_roi_a] it   7000 loss 0.1046 dice_roi 0.9000 (640s)
+[cup_roi_a] it   8000 loss 0.1101 dice_roi 0.8994 (730s)
+[cup_roi_a] it   9000 loss 0.1047 dice_roi 0.9028 (820s)
+[cup_roi_a] it  10000 loss 0.1001 dice_roi 0.9041 (911s) *
+[cup_roi_a] it  11000 loss 0.0963 dice_roi 0.9058 (1004s) *
+[cup_roi_a] it  12000 loss 0.0979 dice_roi 0.9067 (1098s) *
+[cup_roi_a] it  13000 loss 0.0961 dice_roi 0.9075 (1189s) *
+[cup_roi_a] it  14000 loss 0.0973 dice_roi 0.9063 (1281s)
+[cup_roi_a] it  15000 loss 0.0929 dice_roi 0.9053 (1372s)
+[cup_roi_a] it  16000 loss 0.0939 dice_roi 0.9062 (1463s)
+[cup_roi_a] it  17000 loss 0.0919 dice_roi 0.9064 (1547s)
+[cup_roi_a] it  18000 loss 0.0893 dice_roi 0.9063 (1651s)
+[cup_roi_a] it  19000 loss 0.0904 dice_roi 0.9059 (1757s)
+[cup_roi_a] it  20000 loss 0.0880 dice_roi 0.9065 (1862s)
+{
+ "iter": 13000,
+ "loss": 0.09613260679700662,
+ "seconds": 1188.4842219352722,
+ "dice_roi": 0.9075269396232946,
+ "score": 0.9075269396232946
+}

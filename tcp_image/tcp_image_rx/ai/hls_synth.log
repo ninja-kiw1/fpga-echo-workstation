@@ -1,0 +1,549 @@
+
+****** vitis-run v2025.2.1 (64-bit)
+  **** SW Build 6397637 on 2026-03-13-19:08:23
+  **** Start of session at: Thu Oct  1 20:21:43 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2.1 6397637
+Sourcing Tcl script 'E:/fpga/my_project/tcp_image_rx/ai/run_conv_synth.tcl'
+INFO: [HLS 200-1510] Running: open_project conv_stream 
+WARNING: [HLS 200-2182] The 'conv_stream' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream'.
+INFO: [HLS 200-1510] Running: set_top conv_layer 
+INFO: [HLS 200-1510] Running: add_files E:/fpga/my_project/tcp_image_rx/ai/src/conv_layer_stream.cpp -cflags -IE:/fpga/my_project/tcp_image_rx/ai/src -std=c++14 
+INFO: [HLS 200-10] Adding design file 'E:/fpga/my_project/tcp_image_rx/ai/src/conv_layer_stream.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.807 seconds; current allocated memory: 159.613 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file '../src/conv_layer_stream.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 4.708 seconds; current allocated memory: 162.906 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 3,000 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,977 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,446 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,367 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,367 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7,483 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,143 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,143 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,143 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,111 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,095 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,094 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,543 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,486 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,507 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,542 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'requantize(ap_int<32>, bool, ap_int<32>, ap_int<64>, ap_uint<5>, int, int)' into 'conv_layer(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<64>, 0>&, int, int, int, int, int, int, int, int, int)' (../src/conv_layer_stream.cpp:196:38)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_151_2' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer_stream.cpp:151:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_180_3' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer_stream.cpp:180:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_186_4' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer_stream.cpp:186:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_189_5' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer_stream.cpp:189:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_218_6' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer_stream.cpp:218:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_99_1' is marked as complete unroll implied by the pipeline pragma (../src/conv_layer_stream.cpp:99:30)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_151_2' (../src/conv_layer_stream.cpp:151:35) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer_stream.cpp:42:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_180_3' (../src/conv_layer_stream.cpp:180:31) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer_stream.cpp:42:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_186_4' (../src/conv_layer_stream.cpp:186:31) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer_stream.cpp:42:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_189_5' (../src/conv_layer_stream.cpp:189:35) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer_stream.cpp:42:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_218_6' (../src/conv_layer_stream.cpp:218:31) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer_stream.cpp:42:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_99_1' (../src/conv_layer_stream.cpp:99:30) in function 'conv_layer' completely with a factor of 8 (../src/conv_layer_stream.cpp:42:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE4rows': Complete partitioning on dimension 1. Complete partitioning on dimension 4. (../src/conv_layer_stream.cpp:75:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE4orow': Complete partitioning on dimension 3. (../src/conv_layer_stream.cpp:78:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE4wbuf': Complete partitioning on dimension 4. Complete partitioning on dimension 5. (../src/conv_layer_stream.cpp:80:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf': Complete partitioning on dimension 2. (../src/conv_layer_stream.cpp:84:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf': Complete partitioning on dimension 2. (../src/conv_layer_stream.cpp:85:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf': Complete partitioning on dimension 2. (../src/conv_layer_stream.cpp:83:0)
+INFO: [HLS 214-248] Applying array_partition to 'acc': Complete partitioning on dimension 1. (../src/conv_layer_stream.cpp:164:15)
+INFO: [HLS 214-248] Applying array_partition to 'pixel': Complete partitioning on dimension 1. (../src/conv_layer_stream.cpp:178:19)
+INFO: [HLS 214-421] Partitioning small array 'conv_layer(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<64>, 0>&, int, int, int, int, int, int, int, int, int)::bias_buf' due to array size.
+INFO: [HLS 214-421] Partitioning small array 'conv_layer(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<64>, 0>&, int, int, int, int, int, int, int, int, int)::mult_buf' due to array size.
+INFO: [HLS 214-421] Partitioning small array 'conv_layer(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<64>, 0>&, int, int, int, int, int, int, int, int, int)::offset_buf' due to array size.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_7': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_6': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_5': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_4': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_3': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_2': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8mult_buf_0': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_7': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_6': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_5': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_4': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_3': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_2': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE8bias_buf_0': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_7': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_6': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_5': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_4': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_3': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_2': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiiiiiiiiE10offset_buf_0': Complete partitioning on dimension 1.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 12.252 seconds; current allocated memory: 165.680 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.002 seconds; current allocated memory: 165.680 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.204 seconds; current allocated memory: 176.664 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.144 seconds; current allocated memory: 180.883 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:171:21) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:191:37) to (../src/conv_layer_stream.cpp:195:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../src/conv_layer_stream.cpp:198:17) in function 'conv_layer'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src/conv_layer_stream.cpp:200:17) to (../src/conv_layer_stream.cpp:167:9) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'conv_layer' (../src/conv_layer_stream.cpp:22:9)...66 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.759 seconds; current allocated memory: 207.660 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'LOAD_ROWS'(../src/conv_layer_stream.cpp:142:9) and 'LOAD'(../src/conv_layer_stream.cpp:147:13) in function 'conv_layer' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'LOAD_ROWS' (../src/conv_layer_stream.cpp:142:9) in function 'conv_layer'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.669 seconds; current allocated memory: 267.680 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_WEIGHTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_WEIGHTS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'PARAM_WEIGHTS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.209 seconds; current allocated memory: 273.461 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.055 seconds; current allocated memory: 274.977 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_BIAS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_BIAS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'PARAM_BIAS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.062 seconds; current allocated memory: 275.871 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 275.902 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_MULT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_MULT'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'PARAM_MULT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.043 seconds; current allocated memory: 276.656 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.029 seconds; current allocated memory: 276.734 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_OFFSET' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_OFFSET'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'PARAM_OFFSET'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.811 seconds; current allocated memory: 277.336 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 277.414 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_LOAD_ROWS_LOAD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_ROWS_LOAD'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 37, loop 'LOAD_ROWS_LOAD'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 277.738 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.027 seconds; current allocated memory: 277.820 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_COMPUTE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_18) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_17) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_14) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_25) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_24) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_22) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_21) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_32) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_31) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_29) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_28) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_39) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_38) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_36) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_35) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_46) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_45) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_43) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_42) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_53) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_52) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_50) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln191_49) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'COMPUTE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 43, loop 'COMPUTE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.304 seconds; current allocated memory: 294.891 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.192 seconds; current allocated memory: 294.930 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_STORE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'STORE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'STORE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.174 seconds; current allocated memory: 294.938 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.017 seconds; current allocated memory: 294.938 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.135 seconds; current allocated memory: 295.000 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.052 seconds; current allocated memory: 295.016 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_WEIGHTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_WEIGHTS' pipeline 'PARAM_WEIGHTS' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_WEIGHTS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.143 seconds; current allocated memory: 297.012 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_BIAS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_BIAS' pipeline 'PARAM_BIAS' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_BIAS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.252 seconds; current allocated memory: 302.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_MULT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_MULT' pipeline 'PARAM_MULT' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_MULT'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 303.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_OFFSET' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_OFFSET' pipeline 'PARAM_OFFSET' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_OFFSET'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.134 seconds; current allocated memory: 305.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_LOAD_ROWS_LOAD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_LOAD_ROWS_LOAD' pipeline 'LOAD_ROWS_LOAD' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'srem_32ns_3ns_3_36_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_LOAD_ROWS_LOAD'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.162 seconds; current allocated memory: 309.496 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_COMPUTE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_COMPUTE' pipeline 'COMPUTE' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8s_24s_25_4_1': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_8s_24_1_1': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_5_32_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_16_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_64_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_32_1_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_64_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'srem_32ns_3ns_2_36_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_COMPUTE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.207 seconds; current allocated memory: 334.949 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_STORE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_STORE' pipeline 'STORE' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_STORE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.126 seconds; current allocated memory: 359.219 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_r' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/out_r' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/params' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/mode' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/cin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/cout' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_h' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_w' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/relu' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/shift' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/qmin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/qmax' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_239_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbkb' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_240_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEcud' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_241_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEdEe' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_242_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEeOg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_243_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEfYi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_244_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEg8j' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_247_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEhbi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_248_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEibs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_249_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEjbC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_250_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEkbM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_251_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEElbW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_252_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEmb6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_255_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEncg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_256_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEocq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_257_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEpcA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_258_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEqcK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_259_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEErcU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_260_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEsc4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_263_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEtde' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_264_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEudo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_265_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEvdy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_266_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEwdI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_99_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEExdS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_98_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEyd2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_95_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEzec' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_94_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEAem' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_93_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEBew' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_92_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEECeG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_91_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEDeQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_90_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEEe0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_87_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEFfa' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_86_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEGfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_85_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEHfu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_84_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEIfE' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_83_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEJfO' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_82_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEKfY' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_79_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEELf8' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_78_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEMgi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_77_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEENgs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_76_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEOgC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_75_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEPgM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_74_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEQgW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_71_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEERg6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_70_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEShg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_69_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEThq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_68_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEUhA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_67_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEVhK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_66_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEWhU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_245_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEXh4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_246_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEYie' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_253_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEZio' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_254_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE0iy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_261_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE1iI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_262_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE2iS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_97_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE3i2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_96_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE4jc' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_89_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE5jm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_88_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE6jw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_81_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE7jG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_80_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE8jQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_73_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEE9j0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_72_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbak' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_65_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbbk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_64_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbck' due to the length limit 80
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_63' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_62' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_61' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_60' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_59' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_58' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_57' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_56' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_55' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_54' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_53' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_52' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_51' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_50' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_49' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_48' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_47' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_46' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_45' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_44' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_43' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_42' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_41' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_40' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_39' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_38' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_37' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_36' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_35' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_34' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_33' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_32' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_31' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_30' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_29' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_28' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_27' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_26' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_25' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_24' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_23' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_22' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_21' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_20' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_19' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_18' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_17' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_16' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_15' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_183' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_184' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_185' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_186' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_187' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_188' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_189' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_190' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_191' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_192' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_193' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_194' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_195' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_196' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_197' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_198' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_199' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_200' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_201' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_202' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_203' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_204' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_205' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_206' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_207' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_208' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_209' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_210' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_211' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_212' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_213' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_214' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_215_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbdk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_216_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbek' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_217_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_218_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbgk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_219_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbhl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_220_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbil' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_221_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbjl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_222_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbkl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_223_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbll' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_224_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbml' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_225_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbnm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_226_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbom' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_227_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbpm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_228_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbqm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_229_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbrm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_230_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbsm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_231_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbtn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_232_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbun' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_233_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbvn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_234_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbwn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_235_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbxn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_236_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbyn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_237_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbzo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEiiii_238_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbAo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_7_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_7_RAbBo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_6_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_6_RAbCo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_5_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_5_RAbDo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_4_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_4_RAbEo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_3_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_3_RAbFp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_2_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_2_RAbGp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_1_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_1_RAbHp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_RAM_AUTO_1R1W' to 'conv_layer_stream_stream_stream_int_int_int_int_int_int_int_int_int_orow_RAM_bIp' due to the length limit 80
+INFO: [RTGEN 206-100] Bundling port 'return', 'mode', 'cin', 'cout', 'in_h', 'in_w', 'shift', 'qmin' and 'qmax' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_32s_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_31ns_63_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_30s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_7ns_30s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer'.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbkb' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerRN3hls6streamI7ap_uintILi128EELi0EEES4_RNS0_IS1_ILi64EELi0EEEbdk' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 3.021 seconds; current allocated memory: 363.262 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.694 seconds; current allocated memory: 376.844 MB.
+INFO: [HLS 200-2225] Wrote inferred directives to file E:/fpga/my_project/tcp_image_rx/ai/build/conv_stream/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.905 seconds; current allocated memory: 392.055 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 138.34 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:33; Allocated memory: 232.605 MB.
+INFO: [HLS 200-112] Total CPU user time: 7 seconds. Total CPU system time: 4 seconds. Total elapsed time: 35.734 seconds; peak allocated memory: 392.102 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 36s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

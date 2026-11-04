@@ -1,0 +1,110 @@
+{
+ "split": "val",
+ "videos": 1288,
+ "features": "t3_int",
+ "source": "2a clinical measurements on EchoNet VAL only (TEST is never touched here).",
+ "modes": {
+  "full": {
+   "lvef": {
+    "videos": 1288,
+    "agree": 0.8237577639751553,
+    "confusion_ref_rows_pred_cols": [
+     [
+      80,
+      66,
+      10
+     ],
+     [
+      8,
+      59,
+      66
+     ],
+     [
+      5,
+      72,
+      922
+     ]
+    ],
+    "misgraded": 227,
+    "review_margin": 6.0,
+    "misgraded_flagged": 0.9030837004405287,
+    "flagged": 507,
+    "flagged_frac": 0.3936335403726708,
+    "agree_unflagged": 0.971830985915493,
+    "agree_flagged": 0.5956607495069034
+   },
+   "rhythm": {
+    "videos_with_2rr": 1260,
+    "videos_lt_3_beats": 28,
+    "rr_cv_percentiles": {
+     "50": 0.047505533152154056,
+     "75": 0.10519360711983539,
+     "90": 0.27578179292854443,
+     "95": 0.41676724990366865
+    },
+    "rr_cv_irregular": 0.27578179292854443,
+    "irregular": 126,
+    "ef_mae_irregular": 7.655379000954109,
+    "ef_mae_regular": 5.133218689668826,
+    "beat_sd_irregular": 7.361243077233934,
+    "beat_sd_regular": 2.7466551297028654,
+    "index_beat_mae_irregular": 10.529202583160199,
+    "median_ef_mae_same_clips": 7.655379000954109,
+    "beats_median": 4.0,
+    "clips_ge_5_beats": 153,
+    "index_beat_available": 1260
+   }
+  },
+  "realtime": {
+   "lvef": {
+    "videos": 1288,
+    "agree": 0.8253105590062112,
+    "confusion_ref_rows_pred_cols": [
+     [
+      79,
+      68,
+      9
+     ],
+     [
+      7,
+      59,
+      67
+     ],
+     [
+      1,
+      73,
+      925
+     ]
+    ],
+    "misgraded": 225,
+    "review_margin": 6.5,
+    "misgraded_flagged": 0.9333333333333333,
+    "flagged": 547,
+    "flagged_frac": 0.4246894409937888,
+    "agree_unflagged": 0.979757085020243,
+    "agree_flagged": 0.6160877513711152
+   },
+   "rhythm": {
+    "videos_with_2rr": 1257,
+    "videos_lt_3_beats": 31,
+    "rr_cv_percentiles": {
+     "50": 0.0454545454545455,
+     "75": 0.09105391988558541,
+     "90": 0.22530052228720843,
+     "95": 0.34547311041014517
+    },
+    "rr_cv_irregular": 0.22530052228720843,
+    "irregular": 126,
+    "ef_mae_irregular": 7.527819853341701,
+    "ef_mae_regular": 5.184028782238055,
+    "beat_sd_irregular": 5.57873379015576,
+    "beat_sd_regular": 2.7037985068758625,
+    "index_beat_mae_irregular": 9.200125060605181,
+    "median_ef_mae_same_clips": 7.527819853341701,
+    "beats_median": 4.0,
+    "clips_ge_5_beats": 121,
+    "index_beat_available": 1257
+   }
+  }
+ }
+}

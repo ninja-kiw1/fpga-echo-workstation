@@ -1,0 +1,19 @@
+caps: {'ok': True, 'job_version': 1, 'jobs': ['caps', 'ct_seg', 'reg_search', 'echo_ef', 'simpson_ef', 'render3d', 'overlay', 'strain', 'tile'], 'vis': False, 'cardiac': True, 'server': 'v5.26', 'echo_modes': [0, 1, 2, 3], 'live_roll': True, 'live_roll_camus': True, 'live_f1_engine': True, 'live_sources': ['file', 'v4l2'], 'heart': ['wall_motion', 'right_heart'], 'pp': True, 'ai': True, 'models': 17, 'cores': 4, 'max_data': 335544320}
+== F5 registration search on the board
+  reg pair  0 mode 0 truth (-2, 0)  pc (-2, 0)  board (-2, 0)  OK  pc 950 ms / job 889 ms
+  reg pair  0 mode 1 truth (-2, 0)  pc (-2, 0)  board (-2, 0)  OK  pc 4797 ms / job 4458 ms
+  reg pair  1 mode 0 truth (-7, -7) pc (-7, -7) board (-7, -7) OK  pc 951 ms / job 895 ms
+  reg pair  2 mode 0 truth (0, 6)   pc (0, 6)   board (0, 6)   OK  pc 951 ms / job 895 ms
+  reg pair  3 mode 0 truth (-2, -4) pc (-2, -4) board (-2, -4) OK  pc 951 ms / job 895 ms
+  reg pair  4 mode 0 truth (-6, -4) pc (-6, -4) board (-6, -4) OK  pc 953 ms / job 895 ms
+  reg pair  5 mode 0 truth (6, 7)   pc (6, 7)   board (6, 7)   OK  pc 950 ms / job 895 ms
+  reg pair  5 mode 1 truth (6, 7)   pc (6, 7)   board (6, 7)   OK  pc 4789 ms / job 4463 ms
+  reg pair  6 mode 0 truth (-4, -2) pc (-4, -2) board (-4, -2) OK  pc 953 ms / job 895 ms
+  reg pair  7 mode 0 truth (4, -2)  pc (4, -2)  board (4, -2)  OK  pc 955 ms / job 895 ms
+== CT whole volume on the board
+  ct spleen_10  nz  55 dz 5.0 o 1  PASS  245.1 mL  job 3.06 s (upload 0.12, board 2.89: decode 1.35 coarse 1.59 fine 0.54 lcc 0.11)  stream 1.76 s + PC post 0.71 s  PL up 76/76  
+      old path (PC prep 0.26 + stream 1.76 + PC post 0.71) = 2.73 s  vs  job (final mask only) 2.60 s
+  ct spleen_25  nz  87 dz 2.5 o 2  PASS  98.7 mL  job 4.68 s (upload 0.23, board 4.39: decode 2.12 coarse 2.51 fine 0.77 lcc 0.18)  stream 2.71 s + PC post 0.71 s  PL up 117/117  
+      old path (PC prep 0.47 + stream 2.71 + PC post 0.71) = 3.89 s  vs  job (final mask only) 4.03 s
+  ct spleen_10  nz  55 dz 5.0 o 1  PASS  245.1 mL  job 2.74 s (upload 0.12, board 2.57: decode 1.22 coarse 1.30 fine 0.51 lcc 0.11)  stream 0.00 s + PC post 0.35 s  PL up 0/76  PS-upsample
+JOBS_BOARD_PASS -> E:\PLD\tcp_image\tcp_image_ui\board_check_v5\jobs_acceptance.json

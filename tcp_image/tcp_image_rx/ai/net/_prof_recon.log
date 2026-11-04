@@ -1,0 +1,110 @@
+### SSH OK -> 192.168.1.254
+
+===== 0) 板子现状 =====
+--- uname/uptime ---
+Linux EdgeBoard 4.14.0-xilinx-v2018.3 #5 SMP Thu Apr 1 14:52:47 UTC 2021 aarch64 aarch64 aarch64 GNU/Linux
+ 20:40:41 up 47 min,  0 users,  load average: 1.00, 1.00, 1.00
+--- fpga_manager ---
+operating
+--- PL 指纹 (0xA0000010 应为 0x494D5003) ---
+img_proc VERSION = 0x494D5003
+conv ctrl  0xA0010000 = 0x00000004
+elt  ctrl  0xA0020000 = 0x00000004
+BRAM  0xB0000000 = 0x000EFFE4
+--- service ---
+active
+enabled
+WorkingDirectory=/root/Tcp_Image_Rx
+ExecStart=/root/Tcp_Image_Rx/tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+--- plbram ---
+active
+crw-rw-rw- 1 root root 10, 58 Aug 31 19:53 /dev/plbram
+plbram                 16384  1
+--- 开机自启单元 ---
+ai-sys-bitstream.service
+plbram.service
+tcp-image-server.service
+--- dma 引擎 ---
+dma0chan0
+dma0chan1
+dma0chan2
+dma0chan3
+dma0chan4
+dma0chan5
+dma10chan0
+dma11chan0
+dma12chan0
+dma13chan0
+dma14chan0
+dma15chan0
+dma16chan0
+dma1chan0
+dma2chan0
+dma3chan0
+dma4chan0
+dma5chan0
+dma6chan0
+dma7chan0
+dma8chan0
+dma9chan0
+count=22
+DRIVER=xilinx-dpdma
+OF_NAME=dma
+OF_FULLNAME=/amba/dma@fd4c0000
+OF_COMPATIBLE_0=xlnx,dpdma
+OF_COMPATIBLE_N=1
+MODALIAS=of:NdmaT<NULL>Cxlnx,dpdma
+--- dmesg dma ---
+[    2.815514] xilinx-psgtr fd400000.zynqmp_phy: Lane:3 type:8 protocol:4 pll_locked:yes
+[    2.838159] zynqmp_clk_divider_set_rate() set divider failed for pl0_ref_div1, ret = -13
+[    2.849055] xilinx-dp-snd-codec fd4a0000.zynqmp-display:zynqmp_dp_snd_codec0: Xilinx DisplayPort Sound Codec probed
+[    2.859729] xilinx-dp-snd-pcm zynqmp_dp_snd_pcm0: Xilinx DisplayPort Sound PCM probed
+[    2.867772] xilinx-dp-snd-pcm zynqmp_dp_snd_pcm1: Xilinx DisplayPort Sound PCM probed
+[    2.876134] xilinx-dp-snd-card fd4a0000.zynqmp-display:zynqmp_dp_snd_card: xilinx-dp-snd-codec-dai <-> xilinx-dp-snd-codec-dai mapping ok
+[    2.888570] xilinx-dp-snd-card fd4a0000.zynqmp-display:zynqmp_dp_snd_card: xilinx-dp-snd-codec-dai <-> xilinx-dp-snd-codec-dai mapping ok
+[    2.901284] xilinx-dp-snd-card fd4a0000.zynqmp-display:zynqmp_dp_snd_card: Xilinx DisplayPort Sound Card probed
+[    2.911454] OF: graph: no port node found in /amba/zynqmp-display@fd4a0000
+[    2.931063] xlnx-drm xlnx-drm.0: bound fd4a0000.zynqmp-display (ops 0xffffff8008b89268)
+[    5.768198] zynqmp-display fd4a0000.zynqmp-display: fb0:  frame buffer device
+[    5.775549] [drm] Initialized xlnx 1.0.0 20130509 for fd4a0000.zynqmp-display on minor 0
+[    5.783662] zynqmp-display fd4a0000.zynqmp-display: ZynqMP DisplayPort Subsystem driver probed
+[    5.935630] rtc_zynqmp ffa60000.rtc: setting system clock to 1970-01-10 20:52:08 UTC (852728)
+[   14.126312] fpga_manager fpga0: writing ai_sys.bin to Xilinx ZynqMP FPGA Manager
+--- 时钟 ---
+                   dp_video_ref_mux           1            1   973289988          0 0  
+                      dp_video_ref_div1           1            1   324429996          0 0  
+                         dp_video_ref_div2           1            1   324429996          0 0  
+                            dp_video_ref           1            1   324429996          0 0  
+                   pl0_ref_mux            0            0   811007936          0 0  
+                      pl0_ref_div1           0            0   101375992          0 0  
+                         pl0_ref_div2           0            0   101375992          0 0  
+                            pl0_ref           0            0   101375992          0 0  
+                   pl1_ref_mux            0            0  1499999985          0 0  
+                      pl1_ref_div1           0            0    46875000          0 0  
+--- PL 业务程序 ---
+-rw-r--r-- 1 root root  3662 Aug 31  2021 /root/Tcp_Image_Rx/manual.log
+-rwxr-xr-x 1 root root 92520 Sep  1  2021 /root/Tcp_Image_Rx/tcp_image_server
+
+===== 1) 访存天花板微基准 =====
+BUILD_OK
+== A) /dev/mem (Device 强序) ==
+  seq 1 stream                  51863 us |   395.7 ns/16B |    40.44 MB/s | chk=0
+  interleave 2                  51722 us |   394.6 ns/16B |    40.55 MB/s | chk=0
+  interleave 4                  51705 us |   394.5 ns/16B |    40.56 MB/s | chk=0
+  interleave 8                  51693 us |   394.4 ns/16B |    40.57 MB/s | chk=0
+  write (16B store)             54411 us |   415.1 ns/16B |    38.54 MB/s | chk=0
+  memcpy BRAM->heap             25918 us |   197.7 ns/16B |    80.91 MB/s | chk=1
+== B) /dev/plbram (Normal-NC 写合并) ==
+  seq 1 stream                  51925 us |   396.2 ns/16B |    40.39 MB/s | chk=0
+  interleave 2                  51701 us |   394.4 ns/16B |    40.56 MB/s | chk=0
+  interleave 4                  51708 us |   394.5 ns/16B |    40.56 MB/s | chk=0
+  interleave 8                  51690 us |   394.4 ns/16B |    40.57 MB/s | chk=0
+  write (16B store)              1946 us |    14.8 ns/16B |  1077.67 MB/s | chk=0
+  memcpy BRAM->heap             25922 us |   197.8 ns/16B |    80.90 MB/s | chk=1
+== C) 参考: 普通可缓存堆内存 ==
+  seq 1 stream                    753 us |     5.7 ns/16B |  2785.06 MB/s | chk=0
+  interleave 4                    819 us |     6.2 ns/16B |  2560.63 MB/s | chk=0
+RC=0
+
+RECON_DONE
+EXIT=0 

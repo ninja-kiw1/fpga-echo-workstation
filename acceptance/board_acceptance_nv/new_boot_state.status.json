@@ -1,0 +1,6 @@
+{
+  "label": "new_boot_state",
+  "pc_utc": "2026-11-03T13:36:15.374182+00:00",
+  "exitcode": 0,
+  "command": "set -eu; sha256sum /lib/firmware/ai_sys.bin /root/tcp_image_rx/tcp_image_server; cat /sys/class/fpga_manager/fpga0/state; systemctl is-active tcp-image-server plbram plbdma; journalctl -u ai-sys-bitstream -b --no-pager; journalctl -u tcp-image-server -b --no-pager | grep -E \"axil|vis|pp\\]\" ; grep -E \"pl0_ref \" /sys/kernel/debug/clk/clk_summary; ss -ltnp"
+}

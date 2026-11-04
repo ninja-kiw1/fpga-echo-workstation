@@ -1,0 +1,230 @@
+
+
+================================================================
+== Vitis HLS Report for 'morph_stage_0_s'
+================================================================
+* Date:           Tue Sep 22 20:26:28 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        morphology
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: azynquplus
+* Target device:  xazu3eg-sfvc784-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.337 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+--------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |   Interval   | Pipeline|
+    |   min   |   max   |    min    |    max   | min |   max  |   Type  |
+    +---------+---------+-----------+----------+-----+--------+---------+
+    |        1|   429049|  10.000 ns|  4.290 ms|    1|  429049|       no|
+    +---------+---------+-----------+----------+-----+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------+-------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |                                          |                               |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+        |                 Instance                 |             Module            |   min   |   max   |    min    |    max   | min | max |   Type  |
+        +------------------------------------------+-------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |grp_morph_stage_0_Pipeline_COLUMN_fu_172  |morph_stage_0_Pipeline_COLUMN  |        5|      704|  50.000 ns|  7.040 us|    5|  704|       no|
+        +------------------------------------------+-------------------------------+---------+---------+-----------+----------+-----+-----+---------+
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+---------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- ROW     |        4|   429048|   2 ~ 708|          -|          -|  2 ~ 606|        no|
+        +----------+---------+---------+----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    384|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|      73|    453|    -|
+|Memory           |        2|    -|       0|      0|    -|
+|Multiplexer      |        -|    -|       -|    139|    -|
+|Register         |        -|    -|     217|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        2|    0|     290|    976|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      432|  360|  141120|  70560|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |       ~0|    0|      ~0|      1|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------+-------------------------------+---------+----+----+-----+-----+
+    |                 Instance                 |             Module            | BRAM_18K| DSP| FF | LUT | URAM|
+    +------------------------------------------+-------------------------------+---------+----+----+-----+-----+
+    |grp_morph_stage_0_Pipeline_COLUMN_fu_172  |morph_stage_0_Pipeline_COLUMN  |        0|   0|  73|  453|    0|
+    +------------------------------------------+-------------------------------+---------+----+----+-----+-----+
+    |Total                                     |                               |        0|   0|  73|  453|    0|
+    +------------------------------------------+-------------------------------+---------+----+----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +------------+-------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |   Memory   |                   Module                  | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +------------+-------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |previous_U  |morph_stage_0_s_previous_RAM_2P_BRAM_1R1W  |        1|  0|   0|    0|   700|    1|     1|          700|
+    |older_U     |morph_stage_0_s_previous_RAM_2P_BRAM_1R1W  |        1|  0|   0|    0|   700|    1|     1|          700|
+    +------------+-------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total       |                                           |        2|  0|   0|    0|  1400|    2|     2|         1400|
+    +------------+-------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |add_ln45_3_fu_230_p2   |         +|   0|  0|  39|          32|           1|
+    |add_ln45_fu_224_p2     |         +|   0|  0|  39|          32|           1|
+    |y_4_fu_278_p2          |         +|   0|  0|  39|          32|           1|
+    |cmp34_fu_284_p2        |      icmp|   0|  0|  39|          32|          32|
+    |cmp36_fu_289_p2        |      icmp|   0|  0|  39|          32|           1|
+    |cmp95_fu_311_p2        |      icmp|   0|  0|  39|          32|           1|
+    |icmp_fu_305_p2         |      icmp|   0|  0|  38|          31|           1|
+    |icmp_ln45_fu_273_p2    |      icmp|   0|  0|  39|          32|          32|
+    |icmp_ln48_fu_236_p2    |      icmp|   0|  0|  39|          32|           1|
+    |ap_block_state1        |        or|   0|  0|   2|           1|           1|
+    |select_ln48_fu_242_p3  |    select|   0|  0|  32|           1|          32|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |Total                  |          |   0|  0| 384|         289|         104|
+    +-----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+----+-----------+-----+-----------+
+    |      Name      | LUT| Input Size| Bits| Total Bits|
+    +----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm       |  31|          6|    1|          6|
+    |ap_done         |   9|          2|    1|          2|
+    |bottom_fu_134   |   9|          2|    1|          2|
+    |dilate_blk_n    |   9|          2|    1|          2|
+    |first_write     |   9|          2|    1|          2|
+    |height_blk_n    |   9|          2|    1|          2|
+    |height_c_blk_n  |   9|          2|    1|          2|
+    |middle_fu_130   |   9|          2|    1|          2|
+    |raw_read        |   9|          2|    1|          2|
+    |top_fu_102      |   9|          2|    1|          2|
+    |width_blk_n     |   9|          2|    1|          2|
+    |width_c_blk_n   |   9|          2|    1|          2|
+    |y_fu_98         |   9|          2|   32|         64|
+    +----------------+----+-----------+-----+-----------+
+    |Total           | 139|         30|   44|         92|
+    +----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------------------+----+----+-----+-----------+
+    |                          Name                         | FF | LUT| Bits| Const Bits|
+    +-------------------------------------------------------+----+----+-----+-----------+
+    |add_ln45_3_reg_498                                     |  32|   0|   32|          0|
+    |ap_CS_fsm                                              |   5|   0|    5|          0|
+    |ap_done_reg                                            |   1|   0|    1|          0|
+    |bottom_fu_134                                          |   1|   0|    1|          0|
+    |cmp34_reg_516                                          |   1|   0|    1|          0|
+    |cmp36_reg_521                                          |   1|   0|    1|          0|
+    |cmp95_reg_531                                          |   1|   0|    1|          0|
+    |dilate_read_reg_411                                    |   1|   0|    1|          0|
+    |grp_morph_stage_0_Pipeline_COLUMN_fu_172_ap_start_reg  |   1|   0|    1|          0|
+    |height_read_reg_416                                    |  32|   0|   32|          0|
+    |icmp_reg_526                                           |   1|   0|    1|          0|
+    |middle_fu_130                                          |   1|   0|    1|          0|
+    |p_0_0_0_lcssa66_fu_118                                 |   1|   0|    1|          0|
+    |p_lcssa4269_fu_122                                     |   1|   0|    1|          0|
+    |p_lcssa4351_fu_106                                     |   1|   0|    1|          0|
+    |p_lcssa4351_load_reg_536                               |   1|   0|    1|          0|
+    |p_lcssa4556_fu_110                                     |   1|   0|    1|          0|
+    |p_lcssa4556_load_reg_541                               |   1|   0|    1|          0|
+    |p_lcssa4761_fu_114                                     |   1|   0|    1|          0|
+    |p_lcssa4761_load_reg_546                               |   1|   0|    1|          0|
+    |p_lcssa72_fu_126                                       |   1|   0|    1|          0|
+    |select_ln48_reg_503                                    |  32|   0|   32|          0|
+    |tmp_3_reg_489                                          |   1|   0|    1|          0|
+    |tmp_reg_421                                            |   1|   0|    1|          0|
+    |top_fu_102                                             |   1|   0|    1|          0|
+    |trunc_ln45_reg_493                                     |  31|   0|   31|          0|
+    |y_4_reg_511                                            |  32|   0|   32|          0|
+    |y_fu_98                                                |  32|   0|   32|          0|
+    +-------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                  | 217|   0|  217|          0|
+    +-------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+------------+----------------+--------------+
+|        RTL Ports        | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++-------------------------+-----+-----+------------+----------------+--------------+
+|ap_clk                   |   in|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|ap_rst                   |   in|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|ap_start                 |   in|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|ap_done                  |  out|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|ap_continue              |   in|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|ap_idle                  |  out|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|ap_ready                 |  out|    1|  ap_ctrl_hs|  morph_stage<0>|  return value|
+|raw_dout                 |   in|    8|     ap_fifo|             raw|       pointer|
+|raw_num_data_valid       |   in|    7|     ap_fifo|             raw|       pointer|
+|raw_fifo_cap             |   in|    7|     ap_fifo|             raw|       pointer|
+|raw_empty_n              |   in|    1|     ap_fifo|             raw|       pointer|
+|raw_read                 |  out|    1|     ap_fifo|             raw|       pointer|
+|first_din                |  out|    8|     ap_fifo|           first|       pointer|
+|first_num_data_valid     |   in|    7|     ap_fifo|           first|       pointer|
+|first_fifo_cap           |   in|    7|     ap_fifo|           first|       pointer|
+|first_full_n             |   in|    1|     ap_fifo|           first|       pointer|
+|first_write              |  out|    1|     ap_fifo|           first|       pointer|
+|width_dout               |   in|   32|     ap_fifo|           width|       pointer|
+|width_num_data_valid     |   in|    3|     ap_fifo|           width|       pointer|
+|width_fifo_cap           |   in|    3|     ap_fifo|           width|       pointer|
+|width_empty_n            |   in|    1|     ap_fifo|           width|       pointer|
+|width_read               |  out|    1|     ap_fifo|           width|       pointer|
+|height_dout              |   in|   32|     ap_fifo|          height|       pointer|
+|height_num_data_valid    |   in|    3|     ap_fifo|          height|       pointer|
+|height_fifo_cap          |   in|    3|     ap_fifo|          height|       pointer|
+|height_empty_n           |   in|    1|     ap_fifo|          height|       pointer|
+|height_read              |  out|    1|     ap_fifo|          height|       pointer|
+|dilate_dout              |   in|    1|     ap_fifo|          dilate|       pointer|
+|dilate_num_data_valid    |   in|    3|     ap_fifo|          dilate|       pointer|
+|dilate_fifo_cap          |   in|    3|     ap_fifo|          dilate|       pointer|
+|dilate_empty_n           |   in|    1|     ap_fifo|          dilate|       pointer|
+|dilate_read              |  out|    1|     ap_fifo|          dilate|       pointer|
+|width_c_din              |  out|   32|     ap_fifo|         width_c|       pointer|
+|width_c_num_data_valid   |   in|    2|     ap_fifo|         width_c|       pointer|
+|width_c_fifo_cap         |   in|    2|     ap_fifo|         width_c|       pointer|
+|width_c_full_n           |   in|    1|     ap_fifo|         width_c|       pointer|
+|width_c_write            |  out|    1|     ap_fifo|         width_c|       pointer|
+|height_c_din             |  out|   32|     ap_fifo|        height_c|       pointer|
+|height_c_num_data_valid  |   in|    2|     ap_fifo|        height_c|       pointer|
+|height_c_fifo_cap        |   in|    2|     ap_fifo|        height_c|       pointer|
+|height_c_full_n          |   in|    1|     ap_fifo|        height_c|       pointer|
+|height_c_write           |  out|    1|     ap_fifo|        height_c|       pointer|
++-------------------------+-----+-----+------------+----------------+--------------+
+

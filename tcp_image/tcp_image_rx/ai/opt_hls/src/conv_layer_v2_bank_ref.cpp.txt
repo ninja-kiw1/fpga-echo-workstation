@@ -1,0 +1,303 @@
+// conv_layer.cpp —— 并行化版本（XU = 每周期并行处理几个输出列）
+//
+// 与原版（PLD deployment/unet_conv/src/conv_layer.cpp）的功能完全等价：
+//   * 同样的接口、同样的寄存器映射、同样的内存布局（128bit 字 = 8 个 int16 lane）
+//   * 同样的整数语义（累加是 mod 2^32 的加法 -> 结合律成立，重排累加顺序**逐位等价**）
+//   * 同样的 requantize（乘 M、加 offset、round-to-nearest-even、clamp）
+//
+// 唯一区别是**吞吐**：原版 COMPUTE 循环 II=1、每周期 64 个 MAC
+// （8 个输出通道 lane × 8 个输入通道 lane），已经榨干流水线；
+// 想再快只能"每周期多做活"。这里选了**最省资源的那一维**：
+//
+//   XU 个输出列并行 —— XU 个像素**共享同一组权重**，
+//   所以那个又大又贵的权重选择 mux（wbuf 被 144 路索引）不增加，
+//   只需要：输入行缓冲在 x 方向分 XU 个 bank（拿到 XU 个读口）、
+//   输出行缓冲在 x 方向分 XU 个 bank（拿到 XU 个写口）。
+//
+// 实测数据（2026-10-06，整网 512）：2256 MMAC / 532.7 ms，平均 41.8 MAC/周期，
+// 其中 3x3 卷积占 78.4% 时间，是这个算子优化的**唯一大头**。
+//
+// XU 的可选值与代价（xazu3eg：70560 LUT / 141120 FF / 360 DSP / 216 RAMB36）：
+//   XU=1  64 MAC/周期   原版
+//   XU=2 128 MAC/周期   +64 DSP（MAC） + 一份 requantize（~32 DSP）  -> 建议
+//   XU=4 256 MAC/周期   再加 128 DSP，总线会超 360 -> 除非把 MAC 改用 LUT 实现
+#ifndef XU
+#define XU 2
+#endif
+
+#include "conv_layer.hpp"
+
+typedef ap_int<16> act_t;
+typedef ap_int<8> wgt_t;
+typedef ap_int<32> acc_t;
+
+// 输入行缓冲 x 方向的 padding：读地址恒用 (ix+1)，左右各留几列保证永远在界内
+// （地址干净、不含 mux，HLS 才能证明两个并行读落在不同 bank）。RW 要能被 1/2/4 整除。
+static const int RPAD = 4;
+static const int RW   = MAX_W + RPAD;
+
+static act_t requantize(acc_t acc, bool relu, ap_int<32> mult, ap_int<64> offset,
+                        ap_uint<5> shift, int qmin, int qmax) {
+#pragma HLS INLINE
+    acc_t a = (relu && acc < 0) ? acc_t(0) : acc;
+    ap_int<64> product = a * mult;
+    ap_int<65> v = ap_int<65>(product) + offset;
+    bool negative = v < 0;
+    ap_uint<65> magnitude = negative ? ap_uint<65>(-v) : ap_uint<65>(v);
+    ap_uint<65> quotient = magnitude >> shift;
+    ap_uint<65> remainder = magnitude & ((ap_uint<65>(1) << shift) - 1);
+    ap_uint<65> half = (ap_uint<65>(1) << shift) >> 1;
+    // shift == 0 has no fractional part; ties go to the even quotient.
+    bool round_up = shift != 0 && (remainder > half || (remainder == half && quotient[0] == 1));
+    ap_int<67> rounded = ap_int<67>(quotient) + (round_up ? 1 : 0);
+    if (negative) rounded = -rounded;
+    if (rounded < qmin) rounded = qmin;
+    if (rounded > qmax) rounded = qmax;
+    return act_t(rounded);
+}
+
+int conv_layer(const act_word_t* in, act_word_t* out, const param_word_t* params,
+               int mode, int cin, int cout, int in_h, int in_w,
+               int relu, int shift, int qmin, int qmax) {
+#pragma HLS INTERFACE m_axi port=in offset=slave bundle=gmem_in depth=65536 max_read_burst_length=64
+#pragma HLS INTERFACE m_axi port=out offset=slave bundle=gmem_out depth=131072 max_write_burst_length=64
+#pragma HLS INTERFACE m_axi port=params offset=slave bundle=gmem_par depth=2048
+#pragma HLS INTERFACE s_axilite port=in bundle=control
+#pragma HLS INTERFACE s_axilite port=out bundle=control
+#pragma HLS INTERFACE s_axilite port=params bundle=control
+#pragma HLS INTERFACE s_axilite port=mode bundle=control
+#pragma HLS INTERFACE s_axilite port=cin bundle=control
+#pragma HLS INTERFACE s_axilite port=cout bundle=control
+#pragma HLS INTERFACE s_axilite port=in_h bundle=control
+#pragma HLS INTERFACE s_axilite port=in_w bundle=control
+#pragma HLS INTERFACE s_axilite port=relu bundle=control
+#pragma HLS INTERFACE s_axilite port=shift bundle=control
+#pragma HLS INTERFACE s_axilite port=qmin bundle=control
+#pragma HLS INTERFACE s_axilite port=qmax bundle=control
+#pragma HLS INTERFACE s_axilite port=return bundle=control
+
+    if (mode < MODE_CONV3 || mode > MODE_TCONV2 || cin < 1 || cin > MAX_C ||
+        cout < 1 || cout > MAX_C || in_h < 1 || in_w < 1 || (relu != 0 && relu != 1) ||
+        shift < 0 || shift > MAX_SHIFT || qmin < -32768 || qmax > 32767 || qmin > qmax)
+        return CONV_BAD_CONFIG;
+    const bool transposed = mode == MODE_TCONV2;
+    if (in_h > (transposed ? MAX_H / 2 : MAX_H) || in_w > (transposed ? MAX_W / 2 : MAX_W))
+        return CONV_BAD_CONFIG;
+
+    const int cig = (cin + LANES - 1) / LANES;
+    const int cog = (cout + LANES - 1) / LANES;
+    const int kk = mode == MODE_CONV3 ? 3 : 1;
+    const int taps = mode == MODE_CONV3 ? 9 : (mode == MODE_CONV1 ? 1 : 4);
+    const int out_h = transposed ? 2 * in_h : in_h;
+    const int out_w = transposed ? 2 * in_w : in_w;
+    const ap_uint<5> shift_bits = shift;
+    const bool use_relu = relu != 0;
+
+    // Three rolling input rows (row r lives in slot r % 3), all channels.
+    //
+    // x 方向**显式**分成 XU 个 bank：第 c 列存在 [slot][c % XU][c / XU][g][*]。
+    // 相邻两列必然落在不同 bank -> 一拍拿到 XU 个读口，正好喂给 XU 个并行像素。
+    //
+    // ⚠ 别改成 `ARRAY_PARTITION ... dim=2 factor=XU`：那种"部分维 complete + 另一维 factor"
+    // 的组合会让 HLS 走 reshape 病态展开，实测把设计指令数从 2527 撑到 125867（50 倍），
+    // csynth 卡在调度阶段出不来。把 bank 做进形状里是可控的写法。
+    //
+    // ⚠⚠ 另一个更隐蔽的坑：**读地址里绝对不能有 mux**。
+    // 原来写 `col = valid ? ix : 0; rows[slot][col%XU][col/XU][ig][i]` —— 地址成了运行期
+    // 数据相关量，HLS 就无法证明"两个 u 的读落在不同 bank"，于是退化成复制/寄存器化，
+    // 设计规模同样炸到 12 万条指令。
+    // 现在改成：**地址永远是干净的 (ix+1)（缓冲左右各留 RPAD 列 padding，恒在界内），
+    // 只对读回来的数据做 valid 的 mux**。这样 bank 索引 = (ix+1)%XU，HLS 能证明 u=0/1 不同 bank。
+    static act_t rows[3][XU][RW / XU][MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=rows complete dim=1
+#pragma HLS ARRAY_PARTITION variable=rows complete dim=2
+#pragma HLS ARRAY_PARTITION variable=rows complete dim=5
+    // 输出行：同样把 x 分成 XU 个 bank，一拍写 XU 个相邻列（每个写到自己的 bank）。
+    static act_t orow[XU][MAX_W / XU][MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=orow complete dim=1
+#pragma HLS ARRAY_PARTITION variable=orow complete dim=4
+    static wgt_t wbuf[MAX_TAPS][MAX_G][MAX_G][LANES][LANES];
+#pragma HLS ARRAY_PARTITION variable=wbuf complete dim=4
+#pragma HLS ARRAY_PARTITION variable=wbuf complete dim=5
+    static acc_t bias_buf[MAX_G][LANES];
+    static ap_int<32> mult_buf[MAX_G][LANES];
+    static ap_int<64> offset_buf[MAX_G][LANES];
+#pragma HLS ARRAY_PARTITION variable=bias_buf complete dim=2
+#pragma HLS ARRAY_PARTITION variable=mult_buf complete dim=2
+#pragma HLS ARRAY_PARTITION variable=offset_buf complete dim=2
+
+    // Weights: word order (tap, og, ig, o), input lanes packed in each word.
+    const int weight_words = taps * cog * cig * LANES;
+    {
+        int t = 0, og = 0, ig = 0, o = 0;
+PARAM_WEIGHTS:
+        for (int n = 0; n < weight_words; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=8 max=1152
+#pragma HLS PIPELINE II=1
+            param_word_t word = params[n];
+            for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                wbuf[t][og][ig][o][i].range(7, 0) = word.range(8 * i + 7, 8 * i);
+            }
+            if (++o == LANES) {
+                o = 0;
+                if (++ig == cig) {
+                    ig = 0;
+                    if (++og == cog) { og = 0; ++t; }
+                }
+            }
+        }
+    }
+    const int cop = cog * LANES;
+PARAM_CHANNELS:
+    for (int c = 0; c < cop; ++c) {
+#pragma HLS LOOP_TRIPCOUNT min=8 max=32
+#pragma HLS PIPELINE
+        ap_int<64> b = params[weight_words + c];
+        ap_int<64> m = params[weight_words + cop + c];
+        ap_int<64> f = params[weight_words + 2 * cop + c];
+        bias_buf[c / LANES][c % LANES] = acc_t(b);
+        mult_buf[c / LANES][c % LANES] = ap_int<32>(m);
+        offset_buf[c / LANES][c % LANES] = ap_int<64>(f);
+    }
+
+    int loaded = 0;
+ROWS:
+    for (int y = 0; y < out_h; ++y) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=512
+        // Input rows needed by output row y: base_row .. base_row + kk - 1.
+        const int base_row = mode == MODE_CONV3 ? y - 1 : (transposed ? y >> 1 : y);
+        int need = base_row + kk - 1;
+        if (need > in_h - 1) need = in_h - 1;
+LOAD_ROWS:
+        for (; loaded <= need; ++loaded) {
+#pragma HLS LOOP_TRIPCOUNT min=0 max=2
+            const int slot = loaded % 3;
+            const act_word_t* src = in + loaded * in_w * cig;
+            int px = 0, g = 0;
+LOAD:
+            for (int n = 0; n < in_w * cig; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2048
+#pragma HLS PIPELINE II=1
+                act_word_t word = src[n];
+                for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                    const int a = px + 1;                  // 第 px 列存在下标 px+1
+                    rows[slot][a % XU][a / XU][g][i].range(15, 0) = word.range(16 * i + 15, 16 * i);
+                }
+                if (++g == cig) { g = 0; ++px; }
+            }
+        }
+
+        const int slot0 = (base_row + 3) % 3;
+        const int slot1 = (base_row + 4) % 3;
+        const int slot2 = (base_row + 5) % 3;
+        const int work = cog * kk * kk * cig;   // 每个输出列要做多少次"MAC 组"
+
+        // 输出列按 XU 分组：一组里的 XU 个像素同时算。
+        // 注意 XU=1 时下面的循环结构退化回原版的等价形式。
+        for (int x0 = 0; x0 < out_w; x0 += XU) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=512
+            // XU 组各自的累加器（互相独立 -> 可以真正并行）
+            acc_t acc[XU][LANES];
+#pragma HLS ARRAY_PARTITION variable=acc complete
+            int cg = 0, ky = 0, kx = 0, ig = 0;
+COMPUTE:
+            for (int n = 0; n < work; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=144   // cog(<=4) x kk^2(<=9) x cig(<=4)
+#pragma HLS PIPELINE II=1
+                const int iy = base_row + ky;
+                const bool row_ok = (iy >= 0) && (iy < in_h);
+                int base_ix, tap;
+
+                if (mode == MODE_CONV3) { base_ix = x0 + kx - 1; tap = ky * 3 + kx; }
+                else if (mode == MODE_CONV1) { base_ix = x0;          tap = 0; }
+                else { base_ix = x0 >> 1; tap = (y & 1) << 1; }
+                const int slot = ky == 0 ? slot0 : (ky == 1 ? slot1 : slot2);
+
+                // 取 XU 个像素。**地址恒为 (列下标+1)、和 valid 无关** —— 这样 bank 索引干净、
+                // HLS 能证明 u=0/1 落在不同 bank；越界只影响读回来的数据（mux 成 0）。
+                // 转置模式两个输出列对应同一输入列 -> 只读一次、两个像素共用。
+                act_t pixel[XU][LANES];
+#pragma HLS ARRAY_PARTITION variable=pixel complete
+                if (mode == MODE_TCONV2) {
+                    const int  ix = x0 >> 1;
+                    const bool v  = row_ok && (ix >= 0) && (ix < in_w);
+                    const int  a  = ix + 1;
+                    for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                        act_t p = rows[slot][a % XU][a / XU][ig][i];
+                        if (!v) p = act_t(0);
+                        for (int u = 0; u < XU; ++u) {
+#pragma HLS UNROLL
+                            pixel[u][i] = p;
+                        }
+                    }
+                } else {
+                    for (int u = 0; u < XU; ++u) {
+#pragma HLS UNROLL
+                        const int  ix = base_ix + u;      // 相邻列 -> 相邻 bank
+                        const bool v  = row_ok && (ix >= 0) && (ix < in_w);
+                        const int  a  = ix + 1;
+                        for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                            act_t p = rows[slot][a % XU][a / XU][ig][i];
+                            pixel[u][i] = v ? p : act_t(0);
+                        }
+                    }
+                }
+
+                const bool first = ky == 0 && kx == 0 && ig == 0;
+                const bool last = ky == kk - 1 && kx == kk - 1 && ig == cig - 1;
+                for (int o = 0; o < LANES; ++o) {
+#pragma HLS UNROLL
+                    for (int u = 0; u < XU; ++u) {
+#pragma HLS UNROLL
+                        // 转置模式 tap = (y&1)*2 + (x&1)，x 的奇偶就是 u 的奇偶（x0 为偶）
+                        const int tu = tap + ((mode == MODE_TCONV2) ? (u & 1) : 0);
+                        ap_int<28> dot = 0;
+                        for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                            // XU 个像素共享同一组权重（wbuf 的 144 路 mux 不增加）
+                            dot += pixel[u][i] * wbuf[tu][cg][ig][o][i];
+                        }
+                        const acc_t sum = (first ? bias_buf[cg][o] : acc[u][o]) + dot;
+                        acc[u][o] = sum;
+                        if (last && (x0 + u) < out_w) {
+                            // (x0+u) % XU == u（x0 是 XU 的整数倍）-> XU 个列写进 XU 个 bank
+                            orow[u][x0 / XU][cg][o] = requantize(sum, use_relu, mult_buf[cg][o],
+                                                                 offset_buf[cg][o], shift_bits,
+                                                                 qmin, qmax);
+                        }
+                    }
+                }
+                if (++ig == cig) {
+                    ig = 0;
+                    if (++kx == kk) {
+                        kx = 0;
+                        if (++ky == kk) {
+                            ky = 0;
+                            ++cg;
+                        }
+                    }
+                }
+            }
+        }
+
+        act_word_t* dst = out + y * out_w * cog;
+        int px = 0, g = 0;
+STORE:
+        for (int n = 0; n < out_w * cog; ++n) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2048
+#pragma HLS PIPELINE II=1
+            act_word_t word;
+            for (int i = 0; i < LANES; ++i) {
+#pragma HLS UNROLL
+                word.range(16 * i + 15, 16 * i) = orow[px % XU][px / XU][g][i].range(15, 0);
+            }
+            dst[n] = word;
+            if (++g == cog) { g = 0; ++px; }
+        }
+    }
+    return CONV_OK;
+}

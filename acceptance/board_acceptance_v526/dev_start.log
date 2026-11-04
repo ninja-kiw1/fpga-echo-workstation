@@ -1,0 +1,95 @@
+== 2026-11-02 07:06:52
+release /root/tcp_image_rx/releases/v5_20261102T150444Z expected 115452c60c0a12cdc44687d581aaabdcfedf90f01ebd7e0f55638ef633bd3de4
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+115452c60c0a12cdc44687d581aaabdcfedf90f01ebd7e0f55638ef633bd3de4  tcp_image_server
+PORT_OPEN
+4351 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T150444Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+4356 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+115452c60c0a12cdc44687d581aaabdcfedf90f01ebd7e0f55638ef633bd3de4  /proc/4356/exe
+
+DEV_START_PASS
+== 2026-11-02 07:12:38
+release /root/tcp_image_rx/releases/v5_20261102T151156Z expected 3ac85429ebff847855134c3797151e43e49b3c9e87c0d630c9f54f75b755d108
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+3ac85429ebff847855134c3797151e43e49b3c9e87c0d630c9f54f75b755d108  tcp_image_server
+PORT_OPEN
+4657 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T151156Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+4663 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+3ac85429ebff847855134c3797151e43e49b3c9e87c0d630c9f54f75b755d108  /proc/4663/exe
+
+DEV_START_PASS
+== 2026-11-02 07:18:20
+release /root/tcp_image_rx/releases/v5_20261102T151734Z expected 3ac85429ebff847855134c3797151e43e49b3c9e87c0d630c9f54f75b755d108
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+3ac85429ebff847855134c3797151e43e49b3c9e87c0d630c9f54f75b755d108  tcp_image_server
+PORT_OPEN
+4960 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T151734Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+4966 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+3ac85429ebff847855134c3797151e43e49b3c9e87c0d630c9f54f75b755d108  /proc/4966/exe
+
+DEV_START_PASS
+== 2026-11-02 07:25:41
+release /root/tcp_image_rx/releases/v5_20261102T152505Z expected b8e766a09a3ba64692c74dad213303219a1e48074f1387731c89837b5a8016a4
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+b8e766a09a3ba64692c74dad213303219a1e48074f1387731c89837b5a8016a4  tcp_image_server
+PORT_OPEN
+5459 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T152505Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+5465 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+b8e766a09a3ba64692c74dad213303219a1e48074f1387731c89837b5a8016a4  /proc/5465/exe
+
+DEV_START_PASS
+== 2026-11-02 07:40:21
+release /root/tcp_image_rx/releases/v5_20261102T153944Z expected c88bac6fbcad2e4010d7920c7d7e825d92153791f42385fe9f16365c2e63678f
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+c88bac6fbcad2e4010d7920c7d7e825d92153791f42385fe9f16365c2e63678f  tcp_image_server
+PORT_OPEN
+5774 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T153944Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+5779 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+c88bac6fbcad2e4010d7920c7d7e825d92153791f42385fe9f16365c2e63678f  /proc/5779/exe
+
+DEV_START_PASS
+== 2026-11-02 08:12:54
+release /root/tcp_image_rx/releases/v5_20261102T153944Z expected c88bac6fbcad2e4010d7920c7d7e825d92153791f42385fe9f16365c2e63678f
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+c88bac6fbcad2e4010d7920c7d7e825d92153791f42385fe9f16365c2e63678f  tcp_image_server
+PORT_OPEN
+6333 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T153944Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+6338 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+c88bac6fbcad2e4010d7920c7d7e825d92153791f42385fe9f16365c2e63678f  /proc/6338/exe
+
+DEV_START_PASS
+== 2026-11-02 08:40:58
+release /root/tcp_image_rx/releases/v5_20261102T164020Z expected 2b0bc6a31be3a2fa44cfa869481901e4e868cb734dd0ad474b95ec91e46ff26a
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+2b0bc6a31be3a2fa44cfa869481901e4e868cb734dd0ad474b95ec91e46ff26a  tcp_image_server
+PORT_OPEN
+6824 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261102T164020Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+6830 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+2b0bc6a31be3a2fa44cfa869481901e4e868cb734dd0ad474b95ec91e46ff26a  /proc/6830/exe
+
+DEV_START_PASS
+== 2026-11-02 19:33:20
+release /root/tcp_image_rx/releases/v5_20261103T033243Z expected 9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939
+argv ['/root/tcp_image_rx/tcp_image_server', '-p', '5060', '-a', '0x40000000', '--no-dma', '-x', '0xA0000000', '--echo', '-n', '0']
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939  tcp_image_server
+PORT_OPEN
+4208 bash -c systemctl stop tcp-image-server; sleep 1; cd /root/tcp_image_rx/releases/v5_20261103T033243Z && sha256sum tcp_image_server && (setsid nohup nice -n -20 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 > dev_server.log 2>&1 &) ; for i in $(seq 1 60); do (echo > /dev/tcp/127.0.0.1/5060) 2>/dev/null && echo PORT_OPEN && break; sleep 0.5; done; pgrep -af '[.]/tcp_image_server'; systemctl is-active tcp-image-server; sha256sum /proc/$(pgrep -x tcp_image_serve | head -1)/exe
+4214 ./tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+inactive
+9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939  /proc/4214/exe
+
+DEV_START_PASS

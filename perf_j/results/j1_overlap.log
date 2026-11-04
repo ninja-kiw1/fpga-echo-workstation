@@ -1,0 +1,17 @@
+=== PC_UTC 2026-10-17T04:36:41.290411+00:00
+$ ./gdma_bench overlap 400 103424 141824; ./gdma_bench overlap 400 16384 16384; ./gdma_bench overlap 400 65536 32768
+INFO bounce=2048 KB xfers_so_far=5485 errs=0
+OVERLAP R=103424 W=141824 iters=400  serial_med=185.25 (dma 97.17 + cpu_wr 88.26) p99=201.57  overlapped_med=143.25 p99=152.43  saved=42.00 us/strip
+VERIFY bad_x=0 bad_y=0 of 400 -> OVERLAP_DATA_OK
+JSON {"R":103424,"W":141824,"iters":400,"serial_med":185.252,"dma_med":97.171,"cpuwr_med":88.261,"overlap_med":143.251,"overlap_p99":152.431,"bad_x":0,"bad_y":0}
+INFO bounce=2048 KB xfers_so_far=6285 errs=0
+OVERLAP R=16384 W=16384 iters=400  serial_med=38.82 (dma 27.54 + cpu_wr 11.91) p99=53.37  overlapped_med=35.25 p99=46.11  saved=3.57 us/strip
+VERIFY bad_x=0 bad_y=0 of 400 -> OVERLAP_DATA_OK
+JSON {"R":16384,"W":16384,"iters":400,"serial_med":38.820,"dma_med":27.541,"cpuwr_med":11.911,"overlap_med":35.251,"overlap_p99":46.111,"bad_x":0,"bad_y":0}
+INFO bounce=2048 KB xfers_so_far=7085 errs=0
+OVERLAP R=65536 W=32768 iters=400  serial_med=88.14 (dma 66.93 + cpu_wr 21.36) p99=98.43  overlapped_med=82.62 p99=101.49  saved=5.52 us/strip
+VERIFY bad_x=0 bad_y=0 of 400 -> OVERLAP_DATA_OK
+JSON {"R":65536,"W":32768,"iters":400,"serial_med":88.141,"dma_med":66.930,"cpuwr_med":21.361,"overlap_med":82.621,"overlap_p99":101.491,"bad_x":0,"bad_y":0}
+
+exit=0
+restore: active

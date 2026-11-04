@@ -1,0 +1,19 @@
+=== PC_UTC 2026-10-17T04:38:12.200958+00:00
+$ T=/root/r2_acceptance/tools; for f in unet_ai.h unet_models.c unet_models.h unet_net_data.c unet_net.h; do cp $T/$f .; done; for f in fundus512 skin128 echo128 fundus32; do ln -sf $T/$f.rgb .; ln -sf $T/$f.i8 .; done; gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -pthread -I. unet_ai.c unet_net_data.c unet_models.c strict_net_test.c -o strict_net_test_base && gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -pthread -I. unet_ai_j1.c unet_net_data.c unet_models.c strict_net_test.c -o strict_net_test_j1 2>&1 | grep -E 'error|warning' ; ls -la strict_net_test_*; sha256sum unet_ai.c | cut -c1-16
+gcc: error: unet_ai.c: No such file or directory
+ls: cannot access 'strict_net_test_*': No such file or directory
+sha256sum: unet_ai.c: No such file or directory
+
+exit=0
+=== PC_UTC 2026-10-17T04:38:17.435969+00:00
+$ T=/root/r2_acceptance/tools; cp $T/unet_ai.c .; sha256sum unet_ai.c | cut -c1-16; gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -pthread -I. unet_ai.c unet_net_data.c unet_models.c strict_net_test.c -o strict_net_test_base && gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -pthread -I. unet_ai_j1.c unet_net_data.c unet_models.c strict_net_test.c -o strict_net_test_j1; ls -la strict_net_test_* *.rgb; df -h / | tail -1
+0ced96c88f603605
+lrwxrwxrwx 1 root root     37 Aug 31 20:54 echo128.rgb -> /root/r2_acceptance/tools/echo128.rgb
+lrwxrwxrwx 1 root root     38 Aug 31 20:54 fundus32.rgb -> /root/r2_acceptance/tools/fundus32.rgb
+lrwxrwxrwx 1 root root     39 Aug 31 20:54 fundus512.rgb -> /root/r2_acceptance/tools/fundus512.rgb
+lrwxrwxrwx 1 root root     37 Aug 31 20:54 skin128.rgb -> /root/r2_acceptance/tools/skin128.rgb
+-rwxr-xr-x 1 root root 757248 Aug 31 20:54 strict_net_test_base
+-rwxr-xr-x 1 root root 757896 Aug 31 20:54 strict_net_test_j1
+/dev/root       6.9G  6.1G  459M  94% /
+
+exit=0

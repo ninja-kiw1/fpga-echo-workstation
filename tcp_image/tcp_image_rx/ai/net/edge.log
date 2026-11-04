@@ -1,0 +1,22 @@
+=== deploy ===
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+active
+图片: Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+自动边缘阈值: 边缘阈值(自动) = 42：Sobel 幅度前 8% 判为边缘、画白，其余保持原图
+
+=== 上板 ===
+  mode2 边缘图          57.0 ms  rows_ok=512
+  mode6 边缘叠加         57.7 ms  rows_ok=512
+
+=== 判据（用板子的边缘图复算）===
+  叠加图与 PC 复算差异 = 0 / 786432 字节  ->  PASS
+  画成白边的像素 = 22162 / 262144 (8.5%)
+
+=== 参考：PC 端 Sobel vs 板子 Sobel ===
+  逐值相同 260150 / 262144 (99.2%)；阈值判决一致 262134 / 262144 (100.0%)
+
+  存图: e2e_out/edge_mode2.png, e2e_out/edge_overlay_mode6.png
+
+EDGE_TEST_DONE fails=0

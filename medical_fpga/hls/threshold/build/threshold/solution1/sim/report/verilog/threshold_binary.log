@@ -1,0 +1,242 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "D:/xlinx2023.1/Vitis_HLS/2023.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling threshold.cpp_pre.cpp.tb.cpp
+   Compiling test_threshold.cpp_pre.cpp.tb.cpp
+   Compiling apatb_threshold_binary.cpp
+   Compiling apatb_threshold_binary_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+PASS ramp_t0 threshold=0 pixels=256 mismatches=0
+PASS ramp_t1 threshold=1 pixels=256 mismatches=0
+PASS ramp_t127 threshold=127 pixels=256 mismatches=0
+PASS ramp_t128 threshold=128 pixels=256 mismatches=0
+PASS ramp_t254 threshold=254 pixels=256 mismatches=0
+PASS ramp_t255 threshold=255 pixels=256 mismatches=0
+PASS pixel_127_t128 threshold=128 pixels=1 mismatches=0
+PASS pixel_128_t128 threshold=128 pixels=1 mismatches=0
+PASS pixel_129_t128 threshold=128 pixels=1 mismatches=0
+PASS black_t1 threshold=1 pixels=72 mismatches=0
+PASS white_t255 threshold=255 pixels=72 mismatches=0
+PASS consecutive_t64 threshold=64 pixels=437 mismatches=0
+PASS consecutive_t192 threshold=192 pixels=437 mismatches=0
+PASS consecutive_t64_again threshold=64 pixels=437 mismatches=0
+PASS stare_green_t128 threshold=128 pixels=423500 mismatches=0
+PASS stare_mean_t128 threshold=128 pixels=423500 mismatches=0
+PASS zero_width threshold=128 pixels=0 mismatches=0
+PASS negative_height threshold=128 pixels=0 mismatches=0
+PASS too_wide threshold=128 pixels=0 mismatches=0
+PASS too_tall threshold=128 pixels=0 mismatches=0
+SUMMARY cases=20 mismatches=0
+
+E:\PLD\medical_fpga\hls\threshold\build\threshold\solution1\sim\verilog>set PATH= 
+
+E:\PLD\medical_fpga\hls\threshold\build\threshold\solution1\sim\verilog>call D:/xlinx2023.1/Vivado/2023.1/bin/xelab xil_defaultlib.apatb_threshold_binary_top glbl -Oenable_linking_all_libraries  -prj threshold_binary.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib "ieee_proposed=./ieee_proposed" -s threshold_binary  
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/xlinx2023.1/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_threshold_binary_top glbl -Oenable_linking_all_libraries -prj threshold_binary.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s threshold_binary 
+Multi-threading is on. Using 22 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/AESL_axi_master_gmem_in.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/AESL_axi_master_gmem_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_threshold_binary_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary_gmem_in_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_load
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_store
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_read
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_write
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_srl
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_in_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary_gmem_out_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_load
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_store
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_read
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_write
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_srl
+INFO: [VRFC 10-311] analyzing module threshold_binary_gmem_out_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary_mul_32s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary_mul_32s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary_threshold_binary_Pipeline_PIXELS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module threshold_binary_threshold_binary_Pipeline_PIXELS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.threshold_binary_flow_control_lo...
+Compiling module xil_defaultlib.threshold_binary_threshold_binar...
+Compiling module xil_defaultlib.threshold_binary_control_s_axi
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_m...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_m...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_l...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_r...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_b...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_r...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_s...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_f...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_t...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_r...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_w...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_r...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi_r...
+Compiling module xil_defaultlib.threshold_binary_gmem_in_m_axi(C...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi_...
+Compiling module xil_defaultlib.threshold_binary_gmem_out_m_axi(...
+Compiling module xil_defaultlib.threshold_binary_mul_32s_32s_32_...
+Compiling module xil_defaultlib.threshold_binary
+Compiling module xil_defaultlib.AESL_axi_master_gmem_in
+Compiling module xil_defaultlib.AESL_axi_master_gmem_out
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_threshold_binary_top
+Compiling module work.glbl
+Built simulation snapshot threshold_binary
+
+****** xsim v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/threshold_binary/xsim_script.tcl
+# xsim {threshold_binary} -autoloadwcfg -tclbatch {threshold_binary.tcl}
+Time resolution is 1 ps
+source threshold_binary.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 20 [0.00%] @ "125000"
+// RTL Simulation : 1 / 20 [0.00%] @ "3765000"
+// RTL Simulation : 2 / 20 [0.00%] @ "7095000"
+// RTL Simulation : 3 / 20 [0.00%] @ "10425000"
+// RTL Simulation : 4 / 20 [0.00%] @ "13755000"
+// RTL Simulation : 5 / 20 [0.00%] @ "17085000"
+// RTL Simulation : 6 / 20 [0.00%] @ "20415000"
+// RTL Simulation : 7 / 20 [0.00%] @ "21185000"
+// RTL Simulation : 8 / 20 [0.00%] @ "21835000"
+// RTL Simulation : 9 / 20 [0.00%] @ "22485000"
+// RTL Simulation : 10 / 20 [0.00%] @ "24025000"
+// RTL Simulation : 11 / 20 [0.00%] @ "25485000"
+// RTL Simulation : 12 / 20 [0.00%] @ "30765000"
+// RTL Simulation : 13 / 20 [0.00%] @ "35965000"
+// RTL Simulation : 14 / 20 [0.00%] @ "41165000"
+// RTL Simulation : 15 / 20 [0.00%] @ "4276935000"
+// RTL Simulation : 16 / 20 [0.00%] @ "8512585000"
+// RTL Simulation : 17 / 20 [0.00%] @ "8512985000"
+// RTL Simulation : 18 / 20 [0.00%] @ "8513385000"
+// RTL Simulation : 19 / 20 [0.00%] @ "8513785000"
+// RTL Simulation : 20 / 20 [100.00%] @ "8514185000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 8514245 ns : File "E:/PLD/medical_fpga/hls/threshold/build/threshold/solution1/sim/verilog/threshold_binary.autotb.v" Line 593
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:30 . Memory (MB): peak = 200.711 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 60276 KB (Peak: 60276 KB), Simulation CPU Usage: 28780 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep 22 20:15:19 2026...
+PASS ramp_t0 threshold=0 pixels=256 mismatches=0
+PASS ramp_t1 threshold=1 pixels=256 mismatches=0
+PASS ramp_t127 threshold=127 pixels=256 mismatches=0
+PASS ramp_t128 threshold=128 pixels=256 mismatches=0
+PASS ramp_t254 threshold=254 pixels=256 mismatches=0
+PASS ramp_t255 threshold=255 pixels=256 mismatches=0
+PASS pixel_127_t128 threshold=128 pixels=1 mismatches=0
+PASS pixel_128_t128 threshold=128 pixels=1 mismatches=0
+PASS pixel_129_t128 threshold=128 pixels=1 mismatches=0
+PASS black_t1 threshold=1 pixels=72 mismatches=0
+PASS white_t255 threshold=255 pixels=72 mismatches=0
+PASS consecutive_t64 threshold=64 pixels=437 mismatches=0
+PASS consecutive_t192 threshold=192 pixels=437 mismatches=0
+PASS consecutive_t64_again threshold=64 pixels=437 mismatches=0
+PASS stare_green_t128 threshold=128 pixels=423500 mismatches=0
+PASS stare_mean_t128 threshold=128 pixels=423500 mismatches=0
+PASS zero_width threshold=128 pixels=0 mismatches=0
+PASS negative_height threshold=128 pixels=0 mismatches=0
+PASS too_wide threshold=128 pixels=0 mismatches=0
+PASS too_tall threshold=128 pixels=0 mismatches=0
+SUMMARY cases=20 mismatches=0
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

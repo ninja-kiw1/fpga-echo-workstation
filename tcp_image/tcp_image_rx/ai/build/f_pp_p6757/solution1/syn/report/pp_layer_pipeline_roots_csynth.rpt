@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vitis HLS Report for 'pp_layer_Pipeline_ROOTS'
+================================================================
+* Date:           Fri Oct 16 20:44:54 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        f_pp_p6757
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: azynquplus
+* Target device:  xazu3eg-sfvc784-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.76 ns|  3.272 ns|     1.82 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval |      Pipeline     |
+    |   min   |   max   |    min    |    max    | min | max |        Type       |
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+    |        3|     4098|  20.271 ns|  27.690 us|    0|    0|  loop pipeline stp|
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+----------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip   |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+----------+----------+
+        |- ROOTS   |        1|     4096|         2|          1|          1|  1 ~ 4096|       yes|
+        +----------+---------+---------+----------+-----------+-----------+----------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    296|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     63|    -|
+|Register         |        -|    -|      65|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      65|    359|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      432|  360|  141120|  70560|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name      | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------+----------+----+---+----+------------+------------+
+    |add_ln369_fu_92_p2        |         +|   0|  0|  38|          31|           1|
+    |comps_fu_133_p2           |         +|   0|  0|  39|          32|           1|
+    |icmp_ln369_fu_86_p2       |      icmp|   0|  0|  38|          31|          31|
+    |icmp_ln372_fu_127_p2      |      icmp|   0|  0|  19|          12|          12|
+    |icmp_ln374_fu_139_p2      |      icmp|   0|  0|  26|          19|          19|
+    |best_area_fu_161_p3       |    select|   0|  0|  19|           1|          19|
+    |best_fu_177_p3            |    select|   0|  0|  32|           1|          32|
+    |comps_1_fu_169_p3         |    select|   0|  0|  32|           1|          32|
+    |select_ln374_1_fu_153_p3  |    select|   0|  0|  32|           1|          32|
+    |select_ln374_fu_145_p3    |    select|   0|  0|  19|           1|          19|
+    |ap_enable_pp0             |       xor|   0|  0|   2|           1|           2|
+    +--------------------------+----------+----+---+----+------------+------------+
+    |Total                     |          |   0|  0| 296|         131|         200|
+    +--------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_l_1     |   9|          2|   31|         62|
+    |best_1_out_o             |   9|          2|   32|         64|
+    |best_area_1_out_o        |   9|          2|   19|         38|
+    |comps_1_out_o            |   9|          2|   32|         64|
+    |l_fu_42                  |   9|          2|   31|         62|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  63|         14|  147|        294|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                |   1|   0|    1|          0|
+    |ap_done_reg              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
+    |l_1_reg_210              |  31|   0|   31|          0|
+    |l_fu_42                  |  31|   0|   31|          0|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    |  65|   0|   65|          0|
+    +-------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------+-----+-----+------------+-------------------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  |      Source Object      |    C Type    |
++--------------------------+-----+-----+------------+-------------------------+--------------+
+|ap_clk                    |   in|    1|  ap_ctrl_hs|  pp_layer_Pipeline_ROOTS|  return value|
+|ap_rst                    |   in|    1|  ap_ctrl_hs|  pp_layer_Pipeline_ROOTS|  return value|
+|ap_start                  |   in|    1|  ap_ctrl_hs|  pp_layer_Pipeline_ROOTS|  return value|
+|ap_done                   |  out|    1|  ap_ctrl_hs|  pp_layer_Pipeline_ROOTS|  return value|
+|ap_idle                   |  out|    1|  ap_ctrl_hs|  pp_layer_Pipeline_ROOTS|  return value|
+|ap_ready                  |  out|    1|  ap_ctrl_hs|  pp_layer_Pipeline_ROOTS|  return value|
+|empty                     |   in|   31|     ap_none|                    empty|        scalar|
+|best_1_out_i              |   in|   32|     ap_ovld|               best_1_out|       pointer|
+|best_1_out_o              |  out|   32|     ap_ovld|               best_1_out|       pointer|
+|best_1_out_o_ap_vld       |  out|    1|     ap_ovld|               best_1_out|       pointer|
+|comps_1_out_i             |   in|   32|     ap_ovld|              comps_1_out|       pointer|
+|comps_1_out_o             |  out|   32|     ap_ovld|              comps_1_out|       pointer|
+|comps_1_out_o_ap_vld      |  out|    1|     ap_ovld|              comps_1_out|       pointer|
+|best_area_1_out_i         |   in|   19|     ap_ovld|          best_area_1_out|       pointer|
+|best_area_1_out_o         |  out|   19|     ap_ovld|          best_area_1_out|       pointer|
+|best_area_1_out_o_ap_vld  |  out|    1|     ap_ovld|          best_area_1_out|       pointer|
+|fpar_address0             |  out|   12|   ap_memory|                     fpar|         array|
+|fpar_ce0                  |  out|    1|   ap_memory|                     fpar|         array|
+|fpar_q0                   |   in|   12|   ap_memory|                     fpar|         array|
+|farea_address0            |  out|   12|   ap_memory|                    farea|         array|
+|farea_ce0                 |  out|    1|   ap_memory|                    farea|         array|
+|farea_q0                  |   in|   19|   ap_memory|                    farea|         array|
++--------------------------+-----+-----+------------+-------------------------+--------------+
+

@@ -1,0 +1,35 @@
+#ifndef PP_LAYER_HPP
+#define PP_LAYER_HPP
+#include <ap_int.h>
+
+// pp_layer: PL post-processing of the U-Net output, prototype (see ../README.md, bit-level spec ../ppref.py).
+//
+// Input  : int8 logits in the tensor-BRAM layout of the last U-Net node: one 128-bit word per pixel,
+//          the logit is the low byte of lane 0 (the other lanes are ignored). Frame h x w (<= 512 x 512).
+// Window : (x0, y0, cw, ch) in logit pixels; the mask covers the window, up-sampled by k.
+// Mask   : k == 1 -> logit >= thr ; k == 2 / 4 -> bilinear x k of the logits > tn / 2
+//          (integer form of tcp_image_ui/ct_volume.upsample_bilinear, CT tiers).
+// Output words (128 bit):
+//   out[0]     = { status, largest component area, components, mask pixel count } (32 bits each, LSB first)
+//   out[1..4]  = 16 int32 tile sums of the raw logits, 4 x 4 tiles of the whole frame (PP_TILES; ai_view_fill_reg)
+//   out[8 ..]  = mask bits (PP_MASK), row-major, (cw*k) pixels per row padded to whole 128-bit words,
+//                bit j of a word = pixel j (same order as the v6c bit mask)
+// Components: 4-connected (8 with PP_CONN8); PP_CLEAN keeps the largest component (ties: first in raster
+// order) and fills its holes (background 4-connected, not touching the window border) = echo_ws.clean.
+typedef ap_uint<128> word_t;
+
+static const int PP_MAXW = 512;
+static const int PP_MAXH = 512;
+static const int PP_LBITS = 12;
+static const int PP_MAXL = 1 << PP_LBITS;      // provisional labels per frame (real data: <= 1815)
+static const int PP_DEPTH_IN = 262144;
+static const int PP_DEPTH_OUT = 8 + PP_MAXH * (PP_MAXW / 128);
+static const int PP_MASK_BASE = 8;
+
+enum PpOp { PP_MASK = 1, PP_CLEAN = 2, PP_CONN8 = 4, PP_TILES = 8 };
+enum PpStatus { PP_OK = 0, PP_FG_OVERFLOW = 1, PP_BG_OVERFLOW = 2, PP_BAD_CONFIG = 4 };
+
+// Returns the status word (also stored in out[0]); PP_BAD_CONFIG writes nothing else.
+int pp_layer(const word_t* in, word_t* out, int op, int h, int w, int x0, int y0, int cw, int ch,
+             int k, int thr, int tn);
+#endif

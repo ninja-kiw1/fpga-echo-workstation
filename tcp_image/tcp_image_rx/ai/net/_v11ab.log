@@ -1,0 +1,511 @@
+===== STEP 1: V9b reference ===== 
+[local] E:\fpga\my_project\Tcp_Image_Rx\bitstream\ai_sys_xu2_v9b.bin 5568668 B md5=ab6d940229a07f321e502bc1a22be3df
+[md5] ab6d940229a07f321e502bc1a22be3df
+[state-before] operating
+[svc] stop tcp-image-server -> rc=0
+[gate] conv/elt idle (CTRL 0x00000004 / 0x00000004) after 1 poll(s)
+[load] wrote ai_sys.bin
+[state-after] operating
+[read] img_proc VERSION @0xA0000010 = 0x494D5003  (expect 0x494D5003)
+[read] conv CTRL @0xA0010000 = 0x00000004  ap_idle=1
+[read] elt  CTRL @0xA0020000 = 0x00000004  ap_idle=1
+[read] BRAM  @0xB0000000 = 0x00000000  (window alive)
+[md5-after] ab6d940229a07f321e502bc1a22be3df
+[ok] bitstream loaded, both HLS cores idle
+RC=0
+>>> LOAD_OK (ab6d940229a07f321e502bc1a22be3df)
+ssh ok
+[up] 源码 + 两个 golden
+BUILD_RC=0
+
+===== shift=0 (512x512) =====
+shift=0 -> input 512x512, output 512x512
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f80746000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=659248 us  ap=353068  put=107890  get=183703  zero=224  other=14363
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=826  ioctl=88778 us  bounce_memcpy=94545 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     20970     13292
+[prof]    2     20962     13244
+[prof]    3      9130     12685
+[prof]    4      8133     16880
+[prof]    5      3636      6281
+[prof]    6      9409      5383
+[prof]    7     17452      6656
+[prof]    8      3900      5268
+[prof]    9      4053      8511
+[prof]   10      1822      3147
+[prof]   11      8174      2850
+[prof]   12     16133      3489
+[prof]   13      1980      2671
+[prof]   14      2028      4249
+[prof]   15      5241      5390
+[prof]   16     17457      6724
+[prof]   17      5693     12783
+[prof]   18     35009      9452
+[prof]   19     17450      6662
+[prof]   20      7320      8434
+[prof]   21      4052      8467
+[prof]   22      7757     10728
+[prof]   23     20965     13291
+[prof]   24     11387     25748
+[prof]   25     40220     18670
+[prof]   26     20961     13345
+[prof]   27     14520     16883
+[prof]   28      8120     16897
+[prof]   29      9134     13737
+[prof] total=597847 us  ap=354256  put=107488  get=124583  zero=225  other=11295
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=826  ioctl=88309 us  bounce_memcpy=35922 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     21106     10535
+[prof]    2     20981     10441
+[prof]    3      9125      9799
+[prof]    4      8106     13988
+[prof]    5      3641      5525
+[prof]    6      9402      3983
+[prof]    7     17451      5266
+[prof]    8      3902      3891
+[prof]    9      4053      6950
+[prof]   10      1819      2767
+[prof]   11      8174      2023
+[prof]   12     15982      2717
+[prof]   13      1983      1950
+[prof]   14      2025      3523
+[prof]   15      5241      3905
+[prof]   16     17452      5257
+[prof]   17      5691     10063
+[prof]   18     35007      8067
+[prof]   19     17451      5254
+[prof]   20      7318      7000
+[prof]   21      4055      6979
+[prof]   22      7757      7815
+[prof]   23     20966     10431
+[prof]   24     11385     19843
+[prof]   25     40227     15895
+[prof]   26     20968     10449
+[prof]   27     14498     14012
+[prof]   28      9363     14130
+[prof]   29      9127      9838
+[prof] total=598517 us  ap=353705  put=108641  get=124708  zero=227  other=11236
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=826  ioctl=88422 us  bounce_memcpy=35928 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     20964     10512
+[prof]    2     20970     10394
+[prof]    3      9129      9806
+[prof]    4      8124     13971
+[prof]    5      3637      5522
+[prof]    6      9412      3995
+[prof]    7     17465      5339
+[prof]    8      3902      3887
+[prof]    9      4056      6997
+[prof]   10      1821      2792
+[prof]   11      8176      2032
+[prof]   12     15970      2718
+[prof]   13      1982      1972
+[prof]   14      2025      3486
+[prof]   15      5243      3897
+[prof]   16     17454      5258
+[prof]   17      5693      9861
+[prof]   18     35006      8029
+[prof]   19     17448      5276
+[prof]   20      7319      7024
+[prof]   21      4056      7006
+[prof]   22      7756      7787
+[prof]   23     20966     10389
+[prof]   24     11383     19786
+[prof]   25     40218     17018
+[prof]   26     20967     10444
+[prof]   27     14500     13988
+[prof]   28      8118     13963
+[prof]   29      9945     10427
+timing: 3 iter(s) in 1860.3 ms  ->  620.09 ms/frame (whole net, shift=0)
+run: 598517 us, logits min=-107 max=100
+profile us : ap(PL)=353705  put(->BRAM)=108641  get(BRAM->)=124708  zero=227  other=11236
+profile mem: put=7322564 get=5341184 params=48068 words  strips=826
+compare: mismatch = 0 / 262144  ->  PASS
+logit range [-107..100], non-zero 261623/262144
+SELFTEST_DONE
+
+===== shift=4 (32x32) =====
+shift=4 -> input 32x32, output 32x32
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f92f78000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=4060 us  ap=2383  put=322  get=1113  zero=9  other=233
+[prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+[prof] get split: DMA=20864 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=29  ioctl=705 us  bounce_memcpy=401 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1       141        72
+[prof]    2       142        65
+[prof]    3        90        58
+[prof]    4        33        67
+[prof]    5        23        32
+[prof]    6        79        38
+[prof]    7       117        43
+[prof]    8        45        34
+[prof]    9        18        40
+[prof]   10        12        22
+[prof]   11        77        29
+[prof]   12       130        35
+[prof]   13        28        24
+[prof]   14         9        26
+[prof]   15        54        34
+[prof]   16       116        46
+[prof]   17        22        54
+[prof]   18       194        50
+[prof]   19       117        38
+[prof]   20        61        45
+[prof]   21        17        41
+[prof]   22        84        57
+[prof]   23       142        58
+[prof]   24        44       101
+[prof]   25       211        81
+[prof]   26       142        55
+[prof]   27       112        71
+[prof]   28        33        73
+[prof]   29        90        55
+[prof] total=3766 us  ap=2378  put=334  get=841  zero=10  other=203
+[prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+[prof] get split: DMA=20864 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=29  ioctl=696 us  bounce_memcpy=132 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1       141        69
+[prof]    2       141        47
+[prof]    3        90        45
+[prof]    4        33        57
+[prof]    5        23        30
+[prof]    6        78        29
+[prof]    7       117        31
+[prof]    8        45        29
+[prof]    9        17        35
+[prof]   10        12        21
+[prof]   11        78        27
+[prof]   12       130        31
+[prof]   13        28        21
+[prof]   14        10        25
+[prof]   15        53        28
+[prof]   16       117        32
+[prof]   17        23        45
+[prof]   18       193        44
+[prof]   19       116        32
+[prof]   20        61        38
+[prof]   21        17        33
+[prof]   22        83        38
+[prof]   23       141        48
+[prof]   24        43        77
+[prof]   25       212        62
+[prof]   26       141        48
+[prof]   27       112        59
+[prof]   28        33        58
+[prof]   29        90        46
+[prof] total=3760 us  ap=2375  put=333  get=829  zero=15  other=208
+[prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+[prof] get split: DMA=20864 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=29  ioctl=688 us  bounce_memcpy=133 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1       141        63
+[prof]    2       141        49
+[prof]    3        90        48
+[prof]    4        33        58
+[prof]    5        23        28
+[prof]    6        79        28
+[prof]    7       116        32
+[prof]    8        45        28
+[prof]    9        17        35
+[prof]   10        12        21
+[prof]   11        77        24
+[prof]   12       130        31
+[prof]   13        27        21
+[prof]   14         9        25
+[prof]   15        54        27
+[prof]   16       116        34
+[prof]   17        22        46
+[prof]   18       193        45
+[prof]   19       117        34
+[prof]   20        61        36
+[prof]   21        17        33
+[prof]   22        84        40
+[prof]   23       141        47
+[prof]   24        43        77
+[prof]   25       211        58
+[prof]   26       142        45
+[prof]   27       111        61
+[prof]   28        33        57
+[prof]   29        90        46
+timing: 3 iter(s) in 12.0 ms  ->  4.00 ms/frame (whole net, shift=4)
+run: 3760 us, logits min=-86 max=14
+profile us : ap(PL)=2375  put(->BRAM)=333  get(BRAM->)=829  zero=15  other=208
+profile mem: put=29444 get=20864 params=2564 words  strips=29
+compare: mismatch = 0 / 1024  ->  PASS
+logit range [-86..14], non-zero 1019/1024
+SELFTEST_DONE
+
+PROF_ALL_AI_DONE
+ 
+===== STEP 2: V11 (new) ===== 
+[local] E:\fpga\my_project\Tcp_Image_Rx\bitstream\ai_sys_xu2.bin 5568668 B md5=55ddbdb3486978ca6c3995429724075e
+[md5] 55ddbdb3486978ca6c3995429724075e
+[state-before] operating
+[svc] stop tcp-image-server -> rc=0
+[gate] conv/elt idle (CTRL 0x00000004 / 0x00000004) after 1 poll(s)
+[load] wrote ai_sys.bin
+[state-after] operating
+[read] img_proc VERSION @0xA0000010 = 0x494D5003  (expect 0x494D5003)
+[read] conv CTRL @0xA0010000 = 0x00000004  ap_idle=1
+[read] elt  CTRL @0xA0020000 = 0x00000004  ap_idle=1
+[read] BRAM  @0xB0000000 = 0x00000000  (window alive)
+[md5-after] 55ddbdb3486978ca6c3995429724075e
+[ok] bitstream loaded, both HLS cores idle
+RC=0
+>>> LOAD_OK (55ddbdb3486978ca6c3995429724075e)
+ssh ok
+[up] 源码 + 两个 golden
+BUILD_RC=0
+
+===== shift=0 (512x512) =====
+shift=0 -> input 512x512, output 512x512
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fabbf1000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=843532 us  ap=539228  put=107677  get=182264  zero=222  other=14141
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=826  ioctl=88737 us  bounce_memcpy=93182 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     42692     13369
+[prof]    2     42699     13227
+[prof]    3     13913     12696
+[prof]    4      8108     16850
+[prof]    5      3642      6265
+[prof]    6     16051      5365
+[prof]    7     24344      6679
+[prof]    8      6296      5313
+[prof]    9      4051      8437
+[prof]   10      1820      3134
+[prof]   11     10622      2756
+[prof]   12     18568      3388
+[prof]   13      3183      2661
+[prof]   14      2028      4211
+[prof]   15     10211      5325
+[prof]   16     24341      6702
+[prof]   17      5689     12787
+[prof]   18     42693      9436
+[prof]   19     24347      6687
+[prof]   20     12288      8390
+[prof]   21      4054      8448
+[prof]   22     12534     10672
+[prof]   23     42688     13308
+[prof]   24     11406     25481
+[prof]   25     63763     18694
+[prof]   26     42683     13227
+[prof]   27     22499     17043
+[prof]   28      8108     16881
+[prof]   29     13907     12731
+[prof] total=782194 us  ap=539195  put=106996  get=124568  zero=223  other=11212
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=826  ioctl=88033 us  bounce_memcpy=36208 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     42684     10528
+[prof]    2     42686     10443
+[prof]    3     13912      9808
+[prof]    4      8104     14000
+[prof]    5      3652      5529
+[prof]    6     16052      3988
+[prof]    7     24345      5263
+[prof]    8      6293      3854
+[prof]    9      4053      6960
+[prof]   10      1821      2774
+[prof]   11     10621      2028
+[prof]   12     18568      2714
+[prof]   13      3182      1951
+[prof]   14      2027      3504
+[prof]   15     10211      3920
+[prof]   16     24343      5236
+[prof]   17      5692      9954
+[prof]   18     42693      8044
+[prof]   19     24344      5257
+[prof]   20     12290      6984
+[prof]   21      4055      6971
+[prof]   22     12539      7786
+[prof]   23     42684     10448
+[prof]   24     11386     19899
+[prof]   25     63765     15830
+[prof]   26     42687     10404
+[prof]   27     22490     13953
+[prof]   28      8106     13951
+[prof]   29     13910      9806
+[prof] total=782221 us  ap=539199  put=107026  get=124553  zero=226  other=11217
+[prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=826  ioctl=87977 us  bounce_memcpy=36222 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     42690     10535
+[prof]    2     42679     10376
+[prof]    3     13915      9818
+[prof]    4      8111     14015
+[prof]    5      3641      5550
+[prof]    6     16051      3988
+[prof]    7     24354      5256
+[prof]    8      6295      3870
+[prof]    9      4055      6990
+[prof]   10      1821      2767
+[prof]   11     10621      2037
+[prof]   12     18569      2702
+[prof]   13      3182      1953
+[prof]   14      2027      3480
+[prof]   15     10212      3931
+[prof]   16     24342      5245
+[prof]   17      5692      9925
+[prof]   18     42694      8016
+[prof]   19     24346      5235
+[prof]   20     12287      6990
+[prof]   21      4052      6971
+[prof]   22     12534      7792
+[prof]   23     42687     10459
+[prof]   24     11387     19946
+[prof]   25     63760     15805
+[prof]   26     42686     10415
+[prof]   27     22486     13953
+[prof]   28      8109     13989
+[prof]   29     13914      9796
+timing: 3 iter(s) in 2408.5 ms  ->  802.82 ms/frame (whole net, shift=0)
+run: 782221 us, logits min=-107 max=100
+profile us : ap(PL)=539199  put(->BRAM)=107026  get(BRAM->)=124553  zero=226  other=11217
+profile mem: put=7322564 get=5341184 params=48068 words  strips=826
+compare: mismatch = 0 / 262144  ->  PASS
+logit range [-107..100], non-zero 261623/262144
+SELFTEST_DONE
+
+===== shift=4 (32x32) =====
+shift=4 -> input 32x32, output 32x32
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb9171000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=4698 us  ap=3009  put=322  get=1113  zero=13  other=241
+[prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+[prof] get split: DMA=20864 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=29  ioctl=696 us  bounce_memcpy=406 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1       212        68
+[prof]    2       212        67
+[prof]    3       102        60
+[prof]    4        33        69
+[prof]    5        23        33
+[prof]    6       102        39
+[prof]    7       144        38
+[prof]    8        52        33
+[prof]    9        17        40
+[prof]   10        12        21
+[prof]   11        92        28
+[prof]   12       151        36
+[prof]   13        32        23
+[prof]   14         9        26
+[prof]   15        70        38
+[prof]   16       143        41
+[prof]   17        22        57
+[prof]   18       227        50
+[prof]   19       143        36
+[prof]   20        76        43
+[prof]   21        17        40
+[prof]   22        96        54
+[prof]   23       213        61
+[prof]   24        43       103
+[prof]   25       284        78
+[prof]   26       212        59
+[prof]   27       135        67
+[prof]   28        33        70
+[prof]   29       102        70
+[prof] total=4380 us  ap=3012  put=326  get=824  zero=13  other=205
+[prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+[prof] get split: DMA=20864 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=29  ioctl=681 us  bounce_memcpy=129 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1       212        48
+[prof]    2       213        46
+[prof]    3       102        46
+[prof]    4        33        59
+[prof]    5        23        30
+[prof]    6       102        29
+[prof]    7       143        38
+[prof]    8        52        28
+[prof]    9        17        34
+[prof]   10        12        20
+[prof]   11        92        27
+[prof]   12       151        29
+[prof]   13        31        20
+[prof]   14         9        23
+[prof]   15        70        29
+[prof]   16       143        33
+[prof]   17        22        44
+[prof]   18       226        44
+[prof]   19       144        31
+[prof]   20        77        35
+[prof]   21        18        35
+[prof]   22        96        38
+[prof]   23       212        46
+[prof]   24        44        79
+[prof]   25       285        60
+[prof]   26       213        48
+[prof]   27       135        64
+[prof]   28        33        56
+[prof]   29       102        44
+[prof] total=4367 us  ap=3010  put=319  get=808  zero=8  other=222
+[prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+[prof] get split: DMA=20864 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=29  ioctl=670 us  bounce_memcpy=129 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1       213        44
+[prof]    2       213        47
+[prof]    3       102        45
+[prof]    4        32        55
+[prof]    5        22        28
+[prof]    6       102        28
+[prof]    7       143        33
+[prof]    8        52        24
+[prof]    9        17        33
+[prof]   10        12        21
+[prof]   11        92        25
+[prof]   12       151        31
+[prof]   13        32        19
+[prof]   14         9        24
+[prof]   15        70        28
+[prof]   16       143        32
+[prof]   17        23        43
+[prof]   18       226        44
+[prof]   19       143        30
+[prof]   20        77        38
+[prof]   21        17        32
+[prof]   22        96        39
+[prof]   23       212        47
+[prof]   24        44        77
+[prof]   25       285        65
+[prof]   26       212        46
+[prof]   27       135        59
+[prof]   28        33        55
+[prof]   29       102        43
+timing: 3 iter(s) in 13.8 ms  ->  4.61 ms/frame (whole net, shift=4)
+run: 4367 us, logits min=-86 max=14
+profile us : ap(PL)=3010  put(->BRAM)=319  get(BRAM->)=808  zero=8  other=222
+profile mem: put=29444 get=20864 params=2564 words  strips=29
+compare: mismatch = 0 / 1024  ->  PASS
+logit range [-86..14], non-zero 1019/1024
+SELFTEST_DONE
+
+PROF_ALL_AI_DONE
+ 
+===== restore service ===== 
+active
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*

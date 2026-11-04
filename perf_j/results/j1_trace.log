@@ -1,0 +1,11 @@
+=== PC_UTC 2026-10-17T04:40:02.700686+00:00
+$ UNET_GTRACE=/root/perf_j/gtrace_512.txt ./strict_net_test_j1 fundus512.rgb fundus512.i8 0 512 2 | tail -2; UNET_GTRACE=/root/perf_j/gtrace_128.txt ./strict_net_test_j1 skin128.rgb skin128.i8 1 128 3 | tail -1; wc -l gtrace_*.txt
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":304524,"put_us":75694,"get_us":80149,"run_us":471738,"strips":853}
+STRICT_NET_PASS
+STRICT_NET_PASS
+  66 gtrace_128.txt
+ 853 gtrace_512.txt
+ 919 total
+
+exit=0
+restore: active

@@ -1,0 +1,32 @@
+screen 1/26 first_block_2: Dice 0.94674 gain -0.00383
+screen 2/26 first_block_5: Dice 0.94937 gain -0.00120
+screen 3/26 first_shortcut_1: Dice 0.95086 gain +0.00029
+screen 4/26 add: Dice 0.94904 gain -0.00153
+screen 5/26 down_path_0_block_2: Dice 0.94936 gain -0.00120
+screen 6/26 down_path_0_block_5: Dice 0.94999 gain -0.00058
+screen 7/26 down_path_0_shortcut_1: Dice 0.94960 gain -0.00097
+screen 8/26 add_1: Dice 0.95088 gain +0.00031
+screen 9/26 down_path_1_block_2: Dice 0.94937 gain -0.00120
+screen 10/26 down_path_1_block_5: Dice 0.95022 gain -0.00034
+screen 11/26 down_path_1_shortcut_1: Dice 0.95032 gain -0.00025
+screen 12/26 add_2: Dice 0.95011 gain -0.00046
+screen 13/26 up_path_0_up_layer_block_0: Dice 0.95041 gain -0.00016
+screen 14/26 up_path_0_conv_bridge_layer_block_2: Dice 0.95070 gain +0.00013
+screen 15/26 cat: Dice 0.95035 gain -0.00022
+screen 16/26 up_path_0_conv_layer_block_2: Dice 0.95044 gain -0.00013
+screen 17/26 up_path_0_conv_layer_block_5: Dice 0.95009 gain -0.00047
+screen 18/26 up_path_0_conv_layer_shortcut_1: Dice 0.95058 gain +0.00001
+screen 19/26 add_3: Dice 0.95020 gain -0.00037
+screen 20/26 up_path_1_up_layer_block_0: Dice 0.95046 gain -0.00011
+screen 21/26 up_path_1_conv_bridge_layer_block_2: Dice 0.95090 gain +0.00033
+screen 22/26 cat_1: Dice 0.95084 gain +0.00028
+screen 23/26 up_path_1_conv_layer_block_2: Dice 0.95053 gain -0.00003
+screen 24/26 up_path_1_conv_layer_block_5: Dice 0.95093 gain +0.00036
+screen 25/26 up_path_1_conv_layer_shortcut_1: Dice 0.95097 gain +0.00041
+screen 26/26 add_4: Dice 0.95078 gain +0.00021
+confirm all INT8: val Dice 0.87008 G 0.84915 R 0.89342
+confirm ['up_path_1_conv_layer_shortcut_1']: val Dice 0.87008 G 0.84899 R 0.89361
+confirm ['up_path_1_conv_layer_block_5']: val Dice 0.87009 G 0.84924 R 0.89334
+confirm ['up_path_1_conv_bridge_layer_block_2']: val Dice 0.87014 G 0.84927 R 0.89342
+confirm ['up_path_1_conv_layer_shortcut_1', 'up_path_1_conv_layer_block_5']: val Dice 0.87004 G 0.84898 R 0.89352
+selected INT16 ['up_path_1_conv_bridge_layer_block_2']; val Dice FP32 0.8733 | all-INT8 0.8701 | mixed 0.8701 (G 0.8493 R 0.8934)

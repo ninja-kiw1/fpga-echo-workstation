@@ -1,0 +1,117 @@
+=== load PL ===
+VERSION=0x494D5003
+conv ctrl=0x00000004 elt ctrl=0x00000004
+
+=== upload sources ===
+[up] src/*.c,*.h + Makefile + test/unet_selftest.c
+
+=== build on board ===
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/tcp_image_server.o src/tcp_image_server.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axidma.o src/axidma.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axigpio.o src/axigpio.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/ai_view.o src/ai_view.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_net_data.o src/unet_net_data.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -o unet_selftest src/unet_ai.c src/unet_net_data.c test/unet_selftest.c
+== built: unet_selftest (whole-network self test)
+
+=== restart service ===
+active
+Sep 01 01:05:44 EdgeBoard tcp_image_server[5220]: [ok ] frame 53 stored (mode=4) at 0x40000000, 260 ms, 24.29 Mbit/s
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [axil] round-trip ok: mode=4 min=0 max=245, 54 ms
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [ok ] status published: frame_count=53 mode=4 dma=off
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [echo] sent back processed image: 789504 bytes in 12 ms
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [rx] control header: magic=0x4D43 mode=4
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [rx] frame done: rows_ok=512/512, crc_err=0, seq_err=0, bytes=789504
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [ok ] frame 54 stored (mode=4) at 0x40000000, 253 ms, 24.96 Mbit/s
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [axil] round-trip ok: mode=4 min=0 max=245, 56 ms
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [ok ] status published: frame_count=54 mode=4 dma=off
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [echo] sent back processed image: 789504 bytes in 12 ms
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [rx] control header: magic=0x4D43 mode=4
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [rx] frame done: rows_ok=512/512, crc_err=0, seq_err=0, bytes=789504
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [ok ] frame 55 stored (mode=4) at 0x40000000, 254 ms, 24.87 Mbit/s
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [axil] round-trip ok: mode=4 min=0 max=245, 54 ms
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [ok ] status published: frame_count=55 mode=4 dma=off
+Sep 01 01:05:45 EdgeBoard tcp_image_server[5220]: [echo] sent back processed image: 789504 bytes in 12 ms
+Sep 01 01:05:48 EdgeBoard tcp_image_server[5220]: [rx] peer closed before control header (0/4 bytes)
+Sep 01 01:05:48 EdgeBoard tcp_image_server[5220]: [warn] frame not stored (rc=-1); buffer may be partial
+
+--- baseline(v2 兼容头) ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3)   头=v2
+图像: bars 图样, 786432 字节; 上线总长 789508 字节
+[1] total=   84.1 ms  (send    2.3 + reply   81.9)  proc(rows_ok=512)
+summary: n=1  min=84.1  max=84.1  avg=84.1 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\proc_00_tcp_out.png
+CLI_DONE
+
+--- proc ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0001 ['proc']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=   56.2 ms  (send    2.5 + reply   53.7)  proc(rows_ok=512)
+summary: n=1  min=56.2  max=56.2  avg=56.2 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\proc_00_tcp_out.png
+CLI_DONE
+
+--- proc+stats ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0009 ['proc']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=   58.3 ms  (send    2.4 + reply   56.0)  proc(rows_ok=512)
+      AI: 32x32 thr=191 vessels=677/1024 (66.1%) comps=2 logit[-107..83] ai_us=2895
+summary: n=1  min=58.3  max=58.3  avg=58.3 ms
+CLI_DONE
+
+--- mask+stats ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000A ['mask']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=   61.9 ms  (send    2.3 + reply   59.6)  mask(rows_ok=512)
+      AI: 32x32 thr=191 vessels=677/1024 (66.1%) comps=2 logit[-107..83] ai_us=2871
+summary: n=1  min=61.9  max=61.9  avg=61.9 ms
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\ai_mask.png
+CLI_DONE
+
+--- overlay+stats ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000C ['overlay']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=   62.2 ms  (send    2.2 + reply   60.0)  overlay(rows_ok=512)
+      AI: 32x32 thr=191 vessels=677/1024 (66.1%) comps=2 logit[-107..83] ai_us=2872
+summary: n=1  min=62.2  max=62.2  avg=62.2 ms
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\ai_overlay.png
+CLI_DONE
+
+--- overlay(ai=proc) ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000C ['overlay']   aiparam=0xFD01 (src=proc thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=   63.6 ms  (send    2.4 + reply   61.2)  overlay(rows_ok=512)
+      AI: 32x32 thr=191 vessels=37/1024 (3.6%) comps=2 logit[-110..5] ai_us=2883
+summary: n=1  min=63.6  max=63.6  avg=63.6 ms
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\ai_overlay_fromproc.png
+CLI_DONE
+
+--- stats only ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0018 []   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=   42.1 ms  (send    2.1 + reply   40.0)  (no image)
+      AI: 32x32 thr=191 vessels=677/1024 (66.1%) comps=2 logit[-107..83] ai_us=2869
+summary: n=1  min=42.1  max=42.1  avg=42.1 ms
+CLI_DONE
+
+--- mode3 pcolor+mask ---
+proto self-check: OK
+模式: 3 (伪彩色映射)   flags=0x000B ['proc', 'mask']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: bars 图样, 786432 字节; 上线总长 789512 字节
+[1] total=  129.6 ms  (send    2.5 + reply  127.1)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=191 vessels=677/1024 (66.1%) comps=2 logit[-107..83] ai_us=2876
+summary: n=1  min=129.6  max=129.6  avg=129.6 ms
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\ai_mask_mode3.png
+CLI_DONE
+
+E2E_DONE rc=0

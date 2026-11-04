@@ -1,0 +1,251 @@
+{
+  "image": "im0002",
+  "time": "20260928_230909",
+  "xsct_returncode": 0,
+  "steps": [
+    "connected:   1  Digilent JTAG-SMT2 C305A5A0ABCD",
+    "bitstream programmed",
+    "psu_init done (clocks, DDR, PS-PL isolation removed)",
+    "DDR read/write ok",
+    "both IPs idle",
+    "parameters and input loaded",
+    "finished"
+  ],
+  "elapsed_s": 160.4267294406891,
+  "ddr_base": 268435456,
+  "ddr_bytes": 89751552,
+  "loads": [
+    [
+      "first_block_2.bin",
+      "768",
+      "85"
+    ],
+    [
+      "first_block_5.bin",
+      "768",
+      "32"
+    ],
+    [
+      "first_shortcut_1.bin",
+      "256",
+      "49"
+    ],
+    [
+      "down_path_0_block_2.bin",
+      "1536",
+      "38"
+    ],
+    [
+      "down_path_0_block_5.bin",
+      "2688",
+      "53"
+    ],
+    [
+      "down_path_0_shortcut_1.bin",
+      "512",
+      "34"
+    ],
+    [
+      "down_path_1_block_2.bin",
+      "5376",
+      "74"
+    ],
+    [
+      "down_path_1_block_5.bin",
+      "9984",
+      "98"
+    ],
+    [
+      "down_path_1_shortcut_1.bin",
+      "1280",
+      "38"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2432",
+      "46"
+    ],
+    [
+      "up_path_0_conv_bridge_layer_block_2.bin",
+      "2688",
+      "82"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "4992",
+      "71"
+    ],
+    [
+      "up_path_0_conv_layer_block_5.bin",
+      "2688",
+      "49"
+    ],
+    [
+      "up_path_0_conv_layer_shortcut_1.bin",
+      "896",
+      "31"
+    ],
+    [
+      "up_path_1_up_layer_block_0.bin",
+      "704",
+      "26"
+    ],
+    [
+      "up_path_1_conv_bridge_layer_block_2.bin",
+      "768",
+      "36"
+    ],
+    [
+      "up_path_1_conv_layer_block_2.bin",
+      "1344",
+      "39"
+    ],
+    [
+      "up_path_1_conv_layer_block_5.bin",
+      "768",
+      "34"
+    ],
+    [
+      "up_path_1_conv_layer_shortcut_1.bin",
+      "320",
+      "47"
+    ],
+    [
+      "final.bin",
+      "256",
+      "32"
+    ],
+    [
+      "input.bin",
+      "4194304",
+      "40571"
+    ]
+  ],
+  "dumps": [
+    [
+      "first_block_2.bin",
+      "4194304",
+      "15564"
+    ],
+    [
+      "add.bin",
+      "4194304",
+      "15062"
+    ],
+    [
+      "down_path_0_pool.bin",
+      "1048576",
+      "3835"
+    ],
+    [
+      "add_2.bin",
+      "1048576",
+      "4032"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2097152",
+      "7470"
+    ],
+    [
+      "cat.bin",
+      "4194304",
+      "14901"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "2097152",
+      "7733"
+    ],
+    [
+      "add_4.bin",
+      "4194304",
+      "15935"
+    ],
+    [
+      "final.bin",
+      "4194304",
+      "14994"
+    ]
+  ],
+  "node_us_upper_bound": {
+    "first_block_2": 31280,
+    "first_block_5": 48219,
+    "first_shortcut_1": 9813,
+    "add": 8556,
+    "down_path_0_pool": 4564,
+    "down_path_0_block_2": 28563,
+    "down_path_0_block_5": 31834,
+    "down_path_0_shortcut_1": 5339,
+    "add_1": 5089,
+    "down_path_1_pool": 2317,
+    "down_path_1_block_2": 23408,
+    "down_path_1_block_5": 26221,
+    "down_path_1_shortcut_1": 4071,
+    "add_2": 3272,
+    "up_path_0_up_layer_block_0": 9371,
+    "up_path_0_conv_bridge_layer_block_2": 38130,
+    "cat": 5343,
+    "up_path_0_conv_layer_block_2": 50104,
+    "up_path_0_conv_layer_block_5": 27521,
+    "up_path_0_conv_layer_shortcut_1": 34565,
+    "add_3": 4879,
+    "up_path_1_up_layer_block_0": 15641,
+    "up_path_1_conv_bridge_layer_block_2": 38020,
+    "cat_1": 8148,
+    "up_path_1_conv_layer_block_2": 61309,
+    "up_path_1_conv_layer_block_5": 42811,
+    "up_path_1_conv_layer_shortcut_1": 19791,
+    "add_4": 6168,
+    "final": 10653
+  },
+  "network_us_upper_bound": 1859998,
+  "compare": [
+    {
+      "node": "first_block_2",
+      "values": 2097152,
+      "mismatches": 4
+    },
+    {
+      "node": "add",
+      "values": 2097152,
+      "mismatches": 27
+    },
+    {
+      "node": "down_path_0_pool",
+      "values": 524288,
+      "mismatches": 0
+    },
+    {
+      "node": "add_2",
+      "values": 524288,
+      "mismatches": 0
+    },
+    {
+      "node": "up_path_0_up_layer_block_0",
+      "values": 1048576,
+      "mismatches": 0
+    },
+    {
+      "node": "cat",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "up_path_0_conv_layer_block_2",
+      "values": 1048576,
+      "mismatches": 0
+    },
+    {
+      "node": "add_4",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "final",
+      "values": 2097152,
+      "mismatches": 2
+    }
+  ],
+  "passed": false
+}

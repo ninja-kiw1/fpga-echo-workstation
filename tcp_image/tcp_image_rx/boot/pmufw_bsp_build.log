@@ -1,0 +1,662 @@
+START 
+ninja: Entering directory `E:\fpga\my_project\tcp_image_rx\vws_d\boot_plat\zynqmp_pmufw\zynqmp_pmufw_bsp\libsrc\build_configs\gen_bsp'
+[1/40] Linking C static library libsrc\xiltimer\src\libxiltimer.a
+[2/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_testcache.c.obj
+[3/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/print.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_printf.h:16,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/print.c:18:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[4/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_mem.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_mem.c:32:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[5/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xpm_init.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xpm_init.c:28:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+[6/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_assert.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_assert.c:30:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[7/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/inbyte.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/inbyte.c:7:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+[8/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/outbyte.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/outbyte.c:7:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/outbyte.c:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[9/40] Building C object libsrc/xilsecure/src/CMakeFiles/xilsecure.dir/server/zynqmp/xsecure_sha.c.obj
+[10/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_printf.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_printf.h:16,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_printf.c:13:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[11/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_testmem.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_testmem.h:109,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_testmem.c:50:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[12/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xplatform_info.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xplatform_info.c:63:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[13/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/xmicroblaze_g.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmicroblaze.h:14,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/xmicroblaze_g.c:1:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[14/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_testio.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_testio.h:44,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_testio.c:28:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[15/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/fcntl.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/fcntl.c:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[16/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/_exit.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/_exit.c:9:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[17/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/errno.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/errno.c:10:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[18/40] Building C object libsrc/xilfpga/src/CMakeFiles/xilfpga.dir/xilfpga.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_io.h:50,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilfpga/src/xilfpga.h:103,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilfpga/src/xilfpga.c:83:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilfpga/src/xilfpga.h:263:9: note: '#pragma message: From 2023.1 release onwards the XilFPGA BSP user configuration  flags ‘reg_readback_en’ and  ‘data_readback_en’ will be disabled by default but users can still be able to enable these flags as needed'
+  263 | #pragma message ("From 2023.1 release onwards the XilFPGA BSP user configuration  flags ‘reg_readback_en’ and  ‘data_readback_en’ will be disabled by default but users can still be able to enable these flags as needed")
+      |         ^~~~~~~
+[19/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/microblaze_interrupts_g.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/microblaze_interrupts_i.h:37,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/microblaze_interrupts_g.c:24:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[20/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/microblaze_exception_handler.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/microblaze_exceptions_i.h:33,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/microblaze_exception_handler.c:32:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[21/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_util.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_util.h:85,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_util.c:103:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[22/40] Building ASM object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/hw_exception_handler.s.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/hw_exception_handler.S:18:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/hw_exception_handler.S:19:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[23/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/pvr.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/pvr.h:39,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/pvr.c:16:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[24/40] Building ASM object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/microblaze_scrub.s.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/microblaze_scrub.S:25:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+[25/40] Building C object libsrc/xilsecure/src/CMakeFiles/xilsecure.dir/server/zynqmp/xsecure.c.obj
+[26/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/xio.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xio.h:73,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xio.c:37:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[27/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_sutil.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_sutil.h:46,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_sutil.c:42:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/common/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[28/40] Building C object libsrc/xilskey/src/CMakeFiles/xilskey.dir/xilskey_utils.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_io.h:50,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilskey/src/xilskey_utils.c:75:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[29/40] ========== BSP Build Information ==========
+
+Compiler PATH: E:/fpga/vivado/2025.2.1/Vitis/gnu/microblaze/nt/bin/mb-gcc.exe
+
+Compiler FLAGS:  -O2  -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mxl-reorder -mxl-soft-
+mul -mxl-soft-div -O2 -pipe -g -feliminate-unused-debug-types -Os -flto -ffat-lto-objects -DPSU_PMU=
+1U -mcpu=v9.2 -DSDT  -MMD -MP -specs=E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zy
+nqmp_pmufw_bsp/Xilinx.spec -IE:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmu
+fw_bsp/include  -g -ffunction-sections -fdata-sections -Wall -Wextra -fno-tree-loop-distribute-patte
+rns -DNDEBUG
+
+===========================================
+** The above flags are BSP level flags. Increase verbosity to see component specific flags **
+===========================================
+[30/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/xil_exception.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xil_exception.c:35:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[31/40] Building C object libsrc/xilskey/src/CMakeFiles/xilskey.dir/xilskey_eps_zynqmp_puf.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_utils.h:96,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_eps_zynqmp.h:66,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_eps_zynqmp_puf.h:44,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilskey/src/xilskey_eps_zynqmp_puf.c:60:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_utils.h:103:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[32/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/xil_misc_psreset_api.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xil_misc_psreset_api.h:38,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xil_misc_psreset_api.c:31:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[33/40] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/microblaze/xil_cache.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/mb_interface.h:31,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xil_cache.h:54,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/standalone/src/microblaze/xil_cache.c:37:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[34/40] Building C object libsrc/xilsecure/src/CMakeFiles/xilsecure.dir/server/zynqmp/xsecure_aes.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_io.h:50,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilsecure/src/server/zynqmp/xsecure_aes_hw.h:38,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilsecure/src/server/zynqmp/xsecure_aes.h:89,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilsecure/src/server/zynqmp/xsecure_aes.c:73:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[35/40] Linking C static library libsrc\xilsecure\src\libxilsecure.a
+[36/40] Building C object libsrc/xilfpga/src/CMakeFiles/xilfpga.dir/interface/zynqmp/xilfpga_pcap.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:53,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_io.h:50,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilfpga.h:103,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilfpga/src/interface/zynqmp/xilfpga_pcap.c:140:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xil_types.h:54:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilfpga.h:263:9: note: '#pragma message: From 2023.1 release onwards the XilFPGA BSP user configuration  flags ‘reg_readback_en’ and  ‘data_readback_en’ will be disabled by default but users can still be able to enable these flags as needed'
+  263 | #pragma message ("From 2023.1 release onwards the XilFPGA BSP user configuration  flags ‘reg_readback_en’ and  ‘data_readback_en’ will be disabled by default but users can still be able to enable these flags as needed")
+      |         ^~~~~~~
+[37/40] Building C object libsrc/xilskey/src/CMakeFiles/xilskey.dir/xilskey_eps_zynqmp.c.obj
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_utils.h:96,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_eps_zynqmp.h:66,
+                 from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/xilskey/src/xilskey_eps_zynqmp.c:102:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:26: warning: "PSU_PMU" redefined
+   26 | #define PSU_PMU 1
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xilskey_utils.h:103:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1347: warning: "XPAR_PSU_DDR_1_BASEADDRESS" redefined
+ 1347 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x800000000
+      | 
+In file included from E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/bspconfig.h:8:
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:8: note: this is the location of the previous definition
+    8 | #define XPAR_PSU_DDR_1_BASEADDRESS 0x7ff00000
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/psu_cortexa53_0/standalone_psu_cortexa53_0/bsp/include/xparameters.h:1348: warning: "XPAR_PSU_DDR_1_HIGHADDRESS" redefined
+ 1348 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x87fffffff
+      | 
+E:/fpga/my_project/tcp_image_rx/vws_d/boot_plat/zynqmp_pmufw/zynqmp_pmufw_bsp/libsrc/build_configs/gen_bsp/include/xmem_config.h:9: note: this is the location of the previous definition
+    9 | #define XPAR_PSU_DDR_1_HIGHADDRESS 0x7fffffff
+      | 
+[38/40] Linking C static library libsrc\standalone\src\libxilstandalone.a
+[39/40] Linking C static library libsrc\xilfpga\src\libxilfpga.a
+[40/40] Linking C static library libsrc\xilskey\src\libxilskey.a
+NINJA_RC=0 
+DONE 

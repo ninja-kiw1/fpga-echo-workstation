@@ -1,0 +1,113 @@
+attempting to launch hw_server
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2023.1
+
+  **** Build date : May  7 2023 at 15:26:57
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 10000000 Hz
+STEP bitstream programmed
+STEP psu_init done (clocks, DDR, PS-PL isolation removed)
+STEP DDR read/write ok
+IP conv_layer_0 ctrl=0x4
+IP eltwise_layer_0 ctrl=0x4
+STEP both IPs idle
+LOAD first_block_2.bin 768 38 attempts=1
+LOAD first_block_5.bin 768 24 attempts=1
+LOAD first_shortcut_1.bin 256 21 attempts=1
+LOAD down_path_0_block_2.bin 1536 31 attempts=1
+LOAD down_path_0_block_5.bin 2688 38 attempts=1
+LOAD down_path_0_shortcut_1.bin 512 21 attempts=1
+LOAD down_path_1_block_2.bin 5376 63 attempts=1
+LOAD down_path_1_block_5.bin 9984 126 attempts=1
+LOAD down_path_1_shortcut_1.bin 1280 28 attempts=1
+LOAD up_path_0_up_layer_block_0.bin 2432 58 attempts=1
+LOAD up_path_0_conv_bridge_layer_block_2.bin 2688 40 attempts=1
+LOAD up_path_0_conv_layer_block_2.bin 4992 68 attempts=1
+LOAD up_path_0_conv_layer_block_5.bin 2688 40 attempts=1
+LOAD up_path_0_conv_layer_shortcut_1.bin 896 24 attempts=1
+LOAD up_path_1_up_layer_block_0.bin 704 21 attempts=1
+LOAD up_path_1_conv_bridge_layer_block_2.bin 768 25 attempts=1
+LOAD up_path_1_conv_layer_block_2.bin 1344 78 attempts=1
+LOAD up_path_1_conv_layer_block_5.bin 768 34 attempts=1
+LOAD up_path_1_conv_layer_shortcut_1.bin 320 26 attempts=1
+LOAD final.bin 256 19 attempts=1
+DUMPRETRY 8 chunk re-reads at 0x10018000
+LOAD input.bin 4194304 43032 attempts=1
+STEP parameters and input loaded
+NODE first_block_2 36963 0
+NODE first_block_5 30644 0
+NODE first_shortcut_1 9715 0
+NODE add 5506 0
+NODE down_path_0_pool 3765 0
+NODE down_path_0_block_2 14780 0
+NODE down_path_0_block_5 30969 0
+NODE down_path_0_shortcut_1 9427 0
+NODE add_1 2886 0
+NODE down_path_1_pool 2292 0
+NODE down_path_1_block_2 13600 0
+NODE down_path_1_block_5 25956 0
+NODE down_path_1_shortcut_1 3539 0
+NODE add_2 1995 0
+NODE up_path_0_up_layer_block_0 8105 0
+NODE up_path_0_conv_bridge_layer_block_2 30040 0
+NODE cat 4590 0
+NODE up_path_0_conv_layer_block_2 52323 0
+NODE up_path_0_conv_layer_block_5 27425 0
+NODE up_path_0_conv_layer_shortcut_1 26992 0
+NODE add_3 3339 0
+NODE up_path_1_up_layer_block_0 9996 0
+NODE up_path_1_conv_bridge_layer_block_2 30615 0
+NODE cat_1 8676 0
+NODE up_path_1_conv_layer_block_2 57389 0
+NODE up_path_1_conv_layer_block_5 30725 0
+NODE up_path_1_conv_layer_shortcut_1 14796 0
+NODE add_4 5842 0
+NODE final 22060 0
+NETWORK_US 1437263
+DUMPRETRY 22 chunk re-reads at 0x10418000
+DUMP first_block_2.bin 4194304 34667
+JTAGRETRY 1: Memory read error at 0x112B31E8. Invalid DAP IDCODE ffb7fff2. AXI AP transaction error, DAP status 0x0003FFFB
+JTAGRETRY 2: Invalid context
+JTAGRETRY 3: Invalid context
+JTAGRETRY 4: Invalid context
+JTAGRETRY 5: Invalid context
+JTAG access failed after 5 tries: mrd -bin -file E:/PLD/medical_fpga/embedded/jtag/results/20260928_233150_im0002/chunk.tmp 287997952 16384
+    while executing
+"error "JTAG access failed after $tries tries: $script""
+    (procedure "retry" line 9)
+    invoked from within
+"retry [list mrd -bin -file $tmp $a $n]"
+    (procedure "stable_read" line 14)
+    invoked from within
+"stable_read $addr $words"
+    (procedure "timed_dump" line 3)
+    invoked from within
+"timed_dump {E:/PLD/medical_fpga/embedded/jtag/results/20260928_233150_im0002/add.bin} 0x11018000 1048576"
+    (file "E:\PLD\medical_fpga\embedded\jtag\results\20260928_233150_im0002\run.tcl" line 622)

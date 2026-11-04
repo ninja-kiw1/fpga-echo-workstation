@@ -1,0 +1,30 @@
+E:\PLD\fundus_cdr\train.py:165: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  xg = torch.from_numpy(np.ascontiguousarray(tr['img512'])).to(device)                       # uint8 N,512,512,3
+[disc_mixed_a] it   1000 loss 0.0749 dice_roi 0.9517 dice_full 0.9499 (76s) *
+[disc_mixed_a] it   2000 loss 0.0589 dice_roi 0.9591 dice_full 0.9533 (150s) *
+[disc_mixed_a] it   3000 loss 0.0459 dice_roi 0.9595 dice_full 0.9510 (225s)
+[disc_mixed_a] it   4000 loss 0.0463 dice_roi 0.9637 dice_full 0.9589 (301s) *
+[disc_mixed_a] it   5000 loss 0.0445 dice_roi 0.9672 dice_full 0.9609 (375s) *
+[disc_mixed_a] it   6000 loss 0.0416 dice_roi 0.9676 dice_full 0.9623 (448s) *
+[disc_mixed_a] it   7000 loss 0.0433 dice_roi 0.9658 dice_full 0.9606 (521s)
+[disc_mixed_a] it   8000 loss 0.0405 dice_roi 0.9678 dice_full 0.9619 (594s)
+[disc_mixed_a] it   9000 loss 0.0377 dice_roi 0.9692 dice_full 0.9631 (667s) *
+[disc_mixed_a] it  10000 loss 0.0371 dice_roi 0.9688 dice_full 0.9617 (741s)
+[disc_mixed_a] it  11000 loss 0.0386 dice_roi 0.9682 dice_full 0.9622 (814s)
+[disc_mixed_a] it  12000 loss 0.0346 dice_roi 0.9713 dice_full 0.9633 (887s) *
+[disc_mixed_a] it  13000 loss 0.0352 dice_roi 0.9698 dice_full 0.9630 (963s)
+[disc_mixed_a] it  14000 loss 0.0345 dice_roi 0.9702 dice_full 0.9628 (1037s)
+[disc_mixed_a] it  15000 loss 0.0340 dice_roi 0.9714 dice_full 0.9636 (1113s) *
+[disc_mixed_a] it  16000 loss 0.0336 dice_roi 0.9714 dice_full 0.9633 (1189s)
+[disc_mixed_a] it  17000 loss 0.0324 dice_roi 0.9712 dice_full 0.9634 (1263s)
+[disc_mixed_a] it  18000 loss 0.0331 dice_roi 0.9712 dice_full 0.9634 (1336s)
+[disc_mixed_a] it  19000 loss 0.0324 dice_roi 0.9714 dice_full 0.9635 (1409s)
+[disc_mixed_a] it  20000 loss 0.0336 dice_roi 0.9716 dice_full 0.9634 (1482s) *
+{
+ "iter": 20000,
+ "loss": 0.03362594098682244,
+ "seconds": 1480.1856989860535,
+ "dice_roi": 0.9716144609130133,
+ "dice_full": 0.9634476838034237,
+ "score": 0.9675310723582184
+}

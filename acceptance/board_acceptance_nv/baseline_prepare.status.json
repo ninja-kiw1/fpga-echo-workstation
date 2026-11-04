@@ -1,0 +1,6 @@
+{
+  "label": "baseline_prepare",
+  "pc_utc": "2026-11-03T13:34:03.763269+00:00",
+  "exitcode": 0,
+  "command": "set -eu; systemctl stop tcp-image-server; pids=$(pgrep -f \"^python3 /root/Fz3b_BoardCheck/gui/board_check_gui.py$\" || true); if [ -n \"$pids\" ]; then kill -STOP $pids; fi; mkdir -p /data/nv_acceptance/before/boardcheck /data/nv_acceptance/tools /data/nv_acceptance/tools/vectors; echo \"30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  /lib/firmware/ai_sys.bin\" | sha256sum -c -; if [ -e /lib/firmware/ai_sys.bin.before_nv ]; then echo \"30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  /lib/firmware/ai_sys.bin.before_nv\" | sha256sum -c -; else cp -a /lib/firmware/ai_sys.bin /lib/firmware/ai_sys.bin.before_nv; fi; sha256sum /lib/firmware/ai_sys.bin.before_nv /root/tcp_image_rx/tcp_image_server; test -d /root/tcp_image_rx/releases/v5_20261103T033243Z/src; df -h / | tail -1"
+}

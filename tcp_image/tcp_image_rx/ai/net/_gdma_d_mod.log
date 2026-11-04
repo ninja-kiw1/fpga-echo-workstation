@@ -1,0 +1,39 @@
+ssh ok
+[up] plbdma.c + Makefile
+STARTED
+
+[poll 0] make: Leaving directory '/root/linux-xlnx'
+BUILD_RC=0
+-rw-r--r-- 1 root root 278544 Aug 31 23:56 /root/Tcp_Image_Rx/kmod/plbdma.ko
+
+--- ±‡“Î»’÷æ ---
+make: Entering directory '/root/linux-xlnx'
+
+  WARNING: Symbol version dump ./Module.symvers
+           is missing; modules will have no dependencies and modversions.
+
+make[1]: Warning: File 'include/config/auto.conf' has modification time 35033 s in the future
+  CC [M]  /root/Tcp_Image_Rx/kmod/plbram.o
+  CC [M]  /root/Tcp_Image_Rx/kmod/gdmatest.o
+  CC [M]  /root/Tcp_Image_Rx/kmod/plbdma.o
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+  Building modules, stage 2.
+make[1]: Warning: File '/root/Tcp_Image_Rx/kmod/.plbram.mod.o.cmd' has modification time 35036 s in the future
+  MODPOST 3 modules
+  CC      /root/Tcp_Image_Rx/kmod/gdmatest.mod.o
+  LD [M]  /root/Tcp_Image_Rx/kmod/gdmatest.ko
+  CC      /root/Tcp_Image_Rx/kmod/plbdma.mod.o
+  LD [M]  /root/Tcp_Image_Rx/kmod/plbdma.ko
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make: Leaving directory '/root/linux-xlnx'
+BUILD_RC=0
+
+--- insmod ---
+INSMOD_OK
+crw-rw-rw- 1 root root 10, 57 Aug 31 23:56 /dev/plbdma
+[14569.835673] plbdma: dma channel: fd500000.dma
+[14569.835952] plbdma: bounce buffer: 2048 KB (order 9) phys 0x85f600000
+[14569.836095] plbdma: ready: bram=0xb0000000 window 256KB, /dev/plbdma
+
+GDMA_DEPLOY_MOD_DONE
+EXIT=0 

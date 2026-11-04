@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Human Heart Project</title>
+    <link rel="stylesheet" href="/static/built/girder_lib.min.css">
+    <link rel="icon" type="image/png" href="/static/built/Girder_Favicon.png">
+    <link rel="stylesheet" href="/static/built/plugins/table_view/plugin.min.css">
+    <link rel="stylesheet" href="/static/built/plugins/transaction/plugin.min.css">
+    <link rel="stylesheet" href="/static/built/plugins/zipextractor/plugin.min.css">
+  </head>
+  <body>
+    <div id="g-global-info-apiroot" class="hide">api/v1</div>
+    <script src="/static/built/girder_lib.min.js"></script>
+    <script src="/static/built/girder_app.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            girder.events.trigger('g:appload.before');
+            girder.app = new girder.views.App({
+                el: 'body',
+                parentView: null,
+                contactEmail: 'warehouse\u0040creatis\u002Einsa\u002Dlyon\u002Efr',
+                privacyNoticeHref: 'https\u003A\u002F\u002Fwww\u002Ekitware\u002Ecom\u002Fprivacy',
+                brandName: 'Human\u0020Heart\u0020Project',
+                bannerColor: '\u0023004586',
+                registrationPolicy: 'approve',
+                enablePasswordLogin: true
+            }).render();
+            girder.events.trigger('g:appload.after', girder.app);
+        });
+    </script>
+    <script src="/static/built/plugins/table_view/plugin.min.js"></script>
+    <script src="/static/built/plugins/transaction/plugin.min.js"></script>
+    <script src="/static/built/plugins/zipextractor/plugin.min.js"></script>
+    <script src="/static/built/plugins/cDWIPhantomStudy/plugin.min.js"></script>
+  </body>
+</html>

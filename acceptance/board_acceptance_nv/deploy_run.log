@@ -1,0 +1,864 @@
+START deploy_new 2026-11-03T13:35:37.574432+00:00
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+/data/nv_acceptance/ai_sys_f150nv.bin: OK
+/lib/firmware/ai_sys.bin.before_nv: OK
+a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95  /lib/firmware/ai_sys.bin
+21aa27b641f16d4396fbc76ccbc45d59f441e1d3fafafc8c6ef8a22bedfdac07  ai_sys_xu2dp_e2b_pp (pp_layer @0xA0030000)
+8a91b75cbfdd2ee9e87addfda2f4691c394547d951023368ebde74d322af97c5  ai_sys_xu2dp_e2b_pp_r1 (pp_layer @0xA0030000, line-buffer img_proc 0x494D5004)
+c3d5645c9c35d6fae630caa1d559efe6b2d82360d92585807549354771764169  ai_sys_xu2dp_e2b_pp_r1a (pp_layer @0xA0030000, line-buffer img_proc 0x494D5004)
+81d0f4625875eb0971d5ae2fba723e3b93730552fd7fada3aaa5f614bc234bb6  ai_sys_xu2dp_e2b_pp_r2 (pp_layer @0xA0030000, line-buffer img_proc 0x494D5004)
+30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  ai_sys_f150 (r2 + MMCM; pp_layer @0xA0030000, line-buffer img_proc 0x494D5004)
+a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95  ai_sys_f150nv (f150 without vis_layer; pp_layer @0xA0030000, line-buffer img_proc 0x494D5004)
+81d0f4625875eb0971d5ae2fba723e3b93730552fd7fada3aaa5f614bc234bb6  ai_sys_xu2dp_e2b_pp_r2 (vis_layer @0xA0040000)
+30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  ai_sys_f150 (r2 + MMCM; vis_layer @0xA0040000)
+
+SSH_EXITCODE 0 deploy_new
+Exception (client): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2029, in run
+    self._check_banner()
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+WAITING_FOR_BOARD SSHException
+Exception (client): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2029, in run
+    self._check_banner()
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+WAITING_FOR_BOARD SSHException
+Exception (client): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2029, in run
+    self._check_banner()
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+WAITING_FOR_BOARD SSHException
+Exception (client): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PLD\tcp_image\.board_tools\paramiko\packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2029, in run
+    self._check_banner()
+  File "E:\PLD\tcp_image\.board_tools\paramiko\transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+WAITING_FOR_BOARD SSHException
+REBOOT_CONFIRMED a83be06c-ad67-4113-9ccd-e5d9ee161ae7
+START new_boot_state 2026-11-03T13:36:15.374182+00:00
+a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95  /lib/firmware/ai_sys.bin
+9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939  /root/tcp_image_rx/tcp_image_server
+operating
+active
+active
+active
+-- Logs begin at Tue 2021-08-31 19:53:46 CST, end at Tue 2021-08-31 22:41:37 CST. --
+Aug 31 19:53:51 EdgeBoard systemd[1]: Starting Load our ai_sys bitstream into the PL (fpga_manager)...
+Aug 31 19:53:51 EdgeBoard load_ai_sys.sh[3406]: ai-sys: start
+Aug 31 19:53:51 EdgeBoard load_ai_sys.sh[3406]: ai-sys: rmmod fpgadrv
+Aug 31 19:53:51 EdgeBoard load_ai_sys.sh[3406]: ai-sys: writing ai_sys.bin to /sys/class/fpga_manager/fpga0/firmware
+Aug 31 19:53:52 EdgeBoard load_ai_sys.sh[3406]: ai-sys: state = operating
+Aug 31 19:53:52 EdgeBoard load_ai_sys.sh[3406]: ai-sys: VERSION @0xA0000010 = 0x494D5004  OK (our design, line buffer)
+Aug 31 19:53:52 EdgeBoard load_ai_sys.sh[3406]: ai-sys: done
+Aug 31 19:53:52 EdgeBoard systemd[1]: Started Load our ai_sys bitstream into the PL (fpga_manager).
+Aug 31 19:53:52 EdgeBoard tcp_image_server[3447]: [axil] register file at 0xA0000000, VERSION 0x494D5004 ok (4 px/word, line buffer, row-interleaved)
+Aug 31 19:53:52 EdgeBoard tcp_image_server[3447]: [pp] pp_layer ready @0xA0030000
+Aug 31 19:53:53 EdgeBoard tcp_image_server[3447]: [vis] PL registration / overlay off: firmware not listed in /lib/firmware/ai_sys_vis.sha256
+                            pl0_ref           0            0   101375992          0 0  
+State    Recv-Q    Send-Q        Local Address:Port        Peer Address:Port                                                                                    
+LISTEN   0         5                   0.0.0.0:873              0.0.0.0:*        users:(("rsync",pid=3191,fd=4))                                                
+LISTEN   0         50                  0.0.0.0:139              0.0.0.0:*        users:(("smbd",pid=3451,fd=35))                                                
+LISTEN   0         128           127.0.0.53%lo:53               0.0.0.0:*        users:(("systemd-resolve",pid=3157,fd=13))                                     
+LISTEN   0         128                 0.0.0.0:22               0.0.0.0:*        users:(("sshd",pid=3334,fd=3))                                                 
+LISTEN   0         50                  0.0.0.0:445              0.0.0.0:*        users:(("smbd",pid=3451,fd=34))                                                
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*        users:(("tcp_image_serve",pid=3447,fd=8))                                      
+LISTEN   0         5                      [::]:873                 [::]:*        users:(("rsync",pid=3191,fd=5))                                                
+LISTEN   0         50                     [::]:139                 [::]:*        users:(("smbd",pid=3451,fd=33))                                                
+LISTEN   0         128                    [::]:22                  [::]:*        users:(("sshd",pid=3334,fd=4))                                                 
+LISTEN   0         50                     [::]:445                 [::]:*        users:(("smbd",pid=3451,fd=32))                                                
+
+SSH_EXITCODE 0 new_boot_state
+START after_boardcheck_baseline 2026-11-03T13:36:17.555055+00:00
+
+SSH_EXITCODE 0 after_boardcheck_baseline
+START after_boardcheck_prepare 2026-11-03T13:36:17.870280+00:00
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+
+SSH_EXITCODE 0 after_boardcheck_prepare
+START after_boardcheck 2026-11-03T13:36:18.176534+00:00
+
+------------------------------------------------------------------
+ Fz3b_BoardCheck v1.0.0  --  FZ3B 板端自检(不需要 PC)
+------------------------------------------------------------------
+ 时间      : 2021-08-31 19:54:08
+ 平台      : on-board (aarch64 Linux, real /dev/mem + PL drivers linked in)
+ 地址      : imgproc=0xA0000000 conv=0xA0010000 elt=0xA0020000 bram=0xB0000000
+ 图片      : Netpbm P6 512x512 maxval=255 512x512 -> 尺寸已是 512x512, 未重采样(逐字节不变)
+
+[1/5] 硬件自检(指纹 / 寄存器 / 地址)
+[axil] register file at 0xA0000000, VERSION 0x494D5004 ok (4 px/word, line buffer, row-interleaved)
+
+[自动阈值] Otsu 一级=82(全图黑占 60%)|排除< 34 的背景 24%|二级=112
+[自动阈值] 边缘阈值(自动) = 42:Sobel 幅度前 8% 判为边缘、画白, 其余保持原图
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f991c2000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+
+[2/5] 预处理模式逐字节比对
+
+[3/5] AI 整网(血管分割)
+
+[4/5] 性能基准(访问成本)
+
+[5/5] 报告与基线
+ 报告已写入: /data/nv_acceptance/after/boardcheck/report_2021-08-31_19-54-10.md
+
+------------------------------------------------------------------
+ 自检汇总  (工具 1.0.0, 2021-08-31 19:54:08)
+------------------------------------------------------------------
+ [PASS] 载入图像                                      Netpbm P6 512x512 maxval=255 512x512 -> 尺寸已是 512x512, 未重采样(逐字节不变)
+ [PASS] 图像规格 512x512 RGB888                       内部表示 786432 字节, 行 1536 字节, 像素 262144
+ [PASS] PL 指纹(VERSION@0x10)                           0xA0000000 读到 VERSION=0x494D5004, 是 img_proc_axil(4 像素/字, 行缓冲版)
+ [PASS] img_proc 寄存器映射                          axilproc_init 成功, VERSION 校验通过
+ [PASS] AI 控制口 (conv/elt)                           conv CTRL=0x00000004 (ap_idle=1), elt CTRL=0x00000004
+ [PASS] /dev/plbram (Normal-NC)                           内核模块已加载 —— 张量搬运会走 Normal-NC 映射(写比 /dev/mem 快一个量级, 读不变; 具体数见下方访问成本)
+ [PASS] 张量 BRAM 写读回                   10.4 ms  0xB0000000 上 65536 字(256 KB)全部一致 | 写 4 ns/字, 读 155 ns/字 (plbram)
+ [PASS] U-Net 子系统初始化                          conv=0xA0010000 elt=0xA0020000 bram=0xB0000000 均可用
+ [PASS] 阈值自动预设(Otsu)                          Otsu 一级=82(全图黑占 60%)|排除< 34 的背景 24%|二级=112
+ [PASS] 阈值自动预设(边缘分位)                  边缘阈值(自动) = 42:Sobel 幅度前 8% 判为边缘、画白, 其余保持原图
+ [PASS] mode0 灰度归一化                   21.0 ms  mismatch 0/786432 | 参考 min/max=0/197, PL 报 0/197 | 非灰度像素=0(应为 0)
+ [PASS] mode1 阈值分割                      17.5 ms  mismatch 0/786432 | 参考 min/max=0/197, PL 报 0/197 | 非 0/255 像素=0
+ [PASS] mode2 边缘增强                      17.7 ms  mismatch 0/786432 | 参考 min/max=0/197, PL 报 0/197 | 非灰度像素=0(应为 0)
+ [PASS] mode3 伪彩色映射                   50.5 ms  mismatch 0/786432 | 参考 min/max=0/197, PL 报 0/197 | 非灰度像素=262144/262144
+ [PASS] mode4 归一化+伪彩                  52.1 ms  mismatch 0/786432 | 参考 min/max=0/197, PL 报 0/197 | 非灰度像素=262144/262144
+ [PASS] mode6 第1步 PL 边缘图              17.6 ms  PL(模式2) 边缘图与参考逐字节一致 | min/max=0/197 vs PL 0/197
+ [PASS] mode6 第2步 边缘叠加                        叠加结果与参考逐字节一致(阈值 42), 画白 22162 像素 (8.5%)
+ [PASS] mode5 原图直通                                输出与输入逐字节一致(不经 PL, 验证链路没有被改坏)
+ [PASS] AI 整网(血管分割)                340.5 ms  输入 原始RGB 512x512 -> 输出 512x512 | logit[-107..100] | vessels=16458/262144 (6.28%)
+ [PASS] AI 耗时分解                                   ap(PL计算)=218 ms | put(PS->BRAM)=61 | get(BRAM->PS)=70 | zero=0 | 条带=853 | 搬运 7362464+5341184 字
+ [PASS] AI vs golden(逐字节)                           shift=0 (512x512) mismatch 0/262144, 与 HLS golden 完全一致
+ [PASS] 掩膜 vs 独立复算                            512x512 掩膜逐字节一致, 血管像素 16458 (连通块 119)
+ [PASS] 不变量: 掩膜只 0/255                        786432 字节全部合法
+ [PASS] 叠加 vs 独立复算                            512x512 叠加图逐字节一致
+ [PASS] 不变量: 叠加红 == 掩膜白                 16458 个像素位置完全对应
+ [PASS] 统计块自洽(64B)                              magic/version/vessels/total/permille 都对 (permille=62)
+ [PASS] 访问成本 PL BRAM(plbram, Normal-NC)       9.6 ms  写 1.9 ns/次, 读 145.3 ns/次 (各 65536 次)
+ [PASS] 访问成本 PL BRAM(dev/mem, Device)      10.8 ms  写 19.9 ns/次, 读 145.2 ns/次 (各 65536 次)
+ [PASS] 访问成本 PS DDR(dev/mem)             8.1 ms  写 9.5 ns/次, 读 114.4 ns/次 —— 读慢是 Device 映射语义, 与 PL 通路无关
+ [PASS] 访问成本 对照(可缓存 malloc)                写 1.94 ns/次, 读 3.97 ns/次 —— 比 Device 映射快几十倍, 所以'减字节数'没意义, 要减的是访问次数
+ [PASS] baseline 对比                                   与 11 项历史耗时做了对比(慢 20% 以上标 WARN)
+------------------------------------------------------------------
+ 合计: 31 项 | PASS 31 | FAIL 0 | WARN 0 | SKIP(未验证) 0
+ 结论: 全部已跑的检查均通过
+------------------------------------------------------------------
+
+SSH_EXITCODE 0 after_boardcheck
+START after_exclusive 2026-11-03T13:36:20.783808+00:00
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+
+SSH_EXITCODE 0 after_exclusive
+START after_fundus32 2026-11-03T13:36:21.138102+00:00
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f96192000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=0 res=32 iter=-2 mismatch=0/1024
+CHECK model=0 res=32 iter=-1 mismatch=0/1024
+CHECK model=0 res=32 iter=0 mismatch=0/1024
+SAMPLE {"model":0,"res":32,"sample":0,"ap_us":1443,"put_us":313,"get_us":844,"run_us":2818,"strips":29}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0 after_fundus32
+START after_fundus512 2026-11-03T13:36:21.455674+00:00
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f7d7c1000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=0 res=512 iter=-2 mismatch=0/262144
+CHECK model=0 res=512 iter=-1 mismatch=0/262144
+CHECK model=0 res=512 iter=0 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":203463,"put_us":60516,"get_us":62940,"run_us":292718,"strips":853}
+CHECK model=0 res=512 iter=1 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":203940,"put_us":59924,"get_us":62870,"run_us":292587,"strips":853}
+CHECK model=0 res=512 iter=2 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":203435,"put_us":60467,"get_us":63020,"run_us":293172,"strips":853}
+CHECK model=0 res=512 iter=3 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":203379,"put_us":60140,"get_us":63030,"run_us":292237,"strips":853}
+CHECK model=0 res=512 iter=4 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":203556,"put_us":59979,"get_us":63024,"run_us":292446,"strips":853}
+CHECK model=0 res=512 iter=5 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":203287,"put_us":59880,"get_us":62961,"run_us":291907,"strips":853}
+CHECK model=0 res=512 iter=6 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":203855,"put_us":60323,"get_us":62850,"run_us":292769,"strips":853}
+CHECK model=0 res=512 iter=7 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":203322,"put_us":59916,"get_us":62870,"run_us":291818,"strips":853}
+CHECK model=0 res=512 iter=8 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":8,"ap_us":203331,"put_us":59922,"get_us":62814,"run_us":291928,"strips":853}
+CHECK model=0 res=512 iter=9 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":9,"ap_us":203378,"put_us":60212,"get_us":63021,"run_us":292218,"strips":853}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0 after_fundus512
+START after_skin128 2026-11-03T13:36:25.289740+00:00
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb8273000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=1 res=128 iter=-2 mismatch=0/16384
+CHECK model=1 res=128 iter=-1 mismatch=0/16384
+CHECK model=1 res=128 iter=0 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":15222,"put_us":3996,"get_us":4566,"run_us":23475,"strips":66}
+CHECK model=1 res=128 iter=1 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":13952,"put_us":4364,"get_us":4592,"run_us":22492,"strips":66}
+CHECK model=1 res=128 iter=2 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":14176,"put_us":4036,"get_us":4598,"run_us":22436,"strips":66}
+CHECK model=1 res=128 iter=3 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":3,"ap_us":14221,"put_us":4555,"get_us":4608,"run_us":23004,"strips":66}
+CHECK model=1 res=128 iter=4 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":4,"ap_us":13942,"put_us":4160,"get_us":4542,"run_us":22246,"strips":66}
+CHECK model=1 res=128 iter=5 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":5,"ap_us":13977,"put_us":4128,"get_us":4654,"run_us":22319,"strips":66}
+CHECK model=1 res=128 iter=6 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":6,"ap_us":13971,"put_us":4109,"get_us":4658,"run_us":22360,"strips":66}
+CHECK model=1 res=128 iter=7 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":7,"ap_us":13953,"put_us":4145,"get_us":4640,"run_us":22365,"strips":66}
+CHECK model=1 res=128 iter=8 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":8,"ap_us":13948,"put_us":4156,"get_us":4605,"run_us":22318,"strips":66}
+CHECK model=1 res=128 iter=9 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":9,"ap_us":13950,"put_us":4112,"get_us":4618,"run_us":22223,"strips":66}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0 after_skin128
+START after_echo128 2026-11-03T13:36:25.823965+00:00
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb00d5000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=2 res=128 iter=-2 mismatch=0/16384
+CHECK model=2 res=128 iter=-1 mismatch=0/16384
+CHECK model=2 res=128 iter=0 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":0,"ap_us":14203,"put_us":3891,"get_us":4628,"run_us":22484,"strips":66}
+CHECK model=2 res=128 iter=1 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":1,"ap_us":14043,"put_us":4342,"get_us":4803,"run_us":22813,"strips":66}
+CHECK model=2 res=128 iter=2 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":2,"ap_us":14608,"put_us":3978,"get_us":4622,"run_us":23191,"strips":66}
+CHECK model=2 res=128 iter=3 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":3,"ap_us":14119,"put_us":3942,"get_us":4606,"run_us":22405,"strips":66}
+CHECK model=2 res=128 iter=4 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":4,"ap_us":13956,"put_us":3900,"get_us":4908,"run_us":22460,"strips":66}
+CHECK model=2 res=128 iter=5 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":5,"ap_us":13963,"put_us":3853,"get_us":4630,"run_us":22082,"strips":66}
+CHECK model=2 res=128 iter=6 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":6,"ap_us":13964,"put_us":3899,"get_us":4929,"run_us":22435,"strips":66}
+CHECK model=2 res=128 iter=7 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":7,"ap_us":13939,"put_us":3878,"get_us":4603,"run_us":22153,"strips":66}
+CHECK model=2 res=128 iter=8 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":8,"ap_us":13942,"put_us":3945,"get_us":4628,"run_us":22127,"strips":66}
+CHECK model=2 res=128 iter=9 mismatch=0/16384
+SAMPLE {"model":2,"res":128,"sample":9,"ap_us":13940,"put_us":3995,"get_us":4619,"run_us":22132,"strips":66}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0 after_echo128
+START after_profile_fundus512 2026-11-03T13:36:26.349639+00:00
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fa4aec000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=316798 us  ap=219447  put=64269  get=64546  zero=106  other=-31570
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=62364 us  bounce_memcpy=97125 us (hidden in ap: 95280)
+[prof] J1 on: posts=824  main_wait=12507 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12996      5633
+[prof]    2     12273      5468
+[prof]    3      4839      5751
+[prof]    4      4668      8327
+[prof]    5      1876      3122
+[prof]    6      5844      2136
+[prof]    7     11020      2845
+[prof]    8      2458      1986
+[prof]    9      2394      3967
+[prof]   10       928      1592
+[prof]   11      5298      1035
+[prof]   12     10586      1495
+[prof]   13      1306      1031
+[prof]   14      1749      2109
+[prof]   15      3078      2066
+[prof]   16     10787      2826
+[prof]   17      4693      6052
+[prof]   18     22640      4362
+[prof]   19     11165      2831
+[prof]   20      3885      3759
+[prof]   21      2355      4029
+[prof]   22      4721      4617
+[prof]   23     12504      5653
+[prof]   24      9483     11175
+[prof]   25     25862      8654
+[prof]   26     12279      5523
+[prof]   27      7699      7333
+[prof]   28      5200      8486
+[prof]   29      4861      5058
+CHECK model=0 res=512 iter=-2 mismatch=0/262144
+[prof] total=295223 us  ap=203912  put=63032  get=62777  zero=107  other=-34605
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61679 us  bounce_memcpy=37989 us (hidden in ap: 37206)
+[prof] J1 on: posts=824  main_wait=12368 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12892      5519
+[prof]    2     12274      5523
+[prof]    3      4417      5094
+[prof]    4      3543      8049
+[prof]    5      1851      3140
+[prof]    6      5843      2075
+[prof]    7     10783      2809
+[prof]    8      2203      1955
+[prof]    9      1766      4039
+[prof]   10       925      1588
+[prof]   11      5294      1065
+[prof]   12     10178      1422
+[prof]   13      1148       992
+[prof]   14       895      1999
+[prof]   15      3079      1952
+[prof]   16     10787      2828
+[prof]   17      2454      5631
+[prof]   18     22642      4423
+[prof]   19     10782      2755
+[prof]   20      3872      3783
+[prof]   21      1763      4079
+[prof]   22      4336      3916
+[prof]   23     12275      5424
+[prof]   24      4866     10625
+[prof]   25     25155      8796
+[prof]   26     12282      5483
+[prof]   27      7654      7662
+[prof]   28      3540      8170
+[prof]   29      4413      5120
+CHECK model=0 res=512 iter=-1 mismatch=0/262144
+[prof] total=296385 us  ap=204441  put=63142  get=62780  zero=105  other=-34083
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61775 us  bounce_memcpy=37551 us (hidden in ap: 36867)
+[prof] J1 on: posts=824  main_wait=12221 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12278      5626
+[prof]    2     12277      5581
+[prof]    3      4411      5199
+[prof]    4      3540      8165
+[prof]    5      1855      3195
+[prof]    6      5845      2052
+[prof]    7     10788      2779
+[prof]    8      2205      1965
+[prof]    9      1760      4055
+[prof]   10       930      1600
+[prof]   11      5296      1010
+[prof]   12     10178      1405
+[prof]   13      1150      1001
+[prof]   14       879      2077
+[prof]   15      3078      1966
+[prof]   16     10781      2745
+[prof]   17      2423      5374
+[prof]   18     22642      4379
+[prof]   19     10786      2825
+[prof]   20      3871      3813
+[prof]   21      1759      4022
+[prof]   22      4342      3882
+[prof]   23     12280      5522
+[prof]   24      4866     10530
+[prof]   25     26328      9579
+[prof]   26     12274      5533
+[prof]   27      7655      7320
+[prof]   28      3548      7749
+[prof]   29      4416      5078
+CHECK model=0 res=512 iter=0 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":204441,"put_us":63142,"get_us":62780,"run_us":296385,"strips":853}
+[prof] total=291886 us  ap=203367  put=60507  get=62531  zero=105  other=-34624
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61507 us  bounce_memcpy=37187 us (hidden in ap: 36492)
+[prof] J1 on: posts=824  main_wait=12379 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12277      5543
+[prof]    2     12278      5447
+[prof]    3      4414      5116
+[prof]    4      3556      7927
+[prof]    5      1854      3067
+[prof]    6      5843      2023
+[prof]    7     10787      2763
+[prof]    8      2219      1953
+[prof]    9      1758      3872
+[prof]   10       926      1550
+[prof]   11      5294      1028
+[prof]   12     10180      1421
+[prof]   13      1148       982
+[prof]   14       883      1960
+[prof]   15      3080      2006
+[prof]   16     10788      2773
+[prof]   17      2450      5211
+[prof]   18     22642      4268
+[prof]   19     10786      2770
+[prof]   20      3885      3636
+[prof]   21      1780      3895
+[prof]   22      4338      3906
+[prof]   23     12276      5430
+[prof]   24      4846     10467
+[prof]   25     25153      8458
+[prof]   26     12278      5445
+[prof]   27      7667      7343
+[prof]   28      3543      7832
+[prof]   29      4438      5051
+CHECK model=0 res=512 iter=1 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":203367,"put_us":60507,"get_us":62531,"run_us":291886,"strips":853}
+[prof] total=294860 us  ap=203331  put=61017  get=63643  zero=105  other=-33236
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=62630 us  bounce_memcpy=37422 us (hidden in ap: 36743)
+[prof] J1 on: posts=824  main_wait=15018 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12289      5520
+[prof]    2     12277      5422
+[prof]    3      4417      5189
+[prof]    4      3540      7839
+[prof]    5      1859      3076
+[prof]    6      5864      2029
+[prof]    7     10783      2751
+[prof]    8      2202      1979
+[prof]    9      1761      3905
+[prof]   10       928      1577
+[prof]   11      5295      1037
+[prof]   12     10178      1458
+[prof]   13      1150       983
+[prof]   14       882      1996
+[prof]   15      3078      1971
+[prof]   16     10781      2726
+[prof]   17      2425      6681
+[prof]   18     22648      4218
+[prof]   19     10789      2706
+[prof]   20      3870      3631
+[prof]   21      1762      3885
+[prof]   22      4341      3869
+[prof]   23     12275      5347
+[prof]   24      4889     10401
+[prof]   25     25159      8889
+[prof]   26     12275      5501
+[prof]   27      7655      7243
+[prof]   28      3544      7837
+[prof]   29      4415      5099
+CHECK model=0 res=512 iter=2 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":203331,"put_us":61017,"get_us":63643,"run_us":294860,"strips":853}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0 after_profile_fundus512
+START after_profile_skin128 2026-11-03T13:36:28.189783+00:00
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb8124000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=24268 us  ap=15441  put=3270  get=5627  zero=30  other=-100
+[prof] strips=66  put=439184 words  get=333824 words  params=4240 words
+[prof] get split: DMA=333824 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=66  ioctl=4026 us  bounce_memcpy=6057 us (hidden in ap: 4489)
+[prof] J1 on: posts=37  main_wait=1448 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1       914       376
+[prof]    2       915       323
+[prof]    3       527       314
+[prof]    4       360       452
+[prof]    5       160       190
+[prof]    6       417       303
+[prof]    7       804       174
+[prof]    8       199       258
+[prof]    9       171       278
+[prof]   10        63       116
+[prof]   11       376       142
+[prof]   12       676       158
+[prof]   13       104       137
+[prof]   14        55       204
+[prof]   15       259       263
+[prof]   16       796       169
+[prof]   17       250       443
+[prof]   18      1304       292
+[prof]   19       796       175
+[prof]   20       290       274
+[prof]   21       176       283
+[prof]   22       450       326
+[prof]   23       909       394
+[prof]   24       567       819
+[prof]   25      1448       482
+[prof]   26       917       333
+[prof]   27       645       480
+[prof]   28       371       468
+[prof]   29       522       301
+CHECK model=1 res=128 iter=-2 mismatch=0/16384
+[prof] total=22942 us  ap=13931  put=4024  get=4609  zero=28  other=350
+[prof] strips=66  put=439184 words  get=333824 words  params=4240 words
+[prof] get split: DMA=333824 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=66  ioctl=4013 us  bounce_memcpy=2301 us (hidden in ap: 1732)
+[prof] J1 on: posts=37  main_wait=2027 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1       835       327
+[prof]    2       833       368
+[prof]    3       441       301
+[prof]    4       254       559
+[prof]    5       127       247
+[prof]    6       417       197
+[prof]    7       715       198
+[prof]    8       198       174
+[prof]    9       111       286
+[prof]   10        63       133
+[prof]   11       377       103
+[prof]   12       676       121
+[prof]   13       104        91
+[prof]   14        55       172
+[prof]   15       259       180
+[prof]   16       717       168
+[prof]   17       186       378
+[prof]   18      1303       287
+[prof]   19       715       187
+[prof]   20       287       232
+[prof]   21       111       285
+[prof]   22       393       292
+[prof]   23       834       359
+[prof]   24       371       757
+[prof]   25      1446       531
+[prof]   26       834       355
+[prof]   27       581       487
+[prof]   28       251       531
+[prof]   29       437       355
+CHECK model=1 res=128 iter=-1 mismatch=0/16384
+[prof] total=22120 us  ap=13951  put=3890  get=4641  zero=31  other=-393
+[prof] strips=66  put=439184 words  get=333824 words  params=4240 words
+[prof] get split: DMA=333824 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=66  ioctl=4041 us  bounce_memcpy=2263 us (hidden in ap: 1698)
+[prof] J1 on: posts=37  main_wait=1316 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1       833       311
+[prof]    2       833       358
+[prof]    3       438       293
+[prof]    4       255       525
+[prof]    5       127       217
+[prof]    6       417       186
+[prof]    7       716       210
+[prof]    8       198       170
+[prof]    9       111       273
+[prof]   10        63       126
+[prof]   11       377       107
+[prof]   12       676       123
+[prof]   13       104        94
+[prof]   14        55       158
+[prof]   15       259       183
+[prof]   16       716       164
+[prof]   17       186       402
+[prof]   18      1305       277
+[prof]   19       715       208
+[prof]   20       287       253
+[prof]   21       132       276
+[prof]   22       394       287
+[prof]   23       833       358
+[prof]   24       372       752
+[prof]   25      1446       581
+[prof]   26       833       345
+[prof]   27       582       445
+[prof]   28       251       526
+[prof]   29       437       354
+CHECK model=1 res=128 iter=0 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":13951,"put_us":3890,"get_us":4641,"run_us":22120,"strips":66}
+[prof] total=22554 us  ap=13928  put=3890  get=4594  zero=26  other=116
+[prof] strips=66  put=439184 words  get=333824 words  params=4240 words
+[prof] get split: DMA=333824 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=66  ioctl=4003 us  bounce_memcpy=2244 us (hidden in ap: 1674)
+[prof] J1 on: posts=37  main_wait=1749 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1       833       304
+[prof]    2       834       353
+[prof]    3       439       288
+[prof]    4       254       630
+[prof]    5       126       221
+[prof]    6       416       191
+[prof]    7       715       188
+[prof]    8       199       170
+[prof]    9       110       290
+[prof]   10        64       130
+[prof]   11       376       107
+[prof]   12       676       124
+[prof]   13       105        91
+[prof]   14        56       155
+[prof]   15       259       182
+[prof]   16       715       172
+[prof]   17       186       386
+[prof]   18      1303       280
+[prof]   19       716       185
+[prof]   20       287       234
+[prof]   21       111       282
+[prof]   22       394       290
+[prof]   23       834       353
+[prof]   24       369       734
+[prof]   25      1446       509
+[prof]   26       833       345
+[prof]   27       582       444
+[prof]   28       251       525
+[prof]   29       439       347
+CHECK model=1 res=128 iter=1 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":13928,"put_us":3890,"get_us":4594,"run_us":22554,"strips":66}
+[prof] total=22196 us  ap=13926  put=3865  get=4634  zero=27  other=-256
+[prof] strips=66  put=439184 words  get=333824 words  params=4240 words
+[prof] get split: DMA=333824 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=66  ioctl=4016 us  bounce_memcpy=2287 us (hidden in ap: 1700)
+[prof] J1 on: posts=37  main_wait=1385 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1       835       313
+[prof]    2       834       360
+[prof]    3       439       294
+[prof]    4       253       527
+[prof]    5       126       224
+[prof]    6       417       222
+[prof]    7       715       190
+[prof]    8       199       170
+[prof]    9       112       294
+[prof]   10        63       115
+[prof]   11       377       105
+[prof]   12       676       121
+[prof]   13       104       109
+[prof]   14        55       165
+[prof]   15       258       185
+[prof]   16       716       168
+[prof]   17       184       393
+[prof]   18      1303       291
+[prof]   19       716       191
+[prof]   20       286       248
+[prof]   21       111       278
+[prof]   22       393       283
+[prof]   23       834       356
+[prof]   24       370       729
+[prof]   25      1446       527
+[prof]   26       833       345
+[prof]   27       580       457
+[prof]   28       251       525
+[prof]   29       440       341
+CHECK model=1 res=128 iter=2 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":13926,"put_us":3865,"get_us":4634,"run_us":22196,"strips":66}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0 after_profile_skin128
+START after_pp_vectors 2026-11-03T13:36:28.649817+00:00
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f8616d000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[pp] pp_layer ready @0xA0030000
+TIME fundus_im0001                        calls 2 pl 2.620 ms total 3.033 ms  | PS ai_view_count 4.617 ms
+TIME fundus_im0001_c8                     calls 2 pl 2.355 ms total 2.779 ms
+TIME fundus_im0002                        calls 2 pl 2.512 ms total 2.928 ms  | PS ai_view_count 4.230 ms
+TIME fundus_im0002_c8                     calls 2 pl 2.299 ms total 2.709 ms
+TIME fundus_im0003                        calls 2 pl 2.507 ms total 2.923 ms  | PS ai_view_count 4.274 ms
+TIME fundus_im0003_c8                     calls 2 pl 2.279 ms total 2.688 ms
+TIME fundus_im0004                        calls 2 pl 2.391 ms total 2.808 ms  | PS ai_view_count 3.842 ms
+TIME fundus_im0004_c8                     calls 2 pl 2.253 ms total 2.672 ms
+TIME fundus_im0005                        calls 2 pl 2.968 ms total 3.378 ms  | PS ai_view_count 5.229 ms
+TIME fundus_im0005_c8                     calls 2 pl 2.405 ms total 2.823 ms
+TIME ct_spleen_2_z000_k4                  calls 1 pl 2.287 ms total 2.593 ms
+TIME ct_spleen_2_z000_k2                  calls 1 pl 0.800 ms total 0.884 ms
+TIME ct_spleen_2_z045_k4                  calls 1 pl 2.287 ms total 2.594 ms
+TIME ct_spleen_2_z045_k2                  calls 1 pl 0.799 ms total 0.884 ms
+TIME ct_spleen_2_z067_k4                  calls 1 pl 2.311 ms total 2.618 ms
+TIME ct_spleen_2_z067_k2                  calls 1 pl 0.805 ms total 0.898 ms
+TIME ct_spleen_2_z070_k4                  calls 1 pl 2.406 ms total 2.712 ms
+TIME ct_spleen_2_z070_k2                  calls 1 pl 0.828 ms total 0.911 ms
+TIME ct_spleen_2_z073_k4                  calls 1 pl 2.538 ms total 2.848 ms
+TIME ct_spleen_2_z073_k2                  calls 1 pl 0.862 ms total 0.946 ms
+TIME ct_spleen_2_z076_k4                  calls 1 pl 2.599 ms total 2.906 ms
+TIME ct_spleen_2_z076_k2                  calls 1 pl 0.879 ms total 0.964 ms
+TIME ct_spleen_2_z079_k4                  calls 1 pl 2.516 ms total 2.823 ms
+TIME ct_spleen_2_z079_k2                  calls 1 pl 0.857 ms total 0.942 ms
+TIME ct_spleen_2_z082_k4                  calls 1 pl 2.391 ms total 2.706 ms
+TIME ct_spleen_2_z082_k2                  calls 1 pl 0.825 ms total 0.909 ms
+TIME ct_spleen_2_z085_k4                  calls 1 pl 2.335 ms total 2.642 ms
+TIME ct_spleen_2_z085_k2                  calls 1 pl 0.812 ms total 0.897 ms
+TIME ct_spleen_2_z089_k4                  calls 1 pl 2.287 ms total 2.593 ms
+TIME ct_spleen_2_z089_k2                  calls 1 pl 0.799 ms total 0.885 ms
+TIME ct_spleen_3_z000_k4                  calls 1 pl 2.287 ms total 2.593 ms
+TIME ct_spleen_3_z000_k2                  calls 1 pl 0.799 ms total 0.883 ms
+TIME ct_spleen_3_z018_k4                  calls 1 pl 2.290 ms total 2.597 ms
+TIME ct_spleen_3_z018_k2                  calls 1 pl 0.801 ms total 0.887 ms
+TIME ct_spleen_3_z020_k4                  calls 1 pl 2.363 ms total 2.669 ms
+TIME ct_spleen_3_z020_k2                  calls 1 pl 0.817 ms total 0.901 ms
+TIME ct_spleen_3_z021_k4                  calls 1 pl 2.413 ms total 2.720 ms
+TIME ct_spleen_3_z021_k2                  calls 1 pl 0.829 ms total 0.914 ms
+TIME ct_spleen_3_z024_k4                  calls 1 pl 2.485 ms total 2.805 ms
+TIME ct_spleen_3_z024_k2                  calls 1 pl 0.849 ms total 0.934 ms
+TIME ct_spleen_3_z027_k4                  calls 1 pl 2.536 ms total 2.842 ms
+TIME ct_spleen_3_z027_k2                  calls 1 pl 0.861 ms total 0.952 ms
+TIME ct_spleen_3_z030_k4                  calls 1 pl 2.458 ms total 2.764 ms
+TIME ct_spleen_3_z030_k2                  calls 1 pl 0.845 ms total 0.929 ms
+TIME ct_spleen_3_z039_k4                  calls 1 pl 2.287 ms total 2.594 ms
+TIME ct_spleen_3_z039_k2                  calls 1 pl 0.799 ms total 0.884 ms
+TIME echo_0X10000931_f000                 calls 1 pl 0.423 ms total 0.448 ms
+TIME echo_0X10000931_f006                 calls 1 pl 0.409 ms total 0.436 ms
+TIME echo_0X10000931_f012                 calls 1 pl 0.404 ms total 0.430 ms
+TIME echo_0X10000931_f018                 calls 1 pl 0.409 ms total 0.436 ms
+TIME echo_0X10000931_f024                 calls 1 pl 0.406 ms total 0.432 ms
+TIME echo_0X10000931_f030                 calls 1 pl 0.417 ms total 0.444 ms
+TIME echo_0X10000931_f036                 calls 1 pl 0.420 ms total 0.447 ms
+TIME echo_0X10000931_f042                 calls 1 pl 0.424 ms total 0.451 ms
+TIME echo_0X10000931_f048                 calls 1 pl 0.414 ms total 0.441 ms
+TIME echo_0X10000931_f054                 calls 1 pl 0.407 ms total 0.434 ms
+TIME echo_0X10000931_f060                 calls 1 pl 0.404 ms total 0.430 ms
+TIME echo_0X10000931_f066                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X10000931_f072                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X10000931_f078                 calls 1 pl 0.412 ms total 0.438 ms
+TIME echo_0X10000931_f084                 calls 1 pl 0.416 ms total 0.442 ms
+TIME echo_0X10000931_f090                 calls 1 pl 0.410 ms total 0.436 ms
+TIME echo_0X10000931_f096                 calls 1 pl 0.405 ms total 0.431 ms
+TIME echo_0X10000931_f102                 calls 1 pl 0.410 ms total 0.436 ms
+TIME echo_0X10000931_f108                 calls 1 pl 0.414 ms total 0.441 ms
+TIME echo_0X10000931_f114                 calls 1 pl 0.412 ms total 0.438 ms
+TIME echo_0X10000931_f120                 calls 1 pl 0.407 ms total 0.432 ms
+TIME echo_0X10000931_f126                 calls 1 pl 0.424 ms total 0.451 ms
+TIME echo_0X10000931_f132                 calls 1 pl 0.417 ms total 0.448 ms
+TIME echo_0X10000931_f138                 calls 1 pl 0.402 ms total 0.428 ms
+TIME echo_0X10000931_f144                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X10000931_f150                 calls 1 pl 0.409 ms total 0.436 ms
+TIME echo_0X10000931_f156                 calls 1 pl 0.410 ms total 0.436 ms
+TIME echo_0X10000931_f162                 calls 1 pl 0.413 ms total 0.440 ms
+TIME echo_0X10000931_f168                 calls 1 pl 0.413 ms total 0.440 ms
+TIME echo_0X10094BA0_f000                 calls 1 pl 0.443 ms total 0.469 ms
+TIME echo_0X10094BA0_f006                 calls 1 pl 0.453 ms total 0.480 ms
+TIME echo_0X10094BA0_f012                 calls 1 pl 0.449 ms total 0.476 ms
+TIME echo_0X10094BA0_f018                 calls 1 pl 0.442 ms total 0.468 ms
+TIME echo_0X10094BA0_f024                 calls 1 pl 0.445 ms total 0.471 ms
+TIME echo_0X10094BA0_f030                 calls 1 pl 0.442 ms total 0.468 ms
+TIME echo_0X10094BA0_f036                 calls 1 pl 0.445 ms total 0.471 ms
+TIME echo_0X10094BA0_f042                 calls 1 pl 1.251 ms total 1.279 ms
+TIME echo_0X10094BA0_f048                 calls 1 pl 0.440 ms total 0.466 ms
+TIME echo_0X10094BA0_f054                 calls 1 pl 0.427 ms total 0.453 ms
+TIME echo_0X10094BA0_f060                 calls 1 pl 0.423 ms total 0.450 ms
+TIME echo_0X10094BA0_f066                 calls 1 pl 0.407 ms total 0.434 ms
+TIME echo_0X10094BA0_f072                 calls 1 pl 0.433 ms total 0.460 ms
+TIME echo_0X10094BA0_f078                 calls 1 pl 0.438 ms total 0.464 ms
+TIME echo_0X10094BA0_f084                 calls 1 pl 0.520 ms total 0.547 ms
+TIME echo_0X10094BA0_f090                 calls 1 pl 0.431 ms total 0.457 ms
+TIME echo_0X10094BA0_f096                 calls 1 pl 0.430 ms total 0.461 ms
+TIME echo_0X10094BA0_f102                 calls 1 pl 0.462 ms total 0.488 ms
+TIME echo_0X10094BA0_f108                 calls 1 pl 0.436 ms total 0.462 ms
+TIME echo_0X10094BA0_f114                 calls 1 pl 0.440 ms total 0.466 ms
+TIME echo_0X10094BA0_f120                 calls 1 pl 0.452 ms total 0.479 ms
+TIME echo_0X10094BA0_f126                 calls 1 pl 0.440 ms total 0.466 ms
+TIME echo_0X10094BA0_f132                 calls 1 pl 0.433 ms total 0.459 ms
+TIME echo_0X10094BA0_f138                 calls 1 pl 0.430 ms total 0.456 ms
+TIME echo_0X10094BA0_f144                 calls 1 pl 0.447 ms total 0.473 ms
+TIME echo_0X10094BA0_f150                 calls 1 pl 0.450 ms total 0.477 ms
+TIME echo_0X10094BA0_f156                 calls 1 pl 0.429 ms total 0.455 ms
+TIME echo_0X10094BA0_f162                 calls 1 pl 0.437 ms total 0.464 ms
+TIME echo_0X10094BA0_f168                 calls 1 pl 0.445 ms total 0.471 ms
+TIME echo_0X10094BA0_f174                 calls 1 pl 0.451 ms total 0.477 ms
+TIME echo_0X10094BA0_f180                 calls 1 pl 0.467 ms total 0.493 ms
+TIME echo_0X10094BA0_f186                 calls 1 pl 0.437 ms total 0.463 ms
+TIME echo_0X10094BA0_f192                 calls 1 pl 0.431 ms total 0.457 ms
+TIME echo_0X10094BA0_f198                 calls 1 pl 0.520 ms total 0.547 ms
+TIME echo_0X10094BA0_f204                 calls 1 pl 0.424 ms total 0.449 ms
+TIME echo_0X1013E8A4_f000                 calls 1 pl 0.403 ms total 0.431 ms
+TIME echo_0X1013E8A4_f006                 calls 1 pl 0.401 ms total 0.428 ms
+TIME echo_0X1013E8A4_f012                 calls 1 pl 0.397 ms total 0.424 ms
+TIME echo_0X1013E8A4_f018                 calls 1 pl 0.404 ms total 0.429 ms
+TIME echo_0X1013E8A4_f024                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X1013E8A4_f030                 calls 1 pl 0.417 ms total 0.443 ms
+TIME echo_0X1013E8A4_f036                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X1013E8A4_f042                 calls 1 pl 0.404 ms total 0.430 ms
+TIME echo_0X1013E8A4_f048                 calls 1 pl 0.398 ms total 0.424 ms
+TIME echo_0X1013E8A4_f054                 calls 1 pl 0.393 ms total 0.419 ms
+TIME echo_0X1013E8A4_f060                 calls 1 pl 0.402 ms total 0.427 ms
+TIME echo_0X1013E8A4_f066                 calls 1 pl 0.401 ms total 0.429 ms
+TIME echo_0X1013E8A4_f072                 calls 1 pl 0.520 ms total 0.546 ms
+TIME echo_0X1013E8A4_f078                 calls 1 pl 0.402 ms total 0.429 ms
+TIME echo_0X1013E8A4_f084                 calls 1 pl 0.400 ms total 0.427 ms
+TIME echo_0X1013E8A4_f090                 calls 1 pl 0.403 ms total 0.428 ms
+TIME echo_0X1013E8A4_f096                 calls 1 pl 0.399 ms total 0.426 ms
+TIME echo_0X1013E8A4_f102                 calls 1 pl 0.405 ms total 0.430 ms
+TIME echo_0X1013E8A4_f108                 calls 1 pl 0.400 ms total 0.426 ms
+TIME echo_0X1013E8A4_f114                 calls 1 pl 0.400 ms total 0.426 ms
+TIME echo_0X1013E8A4_f120                 calls 1 pl 0.391 ms total 0.418 ms
+TIME echo_0X1013E8A4_f126                 calls 1 pl 0.393 ms total 0.420 ms
+TIME echo_0X1013E8A4_f132                 calls 1 pl 0.393 ms total 0.420 ms
+TIME echo_0X1013E8A4_f138                 calls 1 pl 0.405 ms total 0.431 ms
+182 cases, 0 failures
+PP_BOARD_PASS
+
+SSH_EXITCODE 0 after_pp_vectors
+START after_tcp_start 2026-11-03T13:36:30.524216+00:00
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+active
+
+SSH_EXITCODE 0 after_tcp_start
+START tcp_tests_start 2026-11-03T13:36:37.610978+00:00
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+active
+
+SSH_EXITCODE 0 tcp_tests_start

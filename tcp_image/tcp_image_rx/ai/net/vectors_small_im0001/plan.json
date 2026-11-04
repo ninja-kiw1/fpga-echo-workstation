@@ -1,0 +1,281 @@
+{
+ "bram_base": 2952790016,
+ "bram_words": 8192,
+ "tensor_peak_words": 5120,
+ "param_off_words": 5120,
+ "param_words": 624,
+ "max_param_bytes": 9984,
+ "total_words": 5744,
+ "nodes": [
+  {
+   "name": "x",
+   "kind": "INPUT",
+   "off_words": 0,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "first_block_2",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "first_block_5",
+   "kind": "CONV",
+   "off_words": 2048,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "first_shortcut_1",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "add",
+   "kind": "ELT",
+   "off_words": 0,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "down_path_0_pool",
+   "kind": "ELT",
+   "off_words": 1024,
+   "words": 256,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 8
+  },
+  {
+   "name": "down_path_0_block_2",
+   "kind": "CONV",
+   "off_words": 1280,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "down_path_0_block_5",
+   "kind": "CONV",
+   "off_words": 1792,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "down_path_0_shortcut_1",
+   "kind": "CONV",
+   "off_words": 1280,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "add_1",
+   "kind": "ELT",
+   "off_words": 2304,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "down_path_1_pool",
+   "kind": "ELT",
+   "off_words": 1024,
+   "words": 128,
+   "h": 8,
+   "w_": 8,
+   "c_pad": 16
+  },
+  {
+   "name": "down_path_1_block_2",
+   "kind": "CONV",
+   "off_words": 2816,
+   "words": 256,
+   "h": 8,
+   "w_": 8,
+   "c_pad": 32
+  },
+  {
+   "name": "down_path_1_block_5",
+   "kind": "CONV",
+   "off_words": 1152,
+   "words": 256,
+   "h": 8,
+   "w_": 8,
+   "c_pad": 32
+  },
+  {
+   "name": "down_path_1_shortcut_1",
+   "kind": "CONV",
+   "off_words": 1408,
+   "words": 256,
+   "h": 8,
+   "w_": 8,
+   "c_pad": 32
+  },
+  {
+   "name": "add_2",
+   "kind": "ELT",
+   "off_words": 1664,
+   "words": 256,
+   "h": 8,
+   "w_": 8,
+   "c_pad": 32
+  },
+  {
+   "name": "up_path_0_up_layer_block_0",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "up_path_0_conv_bridge_layer_block_2",
+   "kind": "CONV",
+   "off_words": 1536,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "cat",
+   "kind": "ELT",
+   "off_words": 2048,
+   "words": 1024,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 32
+  },
+  {
+   "name": "up_path_0_conv_layer_block_2",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "up_path_0_conv_layer_block_5",
+   "kind": "CONV",
+   "off_words": 1536,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "up_path_0_conv_layer_shortcut_1",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "add_3",
+   "kind": "ELT",
+   "off_words": 2048,
+   "words": 512,
+   "h": 16,
+   "w_": 16,
+   "c_pad": 16
+  },
+  {
+   "name": "up_path_1_up_layer_block_0",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "up_path_1_conv_bridge_layer_block_2",
+   "kind": "CONV",
+   "off_words": 2048,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "cat_1",
+   "kind": "ELT",
+   "off_words": 3072,
+   "words": 2048,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 16
+  },
+  {
+   "name": "up_path_1_conv_layer_block_2",
+   "kind": "CONV",
+   "off_words": 0,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "up_path_1_conv_layer_block_5",
+   "kind": "CONV",
+   "off_words": 1024,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "up_path_1_conv_layer_shortcut_1",
+   "kind": "CONV",
+   "off_words": 0,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "add_4",
+   "kind": "ELT",
+   "off_words": 2048,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  },
+  {
+   "name": "final",
+   "kind": "CONV",
+   "off_words": 0,
+   "words": 1024,
+   "h": 32,
+   "w_": 32,
+   "c_pad": 8
+  }
+ ]
+}

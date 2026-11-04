@@ -1,0 +1,7068 @@
+{
+  "utc": "2026-11-02T15:53:35.564167+00:00",
+  "host": "192.168.1.254",
+  "checks": [
+    {
+      "name": "golden_full_logits",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0739000028697774,
+        "reply_ms": 1113.0678999979864,
+        "total_ms": 1115.1418000008562
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16458,
+        "total": 262144,
+        "permille": 62,
+        "logit_min": -107,
+        "logit_max": 100,
+        "ai_us": 291320,
+        "components": 119,
+        "proc_min": 0,
+        "proc_max": 197,
+        "mode": 0,
+        "frame_count": 6368,
+        "reserved": 0,
+        "vessels_pct": 6.278228759765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16225,
+          "fov_px": 220993,
+          "length_x10": 48283,
+          "caliber_x100": 336,
+          "branches": 54,
+          "endpoints": 69,
+          "segments": 108,
+          "tortuosity_x1000": 1141,
+          "fractal_x1000": 1382,
+          "density_x1000": 73,
+          "quad01": 2752620,
+          "quad23": 3145821,
+          "run_us": 110389,
+          "w": 512,
+          "h": 512,
+          "length": 4828.3,
+          "caliber": 3.36,
+          "tortuosity": 1.141,
+          "fractal": 1.382,
+          "density_pct": 7.3,
+          "quad_pct": [
+            10.8,
+            4.2,
+            9.3,
+            4.8
+          ]
+        }
+      },
+      "pass": true,
+      "golden_logit_mismatches": 0,
+      "reference_vessels": 16458,
+      "reference_components": 119,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "im0001_full",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1110000016051345,
+        "reply_ms": 1033.1058999981906,
+        "total_ms": 1035.2168999997957
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 21440,
+        "total": 262144,
+        "permille": 81,
+        "logit_min": -113,
+        "logit_max": 88,
+        "ai_us": 296382,
+        "components": 209,
+        "proc_min": 0,
+        "proc_max": 222,
+        "mode": 0,
+        "frame_count": 6369,
+        "reserved": 0,
+        "vessels_pct": 8.1787109375,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 21019,
+          "fov_px": 242777,
+          "length_x10": 62046,
+          "caliber_x100": 339,
+          "branches": 89,
+          "endpoints": 150,
+          "segments": 192,
+          "tortuosity_x1000": 1170,
+          "fractal_x1000": 1431,
+          "density_x1000": 87,
+          "quad01": 6422638,
+          "quad23": 4522053,
+          "run_us": 119665,
+          "w": 512,
+          "h": 512,
+          "length": 6204.6,
+          "caliber": 3.39,
+          "tortuosity": 1.17,
+          "fractal": 1.431,
+          "density_pct": 8.7,
+          "quad_pct": [
+            11.0,
+            9.8,
+            6.9,
+            6.9
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 21440,
+      "reference_components": 209,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "im0002_full",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1476000001712237,
+        "reply_ms": 1040.121599999111,
+        "total_ms": 1042.2691999992821
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 291950,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6370,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113985,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 16842,
+      "reference_components": 134,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "im0003_full",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.3901000022306107,
+        "reply_ms": 982.3563999998441,
+        "total_ms": 984.7465000020748
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 17613,
+        "total": 262144,
+        "permille": 67,
+        "logit_min": -127,
+        "logit_max": 82,
+        "ai_us": 291739,
+        "components": 183,
+        "proc_min": 0,
+        "proc_max": 225,
+        "mode": 0,
+        "frame_count": 6371,
+        "reserved": 0,
+        "vessels_pct": 6.7188262939453125,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 17252,
+          "fov_px": 228194,
+          "length_x10": 45053,
+          "caliber_x100": 383,
+          "branches": 49,
+          "endpoints": 82,
+          "segments": 105,
+          "tortuosity_x1000": 1201,
+          "fractal_x1000": 1373,
+          "density_x1000": 76,
+          "quad01": 3539026,
+          "quad23": 4391014,
+          "run_us": 113583,
+          "w": 512,
+          "h": 512,
+          "length": 4505.3,
+          "caliber": 3.83,
+          "tortuosity": 1.201,
+          "fractal": 1.373,
+          "density_pct": 7.6,
+          "quad_pct": [
+            8.2,
+            5.4,
+            10.2,
+            6.7
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 17613,
+      "reference_components": 183,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "im0004_full",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.521300000807969,
+        "reply_ms": 1104.1941000003135,
+        "total_ms": 1106.7154000011215
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 11893,
+        "total": 262144,
+        "permille": 45,
+        "logit_min": -102,
+        "logit_max": 71,
+        "ai_us": 291363,
+        "components": 237,
+        "proc_min": 1,
+        "proc_max": 164,
+        "mode": 0,
+        "frame_count": 6372,
+        "reserved": 0,
+        "vessels_pct": 4.5368194580078125,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 11466,
+          "fov_px": 231685,
+          "length_x10": 38078,
+          "caliber_x100": 301,
+          "branches": 27,
+          "endpoints": 89,
+          "segments": 81,
+          "tortuosity_x1000": 1169,
+          "fractal_x1000": 1290,
+          "density_x1000": 49,
+          "quad01": 4784157,
+          "quad23": 2162750,
+          "run_us": 116433,
+          "w": 512,
+          "h": 512,
+          "length": 3807.8,
+          "caliber": 3.01,
+          "tortuosity": 1.169,
+          "fractal": 1.29,
+          "density_pct": 4.9,
+          "quad_pct": [
+            2.9,
+            7.3,
+            6.2,
+            3.3
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 11893,
+      "reference_components": 237,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "im0005_full",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.00589999803924,
+        "reply_ms": 1103.8016999991669,
+        "total_ms": 1105.8075999972061
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 29482,
+        "total": 262144,
+        "permille": 112,
+        "logit_min": -121,
+        "logit_max": 112,
+        "ai_us": 291884,
+        "components": 241,
+        "proc_min": 0,
+        "proc_max": 205,
+        "mode": 0,
+        "frame_count": 6373,
+        "reserved": 0,
+        "vessels_pct": 11.246490478515625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 29053,
+          "fov_px": 206925,
+          "length_x10": 86464,
+          "caliber_x100": 336,
+          "branches": 170,
+          "endpoints": 183,
+          "segments": 310,
+          "tortuosity_x1000": 1173,
+          "fractal_x1000": 1517,
+          "density_x1000": 140,
+          "quad01": 11534467,
+          "quad23": 10551396,
+          "run_us": 163113,
+          "w": 512,
+          "h": 512,
+          "length": 8646.4,
+          "caliber": 3.36,
+          "tortuosity": 1.173,
+          "fractal": 1.517,
+          "density_pct": 14.0,
+          "quad_pct": [
+            13.1,
+            17.6,
+            10.0,
+            16.1
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 29482,
+      "reference_components": 241,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_0",
+      "roi": [
+        180,
+        150,
+        150,
+        140
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.320500003406778,
+        "reply_ms": 691.4683999966655,
+        "total_ms": 693.7889000000723
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 783,
+        "total": 21000,
+        "permille": 37,
+        "logit_min": -105,
+        "logit_max": 52,
+        "ai_us": 45625,
+        "components": 22,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6374,
+        "reserved": 12583112,
+        "vessels_pct": 3.7285714285714286,
+        "crop_w": 200,
+        "crop_h": 192,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 9175190,
+          "vessel_px": 740,
+          "fov_px": 21000,
+          "length_x10": 3065,
+          "caliber_x100": 241,
+          "branches": 1,
+          "endpoints": 15,
+          "segments": 9,
+          "tortuosity_x1000": 1187,
+          "fractal_x1000": 1178,
+          "density_x1000": 35,
+          "quad01": 5177405,
+          "quad23": 1,
+          "run_us": 7114,
+          "w": 150,
+          "h": 140,
+          "length": 306.5,
+          "caliber": 2.41,
+          "tortuosity": 1.187,
+          "fractal": 1.178,
+          "density_pct": 3.5,
+          "quad_pct": [
+            6.1,
+            7.9,
+            0.1,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 21000,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 783,
+      "reference_components": 22,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_1",
+      "roi": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.018900002440205,
+        "reply_ms": 638.4059999982128,
+        "total_ms": 640.424900000653
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 0,
+        "total": 4096,
+        "permille": 0,
+        "logit_min": -94,
+        "logit_max": 56,
+        "ai_us": 12366,
+        "components": 0,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6375,
+        "reserved": 5767256,
+        "vessels_pct": 0.0,
+        "crop_w": 88,
+        "crop_h": 88,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 4194368,
+          "vessel_px": 0,
+          "fov_px": 3595,
+          "length_x10": 0,
+          "caliber_x100": 0,
+          "branches": 0,
+          "endpoints": 0,
+          "segments": 0,
+          "tortuosity_x1000": 0,
+          "fractal_x1000": 0,
+          "density_x1000": 0,
+          "quad01": 0,
+          "quad23": 0,
+          "run_us": 1043,
+          "w": 64,
+          "h": 64,
+          "length": 0.0,
+          "caliber": 0.0,
+          "tortuosity": 0.0,
+          "fractal": 0.0,
+          "density_pct": 0.0,
+          "quad_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 4096,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 0,
+      "reference_components": 0,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_2",
+      "roi": [
+        470,
+        500,
+        42,
+        12
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.6829000016732607,
+        "reply_ms": 612.6827000007324,
+        "total_ms": 615.3656000024057
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 0,
+        "total": 504,
+        "permille": 0,
+        "logit_min": -101,
+        "logit_max": -38,
+        "ai_us": 5425,
+        "components": 0,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6376,
+        "reserved": 2621512,
+        "vessels_pct": 0.0,
+        "crop_w": 72,
+        "crop_h": 40,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 786474,
+          "vessel_px": 0,
+          "fov_px": 0,
+          "length_x10": 0,
+          "caliber_x100": 0,
+          "branches": 0,
+          "endpoints": 0,
+          "segments": 0,
+          "tortuosity_x1000": 0,
+          "fractal_x1000": 0,
+          "density_x1000": 0,
+          "quad01": 0,
+          "quad23": 0,
+          "run_us": 129,
+          "w": 42,
+          "h": 12,
+          "length": 0.0,
+          "caliber": 0.0,
+          "tortuosity": 0.0,
+          "fractal": 0.0,
+          "density_pct": 0.0,
+          "quad_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 504,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 0,
+      "reference_components": 0,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_3",
+      "roi": [
+        0,
+        200,
+        40,
+        40
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.6486999995540828,
+        "reply_ms": 639.5166000002064,
+        "total_ms": 642.1652999997605
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 155,
+        "total": 1600,
+        "permille": 96,
+        "logit_min": -93,
+        "logit_max": 62,
+        "ai_us": 10130,
+        "components": 5,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6377,
+        "reserved": 5767232,
+        "vessels_pct": 9.6875,
+        "crop_w": 64,
+        "crop_h": 88,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 2621480,
+          "vessel_px": 119,
+          "fov_px": 1019,
+          "length_x10": 371,
+          "caliber_x100": 321,
+          "branches": 1,
+          "endpoints": 3,
+          "segments": 3,
+          "tortuosity_x1000": 1168,
+          "fractal_x1000": 1482,
+          "density_x1000": 117,
+          "quad01": 16056320,
+          "quad23": 3473408,
+          "run_us": 603,
+          "w": 40,
+          "h": 40,
+          "length": 37.1,
+          "caliber": 3.21,
+          "tortuosity": 1.168,
+          "fractal": 1.482,
+          "density_pct": 11.7,
+          "quad_pct": [
+            0.0,
+            24.5,
+            0.0,
+            5.3
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 1600,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 155,
+      "reference_components": 5,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_4",
+      "roi": [
+        480,
+        10,
+        32,
+        300
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.566599996498553,
+        "reply_ms": 642.5304000003962,
+        "total_ms": 645.0969999968947
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 10,
+        "total": 9600,
+        "permille": 1,
+        "logit_min": -102,
+        "logit_max": 30,
+        "ai_us": 29797,
+        "components": 1,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6378,
+        "reserved": 22020152,
+        "vessels_pct": 0.10416666666666667,
+        "crop_w": 56,
+        "crop_h": 336,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 19660832,
+          "vessel_px": 0,
+          "fov_px": 3084,
+          "length_x10": 0,
+          "caliber_x100": 0,
+          "branches": 0,
+          "endpoints": 0,
+          "segments": 0,
+          "tortuosity_x1000": 0,
+          "fractal_x1000": 0,
+          "density_x1000": 0,
+          "quad01": 0,
+          "quad23": 0,
+          "run_us": 2412,
+          "w": 32,
+          "h": 300,
+          "length": 0.0,
+          "caliber": 0.0,
+          "tortuosity": 0.0,
+          "fractal": 0.0,
+          "density_pct": 0.0,
+          "quad_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 9600,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 10,
+      "reference_components": 1,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_5",
+      "roi": [
+        201,
+        183,
+        127,
+        95
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9891000010829885,
+        "reply_ms": 632.4617999998736,
+        "total_ms": 634.4509000009566
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 267,
+        "total": 12065,
+        "permille": 22,
+        "logit_min": -105,
+        "logit_max": 52,
+        "ai_us": 32892,
+        "components": 14,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6379,
+        "reserved": 9961648,
+        "vessels_pct": 2.2130128470783257,
+        "crop_w": 176,
+        "crop_h": 152,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 6226047,
+          "vessel_px": 239,
+          "fov_px": 12065,
+          "length_x10": 1063,
+          "caliber_x100": 225,
+          "branches": 0,
+          "endpoints": 10,
+          "segments": 5,
+          "tortuosity_x1000": 1195,
+          "fractal_x1000": 988,
+          "density_x1000": 20,
+          "quad01": 1572921,
+          "quad23": 0,
+          "run_us": 3801,
+          "w": 127,
+          "h": 95,
+          "length": 106.3,
+          "caliber": 2.25,
+          "tortuosity": 1.195,
+          "fractal": 0.988,
+          "density_pct": 2.0,
+          "quad_pct": [
+            5.7,
+            2.4,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 12065,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 267,
+      "reference_components": 14,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_6",
+      "roi": [
+        201,
+        183,
+        119,
+        95
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9893999997293577,
+        "reply_ms": 727.3262999988219,
+        "total_ms": 729.3156999985513
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 257,
+        "total": 11305,
+        "permille": 22,
+        "logit_min": -105,
+        "logit_max": 52,
+        "ai_us": 31704,
+        "components": 14,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6380,
+        "reserved": 9961640,
+        "vessels_pct": 2.2733303847854933,
+        "crop_w": 168,
+        "crop_h": 152,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 6226039,
+          "vessel_px": 239,
+          "fov_px": 11305,
+          "length_x10": 1063,
+          "caliber_x100": 225,
+          "branches": 0,
+          "endpoints": 10,
+          "segments": 5,
+          "tortuosity_x1000": 1195,
+          "fractal_x1000": 988,
+          "density_x1000": 21,
+          "quad01": 1638461,
+          "quad23": 0,
+          "run_us": 3577,
+          "w": 119,
+          "h": 95,
+          "length": 106.3,
+          "caliber": 2.25,
+          "tortuosity": 1.195,
+          "fractal": 0.988,
+          "density_pct": 2.1,
+          "quad_pct": [
+            6.1,
+            2.5,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 11305,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 257,
+      "reference_components": 14,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_7",
+      "roi": [
+        200,
+        180,
+        128,
+        96
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.158199997211341,
+        "reply_ms": 660.5122000000847,
+        "total_ms": 662.670399997296
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 338,
+        "total": 12288,
+        "permille": 27,
+        "logit_min": -105,
+        "logit_max": 52,
+        "ai_us": 31285,
+        "components": 14,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6381,
+        "reserved": 9437360,
+        "vessels_pct": 2.7506510416666665,
+        "crop_w": 176,
+        "crop_h": 144,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 6291584,
+          "vessel_px": 327,
+          "fov_px": 12288,
+          "length_x10": 1409,
+          "caliber_x100": 232,
+          "branches": 0,
+          "endpoints": 12,
+          "segments": 6,
+          "tortuosity_x1000": 1141,
+          "fractal_x1000": 1020,
+          "density_x1000": 27,
+          "quad01": 3014716,
+          "quad23": 0,
+          "run_us": 3984,
+          "w": 128,
+          "h": 96,
+          "length": 140.9,
+          "caliber": 2.32,
+          "tortuosity": 1.141,
+          "fractal": 1.02,
+          "density_pct": 2.7,
+          "quad_pct": [
+            6.0,
+            4.6,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 12288,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 338,
+      "reference_components": 14,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_8",
+      "roi": [
+        201,
+        183,
+        127,
+        111
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.254000002722023,
+        "reply_ms": 643.8548999976774,
+        "total_ms": 646.1089000003994
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 280,
+        "total": 14097,
+        "permille": 19,
+        "logit_min": -105,
+        "logit_max": 52,
+        "ai_us": 35933,
+        "components": 17,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6382,
+        "reserved": 11010224,
+        "vessels_pct": 1.9862382067106477,
+        "crop_w": 176,
+        "crop_h": 168,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 7274623,
+          "vessel_px": 239,
+          "fov_px": 14097,
+          "length_x10": 1063,
+          "caliber_x100": 225,
+          "branches": 0,
+          "endpoints": 10,
+          "segments": 5,
+          "tortuosity_x1000": 1195,
+          "fractal_x1000": 988,
+          "density_x1000": 17,
+          "quad01": 1310768,
+          "quad23": 0,
+          "run_us": 4406,
+          "w": 127,
+          "h": 111,
+          "length": 106.3,
+          "caliber": 2.25,
+          "tortuosity": 1.195,
+          "fractal": 0.988,
+          "density_pct": 1.7,
+          "quad_pct": [
+            4.8,
+            2.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 14097,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 280,
+      "reference_components": 17,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_9",
+      "roi": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0678000000771135,
+        "reply_ms": 921.8552999991516,
+        "total_ms": 923.9230999992287
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 0,
+        "total": 1,
+        "permille": 0,
+        "logit_min": -92,
+        "logit_max": -40,
+        "ai_us": 2884,
+        "components": 0,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6383,
+        "reserved": 2097184,
+        "vessels_pct": 0.0,
+        "crop_w": 32,
+        "crop_h": 32,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 65537,
+          "vessel_px": 0,
+          "fov_px": 0,
+          "length_x10": 0,
+          "caliber_x100": 0,
+          "branches": 0,
+          "endpoints": 0,
+          "segments": 0,
+          "tortuosity_x1000": 0,
+          "fractal_x1000": 0,
+          "density_x1000": 0,
+          "quad01": 0,
+          "quad23": 0,
+          "run_us": 6,
+          "w": 1,
+          "h": 1,
+          "length": 0.0,
+          "caliber": 0.0,
+          "tortuosity": 0.0,
+          "fractal": 0.0,
+          "density_pct": 0.0,
+          "quad_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 1,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 0,
+      "reference_components": 0,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_10",
+      "roi": [
+        511,
+        511,
+        1,
+        1
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.124599999660859,
+        "reply_ms": 643.6895000006189,
+        "total_ms": 645.8141000002797
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 0,
+        "total": 1,
+        "permille": 0,
+        "logit_min": -101,
+        "logit_max": -34,
+        "ai_us": 2820,
+        "components": 0,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6384,
+        "reserved": 2097184,
+        "vessels_pct": 0.0,
+        "crop_w": 32,
+        "crop_h": 32,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 65537,
+          "vessel_px": 0,
+          "fov_px": 0,
+          "length_x10": 0,
+          "caliber_x100": 0,
+          "branches": 0,
+          "endpoints": 0,
+          "segments": 0,
+          "tortuosity_x1000": 0,
+          "fractal_x1000": 0,
+          "density_x1000": 0,
+          "quad01": 0,
+          "quad23": 0,
+          "run_us": 6,
+          "w": 1,
+          "h": 1,
+          "length": 0.0,
+          "caliber": 0.0,
+          "tortuosity": 0.0,
+          "fractal": 0.0,
+          "density_pct": 0.0,
+          "quad_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 1,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 0,
+      "reference_components": 0,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "roi_11",
+      "roi": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0917000001645647,
+        "reply_ms": 1044.0792000008514,
+        "total_ms": 1046.170900001016
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 297709,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6385,
+        "reserved": 33554944,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 512,
+        "crop_h": 512,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 118899,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true,
+      "roi_pixels": 262144,
+      "roi_logit_mismatches": 0,
+      "reference_vessels": 16842,
+      "reference_components": 134,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "threshold_-20",
+      "roi": null,
+      "threshold": -20,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.5694000032672193,
+        "reply_ms": 1064.4227999982832,
+        "total_ms": 1066.9922000015504
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 27839,
+        "total": 262144,
+        "permille": 106,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 297121,
+        "components": 220,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6386,
+        "reserved": 0,
+        "vessels_pct": 10.619735717773438,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 27152,
+          "fov_px": 221044,
+          "length_x10": 62833,
+          "caliber_x100": 432,
+          "branches": 95,
+          "endpoints": 139,
+          "segments": 204,
+          "tortuosity_x1000": 1164,
+          "fractal_x1000": 1493,
+          "density_x1000": 123,
+          "quad01": 4915361,
+          "quad23": 6488219,
+          "run_us": 138448,
+          "w": 512,
+          "h": 512,
+          "length": 6283.3,
+          "caliber": 4.32,
+          "tortuosity": 1.164,
+          "fractal": 1.493,
+          "density_pct": 12.3,
+          "quad_pct": [
+            16.1,
+            7.5,
+            15.5,
+            9.9
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 27839,
+      "reference_components": 220,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "threshold_0",
+      "roi": null,
+      "threshold": 0,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.674000003025867,
+        "reply_ms": 1098.3214999978372,
+        "total_ms": 1100.995500000863
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 15166,
+        "total": 262144,
+        "permille": 57,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 296686,
+        "components": 146,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6387,
+        "reserved": 0,
+        "vessels_pct": 5.785369873046875,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 14891,
+          "fov_px": 221044,
+          "length_x10": 46781,
+          "caliber_x100": 318,
+          "branches": 57,
+          "endpoints": 62,
+          "segments": 107,
+          "tortuosity_x1000": 1150,
+          "fractal_x1000": 1371,
+          "density_x1000": 67,
+          "quad01": 2424933,
+          "quad23": 2818134,
+          "run_us": 154241,
+          "w": 512,
+          "h": 512,
+          "length": 4678.1,
+          "caliber": 3.18,
+          "tortuosity": 1.15,
+          "fractal": 1.371,
+          "density_pct": 6.7,
+          "quad_pct": [
+            10.1,
+            3.7,
+            8.6,
+            4.3
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 15166,
+      "reference_components": 146,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "threshold_15",
+      "roi": null,
+      "threshold": 15,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.282499997818377,
+        "reply_ms": 1065.794800000731,
+        "total_ms": 1068.0772999985493
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 8555,
+        "total": 262144,
+        "permille": 32,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 297011,
+        "components": 150,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6388,
+        "reserved": 0,
+        "vessels_pct": 3.2634735107421875,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 8343,
+          "fov_px": 221044,
+          "length_x10": 30903,
+          "caliber_x100": 270,
+          "branches": 26,
+          "endpoints": 48,
+          "segments": 59,
+          "tortuosity_x1000": 1163,
+          "fractal_x1000": 1270,
+          "density_x1000": 38,
+          "quad01": 1179709,
+          "quad23": 1376305,
+          "run_us": 133754,
+          "w": 512,
+          "h": 512,
+          "length": 3090.3,
+          "caliber": 2.7,
+          "tortuosity": 1.163,
+          "fractal": 1.27,
+          "density_pct": 3.8,
+          "quad_pct": [
+            6.1,
+            1.8,
+            4.9,
+            2.1
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 8555,
+      "reference_components": 150,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "resolution_256",
+      "roi": null,
+      "threshold": -3,
+      "res": 256,
+      "timings": {
+        "send_ms": 2.533300001232419,
+        "reply_ms": 705.6640000009793,
+        "total_ms": 708.1973000022117
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 256,
+        "vessels": 4294,
+        "total": 65536,
+        "permille": 65,
+        "logit_min": -108,
+        "logit_max": 65,
+        "ai_us": 76419,
+        "components": 63,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6389,
+        "reserved": 0,
+        "vessels_pct": 6.5521240234375,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 16777472,
+          "vessel_px": 4239,
+          "fov_px": 55248,
+          "length_x10": 17836,
+          "caliber_x100": 238,
+          "branches": 28,
+          "endpoints": 54,
+          "segments": 63,
+          "tortuosity_x1000": 1151,
+          "fractal_x1000": 1328,
+          "density_x1000": 77,
+          "quad01": 3014769,
+          "quad23": 3276896,
+          "run_us": 27562,
+          "w": 256,
+          "h": 256,
+          "length": 1783.6,
+          "caliber": 2.38,
+          "tortuosity": 1.151,
+          "fractal": 1.328,
+          "density_pct": 7.7,
+          "quad_pct": [
+            11.3,
+            4.6,
+            9.6,
+            5.0
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 4294,
+      "reference_components": 63,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "resolution_128",
+      "roi": null,
+      "threshold": -3,
+      "res": 128,
+      "timings": {
+        "send_ms": 2.546800002164673,
+        "reply_ms": 640.50270000007,
+        "total_ms": 643.0495000022347
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 128,
+        "vessels": 699,
+        "total": 16384,
+        "permille": 42,
+        "logit_min": -111,
+        "logit_max": 46,
+        "ai_us": 22189,
+        "components": 62,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6390,
+        "reserved": 0,
+        "vessels_pct": 4.266357421875,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 8388736,
+          "vessel_px": 699,
+          "fov_px": 13837,
+          "length_x10": 3963,
+          "caliber_x100": 176,
+          "branches": 12,
+          "endpoints": 54,
+          "segments": 50,
+          "tortuosity_x1000": 1157,
+          "fractal_x1000": 1128,
+          "density_x1000": 51,
+          "quad01": 2031719,
+          "quad23": 2949139,
+          "run_us": 5887,
+          "w": 128,
+          "h": 128,
+          "length": 396.3,
+          "caliber": 1.76,
+          "tortuosity": 1.157,
+          "fractal": 1.128,
+          "density_pct": 5.1,
+          "quad_pct": [
+            10.3,
+            3.1,
+            1.9,
+            4.5
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 699,
+      "reference_components": 62,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "resolution_64",
+      "roi": null,
+      "threshold": -3,
+      "res": 64,
+      "timings": {
+        "send_ms": 2.5652000003901776,
+        "reply_ms": 611.6833000014594,
+        "total_ms": 614.2485000018496
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 64,
+        "vessels": 128,
+        "total": 4096,
+        "permille": 31,
+        "logit_min": -106,
+        "logit_max": 40,
+        "ai_us": 7618,
+        "components": 11,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6391,
+        "reserved": 0,
+        "vessels_pct": 3.125,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 4194368,
+          "vessel_px": 128,
+          "fov_px": 3467,
+          "length_x10": 557,
+          "caliber_x100": 230,
+          "branches": 2,
+          "endpoints": 10,
+          "segments": 13,
+          "tortuosity_x1000": 1097,
+          "fractal_x1000": 937,
+          "density_x1000": 37,
+          "quad01": 196677,
+          "quad23": 589890,
+          "run_us": 1383,
+          "w": 64,
+          "h": 64,
+          "length": 55.7,
+          "caliber": 2.3,
+          "tortuosity": 1.097,
+          "fractal": 0.937,
+          "density_pct": 3.7,
+          "quad_pct": [
+            6.9,
+            0.3,
+            6.6,
+            0.9
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 128,
+      "reference_components": 11,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "resolution_32",
+      "roi": null,
+      "threshold": -3,
+      "res": 32,
+      "timings": {
+        "send_ms": 1.8635000014910474,
+        "reply_ms": 676.5889999987849,
+        "total_ms": 678.4525000002759
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 32,
+        "vessels": 38,
+        "total": 1024,
+        "permille": 37,
+        "logit_min": -86,
+        "logit_max": 15,
+        "ai_us": 2768,
+        "components": 5,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6392,
+        "reserved": 0,
+        "vessels_pct": 3.7109375,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 2097184,
+          "vessel_px": 38,
+          "fov_px": 851,
+          "length_x10": 168,
+          "caliber_x100": 226,
+          "branches": 0,
+          "endpoints": 8,
+          "segments": 5,
+          "tortuosity_x1000": 1340,
+          "fractal_x1000": 661,
+          "density_x1000": 45,
+          "quad01": 68,
+          "quad23": 1245277,
+          "run_us": 375,
+          "w": 32,
+          "h": 32,
+          "length": 16.8,
+          "caliber": 2.26,
+          "tortuosity": 1.34,
+          "fractal": 0.661,
+          "density_pct": 4.5,
+          "quad_pct": [
+            6.8,
+            0.0,
+            9.3,
+            1.9
+          ]
+        }
+      },
+      "pass": true,
+      "reference_vessels": 38,
+      "reference_components": 5,
+      "morphology_reference_errors": {}
+    },
+    {
+      "name": "stability_01",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0939999994880054,
+        "reply_ms": 1022.925799999939,
+        "total_ms": 1025.019799999427
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 298481,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6393,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 118820,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_02",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.260599998407997,
+        "reply_ms": 1028.3435999990616,
+        "total_ms": 1030.6041999974695
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 298913,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6394,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 118785,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_03",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1061999977973755,
+        "reply_ms": 926.1781000022893,
+        "total_ms": 928.2843000000867
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 298268,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6395,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 118645,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_04",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.02260000151,
+        "reply_ms": 1246.2414000001445,
+        "total_ms": 1248.2640000016545
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294431,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6396,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113734,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_05",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9969000022683758,
+        "reply_ms": 885.2957999988575,
+        "total_ms": 887.2927000011259
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294186,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6397,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113753,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_06",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9882999986293726,
+        "reply_ms": 1031.4352000023064,
+        "total_ms": 1033.4235000009357
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294357,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6398,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113991,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_07",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 3.0709999991813675,
+        "reply_ms": 830.7583000023442,
+        "total_ms": 833.8293000015256
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294253,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6399,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113896,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_08",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.4144000017258804,
+        "reply_ms": 1063.2779999978084,
+        "total_ms": 1065.6923999995342
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 295094,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6400,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113798,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_09",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1667000000888947,
+        "reply_ms": 1047.0481000011205,
+        "total_ms": 1049.2148000012094
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294169,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6401,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113738,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_10",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.331100000446895,
+        "reply_ms": 1073.700299999473,
+        "total_ms": 1076.0313999999198
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294603,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6402,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113774,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_11",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1415000010165386,
+        "reply_ms": 1006.583899998077,
+        "total_ms": 1008.7253999990935
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294014,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6403,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113957,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_12",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0092000013391953,
+        "reply_ms": 1057.827399999951,
+        "total_ms": 1059.8366000012902
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294153,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6404,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 114999,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_13",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0182000007480383,
+        "reply_ms": 1048.994099997799,
+        "total_ms": 1051.012299998547
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294300,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6405,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 114071,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_14",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9853999983752146,
+        "reply_ms": 1063.5159000012209,
+        "total_ms": 1065.501299999596
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293576,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6406,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113949,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_15",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.965899999049725,
+        "reply_ms": 1005.7161000004271,
+        "total_ms": 1007.6819999994768
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294700,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6407,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113994,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_16",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.444999998260755,
+        "reply_ms": 973.1772000013734,
+        "total_ms": 975.6221999996342
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294130,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6408,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113902,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_17",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.127499999915017,
+        "reply_ms": 998.5239000016009,
+        "total_ms": 1000.6514000015159
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293917,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6409,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113811,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_18",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 3.9168000002973713,
+        "reply_ms": 1007.64479999998,
+        "total_ms": 1011.5616000002774
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294807,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6410,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113791,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_19",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.2657000008621253,
+        "reply_ms": 1024.873700000171,
+        "total_ms": 1027.1394000010332
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 307864,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6411,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113797,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_20",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.020500000071479,
+        "reply_ms": 1065.0888999989547,
+        "total_ms": 1067.1093999990262
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 305999,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6412,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 118844,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_21",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.018400002270937,
+        "reply_ms": 1028.7879999996221,
+        "total_ms": 1030.806400001893
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293874,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6413,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113829,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_22",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.047300000413088,
+        "reply_ms": 1006.2855999967724,
+        "total_ms": 1008.3328999971855
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293741,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6414,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113836,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_23",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 3.3002000018313993,
+        "reply_ms": 1009.0089000004809,
+        "total_ms": 1012.3091000023123
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294206,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6415,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113831,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_24",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.099699999234872,
+        "reply_ms": 1053.8302999993903,
+        "total_ms": 1055.9299999986251
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293852,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6416,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113840,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_25",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.977600000827806,
+        "reply_ms": 1056.4608999993652,
+        "total_ms": 1058.438500000193
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294007,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6417,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113935,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_26",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1559999986493494,
+        "reply_ms": 1073.7896999999066,
+        "total_ms": 1075.945699998556
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294290,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6418,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113913,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_27",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.224500000011176,
+        "reply_ms": 1041.224600001442,
+        "total_ms": 1043.4491000014532
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293937,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6419,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113749,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_28",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.969100001588231,
+        "reply_ms": 1021.1386999981187,
+        "total_ms": 1023.1077999997069
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 295318,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6420,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113773,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_29",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.044099997874582,
+        "reply_ms": 1057.6399000019592,
+        "total_ms": 1059.6839999998338
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294165,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6421,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113795,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_30",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1932000017841347,
+        "reply_ms": 1067.9479999998875,
+        "total_ms": 1070.1412000016717
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294219,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6422,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113833,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_31",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.983400001336122,
+        "reply_ms": 1031.2983999974676,
+        "total_ms": 1033.2817999988038
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293973,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6423,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113838,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_32",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1747999999206513,
+        "reply_ms": 1058.6359000008088,
+        "total_ms": 1060.8107000007294
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293654,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6424,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113757,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_33",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.3351999989245087,
+        "reply_ms": 1021.7938000023423,
+        "total_ms": 1024.1290000012668
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 293891,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6425,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113757,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_34",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9877999984601047,
+        "reply_ms": 1059.5930999988923,
+        "total_ms": 1061.5808999973524
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 295499,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6426,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113800,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_35",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.2583000027225353,
+        "reply_ms": 1125.498699999298,
+        "total_ms": 1127.7570000020205
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 296139,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6427,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113827,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_36",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1401000012701843,
+        "reply_ms": 1056.8969999985711,
+        "total_ms": 1059.0370999998413
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294202,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6428,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113782,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_37",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.018400002270937,
+        "reply_ms": 1061.9856999983313,
+        "total_ms": 1064.0041000006022
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294556,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6429,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 114004,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_38",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0822999977099244,
+        "reply_ms": 1081.6634000002523,
+        "total_ms": 1083.7456999979622
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 329797,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6430,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 118825,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_39",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.077200002531754,
+        "reply_ms": 1051.3902999991842,
+        "total_ms": 1053.467500001716
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 316789,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6431,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 115421,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_40",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9367000022612046,
+        "reply_ms": 934.8658999988402,
+        "total_ms": 936.8026000011014
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 295571,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6432,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113719,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_41",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.2062000025471207,
+        "reply_ms": 1023.5904999972263,
+        "total_ms": 1025.7966999997734
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294281,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6433,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113765,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_42",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.2160000007716008,
+        "reply_ms": 1052.9795000002196,
+        "total_ms": 1055.1955000009912
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 295641,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6434,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113829,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_43",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.001599998038728,
+        "reply_ms": 1070.9986000001663,
+        "total_ms": 1073.000199998205
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 322678,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6435,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113786,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_44",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.1703999991586898,
+        "reply_ms": 1000.9965999997803,
+        "total_ms": 1003.166999998939
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294019,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6436,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113797,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_45",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.215199998317985,
+        "reply_ms": 970.0682000002416,
+        "total_ms": 972.2833999985596
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294250,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6437,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113801,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_46",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.0842000012635253,
+        "reply_ms": 1114.507300000696,
+        "total_ms": 1116.5915000019595
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294015,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6438,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113788,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_47",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.2640999995928723,
+        "reply_ms": 1033.9547000003222,
+        "total_ms": 1036.218799999915
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294492,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6439,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113775,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_48",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.6327000014134683,
+        "reply_ms": 1074.6364000005997,
+        "total_ms": 1077.2691000020131
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294354,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6440,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 113782,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_49",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 1.9772000014199875,
+        "reply_ms": 1024.636099999043,
+        "total_ms": 1026.613300000463
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 301612,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6441,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 115463,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stability_50",
+      "roi": null,
+      "threshold": -3,
+      "res": 512,
+      "timings": {
+        "send_ms": 2.321500000107335,
+        "reply_ms": 1042.4013000010746,
+        "total_ms": 1044.722800001182
+      },
+      "rows": {
+        "proc": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "overlay": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "mask": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "logit": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        },
+        "morph": {
+          "rows_ok": 512,
+          "crc_errors": 0,
+          "seq_errors": 0
+        }
+      },
+      "stats": {
+        "magic": 826362195,
+        "version": 8,
+        "flags": 65647,
+        "ai_res": 512,
+        "vessels": 16842,
+        "total": 262144,
+        "permille": 64,
+        "logit_min": -107,
+        "logit_max": 101,
+        "ai_us": 294088,
+        "components": 134,
+        "proc_min": 0,
+        "proc_max": 198,
+        "mode": 0,
+        "frame_count": 6442,
+        "reserved": 0,
+        "vessels_pct": 6.424713134765625,
+        "crop_w": 0,
+        "crop_h": 0,
+        "model": 0,
+        "morph": {
+          "magic": 827347533,
+          "version": 1,
+          "grid": 33554944,
+          "vessel_px": 16548,
+          "fov_px": 221044,
+          "length_x10": 49454,
+          "caliber_x100": 335,
+          "branches": 60,
+          "endpoints": 66,
+          "segments": 115,
+          "tortuosity_x1000": 1149,
+          "fractal_x1000": 1390,
+          "density_x1000": 75,
+          "quad01": 2752622,
+          "quad23": 3276895,
+          "run_us": 115230,
+          "w": 512,
+          "h": 512,
+          "length": 4945.4,
+          "caliber": 3.35,
+          "tortuosity": 1.149,
+          "fractal": 1.39,
+          "density_pct": 7.5,
+          "quad_pct": [
+            11.0,
+            4.2,
+            9.5,
+            5.0
+          ]
+        }
+      },
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "stability_frames": 50
+}

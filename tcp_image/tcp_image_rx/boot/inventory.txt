@@ -1,0 +1,336 @@
+### FZ3B BOARD INVENTORY ###
+
+========== uname ==========
+$ uname -a
+Linux EdgeBoard 4.14.0-xilinx-v2018.3 #5 SMP Thu Apr 1 14:52:47 UTC 2021 aarch64 aarch64 aarch64 GNU/Linux
+
+========== cmdline ==========
+$ cat /proc/cmdline
+earlycon console=ttyPS0,115200 clk_ignore_unused cpuidle.off=1 root=/dev/mmcblk1p2 rw rootwait xilinx-video.is_mplane=0 cma=128M chipid=zu3
+
+========== os-release ==========
+$ head -3 /etc/os-release 2>/dev/null
+NAME="Ubuntu"
+VERSION="18.04.5 LTS (Bionic Beaver)"
+ID=ubuntu
+
+========== partitions ==========
+$ cat /proc/partitions
+major minor  #blocks  name
+
+   1        0      65536 ram0
+   1        1      65536 ram1
+   1        2      65536 ram2
+   1        3      65536 ram3
+   1        4      65536 ram4
+   1        5      65536 ram5
+   1        6      65536 ram6
+   1        7      65536 ram7
+   1        8      65536 ram8
+   1        9      65536 ram9
+   1       10      65536 ram10
+   1       11      65536 ram11
+   1       12      65536 ram12
+   1       13      65536 ram13
+   1       14      65536 ram14
+   1       15      65536 ram15
+  31        0       1024 mtdblock0
+  31        1        256 mtdblock1
+  31        2      22528 mtdblock2
+ 179        0    7438336 mmcblk0
+ 179       24       4096 mmcblk0rpmb
+ 179       16      16384 mmcblk0boot1
+ 179        8      16384 mmcblk0boot0
+ 179       32   62367744 mmcblk1
+ 179       33     204800 mmcblk1p1
+ 179       34    7340032 mmcblk1p2
+ 179       35     254976 mmcblk1p3
+
+========== lsblk ==========
+$ lsblk 2>/dev/null || echo NO_LSBLK
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+mtdblock0     31:0    0    1M  0 disk 
+mtdblock1     31:1    0  256K  0 disk 
+mtdblock2     31:2    0   22M  0 disk 
+mmcblk0      179:0    0  7.1G  0 disk 
+mmcblk0boot0 179:8    0   16M  1 disk 
+mmcblk0boot1 179:16   0   16M  1 disk 
+mmcblk0rpmb  179:24   0    4M  0 disk 
+mmcblk1      179:32   0 59.5G  0 disk 
+├─mmcblk1p1  179:33   0  200M  0 part /run/media/mmcblk1p1
+├─mmcblk1p2  179:34   0    7G  0 part /
+└─mmcblk1p3  179:35   0  249M  0 part /root/workspace
+
+========== mounts ==========
+$ cat /proc/mounts
+/dev/root / ext4 rw,relatime,data=ordered 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=923176k,nr_inodes=230794,mode=755 0 0
+sysfs /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+proc /proc proc rw,nosuid,nodev,noexec,relatime 0 0
+tmpfs /dev/shm tmpfs rw,nosuid,nodev 0 0
+devpts /dev/pts devpts rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000 0 0
+tmpfs /run tmpfs rw,nosuid,nodev,mode=755 0 0
+tmpfs /run/lock tmpfs rw,nosuid,nodev,noexec,relatime,size=5120k 0 0
+tmpfs /sys/fs/cgroup tmpfs ro,nosuid,nodev,noexec,mode=755 0 0
+cgroup /sys/fs/cgroup/unified cgroup2 rw,nosuid,nodev,noexec,relatime,nsdelegate 0 0
+cgroup /sys/fs/cgroup/systemd cgroup rw,nosuid,nodev,noexec,relatime,xattr,name=systemd 0 0
+cgroup /sys/fs/cgroup/cpu,cpuacct cgroup rw,nosuid,nodev,noexec,relatime,cpu,cpuacct 0 0
+cgroup /sys/fs/cgroup/debug cgroup rw,nosuid,nodev,noexec,relatime,debug 0 0
+cgroup /sys/fs/cgroup/net_cls,net_prio cgroup rw,nosuid,nodev,noexec,relatime,net_cls,net_prio 0 0
+cgroup /sys/fs/cgroup/hugetlb cgroup rw,nosuid,nodev,noexec,relatime,hugetlb 0 0
+cgroup /sys/fs/cgroup/devices cgroup rw,nosuid,nodev,noexec,relatime,devices 0 0
+cgroup /sys/fs/cgroup/blkio cgroup rw,nosuid,nodev,noexec,relatime,blkio 0 0
+cgroup /sys/fs/cgroup/rdma cgroup rw,nosuid,nodev,noexec,relatime,rdma 0 0
+cgroup /sys/fs/cgroup/perf_event cgroup rw,nosuid,nodev,noexec,relatime,perf_event 0 0
+cgroup /sys/fs/cgroup/pids cgroup rw,nosuid,nodev,noexec,relatime,pids 0 0
+cgroup /sys/fs/cgroup/memory cgroup rw,nosuid,nodev,noexec,relatime,memory 0 0
+cgroup /sys/fs/cgroup/freezer cgroup rw,nosuid,nodev,noexec,relatime,freezer 0 0
+cgroup /sys/fs/cgroup/cpuset cgroup rw,nosuid,nodev,noexec,relatime,cpuset 0 0
+mqueue /dev/mqueue mqueue rw,relatime 0 0
+debugfs /sys/kernel/debug debugfs rw,relatime 0 0
+hugetlbfs /dev/hugepages hugetlbfs rw,relatime,pagesize=2M 0 0
+none /config configfs rw,relatime 0 0
+configfs /sys/kernel/config configfs rw,relatime 0 0
+/dev/mmcblk1p3 /root/workspace ext4 rw,relatime,data=ordered 0 0
+/dev/mmcblk1p1 /run/media/mmcblk1p1 vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 0
+tmpfs /run/user/0 tmpfs rw,nosuid,nodev,relatime,size=197792k,mode=700 0 0
+
+========== df ==========
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       6.9G  4.1G  2.5G  63% /
+devtmpfs        902M     0  902M   0% /dev
+tmpfs           966M     0  966M   0% /dev/shm
+tmpfs           966M  4.5M  962M   1% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           966M     0  966M   0% /sys/fs/cgroup
+/dev/mmcblk1p3  238M  4.0M  217M   2% /root/workspace
+/dev/mmcblk1p1  200M   33M  168M  17% /run/media/mmcblk1p1
+tmpfs           194M  8.0K  194M   1% /run/user/0
+
+========== root-ls ==========
+$ ls -la /
+total 80
+drwxr-xr-x  21 root root  4096 Sep 29  2021 .
+drwxr-xr-x  21 root root  4096 Sep 29  2021 ..
+drwxr-xr-x   2 root root  4096 May 19 15:49 bin
+drwxr-xr-x   2 root root  4096 Apr 24  2018 boot
+drwxr-xr-x   4 root root     0 Jan  6  1970 config
+drwxr-xr-x  13 root root 13840 Aug 31 19:56 dev
+-rwx------   1 root root  4096 Sep 29  2021 ._.DS_Store
+-rwx------   1 root root  8196 Sep 29  2021 .DS_Store
+drwxr-xr-x 128 root root  4096 Aug 31 19:55 etc
+drwxr-xr-x   3 root root  4096 Aug 10 15:00 home
+drwxr-xr-x  14 root root  4096 May 18 18:38 lib
+drwxr-xr-x  11 root root  4096 Aug 26 15:23 media
+drwxr-xr-x   2 root root  4096 Aug  7  2020 mnt
+drwxr-xr-x   2 root root  4096 Aug  7  2020 opt
+dr-xr-xr-x 150 root root     0 Jan  1  1970 proc
+drwx------  21 root root  4096 Aug 31 19:56 root
+drwxr-xr-x  19 root root   600 Aug 31 20:24 run
+drwxr-xr-x   2 root root  4096 May 18 22:56 sbin
+drwxr-xr-x   2 root root  4096 Aug  7  2020 srv
+dr-xr-xr-x  13 root root     0 Jan  6  1970 sys
+drwxrwxrwt  13 root root  4096 Aug 31 19:56 tmp
+drwxr-xr-x  10 root root  4096 Aug  7  2020 usr
+drwxr-xr-x  12 root root  4096 May 18 22:53 var
+
+========== boot-ls ==========
+$ ls -la /boot 2>/dev/null
+total 8
+drwxr-xr-x  2 root root 4096 Apr 24  2018 .
+drwxr-xr-x 21 root root 4096 Sep 29  2021 ..
+
+========== bootsub-ls ==========
+$ ls -la /boot/* 2>/dev/null | head -60
+(empty)
+
+========== media-ls ==========
+$ ls -la /media /run/media 2>/dev/null; ls -la /mnt 2>/dev/null
+/media:
+total 44
+drwxr-xr-x  11 root root 4096 Aug 26 15:23 .
+drwxr-xr-x  21 root root 4096 Sep 29  2021 ..
+drwxr-x---+  2 root root 4096 Aug 31 19:57 root
+lrwxrwxrwx   1 root root    4 May 18 17:56 usb -> usb0
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb0
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb1
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb2
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb3
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb4
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb5
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb6
+drwxr-xr-x   2 root root 4096 May 18 17:56 usb7
+
+/run/media:
+total 16
+drwxr-xr-x  3 root root    60 Apr  7 14:11 .
+drwxr-xr-x 19 root root   600 Aug 31 20:24 ..
+drwxr-xr-x  7 root root 16384 Jan  1  1970 mmcblk1p1
+total 8
+drwxr-xr-x  2 root root 4096 Aug  7  2020 .
+drwxr-xr-x 21 root root 4096 Sep 29  2021 ..
+
+========== find-bootbin ==========
+$ find / -maxdepth 5 -iname 'boot.bin*' 2>/dev/null
+/run/media/mmcblk1p1/boot.bin
+
+========== find-bl ==========
+$ find / -maxdepth 6 \( -iname 'bl31*' -o -iname 'u-boot*' -o -iname 'fsbl*' -o -iname 'pmufw*' \) 2>/dev/null | head -40
+/sys/firmware/devicetree/base/video_clk/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/gt_crx_ref_clk/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/clk/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/amba/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/dcc/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/aux_ref_clk/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/pss_alt_ref_clk/u-boot,dm-pre-reloc
+/sys/firmware/devicetree/base/pss_ref_clk/u-boot,dm-pre-reloc
+
+========== find-image ==========
+$ find / -maxdepth 5 \( -iname 'image.ub' -o -iname 'Image' -o -iname '*.dtb' \) 2>/dev/null | head -40
+/usr/include/boost/compute/image
+/usr/share/mime/image
+/usr/share/doc/libfreetype6/image
+/run/media/mmcblk1p1/image.ub
+
+========== dmesg-boot ==========
+$ dmesg 2>/dev/null | grep -iE 'fsbl|xilinx|fpga|zynq|bl31|trusted|u-boot|mmcblk|pl_|bitstream' | head -40
+[    0.000000] Linux version 4.14.0-xilinx-v2018.3 (oe-user@oe-host) (gcc version 7.3.0 (GCC)) #5 SMP Thu Apr 1 14:52:47 UTC 2021
+[    0.000000] Machine model: xlnx,zynqmp
+[    0.000000] Kernel command line: earlycon console=ttyPS0,115200 clk_ignore_unused cpuidle.off=1 root=/dev/mmcblk1p2 rw rootwait xilinx-video.is_mplane=0 cma=128M chipid=zu3
+[    0.055213] zynqmp_plat_init Platform Management API v1.1
+[    0.060557] zynqmp_plat_init Trustzone version v1.0
+[    0.361749] reset_zynqmp reset-controller: Xilinx zynqmp reset driver probed
+[    0.369330] zynqmp-pinctrl ff180000.pinctrl: zynqmp pinctrl initialized
+[    1.534470] zynqmp-ipi ff9905c0.mailbox: Probed ZynqMP IPI Mailbox driver.
+[    1.541166] FPGA manager framework
+[    1.544480] fpga-region fpga-full: FPGA Region probed
+[    1.840318] xilinx-dpdma fd4c0000.dma: Xilinx DPDMA engine is probed
+[    1.846058] xilinx-zynqmp-dma fd500000.dma: ZynqMP DMA driver Probe success
+[    1.852767] xilinx-zynqmp-dma fd510000.dma: ZynqMP DMA driver Probe success
+[    1.859691] xilinx-zynqmp-dma fd520000.dma: ZynqMP DMA driver Probe success
+[    1.866607] xilinx-zynqmp-dma fd530000.dma: ZynqMP DMA driver Probe success
+[    1.873530] xilinx-zynqmp-dma fd540000.dma: ZynqMP DMA driver Probe success
+[    1.880452] xilinx-zynqmp-dma fd550000.dma: ZynqMP DMA driver Probe success
+[    1.887366] xilinx-zynqmp-dma fd560000.dma: ZynqMP DMA driver Probe success
+[    1.894288] xilinx-zynqmp-dma fd570000.dma: ZynqMP DMA driver Probe success
+[    1.901269] xilinx-zynqmp-dma ffa80000.dma: ZynqMP DMA driver Probe success
+[    1.908123] xilinx-zynqmp-dma ffa90000.dma: ZynqMP DMA driver Probe success
+[    1.915048] xilinx-zynqmp-dma ffaa0000.dma: ZynqMP DMA driver Probe success
+[    1.921965] xilinx-zynqmp-dma ffab0000.dma: ZynqMP DMA driver Probe success
+[    1.928889] xilinx-zynqmp-dma ffac0000.dma: ZynqMP DMA driver Probe success
+[    1.935804] xilinx-zynqmp-dma ffad0000.dma: ZynqMP DMA driver Probe success
+[    1.942729] xilinx-zynqmp-dma ffae0000.dma: ZynqMP DMA driver Probe success
+[    1.949647] xilinx-zynqmp-dma ffaf0000.dma: ZynqMP DMA driver Probe success
+[    2.201315] xilinx-axipmon ffa00000.perf-monitor: Probed Xilinx APM
+[    2.229915] rtc_zynqmp ffa60000.rtc: rtc core: registered ffa60000.rtc as rtc0
+[    2.304918] cdns-wdt fd4d0000.watchdog: Xilinx Watchdog Timer at ffffff8009215000 with timeout 60s
+[    2.313392] cdns-wdt ff150000.watchdog: Xilinx Watchdog Timer at ffffff800921d000 with timeout 10s
+[    2.409940] EDAC DEVICE1: Giving out device to module zynqmp-ocm-edac controller zynqmp_ocm: DEV ff960000.memory-controller (INTERRUPT)
+[    2.557012] mmcblk0: mmc0:0001 Q2J55L 7.09 GiB 
+[    2.561222] mmcblk0boot0: mmc0:0001 Q2J55L partition 1 16.0 MiB
+[    2.561403] mmcblk0boot1: mmc0:0001 Q2J55L partition 2 16.0 MiB
+[    2.562638] mmcblk0rpmb: mmc0:0001 Q2J55L partition 3 4.00 MiB
+[    2.595834] fpga_manager fpga0: Xilinx ZynqMP FPGA Manager registered
+[    2.605131] mmcblk1: mmc1:aaaa SN64G 59.5 GiB 
+[    2.606012]  mmcblk1: p1 p2 p3
+[    2.815503] xilinx-psgtr fd400000.zynqmp_phy: Lane:3 type:8 protocol:4 pll_locked:yes
+
+========== fdisk ==========
+$ fdisk -l 2>/dev/null | head -50
+Disk /dev/ram0: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram1: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram2: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram3: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram4: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram5: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram6: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram7: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/ram8: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+
+========== which ==========
+$ which mkfs.vfat mount fdisk dd 2>/dev/null
+/sbin/mkfs.vfat
+/bin/mount
+/sbin/fdisk
+/bin/dd
+
+========== kernel ==========
+$ ls -la /lib/modules 2>/dev/null
+total 12
+drwxr-xr-x  3 root   root   4096 Aug 31 19:55 .
+drwxr-xr-x 14 root   root   4096 May 18 18:38 ..
+drwx------  3 ubuntu ubuntu 4096 Jun 24 23:36 4.14.0-xilinx-v2018.3
+
+========== fpga-mgr ==========
+$ ls -la /sys/class/fpga_manager/ 2>/dev/null; ls /lib/firmware 2>/dev/null | head
+total 0
+drwxr-xr-x  2 root root 0 Aug 31 20:24 .
+drwxr-xr-x 57 root root 0 Apr  7 14:11 ..
+lrwxrwxrwx  1 root root 0 Apr  7 14:11 fpga0 -> ../../devices/platform/pcap/fpga_manager/fpga0
+acp_diag.bin
+al5d_b.fw
+al5d.fw
+al5e_b.fw
+al5e.fw
+hp1_diag.bin
+img_proc_axil.bin
+loopback_diag.bin
+regulatory.db
+regulatory.db.p7s
+
+========== mtd ==========
+$ cat /proc/mtd 2>/dev/null; ls /dev/mmcblk* 2>/dev/null
+dev:    size   erasesize  name
+mtd0: 00100000 00001000 "boot"
+mtd1: 00040000 00001000 "bootenv"
+mtd2: 01600000 00001000 "kernel"
+/dev/mmcblk0
+/dev/mmcblk0boot0
+/dev/mmcblk0boot1
+/dev/mmcblk0rpmb
+/dev/mmcblk1
+/dev/mmcblk1p1
+/dev/mmcblk1p2
+/dev/mmcblk1p3

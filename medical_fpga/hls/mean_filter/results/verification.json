@@ -1,0 +1,121 @@
+{
+  "csim": "PASS",
+  "cosim": "PASS",
+  "cases": [
+    {
+      "name": "black",
+      "width": 9,
+      "height": 8,
+      "pixels": 72,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "white",
+      "width": 9,
+      "height": 8,
+      "pixels": 72,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_pixel",
+      "width": 1,
+      "height": 1,
+      "pixels": 1,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_row",
+      "width": 9,
+      "height": 1,
+      "pixels": 9,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "single_column",
+      "width": 1,
+      "height": 9,
+      "pixels": 9,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "impulse_center",
+      "width": 9,
+      "height": 8,
+      "pixels": 72,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "impulse_corner",
+      "width": 9,
+      "height": 8,
+      "pixels": 72,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "impulse_bottom_right",
+      "width": 9,
+      "height": 8,
+      "pixels": 72,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "checkerboard",
+      "width": 17,
+      "height": 13,
+      "pixels": 221,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "random",
+      "width": 48,
+      "height": 32,
+      "pixels": 1536,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_im0001_green",
+      "width": 700,
+      "height": 605,
+      "pixels": 423500,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "after_real_frame",
+      "width": 7,
+      "height": 11,
+      "pixels": 77,
+      "mismatches": 0,
+      "max_error": 0
+    }
+  ],
+  "total_pixels": 425713,
+  "target_part": "xazu3eg-sfvc784-1-i",
+  "target_clock_ns": "10.00",
+  "estimated_clock_ns": "7.300",
+  "hls_estimated_resources": {
+    "BRAM_18K": 6,
+    "DSP": 1,
+    "FF": 3790,
+    "LUT": 4072,
+    "URAM": 0
+  },
+  "ip_packages": [
+    "build/mean_filter/solution1/impl/ip/xilinx_com_hls_mean_filter_1_0.zip"
+  ],
+  "source_sha256": {
+    "src/mean_filter.cpp": "87bc1c667a98fd78eb5cbdd0383b459a653cfb6c342b07d1f578230e75a85996",
+    "src/mean_filter.hpp": "c9729594790f6c36e4733585ffac8e36ccfe33fc3af41811579e0c29c088838c"
+  },
+  "boundary": "HLS C/RTL simulation and IP export only; no board testing or system implementation."
+}

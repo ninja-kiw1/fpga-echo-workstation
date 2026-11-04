@@ -1,0 +1,32 @@
+screen 1/26 first_block_2: cal agreement 0.99525 gain -0.00049
+screen 2/26 first_block_5: cal agreement 0.99603 gain +0.00029
+screen 3/26 first_shortcut_1: cal agreement 0.99568 gain -0.00006
+screen 4/26 add: cal agreement 0.99471 gain -0.00103
+screen 5/26 down_path_0_block_2: cal agreement 0.99479 gain -0.00095
+screen 6/26 down_path_0_block_5: cal agreement 0.99466 gain -0.00108
+screen 7/26 down_path_0_shortcut_1: cal agreement 0.99519 gain -0.00055
+screen 8/26 add_1: cal agreement 0.99472 gain -0.00102
+screen 9/26 down_path_1_block_2: cal agreement 0.99454 gain -0.00120
+screen 10/26 down_path_1_block_5: cal agreement 0.99446 gain -0.00128
+screen 11/26 down_path_1_shortcut_1: cal agreement 0.99606 gain +0.00032
+screen 12/26 add_2: cal agreement 0.99581 gain +0.00007
+screen 13/26 up_path_0_up_layer_block_0: cal agreement 0.99489 gain -0.00085
+screen 14/26 up_path_0_conv_bridge_layer_block_2: cal agreement 0.99565 gain -0.00009
+screen 15/26 cat: cal agreement 0.99548 gain -0.00026
+screen 16/26 up_path_0_conv_layer_block_2: cal agreement 0.99533 gain -0.00041
+screen 17/26 up_path_0_conv_layer_block_5: cal agreement 0.99554 gain -0.00020
+screen 18/26 up_path_0_conv_layer_shortcut_1: cal agreement 0.99487 gain -0.00087
+screen 19/26 add_3: cal agreement 0.99479 gain -0.00095
+screen 20/26 up_path_1_up_layer_block_0: cal agreement 0.99579 gain +0.00005
+screen 21/26 up_path_1_conv_bridge_layer_block_2: cal agreement 0.99575 gain +0.00001
+screen 22/26 cat_1: cal agreement 0.99507 gain -0.00067
+screen 23/26 up_path_1_conv_layer_block_2: cal agreement 0.99540 gain -0.00034
+screen 24/26 up_path_1_conv_layer_block_5: cal agreement 0.99539 gain -0.00035
+screen 25/26 up_path_1_conv_layer_shortcut_1: cal agreement 0.99613 gain +0.00039
+screen 26/26 add_4: cal agreement 0.99531 gain -0.00043
+confirm all INT8: VAL {'nodes': [], 'score': 0.9672656887019954, 'dice_roi': 0.9713515076226962, 'dice_full': 0.9631798697812946}
+confirm ['up_path_1_conv_layer_shortcut_1']: VAL {'nodes': ['up_path_1_conv_layer_shortcut_1'], 'score': 0.9672721632229075, 'dice_roi': 0.9713542862727617, 'dice_full': 0.9631900401730534}
+confirm ['down_path_1_shortcut_1']: VAL {'nodes': ['down_path_1_shortcut_1'], 'score': 0.9672619864921862, 'dice_roi': 0.971332772758151, 'dice_full': 0.9631912002262214}
+confirm ['first_block_5']: VAL {'nodes': ['first_block_5'], 'score': 0.9673905360509468, 'dice_roi': 0.9714119333875642, 'dice_full': 0.9633691387143295}
+confirm ['up_path_1_conv_layer_shortcut_1', 'down_path_1_shortcut_1']: VAL {'nodes': ['up_path_1_conv_layer_shortcut_1', 'down_path_1_shortcut_1'], 'score': 0.9672799353741883, 'dice_roi': 0.9714114223501302, 'dice_full': 0.9631484483982464}
+selected INT16 ['first_block_5']; VAL Dice FP32 {'roi': 0.9716070335118656, 'full': 0.9634564484155851} | quantized {'roi': 0.9714119333875642, 'full': 0.9633691387143295}

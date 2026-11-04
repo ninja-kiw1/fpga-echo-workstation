@@ -1,0 +1,43 @@
+{
+ "op": "vessel4",
+ "doc": "4-direction line detector on the green channel (vessels are dark): max over directions of\n    (7-tap line mean - 7 x 7 local mean) of the inverted green. Ricci & Perfetti 2007 style, short scale.",
+ "layout": {
+  "channels_per_stage": [
+   2,
+   5,
+   5,
+   5,
+   4
+  ],
+  "output_terms": 4
+ },
+ "out_range": [
+  -1.0,
+  1.0
+ ],
+ "out_mid": 0.0,
+ "anchored_channels": 0,
+ "float_max_abs_error": 2.443056364986873e-07,
+ "integer": {
+  "output_scale": 0.007874015748031496,
+  "output_mid": 0.0,
+  "interval_bound": [
+   -1.0,
+   4.0
+  ],
+  "lsb_in_grey_levels": 2.0078740157480315,
+  "mean_err_lsb": 0.00023562859573340172,
+  "max_abs_err_lsb": 0.5318648411350715,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "1cd9c329012bccb4ee28f2b9355f7846a5a1be78e39ae05d3627fb80f4c65815",
+ "parameters_sha256": "769a99a59a029b203715b34699c548041e6595c0a42037dabdc7e5d5b879baef",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

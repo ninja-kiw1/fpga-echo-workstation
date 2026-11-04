@@ -1,0 +1,229 @@
+
+
+================================================================
+== Vitis HLS Report for 'ovl_compute_Pipeline_CPIX'
+================================================================
+* Date:           Fri Oct 16 20:44:57 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        f_vis_p6757
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: azynquplus
+* Target device:  xazu3eg-sfvc784-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.76 ns|  4.404 ns|     1.82 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |      Pipeline     |
+    |   min   |   max   |    min    |    max   | min | max |        Type       |
+    +---------+---------+-----------+----------+-----+-----+-------------------+
+    |        2|      515|  13.514 ns|  3.480 us|    0|    0|  loop pipeline stp|
+    +---------+---------+-----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+---------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- CPIX    |        0|      513|         3|          1|          1|  0 ~ 512|       yes|
+        +----------+---------+---------+----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    323|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       0|     54|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     72|    -|
+|Register         |        -|    -|     133|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     133|    449|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      432|  360|  141120|  70560|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+-------------------------------+---------+----+---+----+-----+
+    |              Instance             |             Module            | BRAM_18K| DSP| FF| LUT| URAM|
+    +-----------------------------------+-------------------------------+---------+----+---+----+-----+
+    |bitselect_1ns_128ns_7ns_1_1_1_U54  |bitselect_1ns_128ns_7ns_1_1_1  |        0|   0|  0|  34|    0|
+    |sparsemux_9_2_128_1_1_U53          |sparsemux_9_2_128_1_1          |        0|   0|  0|  20|    0|
+    +-----------------------------------+-------------------------------+---------+----+---+----+-----+
+    |Total                              |                               |        0|   0|  0|  54|    0|
+    +-----------------------------------+-------------------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |add_ln350_fu_383_p2     |         +|   0|  0|  17|          10|           1|
+    |add_ln365_fu_471_p2     |         +|   0|  0|  17|          10|          10|
+    |add_ln371_fu_517_p2     |         +|   0|  0|  17|          10|          10|
+    |lx_2_fu_491_p2          |         +|   0|  0|  16|           9|           1|
+    |mx_2_fu_537_p2          |         +|   0|  0|  16|           9|           1|
+    |t_10_fu_522_p2          |         +|   0|  0|  18|          11|          11|
+    |t_fu_476_p2             |         +|   0|  0|  18|          11|          11|
+    |dv_fu_613_p2            |         -|   0|  0|  16|           9|           9|
+    |sub_ln358_fu_630_p2     |         -|   0|  0|  15|           1|           8|
+    |t_11_fu_532_p2          |         -|   0|  0|  17|          10|          10|
+    |t_8_fu_486_p2           |         -|   0|  0|  17|          10|          10|
+    |m_1_fu_595_p2           |       and|   0|  0|   2|           1|           1|
+    |u_fu_655_p2             |       and|   0|  0|   2|           1|           1|
+    |icmp_ln350_fu_378_p2    |      icmp|   0|  0|  17|          10|          10|
+    |icmp_ln356_fu_584_p2    |      icmp|   0|  0|  15|           8|           8|
+    |icmp_ln358_fu_644_p2    |      icmp|   0|  0|  15|           8|           8|
+    |icmp_ln366_fu_481_p2    |      icmp|   0|  0|  18|          11|          11|
+    |icmp_ln372_fu_527_p2    |      icmp|   0|  0|  18|          11|          11|
+    |lx_1_fu_497_p3          |    select|   0|  0|   8|           1|           9|
+    |m_2_fu_600_p3           |    select|   0|  0|   2|           1|           1|
+    |mx_1_fu_543_p3          |    select|   0|  0|   8|           1|           9|
+    |select_ln358_fu_636_p3  |    select|   0|  0|   8|           1|           8|
+    |t_13_fu_505_p3          |    select|   0|  0|   9|           1|          10|
+    |t_14_fu_551_p3          |    select|   0|  0|   9|           1|          10|
+    |ap_enable_pp0           |       xor|   0|  0|   2|           1|           2|
+    |xor_ln356_fu_589_p2     |       xor|   0|  0|   2|           1|           2|
+    |xor_ln358_fu_649_p2     |       xor|   0|  0|   2|           1|           2|
+    |xor_ln362_fu_676_p2     |       xor|   0|  0|   2|           1|           2|
+    +------------------------+----------+----+---+----+------------+------------+
+    |Total                   |          |   0|  0| 323|         160|         187|
+    +------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter2  |   9|          2|    1|          2|
+    |lrem_fu_138              |   9|          2|   10|         20|
+    |lx_fu_130                |   9|          2|    9|         18|
+    |mrem_fu_142              |   9|          2|   10|         20|
+    |mx_fu_134                |   9|          2|    9|         18|
+    |x_2_fu_146               |   9|          2|   10|         20|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  72|         16|   51|        102|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |                            Name                           | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                  |   1|   0|    1|          0|
+    |ap_done_reg                                                |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                                    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                                    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3                                    |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter2_reg                           |   1|   0|    1|          0|
+    |ap_predicate_pred236_state3                                |   1|   0|    1|          0|
+    |ap_predicate_pred250_state3                                |   1|   0|    1|          0|
+    |ap_predicate_pred262_state3                                |   1|   0|    1|          0|
+    |lrem_fu_138                                                |  10|   0|   10|          0|
+    |lx_fu_130                                                  |   9|   0|    9|          0|
+    |m_reg_830                                                  |   1|   0|    1|          0|
+    |mrem_fu_142                                                |  10|   0|   10|          0|
+    |mx_fu_134                                                  |   9|   0|    9|          0|
+    |run_ovl_ap_uint_128_ap_uint_128_const_vrow_3_addr_reg_851  |   9|   0|    9|          0|
+    |run_ovl_ap_uint_128_ap_uint_128_const_vrow_addr_reg_846    |   9|   0|    9|          0|
+    |sext_ln357_cast_reg_800                                    |   9|   0|    9|          0|
+    |trunc_ln359_reg_835                                        |   9|   0|    9|          0|
+    |vv_reg_840                                                 |   9|   0|    9|          0|
+    |x_2_fu_146                                                 |  10|   0|   10|          0|
+    |zext_ln357_reg_815                                         |  10|   0|   11|          1|
+    |zext_ln365_cast_reg_810                                    |  10|   0|   11|          1|
+    |zext_ln371_cast_reg_805                                    |  10|   0|   11|          1|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                      | 133|   0|  136|          3|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------------------------------+-----+-----+------------+-------------------------------------------------+--------------+
+|                       RTL Ports                       | Dir | Bits|  Protocol  |                  Source Object                  |    C Type    |
++-------------------------------------------------------+-----+-----+------------+-------------------------------------------------+--------------+
+|ap_clk                                                 |   in|    1|  ap_ctrl_hs|                        ovl_compute_Pipeline_CPIX|  return value|
+|ap_rst                                                 |   in|    1|  ap_ctrl_hs|                        ovl_compute_Pipeline_CPIX|  return value|
+|ap_start                                               |   in|    1|  ap_ctrl_hs|                        ovl_compute_Pipeline_CPIX|  return value|
+|ap_done                                                |  out|    1|  ap_ctrl_hs|                        ovl_compute_Pipeline_CPIX|  return value|
+|ap_idle                                                |  out|    1|  ap_ctrl_hs|                        ovl_compute_Pipeline_CPIX|  return value|
+|ap_ready                                               |  out|    1|  ap_ctrl_hs|                        ovl_compute_Pipeline_CPIX|  return value|
+|c_ow_val                                               |   in|   10|     ap_none|                                         c_ow_val|        scalar|
+|c_lw_val                                               |   in|   10|     ap_none|                                         c_lw_val|        scalar|
+|zext_ln365                                             |   in|   10|     ap_none|                                       zext_ln365|        scalar|
+|c_mw_val                                               |   in|   10|     ap_none|                                         c_mw_val|        scalar|
+|zext_ln371                                             |   in|   10|     ap_none|                                       zext_ln371|        scalar|
+|vsel                                                   |   in|    1|     ap_none|                                             vsel|        scalar|
+|run_ovl_ap_uint_128_ap_uint_128_const_mb_load          |   in|  128|     ap_none|    run_ovl_ap_uint_128_ap_uint_128_const_mb_load|        scalar|
+|run_ovl_ap_uint_128_ap_uint_128_const_mb_4_load        |   in|  128|     ap_none|  run_ovl_ap_uint_128_ap_uint_128_const_mb_4_load|        scalar|
+|run_ovl_ap_uint_128_ap_uint_128_const_mb_5_load        |   in|  128|     ap_none|  run_ovl_ap_uint_128_ap_uint_128_const_mb_5_load|        scalar|
+|run_ovl_ap_uint_128_ap_uint_128_const_mb_6_load        |   in|  128|     ap_none|  run_ovl_ap_uint_128_ap_uint_128_const_mb_6_load|        scalar|
+|c_thr_val                                              |   in|    8|     ap_none|                                        c_thr_val|        scalar|
+|c_has_l_val                                            |   in|    1|     ap_none|                                      c_has_l_val|        scalar|
+|c_from_b_val                                           |   in|    1|     ap_none|                                     c_from_b_val|        scalar|
+|sext_ln357                                             |   in|    8|     ap_none|                                       sext_ln357|        scalar|
+|c_band_val                                             |   in|    8|     ap_none|                                       c_band_val|        scalar|
+|slot                                                   |   in|   32|     ap_none|                                             slot|        scalar|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_address0    |  out|    9|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_vrow|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_ce0         |  out|    1|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_vrow|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_we0         |  out|    1|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_vrow|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_d0          |  out|    9|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_vrow|         array|
+|lb_address0                                            |  out|    9|   ap_memory|                                               lb|         array|
+|lb_ce0                                                 |  out|    1|   ap_memory|                                               lb|         array|
+|lb_q0                                                  |   in|    8|   ap_memory|                                               lb|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_address1    |  out|    9|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_ring|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_ce1         |  out|    1|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_ring|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_we1         |  out|    1|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_ring|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_d1          |  out|    1|   ap_memory|       run_ovl_ap_uint_128_ap_uint_128_const_ring|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_1_address1  |  out|    9|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_1|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_1_ce1       |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_1|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_1_we1       |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_1|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_1_d1        |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_1|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_2_address1  |  out|    9|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_2|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_2_ce1       |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_2|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_2_we1       |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_2|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_ring_2_d1        |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_ring_2|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_3_address0  |  out|    9|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_vrow_3|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_3_ce0       |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_vrow_3|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_3_we0       |  out|    1|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_vrow_3|         array|
+|run_ovl_ap_uint_128_ap_uint_128_const_vrow_3_d0        |  out|    9|   ap_memory|     run_ovl_ap_uint_128_ap_uint_128_const_vrow_3|         array|
++-------------------------------------------------------+-----+-----+------------+-------------------------------------------------+--------------+
+

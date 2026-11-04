@@ -1,0 +1,434 @@
+﻿NOTE: Using modified tcl85t.dll from https://gitenterprise.xilinx.com/ACT/vitis_hls_tcl
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+  **** SW Build 3854077 on May  4 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/xlinx2023.1/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/xlinx2023.1/Vitis_HLS/2023.1/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user '21888' on host 'ninja_kiwi' (Windows NT_amd64 version 6.2) on Wed Sep 23 08:40:11 -0700 2026
+INFO: [HLS 200-10] In directory 'E:/PLD/medical_fpga/deployment/unet_conv'
+Sourcing Tcl script '.\run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project conv_layer 
+INFO: [HLS 200-10] Opening project 'E:/PLD/medical_fpga/deployment/unet_conv/build/conv_layer'.
+INFO: [HLS 200-1510] Running: set_top conv_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp -cflags -IE:/PLD/medical_fpga/deployment/unet_conv/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/medical_fpga/deployment/unet_conv/tb/test_conv_layer.cpp -cflags -IE:/PLD/medical_fpga/deployment/unet_conv/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/medical_fpga/deployment/unet_conv/tb/test_conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/medical_fpga/deployment/unet_conv/build/conv_layer/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.101 seconds; current allocated memory: 1.039 GB.
+INFO: [HLS 200-10] Analyzing design file 'E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 3.762 seconds; current allocated memory: 1.041 GB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'requantize(ap_int<32>, bool, ap_int<32>, ap_int<64>, ap_uint<5>, int, int)' into 'conv_layer(ap_uint<128> const*, ap_uint<128>*, ap_uint<64> const*, int, int, int, int, int, int, int, int, int)' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:38)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_143_2' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:143:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_172_3' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:172:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_178_4' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:178:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_181_5' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:181:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_211_6' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:211:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_98_1' is marked as complete unroll implied by the pipeline pragma (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:98:30)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_143_2' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:143:35) in function 'conv_layer' completely with a factor of 8 (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:38:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_172_3' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:172:20) in function 'conv_layer' completely with a factor of 8 (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:38:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_178_4' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:178:31) in function 'conv_layer' completely with a factor of 8 (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:38:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_181_5' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:181:35) in function 'conv_layer' completely with a factor of 8 (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:38:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_211_6' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:211:31) in function 'conv_layer' completely with a factor of 8 (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:38:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_98_1' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:98:30) in function 'conv_layer' completely with a factor of 8 (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:38:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE10offset_buf': Complete partitioning on dimension 2. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:84:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8mult_buf': Complete partitioning on dimension 2. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:83:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE8bias_buf': Complete partitioning on dimension 2. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:82:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf': Complete partitioning on dimension 4. Complete partitioning on dimension 5. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:79:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4orow': Complete partitioning on dimension 3. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:77:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows': Complete partitioning on dimension 1. Complete partitioning on dimension 4. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:74:0)
+INFO: [HLS 214-248] Applying array_partition to 'acc': Complete partitioning on dimension 1. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:156:15)
+INFO: [HLS 214-248] Applying array_partition to 'pixel': Complete partitioning on dimension 1. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:170:19)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 64 in loop 'PARAM_WEIGHTS'(E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:94:9) has been inferred on bundle 'gmem_par'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:94:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD'(E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:139:13) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:139:13)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 in loop 'STORE'(E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:207:9) has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:207:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 3.877 seconds; current allocated memory: 1.042 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.001 seconds; current allocated memory: 1.042 GB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.246 seconds; current allocated memory: 1.052 GB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.212 seconds; current allocated memory: 1.055 GB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:102:17) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:94:9) in function 'conv_layer'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:163:21) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:183:18) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:187:21) in function 'conv_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:188:64) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:190:17) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:192:17) to (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:159:9) in function 'conv_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'conv_layer' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:19:9)...62 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.958 seconds; current allocated memory: 1.085 GB.
+WARNING: [HLS 200-960] Cannot flatten loop 'LOAD_ROWS' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:133:9) in function 'conv_layer' either the parent loop or sub loop is do-while loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'ROWS' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:126:5) in function 'conv_layer' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.496 seconds; current allocated memory: 1.127 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_WEIGHTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_WEIGHTS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'PARAM_WEIGHTS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.504 seconds; current allocated memory: 1.133 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 1.135 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_PARAM_CHANNELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PARAM_CHANNELS'.
+WARNING: [HLS 200-885] The II Violation in module 'conv_layer_Pipeline_PARAM_CHANNELS' (loop 'PARAM_CHANNELS'): Unable to schedule bus request operation ('m_req', E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:117) on port 'gmem_par' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:117) due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'conv_layer_Pipeline_PARAM_CHANNELS' (loop 'PARAM_CHANNELS'): Unable to schedule bus request operation ('f_req', E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:118) on port 'gmem_par' (E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:118) due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 3, Depth = 13, loop 'PARAM_CHANNELS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.222 seconds; current allocated memory: 1.136 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.179 seconds; current allocated memory: 1.136 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_LOAD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 11, loop 'LOAD'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.196 seconds; current allocated memory: 1.137 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.158 seconds; current allocated memory: 1.137 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_COMPUTE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_16) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_23) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_21) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_19) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_31) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_29) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_27) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_6) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_39) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_37) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_35) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_47) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_45) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_43) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_55) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_53) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_51) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_12) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_63) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_61) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln183_59) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=dot_14) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'COMPUTE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 43, loop 'COMPUTE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.19 seconds; current allocated memory: 1.152 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.664 seconds; current allocated memory: 1.153 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer_Pipeline_STORE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'STORE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'STORE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.46 seconds; current allocated memory: 1.153 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.138 seconds; current allocated memory: 1.153 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.812 seconds; current allocated memory: 1.153 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.629 seconds; current allocated memory: 1.153 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_WEIGHTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_WEIGHTS' pipeline 'PARAM_WEIGHTS' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_PARAM_WEIGHTS/m_axi_gmem_par_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_WEIGHTS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.488 seconds; current allocated memory: 1.154 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_PARAM_CHANNELS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_PARAM_CHANNELS' pipeline 'PARAM_CHANNELS' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_PARAM_CHANNELS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.644 seconds; current allocated memory: 1.157 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_LOAD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_LOAD' pipeline 'LOAD' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_LOAD'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.548 seconds; current allocated memory: 1.161 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_COMPUTE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_COMPUTE' pipeline 'COMPUTE' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8s_24s_25_4_1': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_8s_24_1_1': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_3_2_16_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'srem_32ns_3ns_2_36_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_COMPUTE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.832 seconds; current allocated memory: 1.174 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer_Pipeline_STORE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv_layer_Pipeline_STORE' pipeline 'STORE' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'conv_layer_Pipeline_STORE/m_axi_gmem_out_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer_Pipeline_STORE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 3.085 seconds; current allocated memory: 1.193 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/gmem_in' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/gmem_out' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/gmem_par' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/out_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/params' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/mode' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/cin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/cout' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_h' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/in_w' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/relu' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/shift' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/qmin' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/qmax' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_0_RAM_AUTObkb' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_1_RAM_AUTOcud' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_2_RAM_AUTOdEe' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_3_RAM_AUTOeOg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_4_RAM_AUTOfYi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_5_RAM_AUTOg8j' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_6_RAM_AUTOhbi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_7_RAM_AUTOibs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_0_RAM_AUTOjbC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_1_RAM_AUTOkbM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_2_RAM_AUTOlbW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_3_RAM_AUTOmb6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_4_RAM_AUTOncg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_5_RAM_AUTOocq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_6_RAM_AUTOpcA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_1_7_RAM_AUTOqcK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_0_RAM_AUTOrcU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_1_RAM_AUTOsc4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_2_RAM_AUTOtde' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_3_RAM_AUTOudo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_4_RAM_AUTOvdy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_5_RAM_AUTOwdI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_6_RAM_AUTOxdS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_2_7_RAM_AUTOyd2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_0_RAM_AUTOzec' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_1_RAM_AUTOAem' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_2_RAM_AUTOBew' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_3_RAM_AUTOCeG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_4_RAM_AUTODeQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_5_RAM_AUTOEe0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_6_RAM_AUTOFfa' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_3_7_RAM_AUTOGfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_0_RAM_AUTOHfu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_1_RAM_AUTOIfE' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_2_RAM_AUTOJfO' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_3_RAM_AUTOKfY' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_4_RAM_AUTOLf8' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_5_RAM_AUTOMgi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_6_RAM_AUTONgs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_4_7_RAM_AUTOOgC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_0_RAM_AUTOPgM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_1_RAM_AUTOQgW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_2_RAM_AUTORg6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_3_RAM_AUTOShg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_4_RAM_AUTOThq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_5_RAM_AUTOUhA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_6_RAM_AUTOVhK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_5_7_RAM_AUTOWhU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_0_RAM_AUTOXh4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_1_RAM_AUTOYie' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_2_RAM_AUTOZio' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_3_RAM_AUTO0iy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_4_RAM_AUTO1iI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_5_RAM_AUTO2iS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_6_RAM_AUTO3i2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_6_7_RAM_AUTO4jc' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_0_RAM_AUTO5jm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_1_RAM_AUTO6jw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_2_RAM_AUTO7jG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_3_RAM_AUTO8jQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_4_RAM_AUTO9j0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_5_RAM_AUTObak' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_6_RAM_AUTObbk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_7_7_RAM_AUTObck' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_31_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbdk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_23_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbek' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_15_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_25_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbgk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_22_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbhl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_14_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbil' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_24_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbjl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_21_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbkl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_13_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbll' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_30_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbml' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_20_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbnm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_12_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbom' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_29_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbpm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_19_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbqm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_11_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbrm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_28_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbsm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_18_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbtn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_10_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbun' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_27_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbvn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_17_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbwn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_9_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbxn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_26_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbyn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_16_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbzo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_8_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbAo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_0_RAM_AUTObBo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_1_RAM_AUTObCo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_2_RAM_AUTObDo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_3_RAM_AUTObEo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_4_RAM_AUTObFp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_5_RAM_AUTObGp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_6_RAM_AUTObHp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_7_RAM_AUTObIp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_0_RAM_AUTObJp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_1_RAM_AUTObKp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_2_RAM_AUTObLp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_3_RAM_AUTObMq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_4_RAM_AUTObNq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_5_RAM_AUTObOq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_6_RAM_AUTObPq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_1_7_RAM_AUTObQq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_0_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_0_RAM_AUTObRq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_1_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_1_RAM_AUTObSr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_2_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_2_RAM_AUTObTr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_3_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_3_RAM_AUTObUr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_4_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_4_RAM_AUTObVr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_5_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_5_RAM_AUTObWr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_6_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_6_RAM_AUTObXr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_7_RAM_AUTO_1R1W' to 'p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_2_7_RAM_AUTObYs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_7_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbZs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_6_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb0s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_5_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb1s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_4_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb2s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_3_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb3s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_2_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb4t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_1_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb5t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_in_RAM_AUTO_1R1W' to 'conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inb6t' due to the length limit 80
+INFO: [RTGEN 206-100] Bundling port 'return', 'in_r', 'out_r', 'params', 'cin', 'cout', 'in_h', 'in_w', 'relu', 'shift', 'qmin' and 'qmax' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_30s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_32s_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_30s_60_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_7ns_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_60s_31ns_60_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_60s_60s_60_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_32ns_3ns_2_36_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer'.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4wbuf_0_0_RAM_AUTObkb' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbdk' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_conv_layer_ap_uint_const_ap_uint_ap_uint_const_int_int_int_int_int_int_int_inbfk' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'conv_layer_p_ZZ10conv_layerPK7ap_uintILi128EEPS0_PKS_ILi64EEiiiiiiiiiE4rows_0_0_RAM_AUTObBo' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 3.024 seconds; current allocated memory: 1.201 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 3.032 seconds; current allocated memory: 1.214 GB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 2.785 seconds; current allocated memory: 1.225 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 12 seconds. CPU system time: 5 seconds. Elapsed time: 30.654 seconds; current allocated memory: 190.395 MB.
+INFO: [HLS 200-112] Total CPU user time: 14 seconds. Total CPU system time: 7 seconds. Total elapsed time: 35.082 seconds; peak allocated memory: 1.225 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Wed Sep 23 08:40:46 2026...

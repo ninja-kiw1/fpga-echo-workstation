@@ -1,0 +1,46 @@
+=== 逐节点: 计算量 vs 实测 PL 时间 ===
+  节点                                   类型      cin  cout        MAC     ap_us  MAC/cyc
+  up_path_1_conv_layer_block_2         CONV     16     8  301989888     68086     43.8
+  up_path_0_conv_layer_block_2         CONV     32    16  301989888     62842     47.4
+  up_path_1_conv_layer_block_5         CONV      8     8  150994944     35002     42.6
+  first_block_5                        CONV      8     8  150994944     33910     43.9
+  first_block_2                        CONV      3     8   56623104     33891     16.5
+  up_path_1_conv_bridge_layer_block_2  CONV      8     8  150994944     33891     43.9
+  up_path_0_conv_layer_block_5         CONV     16    16  150994944     30433     48.9
+  up_path_0_conv_bridge_layer_block_2  CONV     16    16  150994944     30429     48.9
+  down_path_0_block_5                  CONV     16    16  150994944     30428     49.0
+  down_path_1_block_5                  CONV     32    32  150994944     28877     51.6
+  down_path_0_block_2                  CONV      8    16   75497472     15574     47.8
+  down_path_1_block_2                  CONV     16    32   75497472     14341     51.9
+  up_path_1_conv_layer_shortcut_1      CONV     16     8   33554432     14293     23.2
+  cat_1                                ELT       8    16    8388608     11392      7.3
+  up_path_1_up_layer_block_0           CONV     16     8  134217728     10120    130.8
+  up_path_0_conv_layer_shortcut_1      CONV     32    16   33554432      9743     34.0
+  final                                CONV      8     1    2097152      8922      2.3
+  first_shortcut_1                     CONV      3     8    6291456      8908      7.0
+  add                                  ELT       8     8    4194304      8110      5.1
+  add_4                                ELT       8     8    4194304      8109      5.1
+  up_path_0_up_layer_block_0           CONV     32    16  134217728      7682    172.3
+  cat                                  ELT      16    32    4194304      5698      7.3
+  add_1                                ELT      16    16    2097152      4052      5.1
+  add_3                                ELT      16    16    2097152      4052      5.1
+  down_path_0_shortcut_1               CONV      8    16    8388608      3845     21.5
+  down_path_0_pool                     ELT       8     8     524288      3643      1.4
+  down_path_1_shortcut_1               CONV     16    32    8388608      2554     32.4
+  add_2                                ELT      32    32    1048576      2026      5.1
+  down_path_1_pool                     ELT      16    16     262144      1821      1.4
+
+  合计: 2256.3 MMAC, 532.7 ms, 54.0 M周期 -> **平均 41.8 MAC/周期**
+
+=== 逐档位(tp=3x3/1x1/转置/池化) 的平均效率 ===
+  CONV3        1868.6 MMAC     417.7 ms     44.1 MAC/周期  (占 78.4% 时间)
+  CONV1          92.3 MMAC      48.3 ms     18.9 MAC/周期  (占  9.1% 时间)
+  Add/Concat     26.2 MMAC      43.4 ms      6.0 MAC/周期  (占  8.2% 时间)
+  TCONV2         67.1 MMAC      17.8 ms     37.2 MAC/周期  (占  3.3% 时间)
+  MaxPool         0.8 MMAC       5.5 ms      1.4 MAC/周期  (占  1.0% 时间)
+
+=== 与理论峰值比 ===
+  现状 COMPUTE 循环 II=1、每周期 8 输出通道 x 8 输入 lane = 64 MAC/周期
+  => 平均 41.8 / 64 = **65% 的峰值利用率**
+  512 档整网 532.7 ms; 若算力翻倍(128 MAC/周期)理论上 -> 266.3 ms
+EXIT=0 

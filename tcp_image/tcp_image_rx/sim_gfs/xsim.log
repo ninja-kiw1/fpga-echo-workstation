@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# xsim v2025.2.1 (64-bit)
+# SW Build 6403652 on Thu Mar 19 19:48:24 GMT 2026
+# IP Build 6403511 on Thu Mar 19 12:41:45 MDT 2026
+# SharedData Build 6403650 on Thu Mar 19 14:02:13 MDT 2026
+# Start of session at: Thu Oct  1 18:33:03 2026
+# Process ID         : 3824
+# Current directory  : E:/fpga/my_project/tcp_image_rx/sim_gfs
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/tb_gfs_sim/xsim_script.tcl}
+# Log file           : E:/fpga/my_project/tcp_image_rx/sim_gfs/xsim.log
+# Journal file       : E:/fpga/my_project/tcp_image_rx/sim_gfs\xsim.jou
+# Running On         : moxie_laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 21239 MB
+# Swap memory        : 19327 MB
+# Total Virtual      : 40566 MB
+# Available Virtual  : 21542 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_gfs_sim/xsim_script.tcl
+# xsim {tb_gfs_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+stat: min=0 max=63 (expect 0 / 63)
+  k=0 out: mid_c=0 top_c=0 bot_c=8 mid_l=0 mid_r=1
+  k=1 out: mid_c=1 top_c=1 bot_c=9 mid_l=0 mid_r=2
+  k=2 out: mid_c=2 top_c=2 bot_c=10 mid_l=1 mid_r=3
+  k=3 out: mid_c=3 top_c=3 bot_c=11 mid_l=2 mid_r=4
+  k=61 out: mid_c=61 top_c=53 bot_c=61 mid_l=60 mid_r=62
+  k=62 out: mid_c=62 top_c=54 bot_c=62 mid_l=61 mid_r=63
+  k=63 out: mid_c=63 top_c=55 bot_c=63 mid_l=62 mid_r=63
+outputs=64 errors=0
+TB_PASS
+$finish called at time : 3650 ns : File "E:/fpga/my_project/tcp_image_rx/sim_gfs/tb_gfs.v" Line 118
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Oct  1 18:33:04 2026...

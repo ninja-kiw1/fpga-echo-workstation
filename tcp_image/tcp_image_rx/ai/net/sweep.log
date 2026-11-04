@@ -1,0 +1,55 @@
+=== upload sources ===
+[up] src/*.c,*.h + Makefile
+
+=== build on board ===
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_net_data.o src/unet_net_data.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+
+=== restart service ===
+active
+
+=== ·Ö±æÂÊÉ¨Ãè (test.ppm, flags=proc,mask,overlay,stats) ===
+
+--- res=512 ---
+[1] total= 2185.1 ms  (send    2.0 + reply 2183.1)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=2075930 gray[0..197] mode=0 frame=1
+summary: n=1  min=2185.1  max=2185.1  avg=2185.1 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_proc.png
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_mask_512.png
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_overlay_512.png
+
+--- res=256 ---
+[1] total=  567.9 ms  (send    2.0 + reply  566.0)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 256x256 thr=-3 vessels=4317/65536 (6.6%) comps=69 logit[-105..65] ai_us=479516 gray[0..197] mode=0 frame=2
+summary: n=1  min=567.9  max=567.9  avg=567.9 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_proc.png
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_mask_256.png
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_overlay_256.png
+
+--- res=128 ---
+[1] total=  205.0 ms  (send    2.1 + reply  202.8)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 128x128 thr=-3 vessels=761/16384 (4.6%) comps=67 logit[-110..47] ai_us=119592 gray[0..197] mode=0 frame=3
+summary: n=1  min=205.0  max=205.0  avg=205.0 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_proc.png
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_mask_128.png
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_overlay_128.png
+
+--- res=64 ---
+[1] total=  116.4 ms  (send    2.0 + reply  114.4)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 64x64 thr=-3 vessels=120/4096 (2.9%) comps=15 logit[-103..39] ai_us=30822 gray[0..197] mode=0 frame=4
+summary: n=1  min=116.4  max=116.4  avg=116.4 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_proc.png
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_mask_64.png
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_overlay_64.png
+
+--- res=32 ---
+[1] total=   94.4 ms  (send    2.1 + reply   92.3)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=8349 gray[0..197] mode=0 frame=5
+summary: n=1  min=94.4  max=94.4  avg=94.4 ms
+save: proc -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_proc.png
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_mask_32.png
+save: overlay -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\e2e_out\fullres_overlay_32.png
+
+SWEEP_DONE

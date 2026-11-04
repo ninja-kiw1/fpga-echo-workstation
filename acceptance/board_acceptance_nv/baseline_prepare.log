@@ -1,0 +1,9 @@
+PC_UTC 2026-11-03T13:34:03.763269+00:00
+COMMAND set -eu; systemctl stop tcp-image-server; pids=$(pgrep -f "^python3 /root/Fz3b_BoardCheck/gui/board_check_gui.py$" || true); if [ -n "$pids" ]; then kill -STOP $pids; fi; mkdir -p /data/nv_acceptance/before/boardcheck /data/nv_acceptance/tools /data/nv_acceptance/tools/vectors; echo "30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  /lib/firmware/ai_sys.bin" | sha256sum -c -; if [ -e /lib/firmware/ai_sys.bin.before_nv ]; then echo "30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  /lib/firmware/ai_sys.bin.before_nv" | sha256sum -c -; else cp -a /lib/firmware/ai_sys.bin /lib/firmware/ai_sys.bin.before_nv; fi; sha256sum /lib/firmware/ai_sys.bin.before_nv /root/tcp_image_rx/tcp_image_server; test -d /root/tcp_image_rx/releases/v5_20261103T033243Z/src; df -h / | tail -1
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+/lib/firmware/ai_sys.bin: OK
+30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  /lib/firmware/ai_sys.bin.before_nv
+9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939  /root/tcp_image_rx/tcp_image_server
+/dev/root       6.9G  6.2G  277M  96% /
+
+SSH_EXITCODE 0

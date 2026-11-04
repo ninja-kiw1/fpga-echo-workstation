@@ -1,0 +1,32 @@
+PC_UTC 2026-11-03T13:34:47.597915+00:00
+COMMAND set -eu; cd /data/nv_acceptance/tools; timeout 180 ./strict_net_test fundus512.rgb fundus512.i8 0 512 10
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb46d2000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=0 res=512 iter=-2 mismatch=0/262144
+CHECK model=0 res=512 iter=-1 mismatch=0/262144
+CHECK model=0 res=512 iter=0 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":203331,"put_us":61173,"get_us":62770,"run_us":292614,"strips":853}
+CHECK model=0 res=512 iter=1 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":203380,"put_us":61042,"get_us":62701,"run_us":292913,"strips":853}
+CHECK model=0 res=512 iter=2 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":203320,"put_us":60908,"get_us":62675,"run_us":292566,"strips":853}
+CHECK model=0 res=512 iter=3 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":203271,"put_us":60957,"get_us":62673,"run_us":292419,"strips":853}
+CHECK model=0 res=512 iter=4 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":203232,"put_us":61124,"get_us":62710,"run_us":292707,"strips":853}
+CHECK model=0 res=512 iter=5 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":203321,"put_us":60821,"get_us":62770,"run_us":292458,"strips":853}
+CHECK model=0 res=512 iter=6 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":203269,"put_us":60982,"get_us":62706,"run_us":292706,"strips":853}
+CHECK model=0 res=512 iter=7 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":203352,"put_us":60896,"get_us":62652,"run_us":292567,"strips":853}
+CHECK model=0 res=512 iter=8 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":8,"ap_us":203309,"put_us":61011,"get_us":62795,"run_us":292666,"strips":853}
+CHECK model=0 res=512 iter=9 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":9,"ap_us":203366,"put_us":60972,"get_us":62677,"run_us":292797,"strips":853}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0

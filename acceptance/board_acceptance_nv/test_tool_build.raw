@@ -1,0 +1,13 @@
+1bdf1f0f78521d06b9fa066cbed51a50c1df9ea7a8b281295bd13f619b801e99  strict_net_test
+8f8c8e4329e59002c65058a52eaf5ab5bdb473b0c7a4004d856e11e514136450  pp_board_test
+56d6c64d750e4ea6b4ab07c121587932ba753f7bd1fb597583ceba16578e767e  unet_ai.c
+d99ced0f2b36ddceb3f5490e48873f9dd8049f9db4ff0046723b95f507cef64c  pp_ai.c
+184
+/dev/root       6.9G  6.2G  277M  96% /
+make: Warning: File '/root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src/axilproc.c' has modification time 362 s in the future
+mkdir -p build_board
+gcc -std=gnu99 -O2 -Wall -Wextra -Wno-unused-parameter -I./src -I/root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src -DBC_ON_BOARD src/bc_common.c src/bc_image.c src/bc_ref.c src/bc_report.c src/bc_pl.c src/bc_hw.c src/bc_proc.c src/bc_ai.c src/bc_bench.c src/main.c /root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src/axilproc.c /root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src/ai_view.c /root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src/unet_ai.c /root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src/unet_net_data.c /root/Tcp_Image_Rx/releases/v5_20261103T033243Z/src/unet_models.c -o build_board/board_check -lm -lpthread
+built: build_board/board_check
+make: warning:  Clock skew detected.  Your build may be incomplete.
+51734b7991f92074eb367feceaae596f350dbbe59a1090bf4b628f653b80be80  build_board/board_check
+1

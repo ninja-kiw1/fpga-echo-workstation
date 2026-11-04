@@ -1,0 +1,28 @@
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f7d7c1000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=0 res=512 iter=-2 mismatch=0/262144
+CHECK model=0 res=512 iter=-1 mismatch=0/262144
+CHECK model=0 res=512 iter=0 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":203463,"put_us":60516,"get_us":62940,"run_us":292718,"strips":853}
+CHECK model=0 res=512 iter=1 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":203940,"put_us":59924,"get_us":62870,"run_us":292587,"strips":853}
+CHECK model=0 res=512 iter=2 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":203435,"put_us":60467,"get_us":63020,"run_us":293172,"strips":853}
+CHECK model=0 res=512 iter=3 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":3,"ap_us":203379,"put_us":60140,"get_us":63030,"run_us":292237,"strips":853}
+CHECK model=0 res=512 iter=4 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":4,"ap_us":203556,"put_us":59979,"get_us":63024,"run_us":292446,"strips":853}
+CHECK model=0 res=512 iter=5 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":5,"ap_us":203287,"put_us":59880,"get_us":62961,"run_us":291907,"strips":853}
+CHECK model=0 res=512 iter=6 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":6,"ap_us":203855,"put_us":60323,"get_us":62850,"run_us":292769,"strips":853}
+CHECK model=0 res=512 iter=7 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":7,"ap_us":203322,"put_us":59916,"get_us":62870,"run_us":291818,"strips":853}
+CHECK model=0 res=512 iter=8 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":8,"ap_us":203331,"put_us":59922,"get_us":62814,"run_us":291928,"strips":853}
+CHECK model=0 res=512 iter=9 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":9,"ap_us":203378,"put_us":60212,"get_us":63021,"run_us":292218,"strips":853}
+STRICT_NET_PASS

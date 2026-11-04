@@ -1,0 +1,18 @@
+=== PC_UTC 2026-10-17T09:54:05.990304+00:00
+$ sh /root/perf_j/j3a_single.sh
+== cond=idle impl=cpu1_blocked_512
+RESULT impl=neon_blocked res=512x512 threads=1 runs=3 min_ms=2220.48 median_ms=2220.82 mean_ms=2220.77 gmac=2.0279 gmacps=0.913 mismatches=0/262144 BIT_EXACT
+== cond=idle impl=cpu1_blocked_128f
+RESULT impl=neon_blocked res=128x128 threads=1 runs=20 min_ms=136.31 median_ms=136.42 mean_ms=136.41 gmac=0.1267 gmacps=0.930 mismatches=0/16384 BIT_EXACT
+== cond=idle impl=cpu1_neon_512
+RESULT impl=neon res=512x512 threads=1 runs=3 min_ms=3141.94 median_ms=3142.00 mean_ms=3142.58 gmac=2.0279 gmacps=0.645 mismatches=0/262144 BIT_EXACT
+== cond=idle impl=cpu1_neon_128f
+RESULT impl=neon res=128x128 threads=1 runs=20 min_ms=191.84 median_ms=191.93 mean_ms=191.94 gmac=0.1267 gmacps=0.661 mismatches=0/16384 BIT_EXACT
+== cond=idle impl=cpu1_plain_512
+RESULT impl=plain res=512x512 threads=1 runs=2 min_ms=9449.88 median_ms=9460.60 mean_ms=9455.24 gmac=2.0279 gmacps=0.215 mismatches=0/262144 BIT_EXACT
+== cond=idle impl=cpu1_plain_128f
+RESULT impl=plain res=128x128 threads=1 runs=20 min_ms=580.78 median_ms=580.91 mean_ms=581.30 gmac=0.1267 gmacps=0.218 mismatches=0/16384 BIT_EXACT
+
+exit=0
+restore: Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+active

@@ -1,0 +1,140 @@
+REF {"vessels_per_image": 14.733333333333333, "nA_mean": 7.8, "nV_mean": 6.733333333333333, "images_6A6V": 10, "crae_mean": 25.66081392239323, "crve_mean": 43.258781482211404, "avr_mean": 0.596243399339199, "avr_sd": 0.12815652757748877, "crae_sd": 6.3709844834690035, "crve_sd": 7.417290870718349}
+AV acc 0.950 (n 218), big12 0.961; ref widths + lwnet labels: CRAE n 15 bias -1.53 MAE 1.64 MAPE 0.057 r 0.88 ICC 0.86 | CRVE n 15 bias +1.43 MAE 1.53 MAPE 0.040 r 0.92 ICC 0.91 | AVR n 15 bias -0.06 MAE 0.06 MAPE 0.083 r 0.48 ICC 0.43
+==== m1  det {'recall': 0.919, 'precision': 0.889, 'recall_w<6': 0.519, 'recall_6-12': 0.93, 'recall_>=12': 1.0}
+  -- raw-3 -3  missed 20
+     vessel_all   n 201 bias +7.01 MAE 7.25 MAPE 0.595 r 0.88 ICC 0.66
+     vessel_w<6   n 20 bias +4.48 MAE 4.87 MAPE 1.355 r 0.10 ICC 0.03
+     vessel_6-12  n 64 bias +5.59 MAE 5.97 MAPE 0.641 r 0.49 ICC 0.13
+     vessel_>=12  n 117 bias +8.21 MAE 8.36 MAPE 0.440 r 0.79 ICC 0.47
+     vessel_big6  n 159 bias +7.61 MAE 7.74 MAPE 0.497 r 0.86 ICC 0.60
+     V1 crae n 15 bias +11.31 MAE 11.31 MAPE 0.452 r 0.91 ICC 0.41
+     V1 crve n 15 bias +18.11 MAE 18.11 MAPE 0.448 r 0.44 ICC 0.09
+     V1 avr  n 15 bias +0.01 MAE 0.08 MAPE 0.136 r 0.71 ICC 0.72
+     V2 crae n 15 bias +20.99 MAE 20.99 MAPE 0.840 r 0.59 ICC 0.17
+     V2 crve n 15 bias +25.11 MAE 25.11 MAPE 0.634 r -0.20 ICC -0.05
+     V2 avr  n 15 bias +0.13 MAE 0.28 MAPE 0.465 r 0.33 ICC 0.20
+     V3 crae n 15 bias +20.60 MAE 20.60 MAPE 0.818 r 0.62 ICC 0.18
+     V3 crve n 15 bias +25.59 MAE 25.59 MAPE 0.645 r -0.20 ICC -0.05
+     V3 avr  n 15 bias +0.12 MAE 0.27 MAPE 0.441 r 0.37 ICC 0.22
+  -- loio_thr [20]  missed 44
+     vessel_all   n 177 bias -0.70 MAE 3.85 MAPE 0.309 r 0.83 ICC 0.82
+     vessel_w<6   n 6 bias +4.50 MAE 4.69 MAPE 1.337 r -0.64 ICC -0.10
+     vessel_6-12  n 48 bias -1.88 MAE 4.35 MAPE 0.463 r 0.41 ICC 0.19
+     vessel_>=12  n 123 bias -0.49 MAE 3.61 MAPE 0.198 r 0.79 ICC 0.78
+     vessel_big6  n 155 bias -0.72 MAE 3.68 MAPE 0.241 r 0.83 ICC 0.82
+     V1 crae n 15 bias -0.54 MAE 3.61 MAPE 0.158 r 0.82 ICC 0.80
+     V1 crve n 15 bias +0.50 MAE 4.52 MAPE 0.103 r 0.66 ICC 0.67
+     V1 avr  n 15 bias -0.02 MAE 0.08 MAPE 0.141 r 0.81 ICC 0.77
+     V2 crae n 15 bias +0.95 MAE 7.45 MAPE 0.312 r 0.64 ICC 0.56
+     V2 crve n 15 bias +1.95 MAE 7.71 MAPE 0.188 r 0.03 ICC 0.03
+     V2 avr  n 15 bias +0.02 MAE 0.21 MAPE 0.351 r 0.36 ICC 0.26
+     V3 crae n 15 bias +1.33 MAE 7.40 MAPE 0.315 r 0.61 ICC 0.54
+     V3 crve n 15 bias +1.70 MAE 7.41 MAPE 0.180 r 0.05 ICC 0.05
+     V3 avr  n 15 bias +0.03 MAE 0.21 MAPE 0.356 r 0.32 ICC 0.24
+  -- loio_lin [0.6586608620357215, 0.8962318077790065]  missed 20
+     vessel_all   n 201 bias +0.32 MAE 2.68 MAPE 0.241 r 0.87 ICC 0.86
+     vessel_w<6   n 20 bias +2.46 MAE 2.90 MAPE 0.838 r 0.11 ICC 0.05
+     vessel_6-12  n 64 bias +1.38 MAE 2.23 MAPE 0.243 r 0.49 ICC 0.33
+     vessel_>=12  n 117 bias -0.64 MAE 2.88 MAPE 0.137 r 0.77 ICC 0.76
+     vessel_big6  n 159 bias -0.02 MAE 2.71 MAPE 0.170 r 0.85 ICC 0.84
+     V1 crae n 15 bias +0.13 MAE 2.36 MAPE 0.092 r 0.89 ICC 0.89
+     V1 crve n 15 bias -1.06 MAE 5.87 MAPE 0.135 r 0.32 ICC 0.28
+     V1 avr  n 15 bias +0.02 MAE 0.08 MAPE 0.140 r 0.68 ICC 0.69
+     V2 crae n 15 bias +6.45 MAE 8.20 MAPE 0.338 r 0.58 ICC 0.41
+     V2 crve n 15 bias +3.66 MAE 9.84 MAPE 0.245 r -0.24 ICC -0.23
+     V2 avr  n 15 bias +0.14 MAE 0.27 MAPE 0.458 r 0.32 ICC 0.20
+     V3 crae n 15 bias +6.21 MAE 7.75 MAPE 0.316 r 0.60 ICC 0.44
+     V3 crve n 15 bias +3.98 MAE 10.16 MAPE 0.252 r -0.23 ICC -0.22
+     V3 avr  n 15 bias +0.13 MAE 0.26 MAPE 0.430 r 0.36 ICC 0.22
+==== m2  det {'recall': 0.946, 'precision': 0.892, 'recall_w<6': 0.704, 'recall_6-12': 0.958, 'recall_>=12': 0.992}
+  -- raw-3 -3  missed 5
+     vessel_all   n 216 bias +3.19 MAE 4.39 MAPE 0.396 r 0.83 ICC 0.77
+     vessel_w<6   n 23 bias +3.27 MAE 3.32 MAPE 0.978 r 0.19 ICC 0.07
+     vessel_6-12  n 70 bias +3.67 MAE 4.27 MAPE 0.467 r 0.54 ICC 0.22
+     vessel_>=12  n 123 bias +2.90 MAE 4.66 MAPE 0.246 r 0.66 ICC 0.60
+     vessel_big6  n 171 bias +3.31 MAE 4.62 MAPE 0.331 r 0.79 ICC 0.72
+     V1 crae n 15 bias +6.60 MAE 6.70 MAPE 0.298 r 0.77 ICC 0.47
+     V1 crve n 15 bias +5.79 MAE 9.51 MAPE 0.235 r 0.34 ICC 0.28
+     V1 avr  n 15 bias +0.08 MAE 0.10 MAPE 0.194 r 0.37 ICC 0.32
+     V2 crae n 15 bias +9.36 MAE 9.46 MAPE 0.389 r 0.59 ICC 0.34
+     V2 crve n 15 bias +8.62 MAE 11.32 MAPE 0.291 r 0.04 ICC 0.03
+     V2 avr  n 15 bias +0.11 MAE 0.22 MAPE 0.363 r 0.23 ICC 0.16
+     V3 crae n 15 bias +8.23 MAE 8.32 MAPE 0.350 r 0.59 ICC 0.37
+     V3 crve n 15 bias +10.37 MAE 12.00 MAPE 0.305 r 0.14 ICC 0.08
+     V3 avr  n 15 bias +0.05 MAE 0.17 MAPE 0.282 r 0.25 ICC 0.22
+  -- loio_thr [8, 10]  missed 9
+     vessel_all   n 212 bias -0.00 MAE 3.33 MAPE 0.298 r 0.79 ICC 0.79
+     vessel_w<6   n 20 bias +2.54 MAE 3.19 MAPE 0.914 r 0.07 ICC 0.03
+     vessel_6-12  n 69 bias +0.75 MAE 3.09 MAPE 0.339 r 0.47 ICC 0.30
+     vessel_>=12  n 123 bias -0.84 MAE 3.48 MAPE 0.175 r 0.64 ICC 0.63
+     vessel_big6  n 171 bias -0.22 MAE 3.39 MAPE 0.235 r 0.76 ICC 0.76
+     V1 crae n 15 bias -0.10 MAE 3.25 MAPE 0.138 r 0.75 ICC 0.75
+     V1 crve n 15 bias -0.68 MAE 7.28 MAPE 0.167 r 0.28 ICC 0.29
+     V1 avr  n 15 bias +0.03 MAE 0.12 MAPE 0.229 r 0.27 ICC 0.26
+     V2 crae n 15 bias -0.17 MAE 5.17 MAPE 0.210 r 0.59 ICC 0.59
+     V2 crve n 15 bias +0.72 MAE 7.69 MAPE 0.186 r 0.23 ICC 0.24
+     V2 avr  n 15 bias +0.00 MAE 0.18 MAPE 0.309 r 0.15 ICC 0.15
+     V3 crae n 15 bias -0.71 MAE 4.61 MAPE 0.190 r 0.60 ICC 0.62
+     V3 crve n 15 bias +1.68 MAE 6.75 MAPE 0.166 r 0.32 ICC 0.33
+     V3 avr  n 15 bias -0.03 MAE 0.14 MAPE 0.236 r 0.15 ICC 0.16
+  -- loio_lin [0.7842053543266368, 1.0486097054830457]  missed 5
+     vessel_all   n 216 bias +0.33 MAE 3.01 MAPE 0.275 r 0.82 ICC 0.80
+     vessel_w<6   n 23 bias +2.74 MAE 2.74 MAPE 0.823 r 0.21 ICC 0.09
+     vessel_6-12  n 70 bias +1.90 MAE 2.78 MAPE 0.310 r 0.53 ICC 0.33
+     vessel_>=12  n 123 bias -1.02 MAE 3.18 MAPE 0.153 r 0.64 ICC 0.62
+     vessel_big6  n 171 bias -0.01 MAE 3.10 MAPE 0.216 r 0.77 ICC 0.75
+     V1 crae n 15 bias +1.42 MAE 3.93 MAPE 0.170 r 0.73 ICC 0.66
+     V1 crve n 15 bias -2.72 MAE 6.47 MAPE 0.145 r 0.28 ICC 0.27
+     V1 avr  n 15 bias +0.09 MAE 0.10 MAPE 0.205 r 0.35 ICC 0.29
+     V2 crae n 15 bias +3.47 MAE 6.16 MAPE 0.245 r 0.58 ICC 0.51
+     V2 crve n 15 bias -0.45 MAE 8.70 MAPE 0.207 r -0.02 ICC -0.02
+     V2 avr  n 15 bias +0.11 MAE 0.22 MAPE 0.370 r 0.21 ICC 0.15
+     V3 crae n 15 bias +2.59 MAE 5.40 MAPE 0.218 r 0.57 ICC 0.54
+     V3 crve n 15 bias +0.91 MAE 7.50 MAPE 0.181 r 0.08 ICC 0.08
+     V3 avr  n 15 bias +0.06 MAE 0.17 MAPE 0.290 r 0.24 ICC 0.21
+==== m2.5  det {'recall': 0.914, 'precision': 0.914, 'recall_w<6': 0.704, 'recall_6-12': 0.901, 'recall_>=12': 0.967}
+  -- raw-3 -3  missed 4
+     vessel_all   n 217 bias +1.07 MAE 3.72 MAPE 0.327 r 0.77 ICC 0.77
+     vessel_w<6   n 24 bias +2.34 MAE 2.58 MAPE 0.787 r 0.22 ICC 0.11
+     vessel_6-12  n 70 bias +2.44 MAE 3.41 MAPE 0.383 r 0.38 ICC 0.20
+     vessel_>=12  n 123 bias +0.04 MAE 4.13 MAPE 0.205 r 0.57 ICC 0.57
+     vessel_big6  n 172 bias +0.81 MAE 3.89 MAPE 0.265 r 0.72 ICC 0.71
+     V1 crae n 15 bias +2.33 MAE 3.79 MAPE 0.165 r 0.80 ICC 0.75
+     V1 crve n 15 bias +0.52 MAE 7.53 MAPE 0.174 r 0.43 ICC 0.42
+     V1 avr  n 15 bias +0.08 MAE 0.12 MAPE 0.246 r 0.17 ICC 0.14
+     V2 crae n 15 bias +1.82 MAE 3.80 MAPE 0.178 r 0.67 ICC 0.65
+     V2 crve n 15 bias +2.20 MAE 8.20 MAPE 0.198 r 0.30 ICC 0.29
+     V2 avr  n 15 bias +0.03 MAE 0.15 MAPE 0.283 r -0.07 ICC -0.07
+     V3 crae n 15 bias +1.73 MAE 4.17 MAPE 0.189 r 0.62 ICC 0.59
+     V3 crve n 15 bias +2.44 MAE 8.51 MAPE 0.204 r 0.32 ICC 0.30
+     V3 avr  n 15 bias +0.03 MAE 0.15 MAPE 0.288 r -0.11 ICC -0.11
+  -- loio_thr [0, 2]  missed 5
+     vessel_all   n 216 bias -0.41 MAE 3.59 MAPE 0.311 r 0.74 ICC 0.74
+     vessel_w<6   n 23 bias +2.14 MAE 2.77 MAPE 0.850 r 0.00 ICC 0.00
+     vessel_6-12  n 70 bias +1.13 MAE 2.99 MAPE 0.329 r 0.45 ICC 0.29
+     vessel_>=12  n 123 bias -1.76 MAE 4.09 MAPE 0.200 r 0.55 ICC 0.53
+     vessel_big6  n 172 bias -0.79 MAE 3.80 MAPE 0.259 r 0.68 ICC 0.68
+     V1 crae n 15 bias -0.45 MAE 3.32 MAPE 0.141 r 0.75 ICC 0.76
+     V1 crve n 15 bias -2.61 MAE 6.78 MAPE 0.152 r 0.45 ICC 0.42
+     V1 avr  n 15 bias +0.07 MAE 0.14 MAPE 0.266 r 0.15 ICC 0.12
+     V2 crae n 15 bias -0.82 MAE 4.14 MAPE 0.179 r 0.61 ICC 0.62
+     V2 crve n 15 bias -2.27 MAE 6.68 MAPE 0.156 r 0.49 ICC 0.47
+     V2 avr  n 15 bias +0.03 MAE 0.15 MAPE 0.270 r -0.03 ICC -0.03
+     V3 crae n 15 bias -0.87 MAE 4.27 MAPE 0.179 r 0.57 ICC 0.57
+     V3 crve n 15 bias -2.04 MAE 7.01 MAPE 0.163 r 0.50 ICC 0.48
+     V3 avr  n 15 bias +0.03 MAE 0.15 MAPE 0.276 r -0.07 ICC -0.07
+  -- loio_lin [0.7338837617843607, 3.8786035394608556]  missed 4
+     vessel_all   n 217 bias +0.71 MAE 3.61 MAPE 0.371 r 0.76 ICC 0.72
+     vessel_w<6   n 24 bias +4.52 MAE 4.52 MAPE 1.324 r 0.26 ICC 0.05
+     vessel_6-12  n 70 bias +3.21 MAE 3.52 MAPE 0.403 r 0.38 ICC 0.17
+     vessel_>=12  n 123 bias -1.45 MAE 3.48 MAPE 0.166 r 0.56 ICC 0.53
+     vessel_big6  n 172 bias -0.02 MAE 3.56 MAPE 0.273 r 0.70 ICC 0.67
+     V1 crae n 15 bias +1.37 MAE 3.51 MAPE 0.159 r 0.77 ICC 0.71
+     V1 crve n 15 bias -3.41 MAE 6.33 MAPE 0.142 r 0.38 ICC 0.36
+     V1 avr  n 15 bias +0.11 MAE 0.13 MAPE 0.257 r 0.17 ICC 0.13
+     V2 crae n 15 bias +1.10 MAE 4.08 MAPE 0.188 r 0.64 ICC 0.59
+     V2 crve n 15 bias -2.15 MAE 7.38 MAPE 0.171 r 0.26 ICC 0.26
+     V2 avr  n 15 bias +0.07 MAE 0.14 MAPE 0.285 r -0.11 ICC -0.10
+     V3 crae n 15 bias +1.07 MAE 4.32 MAPE 0.196 r 0.58 ICC 0.52
+     V3 crve n 15 bias -2.00 MAE 7.34 MAPE 0.170 r 0.27 ICC 0.28
+     V3 avr  n 15 bias +0.07 MAE 0.16 MAPE 0.303 r -0.14 ICC -0.13

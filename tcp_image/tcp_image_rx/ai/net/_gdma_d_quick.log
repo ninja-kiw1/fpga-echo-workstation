@@ -1,0 +1,34 @@
+ssh ok
+
+--- PC 端 flags=proc,mask,overlay,stats (3 帧) ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000F ['proc', 'overlay', 'mask']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total=  936.1 ms  (send    2.0 + reply  934.1)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=834866 gray[0..197] mode=0 frame=1
+[2] total=  873.6 ms  (send    2.1 + reply  871.6)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=775389 gray[0..197] mode=0 frame=2
+[3] total=  873.5 ms  (send    2.5 + reply  871.1)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=774938 gray[0..197] mode=0 frame=3
+summary: n=3  min=873.5  max=936.1  avg=894.4 ms
+CLI_DONE
+
+--- PC 端 flags=noimage,stats (3 帧) ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0018 []   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total=  823.6 ms  (send    2.0 + reply  821.6)  (no image)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=775155 gray[0..197] mode=0 frame=4
+[2] total=  824.3 ms  (send    2.5 + reply  821.8)  (no image)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=775119 gray[0..197] mode=0 frame=5
+[3] total=  823.8 ms  (send    2.6 + reply  821.3)  (no image)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=775101 gray[0..197] mode=0 frame=6
+summary: n=3  min=823.6  max=824.3  avg=823.9 ms
+CLI_DONE
+
+GDMA_DEPLOY_QUICK_DONE
+EXIT=0 

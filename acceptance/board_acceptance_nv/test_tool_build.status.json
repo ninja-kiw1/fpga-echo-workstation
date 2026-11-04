@@ -1,0 +1,6 @@
+{
+  "label": "test_tool_build",
+  "pc_utc": "2026-11-03T13:34:05.654940+00:00",
+  "exitcode": 0,
+  "command": "set -eu; cd /data/nv_acceptance/tools; for f in unet_ai.c unet_ai.h unet_net.h unet_net_data.c unet_models.c unet_models.h pp_ai.c pp_ai.h ai_view.c ai_view.h image_proto.h; do cp /root/tcp_image_rx/releases/v5_20261103T033243Z/src/$f .; done; gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -I. unet_ai.c unet_net_data.c unet_models.c strict_net_test.c -o strict_net_test -lpthread; gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -I. pp_board_test.c pp_ai.c unet_ai.c unet_net_data.c unet_models.c ai_view.c -o pp_board_test -lm -lpthread; sha256sum strict_net_test pp_board_test unet_ai.c pp_ai.c; ls vectors | wc -l; df -h / | tail -1; cd /root/Fz3b_BoardCheck_r1; rm -rf build_board; make CC=gcc RX=/root/tcp_image_rx/releases/v5_20261103T033243Z LDLIBS=\"-lm -lpthread\" RXSRC=\"/root/tcp_image_rx/releases/v5_20261103T033243Z/src/axilproc.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/ai_view.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_ai.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_net_data.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_models.c\"; sha256sum build_board/board_check; grep -c 494D5004 /root/tcp_image_rx/releases/v5_20261103T033243Z/src/axilproc.h"
+}

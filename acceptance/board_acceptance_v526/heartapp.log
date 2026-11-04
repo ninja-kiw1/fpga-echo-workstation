@@ -1,0 +1,51 @@
+board caps (v5.24+, keyframe / live / heart)                     OK 板端 v5.26：支持 关键帧 / 现场 / 全心；17 个内置模型，4 核
+HMC-QU clip loaded                                               OK ES000108 _4CH_1.avi　33 帧 · 30 fps · 1.10 s
+keyframe job finished                                            OK 关键帧模式（板上整病例）：33 帧，PL 推理 6 帧（间隔触发 3、残差触发 2），其余帧在 PS 上块匹配跟踪；板上 0.34 s，视频本身 1.10 s
+EF / interval / quality / heart present                          OK EF 41% 分型待定，建议复核：80% 区间 32–50% 跨过 40%、50% 分界
+keyframe fraction about 1/6                                      OK 0.182
+PC re-analysis of board volumes == board beats / EF              OK PC 41.228 board 41.228
+result loops on its own after analysis (PC)                      OK 
+negative click: FPGA recompute finished                          OK 第 13 帧：1 个点击，FPGA 整网 22.2 ms；后面 20 帧跟着重算到视频末尾，共 629 ms。可撤销 / 重置
+all later frames recomputed (to the end of the video)            OK 14..33 of 33
+mask at clicked frame shrank, volume recomputed                  OK area 1285 -> 1249
+EF recomputed on PC and labelled                                 OK 已人工纠错 1 处：EF 由上位机按纠正后的容积重算（板上原始 41%）
+undo restores the board result                                   OK 
+two corrections stacked                                          OK 第 15 帧：1 个点击，FPGA 整网 22.2 ms；后面 18 帧跟着重算到视频末尾，共 563 ms。可撤销 / 重置
+earlier correction stops before a manually fixed frame           OK 第 12 帧：1 个点击，FPGA 整网 22.2 ms；下一帧是人工纠过的帧，保留那次纠正，共 34 ms。可撤销 / 重置
+report: correction section + HMC-QU data note                    OK E:\PLD\tcp_image\tcp_image_ui\reports\echo_ES000108 _4CH_1_20261102_074621.html
+reset == board original (bit for bit)                            OK 
+live defaults: 50 fps demo source + fixed crop                   OK 0X100009310A3BD7FC_z4.y8（174 帧 50 fps，640×480）
+live z4 recommended: no dropped frames, latency P99 < 80 ms, budget < 40 % OK P50 29 P99 67 proc 5.1 ms (5.1 / 20 ms（25%）) 50 fps · 174 帧不丢
+live: per-frame latency trace == frames                          OK 174
+live (v5.25): rolling quality light + view while scanning, summary in the result card OK 扫查过程（每 0.2 s 一次，最近 1 s）：绿 7 / 黄 6 / 红 0 次；切面 6 次判断里 6 次是心尖四腔
+live z4 per-frame inference: budget > 100 %, latency accumulates OK P50 542 P99 1007 max 1017 proc 24.4 ms
+latency chart keeps the previous run as the grey reference       OK 推荐档 · 0X100009310A3BD7FC_z4.y8
+live source ES000108_4CH_1.y8 listed                             OK 
+live ES000108 fixed crop == design report fig. 7 (EF 41 %, review) OK EF 40.8 P50 4 P99 60
+live (v5.26): CAMUS simulated-scan source listed                 OK 
+live (v5.26) CAMUS chain: chain 1, lights follow the expert grades (Good green, Poor red), tag + note in the card, report uses the CAMUS light, P99 < 80 ms, judge-then-hold OK segments ['Good', 'Poor', 'Medium', 'Good'] -> majority light [0, 2, 1, 0]; P50 32 P99 74
+snapshot: CAMUS sequence loaded in the embedded view             OK 
+snapshot: one frame segmented on the board                       OK 第 1 步 = 第 1/21 帧｜自动分割（2 号模型）｜面积 42.89 cm²｜板端整网 22.2 ms｜往返 28 ms｜紧凑帧 + 板端跟踪｜与板端逐字节一致 ✓
+switching back keeps keyframe results                            OK 
+invalid command name "2523072992512_mpoll"
+    while executing
+"2523072992512_mpoll"
+    ("after" script)
+invalid command name "2523136362880_poll"
+    while executing
+"2523136362880_poll"
+    ("after" script)
+invalid command name "2523136360640_poll"
+    while executing
+"2523136360640_poll"
+    ("after" script)
+invalid command name "2523051326912_poll"
+    while executing
+"2523051326912_poll"
+    ("after" script)
+invalid command name "2523136252352_poll"
+    while executing
+"2523136252352_poll"
+    ("after" script)
+--demo: three modes prepared, ends in live mode                  OK 演示准备好了：现场模式默认 50 fps 测试源 + 固定方块；先跑推荐档，再选「每帧推理」跑一遍对比延迟
+HEARTAPP_PASS

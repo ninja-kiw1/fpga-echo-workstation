@@ -1,0 +1,30 @@
+a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95  /lib/firmware/ai_sys.bin
+9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939  /root/Tcp_Image_Rx/tcp_image_server
+operating
+active
+active
+active
+-- Logs begin at Tue 2021-08-31 19:53:46 CST, end at Tue 2021-08-31 22:41:37 CST. --
+Aug 31 19:53:51 EdgeBoard systemd[1]: Starting Load our ai_sys bitstream into the PL (fpga_manager)...
+Aug 31 19:53:51 EdgeBoard load_ai_sys.sh[3406]: ai-sys: start
+Aug 31 19:53:51 EdgeBoard load_ai_sys.sh[3406]: ai-sys: rmmod fpgadrv
+Aug 31 19:53:51 EdgeBoard load_ai_sys.sh[3406]: ai-sys: writing ai_sys.bin to /sys/class/fpga_manager/fpga0/firmware
+Aug 31 19:53:52 EdgeBoard load_ai_sys.sh[3406]: ai-sys: state = operating
+Aug 31 19:53:52 EdgeBoard load_ai_sys.sh[3406]: ai-sys: VERSION @0xA0000010 = 0x494D5004  OK (our design, line buffer)
+Aug 31 19:53:52 EdgeBoard load_ai_sys.sh[3406]: ai-sys: done
+Aug 31 19:53:52 EdgeBoard systemd[1]: Started Load our ai_sys bitstream into the PL (fpga_manager).
+Aug 31 19:53:52 EdgeBoard tcp_image_server[3447]: [axil] register file at 0xA0000000, VERSION 0x494D5004 ok (4 px/word, line buffer, row-interleaved)
+Aug 31 19:53:52 EdgeBoard tcp_image_server[3447]: [pp] pp_layer ready @0xA0030000
+Aug 31 19:53:53 EdgeBoard tcp_image_server[3447]: [vis] PL registration / overlay off: firmware not listed in /lib/firmware/ai_sys_vis.sha256
+                            pl0_ref           0            0   101375992          0 0  
+State    Recv-Q    Send-Q        Local Address:Port        Peer Address:Port                                                                                    
+LISTEN   0         5                   0.0.0.0:873              0.0.0.0:*        users:(("rsync",pid=3191,fd=4))                                                
+LISTEN   0         50                  0.0.0.0:139              0.0.0.0:*        users:(("smbd",pid=3451,fd=35))                                                
+LISTEN   0         128           127.0.0.53%lo:53               0.0.0.0:*        users:(("systemd-resolve",pid=3157,fd=13))                                     
+LISTEN   0         128                 0.0.0.0:22               0.0.0.0:*        users:(("sshd",pid=3334,fd=3))                                                 
+LISTEN   0         50                  0.0.0.0:445              0.0.0.0:*        users:(("smbd",pid=3451,fd=34))                                                
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*        users:(("tcp_image_serve",pid=3447,fd=8))                                      
+LISTEN   0         5                      [::]:873                 [::]:*        users:(("rsync",pid=3191,fd=5))                                                
+LISTEN   0         50                     [::]:139                 [::]:*        users:(("smbd",pid=3451,fd=33))                                                
+LISTEN   0         128                    [::]:22                  [::]:*        users:(("sshd",pid=3334,fd=4))                                                 
+LISTEN   0         50                     [::]:445                 [::]:*        users:(("smbd",pid=3451,fd=32))                                                

@@ -1,0 +1,76 @@
+$ sha256sum /root/tcp_image_rx/tcp_image_server /etc/systemd/system/tcp-image-server.service /lib/firmware/ai_sys.bin
+73e3ad89bcaa924fe1c5c0e572e172969b136a1f046072743f9ebca3d3fce51d  /root/tcp_image_rx/tcp_image_server
+131e8e09853896a4cf89a5d2f07b7b62d23e79214df938a4b764d47f75d02d11  /etc/systemd/system/tcp-image-server.service
+4a744c89343240b7048a958d59ca413a5044ae4c6d897136c4a0d339c7cc06d2  /lib/firmware/ai_sys.bin
+
+exit=0
+$ mkdir -p /root/skin_build/skin_20261008T125556Z/src
+
+exit=0
+$ cd /root/skin_build/skin_20261008T125556Z && sed -i "s/\r$//" install_skin.sh skin_mode.sh && sh install_skin.sh 128
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axilproc.o src/axilproc.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/crc16.o src/crc16.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/vessel_morph.o src/vessel_morph.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/tcp_image_server.o src/tcp_image_server.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axidma.o src/axidma.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axigpio.o src/axigpio.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/ai_view.o src/ai_view.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_net_data.o src/unet_net_data.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server_skin build/axilproc.o build/crc16.o build/vessel_morph.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o -lm          
+== built: tcp_image_server_skin (for aarch64 Linux)
+== installed. ExecStart:
+ExecStart=/root/skin/tcp_image_server_skin -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 --ai-res 128
+== switch with: /root/skin_build/skin_20261008T125556Z/skin_mode.sh skin   (back: /root/skin_build/skin_20261008T125556Z/skin_mode.sh fundus)
+
+exit=0
+$ sha256sum /root/skin/tcp_image_server_skin
+b5814741a4ea1d1093b05f5e26f6865f0ab05abd73535efa0fe8607517dfb7e9  /root/skin/tcp_image_server_skin
+
+exit=0
+$ cat /etc/systemd/system/tcp-image-server-skin.service
+[Unit]
+Conflicts=tcp-image-server.service
+Description=tcp_image server with ISIC skin-lesion weights (same bitstream)
+Documentation=file:/root/tcp_image_rx/README.md
+# 绑定 0.0.0.0, 其实不依赖 IP 就绪; 但等网络起来更稳妥
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/tcp_image_rx
+
+# ── 启动参数(改这里之后执行: systemctl daemon-reload && systemctl restart tcp-image-server) ──
+#   -p 5060          监听端口, 要和 PC 端 GUI/CLI 的 -P 一致
+#   -a 0x40000000    图像缓冲区, 用设备树里已保留的 no-map 区(厂商留的 buffer@0)
+#   --no-dma         暂不开 AXI DMA(PL 侧的 Block Design 还没做)
+#   --echo           收到后原样回发, PC 端 GUI 靠它显示右图; 将来 PL 做好可去掉
+#   -n 0             一直跑, 不退出
+ExecStart=/root/skin/tcp_image_server_skin -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0 --ai-res 128
+
+# 崩了自动拉起(每 2 秒最多一次)
+Restart=always
+RestartSec=2
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+exit=0
+$ systemctl is-active tcp-image-server tcp-image-server-skin ai-sys-bitstream plbram plbdma
+active
+inactive
+active
+active
+active
+
+exit=0
+$ sha256sum /root/tcp_image_rx/tcp_image_server /etc/systemd/system/tcp-image-server.service /lib/firmware/ai_sys.bin
+73e3ad89bcaa924fe1c5c0e572e172969b136a1f046072743f9ebca3d3fce51d  /root/tcp_image_rx/tcp_image_server
+131e8e09853896a4cf89a5d2f07b7b62d23e79214df938a4b764d47f75d02d11  /etc/systemd/system/tcp-image-server.service
+4a744c89343240b7048a958d59ca413a5044ae4c6d897136c4a0d339c7cc06d2  /lib/firmware/ai_sys.bin
+
+exit=0

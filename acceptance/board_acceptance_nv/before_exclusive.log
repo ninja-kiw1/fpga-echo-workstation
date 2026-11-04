@@ -1,0 +1,5 @@
+PC_UTC 2026-11-03T13:34:46.915593+00:00
+COMMAND set -eu; systemctl stop tcp-image-server; test -z "$(pgrep -x tcp_image_serve || true)"; pids=$(pgrep -f "^python3 /root/Fz3b_BoardCheck/gui/board_check_gui.py$" || true); if [ -n "$pids" ]; then kill -STOP $pids; fi
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+
+SSH_EXITCODE 0

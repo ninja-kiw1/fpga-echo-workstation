@@ -1,0 +1,32 @@
+screen 1/26 first_block_2: Dice 0.89669 gain -0.00065
+screen 2/26 first_block_5: Dice 0.89876 gain +0.00141
+screen 3/26 first_shortcut_1: Dice 0.89740 gain +0.00006
+screen 4/26 add: Dice 0.89729 gain -0.00006
+screen 5/26 down_path_0_block_2: Dice 0.90015 gain +0.00280
+screen 6/26 down_path_0_block_5: Dice 0.89682 gain -0.00053
+screen 7/26 down_path_0_shortcut_1: Dice 0.89707 gain -0.00028
+screen 8/26 add_1: Dice 0.89616 gain -0.00119
+screen 9/26 down_path_1_block_2: Dice 0.89924 gain +0.00189
+screen 10/26 down_path_1_block_5: Dice 0.89825 gain +0.00090
+screen 11/26 down_path_1_shortcut_1: Dice 0.89772 gain +0.00038
+screen 12/26 add_2: Dice 0.89700 gain -0.00034
+screen 13/26 up_path_0_up_layer_block_0: Dice 0.89712 gain -0.00023
+screen 14/26 up_path_0_conv_bridge_layer_block_2: Dice 0.89878 gain +0.00144
+screen 15/26 cat: Dice 0.89922 gain +0.00187
+screen 16/26 up_path_0_conv_layer_block_2: Dice 0.89700 gain -0.00035
+screen 17/26 up_path_0_conv_layer_block_5: Dice 0.89751 gain +0.00016
+screen 18/26 up_path_0_conv_layer_shortcut_1: Dice 0.89762 gain +0.00027
+screen 19/26 add_3: Dice 0.89867 gain +0.00132
+screen 20/26 up_path_1_up_layer_block_0: Dice 0.89730 gain -0.00004
+screen 21/26 up_path_1_conv_bridge_layer_block_2: Dice 0.89743 gain +0.00009
+screen 22/26 cat_1: Dice 0.89691 gain -0.00044
+screen 23/26 up_path_1_conv_layer_block_2: Dice 0.89728 gain -0.00007
+screen 24/26 up_path_1_conv_layer_block_5: Dice 0.89685 gain -0.00050
+screen 25/26 up_path_1_conv_layer_shortcut_1: Dice 0.89680 gain -0.00055
+screen 26/26 add_4: Dice 0.89691 gain -0.00044
+confirm all INT8: val Dice 0.86846 good+med 0.87512
+confirm ['down_path_0_block_2']: val Dice 0.86974 good+med 0.87575
+confirm ['down_path_1_block_2']: val Dice 0.86800 good+med 0.87483
+confirm ['cat']: val Dice 0.86917 good+med 0.87571
+confirm ['down_path_0_block_2', 'down_path_1_block_2']: val Dice 0.86903 good+med 0.87536
+selected INT16 ['down_path_0_block_2']; val Dice FP32 0.8823 | all-INT8 0.8685 | mixed 0.8697 (good+med 0.8757)

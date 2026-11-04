@@ -1,0 +1,32 @@
+ssh ok
+!!! 真实条带工作量模拟(826 条带 x 写142KB + 读103KB)
+INSMOD_RC=1
+
+[13016.648010] gdmatest: [1] DDR -> DDR             ok      72 us  3637.85 MB/s  (262144 B)
+[13016.675659] gdmatest:     DDR->DDR verify: mismatch=0/262144
+[13016.675663] gdmatest: [2] mapping BRAM 0xb0000000 len=262144 for DMA
+[13016.675666] gdmatest:     bram dma addr = 0xb0000000
+[13016.675908] gdmatest: [2] BRAM -> DDR (read)     ok     205 us  1278.05 MB/s  (262144 B)
+[13016.675912] gdmatest:     head: a6a7a4a5 a2a3a0a1 aeafacad aaaba8a9
+[13016.696777] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/65536
+[13016.697731] gdmatest: [3] DDR -> BRAM (write)    ok     197 us  1328.98 MB/s  (262144 B)
+[13016.697971] gdmatest:     BRAM -> DDR (re-read)  ok     203 us  1288.79 MB/s  (262144 B)
+[13016.725541] gdmatest:     DMA 回读校验: mismatch=0/262144
+[13016.746346] gdmatest:     CPU 回读校验: mismatch=0/65536
+[13016.746351] gdmatest: [4a] BRAM 读的尺寸扫描(看每笔的固定开销)
+[13016.746372] gdmatest:     read   4096 B          ok      15 us  265.11 MB/s  (4096 B)
+[13016.746395] gdmatest:     read   8192 B          ok      17 us  474.89 MB/s  (8192 B)
+[13016.746423] gdmatest:     read  16384 B          ok      22 us  720.49 MB/s  (16384 B)
+[13016.746463] gdmatest:     read  32768 B          ok      34 us  950.62 MB/s  (32768 B)
+[13016.746527] gdmatest:     read  65536 B          ok      58 us  1119.69 MB/s  (65536 B)
+[13016.746639] gdmatest:     read 131072 B          ok     106 us  1227.94 MB/s  (131072 B)
+[13016.746848] gdmatest:     read 262144 B          ok     203 us  1289.55 MB/s  (262144 B)
+[13016.746851] gdmatest: [4b] 模拟整网: 826 条带 x (写 141840 B + 读 103456 B)
+[13016.914127] gdmatest:     合计 166286 us, 搬了 193 MB
+[13016.914133] gdmatest:     strip-sim 有效带宽 ok  166286 us  1218.46 MB/s  (202614496 B)
+[13016.914136] gdmatest:     同样这些量, 现在 CPU 要 1162 ms —— 只这一项就能省 996 ms
+[13016.914173] gdmatest: GDMA_DONE mode=3
+
+
+GDMA_STAGE3_DONE
+EXIT=0 

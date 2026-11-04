@@ -1,0 +1,132 @@
+﻿NOTE: Using modified tcl85t.dll from https://gitenterprise.xilinx.com/ACT/vitis_hls_tcl
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+  **** SW Build 3854077 on May  4 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/xlinx2023.1/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/xlinx2023.1/Vitis_HLS/2023.1/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user '21888' on host 'ninja_kiwi' (Windows NT_amd64 version 6.2) on Wed Sep 23 08:35:31 -0700 2026
+INFO: [HLS 200-10] In directory 'E:/PLD/medical_fpga/deployment/unet_conv'
+Sourcing Tcl script '.\run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project conv_layer 
+INFO: [HLS 200-10] Creating and opening project 'E:/PLD/medical_fpga/deployment/unet_conv/build/conv_layer'.
+INFO: [HLS 200-1510] Running: set_top conv_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp -cflags -IE:/PLD/medical_fpga/deployment/unet_conv/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/medical_fpga/deployment/unet_conv/tb/test_conv_layer.cpp -cflags -IE:/PLD/medical_fpga/deployment/unet_conv/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/medical_fpga/deployment/unet_conv/tb/test_conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/PLD/medical_fpga/deployment/unet_conv/build/conv_layer/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -O -argv E:/PLD/medical_fpga/deployment/unet_conv/vectors cases_all.txt 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building optimized C Simulation binaries
+   Compiling ../../../../../tb/test_conv_layer.cpp in release mode
+   Compiling ../../../../../src/conv_layer.cpp in release mode
+   Generating csim.exe
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.hpp:3,
+                 from ../../../../../tb/test_conv_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.hpp:3,
+                 from ../../../../../tb/test_conv_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../src/conv_layer.hpp:3,
+                 from ../../../../../src/conv_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../src/conv_layer.hpp:3,
+                 from ../../../../../src/conv_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+PASS invalid mode=3
+PASS invalid cin=0
+PASS invalid cout=33
+PASS invalid width=513
+PASS invalid height=0
+PASS invalid tconv width=257
+PASS invalid shift=32
+PASS invalid relu=2
+PASS invalid qmin>qmax
+PASS syn_rgb_3x3_int16 mode=0 3->8 in=7x9 values=504 mismatches=0 max_error=0 overrun_words=0
+PASS syn_c32_3x3_int8 mode=0 32->32 in=5x6 values=960 mismatches=0 max_error=0 overrun_words=0
+PASS syn_int16_in_3x3 mode=0 16->8 in=4x5 values=160 mismatches=0 max_error=0 overrun_words=0
+PASS syn_1x1_c13_c5 mode=1 13->5 in=6x7 values=336 mismatches=0 max_error=0 overrun_words=0
+PASS syn_tconv_c16_c8 mode=2 16->8 in=3x4 values=384 mismatches=0 max_error=0 overrun_words=0
+PASS syn_single_pixel_3x3 mode=0 8->8 in=1x1 values=8 mismatches=0 max_error=0 overrun_words=0
+PASS syn_single_row_3x3 mode=0 9->3 in=1x11 values=88 mismatches=0 max_error=0 overrun_words=0
+PASS syn_single_col_3x3 mode=0 9->3 in=11x1 values=88 mismatches=0 max_error=0 overrun_words=0
+PASS syn_shift0 mode=1 8->8 in=4x4 values=128 mismatches=0 max_error=0 overrun_words=0
+PASS syn_ties_shift1 mode=1 2->8 in=8x8 values=512 mismatches=0 max_error=0 overrun_words=0
+PASS syn_ties_shift2 mode=1 2->8 in=8x8 values=512 mismatches=0 max_error=0 overrun_words=0
+PASS syn_saturate mode=0 8->8 in=6x6 values=288 mismatches=0 max_error=0 overrun_words=0
+PASS syn_max_width_rows mode=0 8->8 in=2x512 values=8192 mismatches=0 max_error=0 overrun_words=0
+PASS syn_tconv_max_width mode=2 8->8 in=2x256 values=16384 mismatches=0 max_error=0 overrun_words=0
+PASS first_block_2 mode=0 3->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS first_block_5 mode=0 8->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS first_shortcut_1 mode=1 3->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_0_block_2 mode=0 8->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_0_block_5 mode=0 16->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_0_shortcut_1 mode=1 8->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_block_2 mode=0 16->32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_block_5 mode=0 32->32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_shortcut_1 mode=1 16->32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_up_layer_block_0 mode=2 32->16 in=128x128 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_bridge_layer_block_2 mode=0 16->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_layer_block_2 mode=0 32->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_layer_block_5 mode=0 16->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_0_conv_layer_shortcut_1 mode=1 32->16 in=256x256 values=1048576 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_up_layer_block_0 mode=2 16->8 in=256x256 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_bridge_layer_block_2 mode=0 8->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_layer_block_2 mode=0 16->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_layer_block_5 mode=0 8->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS up_path_1_conv_layer_shortcut_1 mode=1 16->8 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS final mode=1 8->1 in=512x512 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS syn_after_large mode=0 5->7 in=3x3 values=72 mismatches=0 max_error=0 overrun_words=0
+SUMMARY cases=35 values=28864456 failures=0
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 256.229 seconds; current allocated memory: 1.090 MB.
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 2 seconds. Total elapsed time: 264.737 seconds; peak allocated memory: 1.049 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Wed Sep 23 08:39:54 2026...

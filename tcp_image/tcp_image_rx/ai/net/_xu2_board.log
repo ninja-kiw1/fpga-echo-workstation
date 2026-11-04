@@ -1,0 +1,56 @@
+=== load bitstream === 
+[local] E:\fpga\my_project\Tcp_Image_Rx\bitstream\ai_sys_xu2.bin 5568668 B md5=d009c51e80da823b9086f5f25f24779b
+Traceback (most recent call last):
+  File "E:\fpga\my_project\Tcp_Image_Rx\ai\net\_board_load_bin.py", line 89, in <module>
+    main()
+    ~~~~^^
+  File "E:\fpga\my_project\Tcp_Image_Rx\ai\net\_board_load_bin.py", line 70, in main
+    c.connect(HOST, username=USER, password=PW, timeout=15,
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              look_for_keys=False, allow_agent=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moxie\AppData\Roaming\Python\Python313\site-packages\paramiko\client.py", line 364, in connect
+    sock.connect(addr)
+    ~~~~~~~~~~~~^^^^^^
+TimeoutError: timed out
+ 
+=== board-side AI: golden + per-node ap === 
+Traceback (most recent call last):
+  File "E:\fpga\my_project\Tcp_Image_Rx\ai\net\_prof_all.py", line 262, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "E:\fpga\my_project\Tcp_Image_Rx\ai\net\_prof_all.py", line 108, in main
+    c = connect()
+  File "E:\fpga\my_project\Tcp_Image_Rx\ai\net\_prof_all.py", line 49, in connect
+    c.connect(HOST, username=USER, password=PW, timeout=8,
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              banner_timeout=8, auth_timeout=8,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              look_for_keys=False, allow_agent=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moxie\AppData\Roaming\Python\Python313\site-packages\paramiko\client.py", line 364, in connect
+    sock.connect(addr)
+    ~~~~~~~~~~~~^^^^^^
+TimeoutError: timed out
+ 
+=== host-side sweep === 
+
+===== 上位机 res=512 (3 帧, 全回传) =====
+  [proc,mask,overlay,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+  [noimage,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+
+===== 上位机 res=256 (3 帧, 全回传) =====
+  [proc,mask,overlay,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+  [noimage,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+
+===== 上位机 res=128 (3 帧, 全回传) =====
+  [proc,mask,overlay,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+  [noimage,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+
+===== 上位机 res=64 (3 帧, 全回传) =====
+  [proc,mask,overlay,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+  [noimage,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+
+===== 上位机 res=32 (3 帧, 全回传) =====
+  [proc,mask,overlay,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out
+  [noimage,stats] [1] LINK ERROR: connect 192.168.1.254:5060 failed: timed out

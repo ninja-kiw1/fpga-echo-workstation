@@ -1,0 +1,43 @@
+{
+ "op": "motion",
+ "doc": "motion energy |t - (t-1)| + |(t+1) - t| for three consecutive frames in R, G, B.",
+ "layout": {
+  "channels_per_stage": [
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "output_terms": 4
+ },
+ "out_range": [
+  0.0,
+  2.0
+ ],
+ "out_mid": 1.0,
+ "anchored_channels": 0,
+ "float_max_abs_error": 1.2809155025550467e-07,
+ "integer": {
+  "output_scale": 0.007874015748031496,
+  "output_mid": 1.0,
+  "interval_bound": [
+   0.0,
+   4.0
+  ],
+  "lsb_in_grey_levels": 2.0078740157480315,
+  "mean_err_lsb": -0.030246477586062203,
+  "max_abs_err_lsb": 0.5019607843137555,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "2f3dfd842f4fc35839829a01c4f42f508725ec24c09e13728c579dfb566f7871",
+ "parameters_sha256": "9e54060c2fe9bd2cf4a39183e794ba97860be5136a0b363d3b64743b8de50944",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

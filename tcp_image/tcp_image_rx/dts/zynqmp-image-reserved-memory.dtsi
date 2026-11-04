@@ -1,0 +1,65 @@
+/*
+ * zynqmp-image-reserved-memory.dtsi
+ * ---------------------------------------------------------------------------
+ * 为"网口 TCP 收图"预留一块 DDR, 供三方面共享:
+ *   1) 用户态程序 tcp_image_server 通过 /dev/mem 映射后往里写像素;
+ *   2) AXI DMA(MM2S) 从这里读数据推到 PL 的 AXI4-Stream;
+ *   3) (可选)PL 侧逻辑直接读 DDR 时也用同一块地址。
+ *
+ * 用在哪
+ * ------
+ * PetaLinux 工程里的 system-user.dtsi(或自建的 device-tree 覆盖文件)中 include:
+ *
+ *     /include/ "zynqmp-image-reserved-memory.dtsi"
+ *
+ * 推荐做法是在 `petalinux-config -c kernel` 之外, 直接编辑
+ * `project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi`,
+ * 把下面的 reserved-memory 节点加进去, 然后重新 `petalinux-build`。
+ *
+ * 为什么是 no-map(关键)
+ * ---------------------
+ * no-map 会让内核在启动早期就把这块区域从线性映射和 memblock 里摘掉, 于是
+ *   * 内核不会把它当普通内存分配, 不会被页缓存/伙伴系统写脏;
+ *   * ARM64 的 /dev/mem 走 phys_mem_access_prot() 时, 对 pfn_valid() 为假的
+ *     区域返回 pgprot_noncached() —— 用户态拿到的是"非缓存(Device)"映射,
+ *     CPU 写完像素当场落到 DDR, 随后的 AXI DMA 读到的必然是最新数据,
+ *     不需要在软件里手动刷 cache。
+ * 如果去掉 no-map(或换成不带 no-map 的保留区), 这块区域仍被当作 RAM,
+ * /dev/mem 会给出可缓存/写合并映射, DMA 就有可能读到旧数据 —— 收图表现为
+ * "图像整体偏移一行/几行"或"首帧全旧", 很难查。所以这里必须 no-map。
+ *
+ * STRICT_DEVMEM 说明
+ * ------------------
+ * 内核若开了 CONFIG_STRICT_DEVMEM, 它只限制对"RAM 页"的 /dev/mem 访问;
+ * no-map 区域不属于 RAM, 因此仍可直接映射, 一般无需关掉 STRICT_DEVMEM。
+ * 若你的内核确实拦住了访问(open/mmap 返回 EPERM/EACCES), 再考虑:
+ *   - 内核 cmdline 加 iomem=relaxed; 或
+ *   - 改用内核 dma-proxy / u-dma-buf 这类"保留内存字符设备"方案。
+ *
+ * 地址选择
+ * --------
+ * 这里默认取 0x3000_0000(距 4 GiB DDR 起点 768 MiB 处), 1 MiB 窗口。
+ * 只要不与内核 memory 节点的可用范围冲突即可; 换成别的基址时, 记得同步修改
+ * 用户程序启动参数 --ddr-addr。
+ */
+
+/ {
+    reserved-memory {
+        /* ZynqMP 是 64 位地址空间, 用 2 个 cell 表示地址和长度 */
+        #address-cells = <2>;
+        #size-cells = <2>;
+        ranges;
+
+        /*
+         * 网口图像缓冲区: 1 MiB @ 0x3000_0000
+         *
+         * 窗口内部布局(与 src/ddr_layout.h 一一对应):
+         *   偏移 0x00000  图像区 786432 B (512x512x3, 逐行连续)
+         *   偏移 0xC0000  frame_status 状态块 (32 B, magic/frame_count/统计)
+         */
+        image_buffer: image_buffer@30000000 {
+            no-map;
+            reg = <0x0 0x30000000 0x0 0x00100000>;
+        };
+    };
+};

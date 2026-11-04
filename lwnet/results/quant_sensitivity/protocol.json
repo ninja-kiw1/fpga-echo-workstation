@@ -1,0 +1,76 @@
+{
+  "screen_ids": [
+    "im0001",
+    "im0319"
+  ],
+  "confirmation_ids": [
+    "im0001",
+    "im0005",
+    "im0082",
+    "im0236",
+    "im0239",
+    "im0240",
+    "im0255",
+    "im0319"
+  ],
+  "selection": "Screen all stored arithmetic outputs individually at INT16 on two fixed calibration images; confirm best three and combination of best two on all eight; select highest calibration mean Dice, tie-break fewer promoted nodes. No holdout selection.",
+  "candidate_nodes": [
+    "first_block_2",
+    "first_block_5",
+    "first_shortcut_1",
+    "add",
+    "down_path_0_block_2",
+    "down_path_0_block_5",
+    "down_path_0_shortcut_1",
+    "add_1",
+    "down_path_1_block_2",
+    "down_path_1_block_5",
+    "down_path_1_shortcut_1",
+    "add_2",
+    "up_path_0_up_layer_block_0",
+    "up_path_0_conv_bridge_layer_block_2",
+    "cat",
+    "up_path_0_conv_layer_block_2",
+    "up_path_0_conv_layer_block_5",
+    "up_path_0_conv_layer_shortcut_1",
+    "add_3",
+    "up_path_1_up_layer_block_0",
+    "up_path_1_conv_bridge_layer_block_2",
+    "cat_1",
+    "up_path_1_conv_layer_block_2",
+    "up_path_1_conv_layer_block_5",
+    "up_path_1_conv_layer_shortcut_1",
+    "add_4",
+    "final"
+  ],
+  "split": {
+    "seed": 20260923,
+    "calibration": [
+      "im0001",
+      "im0005",
+      "im0082",
+      "im0236",
+      "im0239",
+      "im0240",
+      "im0255",
+      "im0319"
+    ],
+    "holdout": [
+      "im0002",
+      "im0003",
+      "im0004",
+      "im0044",
+      "im0077",
+      "im0081",
+      "im0139",
+      "im0162",
+      "im0163",
+      "im0235",
+      "im0291",
+      "im0324"
+    ],
+    "caveat": "All images previously used for model selection. Holdout excludes calibration only, not independent test data."
+  },
+  "threshold": 0.4196,
+  "scope": "Same eight-image ranges, INT8 weights; activation precision only. Holdout is development-only."
+}

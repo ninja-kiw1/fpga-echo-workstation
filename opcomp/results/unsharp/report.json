@@ -1,0 +1,43 @@
+{
+ "op": "unsharp",
+ "doc": "contrast enhancement: clip(R + 1.5 (R - blur3(R)), 0, 1).",
+ "layout": {
+  "channels_per_stage": [
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "output_terms": 2
+ },
+ "out_range": [
+  0.0,
+  1.0
+ ],
+ "out_mid": 0.5,
+ "anchored_channels": 2,
+ "float_max_abs_error": 2.9009484525666096e-07,
+ "integer": {
+  "output_scale": 0.003937007874015748,
+  "output_mid": 0.5,
+  "interval_bound": [
+   -1.5,
+   2.5
+  ],
+  "lsb_in_grey_levels": 1.0039370078740157,
+  "mean_err_lsb": 0.22475847175479877,
+  "max_abs_err_lsb": 1.6951645510897606,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "c836c9fd956c6ca48292d5d1b15a31952f6b1bb9da324f0c4650f146bad4da59",
+ "parameters_sha256": "55d51c066b68c4ea685061f591946955f73ea7a1b72a022ac2174aa8eaca346c",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

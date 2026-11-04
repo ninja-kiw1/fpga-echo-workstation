@@ -1,0 +1,103 @@
+
+****** vitis-run v2025.2 (64-bit)
+  **** SW Build 6295257 on 2025-11-13-08:29:27
+  **** Start of session at: Sun Oct 11 21:35:48 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script 'E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/run_hls_elt.tcl'
+INFO: [HLS 200-1510] Running: open_project elt_ip_e2 
+WARNING: [HLS 200-2182] The 'elt_ip_e2' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2'.
+INFO: [HLS 200-1510] Running: set_top eltwise_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src/eltwise_layer.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src/eltwise_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/tb/test_eltwise_e2.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/tb/test_eltwise_e2.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: csim_design -O -argv E:/PLD/medical_fpga/deployment/unet_eltwise/vectors cases_all.txt 300 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building optimized C Simulation binaries
+   Compiling ../../../../../opt_hls_elt/tb/test_eltwise_e2.cpp in release mode
+   Generating csim.exe
+In file included from ../../../../../opt_hls_elt/tb/test_eltwise_e2.cpp:10:
+In file included from E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src\eltwise_layer.hpp:3:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include\ap_int.h:10:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include\etc/ap_common.h:668:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include\etc/ap_private.h:68:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include\hls_half.h:26:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include\hls_fpo.h:140:
+In file included from E:/AMD/Xilinx/2025.2/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+E:/AMD/Xilinx/2025.2/Vitis/include\gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+E:/AMD/Xilinx/2025.2/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+test_eltwise_e2 start
+PASS invalid mode=3
+PASS invalid ca=0
+PASS invalid ca=33
+PASS invalid width=513
+PASS invalid height=0
+PASS invalid add ca!=cb
+PASS invalid concat ca=5
+PASS invalid concat cb=0
+PASS invalid concat 24+16
+PASS invalid pool odd height
+PASS invalid pool odd width
+PASS invalid shift=32
+PASS invalid qmin>qmax
+PASS vec syn_add_int16_full_mult mode=0 ca=16 cb=16 in=5x7 values=560 bad=0 overrun_words=0
+PASS vec syn_add_c5 mode=0 ca=5 cb=5 in=3x4 values=96 bad=0 overrun_words=0
+PASS vec syn_add_ties_shift1 mode=0 ca=8 cb=8 in=6x6 values=288 bad=0 overrun_words=0
+PASS vec syn_add_ties_shift2 mode=0 ca=8 cb=8 in=6x6 values=288 bad=0 overrun_words=0
+PASS vec syn_add_shift0 mode=0 ca=8 cb=8 in=2x3 values=48 bad=0 overrun_words=0
+PASS vec syn_add_saturate mode=0 ca=8 cb=8 in=4x4 values=128 bad=0 overrun_words=0
+PASS vec syn_concat_8_5 mode=1 ca=8 cb=5 in=3x5 values=240 bad=0 overrun_words=0
+PASS vec syn_concat_16_16 mode=1 ca=16 cb=16 in=4x3 values=384 bad=0 overrun_words=0
+PASS vec syn_concat_24_8_int16 mode=1 ca=24 cb=8 in=2x2 values=128 bad=0 overrun_words=0
+PASS vec syn_concat_ties mode=1 ca=8 cb=8 in=4x4 values=256 bad=0 overrun_words=0
+PASS vec syn_concat_max_width mode=1 ca=8 cb=8 in=2x512 values=16384 bad=0 overrun_words=0
+PASS vec syn_pool_2x2_c3 mode=2 ca=3 cb=0 in=2x2 values=8 bad=0 overrun_words=0
+PASS vec syn_pool_c32_int16 mode=2 ca=32 cb=0 in=4x6 values=192 bad=0 overrun_words=0
+PASS vec syn_pool_all_negative mode=2 ca=8 cb=0 in=4x4 values=32 bad=0 overrun_words=0
+PASS vec syn_pool_max_width mode=2 ca=8 cb=0 in=2x512 values=2048 bad=0 overrun_words=0
+PASS vec add mode=0 ca=8 cb=8 in=512x512 values=2097152 bad=0 overrun_words=0
+PASS vec down_path_0_pool mode=2 ca=8 cb=0 in=512x512 values=524288 bad=0 overrun_words=0
+PASS vec add_1 mode=0 ca=16 cb=16 in=256x256 values=1048576 bad=0 overrun_words=0
+PASS vec down_path_1_pool mode=2 ca=16 cb=0 in=256x256 values=262144 bad=0 overrun_words=0
+PASS vec add_2 mode=0 ca=32 cb=32 in=128x128 values=524288 bad=0 overrun_words=0
+PASS vec cat mode=1 ca=16 cb=16 in=256x256 values=2097152 bad=0 overrun_words=0
+PASS vec add_3 mode=0 ca=16 cb=16 in=256x256 values=1048576 bad=0 overrun_words=0
+PASS vec cat_1 mode=1 ca=8 cb=8 in=512x512 values=4194304 bad=0 overrun_words=0
+PASS vec add_4 mode=0 ca=8 cb=8 in=512x512 values=2097152 bad=0 overrun_words=0
+PASS vec syn_pool_after_large mode=2 ca=8 cb=0 in=2x4 values=16 bad=0 overrun_words=0
+PASS vec syn_concat_after_large mode=1 ca=8 cb=3 in=1x3 values=48 bad=0 overrun_words=0
+STRIPS cases=176 failures=0
+PASS forced 0 mode=1 ca=24 cb=8 in=3x512 values=49152 bad=0 overrun_words=0
+PASS forced 1 mode=1 ca=8 cb=24 in=2x500 values=32000 bad=0 overrun_words=0
+PASS forced 2 mode=1 ca=16 cb=16 in=1x512 values=16384 bad=0 overrun_words=0
+PASS forced 3 mode=2 ca=32 cb=0 in=4x512 values=16384 bad=0 overrun_words=0
+PASS forced 4 mode=2 ca=25 cb=0 in=2x2 values=32 bad=0 overrun_words=0
+RANDOM cases=300 (+5 forced, concat non-pingpong 9 random) failures=0
+SUMMARY vector_cases=26 values=30577264 failures=0
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:06:53; Allocated memory: 0.309 MB.
+INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 4 seconds. Total elapsed time: 419.34 seconds; peak allocated memory: 466.711 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 7m 1s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
+EXITCODE 0 

@@ -1,0 +1,430 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "D:/xlinx2023.1/Vitis_HLS/2023.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling test_morphology.cpp_pre.cpp.tb.cpp
+   Compiling apatb_morphology_binary.cpp
+   Compiling morphology.cpp_pre.cpp.tb.cpp
+   Compiling apatb_morphology_binary_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+PASS shapes_erode mode=0 pixels=1147 mismatches=0
+PASS shapes_dilate mode=1 pixels=1147 mismatches=0
+PASS shapes_open mode=2 pixels=1147 mismatches=0
+PASS shapes_close mode=3 pixels=1147 mismatches=0
+PASS edges_erode mode=0 pixels=99 mismatches=0
+PASS edges_dilate mode=1 pixels=99 mismatches=0
+PASS edges_open mode=2 pixels=99 mismatches=0
+PASS edges_close mode=3 pixels=99 mismatches=0
+PASS black_erode mode=0 pixels=72 mismatches=0
+PASS black_dilate mode=1 pixels=72 mismatches=0
+PASS black_open mode=2 pixels=72 mismatches=0
+PASS black_close mode=3 pixels=72 mismatches=0
+PASS white_erode mode=0 pixels=72 mismatches=0
+PASS white_dilate mode=1 pixels=72 mismatches=0
+PASS white_open mode=2 pixels=72 mismatches=0
+PASS white_close mode=3 pixels=72 mismatches=0
+PASS one_pixel_erode mode=0 pixels=1 mismatches=0
+PASS one_pixel_dilate mode=1 pixels=1 mismatches=0
+PASS one_pixel_open mode=2 pixels=1 mismatches=0
+PASS one_pixel_close mode=3 pixels=1 mismatches=0
+PASS single_row_erode mode=0 pixels=7 mismatches=0
+PASS single_row_dilate mode=1 pixels=7 mismatches=0
+PASS single_row_open mode=2 pixels=7 mismatches=0
+PASS single_row_close mode=3 pixels=7 mismatches=0
+PASS single_column_erode mode=0 pixels=7 mismatches=0
+PASS single_column_dilate mode=1 pixels=7 mismatches=0
+PASS single_column_open mode=2 pixels=7 mismatches=0
+PASS single_column_close mode=3 pixels=7 mismatches=0
+PASS nonbinary_erode mode=0 pixels=221 mismatches=0
+PASS nonbinary_dilate mode=1 pixels=221 mismatches=0
+PASS nonbinary_open mode=2 pixels=221 mismatches=0
+PASS nonbinary_close mode=3 pixels=221 mismatches=0
+PASS random_erode mode=0 pixels=667 mismatches=0
+PASS random_dilate mode=1 pixels=667 mismatches=0
+PASS random_open mode=2 pixels=667 mismatches=0
+PASS random_close mode=3 pixels=667 mismatches=0
+PASS stare_manual_ah_erode mode=0 pixels=423500 mismatches=0
+PASS stare_manual_ah_dilate mode=1 pixels=423500 mismatches=0
+PASS stare_manual_ah_open mode=2 pixels=423500 mismatches=0
+PASS stare_manual_ah_close mode=3 pixels=423500 mismatches=0
+PASS after_real_frame_open mode=2 pixels=1147 mismatches=0
+PASS zero_width mode=0 pixels=0 mismatches=0
+PASS negative_height mode=1 pixels=0 mismatches=0
+PASS too_wide mode=2 pixels=0 mismatches=0
+PASS too_tall mode=3 pixels=0 mismatches=0
+PASS bad_mode mode=4 pixels=0 mismatches=0
+SUMMARY cases=46 mismatches=0
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 423500
+
+E:\PLD\medical_fpga\hls\morphology\build\morphology\solution1\sim\verilog>set PATH= 
+
+E:\PLD\medical_fpga\hls\morphology\build\morphology\solution1\sim\verilog>call D:/xlinx2023.1/Vivado/2023.1/bin/xelab xil_defaultlib.apatb_morphology_binary_top glbl -Oenable_linking_all_libraries  -prj morphology_binary.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib "ieee_proposed=./ieee_proposed" -s morphology_binary  
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/xlinx2023.1/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_morphology_binary_top glbl -Oenable_linking_all_libraries -prj morphology_binary.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s morphology_binary 
+Multi-threading is on. Using 22 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_axi_master_gmem_in.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_axi_master_gmem_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_morphology_binary_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_entry_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_entry_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w1_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d2_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w1_d3_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d3_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d3_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w1_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d4_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w1_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w2_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w2_d2_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w2_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w32_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d2_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w32_d3_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d3_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d3_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w32_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d4_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w32_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w64_d5_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d5_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d5_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w64_d6_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d6_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w64_d6_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_fifo_w8_d64_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w8_d64_S
+INFO: [VRFC 10-311] analyzing module morphology_binary_fifo_w8_d64_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_gmem_in_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_load
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_store
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_read
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_write
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_srl
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_in_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_gmem_out_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_load
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_store
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_read
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_write
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_srl
+INFO: [VRFC 10-311] analyzing module morphology_binary_gmem_out_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_0_Pipeline_COLUMN.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_0_Pipeline_COLUMN
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_0_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_0_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_0_s_previous_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_0_s_previous_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_1_Pipeline_BYPASS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_1_Pipeline_BYPASS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_1_Pipeline_COLUMN.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_1_Pipeline_COLUMN
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_morph_stage_1_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_morph_stage_1_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_mul_32s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_mul_32s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_process_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_process_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_read_pixels.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_read_pixels
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_read_pixels_Pipeline_READ_PIXELS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_read_pixels_Pipeline_READ_PIXELS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_start_for_morph_stage_0_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_0_U0
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_0_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_start_for_morph_stage_1_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_1_U0
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_morph_stage_1_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_start_for_write_pixels_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_write_pixels_U0
+INFO: [VRFC 10-311] analyzing module morphology_binary_start_for_write_pixels_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_write_pixels.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_write_pixels
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary_write_pixels_Pipeline_WRITE_PIXELS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module morphology_binary_write_pixels_Pipeline_WRITE_PIXELS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.morphology_binary_entry_proc
+Compiling module xil_defaultlib.morphology_binary_flow_control_l...
+Compiling module xil_defaultlib.morphology_binary_read_pixels_Pi...
+Compiling module xil_defaultlib.morphology_binary_read_pixels
+Compiling module xil_defaultlib.morphology_binary_morph_stage_0_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_0_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_0_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_1_...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_1_...
+Compiling module xil_defaultlib.morphology_binary_mul_32s_32s_32...
+Compiling module xil_defaultlib.morphology_binary_morph_stage_1_...
+Compiling module xil_defaultlib.morphology_binary_write_pixels_P...
+Compiling module xil_defaultlib.morphology_binary_write_pixels
+Compiling module xil_defaultlib.morphology_binary_fifo_w64_d5_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w64_d5_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d3_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d3_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d3_S_S...
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d3_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d4_S_S...
+Compiling module xil_defaultlib.morphology_binary_fifo_w1_d4_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w8_d64_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w8_d64_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d4_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d4_S
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d2_S_...
+Compiling module xil_defaultlib.morphology_binary_fifo_w32_d2_S
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_morp...
+Compiling module xil_defaultlib.morphology_binary_start_for_writ...
+Compiling module xil_defaultlib.morphology_binary_start_for_writ...
+Compiling module xil_defaultlib.morphology_binary_process_r
+Compiling module xil_defaultlib.morphology_binary_control_s_axi
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi_...
+Compiling module xil_defaultlib.morphology_binary_gmem_in_m_axi(...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary_gmem_out_m_axi...
+Compiling module xil_defaultlib.morphology_binary
+Compiling module xil_defaultlib.AESL_axi_master_gmem_in
+Compiling module xil_defaultlib.AESL_axi_master_gmem_out
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=5)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=7)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_morphology_binary_top
+Compiling module work.glbl
+Built simulation snapshot morphology_binary
+
+****** xsim v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/morphology_binary/xsim_script.tcl
+# xsim {morphology_binary} -autoloadwcfg -tclbatch {morphology_binary.tcl}
+Time resolution is 1 ps
+source morphology_binary.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 46 [0.00%] @ "125000"
+// RTL Simulation : 1 / 46 [0.00%] @ "14985000"
+// RTL Simulation : 2 / 46 [0.00%] @ "29535000"
+// RTL Simulation : 3 / 46 [0.00%] @ "44525000"
+// RTL Simulation : 4 / 46 [0.00%] @ "59515000"
+// RTL Simulation : 5 / 46 [0.00%] @ "62045000"
+// RTL Simulation : 6 / 46 [0.00%] @ "64495000"
+// RTL Simulation : 7 / 46 [0.00%] @ "67165000"
+// RTL Simulation : 8 / 46 [0.00%] @ "69835000"
+// RTL Simulation : 9 / 46 [0.00%] @ "72035000"
+// RTL Simulation : 10 / 46 [0.00%] @ "74155000"
+// RTL Simulation : 11 / 46 [0.00%] @ "76385000"
+// RTL Simulation : 12 / 46 [0.00%] @ "78615000"
+// RTL Simulation : 13 / 46 [0.00%] @ "80735000"
+// RTL Simulation : 14 / 46 [0.00%] @ "82855000"
+// RTL Simulation : 15 / 46 [0.00%] @ "85085000"
+// RTL Simulation : 16 / 46 [0.00%] @ "87315000"
+// RTL Simulation : 17 / 46 [0.00%] @ "88195000"
+// RTL Simulation : 18 / 46 [0.00%] @ "88995000"
+// RTL Simulation : 19 / 46 [0.00%] @ "89905000"
+// RTL Simulation : 20 / 46 [0.00%] @ "90815000"
+// RTL Simulation : 21 / 46 [0.00%] @ "91765000"
+// RTL Simulation : 22 / 46 [0.00%] @ "92675000"
+// RTL Simulation : 23 / 46 [0.00%] @ "93805000"
+// RTL Simulation : 24 / 46 [0.00%] @ "94935000"
+// RTL Simulation : 25 / 46 [0.00%] @ "96255000"
+// RTL Simulation : 26 / 46 [0.00%] @ "97495000"
+// RTL Simulation : 27 / 46 [0.00%] @ "98845000"
+// RTL Simulation : 28 / 46 [0.00%] @ "100195000"
+// RTL Simulation : 29 / 46 [0.00%] @ "104265000"
+// RTL Simulation : 30 / 46 [0.00%] @ "108255000"
+// RTL Simulation : 31 / 46 [0.00%] @ "112465000"
+// RTL Simulation : 32 / 46 [0.00%] @ "116675000"
+// RTL Simulation : 33 / 46 [0.00%] @ "125915000"
+// RTL Simulation : 34 / 46 [0.00%] @ "135075000"
+// RTL Simulation : 35 / 46 [0.00%] @ "144565000"
+// RTL Simulation : 36 / 46 [0.00%] @ "154055000"
+// RTL Simulation : 37 / 46 [0.00%] @ "4433165000"
+// RTL Simulation : 38 / 46 [0.00%] @ "8712195000"
+// RTL Simulation : 39 / 46 [0.00%] @ "12998375000"
+// RTL Simulation : 40 / 46 [0.00%] @ "17284555000"
+// RTL Simulation : 41 / 46 [0.00%] @ "17299625000"
+// RTL Simulation : 42 / 46 [0.00%] @ "17300065000"
+// RTL Simulation : 43 / 46 [0.00%] @ "17300505000"
+// RTL Simulation : 44 / 46 [0.00%] @ "17300945000"
+// RTL Simulation : 45 / 46 [0.00%] @ "17301385000"
+// RTL Simulation : 46 / 46 [100.00%] @ "17301785000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 17301845 ns : File "E:/PLD/medical_fpga/hls/morphology/build/morphology/solution1/sim/verilog/morphology_binary.autotb.v" Line 593
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:01:47 . Memory (MB): peak = 203.219 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 281672 KB (Peak: 281672 KB), Simulation CPU Usage: 102483 ms
+INFO: [Common 17-206] Exiting xsim at Tue Sep 22 20:29:39 2026...
+PASS shapes_erode mode=0 pixels=1147 mismatches=0
+PASS shapes_dilate mode=1 pixels=1147 mismatches=0
+PASS shapes_open mode=2 pixels=1147 mismatches=0
+PASS shapes_close mode=3 pixels=1147 mismatches=0
+PASS edges_erode mode=0 pixels=99 mismatches=0
+PASS edges_dilate mode=1 pixels=99 mismatches=0
+PASS edges_open mode=2 pixels=99 mismatches=0
+PASS edges_close mode=3 pixels=99 mismatches=0
+PASS black_erode mode=0 pixels=72 mismatches=0
+PASS black_dilate mode=1 pixels=72 mismatches=0
+PASS black_open mode=2 pixels=72 mismatches=0
+PASS black_close mode=3 pixels=72 mismatches=0
+PASS white_erode mode=0 pixels=72 mismatches=0
+PASS white_dilate mode=1 pixels=72 mismatches=0
+PASS white_open mode=2 pixels=72 mismatches=0
+PASS white_close mode=3 pixels=72 mismatches=0
+PASS one_pixel_erode mode=0 pixels=1 mismatches=0
+PASS one_pixel_dilate mode=1 pixels=1 mismatches=0
+PASS one_pixel_open mode=2 pixels=1 mismatches=0
+PASS one_pixel_close mode=3 pixels=1 mismatches=0
+PASS single_row_erode mode=0 pixels=7 mismatches=0
+PASS single_row_dilate mode=1 pixels=7 mismatches=0
+PASS single_row_open mode=2 pixels=7 mismatches=0
+PASS single_row_close mode=3 pixels=7 mismatches=0
+PASS single_column_erode mode=0 pixels=7 mismatches=0
+PASS single_column_dilate mode=1 pixels=7 mismatches=0
+PASS single_column_open mode=2 pixels=7 mismatches=0
+PASS single_column_close mode=3 pixels=7 mismatches=0
+PASS nonbinary_erode mode=0 pixels=221 mismatches=0
+PASS nonbinary_dilate mode=1 pixels=221 mismatches=0
+PASS nonbinary_open mode=2 pixels=221 mismatches=0
+PASS nonbinary_close mode=3 pixels=221 mismatches=0
+PASS random_erode mode=0 pixels=667 mismatches=0
+PASS random_dilate mode=1 pixels=667 mismatches=0
+PASS random_open mode=2 pixels=667 mismatches=0
+PASS random_close mode=3 pixels=667 mismatches=0
+PASS stare_manual_ah_erode mode=0 pixels=423500 mismatches=0
+PASS stare_manual_ah_dilate mode=1 pixels=423500 mismatches=0
+PASS stare_manual_ah_open mode=2 pixels=423500 mismatches=0
+PASS stare_manual_ah_close mode=3 pixels=423500 mismatches=0
+PASS after_real_frame_open mode=2 pixels=1147 mismatches=0
+PASS zero_width mode=0 pixels=0 mismatches=0
+PASS negative_height mode=1 pixels=0 mismatches=0
+PASS too_wide mode=2 pixels=0 mismatches=0
+PASS too_tall mode=3 pixels=0 mismatches=0
+PASS bad_mode mode=4 pixels=0 mismatches=0
+SUMMARY cases=46 mismatches=0
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

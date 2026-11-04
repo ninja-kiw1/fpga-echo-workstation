@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Fri Sep 11 14:19:35 2026
+# Process ID: 22772
+# Current directory: E:/SRTP/fz3b_led_blink
+# Command line: vivado.exe -mode batch -source create_project.tcl -log create.log -journal create.jou
+# Log file: E:/SRTP/fz3b_led_blink/create.log
+# Journal file: E:/SRTP/fz3b_led_blink\create.jou
+# Running On: Ninja_kiwi, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 16, Host memory: 25534 MB
+#-----------------------------------------------------------
+source create_project.tcl
+# set example_dir [file dirname [file normalize [info script]]]
+# set project_dir [file join $example_dir vivado_project]
+# if {[file exists $project_dir]} {
+#     error "Project directory already exists. Open vivado_project/fz3b_led_blink.xpr instead."
+# }
+# create_project fz3b_led_blink $project_dir -part xazu3eg-sfvc784-1-i
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1469.359 ; gain = 161.762
+# set_property target_language Verilog [current_project]
+# add_files [file join $example_dir rtl led_blink.v]
+# add_files -fileset constrs_1 [file join $example_dir constraints fz3b.xdc]
+# add_files -fileset sim_1 [file join $example_dir sim tb_led_blink.v]
+# set_property top led_blink [get_filesets sources_1]
+# set_property top tb_led_blink [get_filesets sim_1]
+# set_property xsim.simulate.runtime 2us [get_filesets sim_1]
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 11 14:19:54 2026...

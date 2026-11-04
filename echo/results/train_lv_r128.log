@@ -1,0 +1,64 @@
+E:\PLD\echo\train_echo.py:94: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  xg = torch.from_numpy(np.ascontiguousarray(xtr)).to(device)
+[lv_r128] it    500 loss 0.3092 val Dice all 0.8252 good+med 0.8305 poor 0.7827 ED 0.8465 ES 0.8040 (12s) *
+[lv_r128] it   1000 loss 0.2134 val Dice all 0.8261 good+med 0.8390 poor 0.7218 ED 0.8392 ES 0.8130 (22s) *
+[lv_r128] it   1500 loss 0.1961 val Dice all 0.8652 good+med 0.8720 poor 0.8105 ED 0.8927 ES 0.8377 (33s) *
+[lv_r128] it   2000 loss 0.1852 val Dice all 0.6980 good+med 0.7022 poor 0.6636 ED 0.7327 ES 0.6632 (44s)
+[lv_r128] it   2500 loss 0.1764 val Dice all 0.8831 good+med 0.8912 poor 0.8175 ED 0.9096 ES 0.8567 (55s) *
+[lv_r128] it   3000 loss 0.1648 val Dice all 0.9011 good+med 0.9058 poor 0.8627 ED 0.9146 ES 0.8875 (66s) *
+[lv_r128] it   3500 loss 0.1649 val Dice all 0.8808 good+med 0.8848 poor 0.8482 ED 0.9056 ES 0.8559 (77s)
+[lv_r128] it   4000 loss 0.1540 val Dice all 0.9115 good+med 0.9158 poor 0.8771 ED 0.9281 ES 0.8950 (88s) *
+[lv_r128] it   4500 loss 0.1504 val Dice all 0.8934 good+med 0.8976 poor 0.8598 ED 0.9136 ES 0.8733 (98s)
+[lv_r128] it   5000 loss 0.1501 val Dice all 0.8599 good+med 0.8692 poor 0.7852 ED 0.8783 ES 0.8415 (109s)
+[lv_r128] it   5500 loss 0.1444 val Dice all 0.9115 good+med 0.9151 poor 0.8826 ED 0.9264 ES 0.8966 (120s)
+[lv_r128] it   6000 loss 0.1430 val Dice all 0.9025 good+med 0.9071 poor 0.8655 ED 0.9176 ES 0.8875 (131s)
+[lv_r128] it   6500 loss 0.1399 val Dice all 0.9110 good+med 0.9159 poor 0.8718 ED 0.9261 ES 0.8960 (142s)
+[lv_r128] it   7000 loss 0.1363 val Dice all 0.9072 good+med 0.9147 poor 0.8473 ED 0.9246 ES 0.8898 (153s)
+[lv_r128] it   7500 loss 0.1355 val Dice all 0.9077 good+med 0.9148 poor 0.8510 ED 0.9212 ES 0.8943 (164s)
+[lv_r128] it   8000 loss 0.1335 val Dice all 0.8989 good+med 0.9044 poor 0.8541 ED 0.9143 ES 0.8834 (174s)
+[lv_r128] it   8500 loss 0.1332 val Dice all 0.9131 good+med 0.9182 poor 0.8715 ED 0.9252 ES 0.9010 (185s) *
+[lv_r128] it   9000 loss 0.1321 val Dice all 0.9171 good+med 0.9210 poor 0.8859 ED 0.9308 ES 0.9035 (196s) *
+[lv_r128] it   9500 loss 0.1278 val Dice all 0.9170 good+med 0.9217 poor 0.8785 ED 0.9317 ES 0.9022 (207s)
+[lv_r128] it  10000 loss 0.1263 val Dice all 0.9172 good+med 0.9217 poor 0.8810 ED 0.9319 ES 0.9026 (218s) *
+[lv_r128] it  10500 loss 0.1251 val Dice all 0.9146 good+med 0.9200 poor 0.8712 ED 0.9285 ES 0.9007 (229s)
+[lv_r128] it  11000 loss 0.1239 val Dice all 0.9123 good+med 0.9168 poor 0.8763 ED 0.9308 ES 0.8938 (240s)
+[lv_r128] it  11500 loss 0.1204 val Dice all 0.9040 good+med 0.9105 poor 0.8515 ED 0.9199 ES 0.8881 (251s)
+[lv_r128] it  12000 loss 0.1224 val Dice all 0.9189 good+med 0.9234 poor 0.8827 ED 0.9322 ES 0.9057 (262s) *
+[lv_r128] it  12500 loss 0.1230 val Dice all 0.9179 good+med 0.9225 poor 0.8804 ED 0.9327 ES 0.9032 (273s)
+[lv_r128] it  13000 loss 0.1201 val Dice all 0.9149 good+med 0.9181 poor 0.8884 ED 0.9280 ES 0.9017 (284s)
+[lv_r128] it  13500 loss 0.1208 val Dice all 0.9185 good+med 0.9228 poor 0.8839 ED 0.9321 ES 0.9050 (295s)
+[lv_r128] it  14000 loss 0.1188 val Dice all 0.9187 good+med 0.9233 poor 0.8815 ED 0.9327 ES 0.9047 (306s)
+[lv_r128] it  14500 loss 0.1170 val Dice all 0.9213 good+med 0.9251 poor 0.8903 ED 0.9345 ES 0.9081 (317s) *
+[lv_r128] it  15000 loss 0.1183 val Dice all 0.9207 good+med 0.9246 poor 0.8899 ED 0.9318 ES 0.9097 (328s)
+[lv_r128] it  15500 loss 0.1184 val Dice all 0.9202 good+med 0.9246 poor 0.8850 ED 0.9344 ES 0.9061 (339s)
+[lv_r128] it  16000 loss 0.1171 val Dice all 0.9202 good+med 0.9239 poor 0.8907 ED 0.9329 ES 0.9076 (350s)
+[lv_r128] it  16500 loss 0.1152 val Dice all 0.9211 good+med 0.9248 poor 0.8910 ED 0.9344 ES 0.9078 (361s)
+[lv_r128] it  17000 loss 0.1155 val Dice all 0.9199 good+med 0.9229 poor 0.8954 ED 0.9321 ES 0.9077 (372s)
+[lv_r128] it  17500 loss 0.1158 val Dice all 0.9207 good+med 0.9242 poor 0.8924 ED 0.9345 ES 0.9069 (383s)
+[lv_r128] it  18000 loss 0.1136 val Dice all 0.9210 good+med 0.9245 poor 0.8923 ED 0.9344 ES 0.9076 (394s)
+[lv_r128] it  18500 loss 0.1152 val Dice all 0.9207 good+med 0.9244 poor 0.8909 ED 0.9337 ES 0.9077 (405s)
+[lv_r128] it  19000 loss 0.1146 val Dice all 0.9217 good+med 0.9251 poor 0.8947 ED 0.9348 ES 0.9087 (416s) *
+[lv_r128] it  19500 loss 0.1145 val Dice all 0.9213 good+med 0.9248 poor 0.8929 ED 0.9341 ES 0.9084 (427s)
+[lv_r128] it  20000 loss 0.1140 val Dice all 0.9211 good+med 0.9246 poor 0.8930 ED 0.9339 ES 0.9082 (439s)
+{
+ "iter": 19000,
+ "loss": 0.11460522022600712,
+ "seconds": 416.18923330307007,
+ "all": 0.9217385526377684,
+ "n": 200,
+ "quality=Good": 0.9297269202982814,
+ "n_quality=Good": 100,
+ "quality=Medium": 0.9191180060626991,
+ "n_quality=Medium": 78,
+ "quality=Poor": 0.8947188193106835,
+ "n_quality=Poor": 22,
+ "phase=ED": 0.9348051452032111,
+ "n_phase=ED": 100,
+ "phase=ES": 0.9086719600723262,
+ "n_phase=ES": 100,
+ "view=2CH": 0.9188652917368042,
+ "n_view=2CH": 100,
+ "view=4CH": 0.924611813538733,
+ "n_view=4CH": 100,
+ "good+medium": 0.9250780702399923
+}

@@ -1,0 +1,87 @@
+ssh ok
+=== 当前服务 ExecStart ===
+ExecStart=/root/Tcp_Image_Rx/tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+
+=== 停 systemd 服务 ===
+inactive
+PORT_FREE
+(stop done)
+
+=== 手动起服务 (UNET_PROFILE=1 -v) ===
+SERVER_ALIVE
+18 /root/prof_e2e.log
+ 7324 tcp_image_serve
+
+--- PC 端: A 全回传 proc+mask+overlay+stats ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000F ['proc', 'overlay', 'mask']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total=  955.3 ms  (send    2.3 + reply  953.1)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=840275 gray[0..197] mode=0 frame=1
+summary: n=1  min=955.3  max=955.3  avg=955.3 ms
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx\ai\net\_prof_e2e_overlay.png
+CLI_DONE
+
+--- PC 端: B 只算不传 noimage+stats ---
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0018 []   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级=99（全图黑占 57%）｜排除< 35 的背景 26%｜二级=129
+[1] total=  833.6 ms  (send    2.4 + reply  831.3)  (no image)
+      AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=777095 gray[0..197] mode=0 frame=2
+summary: n=1  min=833.6  max=833.6  avg=833.6 ms
+CLI_DONE
+
+=== 板端日志已存: E:/fpga/my_project/Tcp_Image_Rx\ai\net\_prof_e2e_server.log (115 行) ===
+
+=== 恢复 systemd 服务 ===
+active
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*       
+(restore done)
+
+===== 板端分段计时摘要 =====
+
+-- BRAM 映射 --
+   [ai] tensor BRAM via /dev/plbram (Normal-NC)
+
+-- 张量内存 --
+   [ai] tensors: 30 nodes, 85 MB resident in PS memory
+
+-- TCP 收帧 --
+   [rx] timing: recv=35 ms  parse(crc+copy)=8 ms  frame_crc=7 ms  total=50 ms
+   [rx] timing: recv=9 ms  parse(crc+copy)=8 ms  frame_crc=6 ms  total=23 ms
+
+-- 整帧接收 --
+   [ok ] frame 1 stored (mode=0 thr=99) at 0x40000000, 50 ms, 126.32 Mbit/s
+   [ok ] frame 2 stored (mode=0 thr=99) at 0x40000000, 23 ms, 274.61 Mbit/s
+
+-- 紧包->32bpp --
+   [mem] expand to 32bpp = 2742 us
+   [mem] expand to 32bpp = 2773 us
+
+-- PL 预处理往返 --
+   [axil] register file at 0xA0000000, VERSION ok (4 px/word)
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 21 ms
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+
+-- AI 整段(含降采样+统计) --
+   [ai] src=raw 512x512->512x512 thr=-3  vessels=16458/262144 (62 permille)  comps=12587  logit[-107..100]  850 ms
+   [ai] src=raw 512x512->512x512 thr=-3  vessels=16458/262144 (62 permille)  comps=12587  logit[-107..100]  786 ms
+
+-- AI 内部四段 --
+   [prof] total=840275 us  ap=533686  put=108063  get=183686  zero=227  other=14613
+   [prof] total=777095 us  ap=531811  put=107472  get=125921  zero=223  other=11668
+
+-- AI 搬运字数 --
+   [prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+   [prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+
+-- 回传 --
+   [echo] flags=0x000F sent in 51 ms
+   [echo] flags=0x0018 sent in 0 ms
+
+E2E_DONE rc=0
+EXIT=0 

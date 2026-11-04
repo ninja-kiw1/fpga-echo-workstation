@@ -1,0 +1,362 @@
+{
+ "caps": {
+  "passed": false,
+  "caps": {
+   "ok": true,
+   "job_version": 1,
+   "jobs": [
+    "caps",
+    "ct_seg",
+    "reg_search",
+    "echo_ef",
+    "simpson_ef",
+    "render3d",
+    "overlay",
+    "strain",
+    "tile"
+   ],
+   "vis": true,
+   "cardiac": true,
+   "server": "v5.26",
+   "echo_modes": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "live_roll": true,
+   "live_roll_camus": true,
+   "live_sources": [
+    "file",
+    "v4l2"
+   ],
+   "heart": [
+    "wall_motion",
+    "right_heart"
+   ],
+   "pp": true,
+   "ai": true,
+   "models": 17,
+   "cores": 4,
+   "max_data": 335544320
+  }
+ },
+ "reg": {
+  "passed": true,
+  "runs": 36,
+  "recovered": 1.0,
+  "bad": [],
+  "ms": {
+   "tss_unet": 893.1005,
+   "tss_vis": 0.908,
+   "full_unet": 4453.0830000000005,
+   "full_vis": 6.446,
+   "tss_vis_pl": 0.703,
+   "full_vis_pl": 6.124
+  }
+ },
+ "reg_q": {
+  "passed": true,
+  "cases": [
+   {
+    "n": 128,
+    "mode": 0,
+    "subpel": 2,
+    "true_q": [
+     0,
+     4
+    ],
+    "found_q": [
+     0,
+     4
+    ],
+    "same": true,
+    "pl_ms": 1.137,
+    "evals": 41
+   },
+   {
+    "n": 256,
+    "mode": 0,
+    "subpel": 2,
+    "true_q": [
+     16,
+     -4
+    ],
+    "found_q": [
+     16,
+     -4
+    ],
+    "same": true,
+    "pl_ms": 5.38,
+    "evals": 49
+   },
+   {
+    "n": 128,
+    "mode": 0,
+    "subpel": 2,
+    "true_q": [
+     12,
+     -16
+    ],
+    "found_q": [
+     12,
+     -16
+    ],
+    "same": true,
+    "pl_ms": 1.137,
+    "evals": 41
+   },
+   {
+    "n": 256,
+    "mode": 0,
+    "subpel": 2,
+    "true_q": [
+     0,
+     -8
+    ],
+    "found_q": [
+     0,
+     -8
+    ],
+    "same": true,
+    "pl_ms": 5.38,
+    "evals": 49
+   },
+   {
+    "n": 128,
+    "mode": 1,
+    "subpel": 1,
+    "true_q": [
+     -20,
+     4
+    ],
+    "found_q": [
+     -20,
+     4
+    ],
+    "same": true,
+    "pl_ms": 4.823,
+    "evals": 177
+   },
+   {
+    "n": 256,
+    "mode": 1,
+    "subpel": 1,
+    "true_q": [
+     0,
+     -20
+    ],
+    "found_q": [
+     0,
+     -20
+    ],
+    "same": true,
+    "pl_ms": 19.187,
+    "evals": 177
+   }
+  ]
+ },
+ "ovl": {
+  "passed": true,
+  "rows": [
+   {
+    "case": "fundus_overlay",
+    "same": true,
+    "pl_ms": 6.63,
+    "vis_total_ms": 134.137,
+    "ps_total_ms": 141.684,
+    "calls": 8
+   },
+   {
+    "case": "fundus_heat",
+    "same": true,
+    "pl_ms": 6.002,
+    "vis_total_ms": 62.15,
+    "ps_total_ms": 73.116,
+    "calls": 5
+   },
+   {
+    "case": "fundus_unsure",
+    "same": true,
+    "pl_ms": 6.629,
+    "vis_total_ms": 133.248,
+    "ps_total_ms": 144.932,
+    "calls": 8
+   },
+   {
+    "case": "ct_style",
+    "same": true,
+    "pl_ms": 4.458,
+    "vis_total_ms": 89.441,
+    "ps_total_ms": 101.884,
+    "calls": 5
+   },
+   {
+    "case": "heat128",
+    "same": true,
+    "pl_ms": 4.291,
+    "vis_total_ms": 33.254,
+    "ps_total_ms": 50.804,
+    "calls": 4
+   }
+  ]
+ },
+ "r3d": {
+  "passed": true,
+  "worst_fg_xor_fraction": 0.0,
+  "rows": [
+   {
+    "case": "spleen_10",
+    "points_board": 5498,
+    "points_pc": 5498,
+    "build_ms": 97.18,
+    "render_ms": 14.83,
+    "views": [
+     {
+      "angle": 0.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 27511,
+      "fg_xor": 0
+     },
+     {
+      "angle": 45.0,
+      "px_differ": 56,
+      "max_abs": 50,
+      "fg": 24145,
+      "fg_xor": 0
+     },
+     {
+      "angle": 90.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 33778,
+      "fg_xor": 0
+     },
+     {
+      "angle": 200.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 25173,
+      "fg_xor": 0
+     }
+    ]
+   },
+   {
+    "case": "spleen_25",
+    "points_board": 5044,
+    "points_pc": 5044,
+    "build_ms": 86.93,
+    "render_ms": 15.41,
+    "views": [
+     {
+      "angle": 0.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 36204,
+      "fg_xor": 0
+     },
+     {
+      "angle": 45.0,
+      "px_differ": 44,
+      "max_abs": 45,
+      "fg": 26236,
+      "fg_xor": 0
+     },
+     {
+      "angle": 90.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 23168,
+      "fg_xor": 0
+     },
+     {
+      "angle": 200.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 32972,
+      "fg_xor": 0
+     }
+    ]
+   },
+   {
+    "case": "spleen_47",
+    "points_board": 11723,
+    "points_pc": 11723,
+    "build_ms": 238.08,
+    "render_ms": 17.63,
+    "views": [
+     {
+      "angle": 0.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 34181,
+      "fg_xor": 0
+     },
+     {
+      "angle": 45.0,
+      "px_differ": 98,
+      "max_abs": 46,
+      "fg": 27898,
+      "fg_xor": 0
+     },
+     {
+      "angle": 90.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 37340,
+      "fg_xor": 0
+     },
+     {
+      "angle": 200.0,
+      "px_differ": 0,
+      "max_abs": 0,
+      "fg": 30744,
+      "fg_xor": 0
+     }
+    ]
+   }
+  ]
+ },
+ "ct3d": {
+  "passed": true,
+  "volume_ml": 245.08452323271217,
+  "views": 12,
+  "surface": {
+   "empty": false,
+   "points": 5432,
+   "inside": 33610,
+   "dims": [
+    49,
+    63,
+    59
+   ],
+   "sz": 1.9387755102040816,
+   "ext": 67.00485068246962,
+   "size": 320,
+   "step": 2,
+   "build_ms": 96.02,
+   "render_ms": 16.51,
+   "angles": [
+    0,
+    30,
+    60,
+    90,
+    120,
+    150,
+    180,
+    210,
+    240,
+    270,
+    300,
+    330
+   ]
+  },
+  "total_ms": [
+   2425.67,
+   2782.74
+  ]
+ },
+ "pass": false,
+ "seconds": 66.97521090507507
+}

@@ -1,0 +1,227 @@
+{
+  "csim": "PASS",
+  "cosim": "PASS",
+  "case_count": 20,
+  "total_pixels": 849994,
+  "target_part": "xazu3eg-sfvc784-1-i",
+  "target_clock_ns": "10.00",
+  "estimated_clock_ns": "7.300",
+  "hls_estimated_resources": {
+    "BRAM_18K": 4,
+    "DSP": 3,
+    "FF": 2269,
+    "LUT": 2699,
+    "URAM": 0
+  },
+  "cases": [
+    {
+      "name": "ramp_t0",
+      "width": 16,
+      "height": 16,
+      "threshold": 0,
+      "pixels": 256,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "ramp_t1",
+      "width": 16,
+      "height": 16,
+      "threshold": 1,
+      "pixels": 256,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "ramp_t127",
+      "width": 16,
+      "height": 16,
+      "threshold": 127,
+      "pixels": 256,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "ramp_t128",
+      "width": 16,
+      "height": 16,
+      "threshold": 128,
+      "pixels": 256,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "ramp_t254",
+      "width": 16,
+      "height": 16,
+      "threshold": 254,
+      "pixels": 256,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "ramp_t255",
+      "width": 16,
+      "height": 16,
+      "threshold": 255,
+      "pixels": 256,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "pixel_127_t128",
+      "width": 1,
+      "height": 1,
+      "threshold": 128,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "pixel_128_t128",
+      "width": 1,
+      "height": 1,
+      "threshold": 128,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "pixel_129_t128",
+      "width": 1,
+      "height": 1,
+      "threshold": 128,
+      "pixels": 1,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "black_t1",
+      "width": 8,
+      "height": 9,
+      "threshold": 1,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "white_t255",
+      "width": 8,
+      "height": 9,
+      "threshold": 255,
+      "pixels": 72,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "consecutive_t64",
+      "width": 23,
+      "height": 19,
+      "threshold": 64,
+      "pixels": 437,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "consecutive_t192",
+      "width": 23,
+      "height": 19,
+      "threshold": 192,
+      "pixels": 437,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "consecutive_t64_again",
+      "width": 23,
+      "height": 19,
+      "threshold": 64,
+      "pixels": 437,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_green_t128",
+      "width": 700,
+      "height": 605,
+      "threshold": 128,
+      "pixels": 423500,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "stare_mean_t128",
+      "width": 700,
+      "height": 605,
+      "threshold": 128,
+      "pixels": 423500,
+      "valid": true,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "zero_width",
+      "width": 0,
+      "height": 8,
+      "threshold": 128,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "negative_height",
+      "width": 8,
+      "height": -1,
+      "threshold": 128,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "too_wide",
+      "width": 701,
+      "height": 8,
+      "threshold": 128,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    },
+    {
+      "name": "too_tall",
+      "width": 8,
+      "height": 606,
+      "threshold": 128,
+      "pixels": 0,
+      "valid": false,
+      "mismatches": 0,
+      "max_error": 0
+    }
+  ],
+  "ip_packages": [
+    "build/threshold/solution1/impl/ip/xilinx_com_hls_threshold_binary_1_0.zip"
+  ],
+  "source_sha256": {
+    "src/threshold.cpp": "04fcc999860ba4badccfc725a84b780b83053a3deb81650b6aee3957dcbbf0a2",
+    "src/threshold.hpp": "09e3ed30dcd09d3df478dcaf1436fdf330bbb64521b3c4499075420f7f71c4ea",
+    "tb/test_threshold.cpp": "84b3a3ae1cefc3af3d683ab2f9255cc0b65d595413d9ed272f001a6dc1505ccf"
+  },
+  "boundary": "Standalone HLS C/RTL verification only, no board testing or integrated two-IP test."
+}

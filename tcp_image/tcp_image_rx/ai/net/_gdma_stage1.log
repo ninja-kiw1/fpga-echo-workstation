@@ -1,0 +1,66 @@
+ssh ok
+!!! 第一次访问 PL 地址 0xB0000000 —— 若不可达可能挂死板子
+PORT_FREE
+
+===== BRAM 读 len=4096 =====
+INSMOD_RC=1
+[12414.167027] gdmatest: params: mode=0 len=262144 bram=0xb0000000 tmo=3000ms
+[12414.167718] gdmatest: coherent bufs: A=0x39ec0000 B=0x39f00000 (cpu ffffff800e088000 ffffff800e0c9000)
+[12414.168817] gdmatest: [1] DDR -> DDR             ok      73 us  3589.98 MB/s  (262144 B)
+[12414.196451] gdmatest:     DDR->DDR verify: mismatch=0/262144
+[12414.196490] gdmatest: GDMA_DONE mode=0
+[12566.673162] gdmatest: channel ok: fd500000.dma  copy_align=0  dirs=0x0
+[12566.673169] gdmatest: params: mode=1 len=4096 bram=0xb0000000 tmo=3000ms
+[12566.673274] gdmatest: coherent bufs: A=0x39e95000 B=0x39e96000 (cpu ffffff800939b000 ffffff80093a3000)
+[12566.673315] gdmatest: [1] DDR -> DDR             ok      17 us  229.08 MB/s  (4096 B)
+[12566.673779] gdmatest:     DDR->DDR verify: mismatch=0/4096
+[12566.673782] gdmatest: [2] mapping BRAM 0xb0000000 len=4096 for DMA
+[12566.673785] gdmatest:     bram dma addr = 0xb0000000
+[12566.673807] gdmatest: [2] BRAM -> DDR (read)     ok      16 us  253.76 MB/s  (4096 B)
+[12566.673811] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12566.674145] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/1024
+[12566.674163] gdmatest: GDMA_DONE mode=1
+
+
+===== BRAM 读 len=65536 =====
+INSMOD_RC=1
+[12566.673785] gdmatest:     bram dma addr = 0xb0000000
+[12566.673807] gdmatest: [2] BRAM -> DDR (read)     ok      16 us  253.76 MB/s  (4096 B)
+[12566.673811] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12566.674145] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/1024
+[12566.674163] gdmatest: GDMA_DONE mode=1
+[12567.792237] gdmatest: channel ok: fd500000.dma  copy_align=0  dirs=0x0
+[12567.792244] gdmatest: params: mode=1 len=65536 bram=0xb0000000 tmo=3000ms
+[12567.792713] gdmatest: coherent bufs: A=0x39ea0000 B=0x39eb0000 (cpu ffffff800e235000 ffffff800e246000)
+[12567.793010] gdmatest: [1] DDR -> DDR             ok      34 us  1911.22 MB/s  (65536 B)
+[12567.800046] gdmatest:     DDR->DDR verify: mismatch=0/65536
+[12567.800049] gdmatest: [2] mapping BRAM 0xb0000000 len=65536 for DMA
+[12567.800052] gdmatest:     bram dma addr = 0xb0000000
+[12567.800128] gdmatest: [2] BRAM -> DDR (read)     ok      62 us  1053.29 MB/s  (65536 B)
+[12567.800132] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12567.805370] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/16384
+[12567.805396] gdmatest: GDMA_DONE mode=1
+
+
+===== BRAM 读 len=262144 =====
+INSMOD_RC=1
+[12567.800052] gdmatest:     bram dma addr = 0xb0000000
+[12567.800128] gdmatest: [2] BRAM -> DDR (read)     ok      62 us  1053.29 MB/s  (65536 B)
+[12567.800132] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12567.805370] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/16384
+[12567.805396] gdmatest: GDMA_DONE mode=1
+[12568.920636] gdmatest: channel ok: fd500000.dma  copy_align=0  dirs=0x0
+[12568.920643] gdmatest: params: mode=1 len=262144 bram=0xb0000000 tmo=3000ms
+[12568.921352] gdmatest: coherent bufs: A=0x39ec0000 B=0x39f00000 (cpu ffffff800e2dd000 ffffff800e31e000)
+[12568.922450] gdmatest: [1] DDR -> DDR             ok      69 us  3794.18 MB/s  (262144 B)
+[12568.950089] gdmatest:     DDR->DDR verify: mismatch=0/262144
+[12568.950093] gdmatest: [2] mapping BRAM 0xb0000000 len=262144 for DMA
+[12568.950096] gdmatest:     bram dma addr = 0xb0000000
+[12568.950339] gdmatest: [2] BRAM -> DDR (read)     ok     206 us  1269.88 MB/s  (262144 B)
+[12568.950343] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12568.971261] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/65536
+[12568.971304] gdmatest: GDMA_DONE mode=1
+
+
+GDMA_STAGE1_DONE
+EXIT=0 

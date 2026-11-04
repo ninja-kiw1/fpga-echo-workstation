@@ -1,0 +1,152 @@
+$ rm -rf /root/cpu_baseline && mkdir -p /root/cpu_baseline/net /root/cpu_baseline/vectors
+$ cd /root/cpu_baseline && make 2>&1 && gcc --version | head -1
+cc -O3 -std=c99 -Wall -Wextra -fopenmp -Inet -mcpu=cortex-a53 -o cpu_unet_fundus cpu_unet.c net/fundus_unet_net_data.c
+cc -O3 -std=c99 -Wall -Wextra -fopenmp -Inet -mcpu=cortex-a53 -o cpu_unet_skin cpu_unet.c net/skin_unet_net_data.c
+cc -O3 -std=c99 -Wall -Wextra -fopenmp -Inet -mcpu=cortex-a53 -DNO_NEON -o cpu_unet_fundus_plain cpu_unet.c net/fundus_unet_net_data.c
+cc -O3 -std=c99 -Wall -Wextra -fopenmp -Inet -mcpu=cortex-a53 -DNO_NEON -o cpu_unet_skin_plain cpu_unet.c net/skin_unet_net_data.c
+gcc (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0
+$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; for s in temp0_ps temp2_pl; do r=$(cat /sys/bus/iio/devices/iio:device0/in_${s}_temp_raw); o=$(cat /sys/bus/iio/devices/iio:device0/in_${s}_temp_offset); k=$(cat /sys/bus/iio/devices/iio:device0/in_${s}_temp_scale); echo "$r $o $k"; done; uptime
+1066666
+41012 -36058 7.771514892
+40619 -36058 7.771514892
+ 20:52:50 up 59 min,  0 users,  load average: 1.15, 1.25, 1.34
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus_plain vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20
+RESULT impl=plain res=128x128 threads=1 runs=20 min_ms=582.29 median_ms=582.52 mean_ms=582.53 gmac=0.1267 gmacps=0.218 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20 --noblock
+RESULT impl=neon res=128x128 threads=1 runs=20 min_ms=191.91 median_ms=192.19 mean_ms=192.18 gmac=0.1267 gmacps=0.660 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20
+RESULT impl=neon_blocked res=128x128 threads=1 runs=20 min_ms=136.28 median_ms=136.35 mean_ms=136.36 gmac=0.1267 gmacps=0.930 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_fundus_plain vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20
+RESULT impl=plain res=128x128 threads=2 runs=20 min_ms=290.77 median_ms=290.84 mean_ms=290.91 gmac=0.1267 gmacps=0.436 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_fundus vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20 --noblock
+RESULT impl=neon res=128x128 threads=2 runs=20 min_ms=95.97 median_ms=96.19 mean_ms=96.54 gmac=0.1267 gmacps=1.321 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_fundus vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20
+RESULT impl=neon_blocked res=128x128 threads=2 runs=20 min_ms=68.35 median_ms=68.57 mean_ms=68.56 gmac=0.1267 gmacps=1.854 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus_plain vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20
+RESULT impl=plain res=128x128 threads=4 runs=20 min_ms=146.71 median_ms=147.01 mean_ms=147.49 gmac=0.1267 gmacps=0.864 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20 --noblock
+RESULT impl=neon res=128x128 threads=4 runs=20 min_ms=48.30 median_ms=48.53 mean_ms=48.72 gmac=0.1267 gmacps=2.624 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus vectors/fundus_128.rgb vectors/fundus_128.i8 128 128 20
+RESULT impl=neon_blocked res=128x128 threads=4 runs=20 min_ms=34.66 median_ms=34.82 mean_ms=35.05 gmac=0.1267 gmacps=3.657 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus_plain vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3
+RESULT impl=plain res=512x512 threads=1 runs=3 min_ms=9470.38 median_ms=9470.42 mean_ms=9470.53 gmac=2.0279 gmacps=0.214 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3 --noblock
+RESULT impl=neon res=512x512 threads=1 runs=3 min_ms=3148.55 median_ms=3152.51 mean_ms=3151.80 gmac=2.0279 gmacps=0.644 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3
+RESULT impl=neon_blocked res=512x512 threads=1 runs=3 min_ms=2229.92 median_ms=2229.98 mean_ms=2230.19 gmac=2.0279 gmacps=0.909 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_fundus_plain vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3
+RESULT impl=plain res=512x512 threads=2 runs=3 min_ms=4726.15 median_ms=4726.29 mean_ms=4726.61 gmac=2.0279 gmacps=0.429 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3 --noblock
+RESULT impl=neon res=512x512 threads=2 runs=3 min_ms=1573.26 median_ms=1574.95 mean_ms=1574.69 gmac=2.0279 gmacps=1.289 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3
+RESULT impl=neon_blocked res=512x512 threads=2 runs=3 min_ms=1113.55 median_ms=1113.64 mean_ms=1113.74 gmac=2.0279 gmacps=1.821 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus_plain vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3
+RESULT impl=plain res=512x512 threads=4 runs=3 min_ms=2373.34 median_ms=2375.43 mean_ms=2375.20 gmac=2.0279 gmacps=0.854 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3 --noblock
+RESULT impl=neon res=512x512 threads=4 runs=3 min_ms=792.27 median_ms=792.57 mean_ms=793.65 gmac=2.0279 gmacps=2.560 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 3
+RESULT impl=neon_blocked res=512x512 threads=4 runs=3 min_ms=565.11 median_ms=565.24 mean_ms=565.44 gmac=2.0279 gmacps=3.589 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_skin_plain vectors/skin_128.rgb vectors/skin_128.i8 128 128 20
+RESULT impl=plain res=128x128 threads=1 runs=20 min_ms=581.47 median_ms=582.44 mean_ms=582.37 gmac=0.1267 gmacps=0.218 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_skin vectors/skin_128.rgb vectors/skin_128.i8 128 128 20 --noblock
+RESULT impl=neon res=128x128 threads=1 runs=20 min_ms=191.82 median_ms=191.87 mean_ms=191.89 gmac=0.1267 gmacps=0.661 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_skin vectors/skin_128.rgb vectors/skin_128.i8 128 128 20
+RESULT impl=neon_blocked res=128x128 threads=1 runs=20 min_ms=136.21 median_ms=136.34 mean_ms=136.34 gmac=0.1267 gmacps=0.930 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_skin_plain vectors/skin_128.rgb vectors/skin_128.i8 128 128 20
+RESULT impl=plain res=128x128 threads=2 runs=20 min_ms=290.72 median_ms=291.57 mean_ms=291.73 gmac=0.1267 gmacps=0.436 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_skin vectors/skin_128.rgb vectors/skin_128.i8 128 128 20 --noblock
+RESULT impl=neon res=128x128 threads=2 runs=20 min_ms=95.99 median_ms=96.28 mean_ms=96.29 gmac=0.1267 gmacps=1.320 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_skin vectors/skin_128.rgb vectors/skin_128.i8 128 128 20
+RESULT impl=neon_blocked res=128x128 threads=2 runs=20 min_ms=68.40 median_ms=68.71 mean_ms=68.66 gmac=0.1267 gmacps=1.853 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_skin_plain vectors/skin_128.rgb vectors/skin_128.i8 128 128 20
+RESULT impl=plain res=128x128 threads=4 runs=20 min_ms=146.53 median_ms=146.83 mean_ms=147.27 gmac=0.1267 gmacps=0.865 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_skin vectors/skin_128.rgb vectors/skin_128.i8 128 128 20 --noblock
+RESULT impl=neon res=128x128 threads=4 runs=20 min_ms=48.30 median_ms=48.48 mean_ms=48.64 gmac=0.1267 gmacps=2.624 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_skin vectors/skin_128.rgb vectors/skin_128.i8 128 128 20
+RESULT impl=neon_blocked res=128x128 threads=4 runs=20 min_ms=34.67 median_ms=34.92 mean_ms=35.10 gmac=0.1267 gmacps=3.656 mismatches=0/16384 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_skin_plain vectors/skin_512.rgb vectors/skin_512.i8 512 512 3
+RESULT impl=plain res=512x512 threads=1 runs=3 min_ms=9448.99 median_ms=9449.37 mean_ms=9449.27 gmac=2.0279 gmacps=0.215 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_skin vectors/skin_512.rgb vectors/skin_512.i8 512 512 3 --noblock
+RESULT impl=neon res=512x512 threads=1 runs=3 min_ms=3151.34 median_ms=3152.95 mean_ms=3152.81 gmac=2.0279 gmacps=0.644 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_skin vectors/skin_512.rgb vectors/skin_512.i8 512 512 3
+RESULT impl=neon_blocked res=512x512 threads=1 runs=3 min_ms=2224.33 median_ms=2224.41 mean_ms=2224.39 gmac=2.0279 gmacps=0.912 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_skin_plain vectors/skin_512.rgb vectors/skin_512.i8 512 512 3
+RESULT impl=plain res=512x512 threads=2 runs=3 min_ms=4724.89 median_ms=4727.54 mean_ms=4727.91 gmac=2.0279 gmacps=0.429 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_skin vectors/skin_512.rgb vectors/skin_512.i8 512 512 3 --noblock
+RESULT impl=neon res=512x512 threads=2 runs=3 min_ms=1571.90 median_ms=1571.96 mean_ms=1572.09 gmac=2.0279 gmacps=1.290 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=2 ./cpu_unet_skin vectors/skin_512.rgb vectors/skin_512.i8 512 512 3
+RESULT impl=neon_blocked res=512x512 threads=2 runs=3 min_ms=1114.75 median_ms=1115.07 mean_ms=1115.00 gmac=2.0279 gmacps=1.819 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_skin_plain vectors/skin_512.rgb vectors/skin_512.i8 512 512 3
+RESULT impl=plain res=512x512 threads=4 runs=3 min_ms=2379.05 median_ms=2384.77 mean_ms=2386.48 gmac=2.0279 gmacps=0.852 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_skin vectors/skin_512.rgb vectors/skin_512.i8 512 512 3 --noblock
+RESULT impl=neon res=512x512 threads=4 runs=3 min_ms=792.70 median_ms=792.92 mean_ms=793.22 gmac=2.0279 gmacps=2.558 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_skin vectors/skin_512.rgb vectors/skin_512.i8 512 512 3
+RESULT impl=neon_blocked res=512x512 threads=4 runs=3 min_ms=566.53 median_ms=567.30 mean_ms=567.30 gmac=2.0279 gmacps=3.580 mismatches=0/262144 BIT_EXACT
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=1 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 2 --layers
+RESULT impl=neon_blocked res=512x512 threads=1 runs=2 min_ms=2219.98 median_ms=2220.37 mean_ms=2220.18 gmac=2.0279 gmacps=0.913 mismatches=0/262144 BIT_EXACT
+LAYER  1 kind=1 mode=0 in=512x512x3 out_c=8 ms=101.391
+LAYER  2 kind=1 mode=0 in=512x512x8 out_c=8 ms=150.166
+LAYER  3 kind=1 mode=1 in=512x512x3 out_c=8 ms=70.459
+LAYER  4 kind=2 mode=0 in=512x512x8 out_c=8 ms=56.504
+LAYER  5 kind=2 mode=2 in=512x512x8 out_c=8 ms=10.548
+LAYER  6 kind=1 mode=0 in=256x256x8 out_c=16 ms=63.877
+LAYER  7 kind=1 mode=0 in=256x256x16 out_c=16 ms=97.089
+LAYER  8 kind=1 mode=1 in=256x256x8 out_c=16 ms=34.104
+LAYER  9 kind=2 mode=0 in=256x256x16 out_c=16 ms=26.638
+LAYER 10 kind=2 mode=2 in=256x256x16 out_c=16 ms=2.111
+LAYER 11 kind=1 mode=0 in=128x128x16 out_c=32 ms=50.554
+LAYER 12 kind=1 mode=0 in=128x128x32 out_c=32 ms=87.028
+LAYER 13 kind=1 mode=1 in=128x128x16 out_c=32 ms=18.685
+LAYER 14 kind=2 mode=0 in=128x128x32 out_c=32 ms=12.900
+LAYER 15 kind=1 mode=2 in=128x128x32 out_c=16 ms=57.013
+LAYER 16 kind=1 mode=0 in=256x256x16 out_c=16 ms=97.252
+LAYER 17 kind=2 mode=1 in=256x256x16 out_c=32 ms=47.827
+LAYER 18 kind=1 mode=0 in=256x256x32 out_c=16 ms=160.849
+LAYER 19 kind=1 mode=0 in=256x256x16 out_c=16 ms=97.016
+LAYER 20 kind=1 mode=1 in=256x256x32 out_c=16 ms=44.596
+LAYER 21 kind=2 mode=0 in=256x256x16 out_c=16 ms=26.213
+LAYER 22 kind=1 mode=2 in=256x256x16 out_c=8 ms=103.526
+LAYER 23 kind=1 mode=0 in=512x512x8 out_c=8 ms=150.314
+LAYER 24 kind=2 mode=1 in=512x512x8 out_c=16 ms=99.800
+LAYER 25 kind=1 mode=0 in=512x512x16 out_c=8 ms=234.010
+LAYER 26 kind=1 mode=0 in=512x512x8 out_c=8 ms=150.264
+LAYER 27 kind=1 mode=1 in=512x512x16 out_c=8 ms=84.982
+LAYER 28 kind=2 mode=0 in=512x512x8 out_c=8 ms=56.414
+LAYER 29 kind=1 mode=1 in=512x512x8 out_c=1 ms=28.033
+$ cd /root/cpu_baseline && OMP_NUM_THREADS=4 ./cpu_unet_fundus vectors/fundus_512.rgb vectors/fundus_512.i8 512 512 2 --layers
+RESULT impl=neon_blocked res=512x512 threads=4 runs=2 min_ms=565.21 median_ms=565.22 mean_ms=565.22 gmac=2.0279 gmacps=3.588 mismatches=0/262144 BIT_EXACT
+LAYER  1 kind=1 mode=0 in=512x512x3 out_c=8 ms=25.821
+LAYER  2 kind=1 mode=0 in=512x512x8 out_c=8 ms=38.397
+LAYER  3 kind=1 mode=1 in=512x512x3 out_c=8 ms=17.763
+LAYER  4 kind=2 mode=0 in=512x512x8 out_c=8 ms=14.088
+LAYER  5 kind=2 mode=2 in=512x512x8 out_c=8 ms=2.768
+LAYER  6 kind=1 mode=0 in=256x256x8 out_c=16 ms=16.201
+LAYER  7 kind=1 mode=0 in=256x256x16 out_c=16 ms=24.728
+LAYER  8 kind=1 mode=1 in=256x256x8 out_c=16 ms=8.580
+LAYER  9 kind=2 mode=0 in=256x256x16 out_c=16 ms=6.683
+LAYER 10 kind=2 mode=2 in=256x256x16 out_c=16 ms=0.583
+LAYER 11 kind=1 mode=0 in=128x128x16 out_c=32 ms=12.748
+LAYER 12 kind=1 mode=0 in=128x128x32 out_c=32 ms=22.119
+LAYER 13 kind=1 mode=1 in=128x128x16 out_c=32 ms=4.814
+LAYER 14 kind=2 mode=0 in=128x128x32 out_c=32 ms=3.271
+LAYER 15 kind=1 mode=2 in=128x128x32 out_c=16 ms=15.082
+LAYER 16 kind=1 mode=0 in=256x256x16 out_c=16 ms=24.691
+LAYER 17 kind=2 mode=1 in=256x256x16 out_c=32 ms=12.064
+LAYER 18 kind=1 mode=0 in=256x256x32 out_c=16 ms=41.627
+LAYER 19 kind=1 mode=0 in=256x256x16 out_c=16 ms=24.713
+LAYER 20 kind=1 mode=1 in=256x256x32 out_c=16 ms=11.225
+LAYER 21 kind=2 mode=0 in=256x256x16 out_c=16 ms=6.679
+LAYER 22 kind=1 mode=2 in=256x256x16 out_c=8 ms=25.983
+LAYER 23 kind=1 mode=0 in=512x512x8 out_c=8 ms=38.351
+LAYER 24 kind=2 mode=1 in=512x512x8 out_c=16 ms=25.362
+LAYER 25 kind=1 mode=0 in=512x512x16 out_c=8 ms=60.044
+LAYER 26 kind=1 mode=0 in=512x512x8 out_c=8 ms=38.261
+LAYER 27 kind=1 mode=1 in=512x512x16 out_c=8 ms=21.460
+LAYER 28 kind=2 mode=0 in=512x512x8 out_c=8 ms=14.065
+LAYER 29 kind=1 mode=1 in=512x512x8 out_c=1 ms=7.036
+$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq; for s in temp0_ps temp2_pl; do r=$(cat /sys/bus/iio/devices/iio:device0/in_${s}_temp_raw); o=$(cat /sys/bus/iio/devices/iio:device0/in_${s}_temp_offset); k=$(cat /sys/bus/iio/devices/iio:device0/in_${s}_temp_scale); echo "$r $o $k"; done; uptime
+1066666
+40852 -36058 7.771514892
+40689 -36058 7.771514892
+ 20:57:35 up  1:03,  0 users,  load average: 3.16, 2.22, 1.73
+ALL_BIT_EXACT

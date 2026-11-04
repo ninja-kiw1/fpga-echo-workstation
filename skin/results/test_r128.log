@@ -1,0 +1,71 @@
+1/379 ISIC_0000003: FP32 JA 0.940 mixed JA 0.947 sim mismatches 0
+51/379 ISIC_0000196: FP32 JA 0.916 mixed JA 0.918 sim mismatches 0
+101/379 ISIC_0000420: FP32 JA 0.865 mixed JA 0.852 sim mismatches 0
+151/379 ISIC_0002829: FP32 JA 0.935 mixed JA 0.928 sim mismatches 0
+201/379 ISIC_0009945: FP32 JA 0.830 mixed JA 0.840 sim mismatches 0
+251/379 ISIC_0010183: FP32 JA 0.465 mixed JA 0.519 sim mismatches 0
+301/379 ISIC_0010553: FP32 JA 0.943 mixed JA 0.946 sim mismatches 0
+351/379 ISIC_0011176: FP32 JA 0.921 mixed JA 0.918 sim mismatches 0
+{
+ "tag": "r128",
+ "resolution": 128,
+ "images": 379,
+ "metrics": {
+  "fp32": {
+   "jaccard": 0.8186920624174998,
+   "dice": 0.891110312066709,
+   "accuracy": 0.9452391516509683,
+   "sensitivity": 0.9097447899339058,
+   "specificity": 0.9582087263163399,
+   "thresholded_jaccard": 0.769158527860912
+  },
+  "int8": {
+   "jaccard": 0.8024877270566381,
+   "dice": 0.8780973932264116,
+   "accuracy": 0.9389228205229554,
+   "sensitivity": 0.8583440354375437,
+   "specificity": 0.9763547064254608,
+   "thresholded_jaccard": 0.7480105490935901
+  },
+  "mixed": {
+   "jaccard": 0.8181610203879661,
+   "dice": 0.8906027498394656,
+   "accuracy": 0.9448612416823109,
+   "sensitivity": 0.8946542252138927,
+   "specificity": 0.966067594205758,
+   "thresholded_jaccard": 0.7666669468536012
+  }
+ },
+ "drop_fp32_to_mixed": {
+  "jaccard": 0.0005310420295336904,
+  "dice": 0.0005075622272433522,
+  "accuracy": 0.00037790996865738613,
+  "sensitivity": 0.015090564720013133,
+  "specificity": -0.007858867889418142,
+  "thresholded_jaccard": 0.002491581007310839
+ },
+ "median_jaccard_mixed": 0.8612051018747651,
+ "jaccard_below_0_5": 18,
+ "jaccard_below_0_65": 41,
+ "sim_bit_exact": {
+  "images": 379,
+  "mismatching_images": []
+ },
+ "int16_nodes": [
+  "first_block_2",
+  "down_path_0_block_2"
+ ],
+ "output_integer_threshold_ge": 1,
+ "worst": [
+  "ISIC_0011152",
+  "ISIC_0003728",
+  "ISIC_0010193",
+  "ISIC_0011338",
+  "ISIC_0010847",
+  "ISIC_0009872",
+  "ISIC_0010257",
+  "ISIC_0010348",
+  "ISIC_0011081",
+  "ISIC_0001204"
+ ]
+}

@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Oct 13 20:01:03 2026
+# Process ID         : 16120
+# Current directory  : E:/PLD/tcp_image/tcp_image_rx/rtl_lb/sim
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/tb_equiv_snap/xsim_script.tcl}
+# Log file           : E:/PLD/tcp_image/tcp_image_rx/rtl_lb/sim/xsim.log
+# Journal file       : E:/PLD/tcp_image/tcp_image_rx/rtl_lb/sim\xsim.jou
+# Running On         : Ninja_kiwi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 25534 MB
+# Swap memory        : 44023 MB
+# Total Virtual      : 69558 MB
+# Available Virtual  : 50050 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_equiv_snap/xsim_script.tcl
+# xsim {tb_equiv_snap} -testplusarg "GMIN=0" -testplusarg "GMAX=0" -testplusarg "IMGS=3" -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS img0 mode0 thr=128: 262144 px identical, min/max 0/198  (t=19005785000)
+PASS img0 mode1 thr=128: 262144 px identical, min/max 0/198  (t=38011475000)
+PASS img0 mode2 thr=128: 262144 px identical, min/max 0/198  (t=57017165000)
+PASS img0 mode3 thr=128: 262144 px identical, min/max 0/198  (t=83887175000)
+PASS img0 mode4 thr=128: 262144 px identical, min/max 0/198  (t=110757185000)
+PASS img0 mode5 thr=128: 262144 px identical, min/max 0/198  (t=129762875000)
+PASS img1 mode0 thr=128: 262144 px identical, min/max 0/255  (t=148768565000)
+PASS img1 mode1 thr=128: 262144 px identical, min/max 0/255  (t=167774255000)
+PASS img1 mode2 thr=128: 262144 px identical, min/max 0/255  (t=186779945000)
+PASS img1 mode3 thr=128: 262144 px identical, min/max 0/255  (t=213649955000)
+PASS img1 mode4 thr=128: 262144 px identical, min/max 0/255  (t=240519965000)
+PASS img1 mode5 thr=128: 262144 px identical, min/max 0/255  (t=259525655000)
+SUMMARY frames=12 failures=0
+$finish called at time : 259525655 ns : File "E:/PLD/tcp_image/tcp_image_rx/rtl_lb/sim/tb_equiv.sv" Line 224
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:01:00 . Memory (MB): peak = 218.773 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 446984 KB (Peak: 446984 KB), Simulation CPU Usage: 59280 ms
+INFO: [Common 17-206] Exiting xsim at Tue Oct 13 20:02:05 2026...

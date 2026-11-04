@@ -1,0 +1,652 @@
+// vis_layer.cpp -- r2 PL registration engine (REG) + graphics overlay (OVL); interface vis_layer.hpp,
+// bit-level spec ../visref.py.
+//
+// REG: A and B (n x n grey, n = 128 / 256) are loaded into on-chip RAM, B split by row parity so that the
+// two source rows of the bilinear interpolation come from different banks; each bank is read at two word
+// addresses per clock (true dual port), so one 16-pixel word of A is compared per clock: 16 lanes of
+// "shift + quarter-pixel bilinear + |A - G| + cost table". The search (three-step / full + sub-pixel
+// refinement) runs on the PL too and compares candidates exactly (S1 * O2 < S2 * O1).
+// OVL: one band of output rows; per row a compute pass (source value, masks, heat index of the row below)
+// and an emit pass (base pixel, blend, contour from the 3-row mask ring), one pixel per clock.
+#include "vis_layer.hpp"
+
+typedef ap_uint<256> dword_t;
+typedef ap_uint<384> tword_t;
+
+static const int RW = 16;            // words per row slot in the frame RAMs (n = 256)
+
+static int fld(const word_t d[8], int i) {
+#pragma HLS INLINE
+    return (int)(ap_int<32>)d[i >> 2].range(32 * (i & 3) + 31, 32 * (i & 3));
+}
+
+static int lo16(int v) {
+#pragma HLS INLINE
+    return v & 0xFFFF;
+}
+
+static int hi16(int v) {
+#pragma HLS INLINE
+    return (v >> 16) & 0xFFFF;
+}
+
+static bool span_ok(int off, int words) {
+#pragma HLS INLINE
+    return off >= 0 && words >= 0 && off <= VIS_WORDS && words <= VIS_WORDS - off;
+}
+
+// ===================================================================================== REG
+static const int LN = 8;             // lanes: pixels compared per clock
+
+struct cand_t {
+    ap_int<9> qx, qy;
+    ap_uint<25> s;
+    ap_uint<17> o;
+};
+
+static int iabs(int v) {
+#pragma HLS INLINE
+    return v < 0 ? -v : v;
+}
+
+static int ceil4(int q) {
+#pragma HLS INLINE
+    return -((-q) >> 2);
+}
+
+static bool better(const cand_t& a, const cand_t& b) {
+#pragma HLS INLINE
+    const ap_uint<42> l = a.s * b.o, r = b.s * a.o;
+    if (l != r) return l < r;
+    const int ma = iabs(a.qx) + iabs(a.qy), mb = iabs(b.qx) + iabs(b.qy);
+    if (ma != mb) return ma < mb;
+    if (a.qx != b.qx) return a.qx < b.qx;
+    return a.qy < b.qy;
+}
+
+// f * d for a 2-bit f, as shifts and adds (no multiplier)
+template <int W>
+static ap_int<W + 2> mul2(ap_uint<2> f, ap_int<W> d) {
+#pragma HLS INLINE
+    ap_int<W + 2> r = 0;
+    if (f[0]) r += d;
+    if (f[1]) r += (ap_int<W + 2>)d << 1;
+    return r;
+}
+
+// SAD of one candidate: n rows x n / LN clocks
+static ap_uint<25> reg_eval(const word_t A[4096], const word_t BE[2048], const word_t BO[2048],
+                            const ap_uint<8> tab[LN][256], int n, int qx, int qy) {
+#pragma HLS INLINE off
+    const int cy = ceil4(qy), cx = ceil4(qx);
+    const ap_uint<2> fy = (-qy) & 3, fx = (-qx) & 3;
+    const int lg = n == 256 ? 5 : 4, gpr = n / LN, total = n << lg;
+    const int ylim = n - 1 - (fy != 0), xlim = n - 1 - (fx != 0), wmax = (n >> 4) - 1;
+    ap_uint<25> S = 0;
+EVAL:
+    for (int it = 0; it < total; it++) {
+#pragma HLS LOOP_TRIPCOUNT min=2048 max=8192
+#pragma HLS PIPELINE II=1
+        const int y = it >> lg, xg = it & (gpr - 1), x0 = xg * LN;
+        const int sy0 = y - cy;
+        const bool rv = sy0 >= 0 && sy0 <= ylim;
+        const int r0 = sy0 < 0 ? 0 : (sy0 > n - 1 ? n - 1 : sy0);
+        const bool odd = (r0 & 1) != 0;
+        int ie = odd ? (r0 + 1) >> 1 : r0 >> 1;  // even bank: row r0 (r0 even) or r0 + 1 (r0 odd)
+        if (ie > 127) ie = 127;
+        const int io = r0 >> 1;                  // odd bank: row r0 (r0 odd) or r0 + 1 (r0 even)
+        const int sx = x0 - cx;
+        const int w0 = sx >> 4, o = sx & 15;
+        const int wa = w0 < 0 ? 0 : (w0 > wmax ? wmax : w0);
+        const int wb = w0 + 1 < 0 ? 0 : (w0 + 1 > wmax ? wmax : w0 + 1);
+        const word_t e0 = BE[ie * RW + wa], e1 = BE[ie * RW + wb];
+        const word_t d0 = BO[io * RW + wa], d1 = BO[io * RW + wb];
+        const dword_t E = (e1, e0), D = (d1, d0);
+        const dword_t R0 = odd ? D : E, R1 = odd ? E : D;
+        const ap_uint<72> W0 = (ap_uint<72>)(R0 >> (8 * o)), W1 = (ap_uint<72>)(R1 >> (8 * o));
+        const word_t aw = A[y * RW + (x0 >> 4)];
+        const ap_uint<64> a = (xg & 1) ? aw.range(127, 64) : aw.range(63, 0);
+        const int lo = -sx, hi = xlim - sx;
+        ap_uint<11> s8 = 0;
+    LANE:
+        for (int i = 0; i < LN; i++) {
+#pragma HLS UNROLL
+            const ap_uint<8> b00 = W0.range(8 * i + 7, 8 * i), b01 = W0.range(8 * i + 15, 8 * i + 8);
+            const ap_uint<8> b10 = W1.range(8 * i + 7, 8 * i), b11 = W1.range(8 * i + 15, 8 * i + 8);
+            const ap_int<12> h0 = (ap_int<12>)(b00 * 4) + mul2<9>(fx, (ap_int<9>)b01 - (ap_int<9>)b00);
+            const ap_int<12> h1 = (ap_int<12>)(b10 * 4) + mul2<9>(fx, (ap_int<9>)b11 - (ap_int<9>)b10);
+            const ap_int<15> t = (ap_int<15>)(h0 * 4) + mul2<12>(fy, (ap_int<12>)(h1 - h0)) + 8;
+            const ap_uint<8> g = (ap_uint<8>)(t >> 4);
+            const ap_uint<8> av = a.range(8 * i + 7, 8 * i);
+            const bool v = rv && i >= lo && i <= hi;
+            const ap_uint<8> dd = v ? (ap_uint<8>)(av > g ? av - g : g - av) : ap_uint<8>(0);
+            s8 += tab[i][dd];
+        }
+        S += s8;
+    }
+    return S;
+}
+
+static int run_reg(word_t* mem, const word_t d[8]) {
+    static word_t A[4096], BE[2048], BO[2048];
+    static ap_uint<8> tab[LN][256];
+#pragma HLS ARRAY_PARTITION variable=tab dim=1 complete
+#pragma HLS BIND_STORAGE variable=tab type=ram_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=BE type=ram_t2p impl=bram
+#pragma HLS BIND_STORAGE variable=BO type=ram_t2p impl=bram
+    const int n = fld(d, 1), f2 = fld(d, 2), f3 = fld(d, 3);
+    const int mode = f2 & 255, subpel = (f2 >> 8) & 255, radius = (f2 >> 16) & 255;
+    const int a_off = fld(d, 4), b_off = fld(d, 5), t_off = fld(d, 6), o_off = fld(d, 7);
+    const int m = n == 256 ? 31 : 15, lwpr = n == 256 ? 4 : 3;
+    int steps[4], ns = 0, ssum = 0;
+#pragma HLS ARRAY_PARTITION variable=steps complete
+    bool ok = (n == 128 || n == 256) && subpel <= 2 && mode <= 1;
+    for (int i = 0; i < 4; i++) {
+        const int s = (f3 >> (8 * i)) & 255;
+        steps[i] = s;
+        if (s != 0 && ns == i) {
+            ns++;
+            ssum += s;
+        }
+    }
+    const int side = 2 * radius + 1;
+    int maxrec;
+    if (mode == 0) {
+        ok = ok && ns >= 1 && ssum <= m;
+        maxrec = 9 + 8 * (ns - 1);
+    } else {
+        ok = ok && radius >= 1 && radius <= m;
+        maxrec = side * side;
+    }
+    maxrec += 8 * subpel;
+    const int fw = n * (n >> 4);
+    ok = ok && span_ok(a_off, fw) && span_ok(b_off, fw) && span_ok(t_off, 16) && span_ok(o_off, 4 + maxrec);
+    if (!ok) return VIS_BAD;
+
+    const int wpr = n >> 4;
+LOAD_A:
+    for (int i = 0; i < fw; i++) {
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=4096
+#pragma HLS PIPELINE II=1
+        A[(i >> lwpr) * RW + (i & (wpr - 1))] = mem[a_off + i];
+    }
+LOAD_B:
+    for (int i = 0; i < fw; i++) {
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=4096
+#pragma HLS PIPELINE II=1
+        const int y = i >> lwpr;
+        const word_t v = mem[b_off + i];
+        const int idx = (y >> 1) * RW + (i & (wpr - 1));
+        if (y & 1) BO[idx] = v;
+        else BE[idx] = v;
+    }
+    word_t tw[16];
+LOAD_T:
+    for (int i = 0; i < 16; i++) {
+#pragma HLS PIPELINE II=1
+        tw[i] = mem[t_off + i];
+    }
+FILL_T:
+    for (int v = 0; v < 256; v++) {
+#pragma HLS PIPELINE II=1
+        const ap_uint<8> b = tw[v >> 4].range(8 * (v & 15) + 7, 8 * (v & 15));
+        for (int c = 0; c < LN; c++) {
+#pragma HLS UNROLL
+            tab[c][v] = b;
+        }
+    }
+
+    // phases: three-step rings (or the full grid), then the sub-pixel rings; one evaluation call site
+    const int rec_off = o_off + 4;
+    const int nmain = mode == 0 ? ns : 1, nph = nmain + subpel;
+    cand_t best;
+    best.qx = 0;
+    best.qy = 0;
+    best.s = 0;
+    best.o = 1;
+    bool have = false;
+    int nrec = 0, np = 1;
+    ap_uint<128> path = 0;
+PH:
+    for (int ph = 0; ph < nph; ph++) {
+#pragma HLS LOOP_TRIPCOUNT max=6
+        const bool grid = mode == 1 && ph == 0;
+        const int s = ph < nmain ? 4 * steps[ph & 3] : (ph == nmain ? 2 : 1);
+        const int cnt = grid ? side * side : 9;
+        const int cx = best.qx, cy = best.qy;
+        const bool known = have;
+        int ci = grid ? -radius : -1, cj = grid ? -radius : -1;
+        const int cmax = grid ? radius : 1, step = grid ? 4 : s, bx = grid ? 0 : cx, by = grid ? 0 : cy;
+    CAND:
+        for (int k = 0; k < cnt; k++) {
+#pragma HLS LOOP_TRIPCOUNT max=3969
+            const int qx = bx + ci * step, qy = by + cj * step;
+            if (!(known && !grid && ci == 0 && cj == 0)) {
+                cand_t c;
+                c.qx = qx;
+                c.qy = qy;
+                c.s = reg_eval(A, BE, BO, tab, n, qx, qy);
+                c.o = (ap_uint<17>)((n - ceil4(iabs(qx))) * (n - ceil4(iabs(qy))));
+                word_t r = 0;
+                r.range(31, 0) = (ap_int<32>)qx;
+                r.range(63, 32) = (ap_int<32>)qy;
+                r.range(95, 64) = (ap_uint<32>)c.s;
+                r.range(127, 96) = (ap_uint<32>)c.o;
+                mem[rec_off + nrec] = r;
+                nrec++;
+                if (!have || better(c, best)) {
+                    best = c;
+                    have = true;
+                }
+            }
+            if (++ci > cmax) {
+                ci = -cmax;
+                cj++;
+            }
+        }
+        path.range(16 * np + 7, 16 * np) = (ap_uint<8>)best.qx;
+        path.range(16 * np + 15, 16 * np + 8) = (ap_uint<8>)best.qy;
+        np++;
+    }
+
+    word_t w0 = 0, w1 = 0;
+    w0.range(31, 0) = VIS_OK;
+    w0.range(63, 32) = nrec;
+    w0.range(95, 64) = (ap_int<32>)best.qx;
+    w0.range(127, 96) = (ap_int<32>)best.qy;
+    w1.range(31, 0) = (ap_uint<32>)best.s;
+    w1.range(63, 32) = (ap_uint<32>)best.o;
+    w1.range(95, 64) = np;
+    mem[o_off] = w0;
+    mem[o_off + 1] = w1;
+    mem[o_off + 2] = path;
+    mem[o_off + 3] = 0;
+    return VIS_OK;
+}
+
+// ===================================================================================== OVL
+struct ovl_t {
+    int ow, oh, ya, yb, kind, lw, lh, loff, lrow0, mw, mh, moff, mrow0, boff, ooff;
+    int lstride, mstride, bstride, ostride;
+    bool bil, has_l, has_b, from_b, fill_on, uns_on, con_on;
+    int lk, sd, thr, band;
+};
+
+struct rowpos_t {
+    int q, rem;      // nearest source row floor(r * n / oh) and r * n - q * oh, stepped row by row (n <= oh)
+};
+
+// num / den for num < 2^19, den <= 512, quotient < 1024 (restoring division, no divider core)
+static int udiv_small(int num, int den) {
+#pragma HLS INLINE off
+    ap_uint<19> rem = num;
+    ap_uint<10> q = 0;
+DIV:
+    for (int b = 9; b >= 0; b--) {
+        const ap_uint<19> t = (ap_uint<19>)den << b;
+        if (rem >= t) {
+            rem -= t;
+            q[b] = 1;
+        }
+    }
+    return q;
+}
+
+static rowpos_t rowpos_at(int r, int n, int oh) {
+    rowpos_t p;
+    p.q = udiv_small(r * n, oh);
+    p.rem = r * n - p.q * oh;
+    return p;
+}
+
+static void rowpos_step(rowpos_t& p, int n, int oh) {
+#pragma HLS INLINE
+    p.rem += n;
+    if (p.rem >= oh) {
+        p.rem -= oh;
+        p.q++;
+    }
+}
+
+static ap_int<8> lbyte(const word_t b[32], int x) {
+#pragma HLS INLINE
+    return (ap_int<8>)b[x >> 4].range(8 * (x & 15) + 7, 8 * (x & 15));
+}
+
+// source value row r -> mask ring slot / value row (heat index, unsure)
+// rows are computed in order r, r + 1, ...: lp / mp hold the nearest logit / bit row of r and step on
+static void ovl_compute(word_t* mem, const ovl_t& c, int r, rowpos_t& lp, rowpos_t& mp, word_t lb0[32],
+                        word_t lb1[32], word_t mb[4], ap_uint<1> ring[3][512], ap_uint<9> vrow[2][512], int slot) {
+    int ry0 = 0, ry1 = 0, ay0 = 1, ay1 = 0;
+    const int k = 1 << c.lk, d2 = 2 * k;
+    if (c.bil) {
+        int num = 2 * r + 1 - k;
+        if (num < 0) num = 0;
+        ry0 = num >> (c.lk + 1);
+        const int f = num & (d2 - 1);
+        ry1 = ry0 + 1 > c.lh - 1 ? c.lh - 1 : ry0 + 1;
+        ay0 = d2 - f;
+        ay1 = f;
+    } else {
+        ry0 = lp.q;
+    }
+    rowpos_step(lp, c.bil || !c.has_l ? 0 : c.lh, c.oh);
+    if (c.has_l) {
+    LL0:
+        for (int j = 0; j < c.lstride; j++) {
+#pragma HLS LOOP_TRIPCOUNT max=32
+#pragma HLS PIPELINE II=1
+            lb0[j] = mem[c.loff + (ry0 - c.lrow0) * c.lstride + j];
+        }
+        if (c.bil) {
+        LL1:
+            for (int j = 0; j < c.lstride; j++) {
+#pragma HLS LOOP_TRIPCOUNT max=32
+#pragma HLS PIPELINE II=1
+                lb1[j] = mem[c.loff + (ry1 - c.lrow0) * c.lstride + j];
+            }
+        }
+    }
+    if (c.has_b) {
+        const int my = mp.q;
+    LB:
+        for (int j = 0; j < c.mstride; j++) {
+#pragma HLS LOOP_TRIPCOUNT max=4
+#pragma HLS PIPELINE II=1
+            mb[j] = mem[c.moff + (my - c.mrow0) * c.mstride + j];
+        }
+    }
+    rowpos_step(mp, c.mh, c.oh);
+    const int thr_d = c.thr << c.sd, band_d = c.band << c.sd, half = (1 << c.sd) >> 1;
+    int lx = 0, lrem = 0, mx = 0, mrem = 0;
+CPIX:
+    for (int x = 0; x < c.ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+        int v;
+        if (c.bil) {
+            int num = 2 * x + 1 - k;
+            if (num < 0) num = 0;
+            const int rx0 = num >> (c.lk + 1), f = num & (d2 - 1);
+            const int rx1 = rx0 + 1 > c.lw - 1 ? c.lw - 1 : rx0 + 1;
+            const int s0 = lbyte(lb0, rx0) * ay0 + lbyte(lb1, rx0) * ay1;
+            const int s1 = lbyte(lb0, rx1) * ay0 + lbyte(lb1, rx1) * ay1;
+            v = s0 * (d2 - f) + s1 * f;
+        } else {
+            v = lbyte(lb0, lx);
+        }
+        bool m;
+        if (c.from_b) m = mb[mx >> 7][mx & 127] != 0;
+        else m = c.has_l && v >= thr_d;
+        const int dv = v - thr_d;
+        const bool u = c.has_l && (dv < 0 ? -dv : dv) <= band_d;
+        const int idx = c.bil ? (v + half) >> c.sd : v;
+        ring[slot][x] = m;
+        ap_uint<9> vv;
+        vv[8] = u;
+        vv.range(7, 0) = (ap_uint<8>)(idx + 128);
+        vrow[r & 1][x] = vv;
+        // nearest steps (lw, mw <= ow: at most one source step per output pixel)
+        lrem += c.lw;
+        if (lrem >= c.ow) {
+            lrem -= c.ow;
+            lx++;
+        }
+        mrem += c.mw;
+        if (mrem >= c.ow) {
+            mrem -= c.ow;
+            mx++;
+        }
+    }
+}
+
+static void ovl_emit(word_t* mem, const ovl_t& c, int y, const ap_uint<1> ring[3][512], const ap_uint<9> vrow[2][512],
+                     int s_up, int s_mid, int s_dn, const ap_uint<24> lut[256], const int ac[2][3], const int ia[2],
+                     ap_uint<24> ccol, word_t bb[3][32], word_t ob[3][32]) {
+    if (c.kind == VIS_BASE_RGB || c.kind == VIS_BASE_GREY) {
+        const int base = c.boff + (y - c.ya) * c.bstride;
+        int bank = 0, idx = 0;
+    LBASE:
+        for (int t = 0; t < c.bstride; t++) {
+#pragma HLS LOOP_TRIPCOUNT max=96
+#pragma HLS PIPELINE II=1
+            const word_t w = mem[base + t];
+            if (c.kind == VIS_BASE_GREY) {
+                bb[0][t] = w;
+            } else {
+                bb[bank][idx] = w;
+                if (++bank == 3) {
+                    bank = 0;
+                    idx++;
+                }
+            }
+        }
+    }
+    const bool has_up = y > 0, has_dn = y < c.oh - 1;
+    ap_uint<1> mleft = 0;
+    tword_t og = 0;
+EPIX:
+    for (int x = 0; x < c.ow; x++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+#pragma HLS PIPELINE II=1
+        const int g = x >> 4, p = x & 15;
+        const int xr = x + 1 < c.ow ? x + 1 : x;
+        const ap_uint<1> mc = ring[s_mid][x];
+        const ap_uint<1> mr = x + 1 < c.ow ? ring[s_mid][xr] : ap_uint<1>(0);
+        const ap_uint<1> mu = has_up ? ring[s_up][x] : ap_uint<1>(0);
+        const ap_uint<1> md = has_dn ? ring[s_dn][x] : ap_uint<1>(0);
+        const ap_uint<9> vv = vrow[y & 1][x];
+        int b0, b1, b2;
+        if (c.kind == VIS_BASE_RGB) {
+            const tword_t grp = (bb[2][g], bb[1][g], bb[0][g]);
+            const ap_uint<24> px = grp.range(24 * p + 23, 24 * p);
+            b0 = px.range(7, 0);
+            b1 = px.range(15, 8);
+            b2 = px.range(23, 16);
+        } else if (c.kind == VIS_BASE_GREY) {
+            b0 = b1 = b2 = (int)bb[0][g].range(8 * p + 7, 8 * p);
+        } else if (c.kind == VIS_BASE_HEAT) {
+            const ap_uint<24> px = lut[vv.range(7, 0)];
+            b0 = px.range(7, 0);
+            b1 = px.range(15, 8);
+            b2 = px.range(23, 16);
+        } else {
+            b0 = b1 = b2 = 0;
+        }
+        int sel = -1;
+        if (c.fill_on && mc) sel = 0;
+        if (c.uns_on && vv[8]) sel = 1;
+        int o0 = b0, o1 = b1, o2 = b2;
+        if (sel >= 0) {
+            o0 = (ac[sel][0] + ia[sel] * b0 + 128) >> 8;
+            o1 = (ac[sel][1] + ia[sel] * b1 + 128) >> 8;
+            o2 = (ac[sel][2] + ia[sel] * b2 + 128) >> 8;
+        }
+        if (c.con_on && mc && !(mu && md && mleft && mr)) {
+            o0 = ccol.range(7, 0);
+            o1 = ccol.range(15, 8);
+            o2 = ccol.range(23, 16);
+        }
+        mleft = mc;
+        ap_uint<24> rgb;
+        rgb.range(7, 0) = o0;
+        rgb.range(15, 8) = o1;
+        rgb.range(23, 16) = o2;
+        og.range(24 * p + 23, 24 * p) = rgb;
+        if (p == 15) {
+            ob[0][g] = og.range(127, 0);
+            ob[1][g] = og.range(255, 128);
+            ob[2][g] = og.range(383, 256);
+        }
+    }
+    const int obase = c.ooff + (y - c.ya) * c.ostride;
+    int bank = 0, idx = 0;
+SOUT:
+    for (int t = 0; t < c.ostride; t++) {
+#pragma HLS LOOP_TRIPCOUNT max=96
+#pragma HLS PIPELINE II=1
+        mem[obase + t] = ob[bank][idx];
+        if (++bank == 3) {
+            bank = 0;
+            idx++;
+        }
+    }
+}
+
+static int run_ovl(word_t* mem, const word_t d[8]) {
+    static word_t lb0[32], lb1[32], mb[4];
+    static ap_uint<1> ring[3][512];
+    static ap_uint<9> vrow[2][512];
+    static ap_uint<24> lut[256];
+    static word_t bb[3][32], ob[3][32];
+#pragma HLS ARRAY_PARTITION variable=ring dim=1 complete
+#pragma HLS ARRAY_PARTITION variable=vrow dim=1 complete
+#pragma HLS ARRAY_PARTITION variable=bb dim=1 complete
+#pragma HLS ARRAY_PARTITION variable=ob dim=1 complete
+#pragma HLS ARRAY_PARTITION variable=mb complete
+#pragma HLS BIND_STORAGE variable=ring type=ram_2p impl=lutram
+#pragma HLS BIND_STORAGE variable=lb0 type=ram_2p impl=lutram
+#pragma HLS BIND_STORAGE variable=lb1 type=ram_2p impl=lutram
+    ovl_t c;
+    c.ow = lo16(fld(d, 1));
+    c.oh = hi16(fld(d, 1));
+    c.ya = lo16(fld(d, 2));
+    c.yb = hi16(fld(d, 2));
+    const int fl = fld(d, 3);
+    c.kind = fl & 3;
+    c.bil = (fl & VIS_F_BILINEAR) != 0;
+    c.has_l = (fl & VIS_F_HAS_LOGIT) != 0;
+    c.has_b = (fl & VIS_F_HAS_BITS) != 0;
+    c.from_b = (fl & VIS_F_FILL_FROM_BITS) != 0;
+    c.fill_on = (fl & VIS_F_FILL) != 0;
+    c.uns_on = (fl & VIS_F_UNSURE) != 0;
+    c.con_on = (fl & VIS_F_CONTOUR) != 0;
+    c.lw = lo16(fld(d, 4));
+    c.lh = hi16(fld(d, 4));
+    c.loff = fld(d, 5);
+    c.lrow0 = lo16(fld(d, 6));
+    const int lrows = hi16(fld(d, 6));
+    c.mw = lo16(fld(d, 7));
+    c.mh = hi16(fld(d, 7));
+    c.moff = fld(d, 8);
+    c.mrow0 = lo16(fld(d, 9));
+    const int mrows = hi16(fld(d, 9));
+    c.boff = fld(d, 10);
+    c.ooff = fld(d, 11);
+    const int lutoff = fld(d, 12), f13 = fld(d, 13);
+    c.thr = (int)(ap_int<8>)(f13 & 255);
+    c.band = (f13 >> 8) & 255;
+    const int fa = (f13 >> 16) & 0x1FF, ua = fld(d, 16) & 0x1FF;
+    const int fcol = fld(d, 14), ucol = fld(d, 15), ccl = fld(d, 17);
+
+    bool ok = (c.ow & 15) == 0 && c.ow >= 16 && c.ow <= 512 && c.oh >= 1 && c.oh <= 512 && c.ya < c.yb &&
+              c.yb <= c.oh && fa <= 256 && ua <= 256;
+    const bool need_l = c.kind == VIS_BASE_HEAT || c.uns_on || ((c.fill_on || c.con_on) && !c.from_b);
+    ok = ok && (!need_l || c.has_l) && (!c.from_b || c.has_b);
+    c.lk = 0;
+    c.sd = 0;
+    c.lstride = c.lw >> 4;
+    c.mstride = (c.mw + 127) >> 7;
+    const int rlo = c.ya > 0 ? c.ya - 1 : 0, rhi = c.yb < c.oh ? c.yb : c.oh - 1;
+    if (c.has_l) {
+        ok = ok && (c.lw & 15) == 0 && c.lw >= 16 && c.lw <= c.ow && c.lh >= 1 && c.lh <= c.oh;
+        int lo, hi;
+        if (c.bil) {
+            if (c.ow == 2 * c.lw && c.oh == 2 * c.lh) c.lk = 1;
+            else if (c.ow == 4 * c.lw && c.oh == 4 * c.lh) c.lk = 2;
+            else ok = false;
+            c.sd = 2 * c.lk + 2;
+            const int k = 1 << c.lk;
+            int n0 = 2 * rlo + 1 - k, n1 = 2 * rhi + 1 - k;
+            if (n0 < 0) n0 = 0;
+            if (n1 < 0) n1 = 0;
+            lo = n0 >> (c.lk + 1);
+            hi = (n1 >> (c.lk + 1)) + 1;
+            if (hi > c.lh - 1) hi = c.lh - 1;
+        } else {
+            lo = ok ? udiv_small(rlo * c.lh, c.oh) : 0;
+            hi = ok ? udiv_small(rhi * c.lh, c.oh) : 0;
+        }
+        ok = ok && c.lrow0 <= lo && hi < c.lrow0 + lrows && span_ok(c.loff, lrows * c.lstride);
+    } else {
+        c.bil = false;
+    }
+    if (c.has_b) {
+        ok = ok && c.mw >= 1 && c.mw <= c.ow && c.mh >= 1 && c.mh <= c.oh;
+        const int lo = ok ? udiv_small(rlo * c.mh, c.oh) : 0, hi = ok ? udiv_small(rhi * c.mh, c.oh) : 0;
+        ok = ok && c.mrow0 <= lo && hi < c.mrow0 + mrows && span_ok(c.moff, mrows * c.mstride);
+    } else {
+        c.mw = 0;
+        c.mh = 0;
+    }
+    c.bstride = c.kind == VIS_BASE_RGB ? 3 * (c.ow >> 4) : (c.ow >> 4);
+    c.ostride = 3 * (c.ow >> 4);
+    const int rows = c.yb - c.ya;
+    if (c.kind == VIS_BASE_RGB || c.kind == VIS_BASE_GREY) ok = ok && span_ok(c.boff, rows * c.bstride);
+    if (c.kind == VIS_BASE_HEAT) ok = ok && span_ok(lutoff, 48);
+    ok = ok && span_ok(c.ooff, rows * c.ostride);
+    if (!ok) return VIS_BAD;
+
+    if (c.kind == VIS_BASE_HEAT) {
+        tword_t grp = 0;
+    LUT:
+        for (int t = 0; t < 48; t++) {
+#pragma HLS PIPELINE II=1
+            const int q = t % 3;
+            grp.range(128 * q + 127, 128 * q) = mem[lutoff + t];
+            if (q == 2) {
+                for (int e = 0; e < 16; e++) {
+#pragma HLS UNROLL
+                    lut[(t / 3) * 16 + e] = grp.range(24 * e + 23, 24 * e);
+                }
+            }
+        }
+    }
+    int ac[2][3], ia[2];
+#pragma HLS ARRAY_PARTITION variable=ac complete dim=0
+#pragma HLS ARRAY_PARTITION variable=ia complete
+    for (int ch = 0; ch < 3; ch++) {
+        ac[0][ch] = fa * ((fcol >> (8 * ch)) & 255);
+        ac[1][ch] = ua * ((ucol >> (8 * ch)) & 255);
+    }
+    ia[0] = 256 - fa;
+    ia[1] = 256 - ua;
+    const ap_uint<24> ccol = (ap_uint<24>)(ccl & 0xFFFFFF);
+
+    // rows max(ya - 1, 0) .. ya first, then for each output row the one below it and the row itself
+    int s_prev = 0, s_cur = 1, s_next = 2;
+    rowpos_t lp = rowpos_at(rlo, c.has_l && !c.bil ? c.lh : 0, c.oh), mp = rowpos_at(rlo, c.mh, c.oh);
+    if (rlo < c.ya) ovl_compute(mem, c, rlo, lp, mp, lb0, lb1, mb, ring, vrow, s_prev);
+    ovl_compute(mem, c, c.ya, lp, mp, lb0, lb1, mb, ring, vrow, s_cur);
+ROWS:
+    for (int y = c.ya; y < c.yb; y++) {
+#pragma HLS LOOP_TRIPCOUNT max=512
+        if (y + 1 < c.oh) ovl_compute(mem, c, y + 1, lp, mp, lb0, lb1, mb, ring, vrow, s_next);
+        ovl_emit(mem, c, y, ring, vrow, s_prev, s_cur, s_next, lut, ac, ia, ccol, bb, ob);
+        const int t = s_prev;
+        s_prev = s_cur;
+        s_cur = s_next;
+        s_next = t;
+    }
+    return VIS_OK;
+}
+
+// ===================================================================================== top
+int vis_layer(word_t* mem, int desc) {
+#pragma HLS INTERFACE m_axi port=mem offset=slave bundle=gmem depth=16384 max_read_burst_length=16 num_read_outstanding=2 max_write_burst_length=16 num_write_outstanding=2
+#pragma HLS INTERFACE s_axilite port=mem bundle=control
+#pragma HLS INTERFACE s_axilite port=desc bundle=control
+#pragma HLS INTERFACE s_axilite port=return bundle=control
+    if (!span_ok(desc, 8)) return VIS_BAD;
+    word_t d[8];
+DESC:
+    for (int i = 0; i < 8; i++) {
+#pragma HLS PIPELINE II=1
+        d[i] = mem[desc + i];
+    }
+    const int f0 = fld(d, 0);
+    if ((f0 & ~255) != VIS_MAGIC) return VIS_BAD;
+    if ((f0 & 255) == VIS_OP_REG) return run_reg(mem, d);
+    if ((f0 & 255) == VIS_OP_OVL) return run_ovl(mem, d);
+    return VIS_BAD;
+}

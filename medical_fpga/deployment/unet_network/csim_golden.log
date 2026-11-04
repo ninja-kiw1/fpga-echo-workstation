@@ -1,0 +1,143 @@
+﻿NOTE: Using modified tcl85t.dll from https://gitenterprise.xilinx.com/ACT/vitis_hls_tcl
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+  **** SW Build 3854077 on May  4 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/xlinx2023.1/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/xlinx2023.1/Vitis_HLS/2023.1/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user '21888' on host 'ninja_kiwi' (Windows NT_amd64 version 6.2) on Wed Sep 23 09:01:25 -0700 2026
+INFO: [HLS 200-10] In directory 'E:/PLD/medical_fpga/deployment/unet_network'
+Sourcing Tcl script '.\run_csim.tcl'
+INFO: [HLS 200-1510] Running: open_project unet_network 
+INFO: [HLS 200-10] Creating and opening project 'E:/PLD/medical_fpga/deployment/unet_network/build/unet_network'.
+INFO: [HLS 200-1510] Running: set_top conv_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp -cflags -IE:/PLD/medical_fpga/deployment/unet_conv/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp -cflags -IE:/PLD/medical_fpga/deployment/unet_eltwise/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/medical_fpga/deployment/unet_network/tb/test_network.cpp -cflags -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/medical_fpga/deployment/unet_network/tb/test_network.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/PLD/medical_fpga/deployment/unet_network/build/unet_network/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -O -argv E:/PLD/medical_fpga/deployment/unet_network/vectors images_golden.txt 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building optimized C Simulation binaries
+   Compiling ../../../../../tb/test_network.cpp in release mode
+   Compiling ../../../../../../unet_eltwise/src/eltwise_layer.cpp in release mode
+   Compiling ../../../../../../unet_conv/src/conv_layer.cpp in release mode
+   Generating csim.exe
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../tb/test_network.cpp:8:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../tb/test_network.cpp:8:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../../unet_eltwise/src/eltwise_layer.hpp:3,
+                 from ../../../../../../unet_eltwise/src/eltwise_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../../unet_eltwise/src/eltwise_layer.hpp:3,
+                 from ../../../../../../unet_eltwise/src/eltwise_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:149:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../../unet_conv/src/conv_layer.hpp:3,
+                 from ../../../../../../unet_conv/src/conv_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/gmp.h:58:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_fpo.h:143:0,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/hls_half_fpo.h:18,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/hls_half.h:25,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_private.h:52,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/etc/ap_common.h:666,
+                 from D:/xlinx2023.1/Vitis_HLS/2023.1/include/ap_int.h:10,
+                 from ../../../../../../unet_conv/src/conv_layer.hpp:3,
+                 from ../../../../../../unet_conv/src/conv_layer.cpp:1:
+D:/xlinx2023.1/Vitis_HLS/2023.1/include/floating_point_v7_1_bitacc_cmodel.h:141:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+PASS im0002 node x 512x512x3 mismatches=0
+PASS im0002 node first_block_2 512x512x8 mismatches=0
+PASS im0002 node first_block_5 512x512x8 mismatches=0
+PASS im0002 node first_shortcut_1 512x512x8 mismatches=0
+PASS im0002 node add 512x512x8 mismatches=0
+PASS im0002 node down_path_0_pool 256x256x8 mismatches=0
+PASS im0002 node down_path_0_block_2 256x256x16 mismatches=0
+PASS im0002 node down_path_0_block_5 256x256x16 mismatches=0
+PASS im0002 node down_path_0_shortcut_1 256x256x16 mismatches=0
+PASS im0002 node add_1 256x256x16 mismatches=0
+PASS im0002 node down_path_1_pool 128x128x16 mismatches=0
+PASS im0002 node down_path_1_block_2 128x128x32 mismatches=0
+PASS im0002 node down_path_1_block_5 128x128x32 mismatches=0
+PASS im0002 node down_path_1_shortcut_1 128x128x32 mismatches=0
+PASS im0002 node add_2 128x128x32 mismatches=0
+PASS im0002 node up_path_0_up_layer_block_0 256x256x16 mismatches=0
+PASS im0002 node up_path_0_conv_bridge_layer_block_2 256x256x16 mismatches=0
+PASS im0002 node cat 256x256x32 mismatches=0
+PASS im0002 node up_path_0_conv_layer_block_2 256x256x16 mismatches=0
+PASS im0002 node up_path_0_conv_layer_block_5 256x256x16 mismatches=0
+PASS im0002 node up_path_0_conv_layer_shortcut_1 256x256x16 mismatches=0
+PASS im0002 node add_3 256x256x16 mismatches=0
+PASS im0002 node up_path_1_up_layer_block_0 512x512x8 mismatches=0
+PASS im0002 node up_path_1_conv_bridge_layer_block_2 512x512x8 mismatches=0
+PASS im0002 node cat_1 512x512x16 mismatches=0
+PASS im0002 node up_path_1_conv_layer_block_2 512x512x8 mismatches=0
+PASS im0002 node up_path_1_conv_layer_block_5 512x512x8 mismatches=0
+PASS im0002 node up_path_1_conv_layer_shortcut_1 512x512x8 mismatches=0
+PASS im0002 node add_4 512x512x8 mismatches=0
+PASS im0002 node final 512x512x1 mismatches=0
+PASS image im0002 final 512x512 mismatches=0 (all nodes checked)
+SUMMARY nodes=30 images=1 failed_images=0
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 252.003 seconds; current allocated memory: 1.102 MB.
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 2 seconds. Total elapsed time: 256.875 seconds; peak allocated memory: 1.038 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Wed Sep 23 09:05:42 2026...

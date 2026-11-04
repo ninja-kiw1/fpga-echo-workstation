@@ -1,0 +1,39 @@
+﻿screen 1/26 first_block_2: two-stage 3D Dice 0.96220 gain -0.00002
+screen 2/26 first_block_5: two-stage 3D Dice 0.96317 gain +0.00095
+screen 3/26 first_shortcut_1: two-stage 3D Dice 0.96241 gain +0.00019
+screen 4/26 add: two-stage 3D Dice 0.96241 gain +0.00018
+screen 5/26 down_path_0_block_2: two-stage 3D Dice 0.96221 gain -0.00001
+screen 6/26 down_path_0_block_5: two-stage 3D Dice 0.96154 gain -0.00068
+screen 7/26 down_path_0_shortcut_1: two-stage 3D Dice 0.96203 gain -0.00019
+screen 8/26 add_1: two-stage 3D Dice 0.96200 gain -0.00022
+screen 9/26 down_path_1_block_2: two-stage 3D Dice 0.96311 gain +0.00088
+screen 10/26 down_path_1_block_5: two-stage 3D Dice 0.96235 gain +0.00013
+screen 11/26 down_path_1_shortcut_1: two-stage 3D Dice 0.96221 gain -0.00001
+screen 12/26 add_2: two-stage 3D Dice 0.96215 gain -0.00008
+screen 13/26 up_path_0_up_layer_block_0: two-stage 3D Dice 0.96224 gain +0.00001
+screen 14/26 up_path_0_conv_bridge_layer_block_2: two-stage 3D Dice 0.96221 gain -0.00001
+screen 15/26 cat: two-stage 3D Dice 0.96329 gain +0.00106
+screen 16/26 up_path_0_conv_layer_block_2: two-stage 3D Dice 0.96276 gain +0.00054
+screen 17/26 up_path_0_conv_layer_block_5: two-stage 3D Dice 0.96669 gain +0.00447
+screen 18/26 up_path_0_conv_layer_shortcut_1: two-stage 3D Dice 0.96262 gain +0.00040
+screen 19/26 add_3: two-stage 3D Dice 0.96274 gain +0.00052
+screen 20/26 up_path_1_up_layer_block_0: two-stage 3D Dice 0.96219 gain -0.00003
+screen 21/26 up_path_1_conv_bridge_layer_block_2: two-stage 3D Dice 0.96300 gain +0.00078
+screen 22/26 cat_1: two-stage 3D Dice 0.95750 gain -0.00472
+screen 23/26 up_path_1_conv_layer_block_2: two-stage 3D Dice 0.96542 gain +0.00320
+screen 24/26 up_path_1_conv_layer_block_5: two-stage 3D Dice 0.96513 gain +0.00291
+screen 25/26 up_path_1_conv_layer_shortcut_1: two-stage 3D Dice 0.96195 gain -0.00028
+screen 26/26 add_4: two-stage 3D Dice 0.96097 gain -0.00126
+confirm all INT8: val two-stage 3D Dice 0.94911
+confirm ['up_path_0_conv_layer_block_5']: val two-stage 3D Dice 0.95290
+confirm ['up_path_1_conv_layer_block_2']: val two-stage 3D Dice 0.95215
+confirm ['up_path_1_conv_layer_block_5']: val two-stage 3D Dice 0.95210
+confirm ['up_path_0_conv_layer_block_5', 'up_path_1_conv_layer_block_2']: val two-stage 3D Dice 0.95493
+{'case': 'spleen_10', 'window': [143, 244, 21, 41], 'slices': 21, 'dice_single': 0.9671109945387951, 'dice_fp32': 0.9709699421641268, 'dice': 0.9667748327254975}
+{'case': 'spleen_25', 'window': [184, 256, 41, 70], 'slices': 30, 'dice_single': 0.960088760513968, 'dice_fp32': 0.9641840474817199, 'dice': 0.9577680760871632}
+{'case': 'spleen_41', 'window': [171, 225, 62, 80], 'slices': 19, 'dice_single': 0.9332235578242494, 'dice_fp32': 0.9498304719875141, 'dice': 0.9443180935686788}
+{'case': 'spleen_47', 'window': [182, 237, 62, 87], 'slices': 26, 'dice_single': 0.9323962942322725, 'dice_fp32': 0.9570550848952124, 'dice': 0.9611092665040204}
+{'case': 'spleen_52', 'window': [151, 256, 69, 97], 'slices': 29, 'dice_single': 0.9708016948441498, 'dice_fp32': 0.972268913375805, 'dice': 0.9750037060305942}
+{'case': 'spleen_56', 'window': [175, 256, 16, 29], 'slices': 14, 'dice_single': 0.9265726203701763, 'dice_fp32': 0.9272168440420683, 'dice': 0.92594510616261}
+{'case': 'spleen_59', 'window': [159, 238, 18, 44], 'slices': 27, 'dice_single': 0.9533720887255601, 'dice_fp32': 0.9550047347006733, 'dice': 0.9535760030187557}
+selected INT16 ['up_path_0_conv_layer_block_5', 'up_path_1_conv_layer_block_2']; val two-stage 3D Dice FP32 0.9566 | all-INT8 0.9491 | mixed 0.9549 (single stage 0.9491)

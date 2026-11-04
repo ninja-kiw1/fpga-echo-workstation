@@ -1,0 +1,18 @@
+{
+ "tag": "reg_absdiff",
+ "kind": "hand-built weights, no training",
+ "computes": "|R - G| per pixel",
+ "float_max_error": 0.0,
+ "selected_int16": [],
+ "output_scale": 0.007874015748031496,
+ "integer_vs_exact": {
+  "mean": -0.08454923143573836,
+  "max_abs": 1.4901960784313673,
+  "definition": "logit - |a-b|*127/255"
+ },
+ "tiles_independent_at_512": true,
+ "max_accumulator_abs_bound": 1500037,
+ "plan_sha256": "f8f704ebdab4fcd11e37ef73d97a8b76dba20b30bd7963d701a8cd6a94715daa",
+ "parameters_sha256": "7807cd55348d54adfea421ccb26a9d4b881a53e358683a9247146c4f9da986c6",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

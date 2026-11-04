@@ -1,0 +1,52 @@
+ssh ok
+[up] 源码 + 512 golden
+BUILD_RC=0
+
+===== UNET_OVL_PROBE=1 跑整网(512) =====
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f92431000
+[ai] OVL probe ON: 每次 ap 期间并发一笔 DMA 读并校验
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[ovl] DMA+IP concurrent-read check: ok=114 / bad=0, 6816 KB total
+[prof] total=963073 us  ap=571649  put=107780  get=208794  zero=218  other=74632
+[prof] strips=826  put=7322564 words  get=5777408 words  params=48068 words
+[prof] get split: DMA=5777408 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=940  ioctl=112475 us  bounce_memcpy=95923 us
+[prof] per-node: idx ap_us bram_us
+[prof]    1     33885     13474
+[prof]    2     33888     13347
+[prof]    3      9008     12744
+[prof]    4      8216     17105
+[prof]    5      4076      6454
+[prof]    6     15570      5505
+[prof]    7     30448      6826
+[prof]    8      3846      5395
+[prof]    9      4370      8625
+[prof]   10      1833      3119
+[prof]   11     14353      2806
+[prof]   12     28903      3523
+[prof]   13      2579      2708
+[prof]   14      2438      4492
+[prof]   15      7726      5458
+[prof]   16     30429      6772
+[prof]   17     18276     20801
+[prof]   18     62839      9484
+[prof]   19     30429      6733
+[prof]   20      9750      8420
+[prof]   21      4363      8585
+[prof]   22     10213     10769
+[prof]   23     33891     13326
+[prof]   24     36656     41706
+[prof]   25     68073     18667
+[prof]   26     33903     13292
+[prof]   27     14434     16948
+[prof]   28      8220     16956
+[prof]   29      9034     12752
+timing: 1 iter(s) in 963.2 ms  ->  963.25 ms/frame (whole net, shift=0)
+profile us : ap(PL)=571649  put(->BRAM)=107780  get(BRAM->)=208794  zero=218  other=74632
+profile mem: put=7322564 get=5777408 params=48068 words  strips=826
+compare: mismatch = 0 / 262144  ->  PASS
+SELFTEST_DONE
+
+PROF_ALL_OVL_DONE

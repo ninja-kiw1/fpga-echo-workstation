@@ -1,0 +1,17 @@
+uploaded; building...
+BUILD_OK
+== PL BRAM 0xB0000000 (/dev/mem, Device) ==
+  LDP x1       16B/iter                 25979 us |  198.20 ns/16B |    80.72 MB/s | chk=0
+  LDP x4       64B/iter                 26130 us |  199.36 ns/16B |    80.26 MB/s | chk=0
+  ld1 x1       16B/iter                 51969 us |  396.49 ns/16B |    40.35 MB/s | chk=0
+  ld1 x2 indep 32B/iter                 51756 us |  394.87 ns/16B |    40.52 MB/s | chk=0
+  ld1 x4 indep 64B/iter                 51823 us |  395.38 ns/16B |    40.47 MB/s | chk=0
+  ld1 x8 indep 128B/iter                52022 us |  396.90 ns/16B |    40.31 MB/s | chk=0
+  glibc memcpy (参考)                 25927 us |  197.81 ns/16B |    80.89 MB/s | chk=0
+== 对手: 普通可缓存堆内存 ==
+  ld1 x1       16B/iter                  1008 us |    7.69 ns/16B |  2080.51 MB/s | chk=0
+  ld1 x4 indep 64B/iter                   665 us |    5.07 ns/16B |  3153.61 MB/s | chk=0
+RC=0
+
+RECON3_DONE
+EXIT=0 

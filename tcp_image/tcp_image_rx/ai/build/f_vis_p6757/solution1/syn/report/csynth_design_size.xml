@@ -1,0 +1,74 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">, 40141, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll,  3696, user unroll pragmas are applied</column>
+            <column name="">(2) simplification,  2937, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline,  2906, user inline pragmas are applied</column>
+            <column name="">(4) simplification,  2896, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition,  3178, user array partition pragmas are applied</column>
+            <column name="">(2) simplification,  2995, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate,  2995, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape,  2995, apply array reshape pragmas</column>
+            <column name="">(5) access patterns,  3118, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification,  2945, loop and instruction simplification</column>
+            <column name="">(2) parallelization,  2875, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition,  2831, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification,  2831, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering,  2862, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations,  2860, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="vis_layer" col1="vis_layer.cpp:595" col2="40141" col3="2896" col4="3118" col5="2831" col6="2860">
+                    <row id="11" col0="span_ok" col1="vis_layer.cpp:25" col2="9" col3="" col4="" col5="" col6=""/>
+                    <row id="1" col0="fld" col1="vis_layer.cpp:20" col2="72" col3="" col4="" col5="" col6=""/>
+                    <row id="8" col0="run_ovl" col1="vis_layer.cpp:467" col2="20316" col3="1637" col4="1821" col5="1608" col6="1632">
+                        <row id="1" col0="fld" col1="vis_layer.cpp:20" col2="1224" col2_disp="1,224 (17 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="7" col0="rowpos_step" col1="vis_layer.cpp:311" col2="426" col2_disp="  426 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="11" col0="span_ok" col1="vis_layer.cpp:25" col2="45" col2_disp="   45 (5 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="6" col0="ovl_compute" col1="vis_layer.cpp:322" col2="8382" col2_disp="8,382 (3 calls)" col3="720" col3_disp=" 720 (3 calls)" col4="828" col4_disp=" 828 (3 calls)" col5="771" col5_disp=" 771 (3 calls)" col6="789" col6_disp=" 789 (3 calls)">
+                            <row id="7" col0="rowpos_step" col1="vis_layer.cpp:311" col2="1278" col2_disp="1,278 (6 calls)" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="5" col0="ovl_emit" col1="vis_layer.cpp:380" col2="5065" col3="408" col4="424" col5="394" col6="399"/>
+                    </row>
+                    <row id="10" col0="run_reg" col1="vis_layer.cpp:137" col2="19692" col3="1218" col4="1206" col5="1171" col6="1168">
+                        <row id="1" col0="fld" col1="vis_layer.cpp:20" col2="504" col2_disp="  504 (7 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="11" col0="span_ok" col1="vis_layer.cpp:25" col2="36" col2_disp="   36 (4 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="12" col0="reg_eval" col1="vis_layer.cpp:79" col2="9674" col3="632" col4="604" col5="602" col6="608">
+                            <row id="14" col0="ceil4" col1="vis_layer.cpp:44" col2="614" col2_disp="  614 (2 calls)" col3="" col4="" col5="" col6=""/>
+                            <row id="2" col0="mul2&lt;9&gt;" col1="vis_layer.cpp:51" col2="400" col2_disp="  400 (2 calls)" col3="" col4="" col5="" col6=""/>
+                            <row id="4" col0="mul2&lt;12&gt;" col1="vis_layer.cpp:51" col2="200" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="3" col0="uabs9" col1="vis_layer.cpp:39" col2="408" col2_disp="  408 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="14" col0="ceil4" col1="vis_layer.cpp:44" col2="614" col2_disp="  614 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="13" col0="better" col1="vis_layer.cpp:67" col2="1341" col3="" col4="" col5="" col6="">
+                            <row id="9" col0="mul42" col1="vis_layer.cpp:60" col2="170" col2_disp="  170 (2 calls)" col3="" col4="" col5="" col6=""/>
+                            <row id="3" col0="uabs9" col1="vis_layer.cpp:39" col2="816" col2_disp="  816 (4 calls)" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="9" col0="mul42" col1="vis_layer.cpp:60" col2="" col3="16" col3_disp="  16 (2 calls)" col4="16" col4_disp="  16 (2 calls)" col5="16" col5_disp="  16 (2 calls)" col6="18" col6_disp="  18 (2 calls)"/>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>

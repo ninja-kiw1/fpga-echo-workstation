@@ -1,0 +1,19 @@
+== echo models 0-2 + switching
+ECHO_BOARD_ACCEPTANCE_PASS
+== F2 inter
+INTER_BOARD_ACCEPTANCE_PASS
+== F3 closed loop (512-frame path)
+F3_BOARD_ACCEPTANCE_PASS
+== F5 reg
+F5_BOARD_PASS
+== fundus v4 client
+BOARD_V4_ACCEPTANCE_PASS 75 frames
+== stability 1000 mixed
+STABILITY_V5_FAIL 998 frames in 175 s
+== v5 GUI
+GUI_V5_PASS
+== F5 GUI
+GUI_F5_PASS
+== F4 GUI (compact path)
+GUI_F4_PASS
+== REGRESSION DONE

@@ -1,0 +1,13 @@
+[Unit]
+Description=plbram: map PL tensor BRAM (0xB0000000) as Normal-NC /dev/plbram
+After=local-fs.target
+Before=tcp-image-server.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/modprobe plbram base=0xB0000000 size=0x40000
+ExecStop=/sbin/rmmod plbram
+
+[Install]
+WantedBy=multi-user.target

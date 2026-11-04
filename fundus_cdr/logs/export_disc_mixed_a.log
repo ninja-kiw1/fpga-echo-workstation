@@ -1,0 +1,4 @@
+golden {'input': 'roi_000', 'nodes_checked': 30, 'nodes_with_diff': [], 'final_equal': True}
+E:\PLD\fundus_cdr\export_verify.py:107: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  ref512 = run_integer(plan, arrays, torch.from_numpy(full).permute(2, 0, 1).unsqueeze(0))[0][0, 0].numpy()
+PASS {"tag": "disc_mixed_a", "task": "disc_mixed", "resolution": 128, "nodes": 30, "golden": {"input": "roi_000", "nodes_checked": 30, "nodes_with_diff": [], "final_equal": true}, "final_outputs": {"inputs": 404, "mismatching": []}, "full512_mismatching_pixels": 0, "pass": true}

@@ -1,0 +1,88 @@
+{
+ "utc": "2026-10-08T12:56:32.441013+00:00",
+ "host": "192.168.1.254",
+ "tag": "r128",
+ "checks": [
+  {
+   "name": "golden_ISIC_0000010_logits",
+   "pass_": true,
+   "mismatches": 0,
+   "pixels": 16384,
+   "ai_us": 37676,
+   "total_ms": 305.2
+  },
+  {
+   "name": "threshold_changes_mask_not_logits",
+   "pass_": true,
+   "lesion_px_thr1": 20784,
+   "lesion_px_thr_minus3": 23648
+  },
+  {
+   "name": "sample_ISIC_0003056",
+   "pass_": true,
+   "ai_us": 37766,
+   "total_ms": 111.5,
+   "board_jaccard": 0.455
+  },
+  {
+   "name": "sample_ISIC_0010013",
+   "pass_": true,
+   "ai_us": 37731,
+   "total_ms": 112.8,
+   "board_jaccard": 0.7249
+  },
+  {
+   "name": "sample_ISIC_0010201",
+   "pass_": true,
+   "ai_us": 37720,
+   "total_ms": 113.5,
+   "board_jaccard": 0.9457
+  },
+  {
+   "name": "sample_ISIC_0010477",
+   "pass_": true,
+   "ai_us": 37699,
+   "total_ms": 113.5,
+   "board_jaccard": 0.8241
+  },
+  {
+   "name": "sample_ISIC_0011092",
+   "pass_": true,
+   "ai_us": 37743,
+   "total_ms": 114.6,
+   "board_jaccard": 0.7762
+  },
+  {
+   "name": "sample_ISIC_0011336",
+   "pass_": true,
+   "ai_us": 37723,
+   "total_ms": 114.5,
+   "board_jaccard": 0.9212
+  },
+  {
+   "name": "test_set_379_on_board",
+   "pass_": true,
+   "mismatching": [],
+   "board_metrics": {
+    "jaccard": 0.8181610203879661,
+    "dice": 0.8906027498394656,
+    "accuracy": 0.9448612416823109,
+    "sensitivity": 0.8946542252138927,
+    "specificity": 0.966067594205758,
+    "thresholded_jaccard": 0.7666669468536012
+   },
+   "ai_ms": {
+    "mean": 37.7351345646438,
+    "min": 37.649,
+    "max": 38.711
+   },
+   "round_trip_ms": {
+    "mean": 115.26236121372102,
+    "min": 111.25610000090091,
+    "max": 323.11029999982566
+   },
+   "seconds": 72.0
+  }
+ ],
+ "pass_": true
+}

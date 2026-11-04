@@ -1,0 +1,9 @@
+the_ROM_image:
+{
+	[fsbl_config] a53_x64
+	[bootloader] E:/fpga/my_project/tcp_image_rx/boot/parts/fsbl.elf
+	[pmufw_image] E:/fpga/my_project/tcp_image_rx/boot/parts/pmufw.elf
+	[destination_device=pl] E:/fpga/my_project/tcp_image_rx/boot/parts/boot_design.bin
+	[destination_cpu=a53-0, exception_level=el-3] E:/fpga/my_project/tcp_image_rx/boot/parts/bl31.elf
+	[destination_cpu=a53-0, exception_level=el-2] E:/fpga/my_project/tcp_image_rx/boot/parts/u-boot.elf
+}

@@ -1,0 +1,642 @@
+{
+ "time": "2026-11-03 06:23:11",
+ "host": "192.168.1.254",
+ "port": 5060,
+ "clinical_conf": {
+  "full": {
+   "review_margin": 6.0,
+   "rr_cv_irregular": 0.276,
+   "min_beats_avg": 5
+  },
+  "realtime": {
+   "review_margin": 6.5,
+   "rr_cv_irregular": 0.225,
+   "min_beats_avg": 5
+  },
+  "note": "VAL only (echonet/eval_clinical.py -> results/clinical/clinical_val.json): review_margin = smallest margin (0.5 steps) flagging >= 90% of VAL videos whose LVEF band (<=40/41-49/>=50, 2021 ESC) differs from the reference; rr_cv_irregular = 90th percentile of the RR coefficient of variation (RR from consecutive ED frames, no ECG); min_beats_avg = 5 (ASE/EACVI consensus for AF). Index beat EF is shown for reference only: on VAL its error is larger than the multi-beat median."
+ },
+ "echo": {
+  "runs": 13,
+  "different": 0,
+  "rows": [
+   {
+    "video": "0X100009310A3BD7FC.avi",
+    "mode": "full",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.021757131728816863,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X100009310A3BD7FC.avi",
+    "mode": "realtime",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.038880789567986934,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X10094BA0A028EAC3.avi",
+    "mode": "full",
+    "same": true,
+    "band": 0,
+    "review": true,
+    "n_beats": 4,
+    "rr_cv": 0.6775116519791325,
+    "irregular": true,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X10094BA0A028EAC3.avi",
+    "mode": "realtime",
+    "same": true,
+    "band": 0,
+    "review": true,
+    "n_beats": 4,
+    "rr_cv": 0.08503766788122596,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X1013E8A4864781B.avi",
+    "mode": "full",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.02401460532140368,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X1013E8A4864781B.avi",
+    "mode": "realtime",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.048029210642807414,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X1039B49145DF4F25.avi",
+    "mode": "full",
+    "same": true,
+    "band": 2,
+    "review": true,
+    "n_beats": 4,
+    "rr_cv": 0.04187161953475516,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X105039B849CDB1CD.avi",
+    "mode": "full",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.053366549523513065,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X10ABB3401FC5EC2D.avi",
+    "mode": "full",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.04341136621809137,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X10AD385C206C85C.avi",
+    "mode": "full",
+    "same": true,
+    "band": 1,
+    "review": true,
+    "n_beats": 4,
+    "rr_cv": 0.13576677497642786,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X10B063E16BA7BEE3.avi",
+    "mode": "full",
+    "same": true,
+    "band": 1,
+    "review": true,
+    "n_beats": 4,
+    "rr_cv": 0.1300655831774182,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X10E47D630E15DE12.avi",
+    "mode": "full",
+    "same": true,
+    "band": 0,
+    "review": false,
+    "n_beats": 6,
+    "rr_cv": 0.2027194648000773,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   },
+   {
+    "video": "0X1108EED6EC60971E.avi",
+    "mode": "full",
+    "same": true,
+    "band": 2,
+    "review": false,
+    "n_beats": 4,
+    "rr_cv": 0.02562779032036949,
+    "irregular": false,
+    "board": null,
+    "pc": null
+   }
+  ]
+ },
+ "ct": {
+  "cases": 7,
+  "different": 0,
+  "error_vs_gt": {
+   "volume_ml": {
+    "mean_pct": -1.6297390416109114,
+    "sd_pct": 3.2326487867565743,
+    "max_abs_pct": 6.1048725950315745
+   },
+   "length_mm": {
+    "mean_pct": -0.09337068160597539,
+    "sd_pct": 6.6056045399902885,
+    "max_abs_pct": 11.764705882352944
+   },
+   "width_mm": {
+    "mean_pct": 2.9273227415807197,
+    "sd_pct": 5.529868983996306,
+    "max_abs_pct": 14.879290625913155
+   },
+   "thickness_mm": {
+    "mean_pct": 1.461144196195988,
+    "sd_pct": 10.159979235026153,
+    "max_abs_pct": 20.199194693930167
+   },
+   "splenic_index": {
+    "mean_pct": 3.9710792598041924,
+    "sd_pct": 9.794351194346289,
+    "max_abs_pct": 21.8388078256887
+   }
+  },
+  "rows": [
+   {
+    "case": "spleen_10",
+    "same": true,
+    "board": {
+     "length_mm": 85,
+     "width_mm": 117.93780700627225,
+     "thickness_mm": 73.536264443952,
+     "splenic_index": 737.179989936006,
+     "width_slice": 31,
+     "width_ends": [
+      402,
+      213,
+      350,
+      322
+     ]
+    },
+    "pred": {
+     "volume_ml": 245.08452323271217,
+     "length_mm": 85.0,
+     "width_mm": 117.93780700627225,
+     "thickness_mm": 73.536264443952,
+     "splenic_index": 737.179989936006,
+     "z_range": [
+      23,
+      39
+     ],
+     "width_slice": 31,
+     "width_ends": [
+      402,
+      213,
+      350,
+      322
+     ]
+    },
+    "gt": {
+     "volume_ml": 253.062001098939,
+     "length_mm": 85.0,
+     "width_mm": 116.06307149265922,
+     "thickness_mm": 70.37735981130095,
+     "splenic_index": 694.298066175708,
+     "z_range": [
+      23,
+      39
+     ],
+     "width_slice": 31,
+     "width_ends": [
+      401,
+      215,
+      340,
+      317
+     ]
+    },
+    "err_pct": {
+     "volume_ml": -3.1523807729268216,
+     "length_mm": 0.0,
+     "width_mm": 1.6152730489573663,
+     "thickness_mm": 4.488523924626975,
+     "splenic_index": 6.1762988908348415
+    },
+    "wall_s": 2.8210548000006384
+   },
+   {
+    "case": "spleen_25",
+    "same": true,
+    "board": {
+     "length_mm": 55,
+     "width_mm": 90.02469279314425,
+     "thickness_mm": 46.38957270141367,
+     "splenic_index": 229.6913867187498,
+     "width_slice": 55,
+     "width_ends": [
+      452,
+      278,
+      334,
+      320
+     ]
+    },
+    "pred": {
+     "volume_ml": 98.70318603515625,
+     "length_mm": 55.0,
+     "width_mm": 90.02469279314425,
+     "thickness_mm": 46.38957270141367,
+     "splenic_index": 229.6913867187498,
+     "z_range": [
+      45,
+      66
+     ],
+     "width_slice": 55,
+     "width_ends": [
+      452,
+      278,
+      334,
+      320
+     ]
+    },
+    "gt": {
+     "volume_ml": 105.1206689453125,
+     "length_mm": 55.0,
+     "width_mm": 89.10181149954248,
+     "thickness_mm": 44.956757311781075,
+     "splenic_index": 220.31506835937478,
+     "z_range": [
+      45,
+      66
+     ],
+     "width_slice": 56,
+     "width_ends": [
+      450,
+      278,
+      332,
+      316
+     ]
+    },
+    "err_pct": {
+     "volume_ml": -6.1048725950315745,
+     "length_mm": 0.0,
+     "width_mm": 1.035760416168996,
+     "thickness_mm": 3.1870968355120155,
+     "splenic_index": 4.255867939128222
+    },
+    "wall_s": 4.362744300000486
+   },
+   {
+    "case": "spleen_41",
+    "same": true,
+    "board": {
+     "length_mm": 75,
+     "width_mm": 115.79094932382453,
+     "thickness_mm": 70.43919863613485,
+     "splenic_index": 611.7166259765625,
+     "width_slice": 70,
+     "width_ends": [
+      414,
+      261,
+      296,
+      310
+     ]
+    },
+    "pred": {
+     "volume_ml": 180.486484375,
+     "length_mm": 75.0,
+     "width_mm": 115.79094932382453,
+     "thickness_mm": 70.43919863613485,
+     "splenic_index": 611.7166259765625,
+     "z_range": [
+      64,
+      78
+     ],
+     "width_slice": 70,
+     "width_ends": [
+      414,
+      261,
+      296,
+      310
+     ]
+    },
+    "gt": {
+     "volume_ml": 189.6561767578125,
+     "length_mm": 85.0,
+     "width_mm": 100.79357967214479,
+     "thickness_mm": 58.60205537607641,
+     "splenic_index": 502.0704296874998,
+     "z_range": [
+      62,
+      78
+     ],
+     "width_slice": 70,
+     "width_ends": [
+      403,
+      286,
+      292,
+      293
+     ]
+    },
+    "err_pct": {
+     "volume_ml": -4.834903107069389,
+     "length_mm": -11.764705882352944,
+     "width_mm": 14.879290625913155,
+     "thickness_mm": 20.199194693930167,
+     "splenic_index": 21.8388078256887
+    },
+    "wall_s": 4.476618400000007
+   },
+   {
+    "case": "spleen_47",
+    "same": true,
+    "board": {
+     "length_mm": 110,
+     "width_mm": 134.82068403985446,
+     "thickness_mm": 85.90388981030173,
+     "splenic_index": 1273.978330450008,
+     "width_slice": 74,
+     "width_ends": [
+      419,
+      234,
+      321,
+      375
+     ]
+    },
+    "pred": {
+     "volume_ml": 428.1260595725872,
+     "length_mm": 110.0,
+     "width_mm": 134.82068403985446,
+     "thickness_mm": 85.90388981030173,
+     "splenic_index": 1273.978330450008,
+     "z_range": [
+      64,
+      85
+     ],
+     "width_slice": 74,
+     "width_ends": [
+      419,
+      234,
+      321,
+      375
+     ]
+    },
+    "gt": {
+     "volume_ml": 425.9437559052577,
+     "length_mm": 110.0,
+     "width_mm": 129.42457966576464,
+     "thickness_mm": 86.10840391571077,
+     "splenic_index": 1225.8998380728822,
+     "z_range": [
+      64,
+      85
+     ],
+     "width_slice": 75,
+     "width_ends": [
+      422,
+      238,
+      326,
+      372
+     ]
+    },
+    "err_pct": {
+     "volume_ml": 0.5123455003329003,
+     "length_mm": 0.0,
+     "width_mm": 4.169304152290931,
+     "thickness_mm": -0.23750771830497452,
+     "splenic_index": 3.9218940148246784
+    },
+    "wall_s": 4.403463999999076
+   },
+   {
+    "case": "spleen_52",
+    "same": true,
+    "board": {
+     "length_mm": 100,
+     "width_mm": 79.53395279820737,
+     "thickness_mm": 37.78453013987934,
+     "splenic_index": 300.51530366476067,
+     "width_slice": 80,
+     "width_ends": [
+      448,
+      238,
+      403,
+      326
+     ]
+    },
+    "pred": {
+     "volume_ml": 183.01323716137279,
+     "length_mm": 100.0,
+     "width_mm": 79.53395279820737,
+     "thickness_mm": 37.78453013987934,
+     "splenic_index": 300.51530366476067,
+     "z_range": [
+      71,
+      95
+     ],
+     "width_slice": 80,
+     "width_ends": [
+      448,
+      238,
+      403,
+      326
+     ]
+    },
+    "gt": {
+     "volume_ml": 183.90163836074373,
+     "length_mm": 100.0,
+     "width_mm": 79.68036437134222,
+     "thickness_mm": 42.60725654247295,
+     "splenic_index": 339.49617261674996,
+     "z_range": [
+      71,
+      95
+     ],
+     "width_slice": 82,
+     "width_ends": [
+      451,
+      240,
+      397,
+      323
+     ]
+    },
+    "err_pct": {
+     "volume_ml": -0.4830849835215978,
+     "length_mm": 0.0,
+     "width_mm": -0.1837486240054309,
+     "thickness_mm": -11.319025898290569,
+     "splenic_index": -11.48197596795707
+    },
+    "wall_s": 5.624709399999119
+   },
+   {
+    "case": "spleen_56",
+    "same": true,
+    "board": {
+     "length_mm": 69.99969959259033,
+     "width_mm": 64.57846671156193,
+     "thickness_mm": 41.964647242929345,
+     "splenic_index": 189.70006614493877,
+     "width_slice": 25,
+     "width_ends": [
+      406,
+      261,
+      355,
+      338
+     ]
+    },
+    "pred": {
+     "volume_ml": 80.53440296811662,
+     "length_mm": 69.99969959259033,
+     "width_mm": 64.57846671156193,
+     "thickness_mm": 41.964647242929345,
+     "splenic_index": 189.70006614493877,
+     "z_range": [
+      18,
+      27
+     ],
+     "width_slice": 25,
+     "width_ends": [
+      406,
+      261,
+      355,
+      338
+     ]
+    },
+    "gt": {
+     "volume_ml": 78.07032128627728,
+     "length_mm": 62.9997296333313,
+     "width_mm": 64.60495888995416,
+     "thickness_mm": 45.61774536589479,
+     "splenic_index": 185.66855472659634,
+     "z_range": [
+      18,
+      26
+     ],
+     "width_slice": 23,
+     "width_ends": [
+      410,
+      257,
+      394,
+      348
+     ]
+    },
+    "err_pct": {
+     "volume_ml": 3.156233561283517,
+     "length_mm": 11.111111111111116,
+     "width_mm": -0.04100641629902757,
+     "thickness_mm": -8.008063734111271,
+     "splenic_index": 2.1713485217133233
+    },
+    "wall_s": 1.8429210999984207
+   },
+   {
+    "case": "spleen_59",
+    "same": true,
+    "board": {
+     "length_mm": 115,
+     "width_mm": 133.27613445661999,
+     "thickness_mm": 86.06978601209619,
+     "splenic_index": 1319.1705629180738,
+     "width_slice": 30,
+     "width_ends": [
+      410,
+      220,
+      363,
+      352
+     ]
+    },
+    "pred": {
+     "volume_ml": 424.5075011585673,
+     "length_mm": 115.0,
+     "width_mm": 133.27613445661999,
+     "thickness_mm": 86.06978601209619,
+     "splenic_index": 1319.1705629180738,
+     "z_range": [
+      20,
+      42
+     ],
+     "width_slice": 30,
+     "width_ends": [
+      410,
+      220,
+      363,
+      352
+     ]
+    },
+    "gt": {
+     "volume_ml": 426.6471832630408,
+     "length_mm": 115.0,
+     "width_mm": 134.60007970066636,
+     "thickness_mm": 84.4502073088226,
+     "splenic_index": 1307.2055329681116,
+     "z_range": [
+      20,
+      42
+     ],
+     "width_slice": 30,
+     "width_ends": [
+      409,
+      219,
+      358,
+      351
+     ]
+    },
+    "err_pct": {
+     "volume_ml": -0.5015108943434154,
+     "length_mm": 0.0,
+     "width_mm": -0.9836140119609538,
+     "thickness_mm": 1.9177912700095723,
+     "splenic_index": 0.9153135943966495
+    },
+    "wall_s": 2.849197699999422
+   }
+  ]
+ },
+ "verdict": "CLINICAL_BOARD_PASS",
+ "pass": true
+}

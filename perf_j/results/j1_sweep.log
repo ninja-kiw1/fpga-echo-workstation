@@ -1,0 +1,34 @@
+=== PC_UTC 2026-10-17T04:36:28.070389+00:00
+$ ./gdma_bench sweep 200
+INFO bounce=2048 KB xfers_so_far=132 errs=0
+SWEEP reps=200 (us; med mean p99 min)
+SIZE     64  dma    12.12    12.36    26.94    11.82  | cpu_rd      0.90      0.89 | cpu_wr     0.15     0.15 | bounce_mc    0.30    0.31
+JSON {"len":64,"dma_med":12.120,"dma_mean":12.359,"dma_p99":26.940,"dma_min":11.820,"cpu_rd_med":0.900,"cpu_wr_med":0.150,"bounce_mc_med":0.300}
+SIZE    256  dma    12.09    12.20    16.62    11.79  | cpu_rd      3.33      3.43 | cpu_wr     0.18     0.19 | bounce_mc    0.54    0.57
+JSON {"len":256,"dma_med":12.091,"dma_mean":12.204,"dma_p99":16.620,"dma_min":11.790,"cpu_rd_med":3.330,"cpu_wr_med":0.180,"bounce_mc_med":0.540}
+SIZE   1024  dma    12.81    13.00    17.61    12.57  | cpu_rd     12.33     12.52 | cpu_wr     0.48     0.50 | bounce_mc    0.81    0.84
+JSON {"len":1024,"dma_med":12.810,"dma_mean":13.000,"dma_p99":17.610,"dma_min":12.570,"cpu_rd_med":12.330,"cpu_wr_med":0.480,"bounce_mc_med":0.810}
+SIZE   2048  dma    13.59    13.76    18.96    13.35  | cpu_rd     24.33     24.39 | cpu_wr     1.14     1.13 | bounce_mc    1.14    1.20
+JSON {"len":2048,"dma_med":13.590,"dma_mean":13.763,"dma_p99":18.960,"dma_min":13.350,"cpu_rd_med":24.330,"cpu_wr_med":1.140,"bounce_mc_med":1.140}
+SIZE   4096  dma    15.12    15.29    20.31    14.85  | cpu_rd     48.30     48.43 | cpu_wr     2.40     2.44 | bounce_mc    1.80    1.86
+JSON {"len":4096,"dma_med":15.120,"dma_mean":15.287,"dma_p99":20.310,"dma_min":14.850,"cpu_rd_med":48.301,"cpu_wr_med":2.400,"bounce_mc_med":1.800}
+SIZE   8192  dma    20.10    20.28    25.38    19.80  | cpu_rd     96.33     96.50 | cpu_wr     4.92     4.98 | bounce_mc    3.15    3.27
+JSON {"len":8192,"dma_med":20.101,"dma_mean":20.284,"dma_p99":25.381,"dma_min":19.800,"cpu_rd_med":96.331,"cpu_wr_med":4.920,"bounce_mc_med":3.150}
+SIZE  16384  dma    26.16    26.29    31.35    25.86  | cpu_rd    192.27    193.68 | cpu_wr    10.53    10.62 | bounce_mc    6.18    6.11
+JSON {"len":16384,"dma_med":26.160,"dma_mean":26.290,"dma_p99":31.350,"dma_min":25.861,"cpu_rd_med":192.272,"cpu_wr_med":10.530,"bounce_mc_med":6.180}
+SIZE  32768  dma    38.97    39.14    44.22    38.61  | cpu_rd    384.24    385.41 | cpu_wr    21.03    21.70 | bounce_mc   11.70   11.84
+JSON {"len":32768,"dma_med":38.970,"dma_mean":39.140,"dma_p99":44.221,"dma_min":38.611,"cpu_rd_med":384.244,"cpu_wr_med":21.030,"bounce_mc_med":11.700}
+SIZE  65536  dma    63.99    64.22    75.36    63.66  | cpu_rd    768.13    770.78 | cpu_wr    42.63    43.51 | bounce_mc   23.13   23.14
+JSON {"len":65536,"dma_med":63.990,"dma_mean":64.221,"dma_p99":75.361,"dma_min":63.661,"cpu_rd_med":768.127,"cpu_wr_med":42.630,"bounce_mc_med":23.131}
+SIZE 103424  dma    92.94    92.82    98.67    91.02  | cpu_rd   1211.92   1214.79 | cpu_wr    65.64    67.23 | bounce_mc   36.45   36.42
+JSON {"len":103424,"dma_med":92.941,"dma_mean":92.825,"dma_p99":98.671,"dma_min":91.021,"cpu_rd_med":1211.922,"cpu_wr_med":65.641,"bounce_mc_med":36.450}
+SIZE 131072  dma   114.06   114.17   119.13   112.29  | cpu_rd   1535.80   1539.69 | cpu_wr    81.75    83.20 | bounce_mc   45.84   45.86
+JSON {"len":131072,"dma_med":114.061,"dma_mean":114.170,"dma_p99":119.131,"dma_min":112.291,"cpu_rd_med":1535.805,"cpu_wr_med":81.751,"bounce_mc_med":45.841}
+SIZE 196608  dma   164.13   164.26   176.94   162.18  | cpu_rd   2311.91   2308.51 | cpu_wr   121.77   124.24 | bounce_mc   69.72   70.65
+JSON {"len":196608,"dma_med":164.132,"dma_mean":164.261,"dma_p99":176.941,"dma_min":162.181,"cpu_rd_med":2311.913,"cpu_wr_med":121.772,"bounce_mc_med":69.720}
+SIZE 262144  dma   214.23   214.48   222.60   212.28  | cpu_rd   3079.80   3079.77 | cpu_wr   162.18   166.96 | bounce_mc   93.84   94.13
+JSON {"len":262144,"dma_med":214.232,"dma_mean":214.475,"dma_p99":222.602,"dma_min":212.282,"cpu_rd_med":3079.801,"cpu_wr_med":162.182,"bounce_mc_med":93.841}
+CHECK dma_vs_cpu_written OK
+
+exit=0
+restore: active

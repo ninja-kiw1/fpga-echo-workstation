@@ -1,0 +1,101 @@
+=== PC_UTC 2026-10-17T16:11:06.870938+00:00
+$ gcc --version | head -1 && uname -a && cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies 2>/dev/null || true && gcc -O3 -mcpu=cortex-a53 -std=gnu99 -Wall -o test_bm test_bm.c bm_sad.c && gcc -O3 -mcpu=cortex-a53 -std=gnu99 -Wall -o bench_bm bench_bm.c bm_sad.c -lm && gcc -O3 -mcpu=cortex-a53 -std=gnu99 -Wall -fno-tree-vectorize -o bench_bm_novec bench_bm.c bm_sad.c -lm && ./test_bm data && echo '== bench -O3' && taskset -c 1 ./bench_bm data 2 && echo '== bench -O3 -fno-tree-vectorize' && taskset -c 1 ./bench_bm_novec data 1 && cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq 2>/dev/null || true
+gcc (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0
+Linux EdgeBoard 4.14.0-xilinx-v2018.3 #5 SMP Thu Apr 1 14:52:47 UTC 2021 aarch64 aarch64 aarch64 GNU/Linux
+userspace
+1066666
+299999 399999 599999 1199999 
+aarch64: C + NEON; step-1 blocks 308, candidates 470624 (CAMUS VAL) + 135584 (random), SAD mismatches 0; argmin 2864, mismatches 0
+set 1 known shift (+3,-2) at R 6: integer 120 / 120, sub-pixel offset 0: 7 / 120
+BM_PS_BIT_EXACT
+== bench -O3
+CLK cpufreq 1066666 kHz, add-chain 1197.7 MHz
+RES impl=c           R=2 cand= 25 ns_per_block=  38635.8 ns_per_cand=1545.43 cyc_per_cand= 1851.0
+RES impl=neon        R=2 cand= 25 ns_per_block=   4888.8 ns_per_cand= 195.55 cyc_per_cand=  234.2
+RES impl=c+argmin    R=2 cand= 25 ns_per_block=  39025.2 ns_per_cand=1561.01 cyc_per_cand= 1869.6
+RES impl=neon+argmin R=2 cand= 25 ns_per_block=   5274.5 ns_per_cand= 210.98 cyc_per_cand=  252.7
+RES impl=c           R=4 cand= 81 ns_per_block= 123184.5 ns_per_cand=1520.80 cyc_per_cand= 1821.5
+RES impl=neon        R=4 cand= 81 ns_per_block=  14311.5 ns_per_cand= 176.69 cyc_per_cand=  211.6
+RES impl=c+argmin    R=4 cand= 81 ns_per_block= 124205.0 ns_per_cand=1533.39 cyc_per_cand= 1836.6
+RES impl=neon+argmin R=4 cand= 81 ns_per_block=  15327.4 ns_per_cand= 189.23 cyc_per_cand=  226.6
+RES impl=c           R=6 cand=169 ns_per_block= 256282.7 ns_per_cand=1516.47 cyc_per_cand= 1816.3
+RES impl=neon        R=6 cand=169 ns_per_block=  29033.6 ns_per_cand= 171.80 cyc_per_cand=  205.8
+RES impl=c+argmin    R=6 cand=169 ns_per_block= 258215.0 ns_per_cand=1527.90 cyc_per_cand= 1830.0
+RES impl=neon+argmin R=6 cand=169 ns_per_block=  30919.8 ns_per_cand= 182.96 cyc_per_cand=  219.1
+RES impl=c           R=8 cand=289 ns_per_block= 438228.3 ns_per_cand=1516.36 cyc_per_cand= 1816.2
+RES impl=neon        R=8 cand=289 ns_per_block=  49003.6 ns_per_cand= 169.56 cyc_per_cand=  203.1
+RES impl=c+argmin    R=8 cand=289 ns_per_block= 441344.2 ns_per_cand=1527.14 cyc_per_cand= 1829.1
+RES impl=neon+argmin R=8 cand=289 ns_per_block=  52104.6 ns_per_cand= 180.29 cyc_per_cand=  215.9
+PAIR tier=512 pts= 74 R=4 impl=c    ms_per_pair=  7.4662
+PAIR tier=512 pts= 74 R=4 impl=neon ms_per_pair=  1.1193
+PAIR tier=512 pts= 74 R=6 impl=c    ms_per_pair= 15.4099
+PAIR tier=512 pts= 74 R=6 impl=neon ms_per_pair=  2.2611
+PAIR tier=512 pts= 74 R=8 impl=c    ms_per_pair= 26.2338
+PAIR tier=512 pts= 74 R=8 impl=neon ms_per_pair=  3.8042
+PAIR tier=512 pts=222 R=4 impl=c    ms_per_pair= 22.3321
+PAIR tier=512 pts=222 R=4 impl=neon ms_per_pair=  3.3123
+PAIR tier=512 pts=222 R=6 impl=c    ms_per_pair= 46.1664
+PAIR tier=512 pts=222 R=6 impl=neon ms_per_pair=  6.7332
+PAIR tier=512 pts=222 R=8 impl=c    ms_per_pair= 78.6358
+PAIR tier=512 pts=222 R=8 impl=neon ms_per_pair= 11.3646
+PAIR tier=256 pts= 74 R=4 impl=c    ms_per_pair=  7.4312
+PAIR tier=256 pts= 74 R=4 impl=neon ms_per_pair=  1.0911
+PAIR tier=256 pts= 74 R=6 impl=c    ms_per_pair= 15.3654
+PAIR tier=256 pts= 74 R=6 impl=neon ms_per_pair=  2.2174
+PAIR tier=256 pts= 74 R=8 impl=c    ms_per_pair= 26.1739
+PAIR tier=256 pts= 74 R=8 impl=neon ms_per_pair=  3.7558
+PAIR tier=256 pts=222 R=4 impl=c    ms_per_pair= 22.2679
+PAIR tier=256 pts=222 R=4 impl=neon ms_per_pair=  3.2508
+PAIR tier=256 pts=222 R=6 impl=c    ms_per_pair= 46.0642
+PAIR tier=256 pts=222 R=6 impl=neon ms_per_pair=  6.6289
+PAIR tier=256 pts=222 R=8 impl=c    ms_per_pair= 78.4913
+PAIR tier=256 pts=222 R=8 impl=neon ms_per_pair= 11.2233
+BENCH_DONE
+== bench -O3 -fno-tree-vectorize
+CLK cpufreq 1066666 kHz, add-chain 1197.7 MHz
+RES impl=c           R=2 cand= 25 ns_per_block=  17510.4 ns_per_cand= 700.42 cyc_per_cand=  838.9
+RES impl=neon        R=2 cand= 25 ns_per_block=   4873.9 ns_per_cand= 194.96 cyc_per_cand=  233.5
+RES impl=c+argmin    R=2 cand= 25 ns_per_block=  17943.6 ns_per_cand= 717.74 cyc_per_cand=  859.6
+RES impl=neon+argmin R=2 cand= 25 ns_per_block=   5306.8 ns_per_cand= 212.27 cyc_per_cand=  254.2
+RES impl=c           R=4 cand= 81 ns_per_block=  55483.3 ns_per_cand= 684.98 cyc_per_cand=  820.4
+RES impl=neon        R=4 cand= 81 ns_per_block=  14274.8 ns_per_cand= 176.23 cyc_per_cand=  211.1
+RES impl=c+argmin    R=4 cand= 81 ns_per_block=  56645.1 ns_per_cand= 699.32 cyc_per_cand=  837.6
+RES impl=neon+argmin R=4 cand= 81 ns_per_block=  15428.0 ns_per_cand= 190.47 cyc_per_cand=  228.1
+RES impl=c           R=6 cand=169 ns_per_block= 115134.7 ns_per_cand= 681.27 cyc_per_cand=  815.9
+RES impl=neon        R=6 cand=169 ns_per_block=  28978.5 ns_per_cand= 171.47 cyc_per_cand=  205.4
+RES impl=c+argmin    R=6 cand=169 ns_per_block= 117375.0 ns_per_cand= 694.53 cyc_per_cand=  831.8
+RES impl=neon+argmin R=6 cand=169 ns_per_block=  31194.8 ns_per_cand= 184.58 cyc_per_cand=  221.1
+RES impl=c           R=8 cand=289 ns_per_block= 196442.4 ns_per_cand= 679.73 cyc_per_cand=  814.1
+RES impl=neon        R=8 cand=289 ns_per_block=  48919.6 ns_per_cand= 169.27 cyc_per_cand=  202.7
+RES impl=c+argmin    R=8 cand=289 ns_per_block= 200054.2 ns_per_cand= 692.23 cyc_per_cand=  829.1
+RES impl=neon+argmin R=8 cand=289 ns_per_block=  52555.2 ns_per_cand= 181.85 cyc_per_cand=  217.8
+PAIR tier=512 pts= 74 R=4 impl=c    ms_per_pair=  5.4379
+PAIR tier=512 pts= 74 R=4 impl=neon ms_per_pair=  1.1283
+PAIR tier=512 pts= 74 R=6 impl=c    ms_per_pair= 11.2853
+PAIR tier=512 pts= 74 R=6 impl=neon ms_per_pair=  2.2829
+PAIR tier=512 pts= 74 R=8 impl=c    ms_per_pair= 19.2512
+PAIR tier=512 pts= 74 R=8 impl=neon ms_per_pair=  3.8432
+PAIR tier=512 pts=222 R=4 impl=c    ms_per_pair= 16.2692
+PAIR tier=512 pts=222 R=4 impl=neon ms_per_pair=  3.3408
+PAIR tier=512 pts=222 R=6 impl=c    ms_per_pair= 33.8189
+PAIR tier=512 pts=222 R=6 impl=neon ms_per_pair=  6.7962
+PAIR tier=512 pts=222 R=8 impl=c    ms_per_pair= 57.8822
+PAIR tier=512 pts=222 R=8 impl=neon ms_per_pair= 11.4922
+PAIR tier=256 pts= 74 R=4 impl=c    ms_per_pair=  5.3959
+PAIR tier=256 pts= 74 R=4 impl=neon ms_per_pair=  1.1023
+PAIR tier=256 pts= 74 R=6 impl=c    ms_per_pair= 11.2212
+PAIR tier=256 pts= 74 R=6 impl=neon ms_per_pair=  2.2429
+PAIR tier=256 pts= 74 R=8 impl=c    ms_per_pair= 19.1618
+PAIR tier=256 pts= 74 R=8 impl=neon ms_per_pair=  3.7933
+PAIR tier=256 pts=222 R=4 impl=c    ms_per_pair= 16.1656
+PAIR tier=256 pts=222 R=4 impl=neon ms_per_pair=  3.2852
+PAIR tier=256 pts=222 R=6 impl=c    ms_per_pair= 33.6390
+PAIR tier=256 pts=222 R=6 impl=neon ms_per_pair=  6.7067
+PAIR tier=256 pts=222 R=8 impl=c    ms_per_pair= 57.4583
+PAIR tier=256 pts=222 R=8 impl=neon ms_per_pair= 11.3633
+BENCH_DONE
+1066666
+
+exit=0
+restore: Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+active

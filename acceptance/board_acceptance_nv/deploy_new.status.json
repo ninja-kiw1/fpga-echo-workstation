@@ -1,0 +1,6 @@
+{
+  "label": "deploy_new",
+  "pc_utc": "2026-11-03T13:35:37.574432+00:00",
+  "exitcode": 0,
+  "command": "set -eu; systemctl stop tcp-image-server; test -z \"$(pgrep -x tcp_image_serve || true)\"; echo \"a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95  /data/nv_acceptance/ai_sys_f150nv.bin\" | sha256sum -c -; echo \"30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685  /lib/firmware/ai_sys.bin.before_nv\" | sha256sum -c -; cp /data/nv_acceptance/ai_sys_f150nv.bin /lib/firmware/ai_sys.bin; grep -q a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95 /lib/firmware/ai_sys_pp.sha256 2>/dev/null || echo \"a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95  ai_sys_f150nv (f150 without vis_layer; pp_layer @0xA0030000, line-buffer img_proc 0x494D5004)\" >> /lib/firmware/ai_sys_pp.sha256; if grep -q a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95 /lib/firmware/ai_sys_vis.sha256; then echo \"new firmware must not be in /lib/firmware/ai_sys_vis.sha256\"; exit 1; fi; sync; sha256sum /lib/firmware/ai_sys.bin; cat /lib/firmware/ai_sys_pp.sha256 /lib/firmware/ai_sys_vis.sha256"
+}

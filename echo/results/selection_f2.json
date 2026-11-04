@@ -1,0 +1,50 @@
+{
+ "frozen_at": "2026-10-08T10:37:45.531200",
+ "chosen": "inter2_r128",
+ "f1_val_dice": 0.9195838495802018,
+ "rule": "score = 0.5*mean(Dice k0..3 from the F1 result) + 0.5*mean(Dice k1..3 from empty), official validation ED/ES frames; test untouched",
+ "candidates": {
+  "inter_r128": {
+   "mix": "v1",
+   "best_iter": 9000,
+   "score": 0.9397,
+   "from_f1": [
+    0.9209,
+    0.9349,
+    0.9454,
+    0.9534,
+    0.9587,
+    0.9614
+   ],
+   "from_empty": [
+    0.9009,
+    0.9285,
+    0.9424,
+    0.9512,
+    0.9575,
+    0.9603
+   ]
+  },
+  "inter2_r128": {
+   "mix": "v2",
+   "best_iter": 14000,
+   "score": 0.9437,
+   "from_f1": [
+    0.9233,
+    0.9421,
+    0.9498,
+    0.9561,
+    0.9583,
+    0.9595
+   ],
+   "from_empty": [
+    0.9033,
+    0.9363,
+    0.9448,
+    0.9527,
+    0.9557,
+    0.9592
+   ]
+  }
+ }
+}

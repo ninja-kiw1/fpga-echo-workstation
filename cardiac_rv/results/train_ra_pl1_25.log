@@ -1,0 +1,62 @@
+﻿python.exe : E:\PLD\cardiac_rv\train_rv.py:115: UserWarning: The given NumPy array is not writable, and PyTorch does no
+t support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to co
+py the array to protect its data or make it writable before converting it to a tensor. This type of warning will be sup
+pressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils
+\tensor_numpy.cpp:219.)
+At line:1 char:403
++ ... 'rv','ra'){ & 'E:\PLD\skin\.venv\Scripts\python.exe' -I train_rv.py - ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (E:\PLD\cardiac_...numpy.cpp:219.):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  xg = torch.from_numpy(np.ascontiguousarray(xtr)).to(device)
+pseudo-labelled frames: 2609, 4 per batch of 16
+[ra_pl1_25] it    500 loss 0.4141 val Dice 0.7708 G 0.7648 R 0.7774 P5 0.578 (13s) *
+[ra_pl1_25] it   1000 loss 0.2949 val Dice 0.8322 G 0.8138 R 0.8526 P5 0.606 (24s) *
+[ra_pl1_25] it   1500 loss 0.2634 val Dice 0.8466 G 0.8329 R 0.8618 P5 0.638 (37s) *
+[ra_pl1_25] it   2000 loss 0.2336 val Dice 0.8464 G 0.8326 R 0.8618 P5 0.643 (49s)
+[ra_pl1_25] it   2500 loss 0.2340 val Dice 0.8535 G 0.8385 R 0.8703 P5 0.666 (61s) *
+[ra_pl1_25] it   3000 loss 0.2241 val Dice 0.8615 G 0.8521 R 0.8719 P5 0.657 (73s) *
+[ra_pl1_25] it   3500 loss 0.2041 val Dice 0.8564 G 0.8454 R 0.8687 P5 0.666 (85s)
+[ra_pl1_25] it   4000 loss 0.2017 val Dice 0.8452 G 0.8316 R 0.8603 P5 0.619 (97s)
+[ra_pl1_25] it   4500 loss 0.1980 val Dice 0.8567 G 0.8449 R 0.8700 P5 0.644 (110s)
+[ra_pl1_25] it   5000 loss 0.1982 val Dice 0.8710 G 0.8567 R 0.8871 P5 0.703 (122s) *
+[ra_pl1_25] it   5500 loss 0.1812 val Dice 0.8636 G 0.8545 R 0.8737 P5 0.667 (134s)
+[ra_pl1_25] it   6000 loss 0.1845 val Dice 0.8657 G 0.8545 R 0.8781 P5 0.687 (146s)
+[ra_pl1_25] it   6500 loss 0.1817 val Dice 0.8699 G 0.8564 R 0.8848 P5 0.686 (157s)
+[ra_pl1_25] it   7000 loss 0.1740 val Dice 0.8681 G 0.8512 R 0.8871 P5 0.688 (169s)
+[ra_pl1_25] it   7500 loss 0.1777 val Dice 0.8693 G 0.8529 R 0.8877 P5 0.676 (181s)
+[ra_pl1_25] it   8000 loss 0.1791 val Dice 0.8664 G 0.8571 R 0.8768 P5 0.678 (193s)
+[ra_pl1_25] it   8500 loss 0.1700 val Dice 0.8656 G 0.8506 R 0.8823 P5 0.689 (205s)
+[ra_pl1_25] it   9000 loss 0.1737 val Dice 0.8750 G 0.8584 R 0.8936 P5 0.728 (217s) *
+[ra_pl1_25] it   9500 loss 0.1609 val Dice 0.8790 G 0.8668 R 0.8925 P5 0.716 (230s) *
+[ra_pl1_25] it  10000 loss 0.1680 val Dice 0.8664 G 0.8522 R 0.8822 P5 0.683 (243s)
+[ra_pl1_25] it  10500 loss 0.1598 val Dice 0.8718 G 0.8596 R 0.8853 P5 0.688 (256s)
+[ra_pl1_25] it  11000 loss 0.1660 val Dice 0.8760 G 0.8669 R 0.8861 P5 0.681 (268s)
+[ra_pl1_25] it  11500 loss 0.1572 val Dice 0.8706 G 0.8579 R 0.8848 P5 0.689 (280s)
+[ra_pl1_25] it  12000 loss 0.1616 val Dice 0.8802 G 0.8659 R 0.8962 P5 0.714 (293s) *
+[ra_pl1_25] it  12500 loss 0.1646 val Dice 0.8766 G 0.8620 R 0.8929 P5 0.717 (305s)
+[ra_pl1_25] it  13000 loss 0.1588 val Dice 0.8753 G 0.8648 R 0.8869 P5 0.697 (317s)
+[ra_pl1_25] it  13500 loss 0.1543 val Dice 0.8751 G 0.8587 R 0.8934 P5 0.701 (330s)
+[ra_pl1_25] it  14000 loss 0.1554 val Dice 0.8783 G 0.8660 R 0.8921 P5 0.708 (343s)
+[ra_pl1_25] it  14500 loss 0.1538 val Dice 0.8779 G 0.8665 R 0.8908 P5 0.687 (355s)
+[ra_pl1_25] it  15000 loss 0.1481 val Dice 0.8797 G 0.8654 R 0.8958 P5 0.717 (368s)
+[ra_pl1_25] it  15500 loss 0.1622 val Dice 0.8782 G 0.8649 R 0.8931 P5 0.700 (381s)
+[ra_pl1_25] it  16000 loss 0.1543 val Dice 0.8783 G 0.8639 R 0.8943 P5 0.719 (394s)
+[ra_pl1_25] it  16500 loss 0.1470 val Dice 0.8788 G 0.8644 R 0.8949 P5 0.699 (413s)
+[ra_pl1_25] it  17000 loss 0.1535 val Dice 0.8797 G 0.8673 R 0.8936 P5 0.711 (439s)
+[ra_pl1_25] it  17500 loss 0.1519 val Dice 0.8802 G 0.8682 R 0.8936 P5 0.724 (462s)
+[ra_pl1_25] it  18000 loss 0.1489 val Dice 0.8811 G 0.8675 R 0.8962 P5 0.722 (475s) *
+[ra_pl1_25] it  18500 loss 0.1484 val Dice 0.8800 G 0.8679 R 0.8935 P5 0.714 (487s)
+[ra_pl1_25] it  19000 loss 0.1538 val Dice 0.8797 G 0.8676 R 0.8932 P5 0.717 (499s)
+[ra_pl1_25] it  19500 loss 0.1509 val Dice 0.8798 G 0.8673 R 0.8938 P5 0.717 (511s)
+[ra_pl1_25] it  20000 loss 0.1507 val Dice 0.8799 G 0.8672 R 0.8941 P5 0.718 (523s)
+{
+ "iter": 18000,
+ "loss": 0.14886442509315925,
+ "seconds": 474.99608159065247,
+ "all": 0.8810602084039,
+ "site_G": 0.8674551125770428,
+ "site_R": 0.89623512298001,
+ "p5": 0.7216465186455493
+}

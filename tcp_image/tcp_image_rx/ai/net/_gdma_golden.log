@@ -1,0 +1,38 @@
+[cross] clean
+
+=== upload + build ===
+[up] 32x32 golden (P4 已验证)
+[up] 512 golden (PLD 原始)
+RC=0
+
+=== [1/2] 档位回归: shift=4 (32x32) vs P4 golden ===
+shift=4 -> input 32x32, output 32x32
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f8a4a8000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+timing: 1 iter(s) in 4.3 ms  ->  4.34 ms/frame (whole net, shift=4)
+run: 4344 us, logits min=-86 max=14
+profile us : ap(PL)=2693  put(->BRAM)=327  get(BRAM->)=1083  zero=10  other=231
+profile mem: put=29444 get=20864 params=2564 words  strips=29
+compare: mismatch = 0 / 1024  ->  PASS
+logit range [-86..14], non-zero 1019/1024
+SELFTEST_DONE
+RC=0
+
+=== [2/2] 全分辨率: shift=0 (512x512) vs PLD golden ===
+shift=0 -> input 512x512, output 512x512
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb7717000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+timing: 1 iter(s) in 835.5 ms  ->  835.49 ms/frame (whole net, shift=0)
+run: 835488 us, logits min=-107 max=100
+profile us : ap(PL)=531563  put(->BRAM)=107949  get(BRAM->)=181190  zero=228  other=14558
+profile mem: put=7322564 get=5341184 params=48068 words  strips=826
+compare: mismatch = 0 / 262144  ->  PASS
+logit range [-107..100], non-zero 261623/262144
+SELFTEST_DONE
+RC=0
+
+FULLRES_DONE ok=True

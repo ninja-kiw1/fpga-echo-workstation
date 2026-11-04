@@ -1,0 +1,32 @@
+screen 1/26 first_block_2: Dice 0.88135 gain -0.00104
+screen 2/26 first_block_5: Dice 0.88372 gain +0.00134
+screen 3/26 first_shortcut_1: Dice 0.88149 gain -0.00090
+screen 4/26 add: Dice 0.87833 gain -0.00405
+screen 5/26 down_path_0_block_2: Dice 0.87812 gain -0.00426
+screen 6/26 down_path_0_block_5: Dice 0.87970 gain -0.00268
+screen 7/26 down_path_0_shortcut_1: Dice 0.88105 gain -0.00134
+screen 8/26 add_1: Dice 0.88309 gain +0.00070
+screen 9/26 down_path_1_block_2: Dice 0.88528 gain +0.00290
+screen 10/26 down_path_1_block_5: Dice 0.88352 gain +0.00114
+screen 11/26 down_path_1_shortcut_1: Dice 0.88156 gain -0.00082
+screen 12/26 add_2: Dice 0.88109 gain -0.00129
+screen 13/26 up_path_0_up_layer_block_0: Dice 0.88228 gain -0.00010
+screen 14/26 up_path_0_conv_bridge_layer_block_2: Dice 0.88152 gain -0.00086
+screen 15/26 cat: Dice 0.88146 gain -0.00093
+screen 16/26 up_path_0_conv_layer_block_2: Dice 0.87933 gain -0.00305
+screen 17/26 up_path_0_conv_layer_block_5: Dice 0.88147 gain -0.00091
+screen 18/26 up_path_0_conv_layer_shortcut_1: Dice 0.88131 gain -0.00107
+screen 19/26 add_3: Dice 0.88131 gain -0.00107
+screen 20/26 up_path_1_up_layer_block_0: Dice 0.88228 gain -0.00010
+screen 21/26 up_path_1_conv_bridge_layer_block_2: Dice 0.88133 gain -0.00105
+screen 22/26 cat_1: Dice 0.88128 gain -0.00111
+screen 23/26 up_path_1_conv_layer_block_2: Dice 0.88264 gain +0.00026
+screen 24/26 up_path_1_conv_layer_block_5: Dice 0.88170 gain -0.00068
+screen 25/26 up_path_1_conv_layer_shortcut_1: Dice 0.88168 gain -0.00070
+screen 26/26 add_4: Dice 0.88146 gain -0.00092
+confirm all INT8: val Dice 0.80739 G 0.79685 R 0.81915
+confirm ['down_path_1_block_2']: val Dice 0.80927 G 0.80148 R 0.81795
+confirm ['first_block_5']: val Dice 0.80847 G 0.79803 R 0.82012
+confirm ['down_path_1_block_5']: val Dice 0.80824 G 0.79915 R 0.81838
+confirm ['down_path_1_block_2', 'first_block_5']: val Dice 0.81054 G 0.80314 R 0.81880
+selected INT16 ['down_path_1_block_2', 'first_block_5']; val Dice FP32 0.8103 | all-INT8 0.8074 | mixed 0.8105 (G 0.8031 R 0.8188)

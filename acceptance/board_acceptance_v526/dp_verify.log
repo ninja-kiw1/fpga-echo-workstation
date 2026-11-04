@@ -1,0 +1,43 @@
+$ export DISPLAY=:0 XAUTHORITY=/run/lxdm/lxdm-:0.auth LANG=en_US.UTF-8 NO_AT_BRIDGE=1; cd /data/board_station/board && TK_SHIM_LENIENT=1 timeout 1500 python3 -u v
+INFO: 已给 np.pad 补上 mode='constant' 默认值（板上 numpy 1.13.3 没有这个默认）
+INFO: 已注册 skimage.measure 兜底实现（板上没有 scikit-image）
+INFO: heart_compat 给 numpy 1.13.3 补上 packbits / unpackbits 的 bitorder
+INFO: heart_compat 给 scipy 补上 signal.find_peaks（distance / prominence）
+caps over loopback (v5.24+)                                OK 板端 v5.26：支持 关键帧 / 现场 / 全心；17 个内置模型，4 核
+--demo: snapshot + keyframe materials, ends in live        OK ES000108 _4CH_1.avi　33 帧 · 30 fps · 1.10 s
+live default source = 50 fps demo + fixed crop             OK 0X100009310A3BD7FC_z4.y8（174 帧 50 fps，640×480）
+step 2 live recommended: no dropped frames, P99 < 80 ms, budget < 40 % OK 5.6 / 20 ms（28%） | 30 / 71 ms | 50 fps · 174 帧不丢
+step 2 (v5.25) board DP: no rolling light (CPU budget), live result as before OK rolling off on DP
+  shot heart_live.png: 237927 bytes, 23986 colours
+step 3 live per-frame: budget > 100 %, latency accumulates, grey reference OK 25.4 / 20 ms（127%） | 560 / 1036 ms
+  shot heart_live_full.png: 240827 bytes, 24392 colours
+step 4 source ES000108_4CH_1.y8 listed                     OK 
+step 4 live ES000108: EF 41 %, review, whole heart         OK EF 41% 分型待定，建议复核：80% 区间 32–50% 跨过 40% 分界 | 4 / 61 ms
+  shot heart_live_es108.png: 240229 bytes, 24422 colours
+live click-correction: all later frames recomputed         OK 第 10 帧：1 个点击，FPGA 整网 23.2 ms；后面 122 帧跟着重算到视频末尾，共 4071 ms。可撤销 / 重置
+v5.26 CAMUS simulated-scan source listed                   OK 
+v5.26 board DP CAMUS chain: lights follow the expert grades, tag + note, P99 < 80 ms, judge-then-hold OK segments ['Good', 'Poor', 'Medium', 'Good'] -> [0, 2, 1, 0] | 35 / 77 ms
+  shot heart_live_camus.png: 208473 bytes, 22084 colours
+keyframe: board whole case, EF / interval / heart          OK EF 41% 分型待定，建议复核：80% 区间 31–51% 跨过 40%、50% 分界
+re-analysis (compat find_peaks) == board EF                OK 41.203 vs 41.203
+step 7 click-correction on the board                       OK 第 10 帧：1 个点击，FPGA 整网 24.4 ms；后面 23 帧跟着重算到视频末尾，共 883 ms。可撤销 / 重置
+step 7 all later frames recomputed (to the end)            OK 11..33
+  shot heart_keyframe_fix.png: 240902 bytes, 24266 colours
+  shot heart_keyframe_fix_later.png: 242241 bytes, 24377 colours
+undo                                                       OK 
+evidence report written                                    OK /data/board_station/app_heart/reports/echo_ES000108 _4CH_1_20210831_213218.html
+screen-scale calibration read automatically (5 cm = ~139 px, no dialog) OK 标尺 1.23 mm/像素
+keyframe -> snapshot single-plane Simpson (~33 %, ~64 / 43 mL) OK 33% EDV 64 mL ESV 43 mL
+  shot heart_mono.png: 187564 bytes, 16048 colours
+snapshot: three CAMUS cases available                      OK ['patient0027', 'patient0213', 'patient0231']
+snapshot: one-click biplane Simpson == fig. 6 (EF 39 %)    OK 39% EDV 160 mL ESV 97 mL
+  shot heart_snapshot_measure.png: 245137 bytes, 16440 colours
+platform fundus: one frame                                 OK 401.3 ms | 296.4 ms
+  shot heart_platform_fundus.png: 486343 bytes, 50999 colours
+platform skin: one frame                                   OK skin/ISIC_0000000 | 22.4 ms
+  shot heart_platform_skin.png: 404719 bytes, 61824 colours
+platform PL program desk pipeline                          OK 主界面当前图｜2 个程序在板上依次执行（一次请求）｜往返 49 ms，其中程序 1 板端 22.5 ms｜统计块回报模型 6｜输出逐个 CR
+extra tools (TF video / self-test) in 平台扩展 → 更多            OK 
+  shot heart_platform_prog.png: 182527 bytes, 28337 colours
+HEART_STATION_PASS
+

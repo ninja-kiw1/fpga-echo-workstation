@@ -1,0 +1,43 @@
+{
+ "op": "median3",
+ "doc": "temporal median of three frames (speckle / impulse noise reduction).",
+ "layout": {
+  "channels_per_stage": [
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "output_terms": 4
+ },
+ "out_range": [
+  0.0,
+  1.0
+ ],
+ "out_mid": 0.5,
+ "anchored_channels": 0,
+ "float_max_abs_error": 1.0424969248967741e-07,
+ "integer": {
+  "output_scale": 0.003937007874015748,
+  "output_mid": 0.5,
+  "interval_bound": [
+   -2.0,
+   3.0
+  ],
+  "lsb_in_grey_levels": 1.0039370078740157,
+  "mean_err_lsb": 0.04285190194685814,
+  "max_abs_err_lsb": 0.5568627450980337,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "87b0109fc17dc1b48337ebc241cfebfeb81524aa56496d8e0649c5b4a786f68b",
+ "parameters_sha256": "df059c6c37c5af2f34a5332d2e8db35cee46c27e1f5c43637fae31d3291152a7",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

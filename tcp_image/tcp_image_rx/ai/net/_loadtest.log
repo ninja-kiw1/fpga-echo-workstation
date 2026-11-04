@@ -1,0 +1,16 @@
+[local] E:/fpga/my_project/tcp_image_rx/bitstream/ai_sys_xu2_v9b.bin 5568668 B md5=ab6d940229a07f321e502bc1a22be3df
+[md5] ab6d940229a07f321e502bc1a22be3df
+[state-before] operating
+[svc] stop tcp-image-server -> rc=0
+[gate] conv/elt idle (CTRL 0x00000004 / 0x00000004) after 1 poll(s)
+[load] wrote ai_sys.bin
+[state-after] operating
+[read] img_proc VERSION @0xA0000010 = 0x494D5003  (expect 0x494D5003)
+[read] conv CTRL @0xA0010000 = 0x00000004  ap_idle=1
+[read] elt  CTRL @0xA0020000 = 0x00000004  ap_idle=1
+[read] BRAM  @0xB0000000 = 0x00000000  (window alive)
+[md5-after] ab6d940229a07f321e502bc1a22be3df
+[ok] bitstream loaded, both HLS cores idle
+RC=0
+>>> LOAD_OK (ab6d940229a07f321e502bc1a22be3df)
+EXIT=0 

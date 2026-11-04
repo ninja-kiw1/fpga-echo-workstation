@@ -1,0 +1,38 @@
+START 2026/10/02 周五 12:05:02.33 
+[up] src/ai_view.c
+[up] src/ai_view.h
+[up] src/axidma.c
+[up] src/axidma.h
+[up] src/axigpio.c
+[up] src/axigpio.h
+[up] src/axilproc.c
+[up] src/axilproc.h
+[up] src/crc16.c
+[up] src/crc16.h
+[up] src/ddr_layout.h
+[up] src/image_proto.h
+[up] src/tcp_image_server.c
+[up] src/unet_ai.c
+[up] src/unet_ai.h
+[up] src/unet_net.h
+[up] src/unet_net_data.c
+[up] Makefile
+=== board build ===
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axilproc.o src/axilproc.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/crc16.o src/crc16.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/tcp_image_server.o src/tcp_image_server.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axidma.o src/axidma.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/axigpio.o src/axigpio.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/ai_view.o src/ai_view.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_net_data.o src/unet_net_data.c
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+RC=0
+
+=== check + restart service ===
+12:#define UNET_BRAM_WORDS       16384u       /* A1: 256 KB / 16 B (was 128 KB) */
+active
+
+DEPLOY_DONE
+EXITCODE 0 2026/10/02 周五 12:05:11.01 

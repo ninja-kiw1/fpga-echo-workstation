@@ -1,0 +1,18 @@
+== echo models 0-2 + switching
+PASS val_200_frames {"mismatching": [], "board_dice": 0.9195838495802018, "offline_dice": 0.9195838495802018, "good_medium": 0.923443371359757, "ai_ms_mean": 37.732609999999994, "ai_ms_max": 39.038, "seconds": 25.3}
+PASS model_switching_60_frames {"wrong": [], "sequence": "sseffsffsfesseeffesessssffeesefffesffefsesesfffeefesesessfee"}
+ECHO_BOARD_ACCEPTANCE_PASS
+== F2 inter
+INTER_BOARD_ACCEPTANCE_PASS
+== F3 closed loop
+fwd: board ED 0.9322 ES 0.9195 FAC err 5.96 jump 0.0251; mismatching 0
+bwd: board ED 0.9398 ES 0.9070 FAC err 7.29 jump 0.0269; mismatching 0
+{"echo_lv": {"ai_mean": 37.725945, "round_trip_mean": 113.95042800001647, "frames": 200}, "echo_seq": {"ai_mean": 37.72454209328782, "round_trip_mean": 111.34998671785958, "frames": 3516}}
+F3_BOARD_ACCEPTANCE_PASS
+== fundus v4 client
+BOARD_V4_ACCEPTANCE_PASS 75 frames
+== stability 1000 mixed
+STABILITY_V5_PASS 1000 frames in 166 s
+== v5 GUI
+GUI_V5_PASS
+== REGRESSION DONE

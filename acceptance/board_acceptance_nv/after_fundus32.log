@@ -1,0 +1,14 @@
+PC_UTC 2026-11-03T13:36:21.138102+00:00
+COMMAND set -eu; cd /data/nv_acceptance/tools; timeout 180 ./strict_net_test fundus32.rgb fundus32.i8 0 32 1
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f96192000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=0 res=32 iter=-2 mismatch=0/1024
+CHECK model=0 res=32 iter=-1 mismatch=0/1024
+CHECK model=0 res=32 iter=0 mismatch=0/1024
+SAMPLE {"model":0,"res":32,"sample":0,"ap_us":1443,"put_us":313,"get_us":844,"run_us":2818,"strips":29}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0

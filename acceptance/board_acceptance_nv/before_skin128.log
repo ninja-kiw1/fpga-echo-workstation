@@ -1,0 +1,32 @@
+PC_UTC 2026-11-03T13:34:51.449467+00:00
+COMMAND set -eu; cd /data/nv_acceptance/tools; timeout 180 ./strict_net_test skin128.rgb skin128.i8 1 128 10
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f9ab1c000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+CHECK model=1 res=128 iter=-2 mismatch=0/16384
+CHECK model=1 res=128 iter=-1 mismatch=0/16384
+CHECK model=1 res=128 iter=0 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":0,"ap_us":13949,"put_us":3830,"get_us":4601,"run_us":21999,"strips":66}
+CHECK model=1 res=128 iter=1 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":1,"ap_us":13950,"put_us":3875,"get_us":4604,"run_us":22068,"strips":66}
+CHECK model=1 res=128 iter=2 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":2,"ap_us":13938,"put_us":3963,"get_us":4616,"run_us":22095,"strips":66}
+CHECK model=1 res=128 iter=3 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":3,"ap_us":13948,"put_us":3924,"get_us":4617,"run_us":22101,"strips":66}
+CHECK model=1 res=128 iter=4 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":4,"ap_us":13939,"put_us":3799,"get_us":4616,"run_us":21995,"strips":66}
+CHECK model=1 res=128 iter=5 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":5,"ap_us":13941,"put_us":3875,"get_us":4601,"run_us":22050,"strips":66}
+CHECK model=1 res=128 iter=6 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":6,"ap_us":13943,"put_us":3926,"get_us":4597,"run_us":22075,"strips":66}
+CHECK model=1 res=128 iter=7 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":7,"ap_us":13945,"put_us":3858,"get_us":4613,"run_us":22059,"strips":66}
+CHECK model=1 res=128 iter=8 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":8,"ap_us":13941,"put_us":3874,"get_us":4588,"run_us":22014,"strips":66}
+CHECK model=1 res=128 iter=9 mismatch=0/16384
+SAMPLE {"model":1,"res":128,"sample":9,"ap_us":13947,"put_us":3856,"get_us":4644,"run_us":22077,"strips":66}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0

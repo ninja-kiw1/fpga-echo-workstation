@@ -1,0 +1,193 @@
+PC_UTC 2026-11-03T13:34:52.543331+00:00
+COMMAND set -eu; cd /data/nv_acceptance/tools; UNET_PROFILE=1 timeout 180 ./strict_net_test fundus512.rgb fundus512.i8 0 512 3
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f993c0000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[prof] total=311107 us  ap=216125  put=62262  get=64210  zero=108  other=-31598
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=62006 us  bounce_memcpy=96130 us (hidden in ap: 94283)
+[prof] J1 on: posts=824  main_wait=12744 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12279      5575
+[prof]    2     12276      5511
+[prof]    3      4878      5214
+[prof]    4      4819      7853
+[prof]    5      1876      3227
+[prof]    6      5842      2112
+[prof]    7     10786      2814
+[prof]    8      2485      2006
+[prof]    9      2369      3980
+[prof]   10       926      1584
+[prof]   11      5299      1063
+[prof]   12     10181      1662
+[prof]   13      1293      1025
+[prof]   14      1166      2058
+[prof]   15      3087      2074
+[prof]   16     10801      2819
+[prof]   17      4544      5379
+[prof]   18     22642      4484
+[prof]   19     10787      2861
+[prof]   20      3882      3746
+[prof]   21      2418      4000
+[prof]   22      4819      3950
+[prof]   23     12292      5517
+[prof]   24      9302     10673
+[prof]   25     25150      9013
+[prof]   26     12292      5726
+[prof]   27      7711      7618
+[prof]   28      4946      7988
+[prof]   29      4977      5048
+CHECK model=0 res=512 iter=-2 mismatch=0/262144
+[prof] total=292825 us  ap=203345  put=61198  get=62490  zero=104  other=-34312
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61505 us  bounce_memcpy=36731 us (hidden in ap: 36072)
+[prof] J1 on: posts=824  main_wait=12611 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12276      5565
+[prof]    2     12274      5463
+[prof]    3      4420      5001
+[prof]    4      3557      7910
+[prof]    5      1851      3037
+[prof]    6      5845      2044
+[prof]    7     10783      2762
+[prof]    8      2190      1977
+[prof]    9      1769      3939
+[prof]   10       927      1562
+[prof]   11      5296      1054
+[prof]   12     10178      1412
+[prof]   13      1147       988
+[prof]   14       879      2013
+[prof]   15      3079      1946
+[prof]   16     10788      2758
+[prof]   17      2430      5213
+[prof]   18     22643      4291
+[prof]   19     10785      2793
+[prof]   20      3873      3661
+[prof]   21      1771      3842
+[prof]   22      4343      3865
+[prof]   23     12284      5417
+[prof]   24      4920     10482
+[prof]   25     25149      8851
+[prof]   26     12277      5538
+[prof]   27      7658      7359
+[prof]   28      3548      7903
+[prof]   29      4405      5146
+CHECK model=0 res=512 iter=-1 mismatch=0/262144
+[prof] total=292733 us  ap=203293  put=61226  get=62473  zero=106  other=-34365
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61448 us  bounce_memcpy=36714 us (hidden in ap: 36036)
+[prof] J1 on: posts=824  main_wait=12557 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12277      5525
+[prof]    2     12279      5434
+[prof]    3      4405      5163
+[prof]    4      3550      7784
+[prof]    5      1852      3202
+[prof]    6      5845      2066
+[prof]    7     10786      2720
+[prof]    8      2191      1960
+[prof]    9      1760      3887
+[prof]   10       928      1549
+[prof]   11      5295      1026
+[prof]   12     10178      1427
+[prof]   13      1147      1003
+[prof]   14       880      1957
+[prof]   15      3079      1942
+[prof]   16     10787      2867
+[prof]   17      2425      5265
+[prof]   18     22646      4286
+[prof]   19     10784      2786
+[prof]   20      3871      3629
+[prof]   21      1766      3849
+[prof]   22      4339      3882
+[prof]   23     12287      5453
+[prof]   24      4885     10431
+[prof]   25     25150      8921
+[prof]   26     12277      5558
+[prof]   27      7676      7350
+[prof]   28      3543      7811
+[prof]   29      4405      5072
+CHECK model=0 res=512 iter=0 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":0,"ap_us":203293,"put_us":61226,"get_us":62473,"run_us":292733,"strips":853}
+[prof] total=292893 us  ap=203319  put=61101  get=62640  zero=106  other=-34273
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61684 us  bounce_memcpy=36625 us (hidden in ap: 35967)
+[prof] J1 on: posts=824  main_wait=12759 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12277      5601
+[prof]    2     12293      5479
+[prof]    3      4406      5040
+[prof]    4      3547      7774
+[prof]    5      1855      3047
+[prof]    6      5843      2087
+[prof]    7     10789      2720
+[prof]    8      2190      1963
+[prof]    9      1765      3986
+[prof]   10       928      1551
+[prof]   11      5294      1033
+[prof]   12     10177      1410
+[prof]   13      1146       990
+[prof]   14       881      1950
+[prof]   15      3078      1950
+[prof]   16     10785      2730
+[prof]   17      2422      5243
+[prof]   18     22663      4437
+[prof]   19     10783      2749
+[prof]   20      3901      3678
+[prof]   21      1759      3906
+[prof]   22      4354      3885
+[prof]   23     12285      5413
+[prof]   24      4847     10413
+[prof]   25     25149      8866
+[prof]   26     12278      5560
+[prof]   27      7667      7485
+[prof]   28      3551      7836
+[prof]   29      4406      5065
+CHECK model=0 res=512 iter=1 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":1,"ap_us":203319,"put_us":61101,"get_us":62640,"run_us":292893,"strips":853}
+[prof] total=292807 us  ap=203321  put=61276  get=62543  zero=107  other=-34440
+[prof] strips=853  put=7362464 words  get=5341184 words  params=51104 words
+[prof] get split: DMA=5341184 words  CPU=0 words  (dma_fail=0)
+[prof] get DMA detail: xfers=853  ioctl=61574 us  bounce_memcpy=36501 us (hidden in ap: 35842)
+[prof] J1 on: posts=824  main_wait=12517 us (get overlaps put -> other < 0)
+[prof] per-node: idx ap_us bram_us
+[prof]    1     12279      5591
+[prof]    2     12278      5546
+[prof]    3      4407      4997
+[prof]    4      3573      7842
+[prof]    5      1856      3097
+[prof]    6      5842      2032
+[prof]    7     10788      2772
+[prof]    8      2192      1957
+[prof]    9      1762      3893
+[prof]   10       927      1554
+[prof]   11      5296      1034
+[prof]   12     10179      1417
+[prof]   13      1146      1002
+[prof]   14       882      1952
+[prof]   15      3078      1964
+[prof]   16     10798      2786
+[prof]   17      2426      5238
+[prof]   18     22646      4321
+[prof]   19     10780      2774
+[prof]   20      3873      3698
+[prof]   21      1762      4039
+[prof]   22      4340      3860
+[prof]   23     12274      5387
+[prof]   24      4874     10408
+[prof]   25     25150      8703
+[prof]   26     12279      5488
+[prof]   27      7659      7521
+[prof]   28      3556      7957
+[prof]   29      4419      5096
+CHECK model=0 res=512 iter=2 mismatch=0/262144
+SAMPLE {"model":0,"res":512,"sample":2,"ap_us":203321,"put_us":61276,"get_us":62543,"run_us":292807,"strips":853}
+STRICT_NET_PASS
+
+SSH_EXITCODE 0

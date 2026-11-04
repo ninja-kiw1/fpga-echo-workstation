@@ -1,0 +1,73 @@
+=== 模型校准 vs 实测(512 档, 稳态) ===
+  读字数 模型 5.3412M  实测 5.3412M
+  写字数 模型 7.2878M  实测 7.3226M
+  条带数 模型 826      实测 826
+  get    模型 123.7ms  实测 125.4ms (DMA 88.2 + memcpy 36.9)
+  put    模型 108.2ms  实测 108.3ms
+  合计   模型 763.3ms  实测 777.3ms
+
+=== 现状 vs 各方案 (512 全分辨率, 板端 AI 整网) ===
+S0 现状(GDMA+DMA内存)              | 读    5.3M字    124ms | 写    7.3M字   108ms | ap    531ms | 合计    763ms  ( 1.3 fps) | 省 0 ms
+S1 DMA 直写张量                    | 读    5.3M字     87ms | 写    7.3M字   108ms | ap    531ms | 合计    726ms  ( 1.4 fps) | 省 37 ms
+S2 PL 提频到 148MHz               | 读    5.3M字    124ms | 写    7.3M字   108ms | ap    364ms | 合计    596ms  ( 1.7 fps) | 省 167 ms
+S3 搬运与计算重叠(理想)                 | 读    5.3M字    124ms | 写    7.3M字   108ms | ap    531ms | 合计    544ms  ( 1.8 fps) | 省 220 ms
+S4 S1+S3 一起上                   | 读    5.3M字     87ms | 写    7.3M字   108ms | ap    531ms | 合计    544ms  ( 1.8 fps) | 省 220 ms
+S5 BRAM 加大到 ~344KB             | 读    5.3M字    118ms | 写    7.2M字   106ms | ap    531ms | 合计    756ms  ( 1.3 fps) | 省 7 ms
+S6 HLS 改 int8x16/字             | 读    4.1M字     96ms | 写    5.4M字    81ms | ap    531ms | 合计    708ms  ( 1.4 fps) | 省 55 ms
+S7 连 put 也走 DMA                | 读    5.3M字    124ms | 写    7.3M字   162ms | ap    531ms | 合计    817ms  ( 1.2 fps) | 省 -54 ms
+
+=== 重叠方案: 双缓冲布局的代价与收益 ===
+  (nin/nout = 输入/输出各几块缓冲; 假设 ap 不变 —— IP 按**输出像素**算, halo 只多读不多算)
+  nin/nout    条带/节点      组装A      读回C     ap B       模型合计     vs 现状
+  1/1           27     108ms     124ms     531ms       776ms        0ms
+  1/2           40     112ms     133ms     531ms       655ms      120ms
+  2/2           60     119ms     148ms     531ms       544ms      232ms
+      条带数 826 -> 1809 ; 写量 7.29M -> 7.94M 字 (DMA 笔数与每笔 25us 开销也按这个涨)
+
+=== 分辨率扫描: 实测 vs 模型 ===
+  res        实测AI       ap      get      put     模型AI
+  512       777.3    531.4    125.4    108.3   (512 档模型 232.4)
+  256       189.2    128.4     31.4     25.8   (512 档模型 232.0)
+  128        48.6     33.0      8.1      6.2   (512 档模型 231.9)
+  64         13.3      9.0      2.3      1.6   (512 档模型 231.9)
+  32          4.2      2.7      0.9      0.4   (512 档模型 231.9)
+
+=== 上位机实测(打 systemd 服务, 每档 3 帧平均) ===
+  res   全回传     只算不传   (板端AI / 非AI固定开销)
+  512      898.5     826.2   (777.3 / 48.9)
+  256      279.9     233.1   (189.2 / 43.9)
+  128      136.7      90.5   (48.6 / 41.9)
+  64       101.6      54.7   (13.3 / 41.4)
+  32        91.2      45.4   (4.2 / 41.2)
+
+=== 逐节点明细(512, 现状) ===
+    first_block_2                        CONV  m0 S=14  x37   in=300032   out=262144
+    first_block_5                        CONV  m0 S=14  x37   in=300032   out=262144
+    first_shortcut_1                     CONV  m1 S=15  x35   in=262144   out=262144
+    add                                  ELT   m0 S=10  x52   in=524288   out=262144
+    down_path_0_pool                     ELT   m2 S=12  x22   in=262144   out=65536
+    down_path_0_block_2                  CONV  m0 S=20  x13   in=72192    out=131072
+    down_path_0_block_5                  CONV  m0 S=14  x19   in=150528   out=131072
+    down_path_0_shortcut_1               CONV  m1 S=21  x13   in=65536    out=131072
+    add_1                                ELT   m0 S=10  x26   in=262144   out=131072
+    down_path_1_pool                     ELT   m2 S=12  x11   in=131072   out=32768
+    down_path_1_block_2                  CONV  m0 S=20  x7    in=36352    out=65536
+    down_path_1_block_5                  CONV  m0 S=14  x10   in=75776    out=65536
+    down_path_1_shortcut_1               CONV  m1 S=21  x7    in=32768    out=65536
+    add_2                                ELT   m0 S=10  x13   in=131072   out=65536
+    up_path_0_up_layer_block_0           CONV  m2 S=20  x13   in=65536    out=131072
+    up_path_0_conv_bridge_layer_block_2  CONV  m0 S=14  x19   in=150528   out=131072
+    cat                                  ELT   m1 S=8   x32   in=262144   out=262144
+    up_path_0_conv_layer_block_2         CONV  m0 S=9   x29   in=321536   out=131072
+    up_path_0_conv_layer_block_5         CONV  m0 S=14  x19   in=150528   out=131072
+    up_path_0_conv_layer_shortcut_1      CONV  m1 S=10  x26   in=262144   out=131072
+    add_3                                ELT   m0 S=10  x26   in=262144   out=131072
+    up_path_1_up_layer_block_0           CONV  m2 S=20  x26   in=131072   out=262144
+    up_path_1_conv_bridge_layer_block_2  CONV  m0 S=14  x37   in=300032   out=262144
+    cat_1                                ELT   m1 S=8   x64   in=524288   out=524288
+    up_path_1_conv_layer_block_2         CONV  m0 S=9   x57   in=641024   out=262144
+    up_path_1_conv_layer_block_5         CONV  m0 S=14  x37   in=300032   out=262144
+    up_path_1_conv_layer_shortcut_1      CONV  m1 S=10  x52   in=524288   out=262144
+    add_4                                ELT   m0 S=10  x52   in=524288   out=262144
+    final                                CONV  m1 S=15  x35   in=262144   out=262144
+EXIT=0 

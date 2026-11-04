@@ -1,0 +1,1 @@
+Get-PnpDevice | Where-Object { $_.FriendlyName -match 'Digilent|Xilinx|JTAG|FTDI|Serial Converter|USB Serial' } | Select-Object Status, Class, FriendlyName | Format-Table -AutoSize | Out-String -Width 220

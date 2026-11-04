@@ -1,0 +1,145 @@
+{
+ "source": "0X100009310A3BD7FC_z4.y8",
+ "runs": {
+  "关键帧推荐档": {
+   "fps": 50.0,
+   "budget_ms": 20.0,
+   "frames": 174,
+   "key_frac": 0.1781609195402299,
+   "stages": [
+    {
+     "stage": "缩放（裁切 + 盒滤波到 112）",
+     "where": "PS 采集线程",
+     "ms_each": 2.646431034482759,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 2.646431034482759,
+     "budget_pct": 13.232155172413794,
+     "max_ms": 2.942
+    },
+    {
+     "stage": "PL 推理（t3 编码 + U-Net + pp_layer 清理）",
+     "where": "PL（PS 等待）",
+     "ms_each": 22.99745161290322,
+     "share_of_frames": 0.1781609195402299,
+     "ms_per_frame": 4.0972471264367805,
+     "budget_pct": 20.486235632183902,
+     "max_ms": 23.071
+    },
+    {
+     "stage": "PS 跟踪（块匹配 + 轮廓 + 填充）",
+     "where": "PS 处理线程",
+     "ms_each": 0.7658321678321678,
+     "share_of_frames": 0.8218390804597702,
+     "ms_per_frame": 0.6293908045977011,
+     "budget_pct": 3.146954022988506,
+     "max_ms": 0.874
+    },
+    {
+     "stage": "收尾（容积、记账）",
+     "where": "PS 处理线程",
+     "ms_each": 0.37343678160919536,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 0.37343678160919536,
+     "budget_pct": 1.867183908045977,
+     "max_ms": 1.437
+    },
+    {
+     "stage": "关键帧等 t+d 帧（t3 编码看 40 ms 后，结构性）",
+     "where": "—",
+     "ms_each": 39.31832258064516,
+     "share_of_frames": 0.1781609195402299,
+     "ms_per_frame": 7.004988505747126,
+     "budget_pct": 35.02494252873563,
+     "max_ms": 40.154
+    },
+    {
+     "stage": "排队（处理线程还在忙前面的帧）",
+     "where": "—",
+     "ms_each": 13.347793103448277,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 13.347793103448277,
+     "budget_pct": 66.73896551724138,
+     "max_ms": 44.868
+    }
+   ],
+   "processing_ms_per_frame": 5.100482758620689,
+   "processing_budget_pct": 25.502413793103447,
+   "latency_ms": {
+    "p50": 28.951,
+    "p99": 67.05770000000001,
+    "max": 67.116,
+    "last": 28.175
+   }
+  },
+  "每帧推理": {
+   "fps": 50.0,
+   "budget_ms": 20.0,
+   "frames": 174,
+   "key_frac": 1.0,
+   "stages": [
+    {
+     "stage": "缩放（裁切 + 盒滤波到 112）",
+     "where": "PS 采集线程",
+     "ms_each": 2.691517241379311,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 2.691517241379311,
+     "budget_pct": 13.457586206896554,
+     "max_ms": 3.222
+    },
+    {
+     "stage": "PL 推理（t3 编码 + U-Net + pp_layer 清理）",
+     "where": "PL（PS 等待）",
+     "ms_each": 22.86142528735632,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 22.86142528735632,
+     "budget_pct": 114.3071264367816,
+     "max_ms": 23.859
+    },
+    {
+     "stage": "PS 跟踪（块匹配 + 轮廓 + 填充）",
+     "where": "PS 处理线程",
+     "ms_each": 0.0,
+     "share_of_frames": 0.0,
+     "ms_per_frame": 0.0,
+     "budget_pct": 0.0,
+     "max_ms": 0.0
+    },
+    {
+     "stage": "收尾（容积、记账）",
+     "where": "PS 处理线程",
+     "ms_each": 1.4241781609195405,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 1.4241781609195405,
+     "budget_pct": 7.120890804597702,
+     "max_ms": 1.463
+    },
+    {
+     "stage": "关键帧等 t+d 帧（t3 编码看 40 ms 后，结构性）",
+     "where": "—",
+     "ms_each": 39.65574712643678,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 39.65574712643678,
+     "budget_pct": 198.2787356321839,
+     "max_ms": 40.567
+    },
+    {
+     "stage": "排队（处理线程还在忙前面的帧）",
+     "where": "—",
+     "ms_each": 388.32031034482765,
+     "share_of_frames": 1.0,
+     "ms_per_frame": 388.32031034482765,
+     "budget_pct": 1941.6015517241383,
+     "max_ms": 813.662
+    }
+   ],
+   "processing_ms_per_frame": 24.28604022988505,
+   "processing_budget_pct": 121.43020114942524,
+   "latency_ms": {
+    "p50": 455.4495,
+    "p99": 832.93748,
+    "max": 840.592,
+    "last": 840.592
+   }
+  }
+ }
+}

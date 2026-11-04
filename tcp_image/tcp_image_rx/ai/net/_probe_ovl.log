@@ -1,0 +1,24 @@
+uploaded; building...
+_probe_ovl.c:2:0: warning: "_GNU_SOURCE" redefined
+ #define _GNU_SOURCE
+ 
+<command-line>:0:0: note: this is the location of the previous definition
+_probe_ovl.c: In function ‘main’:
+_probe_ovl.c:78:20: warning: unused variable ‘rb’ [-Wunused-variable]
+     double rc, rd, rb, rcpu_in_both, rdma_in_both;
+                    ^~
+BUILD_OK
+4
+  [1] CPU 写 117 MB 单独 :   113756 us ->  1078.5 MB/s
+  [2] DMA 读 85 MB 单独 :    87758 us ->  1015.6 MB/s
+  [3] 同时干             :   175599 us -> CPU   698.7 MB/s, DMA   507.6 MB/s (合计  1206.2)
+
+  判据: 同时干的用时 vs (单独之和)
+        (单独之和需要重新按同样的字节数算)
+        按真实工作量(写117MB+读85MB): 单独之和 = 113756 + 87758 = 201514 us
+        同时干(同样的量)              = 175599 us
+        => 重叠收益 25915 us (12.9%)
+RC=0
+
+OVL_PROBE_DONE
+EXIT=0 

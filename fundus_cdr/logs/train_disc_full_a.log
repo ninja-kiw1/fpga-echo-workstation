@@ -1,0 +1,29 @@
+E:\PLD\fundus_cdr\train.py:165: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  xg = torch.from_numpy(np.ascontiguousarray(tr['img512'])).to(device)                       # uint8 N,512,512,3
+[disc_full_a] it   1000 loss 0.0513 dice_full 0.9488 (59s) *
+[disc_full_a] it   2000 loss 0.0432 dice_full 0.9497 (118s) *
+[disc_full_a] it   3000 loss 0.0366 dice_full 0.9599 (178s) *
+[disc_full_a] it   4000 loss 0.0321 dice_full 0.9571 (238s)
+[disc_full_a] it   5000 loss 0.0340 dice_full 0.9582 (297s)
+[disc_full_a] it   6000 loss 0.0326 dice_full 0.9597 (358s)
+[disc_full_a] it   7000 loss 0.0313 dice_full 0.9606 (410s) *
+[disc_full_a] it   8000 loss 0.0299 dice_full 0.9588 (474s)
+[disc_full_a] it   9000 loss 0.0293 dice_full 0.9619 (536s) *
+[disc_full_a] it  10000 loss 0.0284 dice_full 0.9606 (600s)
+[disc_full_a] it  11000 loss 0.0287 dice_full 0.9601 (664s)
+[disc_full_a] it  12000 loss 0.0269 dice_full 0.9619 (725s) *
+[disc_full_a] it  13000 loss 0.0271 dice_full 0.9600 (786s)
+[disc_full_a] it  14000 loss 0.0265 dice_full 0.9603 (849s)
+[disc_full_a] it  15000 loss 0.0263 dice_full 0.9622 (912s) *
+[disc_full_a] it  16000 loss 0.0258 dice_full 0.9612 (975s)
+[disc_full_a] it  17000 loss 0.0256 dice_full 0.9613 (1035s)
+[disc_full_a] it  18000 loss 0.0256 dice_full 0.9616 (1096s)
+[disc_full_a] it  19000 loss 0.0258 dice_full 0.9618 (1155s)
+[disc_full_a] it  20000 loss 0.0258 dice_full 0.9617 (1214s)
+{
+ "iter": 15000,
+ "loss": 0.026343651209272175,
+ "seconds": 911.2215049266815,
+ "dice_full": 0.9621689250911644,
+ "score": 0.9621689250911644
+}

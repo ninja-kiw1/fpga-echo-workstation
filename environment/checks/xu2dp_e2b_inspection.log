@@ -1,0 +1,126 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Oct 11 23:29:49 2026
+# Process ID         : 31304
+# Current directory  : E:/PLD/environment/checks
+# Command line       : vivado.exe -mode batch -source E:\PLD\environment\inspect_xu2dp_e2b.tcl -log E:\PLD\environment\checks\xu2dp_e2b_inspection.log -journal E:\PLD\environment\checks\xu2dp_e2b_inspection.jou
+# Log file           : E:/PLD/environment/checks/xu2dp_e2b_inspection.log
+# Journal file       : E:\PLD\environment\checks\xu2dp_e2b_inspection.jou
+# Running On         : Ninja_kiwi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 25534 MB
+# Swap memory        : 44023 MB
+# Total Virtual      : 69558 MB
+# Available Virtual  : 45345 MB
+#-----------------------------------------------------------
+source {E:\PLD\environment\inspect_xu2dp_e2b.tcl}
+# set envdir [file dirname [file normalize [info script]]]
+# set root [file dirname $envdir]
+# set rx [file join $root tcp_image tcp_image_rx]
+# set out [file join $envdir checks xu2dp_e2b_validation]
+# file mkdir $out
+# open_checkpoint [file join $rx vivado ai_sys_xu2dp_e2b ai_sys_xu2dp_e2b.runs impl_1 system_wrapper_routed.dcp]
+Command: open_checkpoint E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_xu2dp_e2b/ai_sys_xu2dp_e2b.runs/impl_1/system_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 423.863 ; gain = 5.824
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.959 . Memory (MB): peak = 1502.488 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4097 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.212 . Memory (MB): peak = 1749.375 ; gain = 28.113
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 2359.988 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 2359.988 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2480.926 ; gain = 120.938
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2480.926 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3033.199 ; gain = 552.273
+Read Physdb Files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3033.199 ; gain = 673.211
+Restored from archive | CPU: 10.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3033.199 ; gain = 673.211
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 3033.199 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2783 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 262 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 512 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 18 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 49 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 524 instances
+  SRLC32E => SRL16E: 1418 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 3033.199 ; gain = 2625.125
+# report_route_status -file [file join $out route_status.rpt]
+report_route_status: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 3239.875 ; gain = 206.676
+# report_drc -file [file join $out drc.rpt]
+Command: report_drc -file E:/PLD/environment/checks/xu2dp_e2b_validation/drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file E:/PLD/environment/checks/xu2dp_e2b_validation/drc.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 3239.875 ; gain = 0.000
+# report_utilization -hierarchical -file [file join $out utilization_hierarchical.rpt]
+# report_timing_summary -check_timing_verbose -report_unconstrained -file [file join $out timing_original.rpt]
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:43 ; elapsed = 00:00:26 . Memory (MB): peak = 3402.262 ; gain = 162.387
+# set fp [open [file join $out tensor_bram.tsv] w]
+# puts $fp [join {cell primitive MODE_FROM_PORT_WIDTHS READ_WIDTH_A WRITE_WIDTH_A READ_WIDTH_B WRITE_WIDTH_B} "\t"]
+# set brams [get_cells -hierarchical -filter {NAME =~ *bram_gen* && (REF_NAME == RAMB36E2 || REF_NAME == RAMB18E2)}]
+# if {[llength $brams] == 0} {error "No tensor BRAM primitives found"}
+# foreach cell $brams {
+#     # E2 primitives have no RAM_MODE parameter. Verify actual port widths.
+#     set widths {}
+#     foreach prop {READ_WIDTH_A WRITE_WIDTH_A READ_WIDTH_B WRITE_WIDTH_B} {
+#         set width [get_property $prop $cell]
+#         if {![string is integer -strict $width] || $width <= 0 || $width > 36} {
+#             error "Tensor BRAM port is not configured for dual read/write: $cell $prop=$width"
+#         }
+#         lappend widths $width
+#     }
+#     if {![string match *TRUE_DP* $cell]} {error "Tensor BRAM instance is not TRUE_DP: $cell"}
+#     set values [concat [list $cell [get_property REF_NAME $cell] TRUE_DP] $widths]
+#     puts $fp [join $values "\t"]
+# }
+# close $fp
+# puts "TENSOR_BRAM_PRIMITIVES [llength $brams]"
+TENSOR_BRAM_PRIMITIVES 64
+# set clks [get_clocks -quiet clk_pl_0]
+# if {[llength $clks] != 1} {error "Expected exactly one clk_pl_0 clock"}
+# set pins [get_property SOURCE_PINS $clks]
+# if {[llength $pins] == 0} {error "No source pins for clk_pl_0"}
+# set period [expr {1000.0 / 101.376}]
+# create_clock -name clk_pl_0 -period $period -waveform [list 0 [expr {$period / 2.0}]] [get_pins $pins]
+WARNING: [Vivado 12-2489] -period contains time 9.864268 which will be rounded to 9.864 to ensure it is an integer multiple of 1 picosecond
+WARNING: [Vivado 12-2489] -waveform contains time 4.932134 which will be rounded to 4.932 to ensure it is an integer multiple of 1 picosecond
+WARNING: [Constraints 18-619] A clock with name 'clk_pl_0' already exists, overwriting the previous clock with the same name.
+# report_timing_summary -check_timing_verbose -report_unconstrained -file [file join $out timing_101_376mhz.rpt]
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:41 ; elapsed = 00:00:23 . Memory (MB): peak = 3419.836 ; gain = 17.574
+# puts "VALIDATION_REPORTS_WRITTEN $out"
+VALIDATION_REPORTS_WRITTEN E:/PLD/environment/checks/xu2dp_e2b_validation
+# close_design
+# exit 0
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 11 23:31:52 2026...
+EXITCODE 0 周日 2026/10/11 23:31:53.55 

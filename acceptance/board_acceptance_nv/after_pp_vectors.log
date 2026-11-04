@@ -1,0 +1,147 @@
+PC_UTC 2026-11-03T13:36:28.649817+00:00
+COMMAND set -eu; systemctl stop tcp-image-server; test -z "$(pgrep -x tcp_image_serve || true)"; cd /data/nv_acceptance/tools; timeout 600 ./pp_board_test vectors cases.txt 3
+Warning: The unit file, source configuration file or drop-ins of tcp-image-server.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f8616d000
+[ai] J1: readback DMA overlapped with put (worker thread)
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+[pp] pp_layer ready @0xA0030000
+TIME fundus_im0001                        calls 2 pl 2.620 ms total 3.033 ms  | PS ai_view_count 4.617 ms
+TIME fundus_im0001_c8                     calls 2 pl 2.355 ms total 2.779 ms
+TIME fundus_im0002                        calls 2 pl 2.512 ms total 2.928 ms  | PS ai_view_count 4.230 ms
+TIME fundus_im0002_c8                     calls 2 pl 2.299 ms total 2.709 ms
+TIME fundus_im0003                        calls 2 pl 2.507 ms total 2.923 ms  | PS ai_view_count 4.274 ms
+TIME fundus_im0003_c8                     calls 2 pl 2.279 ms total 2.688 ms
+TIME fundus_im0004                        calls 2 pl 2.391 ms total 2.808 ms  | PS ai_view_count 3.842 ms
+TIME fundus_im0004_c8                     calls 2 pl 2.253 ms total 2.672 ms
+TIME fundus_im0005                        calls 2 pl 2.968 ms total 3.378 ms  | PS ai_view_count 5.229 ms
+TIME fundus_im0005_c8                     calls 2 pl 2.405 ms total 2.823 ms
+TIME ct_spleen_2_z000_k4                  calls 1 pl 2.287 ms total 2.593 ms
+TIME ct_spleen_2_z000_k2                  calls 1 pl 0.800 ms total 0.884 ms
+TIME ct_spleen_2_z045_k4                  calls 1 pl 2.287 ms total 2.594 ms
+TIME ct_spleen_2_z045_k2                  calls 1 pl 0.799 ms total 0.884 ms
+TIME ct_spleen_2_z067_k4                  calls 1 pl 2.311 ms total 2.618 ms
+TIME ct_spleen_2_z067_k2                  calls 1 pl 0.805 ms total 0.898 ms
+TIME ct_spleen_2_z070_k4                  calls 1 pl 2.406 ms total 2.712 ms
+TIME ct_spleen_2_z070_k2                  calls 1 pl 0.828 ms total 0.911 ms
+TIME ct_spleen_2_z073_k4                  calls 1 pl 2.538 ms total 2.848 ms
+TIME ct_spleen_2_z073_k2                  calls 1 pl 0.862 ms total 0.946 ms
+TIME ct_spleen_2_z076_k4                  calls 1 pl 2.599 ms total 2.906 ms
+TIME ct_spleen_2_z076_k2                  calls 1 pl 0.879 ms total 0.964 ms
+TIME ct_spleen_2_z079_k4                  calls 1 pl 2.516 ms total 2.823 ms
+TIME ct_spleen_2_z079_k2                  calls 1 pl 0.857 ms total 0.942 ms
+TIME ct_spleen_2_z082_k4                  calls 1 pl 2.391 ms total 2.706 ms
+TIME ct_spleen_2_z082_k2                  calls 1 pl 0.825 ms total 0.909 ms
+TIME ct_spleen_2_z085_k4                  calls 1 pl 2.335 ms total 2.642 ms
+TIME ct_spleen_2_z085_k2                  calls 1 pl 0.812 ms total 0.897 ms
+TIME ct_spleen_2_z089_k4                  calls 1 pl 2.287 ms total 2.593 ms
+TIME ct_spleen_2_z089_k2                  calls 1 pl 0.799 ms total 0.885 ms
+TIME ct_spleen_3_z000_k4                  calls 1 pl 2.287 ms total 2.593 ms
+TIME ct_spleen_3_z000_k2                  calls 1 pl 0.799 ms total 0.883 ms
+TIME ct_spleen_3_z018_k4                  calls 1 pl 2.290 ms total 2.597 ms
+TIME ct_spleen_3_z018_k2                  calls 1 pl 0.801 ms total 0.887 ms
+TIME ct_spleen_3_z020_k4                  calls 1 pl 2.363 ms total 2.669 ms
+TIME ct_spleen_3_z020_k2                  calls 1 pl 0.817 ms total 0.901 ms
+TIME ct_spleen_3_z021_k4                  calls 1 pl 2.413 ms total 2.720 ms
+TIME ct_spleen_3_z021_k2                  calls 1 pl 0.829 ms total 0.914 ms
+TIME ct_spleen_3_z024_k4                  calls 1 pl 2.485 ms total 2.805 ms
+TIME ct_spleen_3_z024_k2                  calls 1 pl 0.849 ms total 0.934 ms
+TIME ct_spleen_3_z027_k4                  calls 1 pl 2.536 ms total 2.842 ms
+TIME ct_spleen_3_z027_k2                  calls 1 pl 0.861 ms total 0.952 ms
+TIME ct_spleen_3_z030_k4                  calls 1 pl 2.458 ms total 2.764 ms
+TIME ct_spleen_3_z030_k2                  calls 1 pl 0.845 ms total 0.929 ms
+TIME ct_spleen_3_z039_k4                  calls 1 pl 2.287 ms total 2.594 ms
+TIME ct_spleen_3_z039_k2                  calls 1 pl 0.799 ms total 0.884 ms
+TIME echo_0X10000931_f000                 calls 1 pl 0.423 ms total 0.448 ms
+TIME echo_0X10000931_f006                 calls 1 pl 0.409 ms total 0.436 ms
+TIME echo_0X10000931_f012                 calls 1 pl 0.404 ms total 0.430 ms
+TIME echo_0X10000931_f018                 calls 1 pl 0.409 ms total 0.436 ms
+TIME echo_0X10000931_f024                 calls 1 pl 0.406 ms total 0.432 ms
+TIME echo_0X10000931_f030                 calls 1 pl 0.417 ms total 0.444 ms
+TIME echo_0X10000931_f036                 calls 1 pl 0.420 ms total 0.447 ms
+TIME echo_0X10000931_f042                 calls 1 pl 0.424 ms total 0.451 ms
+TIME echo_0X10000931_f048                 calls 1 pl 0.414 ms total 0.441 ms
+TIME echo_0X10000931_f054                 calls 1 pl 0.407 ms total 0.434 ms
+TIME echo_0X10000931_f060                 calls 1 pl 0.404 ms total 0.430 ms
+TIME echo_0X10000931_f066                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X10000931_f072                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X10000931_f078                 calls 1 pl 0.412 ms total 0.438 ms
+TIME echo_0X10000931_f084                 calls 1 pl 0.416 ms total 0.442 ms
+TIME echo_0X10000931_f090                 calls 1 pl 0.410 ms total 0.436 ms
+TIME echo_0X10000931_f096                 calls 1 pl 0.405 ms total 0.431 ms
+TIME echo_0X10000931_f102                 calls 1 pl 0.410 ms total 0.436 ms
+TIME echo_0X10000931_f108                 calls 1 pl 0.414 ms total 0.441 ms
+TIME echo_0X10000931_f114                 calls 1 pl 0.412 ms total 0.438 ms
+TIME echo_0X10000931_f120                 calls 1 pl 0.407 ms total 0.432 ms
+TIME echo_0X10000931_f126                 calls 1 pl 0.424 ms total 0.451 ms
+TIME echo_0X10000931_f132                 calls 1 pl 0.417 ms total 0.448 ms
+TIME echo_0X10000931_f138                 calls 1 pl 0.402 ms total 0.428 ms
+TIME echo_0X10000931_f144                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X10000931_f150                 calls 1 pl 0.409 ms total 0.436 ms
+TIME echo_0X10000931_f156                 calls 1 pl 0.410 ms total 0.436 ms
+TIME echo_0X10000931_f162                 calls 1 pl 0.413 ms total 0.440 ms
+TIME echo_0X10000931_f168                 calls 1 pl 0.413 ms total 0.440 ms
+TIME echo_0X10094BA0_f000                 calls 1 pl 0.443 ms total 0.469 ms
+TIME echo_0X10094BA0_f006                 calls 1 pl 0.453 ms total 0.480 ms
+TIME echo_0X10094BA0_f012                 calls 1 pl 0.449 ms total 0.476 ms
+TIME echo_0X10094BA0_f018                 calls 1 pl 0.442 ms total 0.468 ms
+TIME echo_0X10094BA0_f024                 calls 1 pl 0.445 ms total 0.471 ms
+TIME echo_0X10094BA0_f030                 calls 1 pl 0.442 ms total 0.468 ms
+TIME echo_0X10094BA0_f036                 calls 1 pl 0.445 ms total 0.471 ms
+TIME echo_0X10094BA0_f042                 calls 1 pl 1.251 ms total 1.279 ms
+TIME echo_0X10094BA0_f048                 calls 1 pl 0.440 ms total 0.466 ms
+TIME echo_0X10094BA0_f054                 calls 1 pl 0.427 ms total 0.453 ms
+TIME echo_0X10094BA0_f060                 calls 1 pl 0.423 ms total 0.450 ms
+TIME echo_0X10094BA0_f066                 calls 1 pl 0.407 ms total 0.434 ms
+TIME echo_0X10094BA0_f072                 calls 1 pl 0.433 ms total 0.460 ms
+TIME echo_0X10094BA0_f078                 calls 1 pl 0.438 ms total 0.464 ms
+TIME echo_0X10094BA0_f084                 calls 1 pl 0.520 ms total 0.547 ms
+TIME echo_0X10094BA0_f090                 calls 1 pl 0.431 ms total 0.457 ms
+TIME echo_0X10094BA0_f096                 calls 1 pl 0.430 ms total 0.461 ms
+TIME echo_0X10094BA0_f102                 calls 1 pl 0.462 ms total 0.488 ms
+TIME echo_0X10094BA0_f108                 calls 1 pl 0.436 ms total 0.462 ms
+TIME echo_0X10094BA0_f114                 calls 1 pl 0.440 ms total 0.466 ms
+TIME echo_0X10094BA0_f120                 calls 1 pl 0.452 ms total 0.479 ms
+TIME echo_0X10094BA0_f126                 calls 1 pl 0.440 ms total 0.466 ms
+TIME echo_0X10094BA0_f132                 calls 1 pl 0.433 ms total 0.459 ms
+TIME echo_0X10094BA0_f138                 calls 1 pl 0.430 ms total 0.456 ms
+TIME echo_0X10094BA0_f144                 calls 1 pl 0.447 ms total 0.473 ms
+TIME echo_0X10094BA0_f150                 calls 1 pl 0.450 ms total 0.477 ms
+TIME echo_0X10094BA0_f156                 calls 1 pl 0.429 ms total 0.455 ms
+TIME echo_0X10094BA0_f162                 calls 1 pl 0.437 ms total 0.464 ms
+TIME echo_0X10094BA0_f168                 calls 1 pl 0.445 ms total 0.471 ms
+TIME echo_0X10094BA0_f174                 calls 1 pl 0.451 ms total 0.477 ms
+TIME echo_0X10094BA0_f180                 calls 1 pl 0.467 ms total 0.493 ms
+TIME echo_0X10094BA0_f186                 calls 1 pl 0.437 ms total 0.463 ms
+TIME echo_0X10094BA0_f192                 calls 1 pl 0.431 ms total 0.457 ms
+TIME echo_0X10094BA0_f198                 calls 1 pl 0.520 ms total 0.547 ms
+TIME echo_0X10094BA0_f204                 calls 1 pl 0.424 ms total 0.449 ms
+TIME echo_0X1013E8A4_f000                 calls 1 pl 0.403 ms total 0.431 ms
+TIME echo_0X1013E8A4_f006                 calls 1 pl 0.401 ms total 0.428 ms
+TIME echo_0X1013E8A4_f012                 calls 1 pl 0.397 ms total 0.424 ms
+TIME echo_0X1013E8A4_f018                 calls 1 pl 0.404 ms total 0.429 ms
+TIME echo_0X1013E8A4_f024                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X1013E8A4_f030                 calls 1 pl 0.417 ms total 0.443 ms
+TIME echo_0X1013E8A4_f036                 calls 1 pl 0.408 ms total 0.434 ms
+TIME echo_0X1013E8A4_f042                 calls 1 pl 0.404 ms total 0.430 ms
+TIME echo_0X1013E8A4_f048                 calls 1 pl 0.398 ms total 0.424 ms
+TIME echo_0X1013E8A4_f054                 calls 1 pl 0.393 ms total 0.419 ms
+TIME echo_0X1013E8A4_f060                 calls 1 pl 0.402 ms total 0.427 ms
+TIME echo_0X1013E8A4_f066                 calls 1 pl 0.401 ms total 0.429 ms
+TIME echo_0X1013E8A4_f072                 calls 1 pl 0.520 ms total 0.546 ms
+TIME echo_0X1013E8A4_f078                 calls 1 pl 0.402 ms total 0.429 ms
+TIME echo_0X1013E8A4_f084                 calls 1 pl 0.400 ms total 0.427 ms
+TIME echo_0X1013E8A4_f090                 calls 1 pl 0.403 ms total 0.428 ms
+TIME echo_0X1013E8A4_f096                 calls 1 pl 0.399 ms total 0.426 ms
+TIME echo_0X1013E8A4_f102                 calls 1 pl 0.405 ms total 0.430 ms
+TIME echo_0X1013E8A4_f108                 calls 1 pl 0.400 ms total 0.426 ms
+TIME echo_0X1013E8A4_f114                 calls 1 pl 0.400 ms total 0.426 ms
+TIME echo_0X1013E8A4_f120                 calls 1 pl 0.391 ms total 0.418 ms
+TIME echo_0X1013E8A4_f126                 calls 1 pl 0.393 ms total 0.420 ms
+TIME echo_0X1013E8A4_f132                 calls 1 pl 0.393 ms total 0.420 ms
+TIME echo_0X1013E8A4_f138                 calls 1 pl 0.405 ms total 0.431 ms
+182 cases, 0 failures
+PP_BOARD_PASS
+
+SSH_EXITCODE 0

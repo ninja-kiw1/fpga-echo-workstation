@@ -1,0 +1,110 @@
+{
+  "image": "im0002",
+  "time": "20260928_233839",
+  "readback_only": true,
+  "xsct_returncodes": [
+    0,
+    0,
+    0
+  ],
+  "steps": [
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz",
+    "read-back only (no reset, no reprogramming)",
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz",
+    "read-back only (no reset, no reprogramming)",
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz",
+    "read-back only (no reset, no reprogramming)",
+    "finished"
+  ],
+  "network_completed": true,
+  "elapsed_s": 213.5382742881775,
+  "ddr_base": 268435456,
+  "ddr_bytes": 89751552,
+  "loads": [],
+  "dumps": [
+    [
+      "add.bin",
+      "4194304",
+      "42030"
+    ],
+    [
+      "down_path_0_pool.bin",
+      "1048576",
+      "9584"
+    ],
+    [
+      "add_2.bin",
+      "1048576",
+      "9746"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2097152",
+      "20134"
+    ],
+    [
+      "cat.bin",
+      "4194304",
+      "38527"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "2097152",
+      "20178"
+    ]
+  ],
+  "node_us_upper_bound": {},
+  "network_us_upper_bound": null,
+  "jtag_hz": 5000000,
+  "jtag_retries": [
+    "JTAGRETRY 1: Memory read error at 0x11118000. Invalid DAP IDCODE 30800000. Invalid DAP ACK value: 7",
+    "JTAGRETRY 2: Invalid context",
+    "JTAGRETRY 3: Invalid context",
+    "JTAGRETRY 4: Invalid context",
+    "JTAGRETRY 5: Invalid context",
+    "DUMPRETRY 20 chunk re-reads at 0x11018000",
+    "DUMPRETRY 2 chunk re-reads at 0x11418000",
+    "JTAGRETRY 1: Memory read error at 0x120C6C00. Invalid DAP IDCODE ffe000b2. Cannot access Debug Port: invalid status: ACK_OK 0xFFFD0004",
+    "JTAGRETRY 2: Invalid context",
+    "JTAGRETRY 3: Invalid context",
+    "JTAGRETRY 4: Invalid context",
+    "JTAGRETRY 5: Invalid context",
+    "DUMPRETRY 2 chunk re-reads at 0x12098000",
+    "DUMPRETRY 6 chunk re-reads at 0x12198000",
+    "DUMPRETRY 6 chunk re-reads at 0x12598000",
+    "DUMPRETRY 5 chunk re-reads at 0x12998000"
+  ],
+  "compare": [
+    {
+      "node": "add",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "down_path_0_pool",
+      "values": 524288,
+      "mismatches": 0
+    },
+    {
+      "node": "add_2",
+      "values": 524288,
+      "mismatches": 0
+    },
+    {
+      "node": "up_path_0_up_layer_block_0",
+      "values": 1048576,
+      "mismatches": 0
+    },
+    {
+      "node": "cat",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "up_path_0_conv_layer_block_2",
+      "values": 1048576,
+      "mismatches": 0
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,67 @@
+
+****** vitis-run v2025.2 (64-bit)
+  **** SW Build 6295257 on 2025-11-13-08:29:27
+  **** Start of session at: Sun Oct 11 22:13:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script 'E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/run_hls_elt.tcl'
+INFO: [HLS 200-1510] Running: open_project elt_ip_e2 
+WARNING: [HLS 200-2182] The 'elt_ip_e2' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2'.
+INFO: [HLS 200-1510] Running: set_top eltwise_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src/eltwise_layer.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src/eltwise_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/tb/test_eltwise_e2.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/tcp_image/tcp_image_rx/ai/opt_hls_elt/tb/test_eltwise_e2.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog -rtl verilog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sun Oct 11 22:13:38 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/solution1_data.json outdir=E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip srcdir=E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1 ippack_options_dict= ippack_options_dict=
+INFO: Copied 1 ipmisc file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/misc
+INFO: Copied 23 verilog file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/hdl/verilog
+INFO: Copied 22 vhdl file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/drivers
+ipx::create_core: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 635.250 ; gain = 213.055
+INFO: Import ports from HDL: E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/hdl/vhdl/eltwise_layer.vhd (eltwise_layer)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Xilinx/2025.2/Vivado/data/ip'.
+INFO: Add axi4full interface m_axi_gmem_a
+INFO: Add axi4full interface m_axi_gmem_b
+INFO: Add axi4full interface m_axi_gmem_out
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/component.xml
+INFO: Created IP archive E:/PLD/tcp_image/tcp_image_rx/ai/build/elt_ip_e2/solution1/impl/ip/xilinx_com_hls_eltwise_layer_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 11 22:13:57 2026...
+INFO: [HLS 200-802] Generated output file elt_ip_e2/solution1/impl/export.zip
+INFO: [HLS 200-2161] Finished Command export_design Elapsed time: 00:00:21; Allocated memory: 10.395 MB.
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 4 seconds. Total elapsed time: 28.087 seconds; peak allocated memory: 475.090 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 30s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
+EXITCODE 0 

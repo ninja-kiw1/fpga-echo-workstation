@@ -1,0 +1,30 @@
+[run] python : E:\fpga\vivado\2025.2.1\Vivado\tps\win64\python-3.13.0\python.exe
+[run] app    : E:\fpga\my_project\Tcp_Image_UI\app.py
+Traceback (most recent call last):
+  File "E:\fpga\my_project\Tcp_Image_UI\app.py", line 528, in <module>
+    main()
+    ~~~~^^
+  File "E:\fpga\my_project\Tcp_Image_UI\app.py", line 517, in main
+    app = App(root, host, port, selftest_path=selftest_path,
+              preset_flags=preset_flags, preset_ai_src=preset_ai_src,
+              preset_ai_thr=preset_ai_thr)
+  File "E:\fpga\my_project\Tcp_Image_UI\app.py", line 54, in __init__
+    self._build_ui()
+    ~~~~~~~~~~~~~~^^
+  File "E:\fpga\my_project\Tcp_Image_UI\app.py", line 145, in _build_ui
+    ttk.Label(top2, text="(—™π‹≈–æ›: logit >= „–÷µ)", font=FONT, fg="#666") \
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\fpga\vivado\2025.2.1\Vivado\tps\win64\python-3.13.0\lib\tkinter\ttk.py", line 739, in __init__
+    Widget.__init__(self, master, "ttk::label", kw)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\fpga\vivado\2025.2.1\Vivado\tps\win64\python-3.13.0\lib\tkinter\ttk.py", line 534, in __init__
+    tkinter.Widget.__init__(self, master, widgetname, kw=kw)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\fpga\vivado\2025.2.1\Vivado\tps\win64\python-3.13.0\lib\tkinter\__init__.py", line 2772, in __init__
+    self.tk.call(
+    ~~~~~~~~~~~~^
+        (widgetName, self._w) + extra + self._options(cnf))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: unknown option "-fg"
+
+[run] exited with an error - press any key to close

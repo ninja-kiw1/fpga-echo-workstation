@@ -1,0 +1,16 @@
+[cross] clean
+
+=== upload + build ===
+[up] 32x32 golden (P4 已验证)
+[up] 512 golden (PLD 原始)
+RC=0
+
+=== [1/2] 档位回归: shift=4 (32x32) vs P4 golden ===
+timeout: the monitored command dumped core
+RC=135
+
+=== [2/2] 全分辨率: shift=0 (512x512) vs PLD golden ===
+timeout: the monitored command dumped core
+RC=135
+
+FULLRES_DONE ok=False

@@ -1,0 +1,38 @@
+INFO: [SIM 2] *************** CSIM start ***************
+   Compiling ../../../../../tb_network_dump.cpp in release mode
+   Compiling ../../../../../../../../PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp in release mode
+   Compiling ../../../../../../../../PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp in release mode
+   Generating csim.exe
+node 0 x 32x32x3 (padded 8)
+node 1 first_block_2 32x32x8 (padded 8)
+node 2 first_block_5 32x32x8 (padded 8)
+node 3 first_shortcut_1 32x32x8 (padded 8)
+node 4 add 32x32x8 (padded 8)
+node 5 down_path_0_pool 16x16x8 (padded 8)
+node 6 down_path_0_block_2 16x16x16 (padded 16)
+node 7 down_path_0_block_5 16x16x16 (padded 16)
+node 8 down_path_0_shortcut_1 16x16x16 (padded 16)
+node 9 add_1 16x16x16 (padded 16)
+node 10 down_path_1_pool 8x8x16 (padded 16)
+node 11 down_path_1_block_2 8x8x32 (padded 32)
+node 12 down_path_1_block_5 8x8x32 (padded 32)
+node 13 down_path_1_shortcut_1 8x8x32 (padded 32)
+node 14 add_2 8x8x32 (padded 32)
+node 15 up_path_0_up_layer_block_0 16x16x16 (padded 16)
+node 16 up_path_0_conv_bridge_layer_block_2 16x16x16 (padded 16)
+node 17 cat 16x16x32 (padded 32)
+node 18 up_path_0_conv_layer_block_2 16x16x16 (padded 16)
+node 19 up_path_0_conv_layer_block_5 16x16x16 (padded 16)
+node 20 up_path_0_conv_layer_shortcut_1 16x16x16 (padded 16)
+node 21 add_3 16x16x16 (padded 16)
+node 22 up_path_1_up_layer_block_0 32x32x8 (padded 8)
+node 23 up_path_1_conv_bridge_layer_block_2 32x32x8 (padded 8)
+node 24 cat_1 32x32x16 (padded 16)
+node 25 up_path_1_conv_layer_block_2 32x32x8 (padded 8)
+node 26 up_path_1_conv_layer_block_5 32x32x8 (padded 8)
+node 27 up_path_1_conv_layer_shortcut_1 32x32x8 (padded 8)
+node 28 add_4 32x32x8 (padded 8)
+node 29 final 32x32x1 (padded 8)
+SUMMARY nodes=30 OK
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

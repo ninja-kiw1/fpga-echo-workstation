@@ -1,0 +1,17 @@
+PC_UTC 2026-11-03T13:34:05.654940+00:00
+COMMAND set -eu; cd /data/nv_acceptance/tools; for f in unet_ai.c unet_ai.h unet_net.h unet_net_data.c unet_models.c unet_models.h pp_ai.c pp_ai.h ai_view.c ai_view.h image_proto.h; do cp /root/tcp_image_rx/releases/v5_20261103T033243Z/src/$f .; done; gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -I. unet_ai.c unet_net_data.c unet_models.c strict_net_test.c -o strict_net_test -lpthread; gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -I. pp_board_test.c pp_ai.c unet_ai.c unet_net_data.c unet_models.c ai_view.c -o pp_board_test -lm -lpthread; sha256sum strict_net_test pp_board_test unet_ai.c pp_ai.c; ls vectors | wc -l; df -h / | tail -1; cd /root/Fz3b_BoardCheck_r1; rm -rf build_board; make CC=gcc RX=/root/tcp_image_rx/releases/v5_20261103T033243Z LDLIBS="-lm -lpthread" RXSRC="/root/tcp_image_rx/releases/v5_20261103T033243Z/src/axilproc.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/ai_view.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_ai.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_net_data.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_models.c"; sha256sum build_board/board_check; grep -c 494D5004 /root/tcp_image_rx/releases/v5_20261103T033243Z/src/axilproc.h
+1bdf1f0f78521d06b9fa066cbed51a50c1df9ea7a8b281295bd13f619b801e99  strict_net_test
+8f8c8e4329e59002c65058a52eaf5ab5bdb473b0c7a4004d856e11e514136450  pp_board_test
+56d6c64d750e4ea6b4ab07c121587932ba753f7bd1fb597583ceba16578e767e  unet_ai.c
+d99ced0f2b36ddceb3f5490e48873f9dd8049f9db4ff0046723b95f507cef64c  pp_ai.c
+184
+/dev/root       6.9G  6.2G  277M  96% /
+make: Warning: File '/root/tcp_image_rx/releases/v5_20261103T033243Z/src/axilproc.c' has modification time 362 s in the future
+mkdir -p build_board
+gcc -std=gnu99 -O2 -Wall -Wextra -Wno-unused-parameter -I./src -I/root/tcp_image_rx/releases/v5_20261103T033243Z/src -DBC_ON_BOARD src/bc_common.c src/bc_image.c src/bc_ref.c src/bc_report.c src/bc_pl.c src/bc_hw.c src/bc_proc.c src/bc_ai.c src/bc_bench.c src/main.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/axilproc.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/ai_view.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_ai.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_net_data.c /root/tcp_image_rx/releases/v5_20261103T033243Z/src/unet_models.c -o build_board/board_check -lm -lpthread
+built: build_board/board_check
+make: warning:  Clock skew detected.  Your build may be incomplete.
+51734b7991f92074eb367feceaae596f350dbbe59a1090bf4b628f653b80be80  build_board/board_check
+1
+
+SSH_EXITCODE 0

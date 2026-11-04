@@ -1,0 +1,43 @@
+{
+ "op": "mean3",
+ "doc": null,
+ "layout": {
+  "channels_per_stage": [
+   3,
+   3,
+   3,
+   3,
+   3
+  ],
+  "output_terms": 3
+ },
+ "out_range": [
+  0.0,
+  1.0
+ ],
+ "out_mid": 0.5,
+ "anchored_channels": 0,
+ "float_max_abs_error": 7.651210620629456e-08,
+ "integer": {
+  "output_scale": 0.003937007874015748,
+  "output_mid": 0.5,
+  "interval_bound": [
+   0.0,
+   1.0
+  ],
+  "lsb_in_grey_levels": 1.0039370078740157,
+  "mean_err_lsb": 0.0007078264840543226,
+  "max_abs_err_lsb": 0.5058823529411818,
+  "saturated": 0
+ },
+ "hls_simulator": {
+  "golden_nodes": 30,
+  "golden_nodes_with_diff": [],
+  "inputs_checked": 6,
+  "inputs_mismatching": []
+ },
+ "pass": true,
+ "plan_sha256": "72c5d535eb5f704b131e90a73c149588dacfc68d7ddc7357e5baa7a285f98430",
+ "parameters_sha256": "b00751f9f6cb2fed2a7551ccf7223690ae8658db04e1e941211b6181a61af6a2",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops"
+}

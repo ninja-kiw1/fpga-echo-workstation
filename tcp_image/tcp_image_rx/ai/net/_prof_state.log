@@ -1,0 +1,15 @@
+ssh ok
+--- 谁占着 5060 ---
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*        users:(("tcp_image_serve",pid=5008,fd=6))                                      
+ 5008 tcp_image_serve /root/Tcp_Image_Rx/tcp_image_server -p 5060 -a 0x40000000 --no-dma -x 0xA0000000 --echo -n 0
+
+--- 杀掉手动实例 (comm = tcp_image_serve) ---
+PORT_FREE
+
+--- 重启 systemd 服务 ---
+active
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*        users:(("tcp_image_serve",pid=5082,fd=6))                                      
+(end)
+
+STATE_DONE
+EXIT=0 

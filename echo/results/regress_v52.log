@@ -1,0 +1,14 @@
+== echo models 0-2 + switching
+PASS val_200_frames {"mismatching": [], "board_dice": 0.9195838495802018, "offline_dice": 0.9195838495802018, "good_medium": 0.923443371359757, "ai_ms_mean": 37.78877, "ai_ms_max": 38.026, "seconds": 23.9}
+PASS model_switching_60_frames {"wrong": [], "sequence": "sseffsffsfesseeffesessssffeesefffesffefsesesfffeefesesessfee"}
+ECHO_BOARD_ACCEPTANCE_PASS
+== F2 inter
+from_empty k=5: board Dice 0.9597, mismatches so far 0 (138s)
+INTER_BOARD_ACCEPTANCE_PASS
+== fundus v4 client
+stability 40/50 PASS
+stability 50/50 PASS
+BOARD_V4_ACCEPTANCE_PASS 75 frames
+== v5 GUI
+_note": "ROI 与整图推理逐值一致 ✓（12065 像素）"}, "echo": {"confidence_note": "与板端逐字节一致 ✓", "ai_line": "AI(心超左心室，128×128)：左心室 2011/16384 = 12.3%   连通域 1   logit[-72..127]   板端整网 37825 µs   灰度[0..255]", "conf_note": "门限 1
+== REGRESSION DONE

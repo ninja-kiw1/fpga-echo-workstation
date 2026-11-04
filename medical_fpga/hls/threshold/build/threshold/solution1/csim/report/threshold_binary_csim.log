@@ -1,0 +1,28 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../../tb/test_threshold.cpp in debug mode
+   Compiling ../../../../../src/threshold.cpp in debug mode
+   Generating csim.exe
+PASS ramp_t0 threshold=0 pixels=256 mismatches=0
+PASS ramp_t1 threshold=1 pixels=256 mismatches=0
+PASS ramp_t127 threshold=127 pixels=256 mismatches=0
+PASS ramp_t128 threshold=128 pixels=256 mismatches=0
+PASS ramp_t254 threshold=254 pixels=256 mismatches=0
+PASS ramp_t255 threshold=255 pixels=256 mismatches=0
+PASS pixel_127_t128 threshold=128 pixels=1 mismatches=0
+PASS pixel_128_t128 threshold=128 pixels=1 mismatches=0
+PASS pixel_129_t128 threshold=128 pixels=1 mismatches=0
+PASS black_t1 threshold=1 pixels=72 mismatches=0
+PASS white_t255 threshold=255 pixels=72 mismatches=0
+PASS consecutive_t64 threshold=64 pixels=437 mismatches=0
+PASS consecutive_t192 threshold=192 pixels=437 mismatches=0
+PASS consecutive_t64_again threshold=64 pixels=437 mismatches=0
+PASS stare_green_t128 threshold=128 pixels=423500 mismatches=0
+PASS stare_mean_t128 threshold=128 pixels=423500 mismatches=0
+PASS zero_width threshold=128 pixels=0 mismatches=0
+PASS negative_height threshold=128 pixels=0 mismatches=0
+PASS too_wide threshold=128 pixels=0 mismatches=0
+PASS too_tall threshold=128 pixels=0 mismatches=0
+SUMMARY cases=20 mismatches=0
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

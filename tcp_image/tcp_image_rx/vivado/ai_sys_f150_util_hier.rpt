@@ -1,0 +1,40 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Oct 16 21:39:05 2026
+| Host         : Ninja_kiwi running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 2 -file E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150_util_hier.rpt
+| Design       : system_wrapper
+| Device       : xazu3eg-sfvc784-1-i
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------+--------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+|       Instance      |          Module          | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | URAM | DSP Blocks |
++---------------------+--------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+| system_wrapper      |                    (top) |      59801 |      52576 |    3326 | 3899 | 55911 |    160 |     24 |    0 |        306 |
+|   system_i          |                   system |      59801 |      52576 |    3326 | 3899 | 55911 |    160 |     24 |    0 |        306 |
+|     ai_data_ic      |      system_ai_data_ic_0 |       2218 |       2181 |       0 |   37 |  1576 |      0 |      0 |    0 |          0 |
+|     bram_ctrl       |       system_bram_ctrl_0 |        529 |        517 |       0 |   12 |   745 |      0 |      0 |    0 |          0 |
+|     bram_gen        |        system_bram_gen_0 |        174 |        172 |       0 |    2 |    12 |     64 |      0 |    0 |          0 |
+|     conv_layer_0    |    system_conv_layer_0_0 |      27101 |      21247 |    3086 | 2768 | 25203 |     39 |      0 |    0 |        185 |
+|     ctl_xbar        |        system_ctl_xbar_0 |        203 |        203 |       0 |    0 |   127 |      0 |      0 |    0 |          0 |
+|     eltwise_layer_0 | system_eltwise_layer_0_0 |      13859 |      13672 |       0 |  187 | 10082 |     20 |      2 |    0 |         76 |
+|     img_proc_axil_0 | system_img_proc_axil_0_0 |        661 |        661 |       0 |    0 |   564 |      1 |      1 |    0 |          1 |
+|     pc_axil         |         system_pc_axil_0 |        407 |        338 |       0 |   69 |   572 |      0 |      0 |    0 |          0 |
+|     pp_layer_0      |      system_pp_layer_0_0 |       8395 |       7816 |      64 |  515 |  9165 |      4 |     14 |    0 |         28 |
+|     vis_layer_0     |     system_vis_layer_0_0 |       6250 |       5766 |     176 |  308 |  7827 |     32 |      7 |    0 |         16 |
++---------------------+--------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

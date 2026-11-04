@@ -1,0 +1,42 @@
+ssh ok
+[up] 源码 + golden
+BUILD_RC=0
+
+===== A 双缓冲布局 + 不重叠(对照) =====
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f7ce07000
+[ai] overlap OFF (control): 双缓冲布局保留, 但读回不重叠
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+timing: 1 iter(s) in 891.2 ms  ->  891.16 ms/frame (whole net, shift=0)
+profile us : ap(PL)=675435  put(->BRAM)=204277  get(BRAM->)=199373  zero=228  other=-188161
+profile mem: put=8040096 get=5341184 params=116384 words  strips=1809
+compare: mismatch = 0 / 262144  ->  PASS
+SELFTEST_DONE
+RC=0
+
+===== B 双缓冲布局 + 重叠 =====
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7f9b04d000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+timing: 1 iter(s) in 781.7 ms  ->  781.67 ms/frame (whole net, shift=0)
+profile us : ap(PL)=763787  put(->BRAM)=131356  get(BRAM->)=263643  zero=227  other=-377350
+profile mem: put=8040096 get=5341184 params=116384 words  strips=1809
+compare: mismatch = 233879 / 262144  ->  FAIL
+SELFTEST_DONE
+RC=0
+
+===== C 32x32 回归 + 重叠 =====
+[ai] tensor BRAM via /dev/plbram (Normal-NC)
+[ai] tensors: 30 nodes, 85 MB resident in PS memory
+[ai] BRAM read via GDMA: bounce 2048 KB @ 0x7fb5d98000
+[ai] U-Net ready: 30 nodes, 512x512x3 in -> 512x512x1 out, BRAM @0xB0000000 (16384 words)
+timing: 1 iter(s) in 4.3 ms  ->  4.34 ms/frame (whole net, shift=4)
+profile us : ap(PL)=2673  put(->BRAM)=310  get(BRAM->)=1096  zero=13  other=247
+profile mem: put=29444 get=20864 params=2564 words  strips=29
+compare: mismatch = 0 / 1024  ->  PASS
+SELFTEST_DONE
+RC=0
+
+PROF_ALL_OVL3_DONE

@@ -1,0 +1,272 @@
+{
+  "image": "im0002",
+  "time": "20260928_232539",
+  "xsct_returncode": 0,
+  "steps": [
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 10000000 Hz",
+    "bitstream programmed",
+    "psu_init done (clocks, DDR, PS-PL isolation removed)",
+    "DDR read/write ok",
+    "both IPs idle",
+    "parameters and input loaded"
+  ],
+  "elapsed_s": 332.3383378982544,
+  "ddr_base": 268435456,
+  "ddr_bytes": 89751552,
+  "loads": [
+    [
+      "first_block_2.bin",
+      "768",
+      "34",
+      "attempts=1"
+    ],
+    [
+      "first_block_5.bin",
+      "768",
+      "55",
+      "attempts=1"
+    ],
+    [
+      "first_shortcut_1.bin",
+      "256",
+      "53",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_block_2.bin",
+      "1536",
+      "73",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_block_5.bin",
+      "2688",
+      "123",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_shortcut_1.bin",
+      "512",
+      "46",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_block_2.bin",
+      "5376",
+      "161",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_block_5.bin",
+      "9984",
+      "323",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_shortcut_1.bin",
+      "1280",
+      "67",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2432",
+      "102",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_bridge_layer_block_2.bin",
+      "2688",
+      "90",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "4992",
+      "144",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_block_5.bin",
+      "2688",
+      "84",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_shortcut_1.bin",
+      "896",
+      "58",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_up_layer_block_0.bin",
+      "704",
+      "56",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_bridge_layer_block_2.bin",
+      "768",
+      "47",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_block_2.bin",
+      "1344",
+      "59",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_block_5.bin",
+      "768",
+      "54",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_shortcut_1.bin",
+      "320",
+      "48",
+      "attempts=1"
+    ],
+    [
+      "final.bin",
+      "256",
+      "34",
+      "attempts=1"
+    ],
+    [
+      "input.bin",
+      "4194304",
+      "86348",
+      "attempts=1"
+    ]
+  ],
+  "dumps": [
+    [
+      "first_block_2.bin",
+      "4194304",
+      "43031"
+    ],
+    [
+      "add.bin",
+      "4194304",
+      "40356"
+    ],
+    [
+      "down_path_0_pool.bin",
+      "1048576",
+      "9815"
+    ],
+    [
+      "add_2.bin",
+      "1048576",
+      "9543"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2097152",
+      "21963"
+    ],
+    [
+      "cat.bin",
+      "4194304",
+      "41220"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "2097152",
+      "21777"
+    ]
+  ],
+  "node_us_upper_bound": {
+    "first_block_2": 31513,
+    "first_block_5": 36393,
+    "first_shortcut_1": 25393,
+    "add": 27044,
+    "down_path_0_pool": 4333,
+    "down_path_0_block_2": 15567,
+    "down_path_0_block_5": 30040,
+    "down_path_0_shortcut_1": 6819,
+    "add_1": 3191,
+    "down_path_1_pool": 3839,
+    "down_path_1_block_2": 13326,
+    "down_path_1_block_5": 25724,
+    "down_path_1_shortcut_1": 3479,
+    "add_2": 2617,
+    "up_path_0_up_layer_block_0": 13034,
+    "up_path_0_conv_bridge_layer_block_2": 48815,
+    "cat": 4389,
+    "up_path_0_conv_layer_block_2": 52579,
+    "up_path_0_conv_layer_block_5": 46811,
+    "up_path_0_conv_layer_shortcut_1": 10355,
+    "add_3": 8153,
+    "up_path_1_up_layer_block_0": 26718,
+    "up_path_1_conv_bridge_layer_block_2": 29742,
+    "cat_1": 6681,
+    "up_path_1_conv_layer_block_2": 57748,
+    "up_path_1_conv_layer_block_5": 41572,
+    "up_path_1_conv_layer_shortcut_1": 20673,
+    "add_4": 29031,
+    "final": 11784
+  },
+  "network_us_upper_bound": 2970214,
+  "jtag_hz": 10000000,
+  "jtag_retries": [
+    "DUMPRETRY 9 chunk re-reads at 0x10418000",
+    "DUMPRETRY 5 chunk re-reads at 0x11018000",
+    "DUMPRETRY 6 chunk re-reads at 0x12198000",
+    "DUMPRETRY 5 chunk re-reads at 0x12598000",
+    "DUMPRETRY 3 chunk re-reads at 0x12998000",
+    "JTAGRETRY 1: Memory read error at 0x150EA600. Cortex-A53 #0: EDITR not ready",
+    "JTAGRETRY 2: Invalid context",
+    "JTAGRETRY 3: Invalid context",
+    "JTAGRETRY 4: Invalid context",
+    "JTAGRETRY 5: Invalid context"
+  ],
+  "compare": [
+    {
+      "node": "first_block_2",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "add",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "down_path_0_pool",
+      "values": 524288,
+      "mismatches": 0
+    },
+    {
+      "node": "add_2",
+      "values": 524288,
+      "mismatches": 0
+    },
+    {
+      "node": "up_path_0_up_layer_block_0",
+      "values": 1048576,
+      "mismatches": 0
+    },
+    {
+      "node": "cat",
+      "values": 2097152,
+      "mismatches": 0
+    },
+    {
+      "node": "up_path_0_conv_layer_block_2",
+      "values": 1048576,
+      "mismatches": 0
+    },
+    {
+      "node": "add_4",
+      "status": "not dumped"
+    },
+    {
+      "node": "final",
+      "status": "not dumped"
+    }
+  ],
+  "passed": false
+}

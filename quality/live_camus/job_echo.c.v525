@@ -1,0 +1,1893 @@
+/* job_echo.c -- JOB_ECHO_EF: a whole echo clip analysed on the board (③ EchoNet, beat-to-beat EF).
+ *
+ * Port of Tcp_Image_UI/echo_ws.py (= E:/PLD/echonet volume.py / beats.py):
+ *   PC  decodes the AVI (OpenCV, grey = (B + G + R + 1) // 3) and uploads the raw grey frames once; decoding
+ *       on the board was dropped (10-13): libjpeg differs from OpenCV/FFmpeg by up to 4 grey levels on ~3 % of
+ *       the pixels, so it could not be bit-exact with the offline evaluation
+ *   PS  t3 encoding (R / G / B = frames t-d / t / t+d, d = round(0.04 s * fps)), 8 px zero border -> 128
+ *   PL  program echonet_lv on every analysed frame (every frame, or every k-th in realtime mode)
+ *   PL  logit >= 1 in the 112 window, largest 4-connected component + fill holes on pp_layer (default since v5.14,
+ *       user's choice: the FPGA carries the pixel work; costs PL time, 6.19 vs 6.05 s on a 174-frame clip); flag
+ *       bit2 moves it to a PS worker thread that overlaps the next PL run (bit-identical)
+ *   PS  principal-axis 20-disk volume, frame QC info, median filter, troughs (scipy.signal.find_peaks with
+ *       distance + prominence), ED = max before each trough, median EF, linear calibration, clip QC
+ *
+ * params (104 bytes, little endian):
+ *   0 u8 model   1 u8 input (0 = raw frames; nothing else)   2 u8 mode (0 full, 1 realtime, 2 keyframe:
+ *   job_echo_kf, v5.21, 3 live: job_echo_live, v5.22)   3 u8 smooth
+ *   4 u8 agg (0 median, 1 mean)   5 u8 0   6 u16 frames   8 f64 fps
+ *   16 f64 dist_s  24 f64 prom  32 f64 win  40 f64 a_full  48 f64 b_full  56 f64 a_rt  64 f64 b_rt
+ *   72 f64 output scale (QC uncertainty)  80 f64 qc threshold 1  88 f64 qc threshold 2  96 f64 board fps (25)
+ *   optional (v5.15+, 128 bytes): 104 f64 LVEF review margin  112 f64 RR CV "irregular" threshold
+ *   120 f64 beats wanted for averaging (5); shorter params use the defaults 5.0 / 0.10 / 5
+ * result "clinical" (echo_ws.clinical, same rules): LVEF band (<=40 / 41-49 / >=50, 2021 ESC), "review" when the EF
+ *   is closer than the margin to 40 or 50, per-beat EF spread, RR intervals from consecutive ED frames (no ECG),
+ *   RR coefficient of variation, irregular flag, index beat (k >= 2 whose two preceding RR intervals differ least)
+ * data: frames x 112 x 112 grey
+ * flags: bit0 "logits" (128 x 128 per analysed frame), bit1 "masks" (cleaned, bit-packed 112 x 112 each, zlib),
+ *        bit2 clean on a PS worker instead of pp_layer (until v5.13 bit2 meant the opposite), bit3 unused,
+ *        bit4 live: one "frame" blob per analysed frame while running + rolling EF in the progress messages,
+ *        bit5 pace the analysed frames at the clip's own frame rate (live-probe emulation)
+ */
+#include <float.h>
+#include <math.h>
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
+#include <sys/resource.h>
+#include <sys/syscall.h>
+
+#include "bm_sad.h"
+#include "cardiac_ext.h"
+#include "echo_num.h"
+#include "echo_quality.h"
+#include "image_proto.h"
+#include "job.h"
+#include "kf.h"
+#include "live_crop.h"
+#include "live_src.h"
+#include "pp_ai.h"
+
+#define EN     112
+#define EPAD   8
+#define ES     128
+#define NDISK  20
+#define MAXF   4096
+
+#define F_LOGITS  1u
+#define F_MASKS   2u
+#define F_PSCLEAN 4u
+#define F_LIVE    16u
+#define F_PACE    32u
+
+typedef struct {
+    unsigned model, input, mode, smooth, agg, nraw;
+    double   fps, dist_s, prom, win, a_full, b_full, a_rt, b_rt, scale, qc0, qc1, board_fps;
+    double   review_margin, rr_cv_irr, min_beats;
+} echo_par_t;
+
+typedef struct {
+    int    ncomp, area, border;
+    double unc;
+} finfo_t;
+
+static double f64le(const uint8_t *p)
+{
+    double d;
+
+    memcpy(&d, p, 8u);              /* aarch64 is little-endian */
+    return d;
+}
+
+/* clean / numbers moved to echo_num.c (10-24, verbatim, shared with the keyframe / quality code and the host
+ * reference DLL); thin aliases keep the rest of this file unchanged */
+#define clean_ps(m, out)                  en_clean112((m), (out))
+#define volume_pca(m)                     en_volume_pca(m)
+typedef en_beat_t   beat_t;
+typedef en_result_t result_t;
+
+static void analyze(const double *vol, int n, double fps, int step, const echo_par_t *c, result_t *r)
+{
+    en_cfg_t k;
+
+    k.smooth = c->smooth;
+    k.agg = c->agg;
+    k.dist_s = c->dist_s;
+    k.prom = c->prom;
+    k.win = c->win;
+    en_analyze(vol, n, fps, step, &k, r);
+}
+
+/* echo_ws.qc: returns level; reason bits: 1 empty, 2 multi, 4 border, 8 ef spread, 16 fallback, 32 few beats */
+static int qc(const finfo_t *fi, int n, const result_t *r, const echo_par_t *c, double *score, unsigned *why,
+              double parts[6])
+{
+    double nn = n > 1 ? n : 1, multi = 0, border = 0, empty = 0, unc, spread, *u;
+    int    i;
+
+    u = (double *)malloc((size_t)(n + 1) * sizeof(double));
+    for (i = 0; i < n; i++) {
+        multi += fi[i].ncomp > 1;
+        border += fi[i].border;
+        empty += fi[i].area == 0;
+        if (u != NULL) {
+            u[i] = fi[i].unc;
+        }
+    }
+    multi /= nn;
+    border /= nn;
+    empty /= nn;
+    unc = (n > 0 && u != NULL) ? job_np_sum(u, n) / n : 1.0;
+    free(u);
+    spread = (r->has_sd ? r->ef_sd : 0.0) / 20.0;
+    spread = spread < 1.0 ? spread : 1.0;
+    *score = multi + 2 * unc + border + 2 * empty + spread + (double)r->fallback;
+    *why = 0u;
+    if (empty > 0.02) *why |= 1u;
+    if (multi > 0.3) *why |= 2u;
+    if (border > 0.05) *why |= 4u;
+    if (r->has_sd && r->ef_sd > 8) *why |= 8u;
+    if (r->fallback) *why |= 16u;
+    if (r->nbeats < 2 && !r->fallback) *why |= 32u;
+    parts[0] = multi;
+    parts[1] = unc;
+    parts[2] = border;
+    parts[3] = empty;
+    parts[4] = spread;
+    parts[5] = (double)r->fallback;
+    return (*score >= c->qc1) ? 2 : ((*score >= c->qc0 || *why) ? 1 : 0);
+}
+
+/* echo_ws.frame_info on the cleaned mask: band = 3 x 4-neighbour dilation, uncertainty in the band */
+static void frame_info(const int8_t *q128, const uint8_t *mc, int ncomp, float scale, finfo_t *fi)
+{
+    static uint8_t a[EN * EN], b[EN * EN];
+    int            i, it, y, x, inb = 0, low = 0, any = 0;
+
+    memcpy(a, mc, sizeof(a));
+    for (i = 0; i < EN * EN; i++) {
+        any |= mc[i];
+    }
+    for (it = 0; it < 3 && any; it++) {
+        for (y = 0; y < EN; y++) {
+            for (x = 0; x < EN; x++) {
+                int p = y * EN + x;
+
+                b[p] = a[p] || (y > 0 && a[p - EN]) || (y < EN - 1 && a[p + EN]) || (x > 0 && a[p - 1]) ||
+                       (x < EN - 1 && a[p + 1]);
+            }
+        }
+        memcpy(a, b, sizeof(a));
+    }
+    fi->area = 0;
+    for (y = 0; y < EN; y++) {
+        for (x = 0; x < EN; x++) {
+            int p = y * EN + x;
+
+            fi->area += mc[p];
+            if (any && a[p]) {
+                float lg = ((float)q128[(y + EPAD) * ES + x + EPAD] - 0.5f) * scale;
+
+                inb++;
+                low += fabsf(lg) < 1.0f;
+            }
+        }
+    }
+    fi->unc = inb ? (double)low / (double)inb : 1.0;
+    fi->ncomp = ncomp;
+    fi->border = 0;
+    for (i = 0; i < EN; i++) {
+        fi->border |= mc[i] | mc[(EN - 1) * EN + i] | mc[i * EN] | mc[i * EN + EN - 1];
+    }
+}
+
+/* ---------------------------------------------------------------- PS worker: clean / volume / QC info of frame k
+ * while the PL already runs frame k + 1 (frames are handed over and finished strictly in order) */
+
+typedef struct {
+    pthread_t       th;
+    pthread_mutex_t mu;
+    pthread_cond_t  cv;
+    int             submitted, done, stop, na;
+    const int8_t   *lgs;               /* na x 128 x 128 logits */
+    uint8_t        *masks;             /* na x 112 x 112 cleaned masks (PL-cleaned frames filled by the main thread) */
+    int            *ncomp_pl;          /* >= 0: cleaned on the PL with this many raw components; -1: clean here */
+    double         *vols;
+    finfo_t        *fi;
+    float           scale;
+    double          busy_ms;
+} ew_t;
+
+static void *ew_main(void *arg)
+{
+    ew_t   *w = (ew_t *)arg;
+    uint8_t raw[EN * EN];
+
+    pthread_mutex_lock(&w->mu);
+    for (;;) {
+        int      k, y, x, ncomp, any = 0;
+        uint64_t t0;
+
+        while (w->done == w->submitted && !w->stop) {
+            pthread_cond_wait(&w->cv, &w->mu);
+        }
+        if (w->done == w->submitted) {
+            break;
+        }
+        k = w->done;
+        pthread_mutex_unlock(&w->mu);
+        t0 = job_now_us();
+        {
+            const int8_t *lg = w->lgs + (size_t)k * ES * ES;
+            uint8_t      *mc = w->masks + (size_t)k * EN * EN;
+
+            ncomp = w->ncomp_pl[k];
+            if (ncomp < 0) {
+                for (y = 0; y < EN; y++) {
+                    for (x = 0; x < EN; x++) {
+                        raw[y * EN + x] = lg[(y + EPAD) * ES + x + EPAD] >= 1;
+                        any |= raw[y * EN + x];
+                    }
+                }
+                if (any) {
+                    ncomp = clean_ps(raw, mc);
+                } else {
+                    memcpy(mc, raw, sizeof(raw));
+                    ncomp = 0;
+                }
+            }
+            w->vols[k] = volume_pca(mc);
+            frame_info(lg, mc, ncomp, w->scale, &w->fi[k]);
+        }
+        pthread_mutex_lock(&w->mu);
+        w->busy_ms += (double)(job_now_us() - t0) / 1000.0;
+        w->done = k + 1;
+        pthread_cond_broadcast(&w->cv);
+    }
+    pthread_mutex_unlock(&w->mu);
+    return NULL;
+}
+
+/* frames finished by the worker so far; blocks until at least wait_for are done */
+static int ew_done(ew_t *w, int wait_for)
+{
+    int d;
+
+    pthread_mutex_lock(&w->mu);
+    while (w->done < wait_for) {
+        pthread_cond_wait(&w->cv, &w->mu);
+    }
+    d = w->done;
+    pthread_mutex_unlock(&w->mu);
+    return d;
+}
+
+/* ---------------------------------------------------------------- the job */
+
+/* echo_ws.clinical: measurement aids only (no diagnosis); appends ,"clinical":{...} */
+static void clinical_json(jbuf_t *b, const result_t *r, double ef, double a, double bb, double fps,
+                          const echo_par_t *c)
+{
+    double e[MAXF / 2], rr[MAXF / 2], x[MAXF / 2], mean, sd, emax, emin;
+    int    n = r->nbeats, i;
+
+    jb_add(b, ",\"clinical\":{\"band\":");
+    if (isnan(ef)) {
+        jb_add(b, "null,\"review\":false,\"nearest_bound\":null");
+    } else {
+        double d0 = fabs(ef - 40.0), d1 = fabs(ef - 50.0);
+        int    band = ef <= 40.0 ? 0 : (ef < 50.0 ? 1 : 2);
+        double dmin = d1 < d0 ? d1 : d0;
+
+        jb_add(b, "%d,\"review\":%s,\"nearest_bound\":%.17g", band, dmin < c->review_margin ? "true" : "false",
+               d1 < d0 ? 50.0 : 40.0);
+    }
+    jb_add(b, ",\"margin\":%.17g,\"n_beats\":%d,\"beat_ef\":[", c->review_margin, n);
+    for (i = 0; i < n; i++) {
+        e[i] = a * r->beats[i].ef + bb;
+        jb_add(b, "%s%.17g", i ? "," : "", e[i]);
+    }
+    jb_add(b, "]");
+    if (n > 0) {
+        mean = job_np_sum(e, n) / n;
+        emax = emin = e[0];
+        for (i = 0; i < n; i++) {
+            x[i] = (e[i] - mean) * (e[i] - mean);
+            emax = e[i] > emax ? e[i] : emax;
+            emin = e[i] < emin ? e[i] : emin;
+        }
+        sd = sqrt(job_np_sum(x, n) / n);
+        jb_add(b, ",\"beat_sd\":%.17g,\"beat_range\":%.17g", sd, emax - emin);
+    } else {
+        jb_add(b, ",\"beat_sd\":null,\"beat_range\":null");
+    }
+    jb_add(b, ",\"rr_s\":[");
+    for (i = 0; n >= 2 && fps > 0.0 && i + 1 < n; i++) {
+        rr[i] = ((double)r->beats[i + 1].ed - (double)r->beats[i].ed) / fps;
+        jb_add(b, "%s%.17g", i ? "," : "", rr[i]);
+    }
+    jb_add(b, "]");
+    if (n >= 2 && fps > 0.0) {
+        int m = n - 1;
+
+        mean = job_np_sum(rr, m) / m;
+        jb_add(b, ",\"rr_mean_s\":%.17g", mean);
+        if (m >= 2) {
+            double step = 0.0, best = 0.0, cv;
+            int    k = 0;
+
+            for (i = 0; i < m; i++) {
+                x[i] = (rr[i] - mean) * (rr[i] - mean);
+            }
+            cv = sqrt(job_np_sum(x, m) / m) / mean;
+            for (i = 0; i + 1 < m; i++) {
+                double dd = fabs(rr[i + 1] - rr[i]);
+
+                step = dd > step ? dd : step;
+                if (i == 0 || dd < best) {
+                    best = dd;
+                    k = i;
+                }
+            }
+            jb_add(b, ",\"rr_cv\":%.17g,\"rr_max_step_ms\":%.17g,\"irregular\":%s,\"index_beat\":{\"k\":%d,"
+                      "\"ed\":%d,\"es\":%d,\"ef\":%.17g,\"rr_diff_ms\":%.17g}",
+                   cv, step * 1000.0, cv > c->rr_cv_irr ? "true" : "false", k + 2, r->beats[k + 2].ed,
+                   r->beats[k + 2].es, e[k + 2], best * 1000.0);
+        } else {
+            jb_add(b, ",\"rr_cv\":null,\"rr_max_step_ms\":null,\"irregular\":null,\"index_beat\":null");
+        }
+    } else {
+        jb_add(b, ",\"rr_mean_s\":null,\"rr_cv\":null,\"rr_max_step_ms\":null,\"irregular\":null,\"index_beat\":null");
+    }
+    jb_add(b, ",\"few_beats\":%s,\"rr_cv_irregular\":%.17g,\"min_beats_avg\":%d}",
+           (double)n < c->min_beats ? "true" : "false", c->rr_cv_irr, (int)c->min_beats);
+}
+
+/* ---------------------------------------------------------------- mode 2: keyframe schedule + quality + interval
+ * (10-24, innovations 1-3; E:/PLD/keyframe, E:/PLD/quality). Separate path: modes 0 / 1 are unchanged.
+ * Params: the 128-byte block, then (little endian) the extension
+ *   128 u32 magic "KF01"  132 i32 kind (0 full, 1 hold, 2 fixed, 3 adaptive)  136 i32 n  140 i32 n_max  144 i32 n_min
+ *   148 i32 win (< 0 no phase forcing)  152 i32 R  156 i32 k  160 i32 reg  164 i32 pad  168 i32 flags (bit0 quality +
+ *   interval)  172 i32 0  176 f64 res (<= 0 no residual trigger)  184 f64 spacing  192 f64 a  200 f64 b (EF calibration
+ *   of this schedule)  208 f64 x 60 = eq_model_t (w[10] mu[9] sd[9] t_green t_red b[10] zmu[9] zsd[9] q80 q90)  -> 688
+ * Every frame is analysed (no realtime step): PL frames run program `model` (t3 encoding, pp_layer clean as in mode
+ * 0), the others are tracked on the PS (kf.c). Result: the mode-0 fields (ef, beats, qc over the PL frames, clinical,
+ * vols) plus "keyframe" (schedule, reasons, PL / tracking time per frame), "key" (1 per PL frame), "quality" and
+ * "interval". Host reference: E:/PLD/keyframe/echo_core.py runs the same C (kf_run_sequence, eq_clip_features,
+ * en_analyze, eq_interval) in the same order. */
+/* KF_EXT_BYTES / KF_MAGIC / eq_parse_ext: echo_quality.h */
+
+/* Engine shared by mode 2 (whole uploaded clip) and mode 3 (live, 10-25): the frames are fed one by one in time order;
+ * the quality features (whose sector needs the whole clip, eq_sector) are accumulated at the end over the stored
+ * frames / masks / keyframe logits in the same order as before, so for the same 112 x 112 frames mode 3 returns
+ * exactly what mode 2 returns. */
+typedef struct {
+    kf_cfg_t   kc;
+    kf_t       s;
+    eq_model_t md;
+    int        flags, n_cap, n, nk, d, use_pl, sinit, why_n[8];
+    double     a, bb, track_ms, track_max, pl_ms;
+    uint32_t   run_us;
+    uint8_t   *masks, *keyv;
+    double    *vols;
+    finfo_t   *fi;
+    int8_t    *q112s;           /* per keyframe: the 112 window of its logits */
+    int       *ncomps;          /* per keyframe: components before the clean (-1 = PS clean) */
+    hc_par_t   hc;              /* HC01 whole-heart extension (10-25), valid when has_hc */
+    int        has_hc;
+} kfe_t;
+
+static uint8_t kfe_in[ES * ES * 3];
+
+static const char *kfe_init(kfe_t *e, const job_t *j, const echo_par_t *c, int n_cap, int use_pl)
+{
+    memset(e, 0, sizeof(*e));
+    if (eq_parse_ext(j->param + 128, j->param_bytes > 128u ? j->param_bytes - 128u : 0u, &e->kc, &e->flags, &e->a,
+                     &e->bb, &e->md) != 0) {
+        return "mode 2 / 3 needs the KF01 parameter extension";
+    }
+    if (e->kc.kind < KF_FULL || e->kc.kind > KF_ADAPT || e->kc.R < 1 || e->kc.R > BM_RMAX || e->kc.k < 1 ||
+        e->kc.k > 33 || e->kc.pad < e->kc.R + 8 || !(e->kc.spacing >= 0.5)) {
+        return "bad keyframe parameters";
+    }
+    {                                   /* optional HC01 after KF01 (mode 2) or after LV01 = 112 bytes (mode 3) */
+        uint32_t off = 128u + KF_EXT_BYTES + (c->mode == 3u ? 112u : 0u);
+
+        e->has_hc = j->param_bytes >= off + HC_BYTES && hc_parse(j->param + off, j->param_bytes - off, &e->hc) == 0;
+    }
+    e->d = (int)nearbyint(0.04 * c->fps);
+    e->d = e->d > 1 ? e->d : 1;
+    e->n_cap = n_cap;
+    e->use_pl = use_pl;
+    e->masks = (uint8_t *)malloc((size_t)n_cap * EN * EN);
+    e->keyv = (uint8_t *)calloc((size_t)n_cap, 1u);
+    e->vols = (double *)calloc((size_t)n_cap, sizeof(double));
+    e->fi = (finfo_t *)calloc((size_t)n_cap, sizeof(finfo_t));
+    e->q112s = (int8_t *)malloc((size_t)n_cap * EN * EN);
+    e->ncomps = (int *)malloc((size_t)n_cap * sizeof(int));
+    if (e->masks == NULL || e->keyv == NULL || e->vols == NULL || e->fi == NULL || e->q112s == NULL ||
+        e->ncomps == NULL || kf_init(&e->s, &e->kc, EN, EN, c->fps, n_cap) != 0) {
+        return "out of memory";
+    }
+    e->sinit = 1;
+    memset(kfe_in, 0, sizeof(kfe_in));
+    return NULL;
+}
+
+static void kfe_free(kfe_t *e)
+{
+    if (e->sinit) {
+        kf_free(&e->s);
+    }
+    free(e->masks);
+    free(e->keyv);
+    free(e->vols);
+    free(e->fi);
+    free(e->q112s);
+    free(e->ncomps);
+    memset(e, 0, sizeof(*e));
+}
+
+/* Frame t = e->n with the schedule's decision why_k (kf_decide); fr / fg / fb = frames t - d, t, t + d (clamped to the
+ * clip). *w0 / *w1 = start / end of the PL run (keyframe) or of the tracking step. */
+static const char *kfe_frame(kfe_t *e, const echo_par_t *c, int why_k, const uint8_t *fr, const uint8_t *fg,
+                             const uint8_t *fb, uint64_t *w0, uint64_t *w1)
+{
+    int      t = e->n, y, xx, ncomp = -1;
+    uint8_t *mo = e->masks + (size_t)t * EN * EN, cur[EN * EN];
+
+    e->why_n[why_k & 7]++;
+    if (why_k != KF_TRACK) {
+        static uint8_t bits[EN * 16];
+        int8_t         lg[ES * ES], *q112 = e->q112s + (size_t)e->nk * EN * EN;
+        pp_result_t    pr;
+        uint64_t       tp = job_now_us();
+
+        *w0 = tp;
+        for (y = 0; y < EN; y++) {
+            uint8_t *o = kfe_in + ((size_t)(y + EPAD) * ES + EPAD) * 3u;
+
+            for (xx = 0; xx < EN; xx++) {
+                o[3 * xx] = fr[y * EN + xx];
+                o[3 * xx + 1] = fg[y * EN + xx];
+                o[3 * xx + 2] = fb[y * EN + xx];
+            }
+        }
+        if (job_unet(c->model, 2, kfe_in, lg, &e->run_us) != 0) {
+            return "PL run failed";
+        }
+        for (y = 0; y < EN; y++) {
+            for (xx = 0; xx < EN; xx++) {
+                q112[y * EN + xx] = lg[(y + EPAD) * ES + xx + EPAD];
+            }
+        }
+        if (e->use_pl && pp_run(lg, ES, ES, PP_OP_MASK | PP_OP_CLEAN, EPAD, EPAD, EN, EN, 1, 1, 1, bits, &pr) == 0 &&
+            pr.status == 0u) {
+            size_t rb = pp_mask_row_bytes(EN);
+
+            for (y = 0; y < EN; y++) {
+                for (xx = 0; xx < EN; xx++) {
+                    cur[y * EN + xx] = (uint8_t)((bits[y * rb + (xx >> 3)] >> (xx & 7)) & 1u);
+                }
+            }
+            ncomp = (int)pr.comps;
+        } else {
+            uint8_t raw[EN * EN];
+
+            for (y = 0; y < EN * EN; y++) {
+                raw[y] = q112[y] >= 1;
+            }
+            ncomp = clean_ps(raw, cur);
+        }
+        *w1 = job_now_us();
+        e->pl_ms += (double)(*w1 - tp) / 1000.0;
+        kf_key(&e->s, fg, cur, why_k, mo);
+        e->ncomps[e->nk] = ncomp;
+        frame_info(lg, mo, ncomp, (float)c->scale, &e->fi[e->nk]);
+        e->keyv[t] = 1u;
+        e->nk++;
+    } else {
+        double ms;
+
+        *w0 = job_now_us();
+        kf_track(&e->s, fg, mo);
+        *w1 = job_now_us();
+        ms = (double)(*w1 - *w0) / 1000.0;
+        e->track_ms += ms;
+        e->track_max = ms > e->track_max ? ms : e->track_max;
+    }
+    e->vols[t] = volume_pca(mo);
+    e->n++;
+    return NULL;
+}
+
+/* ---- whole-heart extensions (HC01, 10-25; cardiac_ext.h). Beat pairs = the analysed beats, or (argmax, argmin) of the
+ * volume curve when there is none. "wall_motion": 6 A4C segments from the LV masks (mean fac over the usable beats,
+ * z, segment prompts, clip score / prompt with the calibrated EF). "right_heart": programs hc.rv_model / ra_model on
+ * the frames of the first RH_MAXB pairs (RV at ED and ES, RA at ES), 112 padded to 128 with R = G = B (program 16's
+ * input chain), integer logit >= 1, largest 4-connected component, plausibility vs the LV mask of the same frame;
+ * rv_lv = mean RV_ED / LV_ED and rv_fac = mean 1 - RV_ES / RV_ED over the pairs whose two RV masks pass; ra_lv = mean
+ * RA_ES / LV_ED over the pairs whose RA passes (and lies below the RV at ES when that passes). rh: 3 packed masks per
+ * pair (RV ED, RV ES, RA ES). */
+#define RH_MAXB 6
+
+static void heart_json(kfe_t *e, const uint8_t *frames, const result_t *res, double ef, jbuf_t *b, uint8_t *rh,
+                       int *rh_pairs)
+{
+    static uint8_t rh_in[ES * ES * 3];
+    int            np = 0, k, i, t;
+    int            ped[EN_MAXF / 2 + 1], pes[EN_MAXF / 2 + 1];
+
+    *rh_pairs = 0;
+    for (k = 0; k < res->nbeats; k++) {
+        ped[np] = res->beats[k].ed;
+        pes[np++] = res->beats[k].es;
+    }
+    if (np == 0 && e->n > 0) {
+        int imax = 0, imin = 0;
+
+        for (t = 1; t < e->n; t++) {
+            imax = e->vols[t] > e->vols[imax] ? t : imax;
+            imin = e->vols[t] < e->vols[imin] ? t : imin;
+        }
+        ped[0] = imax;
+        pes[np++] = imin;
+    }
+    if (e->hc.flags & 1) {
+        double   fac[WM_SEG], sum[WM_SEG];
+        int      used = 0;
+        wm_out_t wo;
+
+        for (k = 0; k < np; k++) {
+            if (wm_beat(e->masks + (size_t)ped[k] * EN * EN, e->masks + (size_t)pes[k] * EN * EN, EN, EN, fac) == 0) {
+                for (i = 0; i < WM_SEG; i++) {
+                    sum[i] = used ? sum[i] + fac[i] : fac[i];
+                }
+                used++;
+            }
+        }
+        if (used) {
+            static const char *sn[WM_SEG] = {"SEG3", "SEG9", "SEG14", "SEG16", "SEG12", "SEG6"};
+
+            for (i = 0; i < WM_SEG; i++) {
+                fac[i] = sum[i] / used;
+            }
+            wm_eval(&e->hc, fac, used, ef, &wo);
+            jb_add(b, ",\"wall_motion\":{\"beats\":%d,\"segments\":[", used);
+            for (i = 0; i < WM_SEG; i++) {
+                jb_add(b, "%s\"%s\"", i ? "," : "", sn[i]);
+            }
+            jb_add(b, "],\"fac\":[");
+            for (i = 0; i < WM_SEG; i++) {
+                jb_add(b, "%s%.17g", i ? "," : "", wo.fac[i]);
+            }
+            jb_add(b, "],\"z\":[");
+            for (i = 0; i < WM_SEG; i++) {
+                jb_add(b, "%s%.17g", i ? "," : "", wo.z[i]);
+            }
+            jb_add(b, "],\"seg\":[");
+            for (i = 0; i < WM_SEG; i++) {
+                jb_add(b, "%s%s", i ? "," : "", wo.seg[i] ? "true" : "false");
+            }
+            if (wo.has_score) {
+                jb_add(b, "],\"score\":%.17g,\"flag\":%s}", wo.score, wo.flag ? "true" : "false");
+            } else {
+                jb_add(b, "],\"score\":null,\"flag\":null}");
+            }
+        } else {
+            jb_add(b, ",\"wall_motion\":null");
+        }
+    }
+    if (e->hc.flags & 2) {
+        double   rv_lv = 0.0, rv_fac = 0.0, ra_lv = 0.0;
+        int      n_rv = 0, n_ra = 0, failed = 0;
+        uint32_t us = 0;
+        uint8_t  raw[EN * EN], part[EN * EN];
+        int8_t   lg[ES * ES];
+
+        jb_add(b, ",\"right_heart\":{\"rv_model\":%d,\"ra_model\":%d,\"pairs\":[", e->hc.rv_model, e->hc.ra_model);
+        for (k = 0; k < np && k < RH_MAXB && !failed; k++) {
+            int       fi[3] = {ped[k], pes[k], pes[k]}, mo[3] = {e->hc.rv_model, e->hc.rv_model, e->hc.ra_model};
+            rh_part_t rp[3];
+            int       ra_ok;
+
+            for (i = 0; i < 3; i++) {
+                const uint8_t *fr = frames + (size_t)fi[i] * EN * EN;
+                uint8_t       *bits = rh + ((size_t)k * 3 + i) * (EN * EN / 8);
+                int            y, x;
+
+                for (y = 0; y < EN; y++) {
+                    uint8_t *o = rh_in + ((size_t)(y + EPAD) * ES + EPAD) * 3u;
+
+                    for (x = 0; x < EN; x++) {
+                        o[3 * x] = o[3 * x + 1] = o[3 * x + 2] = fr[y * EN + x];
+                    }
+                }
+                if (job_unet((unsigned)mo[i], 2, rh_in, lg, &us) != 0) {
+                    failed = mo[i];
+                    break;
+                }
+                for (y = 0; y < EN; y++) {
+                    for (x = 0; x < EN; x++) {
+                        raw[y * EN + x] = lg[(y + EPAD) * ES + x + EPAD] >= 1;
+                    }
+                }
+                rh_largest(raw, EN, EN, part);
+                rh_check(part, e->masks + (size_t)fi[i] * EN * EN, EN, EN, &e->hc, &rp[i]);
+                memset(bits, 0, EN * EN / 8);
+                for (y = 0; y < EN * EN; y++) {
+                    bits[y >> 3] |= (uint8_t)(part[y] << (y & 7));
+                }
+            }
+            if (failed) {
+                break;
+            }
+            ra_ok = rp[2].ok && (!rp[1].ok || rp[2].cy > rp[1].cy);
+            jb_add(b, "%s{\"ed\":%d,\"es\":%d,\"lv_ed\":%d,\"lv_es\":%d,\"rv_ed\":%d,\"rv_es\":%d,\"ra_es\":%d,"
+                      "\"rv_ok_ed\":%s,\"rv_ok_es\":%s,\"ra_ok\":%s,\"rv_overlap_ed\":%.17g,\"ra_overlap\":%.17g}",
+                   k ? "," : "", ped[k], pes[k], rp[0].lv_area, rp[2].lv_area, rp[0].area, rp[1].area, rp[2].area,
+                   rp[0].ok ? "true" : "false", rp[1].ok ? "true" : "false", ra_ok ? "true" : "false", rp[0].overlap,
+                   rp[2].overlap);
+            if (rp[0].ok && rp[1].ok && rp[0].lv_area > 0) {
+                rv_lv += (double)rp[0].area / rp[0].lv_area;
+                rv_fac += 1.0 - (double)rp[1].area / rp[0].area;
+                n_rv++;
+            }
+            if (ra_ok && rp[0].lv_area > 0) {
+                ra_lv += (double)rp[2].area / rp[0].lv_area;
+                n_ra++;
+            }
+            (*rh_pairs)++;
+        }
+        jb_add(b, "],\"n_rv\":%d,\"n_ra\":%d", n_rv, n_ra);
+        if (n_rv) {
+            jb_add(b, ",\"rv_lv\":%.17g,\"rv_fac\":%.17g", rv_lv / n_rv, rv_fac / n_rv);
+        } else {
+            jb_add(b, ",\"rv_lv\":null,\"rv_fac\":null");
+        }
+        if (n_ra) {
+            jb_add(b, ",\"ra_lv\":%.17g", ra_lv / n_ra);
+        } else {
+            jb_add(b, ",\"ra_lv\":null");
+        }
+        if (failed) {
+            jb_add(b, ",\"error\":\"program %d not available\"", failed);
+        }
+        jb_add(b, ",\"pl_ms\":%.3f}", us / 1000.0);
+    }
+}
+
+/* Beats, EF, QC (over the PL frames), quality, interval -> RESULT (+ "masks" blob). frames = the e->n frames fed in.
+ * extra: more JSON members (",\"stream\":{..}") or NULL. Returns like a job (0 sent, -1 link failed). */
+static int kfe_finish(kfe_t *e, job_t *j, const echo_par_t *c, const uint8_t *frames, const char *extra)
+{
+    eq_acc_t      acc;
+    eq_quality_t  qo;
+    eq_interval_t io;
+    uint8_t      *sector = (uint8_t *)malloc(EN * EN);
+    result_t     *res = (result_t *)malloc(sizeof(result_t));
+    char         *js = (char *)malloc(1u << 18);
+    jbuf_t        b;
+    uint8_t      *rh = NULL;
+    int           n = e->n, t, k, ki, top = 0, height = EN, ainit = 0, rc = -1, level, rh_pairs = 0;
+    unsigned      why;
+    double        score, parts[6];
+    uint64_t      t0 = job_now_us();
+
+    if (sector == NULL || res == NULL || js == NULL) {
+        rc = job_fail(j, "out of memory");
+        goto out;
+    }
+    if (n < 1) {
+        rc = job_fail(j, "no frames");
+        goto out;
+    }
+    if (e->flags & 1) {
+        eq_sector(frames, n, EN, EN, sector, &top, &height);
+        if (eq_acc_init(&acc, sector, EN, EN, top, height) != 0) {
+            rc = job_fail(j, "out of memory");
+            goto out;
+        }
+        ainit = 1;
+        for (t = 0, ki = 0; t < n; t++) {
+            const uint8_t *mo = e->masks + (size_t)t * EN * EN;
+
+            if (e->keyv[t]) {
+                eq_acc_key(&acc, frames + (size_t)t * EN * EN, e->q112s + (size_t)ki * EN * EN, mo, e->ncomps[ki]);
+                ki++;
+            }
+            eq_acc_mask(&acc, mo);
+        }
+    }
+    analyze(e->vols, n, c->fps, 1, c, res);
+    level = qc(e->fi, e->nk, res, c, &score, &why, parts);
+    jb_init(&b, js, 1u << 18);
+    jb_add(&b, "{\"ok\":true,\"mode\":%u,\"n_frames\":%d,\"fps\":%.17g,\"d\":%d,\"step\":1,\"analysed\":%d", c->mode, n,
+           c->fps, e->d, n);
+    if (isnan(res->ef)) {
+        jb_add(&b, ",\"ef_raw\":null,\"ef\":null");
+    } else {
+        jb_add(&b, ",\"ef_raw\":%.17g,\"ef\":%.17g", res->ef, e->a * res->ef + e->bb);
+    }
+    jb_add(&b, ",\"fallback\":%s,\"hr\":", res->fallback ? "true" : "false");
+    if (res->has_hr) {
+        jb_add(&b, "%.17g,\"cycle_s\":%.17g", res->hr, res->cycle_s);
+    } else {
+        jb_add(&b, "null,\"cycle_s\":null");
+    }
+    if (res->has_sd) {
+        jb_add(&b, ",\"ef_sd\":%.17g", res->ef_sd);
+    }
+    jb_add(&b, ",\"beats\":[");
+    for (k = 0; k < res->nbeats; k++) {
+        const beat_t *bt = &res->beats[k];
+
+        jb_add(&b, "%s{\"ed\":%d,\"es\":%d,\"v_ed\":%.17g,\"v_es\":%.17g,\"ef\":%.17g,\"ef_cal\":%.17g}",
+               k ? "," : "", bt->ed, bt->es, bt->v_ed, bt->v_es, bt->ef, e->a * bt->ef + e->bb);
+    }
+    jb_add(&b, "],\"qc\":{\"level\":%d,\"score\":%.17g,\"why\":%u,\"multi\":%.17g,\"unc\":%.17g,\"border\":%.17g,"
+               "\"empty\":%.17g,\"spread\":%.17g}", level, score, why, parts[0], parts[1], parts[2], parts[3], parts[4]);
+    clinical_json(&b, res, isnan(res->ef) ? NAN : e->a * res->ef + e->bb, e->a, e->bb, c->fps, c);
+    jb_add(&b, ",\"keyframe\":{\"kind\":%d,\"n\":%d,\"n_max\":%d,\"n_min\":%d,\"win\":%d,\"res\":%.17g,\"R\":%d,\"k\":%d,"
+               "\"reg\":%d,\"spacing\":%.17g,\"n_key\":%d,\"key_frac\":%.17g,\"reasons\":{\"start\":%d,\"lost\":%d,"
+               "\"every\":%d,\"interval\":%d,\"residual\":%d,\"phase\":%d},\"pl_ms_per_key\":%.3f,"
+               "\"track_ms_per_frame\":%.3f,\"track_ms_max\":%.3f}",
+           e->kc.kind, e->kc.n, e->kc.n_max, e->kc.n_min, e->kc.win, e->kc.res, e->kc.R, e->kc.k, e->kc.reg,
+           e->kc.spacing, e->nk, (double)e->nk / n, e->why_n[KF_START], e->why_n[KF_LOST], e->why_n[KF_EVERY],
+           e->why_n[KF_INTERVAL], e->why_n[KF_RESIDUAL], e->why_n[KF_PHASE], e->nk ? e->pl_ms / e->nk : 0.0,
+           (n - e->nk) ? e->track_ms / (n - e->nk) : 0.0, e->track_max);
+    jb_add(&b, ",\"key\":\"");
+    for (t = 0; t < n; t++) {
+        jb_add(&b, "%c", e->keyv[t] ? '1' : '0');
+    }
+    jb_add(&b, "\"");
+    if (e->flags & 1) {
+        static const char *fn[QF_N] = {"touch", "apex_gap", "length", "round", "unc", "multi", "contrast", "stability",
+                                       "roughness"};
+
+        eq_acc_finish(&acc, &e->md, &qo);
+        jb_add(&b, ",\"quality\":{\"light\":%d,\"score\":%.17g,\"reasons\":[", qo.light, qo.score);
+        for (k = 0; k < 2; k++) {
+            if (qo.reason[k] >= 0) {
+                jb_add(&b, "%s\"%s\"", k ? "," : "", fn[qo.reason[k]]);
+            }
+        }
+        jb_add(&b, "],\"features\":{");
+        for (k = 0; k < QF_N; k++) {
+            jb_add(&b, "%s\"%s\":%.17g", k ? "," : "", fn[k], qo.f[k]);
+        }
+        jb_add(&b, "},\"sector_top\":%d,\"sector_height\":%d}", top, height);
+        if (!isnan(res->ef)) {
+            eq_interval(&e->md, e->a * res->ef + e->bb, res->has_sd ? res->ef_sd * fabs(e->a) : 0.0, res->nbeats,
+                        res->fallback, qo.f, &io);
+            jb_add(&b, ",\"interval\":{\"sigma\":%.17g,\"lo80\":%.17g,\"hi80\":%.17g,\"lo90\":%.17g,\"hi90\":%.17g,"
+                       "\"review\":%s}", io.sigma, io.lo80, io.hi80, io.lo90, io.hi90, io.review ? "true" : "false");
+        } else {
+            jb_add(&b, ",\"interval\":null");
+        }
+    }
+    if (e->has_hc) {
+        rh = (uint8_t *)calloc((size_t)RH_MAXB * 3u * (EN * EN / 8), 1u);
+        if (rh == NULL) {
+            rc = job_fail(j, "out of memory");
+            goto out;
+        }
+        heart_json(e, frames, res, isnan(res->ef) ? NAN : e->a * res->ef + e->bb, &b, rh, &rh_pairs);
+    }
+    jb_add(&b, ",\"vols\":[");
+    for (t = 0; t < n; t++) {
+        jb_add(&b, "%s%.17g", t ? "," : "", e->vols[t]);
+    }
+    jb_add(&b, "],\"pl_ms\":%.3f,\"ms\":{\"analysis\":%.3f,\"total\":%.2f}", e->run_us / 1000.0,
+           (double)(job_now_us() - t0) / 1000.0, (double)(job_now_us() - j->t0_us) / 1000.0);
+    job_pl_split_json(&b);
+    if (extra != NULL) {
+        jb_add(&b, "%s", extra);
+    }
+    jb_add(&b, ",\"upload_bytes\":%u}", (unsigned)j->data_bytes);
+    if (b.len + 2u >= (1u << 18)) {
+        rc = job_fail(j, "result too long");
+        goto out;
+    }
+    if (j->flags & F_MASKS) {
+        uint8_t *bits = (uint8_t *)calloc((size_t)n * EN * EN / 8u + 1u, 1u);
+        size_t   p;
+
+        if (bits == NULL) {
+            rc = job_fail(j, "out of memory");
+            goto out;
+        }
+        for (p = 0; p < (size_t)n * EN * EN; p++) {
+            if (e->masks[p]) {
+                bits[p >> 3] |= (uint8_t)(1u << (p & 7u));
+            }
+        }
+        k = job_blob(j, "masks", bits, (size_t)n * EN * EN / 8u, 1);
+        free(bits);
+        if (k != 0) {
+            goto out;
+        }
+        if (rh_pairs > 0 && job_blob(j, "rh_masks", rh, (size_t)rh_pairs * 3u * (EN * EN / 8), 1) != 0) {
+            goto out;
+        }
+    }
+    rc = job_result(j, js);
+    printf("[job] echo_ef mode %u: %d frames, %d keyframes (%.1f %%), EF raw %.2f, %d beats, track %.3f ms/frame, "
+           "%.0f ms\n", c->mode, n, e->nk, 100.0 * e->nk / n, res->ef, res->nbeats,
+           (n - e->nk) ? e->track_ms / (n - e->nk) : 0.0, (double)(job_now_us() - j->t0_us) / 1000.0);
+out:
+    if (ainit) {
+        eq_acc_free(&acc);
+    }
+    free(sector);
+    free(res);
+    free(js);
+    free(rh);
+    return rc;
+}
+
+static int job_echo_kf(job_t *j, echo_par_t *c, const uint8_t *frames, int n, int use_pl)
+{
+    kfe_t       e;
+    const char *err;
+    int         t, rc = -1;
+    uint64_t    w0, w1;
+
+    if ((err = kfe_init(&e, j, c, n, use_pl)) != NULL) {
+        rc = job_fail(j, err);
+        goto out;
+    }
+    for (t = 0; t < n; t++) {
+        int why_k = kf_decide(&e.s);
+
+        err = kfe_frame(&e, c, why_k, frames + (size_t)(t - e.d > 0 ? t - e.d : 0) * EN * EN,
+                        frames + (size_t)t * EN * EN, frames + (size_t)(t + e.d < n - 1 ? t + e.d : n - 1) * EN * EN,
+                        &w0, &w1);
+        if (err != NULL) {
+            rc = job_fail(j, err);
+            goto out;
+        }
+        if (job_progress(j, "frames", (uint32_t)(t + 1), (uint32_t)n, 0) != 0) {
+            goto out;
+        }
+    }
+    rc = kfe_finish(&e, j, c, frames, NULL);
+out:
+    kfe_free(&e);
+    return j->failed ? -1 : rc;
+}
+
+/* ---------------------------------------------------------------- mode 3: live (10-25)
+ * The frames come from a source on the board (live_src.c: a paced .y8 file now, the UVC capture card later), not
+ * from the PC. Params: the 688 bytes of mode 2 (KF01), then (little endian)
+ *   688 u32 magic "LV01"  692 u8 source (0 file, 1 v4l2)  693 u8 crop (0 auto, 1 fixed)  694 u16 max frames
+ *   696 u16 detect frames K  698 u16 detect threshold  700 u16 "live" blob every k frames (0 none)  702 u16 0
+ *   704 i32 crop x  708 i32 crop y  712 i32 crop side  716 u16 v4l2 W  718 u16 v4l2 H  720 f64 v4l2 fps
+ *   728 u32 flags (bit0 "frames112" blob, bit1 "trace" blob, bit2 the 112 x 112 frame in every "live" blob, v5.23)
+ *   732 u32 0  736 char name[64]  -> 800
+ * Threads: the capture thread reads the source, finds the moving square in the first K frames (live_crop.c) -- only
+ * the square is kept, the full frames used for that are freed -- and resizes every frame to 112 x 112; the job thread
+ * runs the mode 2 engine on frame t as soon as it is there (keyframes wait for frame t + d of the t3 encoding).
+ * While running: a "live" blob per k-th frame (u32 index, u8 key, 3 x u8 0, f64 volume, 7 x u32 stamps in us since the
+ * job start: captured, ready, start, work0, work1, end, previous blob sent, 4 x u8 0, then the 1568-byte mask, with
+ * flags bit2 then the 12544-byte frame: the PC has no frames of its own in this mode) and a progress
+ * JSON every 0.25 s with the rolling EF / HR over the frames so far. At the end: the mode 2 RESULT for the frames
+ * analysed (+ "stream": source, crop, counts, latency) and on request the 112 frames and the per-frame stamps. */
+#define LV_MAGIC  0x3130564Cu       /* "LV01" */
+#define LV_BYTES  112u
+#define LV_STAMPS 7
+#define LV_DETMEM (64u << 20)       /* full frames kept for the detection (then freed) */
+
+/* v5.25 (10-31): optional "RQ01" block after LV01 (after HC01 when that is there) -- rolling quality light + view
+ * while scanning (E:/PLD/quality/scan_sim). Without it mode 3 is exactly v5.24.
+ *   0 u32 magic "RQ01"  4 u16 win (frames per quality window, 0 = no rolling light)  6 u16 every (update period,
+ *   frames)  8 u16 view_every (frames between RV runs, 0 = no view)  10 u16 view_n (median over the last n RV runs)
+ *   12 i32 rv_model (0 = HC01's)  16 f64 view_t (A4C when median RV / LV area >= view_t)  24 u32 0  28 u32 0  -> 32
+ * Quality: at frame t (t + 1 >= win, (t + 1 - win) % every == 0) the mode-2 clip quality (eq_sector + eq_acc_* +
+ * eq_acc_finish with the KF01 model) over frames t - win + 1 .. t only = host echo_core.clip_features on that window.
+ * View: every view_every-th frame, program rv_model on frame t (112 padded to 128, R = G = B as HC01), logit >= 1,
+ * largest 4-connected component; ratio = RV area / max(LV area of frame t, 1); A4C = median of the last view_n
+ * ratios >= view_t (no extra model: A2C shows no RV). Both start after the frame's mask is out (stamp "end"); the
+ * quality windows run on a worker thread (rq_main), the view's PL run on the job thread (its time shows up as queueing
+ * of the next frames). Each "live" blob carries the latest state: byte 5 = light + 1 (0 none yet), byte 6 = view (0 none yet, 1 not A4C, 2 A4C), bytes 44..47 = f32
+ * score. RESULT gains "rolling": updates [t, light, score], views [t, rv area, lv area, view]. */
+#define RQ_MAGIC  0x31305152u       /* "RQ01" */
+#define RQ_BYTES  32u
+#define RQ_MAXV   16
+
+/* The quality windows run on their own thread (rq_main, nice +5 below the server): one window takes ~37 ms on the
+ * board (eq_sector + the per-keyframe features over 50 frames), which on the job thread pushed the live P99 from 68
+ * to 89 ms. The worker only reads frames < done_n (masks, keyframe logits / components, 112 frames: fixed once the job
+ * thread published them under mu) and computes every update in order, so the list of updates is the same as on the
+ * job thread; only when each one lands in a "live" blob depends on timing. The view (a PL run) stays on the job
+ * thread: the PL serves one program at a time. */
+typedef struct {
+    int             win, every, view_every, view_n, rv_model, light, view, nr, nupd, nview;
+    double          view_t, ratios[RQ_MAXV], q_ms_sum, q_ms_max, v_ms_sum, v_ms_max;
+    float           score;
+    pthread_mutex_t mu;
+    pthread_cond_t  cv;
+    pthread_t       th;
+    int             done_n, end, abort, failed;
+    const kfe_t    *e;
+    const uint8_t  *f112;
+    const int      *kidx;
+    int            *upd;
+    float          *sc;
+    uint8_t        *sector;
+} rq_t;
+
+static int rq_parse(const job_t *j, int has_hc, int hc_rv, rq_t *r)
+{
+    uint32_t       off = 128u + KF_EXT_BYTES + LV_BYTES + (has_hc ? HC_BYTES : 0u);
+    const uint8_t *x = j->param + off;
+
+    memset(r, 0, sizeof(*r));
+    if (j->param_bytes < off + RQ_BYTES || proto_get_le32(x) != RQ_MAGIC) {
+        return 0;
+    }
+    r->win = proto_get_le16(x + 4);
+    r->every = proto_get_le16(x + 6);
+    r->view_every = proto_get_le16(x + 8);
+    r->view_n = proto_get_le16(x + 10);
+    r->rv_model = (int)(int32_t)proto_get_le32(x + 12);
+    r->view_t = f64le(x + 16);
+    r->rv_model = r->rv_model > 0 ? r->rv_model : hc_rv;
+    if ((r->win && (r->win < 8 || r->win > 600 || r->every < 1)) ||
+        (r->view_every && (r->view_n < 1 || r->view_n > RQ_MAXV || r->rv_model <= 0 || !(r->view_t > 0.0)))) {
+        return -1;
+    }
+    return 1;
+}
+
+/* mode-2 clip quality over frames a .. a + n - 1 of the live run; kidx[t] = keyframe index of frame t */
+static int rq_quality(const kfe_t *e, const uint8_t *f112, const int *kidx, int a, int n, uint8_t *sector,
+                      eq_quality_t *qo)
+{
+    eq_acc_t acc;
+    int      top, height, t;
+
+    eq_sector(f112 + (size_t)a * EN * EN, n, EN, EN, sector, &top, &height);
+    if (eq_acc_init(&acc, sector, EN, EN, top, height) != 0) {
+        return -1;
+    }
+    for (t = a; t < a + n; t++) {
+        const uint8_t *mo = e->masks + (size_t)t * EN * EN;
+
+        if (e->keyv[t]) {
+            eq_acc_key(&acc, f112 + (size_t)t * EN * EN, e->q112s + (size_t)kidx[t] * EN * EN, mo,
+                       e->ncomps[kidx[t]]);
+        }
+        eq_acc_mask(&acc, mo);
+    }
+    eq_acc_finish(&acc, &e->md, qo);
+    eq_acc_free(&acc);
+    return 0;
+}
+
+/* Worker: update k covers frames win - 1 + k * every - win + 1 .. win - 1 + k * every; waits until the job thread has
+ * published that last frame, stops when the job ended with no frame left for the next update (or on abort). */
+static void *rq_main(void *arg)
+{
+    rq_t *r = (rq_t *)arg;
+    int   k = 0;
+
+    (void)setpriority(PRIO_PROCESS, (id_t)syscall(SYS_gettid), 5);  /* the server runs at nice -20: never ahead of it */
+    for (;;) {
+        int          t = r->win - 1 + k * r->every, go;
+        eq_quality_t qo;
+        uint64_t     t0;
+        double       ms;
+
+        pthread_mutex_lock(&r->mu);
+        while (!r->abort && !r->end && r->done_n <= t) {
+            pthread_cond_wait(&r->cv, &r->mu);
+        }
+        go = !r->abort && r->done_n > t;
+        pthread_mutex_unlock(&r->mu);
+        if (!go) {
+            break;
+        }
+        t0 = job_now_us();
+        if (rq_quality(r->e, r->f112, r->kidx, t + 1 - r->win, r->win, r->sector, &qo) != 0) {
+            pthread_mutex_lock(&r->mu);
+            r->failed = 1;
+            pthread_mutex_unlock(&r->mu);
+            break;
+        }
+        ms = (double)(job_now_us() - t0) / 1000.0;
+        pthread_mutex_lock(&r->mu);
+        r->upd[2 * k] = t;
+        r->upd[2 * k + 1] = qo.light;
+        r->sc[k] = (float)qo.score;
+        r->light = qo.light;
+        r->score = (float)qo.score;
+        r->q_ms_sum += ms;
+        r->q_ms_max = ms > r->q_ms_max ? ms : r->q_ms_max;
+        r->nupd = ++k;
+        pthread_mutex_unlock(&r->mu);
+    }
+    return NULL;
+}
+
+/* job thread: tell the worker how far the frames are, or that the run ended (abort: drop what is left) */
+static void rq_publish(rq_t *r, int done_n, int end, int abort)
+{
+    pthread_mutex_lock(&r->mu);
+    r->done_n = done_n;
+    r->end |= end;
+    r->abort |= abort;
+    pthread_cond_broadcast(&r->cv);
+    pthread_mutex_unlock(&r->mu);
+}
+
+/* RV program on one 112 frame -> RV area (largest 4-connected component of logit >= 1); -1 if the PL run failed */
+static int rq_rv_area(int model, const uint8_t *fr)
+{
+    static uint8_t in[ES * ES * 3];
+    int8_t         lg[ES * ES];
+    uint8_t        raw[EN * EN], part[EN * EN];
+    uint32_t       us = 0;
+    int            y, x, area = 0;
+
+    memset(in, 0, sizeof(in));
+    for (y = 0; y < EN; y++) {
+        uint8_t *o = in + ((size_t)(y + EPAD) * ES + EPAD) * 3u;
+
+        for (x = 0; x < EN; x++) {
+            o[3 * x] = o[3 * x + 1] = o[3 * x + 2] = fr[y * EN + x];
+        }
+    }
+    if (job_unet((unsigned)model, 2, in, lg, &us) != 0) {
+        return -1;
+    }
+    for (y = 0; y < EN; y++) {
+        for (x = 0; x < EN; x++) {
+            raw[y * EN + x] = lg[(y + EPAD) * ES + x + EPAD] >= 1;
+        }
+    }
+    rh_largest(raw, EN, EN, part);
+    for (y = 0; y < EN * EN; y++) {
+        area += part[y];
+    }
+    return area;
+}
+
+static int cmp_f64(const void *a, const void *b)
+{
+    double x = *(const double *)a, y = *(const double *)b;
+
+    return x < y ? -1 : x > y;
+}
+
+typedef struct {
+    pthread_mutex_t mu;
+    pthread_cond_t  cv;
+    pthread_t       th;
+    ls_t            src;
+    lc_box_t        box;
+    int             have_box, K, thr, max_frames, captured, done, stop, failed;
+    uint8_t        *f112;
+    uint64_t       *t_cap, *t_ready;
+    double          resize_ms, resize_max;
+    char            msg[160];
+} lv_t;
+
+static void lv_publish(lv_t *v, int captured, int done, const char *msg)
+{
+    pthread_mutex_lock(&v->mu);
+    v->captured = captured;
+    if (done) {
+        v->done = 1;
+    }
+    if (msg != NULL) {
+        v->failed = 1;
+        snprintf(v->msg, sizeof(v->msg), "%s", msg);
+    }
+    pthread_cond_broadcast(&v->cv);
+    pthread_mutex_unlock(&v->mu);
+}
+
+static void *lv_main(void *arg)
+{
+    lv_t     *v = (lv_t *)arg;
+    int       W = v->src.W, H = v->src.H, k = 0, i = 0, rc, stop;
+    uint8_t **det = NULL;
+    uint32_t *tmp = NULL;
+
+    if (!v->have_box) {
+        det = (uint8_t **)calloc((size_t)v->K, sizeof(uint8_t *));
+        if (det == NULL) {
+            lv_publish(v, 0, 1, "out of memory");
+            return NULL;
+        }
+    } else {
+        tmp = (uint32_t *)malloc((size_t)lc_tmp_words(v->box.side) * sizeof(uint32_t));
+        if (tmp == NULL) {
+            lv_publish(v, 0, 1, "out of memory");
+            return NULL;
+        }
+    }
+    for (;;) {
+        const uint8_t *luma;
+        uint64_t       tc, t1;
+
+        pthread_mutex_lock(&v->mu);
+        stop = v->stop;
+        pthread_mutex_unlock(&v->mu);
+        if (stop || i + k >= v->max_frames) {
+            break;
+        }
+        rc = ls_next(&v->src, &luma, &tc);
+        if (rc != 0) {
+            if (rc < 0) {
+                lv_publish(v, i, 0, "source read failed");
+            }
+            break;
+        }
+        if (!v->have_box) {                          /* detection: keep a luma copy of the first K frames */
+            int y, x;
+
+            det[k] = (uint8_t *)malloc((size_t)W * H);
+            if (det[k] == NULL) {
+                lv_publish(v, 0, 1, "out of memory");
+                goto out;
+            }
+            for (y = 0; y < H; y++) {
+                for (x = 0; x < W; x++) {
+                    det[k][(size_t)y * W + x] = luma[(size_t)y * v->src.stride + (size_t)x * v->src.step];
+                }
+            }
+            v->t_cap[k] = tc;
+            if (++k < v->K) {
+                continue;
+            }
+        } else {
+            t1 = job_now_us();
+            lc_crop_resize(luma, v->src.stride, v->src.step, &v->box, v->f112 + (size_t)i * EN * EN, tmp);
+            v->t_cap[i] = tc;
+            v->t_ready[i] = job_now_us();
+            v->resize_ms += (double)(v->t_ready[i] - t1) / 1000.0;
+            v->resize_max = (double)(v->t_ready[i] - t1) / 1000.0 > v->resize_max ?
+                            (double)(v->t_ready[i] - t1) / 1000.0 : v->resize_max;
+            lv_publish(v, ++i, 0, NULL);
+            continue;
+        }
+        /* K frames in: find the square, resize them, free the full frames */
+        if (lc_detect((const uint8_t *const *)det, k, W, H, v->thr, &v->box) != 0) {
+            lv_publish(v, 0, 1, "nothing moves in the first frames (no echo image found)");
+            goto out;
+        }
+        tmp = (uint32_t *)malloc((size_t)lc_tmp_words(v->box.side) * sizeof(uint32_t));
+        if (tmp == NULL) {
+            lv_publish(v, 0, 1, "out of memory");
+            goto out;
+        }
+        for (i = 0; i < k; i++) {
+            t1 = job_now_us();
+            lc_crop_resize(det[i], W, 1, &v->box, v->f112 + (size_t)i * EN * EN, tmp);
+            v->t_ready[i] = job_now_us();
+            v->resize_ms += (double)(v->t_ready[i] - t1) / 1000.0;
+            free(det[i]);
+            det[i] = NULL;
+        }
+        k = 0;
+        pthread_mutex_lock(&v->mu);
+        v->have_box = 1;
+        pthread_mutex_unlock(&v->mu);
+        lv_publish(v, i, 0, NULL);
+    }
+    if (!v->have_box && k > 1) {                     /* clip shorter than K: detect on what came */
+        if (lc_detect((const uint8_t *const *)det, k, W, H, v->thr, &v->box) != 0 ||
+            (tmp = (uint32_t *)malloc((size_t)lc_tmp_words(v->box.side) * sizeof(uint32_t))) == NULL) {
+            lv_publish(v, 0, 1, "nothing moves in the clip (no echo image found)");
+            goto out;
+        }
+        for (i = 0; i < k; i++) {
+            lc_crop_resize(det[i], W, 1, &v->box, v->f112 + (size_t)i * EN * EN, tmp);
+            v->t_ready[i] = job_now_us();
+        }
+        pthread_mutex_lock(&v->mu);
+        v->have_box = 1;
+        pthread_mutex_unlock(&v->mu);
+    }
+    lv_publish(v, i, 1, NULL);
+out:
+    if (det != NULL) {
+        for (k = 0; k < v->K; k++) {
+            free(det[k]);
+        }
+        free(det);
+    }
+    free(tmp);
+    return NULL;
+}
+
+/* Wait until `need` frames are in, or the source ended / failed; keeps the link alive. 0 ok, -1 link gone. */
+static int lv_wait(lv_t *v, job_t *j, int need, int *captured)
+{
+    for (;;) {
+        struct timespec dl;
+        int             end;
+
+        pthread_mutex_lock(&v->mu);
+        if (v->captured < need && !v->done && !v->failed) {
+            clock_gettime(CLOCK_REALTIME, &dl);
+            dl.tv_nsec += 200000000L;
+            if (dl.tv_nsec >= 1000000000L) {
+                dl.tv_sec++;
+                dl.tv_nsec -= 1000000000L;
+            }
+            pthread_cond_timedwait(&v->cv, &v->mu, &dl);
+        }
+        *captured = v->captured;
+        end = v->captured >= need || v->done || v->failed;
+        pthread_mutex_unlock(&v->mu);
+        if (end) {
+            return 0;
+        }
+        if (job_progress(j, "live", (uint32_t)*captured, (uint32_t)v->max_frames, 0) != 0) {
+            return -1;
+        }
+    }
+}
+
+static int cmp_u32(const void *a, const void *b)
+{
+    uint32_t x = *(const uint32_t *)a, y = *(const uint32_t *)b;
+
+    return x < y ? -1 : x > y;
+}
+
+static int job_echo_live(job_t *j, echo_par_t *c, int use_pl)
+{
+    const uint8_t *x = j->param + 128u + KF_EXT_BYTES;
+    static lv_t    v;
+    kfe_t          e;
+    result_t      *res = NULL;
+    uint32_t      *stamps = NULL, *lat = NULL;
+    char          *extra = NULL, err[160], name[65];
+    const char    *msg;
+    int            kind, crop, every, oflags, t, rc = -1, started = 0, einit = 0, minit = 0, captured, k, has_rq = 0;
+    int            rq_minit = 0, rq_started = 0;
+    int           *kidx = NULL, *rq_upd = NULL, *rq_vw = NULL;
+    float         *rq_sc = NULL;
+    uint8_t       *rq_sector = NULL;
+    uint64_t       t_sent = 0u;
+    rq_t           rq;
+
+    memset(&v, 0, sizeof(v));
+    if (j->param_bytes < 128u + KF_EXT_BYTES + LV_BYTES || proto_get_le32(x) != LV_MAGIC) {
+        return job_fail(j, "mode 3 needs the LV01 parameter block");
+    }
+    kind = x[4];
+    crop = x[5];
+    v.max_frames = proto_get_le16(x + 6);
+    v.K = proto_get_le16(x + 8);
+    v.thr = proto_get_le16(x + 10);
+    every = proto_get_le16(x + 12);
+    oflags = (int)proto_get_le32(x + 40);
+    memcpy(name, x + 48, 64u);
+    name[64] = '\0';
+    if (v.max_frames < 8 || v.max_frames > MAXF || (crop == 0 && (v.K < 2 || v.K > 600))) {
+        return job_fail(j, "bad live parameters (max frames 8..4096, detect frames 2..600)");
+    }
+    if (ls_open(&v.src, kind, name, (int)proto_get_le16(x + 28), (int)proto_get_le16(x + 30), f64le(x + 32), err,
+                (int)sizeof(err)) != 0) {
+        return job_fail(j, err);
+    }
+    c->fps = v.src.fps;
+    if (v.src.kind == LS_FILE && v.src.n < v.max_frames) {
+        v.max_frames = v.src.n;
+    }
+    if (crop == 1) {
+        v.box.x = (int32_t)proto_get_le32(x + 16);
+        v.box.y = (int32_t)proto_get_le32(x + 20);
+        v.box.side = (int32_t)proto_get_le32(x + 24);
+        if (v.box.side < 16 || v.box.x < 0 || v.box.y < 0 || v.box.x + v.box.side > v.src.W ||
+            v.box.y + v.box.side > v.src.H) {
+            ls_close(&v.src);
+            return job_fail(j, "fixed crop outside the frame");
+        }
+        v.box.bx = v.box.x;
+        v.box.by = v.box.y;
+        v.box.bw = v.box.bh = v.box.side;
+        v.have_box = 1;
+    } else {
+        size_t per = (size_t)v.src.W * v.src.H;
+
+        v.K = (size_t)v.K * per > LV_DETMEM ? (int)(LV_DETMEM / per) : v.K;
+        v.K = v.K < 2 ? 2 : v.K;
+    }
+    v.f112 = (uint8_t *)malloc((size_t)v.max_frames * EN * EN);
+    v.t_cap = (uint64_t *)calloc((size_t)v.max_frames, sizeof(uint64_t));
+    v.t_ready = (uint64_t *)calloc((size_t)v.max_frames, sizeof(uint64_t));
+    stamps = (uint32_t *)calloc((size_t)v.max_frames * LV_STAMPS, sizeof(uint32_t));
+    res = (result_t *)malloc(sizeof(result_t));
+    extra = (char *)malloc(1u << 16);
+    if (v.f112 == NULL || v.t_cap == NULL || v.t_ready == NULL || stamps == NULL || res == NULL || extra == NULL) {
+        rc = job_fail(j, "out of memory");
+        goto out;
+    }
+    if ((msg = kfe_init(&e, j, c, v.max_frames, use_pl)) != NULL) {
+        einit = 1;
+        rc = job_fail(j, msg);
+        goto out;
+    }
+    einit = 1;
+    has_rq = rq_parse(j, e.has_hc, e.has_hc ? e.hc.rv_model : 0, &rq);
+    if (has_rq < 0) {
+        rc = job_fail(j, "bad RQ01 parameters (win 8..600, every >= 1; view: n 1..16, RV program, threshold > 0)");
+        goto out;
+    }
+    if (has_rq) {                       /* per frame: keyframe index; per update: frame, light, score; per view */
+        kidx = (int *)calloc((size_t)v.max_frames, sizeof(int));
+        rq_upd = (int *)calloc((size_t)v.max_frames * 2u, sizeof(int));
+        rq_sc = (float *)calloc((size_t)v.max_frames, sizeof(float));
+        rq_vw = (int *)calloc((size_t)v.max_frames * 4u, sizeof(int));
+        rq_sector = (uint8_t *)malloc(EN * EN);
+        if (kidx == NULL || rq_upd == NULL || rq_sc == NULL || rq_vw == NULL || rq_sector == NULL) {
+            rc = job_fail(j, "out of memory");
+            goto out;
+        }
+        if (rq.win && !(e.flags & 1)) {
+            rc = job_fail(j, "RQ01 rolling quality needs the KF01 quality flag (bit 0)");
+            goto out;
+        }
+        rq.e = &e;
+        rq.f112 = v.f112;
+        rq.kidx = kidx;
+        rq.upd = rq_upd;
+        rq.sc = rq_sc;
+        rq.sector = rq_sector;
+        pthread_mutex_init(&rq.mu, NULL);
+        pthread_cond_init(&rq.cv, NULL);
+        rq_minit = 1;
+    }
+    pthread_mutex_init(&v.mu, NULL);
+    pthread_cond_init(&v.cv, NULL);
+    minit = 1;
+    if (pthread_create(&v.th, NULL, lv_main, &v) != 0) {
+        rc = job_fail(j, "cannot start the capture thread");
+        goto out;
+    }
+    started = 1;
+    if (has_rq && rq.win) {
+        if (pthread_create(&rq.th, NULL, rq_main, &rq) != 0) {
+            rc = job_fail(j, "cannot start the quality thread");
+            goto stop;
+        }
+        rq_started = 1;
+    }
+    for (t = 0;; t++) {
+        int            why_k, n_now;
+        uint64_t       w0, w1, ts;
+        uint32_t      *st;
+        const uint8_t *f;
+
+        /* frame t, and t + d before a keyframe (the t3 encoding looks 40 ms ahead) */
+        if (lv_wait(&v, j, t + 1, &captured) != 0) {
+            goto stop;
+        }
+        if (captured <= t) {
+            break;                                   /* source ended (or failed) */
+        }
+        why_k = kf_decide(&e.s);
+        if (why_k != KF_TRACK && lv_wait(&v, j, t + e.d + 1, &captured) != 0) {
+            goto stop;
+        }
+        n_now = captured;                            /* clamp t + d like mode 2 does at the clip's end */
+        st = stamps + (size_t)t * LV_STAMPS;
+        if (has_rq) {
+            kidx[t] = e.nk;                          /* this frame's keyframe index if kfe_frame makes it one */
+        }
+        ts = job_now_us();
+        msg = kfe_frame(&e, c, why_k, v.f112 + (size_t)(t - e.d > 0 ? t - e.d : 0) * EN * EN,
+                        v.f112 + (size_t)t * EN * EN,
+                        v.f112 + (size_t)(t + e.d < n_now - 1 ? t + e.d : n_now - 1) * EN * EN, &w0, &w1);
+        if (msg != NULL) {
+            rc = job_fail(j, msg);
+            goto stop;
+        }
+        st[0] = (uint32_t)(v.t_cap[t] - j->t0_us);
+        st[1] = (uint32_t)(v.t_ready[t] - j->t0_us);
+        st[2] = (uint32_t)(ts - j->t0_us);
+        st[3] = (uint32_t)(w0 - j->t0_us);
+        st[4] = (uint32_t)(w1 - j->t0_us);
+        st[5] = (uint32_t)(job_now_us() - j->t0_us);
+        st[6] = t_sent ? (uint32_t)(t_sent - j->t0_us) : 0u;
+        if (rq_started) {                            /* frame t is out: the quality worker may use it */
+            rq_publish(&rq, t + 1, 0, 0);
+        }
+        if (has_rq && rq.view_every && (t + 1) % rq.view_every == 0) {     /* view, after the mask is out */
+            uint64_t r0 = job_now_us();
+            double   ms;
+
+            {
+                int    rv = rq_rv_area(rq.rv_model, v.f112 + (size_t)t * EN * EN), lv = 0, p;
+                double tmp[RQ_MAXV];
+
+                if (rv < 0) {
+                    rc = job_fail(j, "RV program not available");
+                    goto stop;
+                }
+                for (p = 0; p < EN * EN; p++) {
+                    lv += e.masks[(size_t)t * EN * EN + p];
+                }
+                rq.ratios[rq.nr % rq.view_n] = (double)rv / (lv > 1 ? lv : 1);
+                rq.nr++;
+                k = rq.nr < rq.view_n ? rq.nr : rq.view_n;
+                memcpy(tmp, rq.ratios, (size_t)k * sizeof(double));
+                qsort(tmp, (size_t)k, sizeof(double), cmp_f64);
+                rq.view = ((k & 1) ? tmp[k / 2] : 0.5 * (tmp[k / 2 - 1] + tmp[k / 2])) >= rq.view_t ? 2 : 1;
+                rq_vw[4 * rq.nview] = t;
+                rq_vw[4 * rq.nview + 1] = rv;
+                rq_vw[4 * rq.nview + 2] = lv;
+                rq_vw[4 * rq.nview + 3] = rq.view;
+                rq.nview++;
+            }
+            ms = (double)(job_now_us() - r0) / 1000.0;
+            rq.v_ms_sum += ms;
+            rq.v_ms_max = ms > rq.v_ms_max ? ms : rq.v_ms_max;
+        }
+        if (every > 0 && t % every == 0) {
+            static uint8_t blob[48 + EN * EN / 8 + EN * EN];
+            size_t         nb = 48u + EN * EN / 8u + ((oflags & 4) ? (size_t)EN * EN : 0u);
+            int            p;
+
+            memset(blob, 0, sizeof(blob));
+            proto_put_le32(blob, (uint32_t)t);
+            blob[4] = e.keyv[t];
+            memcpy(blob + 8, &e.vols[t], 8u);
+            for (k = 0; k < LV_STAMPS; k++) {
+                proto_put_le32(blob + 16 + 4 * k, st[k]);
+            }
+            if (has_rq) {
+                pthread_mutex_lock(&rq.mu);
+                blob[5] = (uint8_t)(rq.nupd ? rq.light + 1 : 0);
+                memcpy(blob + 44, &rq.score, 4u);
+                pthread_mutex_unlock(&rq.mu);
+                blob[6] = (uint8_t)rq.view;
+            }
+            f = e.masks + (size_t)t * EN * EN;
+            for (p = 0; p < EN * EN; p++) {
+                if (f[p]) {
+                    blob[48 + (p >> 3)] |= (uint8_t)(1u << (p & 7));
+                }
+            }
+            if (oflags & 4) {
+                memcpy(blob + 48 + EN * EN / 8, v.f112 + (size_t)t * EN * EN, (size_t)EN * EN);
+            }
+            if (job_blob(j, "live", blob, nb, 0) != 0) {
+                goto stop;
+            }
+            t_sent = job_now_us();
+        }
+        if (t >= 8 && job_now_us() - j->last_progress_us >= 250000u) {
+            char s[400];
+
+            analyze(e.vols, e.n, c->fps, 1, c, res);
+            snprintf(s, sizeof(s), "{\"stage\":\"live\",\"done\":%d,\"total\":%d,\"captured\":%d,\"ef\":%.17g,"
+                     "\"ef_raw\":%.17g,\"beats\":%d,\"hr\":%.17g,\"key_frac\":%.4f,\"lag_ms\":%.2f,\"ms\":%.1f}",
+                     e.n, v.max_frames, captured, isnan(res->ef) ? -1.0 : e.a * res->ef + e.bb,
+                     isnan(res->ef) ? -1.0 : res->ef, res->nbeats, res->has_hr ? res->hr : 0.0,
+                     (double)e.nk / e.n, (double)(job_now_us() - v.t_cap[t]) / 1000.0,
+                     (double)(job_now_us() - j->t0_us) / 1000.0);
+            if (job_progress_json(j, s) != 0) {
+                goto stop;
+            }
+        }
+    }
+stop:
+    pthread_mutex_lock(&v.mu);
+    v.stop = 1;
+    pthread_mutex_unlock(&v.mu);
+    pthread_join(v.th, NULL);
+    started = 0;
+    if (rq_started) {                                /* let the worker finish the updates of the frames analysed */
+        rq_publish(&rq, e.n, 1, j->failed || rc == 0);
+        pthread_join(rq.th, NULL);
+        rq_started = 0;
+        if (rq.failed && !(j->failed || rc == 0)) {
+            rc = job_fail(j, "out of memory (quality thread)");
+        }
+    }
+    if (j->failed || rc == 0) {
+        goto out;                                    /* link gone, or an error RESULT was already sent */
+    }
+    if (e.n < 1) {
+        rc = job_fail(j, v.failed ? v.msg : "no frames from the source");
+        goto out;
+    }
+    lat = (uint32_t *)malloc((size_t)e.n * sizeof(uint32_t));
+    if (lat == NULL) {
+        rc = job_fail(j, "out of memory");
+        goto out;
+    }
+    for (t = 0; t < e.n; t++) {
+        lat[t] = stamps[(size_t)t * LV_STAMPS + 5] - stamps[(size_t)t * LV_STAMPS];
+    }
+    qsort(lat, (size_t)e.n, sizeof(uint32_t), cmp_u32);
+    snprintf(extra, 2048u,
+             ",\"stream\":{\"source\":\"%s\",\"name\":\"%s\",\"W\":%d,\"H\":%d,\"src_fps\":%.17g,\"crop\":{\"auto\":%s,"
+             "\"x\":%d,\"y\":%d,\"side\":%d,\"moving_box\":[%d,%d,%d,%d],\"cells\":%d},\"detect_frames\":%d,"
+             "\"captured\":%d,\"analysed\":%d,\"capture_error\":%s%s%s,\"resize_ms_mean\":%.4f,\"resize_ms_max\":%.4f,"
+             "\"latency_ms\":{\"p50\":%.3f,\"p99\":%.3f,\"max\":%.3f},\"latency_def\":\"captured -> mask + volume ready\"}",
+             v.src.kind == LS_FILE ? "file" : "v4l2", name, v.src.W, v.src.H, v.src.fps, crop == 0 ? "true" : "false",
+             v.box.x, v.box.y, v.box.side, v.box.bx, v.box.by, v.box.bw, v.box.bh, v.box.cells,
+             crop == 0 ? v.K : 0, v.captured, e.n, v.failed ? "\"" : "", v.failed ? v.msg : "null",
+             v.failed ? "\"" : "", v.captured ? v.resize_ms / v.captured : 0.0, v.resize_max,
+             lat[e.n / 2] / 1000.0, lat[(size_t)((e.n - 1) * 0.99)] / 1000.0, lat[e.n - 1] / 1000.0);
+    if (has_rq) {
+        jbuf_t rb;
+        size_t used = strlen(extra);
+
+        jb_init(&rb, extra + used, (1u << 16) - used);
+        jb_add(&rb, ",\"rolling\":{\"win\":%d,\"every\":%d,\"view_every\":%d,\"view_n\":%d,\"rv_model\":%d,"
+                    "\"view_t\":%.17g,\"quality_ms_mean\":%.3f,\"quality_ms_max\":%.3f,\"view_ms_mean\":%.3f,"
+                    "\"view_ms_max\":%.3f,\"quality_thread\":true,\"updates\":[", rq.win, rq.every, rq.view_every,
+               rq.view_n, rq.rv_model, rq.view_t, rq.nupd ? rq.q_ms_sum / rq.nupd : 0.0, rq.q_ms_max,
+               rq.nview ? rq.v_ms_sum / rq.nview : 0.0, rq.v_ms_max);
+        for (k = 0; k < rq.nupd; k++) {
+            jb_add(&rb, "%s[%d,%d,%.9g]", k ? "," : "", rq_upd[2 * k], rq_upd[2 * k + 1], (double)rq_sc[k]);
+        }
+        jb_add(&rb, "],\"views\":[");
+        for (k = 0; k < rq.nview; k++) {
+            jb_add(&rb, "%s[%d,%d,%d,%d]", k ? "," : "", rq_vw[4 * k], rq_vw[4 * k + 1], rq_vw[4 * k + 2],
+                   rq_vw[4 * k + 3]);
+        }
+        jb_add(&rb, "]}");
+        if (rb.len + 2u >= (1u << 16) - used) {
+            rc = job_fail(j, "rolling result too long");
+            goto out;
+        }
+    }
+    if ((oflags & 1) && job_blob(j, "frames112", v.f112, (size_t)e.n * EN * EN, 1) != 0) {
+        goto out;
+    }
+    if ((oflags & 2) && job_blob(j, "trace", stamps, (size_t)e.n * LV_STAMPS * sizeof(uint32_t), 1) != 0) {
+        goto out;
+    }
+    rc = kfe_finish(&e, j, c, v.f112, extra);
+out:
+    if (started) {
+        pthread_mutex_lock(&v.mu);
+        v.stop = 1;
+        pthread_mutex_unlock(&v.mu);
+        pthread_join(v.th, NULL);
+    }
+    if (rq_started) {
+        rq_publish(&rq, rq.done_n, 1, 1);
+        pthread_join(rq.th, NULL);
+    }
+    if (rq_minit) {
+        pthread_mutex_destroy(&rq.mu);
+        pthread_cond_destroy(&rq.cv);
+    }
+    if (minit) {
+        pthread_mutex_destroy(&v.mu);
+        pthread_cond_destroy(&v.cv);
+    }
+    if (einit) {
+        kfe_free(&e);
+    }
+    ls_close(&v.src);
+    free(v.f112);
+    free(v.t_cap);
+    free(v.t_ready);
+    free(stamps);
+    free(lat);
+    free(res);
+    free(extra);
+    free(kidx);
+    free(rq_upd);
+    free(rq_sc);
+    free(rq_vw);
+    free(rq_sector);
+    return j->failed ? -1 : rc;
+}
+
+int job_echo_run(job_t *j)
+{
+    static uint8_t in[ES * ES * 3];
+    echo_par_t     c;
+    const uint8_t *frames = NULL;
+    uint8_t       *masks = NULL;
+    int8_t        *lgs = NULL;
+    int           *ncomp_pl = NULL;
+    static ew_t    w;
+    int            w_started = 0, sent = 0;
+    double        *vols = NULL, score, parts[6], t_pl0;
+    finfo_t       *fi = NULL;
+    result_t      *res = NULL;
+    char          *js = NULL;
+    jbuf_t         b;
+    unsigned       why;
+    uint32_t       run_us = 0u;
+    uint64_t       pp_pl_us = 0u, pp_total_us = 0u;   /* pp_layer time (v5.16 "pp_ms") */
+    int            n = 0, d, step, na, k, rc = -1, level, pp_frames = 0, use_pl;
+    uint64_t       t0, t_start;
+    double         pace = 0.0, lag = 0.0;
+
+    if (j->param_bytes < 104u) {
+        return job_fail(j, "echo_ef needs 104 bytes of params");
+    }
+    c.model = j->param[0];
+    c.input = j->param[1];
+    c.mode = j->param[2];
+    c.smooth = j->param[3];
+    c.agg = j->param[4];
+    c.nraw = proto_get_le16(j->param + 6);
+    c.fps = f64le(j->param + 8);
+    c.dist_s = f64le(j->param + 16);
+    c.prom = f64le(j->param + 24);
+    c.win = f64le(j->param + 32);
+    c.a_full = f64le(j->param + 40);
+    c.b_full = f64le(j->param + 48);
+    c.a_rt = f64le(j->param + 56);
+    c.b_rt = f64le(j->param + 64);
+    c.scale = f64le(j->param + 72);
+    c.qc0 = f64le(j->param + 80);
+    c.qc1 = f64le(j->param + 88);
+    c.board_fps = f64le(j->param + 96);
+    c.review_margin = 5.0;
+    c.rr_cv_irr = 0.10;
+    c.min_beats = 5.0;
+    if (j->param_bytes >= 128u) {
+        c.review_margin = f64le(j->param + 104);
+        c.rr_cv_irr = f64le(j->param + 112);
+        c.min_beats = f64le(j->param + 120);
+    }
+    use_pl = (j->flags & F_PSCLEAN) == 0u && pp_ready();
+
+    if (c.mode == 3u) {                               /* live: frames from a source on the board (10-25) */
+        return job_echo_live(j, &c, use_pl);
+    }
+    /* ---- 1. frames (decoded on the PC) ---- */
+    n = (int)c.nraw;
+    if (c.input != 0u || n < 1 || n > MAXF || j->data_bytes != (uint32_t)n * EN * EN || !(c.fps > 0.0)) {
+        return job_fail(j, "raw grey input expected: frames x 112 x 112 bytes and fps > 0");
+    }
+    frames = j->data;
+    if (c.mode == 2u) {                               /* keyframe schedule + quality + interval (10-24) */
+        return job_echo_kf(j, &c, frames, n, use_pl);
+    }
+    d = (int)nearbyint(0.04 * c.fps);                 /* temporal_offset */
+    d = d > 1 ? d : 1;
+    step = (c.mode == 1u) ? (int)ceil(c.fps / c.board_fps - 1e-9) : 1;   /* realtime_step */
+    step = step > 1 ? step : 1;
+    na = (n + step - 1) / step;
+    vols = (double *)calloc((size_t)na, sizeof(double));
+    fi = (finfo_t *)calloc((size_t)na, sizeof(finfo_t));
+    masks = (uint8_t *)calloc((size_t)na, EN * EN);
+    lgs = (int8_t *)malloc((size_t)na * ES * ES);
+    ncomp_pl = (int *)malloc((size_t)na * sizeof(int));
+    res = (result_t *)malloc(sizeof(result_t));
+    js = (char *)malloc(1u << 18);
+    if (vols == NULL || fi == NULL || masks == NULL || res == NULL || js == NULL || lgs == NULL || ncomp_pl == NULL) {
+        rc = job_fail(j, "out of memory");
+        goto out;
+    }
+    /* ---- 2. per analysed frame: t3 -> PL program (+ pp_layer clean) here; PS clean / volume / QC on the worker ---- */
+    memset(&w, 0, sizeof(w));
+    w.na = na;
+    w.lgs = lgs;
+    w.masks = masks;
+    w.ncomp_pl = ncomp_pl;
+    w.vols = vols;
+    w.fi = fi;
+    w.scale = (float)c.scale;
+    pthread_mutex_init(&w.mu, NULL);
+    pthread_cond_init(&w.cv, NULL);
+    if (pthread_create(&w.th, NULL, ew_main, &w) != 0) {
+        pthread_mutex_destroy(&w.mu);
+        pthread_cond_destroy(&w.cv);
+        rc = job_fail(j, "cannot start the worker thread");
+        goto out;
+    }
+    w_started = 1;
+    pace = (j->flags & F_PACE) ? step / c.fps : 0.0;
+    t_start = job_now_us();
+    t_pl0 = 0.0;
+    memset(in, 0, sizeof(in));
+    for (k = 0; k <= na; k++) {
+        int done;
+
+        if (k < na) {
+            int            t = k * step, y, x;
+            const uint8_t *fr = frames + (size_t)(t - d > 0 ? t - d : 0) * EN * EN;
+            const uint8_t *fg = frames + (size_t)t * EN * EN;
+            const uint8_t *fb = frames + (size_t)(t + d < n - 1 ? t + d : n - 1) * EN * EN;
+            int8_t        *lg = lgs + (size_t)k * ES * ES;
+            pp_result_t    pr;
+            static uint8_t bits[EN * 16];
+
+            if (pace > 0.0) {                         /* frame t is "acquired" at t / fps */
+                double due = (double)t_start / 1e6 + k * pace, now = (double)job_now_us() / 1e6;
+
+                if (due > now) {
+                    usleep((useconds_t)((due - now) * 1e6));
+                }
+            }
+            for (y = 0; y < EN; y++) {
+                uint8_t *o = in + ((size_t)(y + EPAD) * ES + EPAD) * 3u;
+
+                for (x = 0; x < EN; x++) {
+                    o[3 * x] = fr[y * EN + x];
+                    o[3 * x + 1] = fg[y * EN + x];
+                    o[3 * x + 2] = fb[y * EN + x];
+                }
+            }
+            if (job_unet(c.model, 2, in, lg, &run_us) != 0) {
+                rc = job_fail(j, "PL run failed");
+                goto out;
+            }
+            ncomp_pl[k] = -1;
+            if (use_pl && pp_run(lg, ES, ES, PP_OP_MASK | PP_OP_CLEAN, EPAD, EPAD, EN, EN, 1, 1, 1, bits, &pr) == 0 &&
+                pr.status == 0u) {
+                pp_pl_us += pr.pl_us;
+                pp_total_us += pr.total_us;
+                size_t   rb = pp_mask_row_bytes(EN);
+                uint8_t *mc = masks + (size_t)k * EN * EN;
+
+                for (y = 0; y < EN; y++) {
+                    for (x = 0; x < EN; x++) {
+                        mc[y * EN + x] = (uint8_t)((bits[y * rb + (x >> 3)] >> (x & 7)) & 1u);
+                    }
+                }
+                ncomp_pl[k] = (int)pr.comps;
+                pp_frames++;
+            }
+            pthread_mutex_lock(&w.mu);
+            w.submitted = k + 1;
+            pthread_cond_broadcast(&w.cv);
+            pthread_mutex_unlock(&w.mu);
+        }
+        done = ew_done(&w, k == na ? na : 0);         /* last round: wait for the worker to finish */
+        for (; sent < done; sent++) {
+            if (pace > 0.0) {
+                lag = (double)job_now_us() / 1e6 - ((double)t_start / 1e6 + sent * pace);
+            }
+            if (j->flags & F_LIVE) {                  /* frame blob: u32 index, f64 volume, i32 ncomp, area, border,
+                                                       * f64 unc, 1568-byte mask */
+                uint8_t        fb2[4 + 8 + 12 + 8 + EN * EN / 8];
+                const uint8_t *mc = masks + (size_t)sent * EN * EN;
+                int            p;
+
+                memset(fb2, 0, sizeof(fb2));
+                proto_put_le32(fb2, (uint32_t)(sent * step));
+                memcpy(fb2 + 4, &vols[sent], 8u);
+                proto_put_le32(fb2 + 12, (uint32_t)fi[sent].ncomp);
+                proto_put_le32(fb2 + 16, (uint32_t)fi[sent].area);
+                proto_put_le32(fb2 + 20, (uint32_t)fi[sent].border);
+                memcpy(fb2 + 24, &fi[sent].unc, 8u);
+                for (p = 0; p < EN * EN; p++) {
+                    if (mc[p]) {
+                        fb2[32 + (p >> 3)] |= (uint8_t)(1u << (p & 7));
+                    }
+                }
+                if (job_blob(j, "frame", fb2, sizeof(fb2), 0) != 0) {
+                    goto out;
+                }
+            }
+        }
+        if ((j->flags & F_LIVE) && done >= 8 && job_now_us() - j->last_progress_us >= 250000u) {
+            char s[320];                              /* rolling beat analysis every 0.25 s, like the window */
+
+            analyze(vols, done, c.fps, step, &c, res);
+            snprintf(s, sizeof(s), "{\"stage\":\"frames\",\"done\":%d,\"total\":%d,\"ef_raw\":%.17g,\"beats\":%d,"
+                     "\"hr\":%.17g,\"ms\":%.1f}", done, na, isnan(res->ef) ? -1.0 : res->ef, res->nbeats,
+                     res->has_hr ? res->hr : 0.0, (double)(job_now_us() - j->t0_us) / 1000.0);
+            if (job_progress_json(j, s) != 0) {
+                goto out;
+            }
+        } else if (job_progress(j, "frames", (uint32_t)done, (uint32_t)na, 0) != 0) {
+            goto out;
+        }
+    }
+    t_pl0 = (double)(job_now_us() - t_start) / 1000.0;
+
+    /* ---- 3. beats, EF, QC ---- */
+    t0 = job_now_us();
+    analyze(vols, na, c.fps, step, &c, res);
+    level = qc(fi, na, res, &c, &score, &why, parts);
+    {
+        const double a = (c.mode == 1u) ? c.a_rt : c.a_full, bb = (c.mode == 1u) ? c.b_rt : c.b_full;
+        jb_init(&b, js, 1u << 18);
+        jb_add(&b, "{\"ok\":true,\"n_frames\":%d,\"fps\":%.17g,\"d\":%d,\"step\":%d,\"analysed\":%d",
+               n, c.fps, d, step, na);
+        if (isnan(res->ef)) {
+            jb_add(&b, ",\"ef_raw\":null,\"ef\":null");
+        } else {
+            jb_add(&b, ",\"ef_raw\":%.17g,\"ef\":%.17g", res->ef, a * res->ef + bb);   /* -ffp-contract=off */
+        }
+        jb_add(&b, ",\"fallback\":%s,\"hr\":", res->fallback ? "true" : "false");
+        if (res->has_hr) {
+            jb_add(&b, "%.17g,\"cycle_s\":%.17g", res->hr, res->cycle_s);
+        } else {
+            jb_add(&b, "null,\"cycle_s\":null");
+        }
+        if (res->has_sd) {
+            jb_add(&b, ",\"ef_sd\":%.17g", res->ef_sd);
+        }
+        jb_add(&b, ",\"beats\":[");
+        for (k = 0; k < res->nbeats; k++) {
+            const beat_t *bt = &res->beats[k];
+
+            jb_add(&b, "%s{\"ed\":%d,\"es\":%d,\"v_ed\":%.17g,\"v_es\":%.17g,\"ef\":%.17g,\"ef_cal\":%.17g}",
+                   k ? "," : "", bt->ed, bt->es, bt->v_ed, bt->v_es, bt->ef, a * bt->ef + bb);
+        }
+        jb_add(&b, "],\"qc\":{\"level\":%d,\"score\":%.17g,\"why\":%u,\"multi\":%.17g,\"unc\":%.17g,\"border\":%.17g,"
+                   "\"empty\":%.17g,\"spread\":%.17g}", level, score, why, parts[0], parts[1], parts[2], parts[3],
+               parts[4]);
+        clinical_json(&b, res, isnan(res->ef) ? NAN : a * res->ef + bb, a, bb, c.fps, &c);
+        jb_add(&b, ",\"vols\":[");
+        for (k = 0; k < na; k++) {
+            jb_add(&b, "%s%.17g", k ? "," : "", vols[k]);
+        }
+        jb_add(&b, "],\"info\":[");
+        for (k = 0; k < na; k++) {
+            jb_add(&b, "%s[%d,%d,%d,%.17g]", k ? "," : "", fi[k].ncomp, fi[k].area, fi[k].border, fi[k].unc);
+        }
+        jb_add(&b, "],\"clean\":{\"pl\":%d,\"all\":%d},\"pl_ms\":%.3f,\"ms\":{\"frames\":%.2f,"
+                   "\"analysis\":%.3f,\"worker\":%.2f,\"total\":%.2f}",
+               pp_frames, na, run_us / 1000.0, t_pl0, (double)(job_now_us() - t0) / 1000.0, w.busy_ms,
+               (double)(job_now_us() - j->t0_us) / 1000.0);
+        if (pace > 0.0) {
+            jb_add(&b, ",\"paced\":true,\"lag_s\":%.4f", lag);
+        }
+        jb_add(&b, ",\"pp_ms\":{\"pl\":%.3f,\"total\":%.3f}", pp_pl_us / 1000.0, pp_total_us / 1000.0);
+        job_pl_split_json(&b);
+        jb_add(&b, ",\"upload_bytes\":%u}", (unsigned)j->data_bytes);
+        if (b.len + 2u >= (1u << 18)) {
+            rc = job_fail(j, "result too long");
+            goto out;
+        }
+    }
+    if ((j->flags & F_LOGITS) && job_blob(j, "logits", lgs, (size_t)na * ES * ES, 1) != 0) {
+        goto out;
+    }
+    if (j->flags & F_MASKS) {
+        uint8_t *bits = (uint8_t *)calloc((size_t)na * EN * EN / 8u + 1u, 1u);
+        size_t   p;
+
+        if (bits == NULL) {
+            rc = job_fail(j, "out of memory");
+            goto out;
+        }
+        for (p = 0; p < (size_t)na * EN * EN; p++) {
+            if (masks[p]) {
+                bits[p >> 3] |= (uint8_t)(1u << (p & 7u));
+            }
+        }
+        k = job_blob(j, "masks", bits, (size_t)na * EN * EN / 8u, 1);
+        free(bits);
+        if (k != 0) {
+            goto out;
+        }
+    }
+    rc = job_result(j, js);
+    printf("[job] echo_ef %d frames (%d analysed, step %d): EF raw %.2f, %d beats, QC %d, %.0f ms (PL %.0f)\n", n, na,
+           step, res->ef, res->nbeats, level, (double)(job_now_us() - j->t0_us) / 1000.0, run_us / 1000.0);
+out:
+    if (w_started) {                                  /* stop the worker before its buffers go away */
+        pthread_mutex_lock(&w.mu);
+        w.stop = 1;
+        pthread_cond_broadcast(&w.cv);
+        pthread_mutex_unlock(&w.mu);
+        pthread_join(w.th, NULL);
+        pthread_mutex_destroy(&w.mu);
+        pthread_cond_destroy(&w.cv);
+    }
+    free(ncomp_pl);
+    free(vols);
+    free(fi);
+    free(masks);
+    free(lgs);
+    free(res);
+    free(js);
+    return j->failed ? -1 : rc;
+}

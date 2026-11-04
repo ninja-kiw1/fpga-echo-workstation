@@ -1,0 +1,560 @@
+{
+ "date": "2026-10-25 01:25:28",
+ "caps": {
+  "ok": true,
+  "job_version": 1,
+  "jobs": [
+   "caps",
+   "ct_seg",
+   "reg_search",
+   "echo_ef",
+   "simpson_ef",
+   "render3d",
+   "overlay",
+   "strain",
+   "tile"
+  ],
+  "vis": true,
+  "cardiac": true,
+  "server": "v5.22",
+  "echo_modes": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "live_sources": [
+   "file",
+   "v4l2"
+  ],
+  "pp": true,
+  "ai": true,
+  "models": 17,
+  "cores": 4,
+  "max_data": 335544320
+ },
+ "runs": [
+  {
+   "source": "0X100009310A3BD7FC_z4.y8",
+   "case": "A",
+   "config": "keyframe",
+   "crop": [
+    96,
+    16,
+    448
+   ],
+   "ok": true,
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "frames112_equal_video": true,
+    "host_key": true,
+    "host_masks": true,
+    "host_vols": true,
+    "host_ef": true,
+    "host_light": true,
+    "host_interval": true
+   },
+   "pass_": true,
+   "frames": 174,
+   "fps": 50.0,
+   "ef": 70.31050307620167,
+   "key_frac": 0.1781609195402299,
+   "light": 1,
+   "interval": {
+    "sigma": 4.6230834863776415,
+    "lo80": 62.29863592801254,
+    "hi80": 78.3223702243908,
+    "lo90": 59.57980412730683,
+    "hi90": 81.04120202509651,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 28.966,
+    "p99": 67.055,
+    "max": 67.116
+   },
+   "latency_after_detect_ms": {
+    "p50": 28.951,
+    "max": 67.116
+   },
+   "pl_ms": 22.99745161290322,
+   "track_ms": 0.7658321678321678,
+   "resize_ms": 2.4668,
+   "board_total_s": 3.84642,
+   "clip_s": 3.48,
+   "rolling_updates": 12,
+   "last_rolling_ef": 70.31050307620167
+  },
+  {
+   "source": "0X100009310A3BD7FC_z4.y8",
+   "case": "B",
+   "config": "keyframe",
+   "crop": null,
+   "ok": true,
+   "box": [
+    96,
+    28,
+    448
+   ],
+   "box_vs_truth_px": [
+    0,
+    12,
+    0
+   ],
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "equal_mode2_on_frames112": true
+   },
+   "pass_": true,
+   "frames": 174,
+   "fps": 50.0,
+   "ef": 71.60909838664588,
+   "key_frac": 0.1781609195402299,
+   "light": 1,
+   "interval": {
+    "sigma": 4.746182841111652,
+    "lo80": 63.38389836677862,
+    "hi80": 79.83429840651314,
+    "lo90": 60.59267193134841,
+    "hi90": 82.62552484194336,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 66.881,
+    "p99": 1222.927,
+    "max": 1260.711
+   },
+   "latency_after_detect_ms": {
+    "p50": 47.342,
+    "max": 331.634
+   },
+   "pl_ms": 23.36829032258065,
+   "track_ms": 0.7505384615384615,
+   "resize_ms": 2.4444,
+   "board_total_s": 3.84696,
+   "clip_s": 3.48,
+   "rolling_updates": 8,
+   "last_rolling_ef": 71.60909838664588
+  },
+  {
+   "source": "0X100009310A3BD7FC_z4.y8",
+   "case": "C",
+   "config": "full",
+   "crop": [
+    96,
+    16,
+    448
+   ],
+   "ok": true,
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "frames112_equal_video": true,
+    "host_key": true,
+    "host_masks": true,
+    "host_vols": true,
+    "host_ef": true,
+    "host_light": true,
+    "host_interval": true
+   },
+   "pass_": true,
+   "frames": 174,
+   "fps": 50.0,
+   "ef": 69.51989766570868,
+   "key_frac": 1,
+   "light": 1,
+   "interval": {
+    "sigma": 4.705894768709443,
+    "lo80": 61.38198306243086,
+    "hi80": 77.6578122689865,
+    "lo90": 58.16081710432012,
+    "hi90": 80.87897822709725,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 457.706,
+    "p99": 831.743,
+    "max": 840.592
+   },
+   "latency_after_detect_ms": {
+    "p50": 455.4495,
+    "max": 840.592
+   },
+   "pl_ms": 22.86142528735632,
+   "track_ms": null,
+   "resize_ms": 2.4918,
+   "board_total_s": 5.0328100000000004,
+   "clip_s": 3.48,
+   "rolling_updates": 16,
+   "last_rolling_ef": 69.51989766570868
+  },
+  {
+   "source": "0X10094BA0A028EAC3_z4.y8",
+   "case": "A",
+   "config": "keyframe",
+   "crop": [
+    96,
+    16,
+    448
+   ],
+   "ok": true,
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "frames112_equal_video": true,
+    "host_key": true,
+    "host_masks": true,
+    "host_vols": true,
+    "host_ef": true,
+    "host_light": true,
+    "host_interval": true
+   },
+   "pass_": true,
+   "frames": 207,
+   "fps": 52.0,
+   "ef": 38.87850628938362,
+   "key_frac": 0.16908212560386474,
+   "light": 0,
+   "interval": {
+    "sigma": 5.083860157015777,
+    "lo80": 30.068106845376008,
+    "hi80": 47.68890573339124,
+    "lo90": 27.07829264323938,
+    "hi90": 50.678719935527866,
+    "review": true
+   },
+   "latency_ms": {
+    "p50": 29.435,
+    "p99": 65.502,
+    "max": 65.555
+   },
+   "latency_after_detect_ms": {
+    "p50": 29.435,
+    "max": 65.555
+   },
+   "pl_ms": 22.955142857142857,
+   "track_ms": 0.9462965116279072,
+   "resize_ms": 2.4427,
+   "board_total_s": 4.41217,
+   "clip_s": 3.980769230769231,
+   "rolling_updates": 13,
+   "last_rolling_ef": 38.87850628938362
+  },
+  {
+   "source": "0X10094BA0A028EAC3_z4.y8",
+   "case": "B",
+   "config": "keyframe",
+   "crop": null,
+   "ok": true,
+   "box": [
+    96,
+    32,
+    448
+   ],
+   "box_vs_truth_px": [
+    0,
+    16,
+    0
+   ],
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "equal_mode2_on_frames112": true
+   },
+   "pass_": true,
+   "frames": 207,
+   "fps": 52.0,
+   "ef": 38.85514819219459,
+   "key_frac": 0.16908212560386474,
+   "light": 0,
+   "interval": {
+    "sigma": 5.095627924332668,
+    "lo80": 30.024355045877353,
+    "hi80": 47.685941338511824,
+    "lo90": 27.027620228939206,
+    "hi90": 50.682676155449975,
+    "review": true
+   },
+   "latency_ms": {
+    "p50": 66.506,
+    "p99": 1171.008,
+    "max": 1224.295
+   },
+   "latency_after_detect_ms": {
+    "p50": 31.098,
+    "max": 326.28
+   },
+   "pl_ms": 24.136428571428567,
+   "track_ms": 0.9714244186046512,
+   "resize_ms": 2.4253,
+   "board_total_s": 4.4159,
+   "clip_s": 3.980769230769231,
+   "rolling_updates": 10,
+   "last_rolling_ef": 38.85514819219459
+  },
+  {
+   "source": "0X10094BA0A028EAC3_z4.y8",
+   "case": "C",
+   "config": "full",
+   "crop": [
+    96,
+    16,
+    448
+   ],
+   "ok": true,
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "frames112_equal_video": true,
+    "host_key": true,
+    "host_masks": true,
+    "host_vols": true,
+    "host_ef": true,
+    "host_light": true,
+    "host_interval": true
+   },
+   "pass_": true,
+   "frames": 207,
+   "fps": 52.0,
+   "ef": 37.65472633488051,
+   "key_frac": 1,
+   "light": 0,
+   "interval": {
+    "sigma": 4.71447452057404,
+    "lo80": 29.50197474704968,
+    "hi80": 45.807477922711335,
+    "lo90": 26.274935983448465,
+    "hi90": 49.03451668631255,
+    "review": true
+   },
+   "latency_ms": {
+    "p50": 620.893,
+    "p99": 1156.34,
+    "max": 1172.258
+   },
+   "latency_after_detect_ms": {
+    "p50": 620.893,
+    "max": 1172.258
+   },
+   "pl_ms": 22.928888888888892,
+   "track_ms": null,
+   "resize_ms": 2.4737,
+   "board_total_s": 6.00167,
+   "clip_s": 3.980769230769231,
+   "rolling_updates": 19,
+   "last_rolling_ef": 37.65472633488051
+  },
+  {
+   "source": "0X1013E8A4864781B_z4.y8",
+   "case": "A",
+   "config": "keyframe",
+   "crop": [
+    96,
+    16,
+    448
+   ],
+   "ok": true,
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "frames112_equal_video": true,
+    "host_key": true,
+    "host_masks": true,
+    "host_vols": true,
+    "host_ef": true,
+    "host_light": true,
+    "host_interval": true
+   },
+   "pass_": true,
+   "frames": 140,
+   "fps": 47.0,
+   "ef": 70.6186987819475,
+   "key_frac": 0.17857142857142858,
+   "light": 2,
+   "interval": {
+    "sigma": 4.204178135050295,
+    "lo80": 63.332800358396284,
+    "hi80": 77.90459720549872,
+    "lo90": 60.86032646881863,
+    "hi90": 80.37707109507637,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 28.724,
+    "p99": 69.712,
+    "max": 69.777
+   },
+   "latency_after_detect_ms": {
+    "p50": 28.700499999999998,
+    "max": 69.777
+   },
+   "pl_ms": 22.992559999999997,
+   "track_ms": 0.6642347826086956,
+   "resize_ms": 2.4159,
+   "board_total_s": 3.24421,
+   "clip_s": 2.978723404255319,
+   "rolling_updates": 11,
+   "last_rolling_ef": 70.6186987819475
+  },
+  {
+   "source": "0X1013E8A4864781B_z4.y8",
+   "case": "B",
+   "config": "keyframe",
+   "crop": null,
+   "ok": true,
+   "box": [
+    96,
+    32,
+    448
+   ],
+   "box_vs_truth_px": [
+    0,
+    16,
+    0
+   ],
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "equal_mode2_on_frames112": true
+   },
+   "pass_": true,
+   "frames": 140,
+   "fps": 47.0,
+   "ef": 70.6186987819475,
+   "key_frac": 0.17857142857142858,
+   "light": 2,
+   "interval": {
+    "sigma": 4.206051674879574,
+    "lo80": 63.329553488151944,
+    "hi80": 77.90784407574306,
+    "lo90": 60.85597777125866,
+    "hi90": 80.38141979263634,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 198.625,
+    "p99": 1281.998,
+    "max": 1322.511
+   },
+   "latency_after_detect_ms": {
+    "p50": 49.191500000000005,
+    "max": 288.461
+   },
+   "pl_ms": 22.97308,
+   "track_ms": 0.6698608695652172,
+   "resize_ms": 2.4421,
+   "board_total_s": 3.2479400000000003,
+   "clip_s": 2.978723404255319,
+   "rolling_updates": 6,
+   "last_rolling_ef": 71.91456537565031
+  },
+  {
+   "source": "0X1013E8A4864781B_z4.y8",
+   "case": "C",
+   "config": "full",
+   "crop": [
+    96,
+    16,
+    448
+   ],
+   "ok": true,
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "frames112_equal_video": true,
+    "host_key": true,
+    "host_masks": true,
+    "host_vols": true,
+    "host_ef": true,
+    "host_light": true,
+    "host_interval": true
+   },
+   "pass_": true,
+   "frames": 140,
+   "fps": 47.0,
+   "ef": 69.59556882537272,
+   "key_frac": 1,
+   "light": 2,
+   "interval": {
+    "sigma": 4.613125333539465,
+    "lo80": 61.61808061884041,
+    "hi80": 77.57305703190504,
+    "lo90": 58.46041496432967,
+    "hi90": 80.73072268641577,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 294.532,
+    "p99": 506.98,
+    "max": 513.228
+   },
+   "latency_after_detect_ms": {
+    "p50": 292.9435,
+    "max": 513.228
+   },
+   "pl_ms": 22.87350714285714,
+   "track_ms": null,
+   "resize_ms": 2.4766,
+   "board_total_s": 4.05482,
+   "clip_s": 2.978723404255319,
+   "rolling_updates": 12,
+   "last_rolling_ef": 69.59556882537272
+  },
+  {
+   "source": "0X100009310A3BD7FC_z2p68.y8",
+   "case": "B",
+   "config": "keyframe",
+   "crop": null,
+   "ok": true,
+   "box": [
+    170,
+    98,
+    300
+   ],
+   "box_vs_truth_px": [
+    0,
+    8,
+    0
+   ],
+   "checks": {
+    "live_blobs": true,
+    "all_frames": true,
+    "equal_mode2_on_frames112": true
+   },
+   "pass_": true,
+   "frames": 174,
+   "fps": 50.0,
+   "ef": 71.33466861096261,
+   "key_frac": 0.1781609195402299,
+   "light": 1,
+   "interval": {
+    "sigma": 5.198997402312306,
+    "lo80": 62.324734740236906,
+    "hi80": 80.34460248168831,
+    "lo90": 59.26720841373993,
+    "hi90": 83.4021288081853,
+    "review": false
+   },
+   "latency_ms": {
+    "p50": 66.303,
+    "p99": 1185.694,
+    "max": 1223.472
+   },
+   "latency_after_detect_ms": {
+    "p50": 39.3965,
+    "max": 303.432
+   },
+   "pl_ms": 22.956967741935483,
+   "track_ms": 0.732013986013986,
+   "resize_ms": 1.7342,
+   "board_total_s": 3.82299,
+   "clip_s": 3.48,
+   "rolling_updates": 8,
+   "last_rolling_ef": 71.33466861096261
+  }
+ ],
+ "caps_ok": true,
+ "pass_": true
+}

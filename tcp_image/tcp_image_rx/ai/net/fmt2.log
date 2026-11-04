@@ -1,0 +1,39 @@
+=== 1) 512x512 各格式 save -> load 往返 ===
+  OK   save/load .ppm 逐字节一致
+  OK   save/load .pnm 逐字节一致
+  OK   save/load .pam 逐字节一致
+  OK   save/load .pgm 长度正确
+  OK   save/load .pbm 长度正确
+  OK   save/load .rgb 逐字节一致
+  OK   pgm 解码 == (77R+150G+29B)>>8 灰度
+  OK   pbm 解码 == 灰度<128 为黑
+
+=== 2) ASCII 变体 (P1/P2/P3) ===
+  OK   P3 ASCII 像素
+  OK   P3 ASCII 尺寸(字节数)
+  OK   P2 ASCII (maxval=15, CRLF)
+  OK   P1 ASCII (1=黑)
+
+=== 3) 二进制边界 ===
+  OK   P6 首字节=0x0A 不被吞
+  OK   P5 16bit 缩放 65535->255 / 32768->128 / 0->0
+  OK   P4 宽度=5 位打包
+  OK   P7 PAM RGBA 丢 alpha
+
+=== 4) load_image 分发(按文件头, 不看扩展名) ===
+  OK   扩展名不是 .ppm 也按 netpbm 解(长度)
+  OK   note 认出是 Netpbm
+     note: Netpbm P6 2x1 maxval=255 → 已拉伸为 512x512（Pillow LANCZOS）
+
+=== 5) 非 512x512 的 netpbm 会被拉伸到 512x512 ===
+  OK   3x2 -> 512x512 字节数
+     note: Netpbm PBM 3x2 (1=黑) → 已拉伸为 512x512（Pillow LANCZOS）
+
+=== 6) 存回来的 .pgm/.pbm 能被自己读回 (闭环) ===
+  OK   闭环 .pgm 长度
+  OK   闭环 .pbm 长度
+  OK   闭环 .pam 长度
+  OK   闭环 .pnm 长度
+
+FORMAT VERIFY OK
+FORMAT_RC=0

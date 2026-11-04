@@ -1,0 +1,80 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Tue Nov  3 05:12:37 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source retime_f_real.tcl
+# set here [file dirname [file normalize [info script]]]
+# set tags [expr {[llength $argv] > 0 ? $argv : {f150 f125}}]
+# foreach tag $tags {
+#     set dcp [file normalize $here/../ai_sys_$tag/ai_sys_$tag.runs/impl_1/system_wrapper_routed.dcp]
+#     open_checkpoint $dcp
+#     set src [get_property SOURCE_PINS [get_clocks clk_pl_0]]
+#     create_clock -name clk_pl_0 -period 9.8643 [get_pins $src]
+#     foreach c [get_clocks] { puts "### $tag clock [get_property NAME $c] period [get_property PERIOD $c]" }
+#     report_timing_summary -no_detailed_paths -file $here/retime_${tag}_101376_summary.rpt
+#     report_timing -max_paths 5 -nworst 1 -file $here/retime_${tag}_101376_paths.rpt
+#     set p [get_timing_paths -setup -max_paths 1]
+#     set h [get_timing_paths -hold -max_paths 1]
+#     puts "### $tag @pl0_ref 101.376 MHz: WNS [get_property SLACK $p] WHS [get_property SLACK $h]"
+#     close_design
+# }
+Command: open_checkpoint E:/PLD/tcp_image/tcp_image_rx/vivado/ai_sys_f150nv/ai_sys_f150nv.runs/impl_1/system_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 425.504 ; gain = 5.797
+INFO: [Device 21-403] Loading part xazu3eg-sfvc784-1-i
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1529.094 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5089 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 4 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.255 . Memory (MB): peak = 1792.227 ; gain = 31.832
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 2442.848 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2442.848 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2567.230 ; gain = 124.383
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2567.230 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3134.586 ; gain = 567.355
+Read Physdb Files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3134.586 ; gain = 691.738
+Restored from archive | CPU: 10.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 3134.586 ; gain = 691.738
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 3134.586 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2455 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 290 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 512 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 11 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 49 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 534 instances
+  RAM32X1S => RAM32X1S (RAMS32): 128 instances
+  SRLC32E => SRL16E: 931 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 3134.586 ; gain = 2725.566
+WARNING: [Vivado 12-2489] -period contains time 9.864300 which will be rounded to 9.864 to ensure it is an integer multiple of 1 picosecond
+WARNING: [Constraints 18-619] A clock with name 'clk_pl_0' already exists, overwriting the previous clock with the same name.
+INFO: [Timing 38-2] Deriving generated clocks
+### f150nv clock clk_pl_0 period 9.864
+### f150nv clock clk_out1_system_clk_wiz_0_0 period 6.572
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:45 ; elapsed = 00:00:27 . Memory (MB): peak = 3423.477 ; gain = 288.891
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+### f150nv @pl0_ref 101.376 MHz: WNS 0.486 WHS 0.015
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 05:14:08 2026...

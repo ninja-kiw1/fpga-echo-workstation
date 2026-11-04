@@ -1,0 +1,4352 @@
+{
+  "stage1": {
+    "parameters": 34201,
+    "conv_macs": 2027945984,
+    "conv_weight_elements": 33464,
+    "max_single_tensor_elements": 4194304,
+    "operator_counts": {
+      "Conv2d": 18,
+      "ReLU": 12,
+      "BatchNorm2d": 17,
+      "MaxPool2d": 2,
+      "ConvTranspose2d": 2
+    },
+    "layers": [
+      {
+        "name": "unet1.first.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 224,
+        "mac": 56623104,
+        "input_elements": 786432,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          3,
+          3,
+          3
+        ],
+        "weight_elements": 216,
+        "bias": true
+      },
+      {
+        "name": "unet1.first.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet1.first.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 24,
+        "mac": 6291456,
+        "input_elements": 786432,
+        "output_elements": 2097152,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          3,
+          1,
+          1
+        ],
+        "weight_elements": 24,
+        "bias": false
+      },
+      {
+        "name": "unet1.first.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.down_path.0.pool",
+        "op": "MaxPool2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.0.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 1168,
+        "mac": 75497472,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 1152,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.0.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.0.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 128,
+        "mac": 8388608,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          1,
+          1
+        ],
+        "weight_elements": 128,
+        "bias": false
+      },
+      {
+        "name": "unet1.down_path.0.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.1.pool",
+        "op": "MaxPool2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 262144
+      },
+      {
+        "name": "unet1.down_path.1.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 4640,
+        "mac": 75497472,
+        "input_elements": 262144,
+        "output_elements": 524288,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 4608,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.1.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 9248,
+        "mac": 150994944,
+        "input_elements": 524288,
+        "output_elements": 524288,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "weight_elements": 9216,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.1.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 512,
+        "mac": 8388608,
+        "input_elements": 262144,
+        "output_elements": 524288,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          1,
+          1
+        ],
+        "weight_elements": 512,
+        "bias": false
+      },
+      {
+        "name": "unet1.down_path.1.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.up_path.0.up_layer.block.0",
+        "op": "ConvTranspose2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2064,
+        "mac": 33554432,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          2,
+          2
+        ],
+        "weight_elements": 2048,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_bridge_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_bridge_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_bridge_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 4624,
+        "mac": 301989888,
+        "input_elements": 2097152,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          32,
+          3,
+          3
+        ],
+        "weight_elements": 4608,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 512,
+        "mac": 33554432,
+        "input_elements": 2097152,
+        "output_elements": 1048576,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          32,
+          1,
+          1
+        ],
+        "weight_elements": 512,
+        "bias": false
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.1.up_layer.block.0",
+        "op": "ConvTranspose2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 520,
+        "mac": 33554432,
+        "input_elements": 1048576,
+        "output_elements": 2097152,
+        "kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          2,
+          2
+        ],
+        "weight_elements": 512,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_bridge_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_bridge_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_bridge_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 1160,
+        "mac": 301989888,
+        "input_elements": 4194304,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 1152,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 128,
+        "mac": 33554432,
+        "input_elements": 4194304,
+        "output_elements": 2097152,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          16,
+          1,
+          1
+        ],
+        "weight_elements": 128,
+        "bias": false
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.final",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "parameters": 9,
+        "mac": 2097152,
+        "input_elements": 2097152,
+        "output_elements": 262144,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          1,
+          8,
+          1,
+          1
+        ],
+        "weight_elements": 8,
+        "bias": true
+      }
+    ]
+  },
+  "full": {
+    "parameters": 68482,
+    "conv_macs": 4076863488,
+    "conv_weight_elements": 67008,
+    "max_single_tensor_elements": 4194304,
+    "operator_counts": {
+      "Conv2d": 36,
+      "ReLU": 24,
+      "BatchNorm2d": 34,
+      "MaxPool2d": 4,
+      "ConvTranspose2d": 4
+    },
+    "layers": [
+      {
+        "name": "unet1.first.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 224,
+        "mac": 56623104,
+        "input_elements": 786432,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          3,
+          3,
+          3
+        ],
+        "weight_elements": 216,
+        "bias": true
+      },
+      {
+        "name": "unet1.first.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet1.first.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.first.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 24,
+        "mac": 6291456,
+        "input_elements": 786432,
+        "output_elements": 2097152,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          3,
+          1,
+          1
+        ],
+        "weight_elements": 24,
+        "bias": false
+      },
+      {
+        "name": "unet1.first.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.down_path.0.pool",
+        "op": "MaxPool2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.0.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 1168,
+        "mac": 75497472,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 1152,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.0.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.0.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.0.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 128,
+        "mac": 8388608,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          1,
+          1
+        ],
+        "weight_elements": 128,
+        "bias": false
+      },
+      {
+        "name": "unet1.down_path.0.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.down_path.1.pool",
+        "op": "MaxPool2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 262144
+      },
+      {
+        "name": "unet1.down_path.1.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 4640,
+        "mac": 75497472,
+        "input_elements": 262144,
+        "output_elements": 524288,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 4608,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.1.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 9248,
+        "mac": 150994944,
+        "input_elements": 524288,
+        "output_elements": 524288,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "weight_elements": 9216,
+        "bias": true
+      },
+      {
+        "name": "unet1.down_path.1.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.down_path.1.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 512,
+        "mac": 8388608,
+        "input_elements": 262144,
+        "output_elements": 524288,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          1,
+          1
+        ],
+        "weight_elements": 512,
+        "bias": false
+      },
+      {
+        "name": "unet1.down_path.1.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet1.up_path.0.up_layer.block.0",
+        "op": "ConvTranspose2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2064,
+        "mac": 33554432,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          2,
+          2
+        ],
+        "weight_elements": 2048,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_bridge_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_bridge_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_bridge_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 4624,
+        "mac": 301989888,
+        "input_elements": 2097152,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          32,
+          3,
+          3
+        ],
+        "weight_elements": 4608,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 512,
+        "mac": 33554432,
+        "input_elements": 2097152,
+        "output_elements": 1048576,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          32,
+          1,
+          1
+        ],
+        "weight_elements": 512,
+        "bias": false
+      },
+      {
+        "name": "unet1.up_path.0.conv_layer.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet1.up_path.1.up_layer.block.0",
+        "op": "ConvTranspose2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 520,
+        "mac": 33554432,
+        "input_elements": 1048576,
+        "output_elements": 2097152,
+        "kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          2,
+          2
+        ],
+        "weight_elements": 512,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_bridge_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_bridge_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_bridge_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 1160,
+        "mac": 301989888,
+        "input_elements": 4194304,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 1152,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 128,
+        "mac": 33554432,
+        "input_elements": 4194304,
+        "output_elements": 2097152,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          16,
+          1,
+          1
+        ],
+        "weight_elements": 128,
+        "bias": false
+      },
+      {
+        "name": "unet1.up_path.1.conv_layer.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet1.final",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "parameters": 9,
+        "mac": 2097152,
+        "input_elements": 2097152,
+        "output_elements": 262144,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          1,
+          8,
+          1,
+          1
+        ],
+        "weight_elements": 8,
+        "bias": true
+      },
+      {
+        "name": "unet2.first.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          4,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 296,
+        "mac": 75497472,
+        "input_elements": 1048576,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          4,
+          3,
+          3
+        ],
+        "weight_elements": 288,
+        "bias": true
+      },
+      {
+        "name": "unet2.first.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.first.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.first.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet2.first.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.first.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.first.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          4,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 32,
+        "mac": 8388608,
+        "input_elements": 1048576,
+        "output_elements": 2097152,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          4,
+          1,
+          1
+        ],
+        "weight_elements": 32,
+        "bias": false
+      },
+      {
+        "name": "unet2.first.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.down_path.0.pool",
+        "op": "MaxPool2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet2.down_path.0.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 1168,
+        "mac": 75497472,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 1152,
+        "bias": true
+      },
+      {
+        "name": "unet2.down_path.0.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.down_path.0.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.down_path.0.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet2.down_path.0.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.down_path.0.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.down_path.0.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 128,
+        "mac": 8388608,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          1,
+          1
+        ],
+        "weight_elements": 128,
+        "bias": false
+      },
+      {
+        "name": "unet2.down_path.0.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.down_path.1.pool",
+        "op": "MaxPool2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 262144
+      },
+      {
+        "name": "unet2.down_path.1.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 4640,
+        "mac": 75497472,
+        "input_elements": 262144,
+        "output_elements": 524288,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 4608,
+        "bias": true
+      },
+      {
+        "name": "unet2.down_path.1.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet2.down_path.1.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet2.down_path.1.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 9248,
+        "mac": 150994944,
+        "input_elements": 524288,
+        "output_elements": 524288,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "weight_elements": 9216,
+        "bias": true
+      },
+      {
+        "name": "unet2.down_path.1.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet2.down_path.1.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet2.down_path.1.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 512,
+        "mac": 8388608,
+        "input_elements": 262144,
+        "output_elements": 524288,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          1,
+          1
+        ],
+        "weight_elements": 512,
+        "bias": false
+      },
+      {
+        "name": "unet2.down_path.1.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "parameters": 64,
+        "mac": 0,
+        "input_elements": 524288,
+        "output_elements": 524288
+      },
+      {
+        "name": "unet2.up_path.0.up_layer.block.0",
+        "op": "ConvTranspose2d",
+        "input": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2064,
+        "mac": 33554432,
+        "input_elements": 524288,
+        "output_elements": 1048576,
+        "kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          32,
+          16,
+          2,
+          2
+        ],
+        "weight_elements": 2048,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.0.conv_bridge_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.0.conv_bridge_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.0.conv_bridge_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 4624,
+        "mac": 301989888,
+        "input_elements": 2097152,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          32,
+          3,
+          3
+        ],
+        "weight_elements": 4608,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 2320,
+        "mac": 150994944,
+        "input_elements": 1048576,
+        "output_elements": 1048576,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 2304,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 512,
+        "mac": 33554432,
+        "input_elements": 2097152,
+        "output_elements": 1048576,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          32,
+          1,
+          1
+        ],
+        "weight_elements": 512,
+        "bias": false
+      },
+      {
+        "name": "unet2.up_path.0.conv_layer.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "parameters": 32,
+        "mac": 0,
+        "input_elements": 1048576,
+        "output_elements": 1048576
+      },
+      {
+        "name": "unet2.up_path.1.up_layer.block.0",
+        "op": "ConvTranspose2d",
+        "input": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 520,
+        "mac": 33554432,
+        "input_elements": 1048576,
+        "output_elements": 2097152,
+        "kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          16,
+          8,
+          2,
+          2
+        ],
+        "weight_elements": 512,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.1.conv_bridge_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.1.conv_bridge_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.up_path.1.conv_bridge_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.block.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 1160,
+        "mac": 301989888,
+        "input_elements": 4194304,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          16,
+          3,
+          3
+        ],
+        "weight_elements": 1152,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.block.1",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.block.2",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.block.3",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 584,
+        "mac": 150994944,
+        "input_elements": 2097152,
+        "output_elements": 2097152,
+        "kernel": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          8,
+          3,
+          3
+        ],
+        "weight_elements": 576,
+        "bias": true
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.block.4",
+        "op": "ReLU",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 0,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.block.5",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.shortcut.0",
+        "op": "Conv2d",
+        "input": [
+          1,
+          16,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 128,
+        "mac": 33554432,
+        "input_elements": 4194304,
+        "output_elements": 2097152,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          8,
+          16,
+          1,
+          1
+        ],
+        "weight_elements": 128,
+        "bias": false
+      },
+      {
+        "name": "unet2.up_path.1.conv_layer.shortcut.1",
+        "op": "BatchNorm2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "parameters": 16,
+        "mac": 0,
+        "input_elements": 2097152,
+        "output_elements": 2097152
+      },
+      {
+        "name": "unet2.final",
+        "op": "Conv2d",
+        "input": [
+          1,
+          8,
+          512,
+          512
+        ],
+        "output": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "parameters": 9,
+        "mac": 2097152,
+        "input_elements": 2097152,
+        "output_elements": 262144,
+        "kernel": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          0,
+          0
+        ],
+        "groups": 1,
+        "weight_shape": [
+          1,
+          8,
+          1,
+          1
+        ],
+        "weight_elements": 8,
+        "bias": true
+      }
+    ]
+  }
+}

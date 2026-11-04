@@ -1,0 +1,570 @@
+START 2026/10/16 周五 20:43:57.95 
+
+****** vitis-run v2025.2 (64-bit)
+  **** SW Build 6295257 on 2025-11-13-08:29:27
+  **** Start of session at: Fri Oct 16 20:43:59 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/f_clock/run_hls_f.tcl'
+INFO: [HLS 200-1510] Running: open_project f_pp_p6757 
+WARNING: [HLS 200-2182] The 'f_pp_p6757' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757'.
+INFO: [HLS 200-1510] Running: set_top pp_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src/pp_layer.cpp -cflags -IE:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src/pp_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/tb/test_pp.cpp -cflags -IE:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/pp_hls/tb/test_pp.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/Tcp_Image/Tcp_Image_Rx/src/ai_view.c -cflags -IE:/PLD/Tcp_Image/Tcp_Image_Rx/src -D_GNU_SOURCE 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/Tcp_Image/Tcp_Image_Rx/src/ai_view.c' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 6.757 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.757ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 3.347 seconds; current allocated memory: 405.426 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file '../pp_hls/src/pp_layer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.213 seconds; current allocated memory: 408.836 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 10,950 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,664 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,188 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,179 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,126 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,259 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,257 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,257 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,257 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,320 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,312 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,289 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,277 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,271 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,317 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,367 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'byte_of(ap_uint<128> const&, int)' into 'pp_layer(ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int, int, int, int)' (../pp_hls/src/pp_layer.cpp:403:79)
+INFO: [HLS 214-131] Inlining function 'local_label(bool, bool, ap_uint<13>, ap_uint<13>, ap_uint<13>, ap_uint<13>, int&, bool&, bool&, bool&, ap_uint<12>&, ap_uint<12>&)' into 'pp_layer(ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int, int, int, int)' (../pp_hls/src/pp_layer.cpp:312:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_403_3' is marked as complete unroll implied by the pipeline pragma (../pp_hls/src/pp_layer.cpp:403:43)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_403_3' (../pp_hls/src/pp_layer.cpp:403:43) in function 'pp_layer' completely with a factor of 16 (../pp_hls/src/pp_layer.cpp:104:0)
+INFO: [HLS 214-178] Inlining function 'find_root(ap_uint<12> const*, ap_uint<12>) (.40)' into 'unite_all(ap_uint<12>*, ap_uint<12> const*, ap_uint<12> const*, int)' (../pp_hls/src/pp_layer.cpp:38:0)
+INFO: [HLS 214-178] Inlining function 'unite_all(ap_uint<12>*, ap_uint<12> const*, ap_uint<12> const*, int)' into 'pp_layer(ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int, int, int, int)' (../pp_hls/src/pp_layer.cpp:104:0)
+INFO: [HLS 214-178] Inlining function 'flatten(ap_uint<12>*, ap_uint<19>*, ap_uint<1>*, int, bool)' into 'pp_layer(ap_uint<128> const*, ap_uint<128>*, int, int, int, int, int, int, int, int, int, int, int, int, int)' (../pp_hls/src/pp_layer.cpp:104:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum': Complete partitioning on dimension 1. (../pp_hls/src/pp_layer.cpp:143:0)
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_172_1> at ../pp_hls/src/pp_layer.cpp:172:27 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< FLAT> at ../pp_hls/src/pp_layer.cpp:54:5 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< FIND> at ../pp_hls/src/pp_layer.cpp:31:5 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< AREA> at ../pp_hls/src/pp_layer.cpp:357:17 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_411_4> at ../pp_hls/src/pp_layer.cpp:411:23 due to pipeline_loops threshold
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_413_5' is marked as complete unroll implied by the pipeline pragma (../pp_hls/src/pp_layer.cpp:413:27)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_413_5' (../pp_hls/src/pp_layer.cpp:413:27) in function 'pp_layer' completely with a factor of 4 (../pp_hls/src/pp_layer.cpp:104:0)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOADW'(../pp_hls/src/pp_layer.cpp:199:25) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../pp_hls/src/pp_layer.cpp:199:25)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOADR'(../pp_hls/src/pp_layer.cpp:216:17) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../pp_hls/src/pp_layer.cpp:216:17)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'TWORD'(../pp_hls/src/pp_layer.cpp:398:21) has been inferred on bundle 'gmem_in'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../pp_hls/src/pp_layer.cpp:398:21)
+INFO: [HLS 214-115] Multiple burst writes of length 4 and bit width 128 in loop 'VITIS_LOOP_411_4'(../pp_hls/src/pp_layer.cpp:411:23) has been inferred on bundle 'gmem_out'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../pp_hls/src/pp_layer.cpp:411:23)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 11.355 seconds; current allocated memory: 411.371 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.005 seconds; current allocated memory: 411.371 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.125 seconds; current allocated memory: 421.191 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] ../pp_hls/src/pp_layer.cpp:26: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.121 seconds; current allocated memory: 424.387 MB.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 1 for loop 'FLAT' (../pp_hls/src/pp_layer.cpp:55:1) in function 'pp_layer'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 1 for loop 'ROOTS' (../pp_hls/src/pp_layer.cpp:370:1) in function 'pp_layer'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 1 for loop 'TROW' (../pp_hls/src/pp_layer.cpp:396:1) in function 'pp_layer'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:240:1) to (../pp_hls/src/pp_layer.cpp:264:33) in function 'pp_layer'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:272:54) to (../pp_hls/src/pp_layer.cpp:275:35) in function 'pp_layer'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:308:42) to (../pp_hls/src/pp_layer.cpp:313:25) in function 'pp_layer'... converting 20 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:189:17) to (../pp_hls/src/pp_layer.cpp:238:13) in function 'pp_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:371:1) to (../pp_hls/src/pp_layer.cpp:369:13) in function 'pp_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:411:32) to (../pp_hls/src/pp_layer.cpp:411:23) in function 'pp_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../pp_hls/src/pp_layer.cpp:160:28) to (../pp_hls/src/pp_layer.cpp:166:9) in function 'pp_layer'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'pp_layer' (../pp_hls/src/pp_layer.cpp:26:9)...40 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.641 seconds; current allocated memory: 456.258 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'TROW'(../pp_hls/src/pp_layer.cpp:395:17) and 'TWORD'(../pp_hls/src/pp_layer.cpp:398:21) in function 'pp_layer' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'TROW' (../pp_hls/src/pp_layer.cpp:395:17) in function 'pp_layer'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'fA'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'fB'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bA'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bB'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'fpar'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bpar'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'farea'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bbor'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'fA'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'fB'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bA'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bB'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'fpar'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bpar'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'farea'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'bbor'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.477 seconds; current allocated memory: 589.605 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'pp_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_VITIS_LOOP_172_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_172_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_172_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.223 seconds; current allocated memory: 593.613 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.029 seconds; current allocated memory: 594.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_LOADW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOADW'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOADW'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.039 seconds; current allocated memory: 595.027 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 595.082 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_LOADQ' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOADQ'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'LOADQ'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.034 seconds; current allocated memory: 595.395 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.019 seconds; current allocated memory: 595.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_LOADR' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOADR'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOADR'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 595.523 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 595.523 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_PIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln262_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln262_4) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'PIX'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 22, loop 'PIX'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.527 seconds; current allocated memory: 624.203 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.231 seconds; current allocated memory: 624.207 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_FIND2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FIND'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 2, loop 'FIND'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.186 seconds; current allocated memory: 624.223 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.022 seconds; current allocated memory: 624.223 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_FIND3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FIND'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 2, loop 'FIND'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 624.223 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.023 seconds; current allocated memory: 624.223 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_AREA' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'AREA'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'AREA'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.977 seconds; current allocated memory: 624.238 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.044 seconds; current allocated memory: 624.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_FIND' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FIND'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 2, loop 'FIND'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.031 seconds; current allocated memory: 624.246 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.024 seconds; current allocated memory: 624.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_FIND1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FIND'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 2, loop 'FIND'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 624.246 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.024 seconds; current allocated memory: 624.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Outline_UNITE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.037 seconds; current allocated memory: 624.270 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 624.281 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_FLAT4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FLAT'.
+INFO: [HLS 200-2199] The II Violation in module 'pp_layer_Pipeline_FLAT4' (loop 'FLAT'): Potential resource conflict between 'load' operation 1 bit ('bbor_load', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) on array 'bbor' and 'store' operation ('bbor_addr_write_ln61', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) of variable 'or_ln61', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381 1 bit on array 'bbor' on common resource 'bbor'.
+INFO: [HLS 200-2198] Existing conflicting constraints include from 'load' operation 1 bit ('bbor_load', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) on array 'bbor' to 'load' operation 1 bit ('bbor_load', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) on array 'bbor' with distance of 1 (conflict 1 of 3)
+INFO: [HLS 200-2198] Existing conflicting constraints include from 'load' operation 1 bit ('bbor_load', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) on array 'bbor' to 'or' operation 1 bit ('or_ln61', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) with distance of 0 (conflict 2 of 3)
+INFO: [HLS 200-2198] Existing conflicting constraints include from 'or' operation 1 bit ('or_ln61', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) to 'store' operation ('bbor_addr_write_ln61', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381) of variable 'or_ln61', ../pp_hls/src/pp_layer.cpp:61->../pp_hls/src/pp_layer.cpp:381 1 bit on array 'bbor' with distance of 0 (conflict 3 of 3)
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 4, loop 'FLAT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.787 seconds; current allocated memory: 624.309 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.038 seconds; current allocated memory: 624.316 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_FLAT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FLAT'.
+INFO: [HLS 200-2199] The II Violation in module 'pp_layer_Pipeline_FLAT' (loop 'FLAT'): Potential resource conflict between 'load' operation 19 bit ('farea_load', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) on array 'farea' and 'store' operation ('farea_addr_write_ln60', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) of variable 'add_ln60', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367 19 bit on array 'farea' on common resource 'farea'.
+INFO: [HLS 200-2198] Existing conflicting constraints include from 'load' operation 19 bit ('farea_load', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) on array 'farea' to 'load' operation 19 bit ('farea_load', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) on array 'farea' with distance of 1 (conflict 1 of 3)
+INFO: [HLS 200-2198] Existing conflicting constraints include from 'load' operation 19 bit ('farea_load', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) on array 'farea' to 'add' operation 19 bit ('add_ln60', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) with distance of 0 (conflict 2 of 3)
+INFO: [HLS 200-2198] Existing conflicting constraints include from 'add' operation 19 bit ('add_ln60', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) to 'store' operation ('farea_addr_write_ln60', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367) of variable 'add_ln60', ../pp_hls/src/pp_layer.cpp:60->../pp_hls/src/pp_layer.cpp:367 19 bit on array 'farea' with distance of 0 (conflict 3 of 3)
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 4, loop 'FLAT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.042 seconds; current allocated memory: 624.328 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.027 seconds; current allocated memory: 624.328 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_ROOTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'ROOTS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'ROOTS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.043 seconds; current allocated memory: 624.328 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.855 seconds; current allocated memory: 624.328 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_TROW_TWORD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'TROW_TWORD'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 15, loop 'TROW_TWORD'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.101 seconds; current allocated memory: 624.336 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 624.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer_Pipeline_VITIS_LOOP_411_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_411_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_411_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.057 seconds; current allocated memory: 624.492 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.028 seconds; current allocated memory: 624.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pp_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.371 seconds; current allocated memory: 624.781 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.133 seconds; current allocated memory: 624.781 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_VITIS_LOOP_172_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_VITIS_LOOP_172_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.188 seconds; current allocated memory: 625.992 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_LOADW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_LOADW' pipeline 'LOADW' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADW/m_axi_gmem_in_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_LOADW'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.095 seconds; current allocated memory: 627.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_LOADQ' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_LOADQ' pipeline 'LOADQ' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'partselect_8ns_128ns_7ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_LOADQ'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.145 seconds; current allocated memory: 627.488 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_LOADR' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_LOADR' pipeline 'LOADR' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_LOADR/m_axi_gmem_in_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_LOADR'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.182 seconds; current allocated memory: 627.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_PIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_PIX' pipeline 'PIX' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'am_addmul_11s_12s_5s_16_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'ama_addmuladd_11s_12s_3ns_16s_16_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'bitset_128ns_128ns_7ns_1s_128_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_8s_11_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_5s_8s_12_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'partselect_8ns_128ns_7ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_13_5_13_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_33_4_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_12_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_13_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_PIX'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.477 seconds; current allocated memory: 627.820 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_FIND2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_FIND2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.456 seconds; current allocated memory: 641.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_FIND3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_FIND3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.109 seconds; current allocated memory: 641.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_AREA' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_AREA' pipeline 'AREA' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_AREA'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.121 seconds; current allocated memory: 641.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_FIND' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_FIND'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.149 seconds; current allocated memory: 641.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_FIND1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_FIND1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.116 seconds; current allocated memory: 641.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Outline_UNITE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Outline_UNITE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.117 seconds; current allocated memory: 641.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_FLAT4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_FLAT4' pipeline 'FLAT' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_FLAT4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.154 seconds; current allocated memory: 641.395 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_FLAT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_FLAT' pipeline 'FLAT' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_FLAT'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.165 seconds; current allocated memory: 642.039 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_ROOTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_ROOTS' pipeline 'ROOTS' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_ROOTS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.154 seconds; current allocated memory: 642.953 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_TROW_TWORD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_TROW_TWORD' pipeline 'TROW_TWORD' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_34s_28s_60_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_TROW_TWORD'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.194 seconds; current allocated memory: 643.785 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer_Pipeline_VITIS_LOOP_411_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pp_layer_Pipeline_VITIS_LOOP_411_4' pipeline 'VITIS_LOOP_411_4' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pp_layer_Pipeline_VITIS_LOOP_411_4/m_axi_gmem_out_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer_Pipeline_VITIS_LOOP_411_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.421 seconds; current allocated memory: 646.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pp_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/gmem_in' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/gmem_out' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/in_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/out_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/op' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/h' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/w' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/x0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/y0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/cw' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/ch' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/k' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/thr' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/tn' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/ya' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/yb' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'pp_layer/in_row0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'pp_layer' to 's_axilite & ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'nf' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'count' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fovf' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ty' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'trow' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pp_layer_ap_uint_const_ap_uint_int_int_int_int_int_int_int_int_int_int_int_int' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8pp_layerPK7ap_uintILi128EEPS0_iiiiiiiiiiiiiE4tsum_15' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'return', 'in_r', 'out_r', 'op', 'h', 'w', 'x0', 'y0', 'cw', 'ch', 'k', 'thr', 'tn', 'ya', 'yb' and 'in_row0' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_2ns_30ns_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_30ns_28ns_58_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_25s_57_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_28s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_35s_32ns_60_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_30ns_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pp_layer'.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_rowbuf_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_q0_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_fB_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_fpar_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_farea_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_ea_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_rlen_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'pp_layer_bbor_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.646 seconds; current allocated memory: 655.797 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 3.183 seconds; current allocated memory: 669.879 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-2225] Wrote inferred directives to file E:/PLD/Tcp_Image/Tcp_Image_Rx/ai/build/f_pp_p6757/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 2.976 seconds; current allocated memory: 684.375 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for pp_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for pp_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 202.73 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:53; Allocated memory: 279.184 MB.
+INFO: [HLS 200-112] Total CPU user time: 11 seconds. Total CPU system time: 11 seconds. Total elapsed time: 62.463 seconds; peak allocated memory: 684.434 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 1m 5s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
+EXITCODE 0 2026/10/16 周五 20:45:04.80 

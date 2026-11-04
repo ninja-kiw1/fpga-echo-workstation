@@ -1,0 +1,416 @@
+{
+ "source": "HRF segmentation set, all.zip sha256 a914d02cda161b7f33f25d0397c276d50e9a6cbc705e9b364a54f0adafed57e4 (FAU, CC BY 4.0, downloaded 2026-10-18)",
+ "split": "Orlando et al. 2017 (IEEE TBME): images 1-5 of each category (healthy / glaucoma / diabetic retinopathy) = train, 6-15 = test",
+ "rule": "train: scale / magnification choices, cap, any tuning. test: evaluated ONCE at the end with a lock file written first (results/test_lock.json); never used to choose anything",
+ "train": [
+  "01_h",
+  "02_h",
+  "03_h",
+  "04_h",
+  "05_h",
+  "01_g",
+  "02_g",
+  "03_g",
+  "04_g",
+  "05_g",
+  "01_dr",
+  "02_dr",
+  "03_dr",
+  "04_dr",
+  "05_dr"
+ ],
+ "test": [
+  "06_h",
+  "07_h",
+  "08_h",
+  "09_h",
+  "10_h",
+  "11_h",
+  "12_h",
+  "13_h",
+  "14_h",
+  "15_h",
+  "06_g",
+  "07_g",
+  "08_g",
+  "09_g",
+  "10_g",
+  "11_g",
+  "12_g",
+  "13_g",
+  "14_g",
+  "15_g",
+  "06_dr",
+  "07_dr",
+  "08_dr",
+  "09_dr",
+  "10_dr",
+  "11_dr",
+  "12_dr",
+  "13_dr",
+  "14_dr",
+  "15_dr"
+ ],
+ "files": {
+  "01_dr": {
+   "image": "01_dr.JPG",
+   "manual": "01_dr.tif",
+   "mask": "01_dr_mask.tif",
+   "category": "dr",
+   "number": 1,
+   "sha256": "c02d869abc2a910f19f3bf357ca14264eeef1cfca8ecb031a23cdb19e1bf91f5"
+  },
+  "01_g": {
+   "image": "01_g.jpg",
+   "manual": "01_g.tif",
+   "mask": "01_g_mask.tif",
+   "category": "g",
+   "number": 1,
+   "sha256": "0273a9f3e71aaf5b5b9cd3a0d91a5f1e916a6aa55c9e116775d63e8b03e62ac1"
+  },
+  "01_h": {
+   "image": "01_h.jpg",
+   "manual": "01_h.tif",
+   "mask": "01_h_mask.tif",
+   "category": "h",
+   "number": 1,
+   "sha256": "7ab2b3a1bd8765f7b50f5744aa228c9f6c5f2f5a602a7d15ab8782aadc515a27"
+  },
+  "02_dr": {
+   "image": "02_dr.JPG",
+   "manual": "02_dr.tif",
+   "mask": "02_dr_mask.tif",
+   "category": "dr",
+   "number": 2,
+   "sha256": "523bd4215ca72be0a260a87267384925fd9d972a8b05893498b5debe4d6df85e"
+  },
+  "02_g": {
+   "image": "02_g.jpg",
+   "manual": "02_g.tif",
+   "mask": "02_g_mask.tif",
+   "category": "g",
+   "number": 2,
+   "sha256": "731aecf6ce2423d775a9f61d5b532ef0fe46ae57354421460bb1012709406b4b"
+  },
+  "02_h": {
+   "image": "02_h.jpg",
+   "manual": "02_h.tif",
+   "mask": "02_h_mask.tif",
+   "category": "h",
+   "number": 2,
+   "sha256": "497f7dc3500cbfe144d1858ea8868f3bfe7c5c3d02cdf32418f604f3acb94f88"
+  },
+  "03_dr": {
+   "image": "03_dr.JPG",
+   "manual": "03_dr.tif",
+   "mask": "03_dr_mask.tif",
+   "category": "dr",
+   "number": 3,
+   "sha256": "cb2f18a2569b3bc115d5d236ab0f6e7eea1b328e0d28ecfd70aaebab4cc34e36"
+  },
+  "03_g": {
+   "image": "03_g.jpg",
+   "manual": "03_g.tif",
+   "mask": "03_g_mask.tif",
+   "category": "g",
+   "number": 3,
+   "sha256": "bc8696d72952b00bae56cbff196446718ffb933e2e674ed1cc589644b9bb53b8"
+  },
+  "03_h": {
+   "image": "03_h.jpg",
+   "manual": "03_h.tif",
+   "mask": "03_h_mask.tif",
+   "category": "h",
+   "number": 3,
+   "sha256": "966740f181dda395833b39c2be7bac3b1cfe967e05634db9967897c9570851e3"
+  },
+  "04_dr": {
+   "image": "04_dr.JPG",
+   "manual": "04_dr.tif",
+   "mask": "04_dr_mask.tif",
+   "category": "dr",
+   "number": 4,
+   "sha256": "8fcdff8c714cf94b7daac8aa9b3d818d026944dcee6e6ccd7d978719e9008c20"
+  },
+  "04_g": {
+   "image": "04_g.jpg",
+   "manual": "04_g.tif",
+   "mask": "04_g_mask.tif",
+   "category": "g",
+   "number": 4,
+   "sha256": "fc9ed13ef42502eeecb3f1754dc0d3b72a454c82884b40dde934e8a516495588"
+  },
+  "04_h": {
+   "image": "04_h.jpg",
+   "manual": "04_h.tif",
+   "mask": "04_h_mask.tif",
+   "category": "h",
+   "number": 4,
+   "sha256": "54de5735bc08c610d528e6aa8d7dfdce5d093ab69704d51a20a99e73ca9f5d81"
+  },
+  "05_dr": {
+   "image": "05_dr.JPG",
+   "manual": "05_dr.tif",
+   "mask": "05_dr_mask.tif",
+   "category": "dr",
+   "number": 5,
+   "sha256": "6dd2ca7e060230cb0264afaf870a1d21ddfe38572cf2c6ad3db866513b61d7a3"
+  },
+  "05_g": {
+   "image": "05_g.jpg",
+   "manual": "05_g.tif",
+   "mask": "05_g_mask.tif",
+   "category": "g",
+   "number": 5,
+   "sha256": "50339d12f10123f6ca1540e574f7b4dde3a382ab8c25bf19272e05a4ceeb4486"
+  },
+  "05_h": {
+   "image": "05_h.jpg",
+   "manual": "05_h.tif",
+   "mask": "05_h_mask.tif",
+   "category": "h",
+   "number": 5,
+   "sha256": "9d5204c9f6af16e7fbee9b22c56c2d40e5eded794142a470bc4a7e0d39f30fa0"
+  },
+  "06_dr": {
+   "image": "06_dr.JPG",
+   "manual": "06_dr.tif",
+   "mask": "06_dr_mask.tif",
+   "category": "dr",
+   "number": 6,
+   "sha256": "d081131db2df8ea12e88804a7a154466826715698e04bcca4a618186dd5e9b4f"
+  },
+  "06_g": {
+   "image": "06_g.jpg",
+   "manual": "06_g.tif",
+   "mask": "06_g_mask.tif",
+   "category": "g",
+   "number": 6,
+   "sha256": "8ea4430a040201057c907dbec8dad678bf088423dffbed5e01121c2c7c5ae231"
+  },
+  "06_h": {
+   "image": "06_h.jpg",
+   "manual": "06_h.tif",
+   "mask": "06_h_mask.tif",
+   "category": "h",
+   "number": 6,
+   "sha256": "6918ff93d97f5af4b0beed2045cbc49ba7dbfbe7708a4917cf91365be433b48e"
+  },
+  "07_dr": {
+   "image": "07_dr.JPG",
+   "manual": "07_dr.tif",
+   "mask": "07_dr_mask.tif",
+   "category": "dr",
+   "number": 7,
+   "sha256": "203ddec480816b6c9d7ea3c19c1ff0870a5a61b5b6c9a176300402ac47fbc10f"
+  },
+  "07_g": {
+   "image": "07_g.jpg",
+   "manual": "07_g.tif",
+   "mask": "07_g_mask.tif",
+   "category": "g",
+   "number": 7,
+   "sha256": "6a6059503657573ed04054f30e92a873032e86b21dc11d1063b3b2b80d8df00d"
+  },
+  "07_h": {
+   "image": "07_h.jpg",
+   "manual": "07_h.tif",
+   "mask": "07_h_mask.tif",
+   "category": "h",
+   "number": 7,
+   "sha256": "62d161eea6e2be9d79a763f613e045923e50b1ea8b74a417abedd492e87e390a"
+  },
+  "08_dr": {
+   "image": "08_dr.JPG",
+   "manual": "08_dr.tif",
+   "mask": "08_dr_mask.tif",
+   "category": "dr",
+   "number": 8,
+   "sha256": "d38e86cfd7d0a482725864458690a974edcba93e7b10bee593c5658e3304d1ac"
+  },
+  "08_g": {
+   "image": "08_g.jpg",
+   "manual": "08_g.tif",
+   "mask": "08_g_mask.tif",
+   "category": "g",
+   "number": 8,
+   "sha256": "8c292882a2dc848e11d3cfd5510a780e6a0c757e6d812f39a36fbec3b422beda"
+  },
+  "08_h": {
+   "image": "08_h.jpg",
+   "manual": "08_h.tif",
+   "mask": "08_h_mask.tif",
+   "category": "h",
+   "number": 8,
+   "sha256": "7986a1ec978689eaa17072342c543610ff867e62628d970a17eb8364c82df4f1"
+  },
+  "09_dr": {
+   "image": "09_dr.JPG",
+   "manual": "09_dr.tif",
+   "mask": "09_dr_mask.tif",
+   "category": "dr",
+   "number": 9,
+   "sha256": "1748a6ca9b2d5fbfd862b1741c2fc2b7304e579ce6e680bde2b5643d446a3329"
+  },
+  "09_g": {
+   "image": "09_g.jpg",
+   "manual": "09_g.tif",
+   "mask": "09_g_mask.tif",
+   "category": "g",
+   "number": 9,
+   "sha256": "e7cd08c9eff5e9544c69714f89cdb3e6ec67d9729d09b8d32c37e4507e41c7fb"
+  },
+  "09_h": {
+   "image": "09_h.jpg",
+   "manual": "09_h.tif",
+   "mask": "09_h_mask.tif",
+   "category": "h",
+   "number": 9,
+   "sha256": "c8e1c033d21262c33720e2ade26336bb01917a939955cd6ef26218860151a498"
+  },
+  "10_dr": {
+   "image": "10_dr.JPG",
+   "manual": "10_dr.tif",
+   "mask": "10_dr_mask.tif",
+   "category": "dr",
+   "number": 10,
+   "sha256": "f76618c06ae593c431eb92e08a92c182b37cd815b52c4a99986c79e9e3c8b7eb"
+  },
+  "10_g": {
+   "image": "10_g.jpg",
+   "manual": "10_g.tif",
+   "mask": "10_g_mask.tif",
+   "category": "g",
+   "number": 10,
+   "sha256": "d54fc4a8e9e7432dfee1171849574207c549c60614f40bae5e9dac50ec69e7fd"
+  },
+  "10_h": {
+   "image": "10_h.jpg",
+   "manual": "10_h.tif",
+   "mask": "10_h_mask.tif",
+   "category": "h",
+   "number": 10,
+   "sha256": "20b8dd8fed06171d10461ea587be1630f525c76a6573a45305b789e6088f0376"
+  },
+  "11_dr": {
+   "image": "11_dr.JPG",
+   "manual": "11_dr.tif",
+   "mask": "11_dr_mask.tif",
+   "category": "dr",
+   "number": 11,
+   "sha256": "afe035f574d3a96494cbce396887d06ec7884ea7b1f58bc426dfe8fb0236318f"
+  },
+  "11_g": {
+   "image": "11_g.jpg",
+   "manual": "11_g.tif",
+   "mask": "11_g_mask.tif",
+   "category": "g",
+   "number": 11,
+   "sha256": "4d7f0f7ccd453eb1a9762585e705499fefad327649b29aa5cd1500b77f2e03f3"
+  },
+  "11_h": {
+   "image": "11_h.jpg",
+   "manual": "11_h.tif",
+   "mask": "11_h_mask.tif",
+   "category": "h",
+   "number": 11,
+   "sha256": "f6d06967127f02bc17ad13aace2af9c66c8bbe921be72c01e5796721a48ba75e"
+  },
+  "12_dr": {
+   "image": "12_dr.JPG",
+   "manual": "12_dr.tif",
+   "mask": "12_dr_mask.tif",
+   "category": "dr",
+   "number": 12,
+   "sha256": "0672cd5f89ebe09239ee7c010262e61fca7cb6e96a5e8ee2dea8f2ebab094f66"
+  },
+  "12_g": {
+   "image": "12_g.jpg",
+   "manual": "12_g.tif",
+   "mask": "12_g_mask.tif",
+   "category": "g",
+   "number": 12,
+   "sha256": "126546aab6ba5f9ca02e5dd1055ebcd4ea45815b6a02e0b8c4ed6f60d5d30481"
+  },
+  "12_h": {
+   "image": "12_h.jpg",
+   "manual": "12_h.tif",
+   "mask": "12_h_mask.tif",
+   "category": "h",
+   "number": 12,
+   "sha256": "7a0a23da6ddd2d7168f6f8cff2b9b8620b260ad1093ca679b7cacc6ebe33dbd1"
+  },
+  "13_dr": {
+   "image": "13_dr.JPG",
+   "manual": "13_dr.tif",
+   "mask": "13_dr_mask.tif",
+   "category": "dr",
+   "number": 13,
+   "sha256": "0fb926d934d59a40aff04cb86999579db1df8e89732bf436cc6cb87498aa7de9"
+  },
+  "13_g": {
+   "image": "13_g.jpg",
+   "manual": "13_g.tif",
+   "mask": "13_g_mask.tif",
+   "category": "g",
+   "number": 13,
+   "sha256": "36d277e7b241fdab635e7ea982a447ae7d869d60eaf5b747ee74eabf152eff10"
+  },
+  "13_h": {
+   "image": "13_h.jpg",
+   "manual": "13_h.tif",
+   "mask": "13_h_mask.tif",
+   "category": "h",
+   "number": 13,
+   "sha256": "b24a2623fb844b7b05c9b70e3a5892fc32d8513d70e2fa5b63721f674c0473a4"
+  },
+  "14_dr": {
+   "image": "14_dr.JPG",
+   "manual": "14_dr.tif",
+   "mask": "14_dr_mask.tif",
+   "category": "dr",
+   "number": 14,
+   "sha256": "f461f25c56f560364b3d9c8e50345c6df232b5ef9840635adc14b2efa7ef0800"
+  },
+  "14_g": {
+   "image": "14_g.jpg",
+   "manual": "14_g.tif",
+   "mask": "14_g_mask.tif",
+   "category": "g",
+   "number": 14,
+   "sha256": "3fc7fe1b5e5a4f9e9026088cb9910c7ebbd30e32e49ae39ce391b0794959c586"
+  },
+  "14_h": {
+   "image": "14_h.jpg",
+   "manual": "14_h.tif",
+   "mask": "14_h_mask.tif",
+   "category": "h",
+   "number": 14,
+   "sha256": "d73147228b3d33e5f5fa2fb6d155fa4f075bcbf2dc2ace8716dc4254b6f9cc0e"
+  },
+  "15_dr": {
+   "image": "15_dr.JPG",
+   "manual": "15_dr.tif",
+   "mask": "15_dr_mask.tif",
+   "category": "dr",
+   "number": 15,
+   "sha256": "2849910e2707c236b4aa31a482947da91cb3d48af99a51e97276cb43f3be2dcd"
+  },
+  "15_g": {
+   "image": "15_g.jpg",
+   "manual": "15_g.tif",
+   "mask": "15_g_mask.tif",
+   "category": "g",
+   "number": 15,
+   "sha256": "b7eafbb3e9e66d71580b89a027f7d379465b3a9be3a428dad0834457606d7f87"
+  },
+  "15_h": {
+   "image": "15_h.jpg",
+   "manual": "15_h.tif",
+   "mask": "15_h_mask.tif",
+   "category": "h",
+   "number": 15,
+   "sha256": "d74ab81cd1cf7011deee003f36e01089b3f70f3a8faf979a27db6af07b95428e"
+  }
+ }
+}

@@ -1,0 +1,358 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "D:/xlinx2023.1/Vitis_HLS/2023.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling apatb_eltwise_layer.cpp
+   Compiling eltwise_layer.cpp_pre.cpp.tb.cpp
+   Compiling test_eltwise_layer.cpp_pre.cpp.tb.cpp
+   Compiling apatb_eltwise_layer_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+PASS invalid mode=3
+PASS invalid ca=0
+PASS invalid ca=33
+PASS invalid width=513
+PASS invalid height=0
+PASS invalid add ca!=cb
+PASS invalid concat ca=5
+PASS invalid concat cb=0
+PASS invalid concat 24+16
+PASS invalid pool odd height
+PASS invalid pool odd width
+PASS invalid shift=32
+PASS invalid qmin>qmax
+PASS syn_add_int16_full_mult mode=0 ca=16 cb=16 in=5x7 values=560 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_c5 mode=0 ca=5 cb=5 in=3x4 values=96 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_ties_shift1 mode=0 ca=8 cb=8 in=6x6 values=288 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_ties_shift2 mode=0 ca=8 cb=8 in=6x6 values=288 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_shift0 mode=0 ca=8 cb=8 in=2x3 values=48 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_saturate mode=0 ca=8 cb=8 in=4x4 values=128 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_8_5 mode=1 ca=8 cb=5 in=3x5 values=240 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_16_16 mode=1 ca=16 cb=16 in=4x3 values=384 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_24_8_int16 mode=1 ca=24 cb=8 in=2x2 values=128 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_ties mode=1 ca=8 cb=8 in=4x4 values=256 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_max_width mode=1 ca=8 cb=8 in=2x512 values=16384 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_2x2_c3 mode=2 ca=3 cb=0 in=2x2 values=8 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_c32_int16 mode=2 ca=32 cb=0 in=4x6 values=192 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_all_negative mode=2 ca=8 cb=0 in=4x4 values=32 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_max_width mode=2 ca=8 cb=0 in=2x512 values=2048 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_after_large mode=2 ca=8 cb=0 in=2x4 values=16 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_after_large mode=1 ca=8 cb=3 in=1x3 values=48 mismatches=0 max_error=0 overrun_words=0
+PASS add_2 mode=0 ca=32 cb=32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS cat mode=1 ca=16 cb=16 in=256x256 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_pool mode=2 ca=16 cb=0 in=256x256 values=262144 mismatches=0 max_error=0 overrun_words=0
+SUMMARY cases=20 values=2904728 failures=0
+
+E:\PLD\medical_fpga\deployment\unet_eltwise\build\eltwise_layer\solution1\sim\verilog>set PATH= 
+
+E:\PLD\medical_fpga\deployment\unet_eltwise\build\eltwise_layer\solution1\sim\verilog>call D:/xlinx2023.1/Vivado/2023.1/bin/xelab xil_defaultlib.apatb_eltwise_layer_top glbl -Oenable_linking_all_libraries  -prj eltwise_layer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib "ieee_proposed=./ieee_proposed" -s eltwise_layer  
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/xlinx2023.1/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_eltwise_layer_top glbl -Oenable_linking_all_libraries -prj eltwise_layer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s eltwise_layer 
+Multi-threading is on. Using 22 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/AESL_axi_master_gmem_a.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_a
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/AESL_axi_master_gmem_b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/AESL_axi_master_gmem_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_eltwise_layer_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_buf_a_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_buf_a_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_ADD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_ADD
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_LOAD_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_LOAD_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_LOAD_B.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_LOAD_B
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_LOAD_TOP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_LOAD_TOP
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_MERGE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_MERGE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_POOL.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_POOL
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_eltwise_layer_Pipeline_STORE_POOL.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_eltwise_layer_Pipeline_STORE_POOL
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_gmem_a_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_load
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_store
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_read
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_write
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_srl
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_a_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_gmem_b_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_load
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_store
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_read
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_write
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_srl
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_b_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_gmem_out_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_load
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_store
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_read
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_write
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_srl
+INFO: [VRFC 10-311] analyzing module eltwise_layer_gmem_out_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mul_30s_31ns_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mul_30s_31ns_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mul_30s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mul_30s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mul_31s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mul_31s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mul_32s_16s_48_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mul_32s_16s_48_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mul_32s_31ns_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mul_32s_31ns_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mul_32s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mul_32s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer_mux_4_2_128_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eltwise_layer_mux_4_2_128_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.eltwise_layer_buf_a_RAM_AUTO_1R1...
+Compiling module xil_defaultlib.eltwise_layer_flow_control_loop_...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_mul_32s_16s_48_1_1...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_mux_4_2_128_1_1(ID...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_eltwise_layer_Pipe...
+Compiling module xil_defaultlib.eltwise_layer_control_s_axi
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_mem(M...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_store...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_mem(M...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_load(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_burst...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_throt...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_write...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_burst...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi_read(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_a_m_axi(CONSE...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_mem(M...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_store...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_mem(M...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_load(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_burst...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_srl(D...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_fifo(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_throt...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_write...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_burst...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_reg_s...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi_read(...
+Compiling module xil_defaultlib.eltwise_layer_gmem_b_m_axi(CONSE...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_srl...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_mem...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_srl...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_srl...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_sto...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_mem...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_loa...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_reg...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_bur...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_srl...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_reg...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_srl...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_srl...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_fif...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_thr...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_reg...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_wri...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_bur...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_reg...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi_rea...
+Compiling module xil_defaultlib.eltwise_layer_gmem_out_m_axi(CON...
+Compiling module xil_defaultlib.eltwise_layer_mul_30s_31ns_32_1_...
+Compiling module xil_defaultlib.eltwise_layer_mul_30s_32s_32_1_1...
+Compiling module xil_defaultlib.eltwise_layer_mul_31s_32s_32_1_1...
+Compiling module xil_defaultlib.eltwise_layer_mul_32s_31ns_32_1_...
+Compiling module xil_defaultlib.eltwise_layer_mul_32s_32s_32_1_1...
+Compiling module xil_defaultlib.eltwise_layer
+Compiling module xil_defaultlib.AESL_axi_master_gmem_a
+Compiling module xil_defaultlib.AESL_axi_master_gmem_b
+Compiling module xil_defaultlib.AESL_axi_master_gmem_out
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=67)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_eltwise_layer_top
+Compiling module work.glbl
+Built simulation snapshot eltwise_layer
+
+****** xsim v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/eltwise_layer/xsim_script.tcl
+# xsim {eltwise_layer} -autoloadwcfg -tclbatch {eltwise_layer.tcl}
+Time resolution is 1 ps
+source eltwise_layer.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 33 [0.00%] @ "125000"
+// RTL Simulation : 1 / 33 [0.00%] @ "1605000"
+// RTL Simulation : 2 / 33 [0.00%] @ "2555000"
+// RTL Simulation : 3 / 33 [0.00%] @ "3585000"
+// RTL Simulation : 4 / 33 [0.00%] @ "4695000"
+// RTL Simulation : 5 / 33 [0.00%] @ "5605000"
+// RTL Simulation : 6 / 33 [0.00%] @ "6515000"
+// RTL Simulation : 7 / 33 [0.00%] @ "7465000"
+// RTL Simulation : 8 / 33 [0.00%] @ "8375000"
+// RTL Simulation : 9 / 33 [0.00%] @ "9285000"
+// RTL Simulation : 10 / 33 [0.00%] @ "10395000"
+// RTL Simulation : 11 / 33 [0.00%] @ "11305000"
+// RTL Simulation : 12 / 33 [0.00%] @ "12375000"
+// RTL Simulation : 13 / 33 [0.00%] @ "13365000"
+// RTL Simulation : 14 / 33 [0.00%] @ "16195000"
+// RTL Simulation : 15 / 33 [0.00%] @ "17985000"
+// RTL Simulation : 16 / 33 [0.00%] @ "20175000"
+// RTL Simulation : 17 / 33 [0.00%] @ "22125000"
+// RTL Simulation : 18 / 33 [0.00%] @ "23555000"
+// RTL Simulation : 19 / 33 [0.00%] @ "25265000"
+// RTL Simulation : 20 / 33 [0.00%] @ "27575000"
+// RTL Simulation : 21 / 33 [0.00%] @ "30445000"
+// RTL Simulation : 22 / 33 [0.00%] @ "32435000"
+// RTL Simulation : 23 / 33 [0.00%] @ "34905000"
+// RTL Simulation : 24 / 33 [0.00%] @ "68215000"
+// RTL Simulation : 25 / 33 [0.00%] @ "69925000"
+// RTL Simulation : 26 / 33 [0.00%] @ "73075000"
+// RTL Simulation : 27 / 33 [0.00%] @ "74985000"
+// RTL Simulation : 28 / 33 [0.00%] @ "89895000"
+// RTL Simulation : 29 / 33 [0.00%] @ "91365000"
+// RTL Simulation : 30 / 33 [0.00%] @ "93075000"
+// RTL Simulation : 31 / 33 [0.00%] @ "770985000"
+// RTL Simulation : 32 / 33 [0.00%] @ "4725895000"
+// RTL Simulation : 33 / 33 [100.00%] @ "6404725000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 6404785 ns : File "E:/PLD/medical_fpga/deployment/unet_eltwise/build/eltwise_layer/solution1/sim/verilog/eltwise_layer.autotb.v" Line 816
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:01:20 . Memory (MB): peak = 202.887 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 2144884 KB (Peak: 2144884 KB), Simulation CPU Usage: 78546 ms
+INFO: [Common 17-206] Exiting xsim at Wed Sep 23 09:03:07 2026...
+PASS invalid mode=3
+PASS invalid ca=0
+PASS invalid ca=33
+PASS invalid width=513
+PASS invalid height=0
+PASS invalid add ca!=cb
+PASS invalid concat ca=5
+PASS invalid concat cb=0
+PASS invalid concat 24+16
+PASS invalid pool odd height
+PASS invalid pool odd width
+PASS invalid shift=32
+PASS invalid qmin>qmax
+PASS syn_add_int16_full_mult mode=0 ca=16 cb=16 in=5x7 values=560 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_c5 mode=0 ca=5 cb=5 in=3x4 values=96 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_ties_shift1 mode=0 ca=8 cb=8 in=6x6 values=288 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_ties_shift2 mode=0 ca=8 cb=8 in=6x6 values=288 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_shift0 mode=0 ca=8 cb=8 in=2x3 values=48 mismatches=0 max_error=0 overrun_words=0
+PASS syn_add_saturate mode=0 ca=8 cb=8 in=4x4 values=128 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_8_5 mode=1 ca=8 cb=5 in=3x5 values=240 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_16_16 mode=1 ca=16 cb=16 in=4x3 values=384 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_24_8_int16 mode=1 ca=24 cb=8 in=2x2 values=128 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_ties mode=1 ca=8 cb=8 in=4x4 values=256 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_max_width mode=1 ca=8 cb=8 in=2x512 values=16384 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_2x2_c3 mode=2 ca=3 cb=0 in=2x2 values=8 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_c32_int16 mode=2 ca=32 cb=0 in=4x6 values=192 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_all_negative mode=2 ca=8 cb=0 in=4x4 values=32 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_max_width mode=2 ca=8 cb=0 in=2x512 values=2048 mismatches=0 max_error=0 overrun_words=0
+PASS syn_pool_after_large mode=2 ca=8 cb=0 in=2x4 values=16 mismatches=0 max_error=0 overrun_words=0
+PASS syn_concat_after_large mode=1 ca=8 cb=3 in=1x3 values=48 mismatches=0 max_error=0 overrun_words=0
+PASS add_2 mode=0 ca=32 cb=32 in=128x128 values=524288 mismatches=0 max_error=0 overrun_words=0
+PASS cat mode=1 ca=16 cb=16 in=256x256 values=2097152 mismatches=0 max_error=0 overrun_words=0
+PASS down_path_1_pool mode=2 ca=16 cb=0 in=256x256 values=262144 mismatches=0 max_error=0 overrun_words=0
+SUMMARY cases=20 values=2904728 failures=0
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

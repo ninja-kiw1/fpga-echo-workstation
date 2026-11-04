@@ -1,0 +1,24 @@
+$ sha256sum /root/tcp_image_rx/tcp_image_server /etc/systemd/system/tcp-image-server.service /lib/firmware/ai_sys.bin
+73e3ad89bcaa924fe1c5c0e572e172969b136a1f046072743f9ebca3d3fce51d  /root/tcp_image_rx/tcp_image_server
+131e8e09853896a4cf89a5d2f07b7b62d23e79214df938a4b764d47f75d02d11  /etc/systemd/system/tcp-image-server.service
+4a744c89343240b7048a958d59ca413a5044ae4c6d897136c4a0d339c7cc06d2  /lib/firmware/ai_sys.bin
+
+exit=0
+$ systemctl is-active tcp-image-server tcp-image-server-skin ai-sys-bitstream plbram plbdma
+active
+inactive
+active
+active
+active
+
+exit=0
+$ ls -l /root/skin/tcp_image_server_skin /etc/systemd/system/tcp-image-server-skin.service; ss -ltnp | grep 5060
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*        users:(("tcp_image_serve",pid=3457,fd=7))                                      
+
+exit=0
+$ sha256sum /root/tcp_image_rx/tcp_image_server /etc/systemd/system/tcp-image-server.service /lib/firmware/ai_sys.bin
+73e3ad89bcaa924fe1c5c0e572e172969b136a1f046072743f9ebca3d3fce51d  /root/tcp_image_rx/tcp_image_server
+131e8e09853896a4cf89a5d2f07b7b62d23e79214df938a4b764d47f75d02d11  /etc/systemd/system/tcp-image-server.service
+4a744c89343240b7048a958d59ca413a5044ae4c6d897136c4a0d339c7cc06d2  /lib/firmware/ai_sys.bin
+
+exit=0

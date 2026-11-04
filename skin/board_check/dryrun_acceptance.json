@@ -1,0 +1,88 @@
+{
+ "utc": "2026-10-08T12:54:15.238833+00:00",
+ "host": "127.0.0.1",
+ "tag": "r128",
+ "checks": [
+  {
+   "name": "golden_ISIC_0000010_logits",
+   "pass_": true,
+   "mismatches": 0,
+   "pixels": 16384,
+   "ai_us": 12345,
+   "total_ms": 392.4
+  },
+  {
+   "name": "threshold_changes_mask_not_logits",
+   "pass_": true,
+   "lesion_px_thr1": 20784,
+   "lesion_px_thr_minus3": 23648
+  },
+  {
+   "name": "sample_ISIC_0003056",
+   "pass_": true,
+   "ai_us": 12345,
+   "total_ms": 164.9,
+   "board_jaccard": 0.455
+  },
+  {
+   "name": "sample_ISIC_0010013",
+   "pass_": true,
+   "ai_us": 12345,
+   "total_ms": 244.9,
+   "board_jaccard": 0.7249
+  },
+  {
+   "name": "sample_ISIC_0010201",
+   "pass_": true,
+   "ai_us": 12345,
+   "total_ms": 230.4,
+   "board_jaccard": 0.9457
+  },
+  {
+   "name": "sample_ISIC_0010477",
+   "pass_": true,
+   "ai_us": 12345,
+   "total_ms": 225.6,
+   "board_jaccard": 0.8241
+  },
+  {
+   "name": "sample_ISIC_0011092",
+   "pass_": true,
+   "ai_us": 12345,
+   "total_ms": 231.8,
+   "board_jaccard": 0.7762
+  },
+  {
+   "name": "sample_ISIC_0011336",
+   "pass_": true,
+   "ai_us": 12345,
+   "total_ms": 227.1,
+   "board_jaccard": 0.9212
+  },
+  {
+   "name": "test_set_30_on_board",
+   "pass_": true,
+   "mismatching": [],
+   "board_metrics": {
+    "jaccard": 0.859420151125763,
+    "dice": 0.9205643539184056,
+    "accuracy": 0.9655036764985886,
+    "sensitivity": 0.9556792697228801,
+    "specificity": 0.9740304060136528,
+    "thresholded_jaccard": 0.8209412327785129
+   },
+   "ai_ms": {
+    "mean": 12.345,
+    "min": 12.345,
+    "max": 12.345
+   },
+   "round_trip_ms": {
+    "mean": 235.02280000005462,
+    "min": 212.96830000028422,
+    "max": 314.58569999995234
+   },
+   "seconds": 9.6
+  }
+ ],
+ "pass_": true
+}

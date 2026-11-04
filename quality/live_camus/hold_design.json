@@ -1,0 +1,44 @@
+{
+ "window": 50,
+ "segment": 200,
+ "ref": 75,
+ "threshold": 5.2582981377551015,
+ "train_still_max_p50": 1.6904113520408164,
+ "train_still_max_p99": 4.381915114795918,
+ "train": {
+  "still_clips": 800,
+  "still_false_share": 0.00125,
+  "view_switch": {
+   "n": 400,
+   "detected": 1.0,
+   "false_before": 0.0,
+   "delay_median_frames": 15.0,
+   "delay_max_frames": 37
+  },
+  "patient_switch": {
+   "n": 400,
+   "detected": 1.0,
+   "false_before": 0.0025,
+   "delay_median_frames": 11.0,
+   "delay_max_frames": 26
+  }
+ },
+ "val": {
+  "still_clips": 100,
+  "still_false_share": 0.0,
+  "view_switch": {
+   "n": 50,
+   "detected": 1.0,
+   "false_before": 0.0,
+   "delay_median_frames": 15.5,
+   "delay_max_frames": 28
+  },
+  "patient_switch": {
+   "n": 50,
+   "detected": 1.0,
+   "false_before": 0.0,
+   "delay_median_frames": 12.0,
+   "delay_max_frames": 21
+  }
+ }
+}

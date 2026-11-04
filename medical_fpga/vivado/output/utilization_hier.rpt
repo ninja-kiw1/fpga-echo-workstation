@@ -1,0 +1,39 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Wed Sep 23 18:14:59 2026
+| Host         : Ninja_kiwi running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 2 -file E:/PLD/medical_fpga/vivado/output/utilization_hier.rpt
+| Design       : unet_system_wrapper
+| Device       : xazu3eg-sfvc784-1-i
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------+-------------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+|       Instance      |             Module            | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | URAM | DSP Blocks |
++---------------------+-------------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+| unet_system_wrapper |                         (top) |      35310 |      30809 |    3396 | 1105 | 31009 |     63 |      2 |    0 |        204 |
+|   unet_system_i     |                   unet_system |      35310 |      30809 |    3396 | 1105 | 31009 |     63 |      2 |    0 |        204 |
+|     (unet_system_i) |                   unet_system |          0 |          0 |       0 |    0 |     0 |      0 |      0 |    0 |          0 |
+|     conv_layer_0    |    unet_system_conv_layer_0_0 |      15384 |      13024 |    1792 |  568 | 10446 |     39 |      0 |    0 |        132 |
+|     eltwise_layer_0 | unet_system_eltwise_layer_0_0 |      13321 |      12841 |       0 |  480 |  8727 |     24 |      2 |    0 |         72 |
+|     irq_concat      |      unet_system_irq_concat_0 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |    0 |          0 |
+|     ps              |              unet_system_ps_0 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |    0 |          0 |
+|     rst_pl          |          unet_system_rst_pl_0 |         17 |         16 |       0 |    1 |    38 |      0 |      0 |    0 |          0 |
+|     smc_conv        |        unet_system_smc_conv_0 |       3062 |       2220 |     810 |   32 |  5491 |      0 |      0 |    0 |          0 |
+|     smc_ctrl        |        unet_system_smc_ctrl_0 |        524 |        523 |       0 |    1 |   707 |      0 |      0 |    0 |          0 |
+|     smc_elt         |         unet_system_smc_elt_0 |       3011 |       2194 |     794 |   23 |  5600 |      0 |      0 |    0 |          0 |
++---------------------+-------------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

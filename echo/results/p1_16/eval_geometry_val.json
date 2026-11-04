@@ -1,0 +1,1926 @@
+{
+ "split": "val",
+ "test_set_used": false,
+ "summary": {
+  "patients": 50,
+  "usable": 50,
+  "sex": {
+   "F": 25,
+   "M": 25
+  },
+  "thresholds": {
+   "lvmi_increased_gt": {
+    "F": 95,
+    "M": 115
+   },
+   "rwt_guideline_not_applied": 0.42,
+   "lvidd_disks": [
+    3,
+    4,
+    5,
+    6
+   ],
+   "source": "Lang 2015 JASE 28:1-39 / EHJ-CVI 16:233-271, Table 6 + RWT x LVMI figure (checked on the ASE-hosted Japanese full translation, pp. 13-14)"
+  },
+  "continuous": {
+   "rwt": {
+    "n": 50,
+    "mae": 0.07547424011739945,
+    "bias": -0.04886676053635271,
+    "sd": 0.0777269293467407,
+    "rel_bias_pct": -7.65183838703958,
+    "rel_mae_pct": 12.67756434053124,
+    "r": 0.768701445280731,
+    "ref_mean": 0.5957908144389598,
+    "pred_mean": 0.546924053902607
+   },
+   "lvidd_mm": {
+    "n": 50,
+    "mae": 2.0524349888786673,
+    "bias": -0.6471849964931607,
+    "sd": 2.9000047620838107,
+    "rel_bias_pct": -1.3356714950119388,
+    "rel_mae_pct": 4.429158964511907,
+    "r": 0.8653588105511582,
+    "ref_mean": 45.0426897559315,
+    "pred_mean": 44.39550475943834
+   },
+   "wall_mm": {
+    "n": 50,
+    "mae": 1.5115632975978286,
+    "bias": -1.2571057767235092,
+    "sd": 1.3860685644546813,
+    "rel_bias_pct": -9.294012026066813,
+    "rel_mae_pct": 11.454510802488159,
+    "r": 0.7261258233214711,
+    "ref_mean": 13.208140049421354,
+    "pred_mean": 11.951034272697841
+   },
+   "lv_mass_g": {
+    "n": 50,
+    "mae": 23.811029274331858,
+    "bias": -6.624587514097362,
+    "sd": 30.3175814001949,
+    "rel_bias_pct": -3.7688462060411947,
+    "rel_mae_pct": 11.484762731491665,
+    "r": 0.8880100325307426,
+    "ref_mean": 203.1464360853903,
+    "pred_mean": 196.52184857129296
+   }
+  },
+  "expert_rwt": {
+   "median": 0.5838077334983867,
+   "above_guideline": 49,
+   "p10_p90": [
+    0.4619842974700565,
+    0.7250418326632069
+   ]
+  },
+  "lvmi_class": {
+   "bsa_1.6": {
+    "n": 50,
+    "agree": 40,
+    "rate": 0.8,
+    "kappa": 0.5667244367417679,
+    "expert_counts": {
+     "not_increased": 13,
+     "increased": 37
+    },
+    "pred_counts": {
+     "not_increased": 21,
+     "increased": 29
+    },
+    "confusion_expert_rows": {
+     "not_increased": {
+      "not_increased": 12,
+      "increased": 1
+     },
+     "increased": {
+      "not_increased": 9,
+      "increased": 28
+     }
+    }
+   },
+   "bsa_1.8": {
+    "n": 50,
+    "agree": 47,
+    "rate": 0.94,
+    "kappa": 0.8799999999999999,
+    "expert_counts": {
+     "not_increased": 26,
+     "increased": 24
+    },
+    "pred_counts": {
+     "not_increased": 25,
+     "increased": 25
+    },
+    "confusion_expert_rows": {
+     "not_increased": {
+      "not_increased": 24,
+      "increased": 2
+     },
+     "increased": {
+      "not_increased": 1,
+      "increased": 23
+     }
+    }
+   },
+   "bsa_2.0": {
+    "n": 50,
+    "agree": 48,
+    "rate": 0.96,
+    "kappa": 0.9168053244592346,
+    "expert_counts": {
+     "not_increased": 31,
+     "increased": 19
+    },
+    "pred_counts": {
+     "not_increased": 29,
+     "increased": 21
+    },
+    "confusion_expert_rows": {
+     "not_increased": {
+      "not_increased": 29,
+      "increased": 2
+     },
+     "increased": {
+      "not_increased": 0,
+      "increased": 19
+     }
+    }
+   }
+  },
+  "lvmi_class_2d_limits": {
+   "bsa_1.6": {
+    "n": 50,
+    "agree": 41,
+    "rate": 0.82,
+    "kappa": 0.4655581947743468,
+    "expert_counts": {
+     "not_increased": 8,
+     "increased": 42
+    },
+    "pred_counts": {
+     "not_increased": 13,
+     "increased": 37
+    },
+    "confusion_expert_rows": {
+     "not_increased": {
+      "not_increased": 6,
+      "increased": 2
+     },
+     "increased": {
+      "not_increased": 7,
+      "increased": 35
+     }
+    }
+   },
+   "bsa_1.8": {
+    "n": 50,
+    "agree": 42,
+    "rate": 0.84,
+    "kappa": 0.658119658119658,
+    "expert_counts": {
+     "not_increased": 15,
+     "increased": 35
+    },
+    "pred_counts": {
+     "not_increased": 21,
+     "increased": 29
+    },
+    "confusion_expert_rows": {
+     "not_increased": {
+      "not_increased": 14,
+      "increased": 1
+     },
+     "increased": {
+      "not_increased": 7,
+      "increased": 28
+     }
+    }
+   },
+   "bsa_2.0": {
+    "n": 50,
+    "agree": 47,
+    "rate": 0.94,
+    "kappa": 0.8799999999999999,
+    "expert_counts": {
+     "not_increased": 24,
+     "increased": 26
+    },
+    "pred_counts": {
+     "not_increased": 25,
+     "increased": 25
+    },
+    "confusion_expert_rows": {
+     "not_increased": {
+      "not_increased": 23,
+      "increased": 1
+     },
+     "increased": {
+      "not_increased": 2,
+      "increased": 24
+     }
+    }
+   }
+  },
+  "not_shipped": {
+   "rwt_class": {
+    "n": 50,
+    "agree": 44,
+    "rate": 0.88,
+    "kappa": 0.22279792746113983,
+    "expert_counts": {
+     "concentric": 49,
+     "not": 1
+    },
+    "pred_counts": {
+     "concentric": 43,
+     "not": 7
+    },
+    "confusion_expert_rows": {
+     "concentric": {
+      "concentric": 43,
+      "not": 6
+     },
+     "not": {
+      "concentric": 0,
+      "not": 1
+     }
+    }
+   },
+   "four_class_guideline": {
+    "bsa_1.6": {
+     "n": 50,
+     "agree": 35,
+     "rate": 0.7,
+     "kappa": 0.42484662576687104,
+     "expert_counts": {
+      "normal": 1,
+      "concentric_remodeling": 12,
+      "concentric_hypertrophy": 37,
+      "eccentric_hypertrophy": 0
+     },
+     "pred_counts": {
+      "normal": 5,
+      "concentric_remodeling": 16,
+      "concentric_hypertrophy": 27,
+      "eccentric_hypertrophy": 2
+     },
+     "confusion_expert_rows": {
+      "normal": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_remodeling": {
+       "normal": 3,
+       "concentric_remodeling": 8,
+       "concentric_hypertrophy": 1,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_hypertrophy": {
+       "normal": 1,
+       "concentric_remodeling": 8,
+       "concentric_hypertrophy": 26,
+       "eccentric_hypertrophy": 2
+      },
+      "eccentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      }
+     }
+    },
+    "bsa_1.8": {
+     "n": 50,
+     "agree": 42,
+     "rate": 0.84,
+     "kappa": 0.7227997227997228,
+     "expert_counts": {
+      "normal": 1,
+      "concentric_remodeling": 25,
+      "concentric_hypertrophy": 24,
+      "eccentric_hypertrophy": 0
+     },
+     "pred_counts": {
+      "normal": 6,
+      "concentric_remodeling": 19,
+      "concentric_hypertrophy": 24,
+      "eccentric_hypertrophy": 1
+     },
+     "confusion_expert_rows": {
+      "normal": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_remodeling": {
+       "normal": 4,
+       "concentric_remodeling": 19,
+       "concentric_hypertrophy": 2,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_hypertrophy": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 22,
+       "eccentric_hypertrophy": 1
+      },
+      "eccentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      }
+     }
+    },
+    "bsa_2.0": {
+     "n": 50,
+     "agree": 43,
+     "rate": 0.86,
+     "kappa": 0.7542134831460674,
+     "expert_counts": {
+      "normal": 1,
+      "concentric_remodeling": 30,
+      "concentric_hypertrophy": 19,
+      "eccentric_hypertrophy": 0
+     },
+     "pred_counts": {
+      "normal": 6,
+      "concentric_remodeling": 23,
+      "concentric_hypertrophy": 20,
+      "eccentric_hypertrophy": 1
+     },
+     "confusion_expert_rows": {
+      "normal": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_remodeling": {
+       "normal": 5,
+       "concentric_remodeling": 23,
+       "concentric_hypertrophy": 1,
+       "eccentric_hypertrophy": 1
+      },
+      "concentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 19,
+       "eccentric_hypertrophy": 0
+      },
+      "eccentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      }
+     }
+    }
+   },
+   "four_class_2d_limits": {
+    "bsa_1.6": {
+     "n": 50,
+     "agree": 38,
+     "rate": 0.76,
+     "kappa": 0.42363112391930835,
+     "expert_counts": {
+      "normal": 1,
+      "concentric_remodeling": 7,
+      "concentric_hypertrophy": 42,
+      "eccentric_hypertrophy": 0
+     },
+     "pred_counts": {
+      "normal": 3,
+      "concentric_remodeling": 10,
+      "concentric_hypertrophy": 33,
+      "eccentric_hypertrophy": 4
+     },
+     "confusion_expert_rows": {
+      "normal": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_remodeling": {
+       "normal": 0,
+       "concentric_remodeling": 5,
+       "concentric_hypertrophy": 1,
+       "eccentric_hypertrophy": 1
+      },
+      "concentric_hypertrophy": {
+       "normal": 2,
+       "concentric_remodeling": 5,
+       "concentric_hypertrophy": 32,
+       "eccentric_hypertrophy": 3
+      },
+      "eccentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      }
+     }
+    },
+    "bsa_1.8": {
+     "n": 50,
+     "agree": 37,
+     "rate": 0.74,
+     "kappa": 0.5098039215686274,
+     "expert_counts": {
+      "normal": 1,
+      "concentric_remodeling": 14,
+      "concentric_hypertrophy": 35,
+      "eccentric_hypertrophy": 0
+     },
+     "pred_counts": {
+      "normal": 5,
+      "concentric_remodeling": 16,
+      "concentric_hypertrophy": 27,
+      "eccentric_hypertrophy": 2
+     },
+     "confusion_expert_rows": {
+      "normal": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_remodeling": {
+       "normal": 3,
+       "concentric_remodeling": 10,
+       "concentric_hypertrophy": 1,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_hypertrophy": {
+       "normal": 1,
+       "concentric_remodeling": 6,
+       "concentric_hypertrophy": 26,
+       "eccentric_hypertrophy": 2
+      },
+      "eccentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      }
+     }
+    },
+    "bsa_2.0": {
+     "n": 50,
+     "agree": 42,
+     "rate": 0.84,
+     "kappa": 0.7208653175157014,
+     "expert_counts": {
+      "normal": 1,
+      "concentric_remodeling": 23,
+      "concentric_hypertrophy": 26,
+      "eccentric_hypertrophy": 0
+     },
+     "pred_counts": {
+      "normal": 6,
+      "concentric_remodeling": 19,
+      "concentric_hypertrophy": 24,
+      "eccentric_hypertrophy": 1
+     },
+     "confusion_expert_rows": {
+      "normal": {
+       "normal": 1,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_remodeling": {
+       "normal": 4,
+       "concentric_remodeling": 18,
+       "concentric_hypertrophy": 1,
+       "eccentric_hypertrophy": 0
+      },
+      "concentric_hypertrophy": {
+       "normal": 1,
+       "concentric_remodeling": 1,
+       "concentric_hypertrophy": 23,
+       "eccentric_hypertrophy": 1
+      },
+      "eccentric_hypertrophy": {
+       "normal": 0,
+       "concentric_remodeling": 0,
+       "concentric_hypertrophy": 0,
+       "eccentric_hypertrophy": 0
+      }
+     }
+    }
+   }
+  },
+  "note": "reference = our measurement on the expert masks (2D apical masks), not a linear-method reading; BSA assumed (CAMUS has no height / weight); test split not used"
+ },
+ "rows": [
+  {
+   "patient": "patient0200",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 127.04574928985689,
+    "wall_mm": 11.205383803049527,
+    "lvidd_mm": 37.40274979732931,
+    "rwt": 0.5991743315006017,
+    "lvidd_mm_views": [
+     38.46149979159236,
+     36.343999803066254
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 123.15679164931284,
+    "wall_mm": 10.089307180964784,
+    "lvidd_mm": 36.51724980212748,
+    "rwt": 0.5525776029484556,
+    "lvidd_mm_views": [
+     39.26999978721142,
+     33.76449981704354
+    ]
+   }
+  },
+  {
+   "patient": "patient0206",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 152.46255333293823,
+    "wall_mm": 10.826962500822523,
+    "lvidd_mm": 47.990249739959836,
+    "rwt": 0.45121509304450574,
+    "lvidd_mm_views": [
+     48.394499737769365,
+     47.58599974215031
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 168.41052898461587,
+    "wall_mm": 10.438023164130808,
+    "lvidd_mm": 50.18474972806871,
+    "rwt": 0.41598386843375024,
+    "lvidd_mm_views": [
+     51.20499972254038,
+     49.16449973359704
+    ]
+   }
+  },
+  {
+   "patient": "patient0230",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 184.88480914987065,
+    "wall_mm": 13.09519507179032,
+    "lvidd_mm": 45.25674975477159,
+    "rwt": 0.5787068290475121,
+    "lvidd_mm_views": [
+     45.08349975571036,
+     45.42999975383282
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 169.23290468583122,
+    "wall_mm": 10.081316178585507,
+    "lvidd_mm": 45.603249752894044,
+    "rwt": 0.44213148112084855,
+    "lvidd_mm_views": [
+     43.235499765723944,
+     47.970999740064144
+    ]
+   }
+  },
+  {
+   "patient": "patient0232",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 206.9702978170881,
+    "wall_mm": 11.908811940925553,
+    "lvidd_mm": 54.342749705538154,
+    "rwt": 0.4382852176400602,
+    "lvidd_mm_views": [
+     52.66799971461296,
+     56.01749969646335
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 224.92843023087454,
+    "wall_mm": 12.46954198765772,
+    "lvidd_mm": 52.68724971450865,
+    "rwt": 0.47334192068195746,
+    "lvidd_mm_views": [
+     53.20699971169233,
+     52.16749971732497
+    ]
+   }
+  },
+  {
+   "patient": "patient0233",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 265.60513762621736,
+    "wall_mm": 19.362269831309426,
+    "lvidd_mm": 39.654999785125256,
+    "rwt": 0.9765361208536578,
+    "lvidd_mm_views": [
+     39.73199978470802,
+     39.57799978554249
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 245.9363803471047,
+    "wall_mm": 16.860938613102284,
+    "lvidd_mm": 39.26999978721142,
+    "rwt": 0.858718548737715,
+    "lvidd_mm_views": [
+     40.69449977949262,
+     37.84549979493022
+    ]
+   }
+  },
+  {
+   "patient": "patient0235",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 143.69953594353453,
+    "wall_mm": 9.933379528393534,
+    "lvidd_mm": 45.85349975153804,
+    "rwt": 0.43326592658002483,
+    "lvidd_mm_views": [
+     48.62549973651767,
+     43.08149976655841
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 129.55093509268792,
+    "wall_mm": 9.461505958910394,
+    "lvidd_mm": 45.410749753937125,
+    "rwt": 0.41670776237690627,
+    "lvidd_mm_views": [
+     47.00849974527955,
+     43.8129997625947
+    ]
+   }
+  },
+  {
+   "patient": "patient0236",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 194.45005813404686,
+    "wall_mm": 12.90545766614418,
+    "lvidd_mm": 47.79774974100292,
+    "rwt": 0.5400027296713232,
+    "lvidd_mm_views": [
+     48.93349973484874,
+     46.6619997471571
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 174.68522966931587,
+    "wall_mm": 11.08683300530532,
+    "lvidd_mm": 47.00849974527955,
+    "rwt": 0.47169482393101153,
+    "lvidd_mm_views": [
+     49.24149973317981,
+     44.77549975737929
+    ]
+   }
+  },
+  {
+   "patient": "patient0244",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 262.88571399596236,
+    "wall_mm": 15.272609553063054,
+    "lvidd_mm": 40.886999778449535,
+    "rwt": 0.7470643302672868,
+    "lvidd_mm_views": [
+     39.962999783456326,
+     41.810999773442745
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 236.64805493496794,
+    "wall_mm": 13.749609591745545,
+    "lvidd_mm": 41.13724977709353,
+    "rwt": 0.6684749061373444,
+    "lvidd_mm_views": [
+     41.11799977719784,
+     41.15649977698922
+    ]
+   }
+  },
+  {
+   "patient": "patient0245",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 199.01512248320728,
+    "wall_mm": 13.780560263979591,
+    "lvidd_mm": 38.095749793574214,
+    "rwt": 0.723469696155135,
+    "lvidd_mm_views": [
+     42.1574997715652,
+     34.03399981558323
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 202.65446752738598,
+    "wall_mm": 13.36734827228339,
+    "lvidd_mm": 39.52024978585541,
+    "rwt": 0.6764809607588899,
+    "lvidd_mm_views": [
+     41.57999977469444,
+     37.46049979701638
+    ]
+   }
+  },
+  {
+   "patient": "patient0247",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 165.7673280282404,
+    "wall_mm": 11.458648501501209,
+    "lvidd_mm": 48.64474973641336,
+    "rwt": 0.4711155289559958,
+    "lvidd_mm_views": [
+     49.16449973359704,
+     48.12499973922968
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 147.08701852268408,
+    "wall_mm": 10.228647326350218,
+    "lvidd_mm": 51.66699972003698,
+    "rwt": 0.39594508610042034,
+    "lvidd_mm_views": [
+     51.166499722748995,
+     52.16749971732497
+    ]
+   }
+  },
+  {
+   "patient": "patient0249",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 156.71515719154928,
+    "wall_mm": 12.924195750449403,
+    "lvidd_mm": 40.61749977990985,
+    "rwt": 0.6363855885015327,
+    "lvidd_mm_views": [
+     44.19799976050854,
+     37.03699979931116
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 146.35048327224848,
+    "wall_mm": 11.338707422575997,
+    "lvidd_mm": 42.04199977219105,
+    "rwt": 0.5393990525672405,
+    "lvidd_mm_views": [
+     48.04799973964691,
+     36.035999804735184
+    ]
+   }
+  },
+  {
+   "patient": "patient0250",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 240.2324657705644,
+    "wall_mm": 14.31755638189358,
+    "lvidd_mm": 49.318499732762575,
+    "rwt": 0.580616055211523,
+    "lvidd_mm_views": [
+     48.81799973547459,
+     49.818999730050564
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 230.9422586929178,
+    "wall_mm": 12.983938395835061,
+    "lvidd_mm": 50.56974972598255,
+    "rwt": 0.5135061362253079,
+    "lvidd_mm_views": [
+     55.43999969959259,
+     45.6994997523725
+    ]
+   }
+  },
+  {
+   "patient": "patient0253",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 148.31581445900704,
+    "wall_mm": 10.955608814072257,
+    "lvidd_mm": 41.291249776259065,
+    "rwt": 0.5306503859019217,
+    "lvidd_mm_views": [
+     44.35199975967407,
+     38.23049979284406
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 137.62358749729128,
+    "wall_mm": 10.068555823820464,
+    "lvidd_mm": 41.2142497766763,
+    "rwt": 0.4885958559662244,
+    "lvidd_mm_views": [
+     42.65799976885319,
+     39.77049978449941
+    ]
+   }
+  },
+  {
+   "patient": "patient0255",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 185.82928887630672,
+    "wall_mm": 12.334079546106643,
+    "lvidd_mm": 50.39649972692132,
+    "rwt": 0.4894815954655636,
+    "lvidd_mm_views": [
+     52.05199971795082,
+     48.74099973589182
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 197.44116526377937,
+    "wall_mm": 11.703999936580658,
+    "lvidd_mm": 51.35899972170591,
+    "rwt": 0.45577211394302847,
+    "lvidd_mm_views": [
+     54.13099970668554,
+     48.586999736726284
+    ]
+   }
+  },
+  {
+   "patient": "patient0256",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 218.6915961779572,
+    "wall_mm": 13.263898176396868,
+    "lvidd_mm": 46.430999748408794,
+    "rwt": 0.5713380391664483,
+    "lvidd_mm_views": [
+     48.74099973589182,
+     44.12099976092577
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 223.59623883228264,
+    "wall_mm": 12.327670368281606,
+    "lvidd_mm": 48.086499739438295,
+    "rwt": 0.5127289544916087,
+    "lvidd_mm_views": [
+     51.166499722748995,
+     45.006499756127596
+    ]
+   }
+  },
+  {
+   "patient": "patient0257",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 218.37989795457582,
+    "wall_mm": 12.11037891276347,
+    "lvidd_mm": 52.398499716073275,
+    "rwt": 0.46224143738407847,
+    "lvidd_mm_views": [
+     54.554499704390764,
+     50.242499727755785
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 186.41475509930507,
+    "wall_mm": 10.282511048025015,
+    "lvidd_mm": 56.325499694794416,
+    "rwt": 0.3651103355937141,
+    "lvidd_mm_views": [
+     56.633499693125486,
+     56.01749969646335
+    ]
+   }
+  },
+  {
+   "patient": "patient0259",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 269.28653516687,
+    "wall_mm": 14.467323303773867,
+    "lvidd_mm": 51.20499972254038,
+    "rwt": 0.5650746365459063,
+    "lvidd_mm_views": [
+     46.854499746114016,
+     55.55549969896674
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 233.72684684464613,
+    "wall_mm": 11.827879310945178,
+    "lvidd_mm": 49.04899973422289,
+    "rwt": 0.4822882984377163,
+    "lvidd_mm_views": [
+     46.77749974653125,
+     51.32049972191453
+    ]
+   }
+  },
+  {
+   "patient": "patient0264",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 154.81855432990375,
+    "wall_mm": 12.750221534282446,
+    "lvidd_mm": 43.31249976530671,
+    "rwt": 0.5887548215120738,
+    "lvidd_mm_views": [
+     37.92249979451299,
+     48.702499736100435
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 163.72269755085674,
+    "wall_mm": 11.571767626205958,
+    "lvidd_mm": 48.52924973703921,
+    "rwt": 0.47689868229609095,
+    "lvidd_mm_views": [
+     41.23349977657199,
+     55.82499969750643
+    ]
+   }
+  },
+  {
+   "patient": "patient0265",
+   "sex": "F",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 345.74710901954086,
+    "wall_mm": 14.243622569012478,
+    "lvidd_mm": 59.097499679774046,
+    "rwt": 0.4820380776240291,
+    "lvidd_mm_views": [
+     60.021499674767256,
+     58.173499684780836
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 403.58911233607523,
+    "wall_mm": 13.742024972799738,
+    "lvidd_mm": 45.85349975153804,
+    "rwt": 0.5993882712230182,
+    "lvidd_mm_views": [
+     60.59899967163801,
+     31.107999831438065
+    ]
+   }
+  },
+  {
+   "patient": "patient0267",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 170.00240707251038,
+    "wall_mm": 13.470663002748015,
+    "lvidd_mm": 39.69349978491664,
+    "rwt": 0.6787339526995707,
+    "lvidd_mm_views": [
+     41.65699977427721,
+     37.72999979555607
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 93.51926644011641,
+    "wall_mm": 10.190747217986154,
+    "lvidd_mm": 34.32274981401861,
+    "rwt": 0.5938188095770751,
+    "lvidd_mm_views": [
+     38.19199979305267,
+     30.45349983498454
+    ]
+   }
+  },
+  {
+   "patient": "patient0268",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 194.7407772303413,
+    "wall_mm": 13.337373779920128,
+    "lvidd_mm": 45.410749753937125,
+    "rwt": 0.5874104194354894,
+    "lvidd_mm_views": [
+     45.12199975550175,
+     45.6994997523725
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 174.20430261644185,
+    "wall_mm": 12.42075090972083,
+    "lvidd_mm": 41.13724977709353,
+    "rwt": 0.6038688039197546,
+    "lvidd_mm_views": [
+     41.88799977302551,
+     40.38649978116155
+    ]
+   }
+  },
+  {
+   "patient": "patient0270",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 132.34213553936618,
+    "wall_mm": 10.068002280075302,
+    "lvidd_mm": 48.182749738916755,
+    "rwt": 0.4179089958389598,
+    "lvidd_mm_views": [
+     51.12799972295761,
+     45.2374997548759
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 97.34835319076232,
+    "wall_mm": 8.687619082571212,
+    "lvidd_mm": 47.91324974037707,
+    "rwt": 0.3626395257948889,
+    "lvidd_mm_views": [
+     48.43299973756075,
+     47.39349974319339
+    ]
+   }
+  },
+  {
+   "patient": "patient0271",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 205.1299023508804,
+    "wall_mm": 15.609099491009331,
+    "lvidd_mm": 34.726999811828136,
+    "rwt": 0.8989604385975675,
+    "lvidd_mm_views": [
+     34.41899981349707,
+     35.034999810159206
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 181.19280611078406,
+    "wall_mm": 13.628176540017172,
+    "lvidd_mm": 34.611499812453985,
+    "rwt": 0.7874941342538097,
+    "lvidd_mm_views": [
+     35.419999808073044,
+     33.80299981683493
+    ]
+   }
+  },
+  {
+   "patient": "patient0272",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 373.74138005700786,
+    "wall_mm": 15.992261783403276,
+    "lvidd_mm": 52.16749971732497,
+    "rwt": 0.6131120667104619,
+    "lvidd_mm_views": [
+     53.97699970752001,
+     50.357999727129936
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 298.631042537157,
+    "wall_mm": 12.731733554734998,
+    "lvidd_mm": 52.26374971680343,
+    "rwt": 0.4872108726879805,
+    "lvidd_mm_views": [
+     53.70749970898032,
+     50.81999972462654
+    ]
+   }
+  },
+  {
+   "patient": "patient0279",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 211.26252467650187,
+    "wall_mm": 13.63189718949576,
+    "lvidd_mm": 46.56574974767864,
+    "rwt": 0.5854902911844698,
+    "lvidd_mm_views": [
+     48.702499736100435,
+     44.42899975925684
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 201.47714334597958,
+    "wall_mm": 12.627999931573868,
+    "lvidd_mm": 45.295249754562974,
+    "rwt": 0.5575860603484913,
+    "lvidd_mm_views": [
+     47.27799974381924,
+     43.31249976530671
+    ]
+   }
+  },
+  {
+   "patient": "patient0280",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 263.9522856070553,
+    "wall_mm": 15.70078984489422,
+    "lvidd_mm": 51.12799972295761,
+    "rwt": 0.6141757913460564,
+    "lvidd_mm_views": [
+     54.74699970334768,
+     47.50899974256754
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 321.45474917436053,
+    "wall_mm": 16.26536080261758,
+    "lvidd_mm": 46.70049974694848,
+    "rwt": 0.696581873459733,
+    "lvidd_mm_views": [
+     49.125999733805656,
+     44.274999760091305
+    ]
+   }
+  },
+  {
+   "patient": "patient0282",
+   "sex": "F",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 273.2611884148864,
+    "wall_mm": 16.15040061166423,
+    "lvidd_mm": 43.69749976322055,
+    "rwt": 0.7391910612358537,
+    "lvidd_mm_views": [
+     47.662999741733074,
+     39.73199978470802
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 307.94141194295787,
+    "wall_mm": 16.119491415025653,
+    "lvidd_mm": 42.46549976989627,
+    "rwt": 0.7591805819957752,
+    "lvidd_mm_views": [
+     45.930499751120806,
+     39.00049978867173
+    ]
+   }
+  },
+  {
+   "patient": "patient0283",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 196.95574505531295,
+    "wall_mm": 14.235919791000658,
+    "lvidd_mm": 40.367249781265855,
+    "rwt": 0.7053202716627698,
+    "lvidd_mm_views": [
+     39.00049978867173,
+     41.73399977385998
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 202.77126219743113,
+    "wall_mm": 13.333436723694136,
+    "lvidd_mm": 42.58099976927042,
+    "rwt": 0.6262622670178132,
+    "lvidd_mm_views": [
+     42.46549976989627,
+     42.69649976864457
+    ]
+   }
+  },
+  {
+   "patient": "patient0284",
+   "sex": "F",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 207.2126588511906,
+    "wall_mm": 13.332165588399333,
+    "lvidd_mm": 52.95674971304834,
+    "rwt": 0.503511475331891,
+    "lvidd_mm_views": [
+     49.08749973401427,
+     56.825999692082405
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 199.82936139237648,
+    "wall_mm": 11.832278190281428,
+    "lvidd_mm": 49.79974973015487,
+    "rwt": 0.4751942832803723,
+    "lvidd_mm_views": [
+     50.973999723792076,
+     48.62549973651767
+    ]
+   }
+  },
+  {
+   "patient": "patient0286",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 244.2776751783993,
+    "wall_mm": 13.617815182659843,
+    "lvidd_mm": 45.6994997523725,
+    "rwt": 0.5959721772207307,
+    "lvidd_mm_views": [
+     48.894999735057354,
+     42.50399976968765
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 270.58995846978723,
+    "wall_mm": 14.73688385949084,
+    "lvidd_mm": 44.890999756753445,
+    "rwt": 0.6565629609206379,
+    "lvidd_mm_views": [
+     47.31649974361062,
+     42.46549976989627
+    ]
+   }
+  },
+  {
+   "patient": "patient0287",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 109.91137137064958,
+    "wall_mm": 11.965893571564017,
+    "lvidd_mm": 32.26299982517958,
+    "rwt": 0.7417719143540562,
+    "lvidd_mm_views": [
+     30.76149983331561,
+     33.76449981704354
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 110.92546891354412,
+    "wall_mm": 10.663991813845161,
+    "lvidd_mm": 31.2619998306036,
+    "rwt": 0.6822335021194492,
+    "lvidd_mm_views": [
+     27.527499850839376,
+     34.99649981036782
+    ]
+   }
+  },
+  {
+   "patient": "patient0288",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 212.54888725572783,
+    "wall_mm": 14.184682840189273,
+    "lvidd_mm": 40.30949978157878,
+    "rwt": 0.7037885817016065,
+    "lvidd_mm_views": [
+     35.88199980556965,
+     44.73699975758791
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 193.01645300495298,
+    "wall_mm": 13.816221842942014,
+    "lvidd_mm": 36.90224980004132,
+    "rwt": 0.7488010578111985,
+    "lvidd_mm_views": [
+     33.879999816417694,
+     39.92449978366494
+    ]
+   }
+  },
+  {
+   "patient": "patient0289",
+   "sex": "F",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 180.6392034277116,
+    "wall_mm": 13.046512330848063,
+    "lvidd_mm": 40.07849978283048,
+    "rwt": 0.6510479384977955,
+    "lvidd_mm_views": [
+     40.578999780118465,
+     39.57799978554249
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 178.053182553681,
+    "wall_mm": 12.230154284326098,
+    "lvidd_mm": 39.751249784603715,
+    "rwt": 0.6153343278813351,
+    "lvidd_mm_views": [
+     39.038999788463116,
+     40.463499780744314
+    ]
+   }
+  },
+  {
+   "patient": "patient0290",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 183.9325628739034,
+    "wall_mm": 10.914807540202617,
+    "lvidd_mm": 47.48974974267185,
+    "rwt": 0.45967003824385844,
+    "lvidd_mm_views": [
+     46.39249974861741,
+     48.586999736726284
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 192.22408913530776,
+    "wall_mm": 9.04964808236554,
+    "lvidd_mm": 45.526249753311276,
+    "rwt": 0.39755737102888994,
+    "lvidd_mm_views": [
+     44.50599975883961,
+     46.546499747782946
+    ]
+   }
+  },
+  {
+   "patient": "patient0291",
+   "sex": "F",
+   "quality": [
+    "Poor",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 195.26992917477523,
+    "wall_mm": 11.813967033846396,
+    "lvidd_mm": 46.430999748408794,
+    "rwt": 0.5088827334264437,
+    "lvidd_mm_views": [
+     49.70349973067641,
+     43.158499766141176
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 238.92618149496556,
+    "wall_mm": 13.869609275642288,
+    "lvidd_mm": 42.542499769479036,
+    "rwt": 0.6520354633976005,
+    "lvidd_mm_views": [
+     47.85549974068999,
+     37.22949979826808
+    ]
+   }
+  },
+  {
+   "patient": "patient0292",
+   "sex": "F",
+   "quality": [
+    "Poor",
+    "Poor"
+   ],
+   "gt": {
+    "lv_mass_g": 230.98593375595303,
+    "wall_mm": 13.554278038412345,
+    "lvidd_mm": 49.85749972984195,
+    "rwt": 0.5437207285506739,
+    "lvidd_mm_views": [
+     51.43599972128868,
+     48.278999738395214
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 254.00235487140193,
+    "wall_mm": 12.514275643220323,
+    "lvidd_mm": 47.79774974100292,
+    "rwt": 0.5236345104541628,
+    "lvidd_mm_views": [
+     46.77749974653125,
+     48.81799973547459
+    ]
+   }
+  },
+  {
+   "patient": "patient0294",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 187.63461641450044,
+    "wall_mm": 13.761613602653537,
+    "lvidd_mm": 44.7562497574836,
+    "rwt": 0.614958298660959,
+    "lvidd_mm_views": [
+     44.54449975863099,
+     44.96799975633621
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 153.11471251089026,
+    "wall_mm": 11.306178106568243,
+    "lvidd_mm": 46.35399974882603,
+    "rwt": 0.4878188793990571,
+    "lvidd_mm_views": [
+     46.31549974903464,
+     46.39249974861741
+    ]
+   }
+  },
+  {
+   "patient": "patient0297",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 175.42610697926844,
+    "wall_mm": 13.758255815960942,
+    "lvidd_mm": 38.48074979148805,
+    "rwt": 0.7150721277787716,
+    "lvidd_mm_views": [
+     37.84549979493022,
+     39.11599978804588
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 100.28110829832973,
+    "wall_mm": 7.456486754984202,
+    "lvidd_mm": 37.09474979899824,
+    "rwt": 0.4020238333126899,
+    "lvidd_mm_views": [
+     41.387499775737524,
+     32.80199982225895
+    ]
+   }
+  },
+  {
+   "patient": "patient0298",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 120.65237225703396,
+    "wall_mm": 12.169828129849172,
+    "lvidd_mm": 40.42499978095293,
+    "rwt": 0.6020941593465753,
+    "lvidd_mm_views": [
+     41.27199977636337,
+     39.57799978554249
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 120.676250155704,
+    "wall_mm": 12.080266392810442,
+    "lvidd_mm": 38.90424978919327,
+    "rwt": 0.6210255413364156,
+    "lvidd_mm_views": [
+     40.19399978220463,
+     37.61449979618192
+    ]
+   }
+  },
+  {
+   "patient": "patient0299",
+   "sex": "F",
+   "quality": [
+    "Poor",
+    "Poor"
+   ],
+   "gt": {
+    "lv_mass_g": 154.30821379290373,
+    "wall_mm": 12.329398298376843,
+    "lvidd_mm": 40.90624977834523,
+    "rwt": 0.6028124487179818,
+    "lvidd_mm_views": [
+     38.46149979159236,
+     43.350999765098095
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 130.1286016789711,
+    "wall_mm": 10.312863755760358,
+    "lvidd_mm": 36.09374980442226,
+    "rwt": 0.5714487306883703,
+    "lvidd_mm_views": [
+     35.7664998061955,
+     36.42099980264902
+    ]
+   }
+  },
+  {
+   "patient": "patient0303",
+   "sex": "F",
+   "quality": [
+    "Good",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 144.0805892778561,
+    "wall_mm": 10.093591500850875,
+    "lvidd_mm": 43.50499976426363,
+    "rwt": 0.4640198393538238,
+    "lvidd_mm_views": [
+     47.20099974423647,
+     39.80899978429079
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 169.2521723432843,
+    "wall_mm": 11.9765110388459,
+    "lvidd_mm": 42.81199976801872,
+    "rwt": 0.5594931843287803,
+    "lvidd_mm_views": [
+     46.854499746114016,
+     38.76949978992343
+    ]
+   }
+  },
+  {
+   "patient": "patient0304",
+   "sex": "F",
+   "quality": [
+    "Medium",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 198.8049767053433,
+    "wall_mm": 12.433075293007452,
+    "lvidd_mm": 48.20199973881245,
+    "rwt": 0.5158738376157572,
+    "lvidd_mm_views": [
+     51.70549971982837,
+     44.698499757796526
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 206.090821692787,
+    "wall_mm": 12.611581853788003,
+    "lvidd_mm": 46.142249749973416,
+    "rwt": 0.5466392263977232,
+    "lvidd_mm_views": [
+     48.43299973756075,
+     43.851499762386084
+    ]
+   }
+  },
+  {
+   "patient": "patient0305",
+   "sex": "F",
+   "quality": [
+    "Medium",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 306.4452832889997,
+    "wall_mm": 14.892554096963412,
+    "lvidd_mm": 52.32149971649051,
+    "rwt": 0.5692709183666472,
+    "lvidd_mm_views": [
+     46.58499974757433,
+     58.057999685406685
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 246.35430976606727,
+    "wall_mm": 12.526246261596961,
+    "lvidd_mm": 53.66899970918894,
+    "rwt": 0.4667963379035097,
+    "lvidd_mm_views": [
+     48.74099973589182,
+     58.59699968248606
+    ]
+   }
+  },
+  {
+   "patient": "patient0308",
+   "sex": "M",
+   "quality": [
+    "Poor",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 201.30260908220149,
+    "wall_mm": 12.319294800768844,
+    "lvidd_mm": 45.37224975414574,
+    "rwt": 0.5430321338493121,
+    "lvidd_mm_views": [
+     46.8929997459054,
+     43.851499762386084
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 159.27536897670137,
+    "wall_mm": 9.410775663427124,
+    "lvidd_mm": 42.90824976749718,
+    "rwt": 0.43864644745103293,
+    "lvidd_mm_views": [
+     41.926499772816896,
+     43.88999976217747
+    ]
+   }
+  },
+  {
+   "patient": "patient0314",
+   "sex": "F",
+   "quality": [
+    "Poor",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 257.69589610821487,
+    "wall_mm": 14.461483450374413,
+    "lvidd_mm": 40.367249781265855,
+    "rwt": 0.7164958489238413,
+    "lvidd_mm_views": [
+     43.50499976426363,
+     37.22949979826808
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 291.7760543769525,
+    "wall_mm": 13.102145220519873,
+    "lvidd_mm": 40.86774977855384,
+    "rwt": 0.6411972908474389,
+    "lvidd_mm_views": [
+     43.50499976426363,
+     38.23049979284406
+    ]
+   }
+  },
+  {
+   "patient": "patient0315",
+   "sex": "M",
+   "quality": [
+    "Poor",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 224.89250686562895,
+    "wall_mm": 13.279124777785615,
+    "lvidd_mm": 52.05199971795082,
+    "rwt": 0.5102253457980456,
+    "lvidd_mm_views": [
+     51.3974997214973,
+     52.706499714404345
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 220.71105222670084,
+    "wall_mm": 12.442111038307244,
+    "lvidd_mm": 53.80374970845878,
+    "rwt": 0.46249977392750946,
+    "lvidd_mm_views": [
+     54.90099970251322,
+     52.706499714404345
+    ]
+   }
+  },
+  {
+   "patient": "patient0328",
+   "sex": "M",
+   "quality": [
+    "Medium",
+    "Poor"
+   ],
+   "gt": {
+    "lv_mass_g": 136.66627578432158,
+    "wall_mm": 12.240202864482868,
+    "lvidd_mm": 42.90824976749718,
+    "rwt": 0.5705291141357516,
+    "lvidd_mm_views": [
+     43.73599976301193,
+     42.08049977198243
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 123.2703186241675,
+    "wall_mm": 10.069245231993113,
+    "lvidd_mm": 45.16049975529313,
+    "rwt": 0.44593152363478555,
+    "lvidd_mm_views": [
+     40.5019997805357,
+     49.818999730050564
+    ]
+   }
+  },
+  {
+   "patient": "patient0333",
+   "sex": "F",
+   "quality": [
+    "Poor",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 164.75049322748592,
+    "wall_mm": 12.64026599909576,
+    "lvidd_mm": 43.42799976468086,
+    "rwt": 0.5821251758123035,
+    "lvidd_mm_views": [
+     50.89699972420931,
+     35.958999805152416
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 189.45468872824148,
+    "wall_mm": 12.027548923668643,
+    "lvidd_mm": 42.08049977198243,
+    "rwt": 0.571644775553578,
+    "lvidd_mm_views": [
+     48.43299973756075,
+     35.727999806404114
+    ]
+   }
+  },
+  {
+   "patient": "patient0334",
+   "sex": "M",
+   "quality": [
+    "Poor",
+    "Medium"
+   ],
+   "gt": {
+    "lv_mass_g": 150.57821643357164,
+    "wall_mm": 12.483316814226221,
+    "lvidd_mm": 38.03799979388714,
+    "rwt": 0.6563603176753968,
+    "lvidd_mm_views": [
+     39.73199978470802,
+     36.343999803066254
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 129.488858519806,
+    "wall_mm": 9.886710680154966,
+    "lvidd_mm": 39.038999788463116,
+    "rwt": 0.5065043025552467,
+    "lvidd_mm_views": [
+     36.882999800145626,
+     41.194999776780605
+    ]
+   }
+  },
+  {
+   "patient": "patient0341",
+   "sex": "M",
+   "quality": [
+    "Good",
+    "Good"
+   ],
+   "gt": {
+    "lv_mass_g": 307.1143554127747,
+    "wall_mm": 15.802303476608877,
+    "lvidd_mm": 44.35199975967407,
+    "rwt": 0.7125858388453871,
+    "lvidd_mm_views": [
+     46.81599974632263,
+     41.88799977302551
+    ]
+   },
+   "pred": {
+    "lv_mass_g": 324.4128362398528,
+    "wall_mm": 13.9445373583061,
+    "lvidd_mm": 47.046999745070934,
+    "rwt": 0.5927917798739994,
+    "lvidd_mm_views": [
+     50.81999972462654,
+     43.27399976551533
+    ]
+   }
+  }
+ ],
+ "seconds": 389.4283652305603
+}

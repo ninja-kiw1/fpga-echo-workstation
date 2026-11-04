@@ -1,0 +1,260 @@
+{
+ "tag": "cup_roi_a",
+ "task": "cup_roi",
+ "target": "cup",
+ "resolution": 128,
+ "selected_int16": [
+  "add_4",
+  "first_block_2"
+ ],
+ "calibration": [
+  "Image161",
+  "IMG_2445",
+  "IMG_2773",
+  "IMG_3462",
+  "IMG_3493",
+  "IMG_3567",
+  "IMG_3671",
+  "IMG_3675"
+ ],
+ "val_dice_fp32": {
+  "roi": 0.9074402288335752
+ },
+ "val_dice_quantized": {
+  "roi": 0.9062224051300206
+ },
+ "val_all_int8": {
+  "nodes": [],
+  "score": 0.9057812936297172,
+  "dice_roi": 0.9057812936297172
+ },
+ "screening": [
+  {
+   "nodes": [
+    "first_block_2"
+   ],
+   "cal": 0.9904799545652206,
+   "gain": 0.0010193650799825704
+  },
+  {
+   "nodes": [
+    "first_block_5"
+   ],
+   "cal": 0.9889199445985483,
+   "gain": -0.0005406448866898117
+  },
+  {
+   "nodes": [
+    "first_shortcut_1"
+   ],
+   "cal": 0.9876806549796378,
+   "gain": -0.0017799345056003224
+  },
+  {
+   "nodes": [
+    "add"
+   ],
+   "cal": 0.9877062246296211,
+   "gain": -0.0017543648556169744
+  },
+  {
+   "nodes": [
+    "down_path_0_block_2"
+   ],
+   "cal": 0.9885156592209201,
+   "gain": -0.0009449302643179669
+  },
+  {
+   "nodes": [
+    "down_path_0_block_5"
+   ],
+   "cal": 0.9853274103271967,
+   "gain": -0.004133179158041345
+  },
+  {
+   "nodes": [
+    "down_path_0_shortcut_1"
+   ],
+   "cal": 0.9875138114945727,
+   "gain": -0.0019467779906653382
+  },
+  {
+   "nodes": [
+    "add_1"
+   ],
+   "cal": 0.9870642504954326,
+   "gain": -0.002396338989805513
+  },
+  {
+   "nodes": [
+    "down_path_1_block_2"
+   ],
+   "cal": 0.987215454288483,
+   "gain": -0.002245135196755066
+  },
+  {
+   "nodes": [
+    "down_path_1_block_5"
+   ],
+   "cal": 0.9895092459169561,
+   "gain": 4.865643171803047e-05
+  },
+  {
+   "nodes": [
+    "down_path_1_shortcut_1"
+   ],
+   "cal": 0.9884544105480857,
+   "gain": -0.00100617893715238
+  },
+  {
+   "nodes": [
+    "add_2"
+   ],
+   "cal": 0.988113507576094,
+   "gain": -0.001347081909144121
+  },
+  {
+   "nodes": [
+    "up_path_0_up_layer_block_0"
+   ],
+   "cal": 0.9896310736783396,
+   "gain": 0.00017048419310150553
+  },
+  {
+   "nodes": [
+    "up_path_0_conv_bridge_layer_block_2"
+   ],
+   "cal": 0.9896013923690878,
+   "gain": 0.00014080288384976658
+  },
+  {
+   "nodes": [
+    "cat"
+   ],
+   "cal": 0.9882985329955237,
+   "gain": -0.001162056489714347
+  },
+  {
+   "nodes": [
+    "up_path_0_conv_layer_block_2"
+   ],
+   "cal": 0.9870307937535774,
+   "gain": -0.002429795731660689
+  },
+  {
+   "nodes": [
+    "up_path_0_conv_layer_block_5"
+   ],
+   "cal": 0.9871705325784422,
+   "gain": -0.0022900569067958454
+  },
+  {
+   "nodes": [
+    "up_path_0_conv_layer_shortcut_1"
+   ],
+   "cal": 0.9885416358132533,
+   "gain": -0.0009189536719848013
+  },
+  {
+   "nodes": [
+    "add_3"
+   ],
+   "cal": 0.989012403630839,
+   "gain": -0.00044818585439909686
+  },
+  {
+   "nodes": [
+    "up_path_1_up_layer_block_0"
+   ],
+   "cal": 0.9895925694242873,
+   "gain": 0.00013197993904923155
+  },
+  {
+   "nodes": [
+    "up_path_1_conv_bridge_layer_block_2"
+   ],
+   "cal": 0.9895322054939526,
+   "gain": 7.161600871452567e-05
+  },
+  {
+   "nodes": [
+    "cat_1"
+   ],
+   "cal": 0.9871307637270992,
+   "gain": -0.0023298257581388926
+  },
+  {
+   "nodes": [
+    "up_path_1_conv_layer_block_2"
+   ],
+   "cal": 0.987910621895535,
+   "gain": -0.0015499675897030496
+  },
+  {
+   "nodes": [
+    "up_path_1_conv_layer_block_5"
+   ],
+   "cal": 0.9869122947571825,
+   "gain": -0.0025482947280556223
+  },
+  {
+   "nodes": [
+    "up_path_1_conv_layer_shortcut_1"
+   ],
+   "cal": 0.9901687921726281,
+   "gain": 0.0007082026873900249
+  },
+  {
+   "nodes": [
+    "add_4"
+   ],
+   "cal": 0.9923068606114991,
+   "gain": 0.002846271126261013
+  }
+ ],
+ "confirmation": [
+  {
+   "nodes": [],
+   "score": 0.9057812936297172,
+   "dice_roi": 0.9057812936297172
+  },
+  {
+   "nodes": [
+    "add_4"
+   ],
+   "score": 0.9059473785507738,
+   "dice_roi": 0.9059473785507738
+  },
+  {
+   "nodes": [
+    "first_block_2"
+   ],
+   "score": 0.9060201280401213,
+   "dice_roi": 0.9060201280401213
+  },
+  {
+   "nodes": [
+    "up_path_1_conv_layer_shortcut_1"
+   ],
+   "score": 0.9059866234841106,
+   "dice_roi": 0.9059866234841106
+  },
+  {
+   "nodes": [
+    "add_4",
+    "first_block_2"
+   ],
+   "score": 0.9062224051300206,
+   "dice_roi": 0.9062224051300206
+  }
+ ],
+ "output_scale": 2.4249339666892222,
+ "output_integer_threshold_ge": 1,
+ "golden": "roi_000",
+ "max_accumulator_abs_bound": 127145598,
+ "checkpoint_sha256": "60fb5d23667a08dd44feb82481d87c12cca1b8b98e461a9a00ded7c9bfa8a49f",
+ "plan_sha256": "efc3ab6ff17f14ae11bd821e782b3eb34ac126b9b99a888d6a36d6316b6cdcb3",
+ "parameters_sha256": "250378a000a5196c8bb8661337c5b6f533f66d5e2f14352f865bc617b2d941d2",
+ "arithmetic_tests": "PASS: signed ties-to-even shifts; conv padding and transposed conv against scalar INT64 loops",
+ "test_set_used": false
+}

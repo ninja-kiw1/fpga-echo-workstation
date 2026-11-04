@@ -1,0 +1,552 @@
+{
+  "util": {
+    "f150": {
+      "system_wrapper": {
+        "lut": 59801,
+        "ff": 55911,
+        "b36": 160,
+        "b18": 24,
+        "dsp": 306
+      },
+      "system_i": {
+        "lut": 59801,
+        "ff": 55911,
+        "b36": 160,
+        "b18": 24,
+        "dsp": 306
+      },
+      "ai_data_ic": {
+        "lut": 2218,
+        "ff": 1576,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "bram_ctrl": {
+        "lut": 529,
+        "ff": 745,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "bram_gen": {
+        "lut": 174,
+        "ff": 12,
+        "b36": 64,
+        "b18": 0,
+        "dsp": 0
+      },
+      "conv_layer_0": {
+        "lut": 27101,
+        "ff": 25203,
+        "b36": 39,
+        "b18": 0,
+        "dsp": 185
+      },
+      "ctl_xbar": {
+        "lut": 203,
+        "ff": 127,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "eltwise_layer_0": {
+        "lut": 13859,
+        "ff": 10082,
+        "b36": 20,
+        "b18": 2,
+        "dsp": 76
+      },
+      "img_proc_axil_0": {
+        "lut": 661,
+        "ff": 564,
+        "b36": 1,
+        "b18": 1,
+        "dsp": 1
+      },
+      "pc_axil": {
+        "lut": 407,
+        "ff": 572,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "pp_layer_0": {
+        "lut": 8395,
+        "ff": 9165,
+        "b36": 4,
+        "b18": 14,
+        "dsp": 28
+      },
+      "vis_layer_0": {
+        "lut": 6250,
+        "ff": 7827,
+        "b36": 32,
+        "b18": 7,
+        "dsp": 16
+      }
+    },
+    "f150nv": {
+      "system_wrapper": {
+        "lut": 53203,
+        "ff": 48045,
+        "b36": 128,
+        "b18": 17,
+        "dsp": 290
+      },
+      "system_i": {
+        "lut": 53203,
+        "ff": 48045,
+        "b36": 128,
+        "b18": 17,
+        "dsp": 290
+      },
+      "ai_data_ic": {
+        "lut": 2031,
+        "ff": 1544,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "bram_ctrl": {
+        "lut": 524,
+        "ff": 739,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "bram_gen": {
+        "lut": 170,
+        "ff": 12,
+        "b36": 64,
+        "b18": 0,
+        "dsp": 0
+      },
+      "conv_layer_0": {
+        "lut": 27028,
+        "ff": 25203,
+        "b36": 39,
+        "b18": 0,
+        "dsp": 185
+      },
+      "ctl_xbar": {
+        "lut": 159,
+        "ff": 126,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "eltwise_layer_0": {
+        "lut": 13842,
+        "ff": 10082,
+        "b36": 20,
+        "b18": 2,
+        "dsp": 76
+      },
+      "img_proc_axil_0": {
+        "lut": 656,
+        "ff": 564,
+        "b36": 1,
+        "b18": 1,
+        "dsp": 1
+      },
+      "pc_axil": {
+        "lut": 404,
+        "ff": 572,
+        "b36": 0,
+        "b18": 0,
+        "dsp": 0
+      },
+      "pp_layer_0": {
+        "lut": 8375,
+        "ff": 9165,
+        "b36": 4,
+        "b18": 14,
+        "dsp": 28
+      }
+    }
+  },
+  "direct": {
+    "before": {
+      "m0_32": {
+        "ap_us": 1.44,
+        "put_us": 0.24,
+        "get_us": 0.78,
+        "run_us": 2.71,
+        "n": 1,
+        "run_sd": 0.0
+      },
+      "m0_512": {
+        "ap_us": 203.31,
+        "put_us": 60.97,
+        "get_us": 62.71,
+        "run_us": 292.64,
+        "n": 9,
+        "run_sd": 0.15
+      },
+      "m1_128": {
+        "ap_us": 13.94,
+        "put_us": 3.88,
+        "get_us": 4.61,
+        "run_us": 22.06,
+        "n": 9,
+        "run_sd": 0.03
+      },
+      "m2_128": {
+        "ap_us": 13.96,
+        "put_us": 4.02,
+        "get_us": 4.71,
+        "run_us": 22.65,
+        "n": 9,
+        "run_sd": 0.35
+      }
+    },
+    "after": {
+      "m0_32": {
+        "ap_us": 1.44,
+        "put_us": 0.31,
+        "get_us": 0.84,
+        "run_us": 2.82,
+        "n": 1,
+        "run_sd": 0.0
+      },
+      "m0_512": {
+        "ap_us": 203.5,
+        "put_us": 60.08,
+        "get_us": 62.94,
+        "run_us": 292.34,
+        "n": 9,
+        "run_sd": 0.42
+      },
+      "m1_128": {
+        "ap_us": 14.01,
+        "put_us": 4.2,
+        "get_us": 4.61,
+        "run_us": 22.42,
+        "n": 9,
+        "run_sd": 0.22
+      },
+      "m2_128": {
+        "ap_us": 14.05,
+        "put_us": 3.97,
+        "get_us": 4.71,
+        "run_us": 22.42,
+        "n": 9,
+        "run_sd": 0.35
+      }
+    }
+  },
+  "tcp": {
+    "before": {
+      "echo128": {
+        "ai_ms": 22.38,
+        "total_ms": 75.32,
+        "total_p99": 76.0,
+        "n": 10
+      },
+      "fundus512": {
+        "ai_ms": 296.11,
+        "total_ms": 363.63,
+        "total_p99": 364.94,
+        "n": 10
+      },
+      "skin128": {
+        "ai_ms": 22.55,
+        "total_ms": 76.09,
+        "total_p99": 76.62,
+        "n": 10
+      }
+    },
+    "after": {
+      "echo128": {
+        "ai_ms": 22.4,
+        "total_ms": 76.42,
+        "total_p99": 78.02,
+        "n": 10
+      },
+      "fundus512": {
+        "ai_ms": 294.63,
+        "total_ms": 360.69,
+        "total_p99": 367.2,
+        "n": 10
+      },
+      "skin128": {
+        "ai_ms": 22.33,
+        "total_ms": 75.84,
+        "total_p99": 76.27,
+        "n": 10
+      }
+    }
+  },
+  "pp": {
+    "before": {
+      "cases": 134,
+      "pl_ms_mean": 0.891,
+      "pl_ms_sum": 119.4
+    },
+    "after": {
+      "cases": 134,
+      "pl_ms_mean": 0.9,
+      "pl_ms_sum": 120.6
+    }
+  },
+  "boardcheck": {
+    "before": {
+      "张量 BRAM 写读回": 10.5,
+      "mode0 灰度归一化": 20.5,
+      "mode1 阈值分割": 18.0,
+      "mode2 边缘增强": 18.0,
+      "mode3 伪彩色映射": 50.9,
+      "mode4 归一化+伪彩": 53.5,
+      "mode6 第1步 PL 边缘图": 18.1,
+      "AI 整网(血管分割)": 325.6,
+      "访问成本 PL BRAM(plbram, Normal-NC)": 10.0,
+      "访问成本 PL BRAM(dev/mem, Device)": 11.2,
+      "访问成本 PS DDR(dev/mem)": 7.5,
+      "512 ap/put/get": "221/66/67"
+    },
+    "after": {
+      "张量 BRAM 写读回": 10.4,
+      "mode0 灰度归一化": 21.0,
+      "mode1 阈值分割": 17.5,
+      "mode2 边缘增强": 17.7,
+      "mode3 伪彩色映射": 50.5,
+      "mode4 归一化+伪彩": 52.1,
+      "mode6 第1步 PL 边缘图": 17.6,
+      "AI 整网(血管分割)": 340.5,
+      "访问成本 PL BRAM(plbram, Normal-NC)": 9.6,
+      "访问成本 PL BRAM(dev/mem, Device)": 10.8,
+      "访问成本 PS DDR(dev/mem)": 8.1,
+      "512 ap/put/get": "218/61/70"
+    }
+  },
+  "profile": {
+    "before": {
+      "fundus512": 203.32,
+      "skin128": 13.99
+    },
+    "after": {
+      "fundus512": 203.76,
+      "skin128": 13.93
+    }
+  },
+  "live": {
+    "before": {
+      "C0": {
+        "frames": 500,
+        "fps": 50,
+        "lat": {
+          "p50": 36.76,
+          "p99": 74.66,
+          "max": 75.143
+        },
+        "pl_ms": 2016.259,
+        "ap_ms": 2958.563,
+        "put_ms": 849.965,
+        "get_ms": 1012.422,
+        "pl_ms_per_key": 23.299,
+        "n_key": 90,
+        "track_ms": 0.878,
+        "ef": 74.16554495170003
+      },
+      "C1": {
+        "frames": 500,
+        "fps": 50,
+        "lat": {
+          "p50": 32.298,
+          "p99": 74.341,
+          "max": 75.086
+        },
+        "pl_ms": 2007.035,
+        "ap_ms": 2373.178,
+        "put_ms": 681.523,
+        "get_ms": 794.704,
+        "pl_ms_per_key": 23.172,
+        "n_key": 90,
+        "track_ms": 0.881,
+        "ef": 74.16554495170003
+      },
+      "C9": {
+        "frames": 500,
+        "fps": 50,
+        "lat": {
+          "p50": 32.318,
+          "p99": 74.325,
+          "max": 75.063
+        },
+        "pl_ms": 2018.08,
+        "ap_ms": 2371.673,
+        "put_ms": 683.726,
+        "get_ms": 811.263,
+        "pl_ms_per_key": 23.156,
+        "n_key": 90,
+        "track_ms": 0.882,
+        "ef": 79.7599623172307
+      },
+      "L0": {
+        "frames": 174,
+        "fps": 50,
+        "lat": {
+          "p50": 29.328,
+          "p99": 67.899,
+          "max": 68.682
+        },
+        "pl_ms": 707.546,
+        "ap_ms": 609.498,
+        "put_ms": 174.676,
+        "get_ms": 201.172,
+        "pl_ms_per_key": 23.586,
+        "n_key": 31,
+        "track_ms": 0.792,
+        "ef": 70.31050307620167
+      },
+      "L1": {
+        "frames": 174,
+        "fps": 50,
+        "lat": {
+          "p50": 28.904,
+          "p99": 66.847,
+          "max": 66.905
+        },
+        "pl_ms": 687.955,
+        "ap_ms": 684.027,
+        "put_ms": 193.553,
+        "get_ms": 227.412,
+        "pl_ms_per_key": 22.92,
+        "n_key": 31,
+        "track_ms": 0.763,
+        "ef": 70.31050307620167
+      },
+      "L2": {
+        "frames": 174,
+        "fps": 50,
+        "lat": {
+          "p50": 28.894,
+          "p99": 66.704,
+          "max": 70.482
+        },
+        "pl_ms": 688.425,
+        "ap_ms": 837.682,
+        "put_ms": 238.0,
+        "get_ms": 278.142,
+        "pl_ms_per_key": 22.937,
+        "n_key": 31,
+        "track_ms": 0.768,
+        "ef": 70.31050307620167
+      },
+      "S1": {
+        "frames": 650,
+        "fps": 50,
+        "lat": {
+          "p50": 31.875,
+          "p99": 74.571,
+          "max": 83.584
+        },
+        "pl_ms": 2755.746,
+        "ap_ms": 2915.944,
+        "put_ms": 835.995,
+        "get_ms": 998.93,
+        "pl_ms_per_key": 23.288,
+        "n_key": 123,
+        "track_ms": 0.82,
+        "ef": 35.10343770603466
+      },
+      "V1": {
+        "frames": 300,
+        "fps": 30,
+        "lat": {
+          "p50": 3.462,
+          "p99": 60.044,
+          "max": 61.86
+        },
+        "pl_ms": 1221.374,
+        "ap_ms": 1186.057,
+        "put_ms": 335.054,
+        "get_ms": 396.48,
+        "pl_ms_per_key": 22.929,
+        "n_key": 55,
+        "track_ms": 0.932,
+        "ef": 45.54484107798328
+      }
+    },
+    "after": {}
+  },
+  "tile": {
+    "before": {
+      "stare_im0077_w600": {
+        "tiles": 2,
+        "job_ms": 85.712,
+        "unet_ms": 81.77,
+        "ovl_ms": 2.38,
+        "vis_pl_ms": 1.143,
+        "pp_pl_ms": 0.481
+      },
+      "stare_im0077_w1200": {
+        "tiles": 2,
+        "job_ms": 150.302,
+        "unet_ms": 144.038,
+        "ovl_ms": 3.84,
+        "vis_pl_ms": 1.713,
+        "pp_pl_ms": 0.659
+      },
+      "hrf_01_h_w600": {
+        "tiles": 1,
+        "job_ms": 31.957,
+        "unet_ms": 30.911,
+        "ovl_ms": 0.572,
+        "vis_pl_ms": 0.257,
+        "pp_pl_ms": 0.114
+      },
+      "hrf_01_h_w1200": {
+        "tiles": 1,
+        "job_ms": 91.085,
+        "unet_ms": 86.643,
+        "ovl_ms": 2.71,
+        "vis_pl_ms": 1.231,
+        "pp_pl_ms": 0.643
+      },
+      "hrf_01_h_w2400": {
+        "tiles": 2,
+        "job_ms": 367.048,
+        "unet_ms": 338.805,
+        "ovl_ms": 13.165,
+        "vis_pl_ms": 5.965,
+        "pp_pl_ms": 3.609
+      }
+    },
+    "after": {}
+  },
+  "regression": {
+    "utc": "2026-11-03T13:36:37.950651+00:00",
+    "tests": {
+      "echo": {
+        "passed": true,
+        "rc": 0,
+        "marker": true,
+        "narrowed": false
+      }
+    }
+  },
+  "host_check": null,
+  "state": {
+    "phase": "new_boot",
+    "variant": "f150nv",
+    "new_firmware_sha256": "a4f82bf89031a11159edf310ad3209e11f42d3a151ab4b37b86fd9184e0dbf95",
+    "tests": {},
+    "old_firmware_sha256": "30f06745619038236765e237bedec98229f93df7c3824ef48eb48b98807c5685",
+    "old_server_sha256": "9851f6fe35636e83ef677db2b6fc405a66ed86572ef5e302c7983d94a29aa939",
+    "updated_pc_utc": "2026-11-03T13:36:30.411825+00:00",
+    "boardcheck_before": {
+      "items": 31,
+      "warn": []
+    },
+    "baseline_passed": true,
+    "new_deployed": true,
+    "boardcheck_after": {
+      "items": 31,
+      "warn": []
+    },
+    "direct_passed": true,
+    "pp_vectors_passed": true
+  }
+}

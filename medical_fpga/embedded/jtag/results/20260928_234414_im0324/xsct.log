@@ -1,0 +1,120 @@
+
+##### run.tcl
+attempting to launch hw_server
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2023.1
+
+  **** Build date : May  7 2023 at 15:26:57
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz
+STEP bitstream programmed
+STEP psu_init done (clocks, DDR, PS-PL isolation removed)
+STEP DDR read/write ok
+IP conv_layer_0 ctrl=0x4
+IP eltwise_layer_0 ctrl=0x4
+STEP both IPs idle
+LOAD first_block_2.bin 768 35 attempts=1
+LOAD first_block_5.bin 768 31 attempts=1
+LOAD first_shortcut_1.bin 256 19 attempts=1
+LOAD down_path_0_block_2.bin 1536 48 attempts=1
+LOAD down_path_0_block_5.bin 2688 52 attempts=1
+LOAD down_path_0_shortcut_1.bin 512 30 attempts=1
+LOAD down_path_1_block_2.bin 5376 86 attempts=1
+LOAD down_path_1_block_5.bin 9984 208 attempts=1
+LOAD down_path_1_shortcut_1.bin 1280 34 attempts=1
+LOAD up_path_0_up_layer_block_0.bin 2432 46 attempts=1
+LOAD up_path_0_conv_bridge_layer_block_2.bin 2688 53 attempts=1
+LOAD up_path_0_conv_layer_block_2.bin 4992 93 attempts=1
+LOAD up_path_0_conv_layer_block_5.bin 2688 67 attempts=1
+LOAD up_path_0_conv_layer_shortcut_1.bin 896 28 attempts=1
+LOAD up_path_1_up_layer_block_0.bin 704 36 attempts=1
+LOAD up_path_1_conv_bridge_layer_block_2.bin 768 33 attempts=1
+LOAD up_path_1_conv_layer_block_2.bin 1344 52 attempts=1
+LOAD up_path_1_conv_layer_block_5.bin 768 39 attempts=1
+LOAD up_path_1_conv_layer_shortcut_1.bin 320 30 attempts=1
+LOAD final.bin 256 22 attempts=1
+DUMPRETRY 5 chunk re-reads at 0x10018000
+LOAD input.bin 4194304 55736 attempts=1
+STEP parameters and input loaded
+NODE first_block_2 30459 0
+NODE first_block_5 30859 0
+NODE first_shortcut_1 9425 0
+NODE add 5721 0
+NODE down_path_0_pool 4147 0
+NODE down_path_0_block_2 14738 0
+NODE down_path_0_block_5 27614 0
+NODE down_path_0_shortcut_1 4967 0
+NODE add_1 3389 0
+NODE down_path_1_pool 2145 0
+NODE down_path_1_block_2 14013 0
+NODE down_path_1_block_5 41330 0
+NODE down_path_1_shortcut_1 3257 0
+NODE add_2 1947 0
+NODE up_path_0_up_layer_block_0 8102 0
+NODE up_path_0_conv_bridge_layer_block_2 27209 0
+NODE cat 4801 0
+NODE up_path_0_conv_layer_block_2 51886 0
+NODE up_path_0_conv_layer_block_5 28210 0
+NODE up_path_0_conv_layer_shortcut_1 10473 0
+NODE add_3 3777 0
+NODE up_path_1_up_layer_block_0 16683 0
+NODE up_path_1_conv_bridge_layer_block_2 32331 0
+NODE cat_1 7959 0
+NODE up_path_1_conv_layer_block_2 56914 0
+NODE up_path_1_conv_layer_block_5 30793 0
+NODE up_path_1_conv_layer_shortcut_1 14944 0
+NODE add_4 6838 0
+NODE final 9302 0
+NETWORK_US 1601861
+JTAGRETRY 1: Memory read error at 0x15418000. Invalid DAP IDCODE 30800000. Invalid DAP ACK value: 7
+JTAGRETRY 2: Invalid context
+JTAGRETRY 3: Invalid context
+JTAGRETRY 4: Invalid context
+JTAGRETRY 5: Invalid context
+JTAG access failed after 5 tries: mrd -bin -file E:/PLD/medical_fpga/embedded/jtag/results/20260928_234414_im0324/chunk.tmp 356614144 16384
+    while executing
+"error "JTAG access failed after $tries tries: $script""
+    (procedure "retry" line 11)
+    invoked from within
+"retry [list mrd -bin -file $tmp $a $n]"
+    (procedure "stable_read" line 14)
+    invoked from within
+"stable_read $addr $words"
+    (procedure "timed_dump" line 3)
+    invoked from within
+"timed_dump {E:/PLD/medical_fpga/embedded/jtag/results/20260928_234414_im0324/final.bin} 0x15198000 1048576"
+    (file "E:\PLD\medical_fpga\embedded\jtag\results\20260928_234414_im0324\run.tcl" line 631)
+
+##### readback_1.tcl
+STEP connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz
+STEP read-back only (no reset, no reprogramming)
+DUMPRETRY 1 chunk re-reads at 0x15198000
+DUMP final.bin 4194304 36899
+STEP finished

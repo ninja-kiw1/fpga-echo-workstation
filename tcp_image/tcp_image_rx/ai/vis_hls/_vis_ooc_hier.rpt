@@ -1,0 +1,101 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Oct 14 10:18:34 2026
+| Host         : Ninja_kiwi running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 6 -file E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/_vis_ooc_hier.rpt
+| Design       : bd_0_hls_inst_0
+| Device       : xazu3eg-sfvc784-1-i
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------------------------------------------------+---------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+|                        Instance                        |                                Module                               | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++--------------------------------------------------------+---------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+| bd_0_hls_inst_0                                        |                                                               (top) |       7319 |       6754 |     176 |  389 | 8067 |     32 |      7 |    0 |         16 |
+|   (bd_0_hls_inst_0)                                    |                                                               (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   inst                                                 |                                           bd_0_hls_inst_0_vis_layer |       7319 |       6754 |     176 |  389 | 8067 |     32 |      7 |    0 |         16 |
+|     (inst)                                             |                                           bd_0_hls_inst_0_vis_layer |          0 |          0 |       0 |    0 |  327 |      0 |      0 |    0 |          0 |
+|     control_s_axi_U                                    |                             bd_0_hls_inst_0_vis_layer_control_s_axi |        181 |        181 |       0 |    0 |  118 |      0 |      0 |    0 |          0 |
+|     gmem_m_axi_U                                       |                                bd_0_hls_inst_0_vis_layer_gmem_m_axi |       1099 |        751 |       0 |  348 | 1607 |      0 |      0 |    0 |          0 |
+|       bus_read                                         |                           bd_0_hls_inst_0_vis_layer_gmem_m_axi_read |        306 |        306 |       0 |    0 |  542 |      0 |      0 |    0 |          0 |
+|         rreq_burst_conv                                |             bd_0_hls_inst_0_vis_layer_gmem_m_axi_burst_converter_32 |        171 |        171 |       0 |    0 |  278 |      0 |      0 |    0 |          0 |
+|           burst_sequential                             |            bd_0_hls_inst_0_vis_layer_gmem_m_axi_burst_sequential_33 |        171 |        171 |       0 |    0 |  278 |      0 |      0 |    0 |          0 |
+|             (burst_sequential)                         |            bd_0_hls_inst_0_vis_layer_gmem_m_axi_burst_sequential_33 |         96 |         96 |       0 |    0 |  189 |      0 |      0 |    0 |          0 |
+|             rs_req                                     |                   bd_0_hls_inst_0_vis_layer_gmem_m_axi_reg_slice_34 |         75 |         75 |       0 |    0 |   89 |      0 |      0 |    0 |          0 |
+|         rs_rdata                                       |      bd_0_hls_inst_0_vis_layer_gmem_m_axi_reg_slice__parameterized3 |        135 |        135 |       0 |    0 |  263 |      0 |      0 |    0 |          0 |
+|       bus_write                                        |                          bd_0_hls_inst_0_vis_layer_gmem_m_axi_write |        236 |        236 |       0 |    0 |  540 |      0 |      0 |    0 |          0 |
+|         wreq_burst_conv                                |                bd_0_hls_inst_0_vis_layer_gmem_m_axi_burst_converter |        166 |        166 |       0 |    0 |  267 |      0 |      0 |    0 |          0 |
+|           burst_sequential                             |               bd_0_hls_inst_0_vis_layer_gmem_m_axi_burst_sequential |        166 |        166 |       0 |    0 |  267 |      0 |      0 |    0 |          0 |
+|             (burst_sequential)                         |               bd_0_hls_inst_0_vis_layer_gmem_m_axi_burst_sequential |         99 |         99 |       0 |    0 |  190 |      0 |      0 |    0 |          0 |
+|             rs_req                                     |                      bd_0_hls_inst_0_vis_layer_gmem_m_axi_reg_slice |         67 |         67 |       0 |    0 |   77 |      0 |      0 |    0 |          0 |
+|         wreq_throttle                                  |                       bd_0_hls_inst_0_vis_layer_gmem_m_axi_throttle |         65 |         65 |       0 |    0 |  266 |      0 |      0 |    0 |          0 |
+|           (wreq_throttle)                              |                       bd_0_hls_inst_0_vis_layer_gmem_m_axi_throttle |          7 |          7 |       0 |    0 |  155 |      0 |      0 |    0 |          0 |
+|           rs_req                                       |      bd_0_hls_inst_0_vis_layer_gmem_m_axi_reg_slice__parameterized1 |         40 |         40 |       0 |    0 |   69 |      0 |      0 |    0 |          0 |
+|       load_unit_0                                      |                           bd_0_hls_inst_0_vis_layer_gmem_m_axi_load |        282 |        113 |       0 |  169 |  244 |      0 |      0 |    0 |          0 |
+|         fifo_rreq                                      |        bd_0_hls_inst_0_vis_layer_gmem_m_axi_fifo__parameterized0_28 |        120 |         80 |       0 |   40 |   54 |      0 |      0 |    0 |          0 |
+|           U_fifo_srl                                   |                         bd_0_hls_inst_0_vis_layer_gmem_m_axi_srl_29 |         96 |         56 |       0 |   40 |   40 |      0 |      0 |    0 |          0 |
+|         buff_rdata                                     |           bd_0_hls_inst_0_vis_layer_gmem_m_axi_fifo__parameterized4 |        162 |         33 |       0 |  129 |  146 |      0 |      0 |    0 |          0 |
+|           U_fifo_srl                                   |            bd_0_hls_inst_0_vis_layer_gmem_m_axi_srl__parameterized2 |        138 |          9 |       0 |  129 |  129 |      0 |      0 |    0 |          0 |
+|       store_unit_0                                     |                          bd_0_hls_inst_0_vis_layer_gmem_m_axi_store |        275 |         96 |       0 |  179 |  281 |      0 |      0 |    0 |          0 |
+|         (store_unit_0)                                 |                          bd_0_hls_inst_0_vis_layer_gmem_m_axi_store |          2 |          2 |       0 |    0 |   50 |      0 |      0 |    0 |          0 |
+|         buff_wdata                                     |           bd_0_hls_inst_0_vis_layer_gmem_m_axi_fifo__parameterized1 |        167 |         23 |       0 |  144 |  164 |      0 |      0 |    0 |          0 |
+|           U_fifo_srl                                   |            bd_0_hls_inst_0_vis_layer_gmem_m_axi_srl__parameterized0 |        146 |          2 |       0 |  144 |  144 |      0 |      0 |    0 |          0 |
+|         fifo_wreq                                      |           bd_0_hls_inst_0_vis_layer_gmem_m_axi_fifo__parameterized0 |         73 |         38 |       0 |   35 |   49 |      0 |      0 |    0 |          0 |
+|           U_fifo_srl                                   |                            bd_0_hls_inst_0_vis_layer_gmem_m_axi_srl |         56 |         21 |       0 |   35 |   35 |      0 |      0 |    0 |          0 |
+|     grp_run_ovl_fu_197                                 |                                   bd_0_hls_inst_0_vis_layer_run_ovl |       3406 |       3325 |      48 |   33 | 3469 |      4 |      4 |    0 |          9 |
+|       (grp_run_ovl_fu_197)                             |                                   bd_0_hls_inst_0_vis_layer_run_ovl |        285 |        285 |       0 |    0 |  645 |      0 |      0 |    0 |          0 |
+|       grp_ovl_compute_fu_544                           |                               bd_0_hls_inst_0_vis_layer_ovl_compute |        649 |        640 |       0 |    9 | 1098 |      0 |      1 |    0 |          2 |
+|         (grp_ovl_compute_fu_544)                       |                               bd_0_hls_inst_0_vis_layer_ovl_compute |        135 |        135 |       0 |    0 |  701 |      0 |      0 |    0 |          0 |
+|         grp_ovl_compute_Pipeline_CPIX_fu_358           |                 bd_0_hls_inst_0_vis_layer_ovl_compute_Pipeline_CPIX |        338 |        338 |       0 |    0 |  103 |      0 |      0 |    0 |          0 |
+|           (grp_ovl_compute_Pipeline_CPIX_fu_358)       |                 bd_0_hls_inst_0_vis_layer_ovl_compute_Pipeline_CPIX |        324 |        324 |       0 |    0 |  101 |      0 |      0 |    0 |          0 |
+|         grp_ovl_compute_Pipeline_LL_fu_332             |                   bd_0_hls_inst_0_vis_layer_ovl_compute_Pipeline_LL |         83 |         74 |       0 |    9 |  285 |      0 |      0 |    0 |          0 |
+|           (grp_ovl_compute_Pipeline_LL_fu_332)         |                   bd_0_hls_inst_0_vis_layer_ovl_compute_Pipeline_LL |         46 |         37 |       0 |    9 |  283 |      0 |      0 |    0 |          0 |
+|       grp_ovl_emit_fu_606                              |                                  bd_0_hls_inst_0_vis_layer_ovl_emit |       1897 |       1874 |       0 |   23 | 1268 |      4 |      0 |    0 |          2 |
+|         (grp_ovl_emit_fu_606)                          |                                  bd_0_hls_inst_0_vis_layer_ovl_emit |        101 |        101 |       0 |    0 |   99 |      0 |      0 |    0 |          0 |
+|         grp_ovl_emit_Pipeline_EPIX_fu_339              |                    bd_0_hls_inst_0_vis_layer_ovl_emit_Pipeline_EPIX |       1699 |       1676 |       0 |   23 | 1002 |      0 |      0 |    0 |          0 |
+|           (grp_ovl_emit_Pipeline_EPIX_fu_339)          |                    bd_0_hls_inst_0_vis_layer_ovl_emit_Pipeline_EPIX |       1568 |       1545 |       0 |   23 | 1000 |      0 |      0 |    0 |          0 |
+|           flow_control_loop_pipe_sequential_init_U     | bd_0_hls_inst_0_vis_layer_flow_control_loop_pipe_sequential_init_24 |         59 |         59 |       0 |    0 |    2 |      0 |      0 |    0 |          0 |
+|           partselect_8ns_384ns_7ns_8_1_1_U124          |            bd_0_hls_inst_0_vis_layer_partselect_8ns_384ns_7ns_8_1_1 |         72 |         72 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|         grp_ovl_emit_Pipeline_LBASE_fu_329             |                   bd_0_hls_inst_0_vis_layer_ovl_emit_Pipeline_LBASE |         24 |         24 |       0 |    0 |  155 |      0 |      0 |    0 |          0 |
+|           (grp_ovl_emit_Pipeline_LBASE_fu_329)         |                   bd_0_hls_inst_0_vis_layer_ovl_emit_Pipeline_LBASE |          3 |          3 |       0 |    0 |  153 |      0 |      0 |    0 |          0 |
+|       grp_run_ovl_Pipeline_LUT_fu_521                  |                      bd_0_hls_inst_0_vis_layer_run_ovl_Pipeline_LUT |         48 |         47 |       0 |    1 |  233 |      0 |      0 |    0 |          0 |
+|         (grp_run_ovl_Pipeline_LUT_fu_521)              |                      bd_0_hls_inst_0_vis_layer_run_ovl_Pipeline_LUT |          9 |          8 |       0 |    1 |  231 |      0 |      0 |    0 |          0 |
+|       grp_run_ovl_Pipeline_STEP_fu_504                 |                     bd_0_hls_inst_0_vis_layer_run_ovl_Pipeline_STEP |        325 |        325 |       0 |    0 |  143 |      0 |      0 |    0 |          0 |
+|         (grp_run_ovl_Pipeline_STEP_fu_504)             |                     bd_0_hls_inst_0_vis_layer_run_ovl_Pipeline_STEP |        318 |        318 |       0 |    0 |  141 |      0 |      0 |    0 |          0 |
+|       grp_run_ovl_Pipeline_VITIS_LOOP_562_1_fu_530     |         bd_0_hls_inst_0_vis_layer_run_ovl_Pipeline_VITIS_LOOP_562_1 |         33 |         33 |       0 |    0 |   76 |      0 |      0 |    0 |          2 |
+|         (grp_run_ovl_Pipeline_VITIS_LOOP_562_1_fu_530) |         bd_0_hls_inst_0_vis_layer_run_ovl_Pipeline_VITIS_LOOP_562_1 |          9 |          9 |       0 |    0 |   74 |      0 |      0 |    0 |          0 |
+|       mul_16ns_3ns_19_1_1_U208                         |                       bd_0_hls_inst_0_vis_layer_mul_16ns_3ns_19_1_1 |         54 |         54 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|     grp_run_reg_fu_236                                 |                                   bd_0_hls_inst_0_vis_layer_run_reg |       2429 |       2293 |     128 |    8 | 2019 |     28 |      3 |    0 |          7 |
+|       (grp_run_reg_fu_236)                             |                                   bd_0_hls_inst_0_vis_layer_run_reg |        722 |        722 |       0 |    0 |  955 |      0 |      0 |    0 |          2 |
+|       BE_U                                             |              bd_0_hls_inst_0_vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W |        257 |        257 |       0 |    0 |    0 |      7 |      1 |    0 |          0 |
+|       BO_U                                             |            bd_0_hls_inst_0_vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W_0 |        283 |        283 |       0 |    0 |    0 |      7 |      1 |    0 |          0 |
+|       grp_mul42_fu_563                                 |                                     bd_0_hls_inst_0_vis_layer_mul42 |        110 |        110 |       0 |    0 |   46 |      0 |      0 |    0 |          1 |
+|         mul_25ns_17ns_42_4_1_U285                      |                   bd_0_hls_inst_0_vis_layer_mul_25ns_17ns_42_4_1_12 |         88 |         88 |       0 |    0 |    0 |      0 |      0 |    0 |          1 |
+|       grp_reg_eval_fu_1915                             |                                  bd_0_hls_inst_0_vis_layer_reg_eval |        551 |        551 |       0 |    0 |  270 |      0 |      0 |    0 |          0 |
+|         (grp_reg_eval_fu_1915)                         |                                  bd_0_hls_inst_0_vis_layer_reg_eval |         44 |         44 |       0 |    0 |   57 |      0 |      0 |    0 |          0 |
+|         grp_reg_eval_Pipeline_EVAL_fu_98               |                    bd_0_hls_inst_0_vis_layer_reg_eval_Pipeline_EVAL |        507 |        507 |       0 |    0 |  213 |      0 |      0 |    0 |          0 |
+|           (grp_reg_eval_Pipeline_EVAL_fu_98)           |                    bd_0_hls_inst_0_vis_layer_reg_eval_Pipeline_EVAL |        408 |        408 |       0 |    0 |  211 |      0 |      0 |    0 |          0 |
+|           flow_control_loop_pipe_sequential_init_U     | bd_0_hls_inst_0_vis_layer_flow_control_loop_pipe_sequential_init_11 |         99 |         99 |       0 |    0 |    2 |      0 |      0 |    0 |          0 |
+|       grp_run_reg_Pipeline_FILL_T_fu_548               |                   bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_FILL_T |         68 |         60 |       0 |    8 |  283 |      0 |      0 |    0 |          0 |
+|         (grp_run_reg_Pipeline_FILL_T_fu_548)           |                   bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_FILL_T |         46 |         38 |       0 |    8 |  281 |      0 |      0 |    0 |          0 |
+|       grp_run_reg_Pipeline_LOAD_A_fu_522               |                   bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_LOAD_A |         53 |         53 |       0 |    0 |  171 |      0 |      0 |    0 |          0 |
+|         (grp_run_reg_Pipeline_LOAD_A_fu_522)           |                   bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_LOAD_A |         20 |         20 |       0 |    0 |  169 |      0 |      0 |    0 |          0 |
+|       grp_run_reg_Pipeline_LOAD_B_fu_534               |                   bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_LOAD_B |         52 |         52 |       0 |    0 |  171 |      0 |      0 |    0 |          0 |
+|         (grp_run_reg_Pipeline_LOAD_B_fu_534)           |                   bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_LOAD_B |         19 |         19 |       0 |    0 |  169 |      0 |      0 |    0 |          0 |
+|       grp_run_reg_Pipeline_VITIS_LOOP_155_1_fu_511     |         bd_0_hls_inst_0_vis_layer_run_reg_Pipeline_VITIS_LOOP_155_1 |         57 |         57 |       0 |    0 |   45 |      0 |      0 |    0 |          0 |
+|     grp_vis_layer_Pipeline_DESC_fu_184                 |                   bd_0_hls_inst_0_vis_layer_vis_layer_Pipeline_DESC |        223 |        223 |       0 |    0 |  527 |      0 |      0 |    0 |          0 |
+|       (grp_vis_layer_Pipeline_DESC_fu_184)             |                   bd_0_hls_inst_0_vis_layer_vis_layer_Pipeline_DESC |        213 |        213 |       0 |    0 |  525 |      0 |      0 |    0 |          0 |
++--------------------------------------------------------+---------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+
+

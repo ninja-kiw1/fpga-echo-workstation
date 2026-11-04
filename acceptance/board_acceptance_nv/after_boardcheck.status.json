@@ -1,0 +1,6 @@
+{
+  "label": "after_boardcheck",
+  "pc_utc": "2026-11-03T13:36:18.176534+00:00",
+  "exitcode": 0,
+  "command": "set -eu; cd /root/Fz3b_BoardCheck; timeout 240 /root/Fz3b_BoardCheck_r1/build_board/board_check -i /root/test.ppm --auto-thr --save --ai --ai-res 512 --ai-golden-x golden/v512_x.bin --ai-golden-final golden/v512_final.bin --outdir /data/nv_acceptance/after/boardcheck --compare-baseline"
+}

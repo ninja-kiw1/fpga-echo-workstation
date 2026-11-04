@@ -1,0 +1,55 @@
+=== PC_UTC 2026-10-17T04:42:30.456939+00:00
+$ gcc -O2 -std=gnu99 -Wall -pthread hog.c -o hog && CB=/root/cpu_baseline && gcc -O3 -std=c99 -Wall -Wextra -fopenmp -I$CB/net -mcpu=cortex-a53 -o cpu_unet_lat_fundus cpu_unet_lat.c $CB/net/fundus_unet_net_data.c && gcc -O3 -std=c99 -Wall -Wextra -fopenmp -I$CB/net -mcpu=cortex-a53 -o cpu_unet_lat_skin cpu_unet_lat.c $CB/net/skin_unet_net_data.c && ls -la hog cpu_unet_lat_*; OMP_NUM_THREADS=4 ./cpu_unet_lat_skin $CB/vectors/skin_128.rgb $CB/vectors/skin_128.i8 128 128 3
+cpu_unet_lat.c: In function ‘main’:
+cpu_unet_lat.c:444:27: warning: missing terminating " character
+         if (r > 0) printf("RUN %d %.3f
+                           ^
+cpu_unet_lat.c:444:27: error: missing terminating " character
+         if (r > 0) printf("RUN %d %.3f
+                           ^~~~~~~~~~~~
+cpu_unet_lat.c:445:1: warning: missing terminating " character
+ ", r, 1e3 * times[r]);   /* perf_j: per-run latency */
+ ^
+cpu_unet_lat.c:445:1: error: missing terminating " character
+ ", r, 1e3 * times[r]);   /* perf_j: per-run latency */
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cpu_unet_lat.c:446:5: error: expected expression before ‘}’ token
+     }
+     ^
+cpu_unet_lat.c:446:5: error: expected ‘;’ before ‘}’ token
+bash: ./cpu_unet_lat_skin: No such file or directory
+
+exit=127
+=== PC_UTC 2026-10-17T04:42:40.135002+00:00
+$ CB=/root/cpu_baseline && gcc -O3 -std=c99 -Wall -Wextra -fopenmp -I$CB/net -mcpu=cortex-a53 -o cpu_unet_lat_fundus cpu_unet_lat.c $CB/net/fundus_unet_net_data.c && gcc -O3 -std=c99 -Wall -Wextra -fopenmp -I$CB/net -mcpu=cortex-a53 -o cpu_unet_lat_skin cpu_unet_lat.c $CB/net/skin_unet_net_data.c && ls -la hog cpu_unet_lat_*; OMP_NUM_THREADS=4 ./cpu_unet_lat_skin $CB/vectors/skin_128.rgb $CB/vectors/skin_128.i8 128 128 3
+cpu_unet_lat.c: In function ‘main’:
+cpu_unet_lat.c:444:27: warning: missing terminating " character
+         if (r > 0) printf("RUN %d %.3f
+                           ^
+cpu_unet_lat.c:444:27: error: missing terminating " character
+         if (r > 0) printf("RUN %d %.3f
+                           ^~~~~~~~~~~~
+cpu_unet_lat.c:445:1: warning: missing terminating " character
+ ", r, 1e3 * times[r]);   /* perf_j: per-run latency */
+ ^
+cpu_unet_lat.c:445:1: error: missing terminating " character
+ ", r, 1e3 * times[r]);   /* perf_j: per-run latency */
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cpu_unet_lat.c:446:5: error: expected expression before ‘}’ token
+     }
+     ^
+cpu_unet_lat.c:446:5: error: expected ‘;’ before ‘}’ token
+bash: ./cpu_unet_lat_skin: No such file or directory
+
+exit=127
+=== PC_UTC 2026-10-17T04:42:51.559428+00:00
+$ CB=/root/cpu_baseline && gcc -O3 -std=c99 -Wall -Wextra -fopenmp -I$CB/net -mcpu=cortex-a53 -o cpu_unet_lat_fundus cpu_unet_lat.c $CB/net/fundus_unet_net_data.c && gcc -O3 -std=c99 -Wall -Wextra -fopenmp -I$CB/net -mcpu=cortex-a53 -o cpu_unet_lat_skin cpu_unet_lat.c $CB/net/skin_unet_net_data.c && ls -la hog cpu_unet_lat_*; OMP_NUM_THREADS=4 ./cpu_unet_lat_skin $CB/vectors/skin_128.rgb $CB/vectors/skin_128.i8 128 128 3
+-rwxr-xr-x 1 root root 72088 Aug 31 20:59 cpu_unet_lat_fundus
+-rwxr-xr-x 1 root root 72080 Aug 31 20:59 cpu_unet_lat_skin
+-rwxr-xr-x 1 root root 14000 Aug 31 20:58 hog
+RUN 1 36.430
+RUN 2 35.131
+RUN 3 34.834
+RESULT impl=neon_blocked res=128x128 threads=4 runs=3 min_ms=34.83 median_ms=35.13 mean_ms=35.46 gmac=0.1267 gmacps=3.639 mismatches=0/16384 BIT_EXACT
+
+exit=0

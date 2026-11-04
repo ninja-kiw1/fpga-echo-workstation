@@ -1,0 +1,37 @@
+ssh ok
+INSMOD_RC=1
+
+[12567.800128] gdmatest: [2] BRAM -> DDR (read)     ok      62 us  1053.29 MB/s  (65536 B)
+[12567.800132] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12567.805370] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/16384
+[12567.805396] gdmatest: GDMA_DONE mode=1
+[12568.920636] gdmatest: channel ok: fd500000.dma  copy_align=0  dirs=0x0
+[12568.920643] gdmatest: params: mode=1 len=262144 bram=0xb0000000 tmo=3000ms
+[12568.921352] gdmatest: coherent bufs: A=0x39ec0000 B=0x39f00000 (cpu ffffff800e2dd000 ffffff800e31e000)
+[12568.922450] gdmatest: [1] DDR -> DDR             ok      69 us  3794.18 MB/s  (262144 B)
+[12568.950089] gdmatest:     DDR->DDR verify: mismatch=0/262144
+[12568.950093] gdmatest: [2] mapping BRAM 0xb0000000 len=262144 for DMA
+[12568.950096] gdmatest:     bram dma addr = 0xb0000000
+[12568.950339] gdmatest: [2] BRAM -> DDR (read)     ok     206 us  1269.88 MB/s  (262144 B)
+[12568.950343] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12568.971261] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/65536
+[12568.971304] gdmatest: GDMA_DONE mode=1
+[12776.736636] gdmatest: channel ok: fd500000.dma  copy_align=0  dirs=0x0
+[12776.736643] gdmatest: params: mode=2 len=262144 bram=0xb0000000 tmo=3000ms
+[12776.737391] gdmatest: coherent bufs: A=0x39ec0000 B=0x39f00000 (cpu ffffff800e558000 ffffff800e599000)
+[12776.738489] gdmatest: [1] DDR -> DDR             ok      71 us  3663.73 MB/s  (262144 B)
+[12776.766268] gdmatest:     DDR->DDR verify: mismatch=0/262144
+[12776.766271] gdmatest: [2] mapping BRAM 0xb0000000 len=262144 for DMA
+[12776.766275] gdmatest:     bram dma addr = 0xb0000000
+[12776.766521] gdmatest: [2] BRAM -> DDR (read)     ok     207 us  1261.81 MB/s  (262144 B)
+[12776.766525] gdmatest:     head: 000fffe3 000d0008 0001ffd8 0003ffee
+[12776.787374] gdmatest:     DMA vs CPU 逐字对账: mismatch=0/65536
+[12776.788315] gdmatest: [3] DDR -> BRAM (write)    ok     194 us  1345.76 MB/s  (262144 B)
+[12776.788556] gdmatest:     BRAM -> DDR (re-read)  ok     203 us  1286.14 MB/s  (262144 B)
+[12776.816132] gdmatest:     DMA 回读校验: mismatch=0/262144
+[12776.836935] gdmatest:     CPU 回读校验: mismatch=0/65536
+[12776.836973] gdmatest: GDMA_DONE mode=2
+
+
+GDMA_STAGE2_DONE
+EXIT=0 

@@ -1,0 +1,123 @@
+
+****** vitis-run v2025.2.1 (64-bit)
+  **** SW Build 6397637 on 2026-03-13-19:08:23
+  **** Start of session at: Thu Oct  1 23:55:45 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2.1 6397637
+Sourcing Tcl script 'E:/fpga/my_project/tcp_image_rx/ai/net/run_csim_small.tcl'
+### csim vecdir = E:/fpga/my_project/tcp_image_rx/ai/net/vectors_small_alt
+INFO: [HLS 200-1510] Running: open_project net_small 
+WARNING: [HLS 200-2182] The 'net_small' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/net/build_csim/net_small'.
+INFO: [HLS 200-1510] Running: set_top conv_layer 
+INFO: [HLS 200-1510] Running: add_files E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp -cflags -IE:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src 
+INFO: [HLS 200-10] Adding design file 'E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp -cflags -IE:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src 
+INFO: [HLS 200-10] Adding design file 'E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/fpga/my_project/tcp_image_rx/ai/net/tb_network_dump.cpp -cflags -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/fpga/my_project/tcp_image_rx/ai/net/tb_network_dump.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'E:/fpga/my_project/tcp_image_rx/ai/net/build_csim/net_small/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -O -argv E:/fpga/my_project/tcp_image_rx/ai/net/vectors_small_alt 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building optimized C Simulation binaries
+   Compiling ../../../../../tb_network_dump.cpp in release mode
+   Compiling ../../../../../../../../PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp in release mode
+   Compiling ../../../../../../../../PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp in release mode
+   Generating csim.exe
+In file included from ../../../../../tb_network_dump.cpp:9:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\ap_int.h:10:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\etc/ap_common.h:668:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\etc/ap_private.h:68:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\hls_half.h:26:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\hls_fpo.h:140:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+E:/fpga/vivado/2025.2.1/Vitis/include\gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+E:/fpga/vivado/2025.2.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../../../../PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.cpp:1:
+In file included from E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_eltwise/src/eltwise_layer.hpp:3:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\ap_int.h:10:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\etc/ap_common.h:668:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\etc/ap_private.h:68:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\hls_half.h:26:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\hls_fpo.h:140:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+E:/fpga/vivado/2025.2.1/Vitis/include\gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+E:/fpga/vivado/2025.2.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../../../../PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.cpp:1:
+In file included from E:/fpga/my_project/PLD_share_20260929/PLD/medical_fpga/deployment/unet_conv/src/conv_layer.hpp:3:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\ap_int.h:10:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\etc/ap_common.h:668:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\etc/ap_private.h:68:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\hls_half.h:26:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include\hls_fpo.h:140:
+In file included from E:/fpga/vivado/2025.2.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+E:/fpga/vivado/2025.2.1/Vitis/include\gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+E:/fpga/vivado/2025.2.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+node 0 x 32x32x3 (padded 8)
+node 1 first_block_2 32x32x8 (padded 8)
+node 2 first_block_5 32x32x8 (padded 8)
+node 3 first_shortcut_1 32x32x8 (padded 8)
+node 4 add 32x32x8 (padded 8)
+node 5 down_path_0_pool 16x16x8 (padded 8)
+node 6 down_path_0_block_2 16x16x16 (padded 16)
+node 7 down_path_0_block_5 16x16x16 (padded 16)
+node 8 down_path_0_shortcut_1 16x16x16 (padded 16)
+node 9 add_1 16x16x16 (padded 16)
+node 10 down_path_1_pool 8x8x16 (padded 16)
+node 11 down_path_1_block_2 8x8x32 (padded 32)
+node 12 down_path_1_block_5 8x8x32 (padded 32)
+node 13 down_path_1_shortcut_1 8x8x32 (padded 32)
+node 14 add_2 8x8x32 (padded 32)
+node 15 up_path_0_up_layer_block_0 16x16x16 (padded 16)
+node 16 up_path_0_conv_bridge_layer_block_2 16x16x16 (padded 16)
+node 17 cat 16x16x32 (padded 32)
+node 18 up_path_0_conv_layer_block_2 16x16x16 (padded 16)
+node 19 up_path_0_conv_layer_block_5 16x16x16 (padded 16)
+node 20 up_path_0_conv_layer_shortcut_1 16x16x16 (padded 16)
+node 21 add_3 16x16x16 (padded 16)
+node 22 up_path_1_up_layer_block_0 32x32x8 (padded 8)
+node 23 up_path_1_conv_bridge_layer_block_2 32x32x8 (padded 8)
+node 24 cat_1 32x32x16 (padded 16)
+node 25 up_path_1_conv_layer_block_2 32x32x8 (padded 8)
+node 26 up_path_1_conv_layer_block_5 32x32x8 (padded 8)
+node 27 up_path_1_conv_layer_shortcut_1 32x32x8 (padded 8)
+node 28 add_4 32x32x8 (padded 8)
+node 29 final 32x32x1 (padded 8)
+SUMMARY nodes=30 OK
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:07; Allocated memory: 0.426 MB.
+CSIM_SMALL_DONE
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 11.711 seconds; peak allocated memory: 159.633 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 13s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
+EXITCODE=0 

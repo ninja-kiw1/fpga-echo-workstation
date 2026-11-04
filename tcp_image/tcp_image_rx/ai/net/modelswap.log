@@ -1,0 +1,29 @@
+=== [1/3] 部署模型 B (final 层的 mult/offset 取负) ===
+[gen] unet_net.h + unet_net_data.c -> E:/fpga/my_project/Tcp_Image_Rx\src
+      nodes=30  in=32x32x3  out=32x32x1  params=41024 B  total=5744/8192 words
+   gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+   active
+
+=== [2/3] 用 test.ppm 看看识别结果 ===
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x000B ['proc', 'mask']   aiparam=0xFD00 (src=raw thr=-3)   头=v3
+图像: test.ppm —— Netpbm P6 512x512 maxval=255 → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789512 字节
+[1] total=   74.0 ms  (send    2.2 + reply   71.8)  proc(rows_ok=512) mask(rows_ok=512)
+      AI: 32x32 thr=-3 vessels=1011/1024 (98.7%) comps=1 logit[-14..86] ai_us=2880 gray[0..197] mode=0 frame=1
+summary: n=1  min=74.0  max=74.0  avg=74.0 ms
+save: mask -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\test_mask_modelB.png
+CLI_DONE
+   -> E:/fpga/my_project/Tcp_Image_Rx/ai/net\e2e_out\test_mask_modelB.png
+
+=== [3/3] 恢复模型 A 并重新部署 ===
+[gen] unet_net.h + unet_net_data.c -> E:/fpga/my_project/Tcp_Image_Rx\src
+      nodes=30  in=32x32x3  out=32x32x1  params=41024 B  total=5744/8192 words
+   gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+   active
+
+MODEL_SWAP_DONE ok=True

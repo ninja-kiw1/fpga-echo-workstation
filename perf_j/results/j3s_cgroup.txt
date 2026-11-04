@@ -1,0 +1,7 @@
+2026-10-17 ~06:35 UTC, v5.17 51780377 active (read-only check after j3s_server.py)
+server  /proc/<pid>/cgroup: 6:cpu,cpuacct:/system.slice ; 0::/system.slice/tcp-image-server.service
+ssh     /proc/self/cgroup : 6:cpu,cpuacct:/user.slice/user-0.slice/session-55.scope   (hog runs here)
+cgroup v1 cpu,cpuacct mounted; systemd: CPUAccounting=no, CPUShares/CPUWeight not set
+/sys/fs/cgroup/cpu,cpuacct/system.slice/cpu.shares = 1024, user.slice/cpu.shares = 1024
+=> CFS splits CPU between system.slice and user.slice first (equal shares); Nice=-20 only orders threads inside system.slice.
+   strict_net_test under `nice -n -20` ran in the same session scope as hog -> nice effective there.

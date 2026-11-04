@@ -1,0 +1,15 @@
+=== deploy ===
+gcc -O2 -Wall -Wextra -std=c99 -D_GNU_SOURCE -Isrc -c -o build/unet_ai.o src/unet_ai.c
+gcc  -o tcp_image_server build/axilproc.o build/crc16.o build/tcp_image_server.o build/axidma.o build/axigpio.o build/ai_view.o build/unet_net_data.o build/unet_ai.o 
+== built: tcp_image_server (for aarch64 Linux)
+active
+
+Í¼Æ¬: Netpbm P6 512x512 maxval=255 ¡ú ³ß´çÒÑÊÇ 512x512£¬Î´ÖØ²ÉÑù£¨Öð×Ö½Ú²»±ä£©
+Otsu ÍÆ¼öãÐÖµ: Otsu ×Ô¶¯ãÐÖµ = 71£¨»Ò¶È ¡Ü 71 Õ¼ 38.1%£¬Í¼Àï»á·Ö³É 162352 ¸ö°×/99792 ¸öºÚ£©
+thr= 71  °×ÏñËØ 163773/262144 ( 62.5%)  Óë PC ¸´Ëã²îÒì 0 ×Ö½Ú  ->  PASS   (56.9 ms)
+thr= 40  °×ÏñËØ 191757/262144 ( 73.1%)  Óë PC ¸´Ëã²îÒì 0 ×Ö½Ú  ->  PASS   (54.7 ms)
+thr=100  °×ÏñËØ 111859/262144 ( 42.7%)  Óë PC ¸´Ëã²îÒì 0 ×Ö½Ú  ->  PASS   (56.1 ms)
+thr=160  °×ÏñËØ   4887/262144 (  1.9%)  Óë PC ¸´Ëã²îÒì 0 ×Ö½Ú  ->  PASS   (55.8 ms)
+thr=200  °×ÏñËØ      0/262144 (  0.0%)  Óë PC ¸´Ëã²îÒì 0 ×Ö½Ú  ->  PASS   (55.7 ms)
+
+THR_TEST_DONE fails=0

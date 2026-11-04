@@ -1,0 +1,209 @@
+{
+  "image": "im0324",
+  "time": "20260928_234414",
+  "readback_only": false,
+  "xsct_returncodes": [
+    0,
+    0
+  ],
+  "steps": [
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz",
+    "bitstream programmed",
+    "psu_init done (clocks, DDR, PS-PL isolation removed)",
+    "DDR read/write ok",
+    "both IPs idle",
+    "parameters and input loaded",
+    "connected:   1* Digilent JTAG-SMT2 C305A5A0ABCD, JTAG 5000000 Hz",
+    "read-back only (no reset, no reprogramming)",
+    "finished"
+  ],
+  "network_completed": true,
+  "elapsed_s": 169.56122279167175,
+  "ddr_base": 268435456,
+  "ddr_bytes": 89751552,
+  "loads": [
+    [
+      "first_block_2.bin",
+      "768",
+      "35",
+      "attempts=1"
+    ],
+    [
+      "first_block_5.bin",
+      "768",
+      "31",
+      "attempts=1"
+    ],
+    [
+      "first_shortcut_1.bin",
+      "256",
+      "19",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_block_2.bin",
+      "1536",
+      "48",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_block_5.bin",
+      "2688",
+      "52",
+      "attempts=1"
+    ],
+    [
+      "down_path_0_shortcut_1.bin",
+      "512",
+      "30",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_block_2.bin",
+      "5376",
+      "86",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_block_5.bin",
+      "9984",
+      "208",
+      "attempts=1"
+    ],
+    [
+      "down_path_1_shortcut_1.bin",
+      "1280",
+      "34",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_up_layer_block_0.bin",
+      "2432",
+      "46",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_bridge_layer_block_2.bin",
+      "2688",
+      "53",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_block_2.bin",
+      "4992",
+      "93",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_block_5.bin",
+      "2688",
+      "67",
+      "attempts=1"
+    ],
+    [
+      "up_path_0_conv_layer_shortcut_1.bin",
+      "896",
+      "28",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_up_layer_block_0.bin",
+      "704",
+      "36",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_bridge_layer_block_2.bin",
+      "768",
+      "33",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_block_2.bin",
+      "1344",
+      "52",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_block_5.bin",
+      "768",
+      "39",
+      "attempts=1"
+    ],
+    [
+      "up_path_1_conv_layer_shortcut_1.bin",
+      "320",
+      "30",
+      "attempts=1"
+    ],
+    [
+      "final.bin",
+      "256",
+      "22",
+      "attempts=1"
+    ],
+    [
+      "input.bin",
+      "4194304",
+      "55736",
+      "attempts=1"
+    ]
+  ],
+  "dumps": [
+    [
+      "final.bin",
+      "4194304",
+      "36899"
+    ]
+  ],
+  "node_us_upper_bound": {
+    "first_block_2": 30459,
+    "first_block_5": 30859,
+    "first_shortcut_1": 9425,
+    "add": 5721,
+    "down_path_0_pool": 4147,
+    "down_path_0_block_2": 14738,
+    "down_path_0_block_5": 27614,
+    "down_path_0_shortcut_1": 4967,
+    "add_1": 3389,
+    "down_path_1_pool": 2145,
+    "down_path_1_block_2": 14013,
+    "down_path_1_block_5": 41330,
+    "down_path_1_shortcut_1": 3257,
+    "add_2": 1947,
+    "up_path_0_up_layer_block_0": 8102,
+    "up_path_0_conv_bridge_layer_block_2": 27209,
+    "cat": 4801,
+    "up_path_0_conv_layer_block_2": 51886,
+    "up_path_0_conv_layer_block_5": 28210,
+    "up_path_0_conv_layer_shortcut_1": 10473,
+    "add_3": 3777,
+    "up_path_1_up_layer_block_0": 16683,
+    "up_path_1_conv_bridge_layer_block_2": 32331,
+    "cat_1": 7959,
+    "up_path_1_conv_layer_block_2": 56914,
+    "up_path_1_conv_layer_block_5": 30793,
+    "up_path_1_conv_layer_shortcut_1": 14944,
+    "add_4": 6838,
+    "final": 9302
+  },
+  "network_us_upper_bound": 1601861,
+  "jtag_hz": 5000000,
+  "jtag_retries": [
+    "DUMPRETRY 5 chunk re-reads at 0x10018000",
+    "JTAGRETRY 1: Memory read error at 0x15418000. Invalid DAP IDCODE 30800000. Invalid DAP ACK value: 7",
+    "JTAGRETRY 2: Invalid context",
+    "JTAGRETRY 3: Invalid context",
+    "JTAGRETRY 4: Invalid context",
+    "JTAGRETRY 5: Invalid context",
+    "DUMPRETRY 1 chunk re-reads at 0x15198000"
+  ],
+  "compare": [
+    {
+      "node": "final",
+      "values": 2097152,
+      "mismatches": 0
+    }
+  ],
+  "passed": true
+}

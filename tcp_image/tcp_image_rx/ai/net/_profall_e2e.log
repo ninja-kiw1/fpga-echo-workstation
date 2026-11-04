@@ -1,0 +1,99 @@
+ssh ok
+PORT_FREE
+SERVER_ALIVE
+
+--- PC: 512 全回传 proc+mask+overlay+stats ---
+   [1] total=  951.3 ms  (send    2.3 + reply  948.9)  proc(rows_ok=512) overlay(rows_ok=512) mask(rows_ok=512)
+   AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=841513 gray[0..197] mode=0 frame=1
+
+--- PC: 512 只算不传 ---
+   [1] total=  833.0 ms  (send    1.9 + reply  831.1)  (no image)
+   AI: 512x512 thr=-3 vessels=16458/262144 (6.3%) comps=12587 logit[-107..100] ai_us=777315 gray[0..197] mode=0 frame=2
+
+--- PC: 256 只算不传 ---
+   [1] total=  238.6 ms  (send    2.5 + reply  236.1)  (no image)
+   AI: 256x256 thr=-3 vessels=4317/65536 (6.6%) comps=69 logit[-105..65] ai_us=189211 gray[0..197] mode=0 frame=3
+
+--- PC: 128 只算不传 ---
+   [1] total=   96.4 ms  (send    2.6 + reply   93.8)  (no image)
+   AI: 128x128 thr=-3 vessels=761/16384 (4.6%) comps=67 logit[-110..47] ai_us=48562 gray[0..197] mode=0 frame=4
+
+--- PC: 64  只算不传 ---
+   [1] total=   60.8 ms  (send    2.2 + reply   58.6)  (no image)
+   AI: 64x64 thr=-3 vessels=120/4096 (2.9%) comps=15 logit[-103..39] ai_us=13333 gray[0..197] mode=0 frame=5
+
+--- PC: 32  只算不传 ---
+   [1] total=   51.1 ms  (send    2.2 + reply   49.0)  (no image)
+   AI: 32x32 thr=-3 vessels=37/1024 (3.6%) comps=4 logit[-86..14] ai_us=4197 gray[0..197] mode=0 frame=6
+
+[板端日志已存 _prof_all_server.log, 313 行]
+active
+LISTEN   0         1                   0.0.0.0:5060             0.0.0.0:*
+
+===== 板端分段摘要 =====
+
+-- TCP 收帧 --
+   [rx] timing: recv=21 ms  parse(crc+copy)=8 ms  frame_crc=6 ms  total=35 ms
+   [rx] timing: recv=9 ms  parse(crc+copy)=7 ms  frame_crc=7 ms  total=23 ms
+   [rx] timing: recv=9 ms  parse(crc+copy)=8 ms  frame_crc=6 ms  total=23 ms
+   [rx] timing: recv=9 ms  parse(crc+copy)=8 ms  frame_crc=6 ms  total=23 ms
+   [rx] timing: recv=24 ms  parse(crc+copy)=7 ms  frame_crc=7 ms  total=38 ms
+   [rx] timing: recv=18 ms  parse(crc+copy)=8 ms  frame_crc=6 ms  total=32 ms
+
+-- 紧包->32bpp --
+   [mem] expand to 32bpp = 2739 us
+   [mem] expand to 32bpp = 2735 us
+   [mem] expand to 32bpp = 2722 us
+   [mem] expand to 32bpp = 2720 us
+   [mem] expand to 32bpp = 2734 us
+   [mem] expand to 32bpp = 2740 us
+
+-- PL 预处理往返 --
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 21 ms
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+   [axil] round-trip ok: mode=0 (pl=0) min=0 max=197, 20 ms
+
+-- AI 整段 --
+   [ai] src=raw 512x512->512x512 thr=-3  vessels=16458/262144 (62 permille)  comps=12587  logit[-107..100]  851 ms
+   [ai] src=raw 512x512->512x512 thr=-3  vessels=16458/262144 (62 permille)  comps=12587  logit[-107..100]  787 ms
+   [ai] src=raw 256x256->256x256 thr=-3  vessels=4317/65536 (65 permille)  comps=69  logit[-105..65]  192 ms
+   [ai] src=raw 128x128->128x128 thr=-3  vessels=761/16384 (46 permille)  comps=67  logit[-110..47]  50 ms
+   [ai] src=raw 64x64->64x64 thr=-3  vessels=120/4096 (29 permille)  comps=15  logit[-103..39]  14 ms
+   [ai] src=raw 32x32->32x32 thr=-3  vessels=37/1024 (36 permille)  comps=4  logit[-86..14]  5 ms
+
+-- AI 内部四段 --
+   [prof] total=841513 us  ap=531502  put=110629  get=184419  zero=219  other=14744
+   [prof] total=777315 us  ap=531434  put=108297  get=125411  zero=226  other=11947
+   [prof] total=189211 us  ap=128439  put=25831  get=31420  zero=115  other=3406
+   [prof] total=48562 us  ap=32971  put=6189  get=8129  zero=54  other=1219
+   [prof] total=13333 us  ap=9020  put=1553  get=2253  zero=19  other=488
+   [prof] total=4197 us  ap=2667  put=373  get=920  zero=12  other=225
+
+-- get DMA 细分 --
+   [prof] get DMA detail: xfers=826  ioctl=89258 us  bounce_memcpy=94784 us
+   [prof] get DMA detail: xfers=826  ioctl=88220 us  bounce_memcpy=36871 us
+   [prof] get DMA detail: xfers=213  ioctl=22133 us  bounce_memcpy=9200 us
+   [prof] get DMA detail: xfers=66  ioctl=5766 us  bounce_memcpy=2334 us
+   [prof] get DMA detail: xfers=29  ioctl=1622 us  bounce_memcpy=618 us
+   [prof] get DMA detail: xfers=29  ioctl=719 us  bounce_memcpy=181 us
+
+-- 搬运字数 --
+   [prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+   [prof] strips=826  put=7322564 words  get=5341184 words  params=48068 words
+   [prof] strips=213  put=1777032 words  get=1335296 words  params=12680 words
+   [prof] strips=66  put=439184 words  get=333824 words  params=4240 words
+   [prof] strips=29  put=110084 words  get=83456 words  params=2564 words
+   [prof] strips=29  put=29444 words  get=20864 words  params=2564 words
+
+-- 回传 --
+   [echo] flags=0x000F sent in 45 ms
+   [echo] flags=0x0018 sent in 0 ms
+   [echo] flags=0x0018 sent in 0 ms
+   [echo] flags=0x0018 sent in 0 ms
+   [echo] flags=0x0018 sent in 0 ms
+   [echo] flags=0x0018 sent in 0 ms
+
+PROF_ALL_E2E_DONE

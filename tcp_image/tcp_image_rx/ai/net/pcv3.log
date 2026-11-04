@@ -1,0 +1,99 @@
+===== _verify_pc.py =====
+proto self-check OK; WIRE_TOTAL_BYTES=789508
+py_compile OK: proto.py
+py_compile OK: imageio.py
+py_compile OK: imagelink.py
+py_compile OK: app.py
+save_image .rgb round-trip OK
+save_image .ppm round-trip OK
+save_image .png OK (Pillow present)
+PC VERIFY OK
+PC_RC=0
+
+===== _verify_formats.py =====
+=== 1) 512x512 各格式 save -> load 往返 ===
+  OK   save/load .ppm 逐字节一致
+  OK   save/load .pnm 逐字节一致
+  OK   save/load .pam 逐字节一致
+  OK   save/load .pgm 长度正确
+  OK   save/load .pbm 长度正确
+  OK   save/load .rgb 逐字节一致
+  OK   pgm 解码 == (77R+150G+29B)>>8 灰度
+  OK   pbm 解码 == 灰度<128 为黑
+
+=== 2) ASCII 变体 (P1/P2/P3) ===
+  OK   P3 ASCII 像素
+  OK   P3 ASCII 尺寸(字节数)
+  OK   P2 ASCII (maxval=15, CRLF)
+  OK   P1 ASCII (1=黑)
+
+=== 3) 二进制边界 ===
+  OK   P6 首字节=0x0A 不被吞
+  OK   P5 16bit 缩放 65535->255 / 32768->128 / 0->0
+  OK   P4 宽度=5 位打包
+  OK   P7 PAM RGBA 丢 alpha
+
+=== 4) load_image 分发(按文件头, 不看扩展名) ===
+  OK   扩展名不是 .ppm 也按 netpbm 解(长度)
+  OK   note 认出是 Netpbm
+     note: Netpbm P6 2x1 maxval=255 → 已拉伸为 512x512（Pillow LANCZOS）
+
+=== 5) 非 512x512 的 netpbm 会被拉伸到 512x512 ===
+  OK   3x2 -> 512x512 字节数
+     note: Netpbm PBM 3x2 (1=黑) → 已拉伸为 512x512（Pillow LANCZOS）
+
+=== 6) 存回来的 .pgm/.pbm 能被自己读回 (闭环) ===
+  OK   闭环 .pgm 长度
+  OK   闭环 .pbm 长度
+  OK   闭环 .pam 长度
+  OK   闭环 .pnm 长度
+
+FORMAT VERIFY OK
+FMT_RC=0
+
+===== _verify_threshold.py =====
+=== 1) 直方图与朴素实现一致 ===
+  OK   bars 直方图
+  OK   bars 直方图总数
+  OK   灰度权重与 _luma_gray 一致
+
+=== 2) 手造双峰图: Otsu 应落在两峰之间 ===
+  OK   双峰(40/200) Otsu 落在 40..199
+     Otsu 一级(背景/物体) = 40：灰度 <40 的 0 像素判黑、262144 判白（黑占 0.0%）
+
+=== 3) 极端图: 全黑 / 全白 ===
+  OK   全黑图不崩且给默认值
+  OK   全白图不崩且给默认值
+
+=== 4) 真实眼底图 test.ppm ===
+     Otsu 一级(背景/物体) = 71：灰度 <71 的 98371 像素判黑、163773 判白（黑占 37.5%）；物体内部二级 Otsu = 115（126 个灰阶、占 61.9% 的像素在它之上）
+     灰度 < 71 的像素占 37.5%（判决为黑）
+
+=== 5) 内置图样 ===
+     bars       Otsu = 79
+     checker    Otsu = 0
+     gradient   Otsu = 126
+
+=== 6) v4 控制头打包 ===
+  OK   v4 流长度
+  OK   v4 magic
+  OK   v4 thr 字段
+  OK   v4 mode 字段
+  OK   v3 流长度
+  OK   thr 越界会报错
+
+THRESHOLD VERIFY OK
+THR_RC=0
+
+===== imagelink.py with a real PNG file =====
+proto self-check: OK
+模式: 0 (灰度归一化)   flags=0x0009 ['proc']   aiparam=0xFD00 (src=raw thr=-3 res=512)   头=v4
+图像: E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\proc_00_tcp_out.png —— 512x512 RGB → 尺寸已是 512x512，未重采样（逐字节不变）
+上线总长 789516 字节
+阈值分割: auto -> Otsu 一级(背景/物体) = 105：灰度 <105 的 98304 像素判黑、163840 判白（黑占 37.5%）
+[1] total= 2134.7 ms  (send    2.2 + reply 2132.5)  proc(rows_ok=512)
+      AI: 512x512 thr=-3 vessels=590/262144 (0.2%) comps=408 logit[-114..28] ai_us=2070955 gray[0..254] mode=0 frame=6
+summary: n=1  min=2134.7  max=2134.7  avg=2134.7 ms
+save: proc -> E:\fpga\my_project\Tcp_Image_Rx\ai\net\e2e_out\from_png.ppm
+CLI_DONE
+CLI_RC=0

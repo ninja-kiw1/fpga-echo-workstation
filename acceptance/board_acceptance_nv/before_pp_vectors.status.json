@@ -1,0 +1,6 @@
+{
+  "label": "before_pp_vectors",
+  "pc_utc": "2026-11-03T13:34:57.199311+00:00",
+  "exitcode": 0,
+  "command": "set -eu; systemctl stop tcp-image-server; test -z \"$(pgrep -x tcp_image_serve || true)\"; cd /data/nv_acceptance/tools; timeout 600 ./pp_board_test vectors cases.txt 3"
+}

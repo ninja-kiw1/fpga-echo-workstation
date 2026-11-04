@@ -1,0 +1,120 @@
+{
+ "chain": "CAMUS live (v5.26)",
+ "f1_every": 5,
+ "f1_model": 2,
+ "win": 50,
+ "every": 10,
+ "fps": 50.0,
+ "features": [
+  "touch",
+  "apex_gap",
+  "length",
+  "round",
+  "unc",
+  "multi",
+  "contrast",
+  "stability",
+  "roughness"
+ ],
+ "w": [
+  -3.149819443426545,
+  0.3178682464347566,
+  0.48150027864477984,
+  -1.2818858266238888,
+  -0.15826644434758733,
+  1.6264498524234512,
+  0.10075934634749442,
+  -0.3611284645366828,
+  0.9457108051686465,
+  0.6509463259751448
+ ],
+ "mu": [
+  0.00284734609335547,
+  0.20381444415395286,
+  0.4946096067219466,
+  0.4893387430799507,
+  0.09866400295304256,
+  0.1907291666666702,
+  0.25534512413312865,
+  0.9124327362828573,
+  0.1470353134038731
+ ],
+ "sd": [
+  0.008771099414862033,
+  0.04119465540690209,
+  0.08490521546553075,
+  0.06216227395089595,
+  0.021198279143609583,
+  0.24301810971470011,
+  0.0788413008020744,
+  0.027123689561062536,
+  0.06945339999681366
+ ],
+ "t_green": -2.9812740740393764,
+ "t_red": -1.7158206795735704,
+ "view_every": 25,
+ "view_n": 3,
+ "view_t": 0.21930919683728672,
+ "rv_model": 21,
+ "val": {
+  "auc_poor": 0.9111338100102145,
+  "window_lights": {
+   "Good": [
+    234,
+    36,
+    30
+   ],
+   "Medium": [
+    67,
+    56,
+    111
+   ],
+   "Poor": [
+    1,
+    5,
+    60
+   ]
+  },
+  "view_acc": 0.91
+ },
+ "train_windows": 4800,
+ "dll_vs_python_max_abs_diff": 6.661338147750939e-16,
+ "source": "CAMUS TRAIN fit / VAL report (Leclerc 2019, CC BY-NC-SA 4.0); TEST not touched",
+ "hold_thr": 5.258,
+ "hold": {
+  "source": "hold_design.py: 99th pct of CAMUS TRAIN still-clip maxima x 1.2",
+  "window": 50,
+  "val": {
+   "still_clips": 100,
+   "still_false_share": 0.0,
+   "view_switch": {
+    "n": 50,
+    "detected": 1.0,
+    "false_before": 0.0,
+    "delay_median_frames": 15.5,
+    "delay_max_frames": 28
+   },
+   "patient_switch": {
+    "n": 50,
+    "detected": 1.0,
+    "false_before": 0.0,
+    "delay_median_frames": 12.0,
+    "delay_max_frames": 21
+   }
+  }
+ },
+ "engine": "f1",
+ "ef_a": 0.7614083826311825,
+ "ef_b": 5.682492623761915,
+ "engine_val": {
+  "source": "f1_engine.py: CAMUS streams 4 s, F1 keyframes + board tracker; a / b fitted on CAMUS TRAIN (ref = Info_<view>.cfg EF, biplane), VAL once",
+  "ef_mae": 6.116870331273226,
+  "r": 0.7907958485092663,
+  "hr_within_15pct": 0.92,
+  "baseline_program16": {
+   "ef_mae": 7.6,
+   "r": 0.63,
+   "hr_within_15pct": 0.88
+  }
+ }
+}

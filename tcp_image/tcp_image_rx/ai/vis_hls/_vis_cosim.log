@@ -1,0 +1,1476 @@
+
+****** vitis-run v2025.2 (64-bit)
+  **** SW Build 6295257 on 2025-11-13-08:29:27
+  **** Start of session at: Thu Oct 15 20:15:56 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script 'E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/run_hls_vis.tcl'
+INFO: [HLS 200-1510] Running: open_project vis_ip 
+WARNING: [HLS 200-2182] The 'vis_ip' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip'.
+INFO: [HLS 200-1510] Running: set_top vis_layer 
+INFO: [HLS 200-1510] Running: add_files E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src/vis_layer.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src 
+INFO: [HLS 200-10] Adding design file 'E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src/vis_layer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/tb/test_vis.cpp -cflags -IE:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/src -std=c++14 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/tb/test_vis.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb E:/PLD/tcp_image/tcp_image_rx/src/ai_view.c -cflags -IE:/PLD/tcp_image/tcp_image_rx/src -D_GNU_SOURCE 
+INFO: [HLS 200-10] Adding test bench file 'E:/PLD/tcp_image/tcp_image_rx/src/ai_view.c' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xazu3eg-sfvc784-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -flow=syn
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_addr64=0
+INFO: [HLS 200-1510] Running: set_part xazu3eg-sfvc784-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64=false 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.73 seconds; current allocated memory: 465.699 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file '../vis_hls/src/vis_layer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 10.6 seconds; current allocated memory: 468.098 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 40,141 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,696 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,937 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,906 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,896 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,178 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,995 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,995 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,995 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,118 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,945 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,875 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,831 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,831 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,862 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,860 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'ceil4(ap_int<9>)' into 'reg_eval(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128> const*, ap_uint<8> const (*) [256], ap_uint<9>, bool, ap_int<9>, ap_int<9>)' (../vis_hls/src/vis_layer.cpp:82:26)
+INFO: [HLS 214-131] Inlining function 'ap_int<(12) + (2)> mul2<12>(ap_uint<2>, ap_int<12>)' into 'reg_eval(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128> const*, ap_uint<8> const (*) [256], ap_uint<9>, bool, ap_int<9>, ap_int<9>)' (../vis_hls/src/vis_layer.cpp:125:57)
+INFO: [HLS 214-131] Inlining function 'ap_int<(9) + (2)> mul2<9>(ap_uint<2>, ap_int<9>)' into 'reg_eval(ap_uint<128> const*, ap_uint<128> const*, ap_uint<128> const*, ap_uint<8> const (*) [256], ap_uint<9>, bool, ap_int<9>, ap_int<9>)' (../vis_hls/src/vis_layer.cpp:124:59)
+INFO: [HLS 214-131] Inlining function 'uabs9(ap_int<9>)' into 'better(cand_t const&, cand_t const&)' (../vis_hls/src/vis_layer.cpp:72:73)
+INFO: [HLS 214-131] Inlining function 'fld(ap_uint<128> const*, int)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:144:20)
+INFO: [HLS 214-131] Inlining function 'better(cand_t const&, cand_t const&)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:256:30)
+INFO: [HLS 214-131] Inlining function 'ceil4(ap_int<9>)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:248:67)
+INFO: [HLS 214-131] Inlining function 'uabs9(ap_int<9>)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:248:73)
+INFO: [HLS 214-131] Inlining function 'span_ok(int, int)' into 'run_reg(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:174:82)
+INFO: [HLS 214-131] Inlining function 'rowpos_step(rowpos_t&, ap_uint<10>, ap_uint<10>)' into 'ovl_compute(ap_uint<128>*, ovl_t const&, rowpos_t&, rowpos_t&, int&, ap_uint<8>*, ap_uint<128>*, ap_uint<1> (*) [512], ap_uint<9> (*) [512], int, int)' (../vis_hls/src/vis_layer.cpp:346:5)
+INFO: [HLS 214-131] Inlining function 'fld(ap_uint<128> const*, int)' into 'run_ovl(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:483:20)
+INFO: [HLS 214-131] Inlining function 'span_ok(int, int)' into 'run_ovl(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:553:16)
+INFO: [HLS 214-131] Inlining function 'rowpos_step(rowpos_t&, ap_uint<10>, ap_uint<10>)' into 'run_ovl(ap_uint<128>*, ap_uint<128> const*)' (../vis_hls/src/vis_layer.cpp:546:9)
+INFO: [HLS 214-131] Inlining function 'span_ok(int, int)' into 'vis_layer(ap_uint<128>*, int)' (../vis_hls/src/vis_layer.cpp:600:10)
+INFO: [HLS 214-131] Inlining function 'fld(ap_uint<128> const*, int)' into 'vis_layer(ap_uint<128>*, int)' (../vis_hls/src/vis_layer.cpp:608:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_437_1' is marked as complete unroll implied by the pipeline pragma (../vis_hls/src/vis_layer.cpp:437:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_202_2' is marked as complete unroll implied by the pipeline pragma (../vis_hls/src/vis_layer.cpp:202:27)
+INFO: [HLS 214-291] Loop 'LANE' is marked as complete unroll implied by the pipeline pragma (../vis_hls/src/vis_layer.cpp:119:9)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_437_1' (../vis_hls/src/vis_layer.cpp:437:31) in function 'ovl_emit' completely with a factor of 3 (../vis_hls/src/vis_layer.cpp:382:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_282_4' (../vis_hls/src/vis_layer.cpp:282:23) in function 'run_reg' completely with a factor of 8 (../vis_hls/src/vis_layer.cpp:137:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_222_3' (../vis_hls/src/vis_layer.cpp:222:23) in function 'run_reg' completely with a factor of 8 (../vis_hls/src/vis_layer.cpp:137:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_202_2' (../vis_hls/src/vis_layer.cpp:202:27) in function 'run_reg' completely with a factor of 4 (../vis_hls/src/vis_layer.cpp:137:0)
+INFO: [HLS 214-186] Unrolling loop 'LANE' (../vis_hls/src/vis_layer.cpp:119:9) in function 'reg_eval' completely with a factor of 4 (../vis_hls/src/vis_layer.cpp:80:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'mem'. (../vis_hls/src/vis_layer.cpp:467:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_ovlP7ap_uintILi128EEPKS0_E2mb': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:469:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_ovlP7ap_uintILi128EEPKS0_E4vrow': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:471:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_ovlP7ap_uintILi128EEPKS0_E4ring': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:470:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL7run_regP7ap_uintILi128EEPKS0_E3tab': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:139:0)
+INFO: [HLS 214-248] Applying array_partition to 'steps': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:150:16)
+INFO: [HLS 214-248] Applying array_partition to 'ppx': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:219:16)
+INFO: [HLS 214-248] Applying array_partition to 'ppy': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:219:24)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../vis_hls/src/vis_layer.cpp:355:27)
+INFO: [HLS 214-248] Applying array_partition to 'kc': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../vis_hls/src/vis_layer.cpp:565:17)
+INFO: [HLS 214-248] Applying array_partition to 'ki': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:566:16)
+INFO: [HLS 214-248] Applying array_partition to 'd': Complete partitioning on dimension 1. (../vis_hls/src/vis_layer.cpp:601:12)
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_569_1> at ../vis_hls/src/vis_layer.cpp:569:23 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_155_1> at ../vis_hls/src/vis_layer.cpp:155:23 due to pipeline_loops threshold
+INFO: [HLS 214-437] Disabling loop flattening for loop 'PH'. (../vis_hls/src/vis_layer.cpp:228:5)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD_A'(../vis_hls/src/vis_layer.cpp:178:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:178:5)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LOAD_B'(../vis_hls/src/vis_layer.cpp:185:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:185:5)
+INFO: [HLS 214-115] Multiple burst reads of length 16 and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:198:5)
+INFO: [HLS 214-115] Multiple burst writes of length 4 and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:328:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LB'(../vis_hls/src/vis_layer.cpp:340:9) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:340:9)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 128 in loop 'LBASE'(../vis_hls/src/vis_layer.cpp:386:9) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:386:9)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 128 in loop 'SOUT'(../vis_hls/src/vis_layer.cpp:460:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:460:5)
+INFO: [HLS 214-115] Multiple burst reads of length 64 and bit width 128 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:559:9)
+INFO: [HLS 214-115] Multiple burst reads of length 5 and bit width 128 in loop 'DESC'(../vis_hls/src/vis_layer.cpp:604:5) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vis_hls/src/vis_layer.cpp:604:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 12.43 seconds; current allocated memory: 471.680 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.006 seconds; current allocated memory: 471.680 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.131 seconds; current allocated memory: 480.492 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] ../vis_hls/src/vis_layer.cpp:201: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.155 seconds; current allocated memory: 485.598 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:150:16) to (../vis_hls/src/vis_layer.cpp:155:23) in function 'run_reg'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:180:1) to (../vis_hls/src/vis_layer.cpp:178:5) in function 'run_reg'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:229:1) to (../vis_hls/src/vis_layer.cpp:240:9) in function 'run_reg'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:266:19) to (../vis_hls/src/vis_layer.cpp:228:5) in function 'run_reg'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../vis_hls/src/vis_layer.cpp:155:23) in function 'run_reg'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:166:23) to (../vis_hls/src/vis_layer.cpp:174:13) in function 'run_reg'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:538:1) to (../vis_hls/src/vis_layer.cpp:536:5) in function 'run_ovl'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (../vis_hls/src/vis_layer.cpp:511:9) in function 'run_ovl'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:517:22) to (../vis_hls/src/vis_layer.cpp:552:9) in function 'run_ovl'... converting 14 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:92:1) to (../vis_hls/src/vis_layer.cpp:90:5) in function 'reg_eval'... converting 31 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:403:1) to (../vis_hls/src/vis_layer.cpp:454:13) in function 'ovl_emit'... converting 51 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:352:1) to (../vis_hls/src/vis_layer.cpp:359:23) in function 'ovl_compute'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:365:30) to (../vis_hls/src/vis_layer.cpp:350:5) in function 'ovl_compute'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:336:21) to (../vis_hls/src/vis_layer.cpp:337:9) in function 'ovl_compute'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../vis_hls/src/vis_layer.cpp:346:21) to (../vis_hls/src/vis_layer.cpp:350:5) in function 'ovl_compute'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'run_reg' (../vis_hls/src/vis_layer.cpp:22:21)...9 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'run_ovl' (../vis_hls/src/vis_layer.cpp:22:5)...33 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'reg_eval' (../vis_hls/src/vis_layer.cpp:46:5)...3 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'ovl_emit' (../vis_hls/src/vis_layer.cpp:383:5)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.784 seconds; current allocated memory: 511.340 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.697 seconds; current allocated memory: 696.953 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'vis_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'vis_layer_Pipeline_DESC' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'DESC'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'DESC'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.241 seconds; current allocated memory: 701.680 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.025 seconds; current allocated memory: 702.676 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl_Pipeline_STEP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'STEP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'STEP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 703.340 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.035 seconds; current allocated memory: 703.391 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl_Pipeline_LUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LUT'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'LUT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.055 seconds; current allocated memory: 703.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.023 seconds; current allocated memory: 703.992 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl_Pipeline_VITIS_LOOP_569_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_569_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_569_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.787 seconds; current allocated memory: 704.230 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 704.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute_Pipeline_LL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LL'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'LL'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.036 seconds; current allocated memory: 704.656 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.024 seconds; current allocated memory: 704.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute_Pipeline_LB' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'LB'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.031 seconds; current allocated memory: 704.852 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.022 seconds; current allocated memory: 704.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute_Pipeline_CPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'CPIX'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'CPIX'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.064 seconds; current allocated memory: 705.895 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.036 seconds; current allocated memory: 706.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_compute' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln328_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln340_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.778 seconds; current allocated memory: 706.668 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 707.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit_Pipeline_LBASE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LBASE'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LBASE'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.055 seconds; current allocated memory: 707.340 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 707.551 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit_Pipeline_EPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'EPIX'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'EPIX'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.151 seconds; current allocated memory: 711.188 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.064 seconds; current allocated memory: 711.199 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit_Pipeline_SOUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'SOUT'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'SOUT'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.071 seconds; current allocated memory: 711.250 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.022 seconds; current allocated memory: 711.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ovl_emit' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=base) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=obase) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.552 seconds; current allocated memory: 711.625 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.032 seconds; current allocated memory: 711.676 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_ovl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.172 seconds; current allocated memory: 715.770 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.088 seconds; current allocated memory: 715.906 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_VITIS_LOOP_155_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_155_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_155_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.102 seconds; current allocated memory: 715.996 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 715.996 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_LOAD_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_A'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_A'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.043 seconds; current allocated memory: 716.102 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.023 seconds; current allocated memory: 716.301 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_LOAD_B' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LOAD_B'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_B'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.505 seconds; current allocated memory: 716.441 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.022 seconds; current allocated memory: 716.453 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg_Pipeline_FILL_T' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'FILL_T'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'FILL_T'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.038 seconds; current allocated memory: 716.832 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.025 seconds; current allocated memory: 716.832 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_eval_Pipeline_EVAL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'EVAL'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'EVAL'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.177 seconds; current allocated memory: 720.051 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.072 seconds; current allocated memory: 720.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_eval' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 720.227 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.024 seconds; current allocated memory: 720.387 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mul42' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.033 seconds; current allocated memory: 720.465 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.019 seconds; current allocated memory: 720.578 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'run_reg' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=maxrec_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=qy) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=qx) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.225 seconds; current allocated memory: 727.488 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.098 seconds; current allocated memory: 727.488 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'vis_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 727.500 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.035 seconds; current allocated memory: 727.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'vis_layer_Pipeline_DESC' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'vis_layer_Pipeline_DESC' pipeline 'DESC' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'vis_layer_Pipeline_DESC/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'vis_layer_Pipeline_DESC'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.517 seconds; current allocated memory: 729.133 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl_Pipeline_STEP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_ovl_Pipeline_STEP' pipeline 'STEP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl_Pipeline_STEP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.174 seconds; current allocated memory: 730.379 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl_Pipeline_LUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_ovl_Pipeline_LUT' pipeline 'LUT' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_ovl_Pipeline_LUT/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'partselect_24ns_128ns_7ns_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl_Pipeline_LUT'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.236 seconds; current allocated memory: 732.199 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl_Pipeline_VITIS_LOOP_569_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_5ns_12_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl_Pipeline_VITIS_LOOP_569_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.155 seconds; current allocated memory: 732.457 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute_Pipeline_LL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_compute_Pipeline_LL' pipeline 'LL' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LL/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'partselect_8ns_128ns_7ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute_Pipeline_LL'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.435 seconds; current allocated memory: 733.410 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute_Pipeline_LB' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_compute_Pipeline_LB' pipeline 'LB' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_compute_Pipeline_LB/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute_Pipeline_LB'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.162 seconds; current allocated memory: 734.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute_Pipeline_CPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_compute_Pipeline_CPIX' pipeline 'CPIX' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'bitselect_1ns_128ns_7ns_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_128_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute_Pipeline_CPIX'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.159 seconds; current allocated memory: 735.852 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_compute' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'run_ovl_ap_uint_128_ap_uint_128_const_mb_6' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_3ns_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_6ns_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_compute'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_ovl_compute_lb_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.351 seconds; current allocated memory: 739.727 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit_Pipeline_LBASE' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_emit_Pipeline_LBASE' pipeline 'LBASE' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_LBASE/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit_Pipeline_LBASE'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.33 seconds; current allocated memory: 742.859 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit_Pipeline_EPIX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_emit_Pipeline_EPIX' pipeline 'EPIX' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_1_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit_Pipeline_EPIX'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.199 seconds; current allocated memory: 744.762 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit_Pipeline_SOUT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ovl_emit_Pipeline_SOUT' pipeline 'SOUT' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ovl_emit_Pipeline_SOUT/m_axi_gmem_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit_Pipeline_SOUT'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.477 seconds; current allocated memory: 750.781 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ovl_emit' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_7ns_15ns_19_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_11s_7ns_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ovl_emit'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_ovl_emit_bb_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.162 seconds; current allocated memory: 751.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_ovl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] RTL name 'sparsemux_7_2_1_1_1' is changed to 'sparsemux_7_2_1_1_1_x' due to conflict.
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_7ns_17_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16ns_3ns_19_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16ns_6ns_22_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_1_1_1_x': 3 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_ovl'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_ovl_lut_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_vrow_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_ring_RAM_2P_LUTRAM_1R1W' using distributed RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.346 seconds; current allocated memory: 757.172 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_VITIS_LOOP_155_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_VITIS_LOOP_155_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.88 seconds; current allocated memory: 765.832 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_LOAD_A' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_reg_Pipeline_LOAD_A' pipeline 'LOAD_A' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_A/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_LOAD_A'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.625 seconds; current allocated memory: 766.801 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_LOAD_B' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_reg_Pipeline_LOAD_B' pipeline 'LOAD_B' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_LOAD_B/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_LOAD_B'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 767.734 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg_Pipeline_FILL_T' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'run_reg_Pipeline_FILL_T' pipeline 'FILL_T' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'run_reg_Pipeline_FILL_T/m_axi_gmem_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'partselect_8ns_128ns_7ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg_Pipeline_FILL_T'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.184 seconds; current allocated memory: 769.223 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_eval_Pipeline_EVAL' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'reg_eval_Pipeline_EVAL' pipeline 'EVAL' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_eval_Pipeline_EVAL'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.728 seconds; current allocated memory: 771.293 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_eval' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_eval'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.85 seconds; current allocated memory: 778.348 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mul42' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_25ns_17ns_42_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mul42'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.193 seconds; current allocated memory: 780.156 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'run_reg' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_7ns_7ns_5ns_13_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_7s_9s_9_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_11ns_11ns_17_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_7ns_7ns_13_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_6_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'run_reg'.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_reg_A_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'vis_layer_run_reg_run_reg_ap_uint_128_ap_uint_128_const_tab_RAM_1P_LUTRAM_1R1W' using distributed RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.233 seconds; current allocated memory: 782.730 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'vis_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'vis_layer/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'vis_layer/mem' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'vis_layer/desc' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'vis_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'mem' and 'desc' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'vis_layer'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.117 seconds; current allocated memory: 794.266 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.779 seconds; current allocated memory: 799.199 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-2225] Wrote inferred directives to file E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.929 seconds; current allocated memory: 815.371 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for vis_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for vis_layer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:55; Allocated memory: 349.801 MB.
+INFO: [HLS 200-1510] Running: cosim_design -rtl verilog -tool xsim -argv E:/PLD/tcp_image/tcp_image_rx/ai/vis_hls/vectors cases_cosim.txt 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "E:/AMD/Xilinx/2025.2/Vitis/win64/tools/clang-16/bin/clang++"
+   Compiling apatb_vis_layer.cpp
+   Compiling test_vis.cpp_pre.cpp.tb.cpp
+   Compiling vis_layer.cpp_pre.cpp.tb.cpp
+   Compiling ai_view.c_pre.c.tb.c
+   Compiling apatb_vis_layer_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+vis_layer: 10 cases, 0 failed, 35515 expected words, 0 also vs ai_view_overlay_rgb
+VIS_TB_PASS
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+E:\PLD\tcp_image\tcp_image_rx\ai\build\vis_ip\solution1\sim\verilog>set PATH= 
+
+E:\PLD\tcp_image\tcp_image_rx\ai\build\vis_ip\solution1\sim\verilog>call E:/AMD/Xilinx/2025.2/Vivado/bin/xelab xil_defaultlib.apatb_vis_layer_top xil_defaultlib.glbl -Oenable_linking_all_libraries -prj vis_layer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_21 -L floating_point_v7_0_26 --lib "ieee_proposed=./ieee_proposed" -L uvm -relax -i ./svr -i ./axivip -i ./svtb -i ./file_agent -i ./vis_layer_subsystem  -s vis_layer  
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: E:/AMD/Xilinx/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_vis_layer_top xil_defaultlib.glbl -Oenable_linking_all_libraries -prj vis_layer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_21 -L floating_point_v7_0_26 --lib ieee_proposed=./ieee_proposed -L uvm -relax -i ./svr -i ./axivip -i ./svtb -i ./file_agent -i ./vis_layer_subsystem -s vis_layer 
+Multi-threading is on. Using 22 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_vis_layer_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ama_addmuladd_11s_11s_3ns_15s_16_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ama_addmuladd_11s_11s_3ns_15s_16_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_ama_addmuladd_11s_11s_3ns_15s_16_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ama_addmuladd_12s_11s_2ns_4ns_14_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ama_addmuladd_12s_11s_2ns_4ns_14_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_ama_addmuladd_12s_11s_2ns_4ns_14_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ama_submuladd_12s_12s_2ns_4ns_14_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ama_submuladd_12s_12s_2ns_4ns_14_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_ama_submuladd_12s_12s_2ns_4ns_14_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_am_addmul_10ns_3ns_8ns_18_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_10ns_3ns_8ns_18_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_10ns_3ns_8ns_18_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_am_addmul_11s_11s_5s_15_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_11s_11s_5s_15_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_11s_11s_5s_15_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_am_addmul_17s_10s_17s_17_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_17s_10s_17s_17_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_17s_10s_17s_17_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_am_addmul_17s_17s_17s_17_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_17s_17s_17s_17_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_17s_17s_17s_17_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_am_addmul_17s_9ns_17s_17_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_17s_9ns_17s_17_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_am_addmul_17s_9ns_17s_17_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_bitselect_1ns_128ns_7ns_1_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_bitselect_1ns_128ns_7ns_1_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_bitset_10ns_10ns_4ns_1s_10_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_bitset_10ns_10ns_4ns_1s_10_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_d_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_d_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_gmem_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_load
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_store
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_read
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_write
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_burst_interleave
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_burst_sequential
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_srl
+INFO: [VRFC 10-311] analyzing module vis_layer_gmem_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_10s_8ns_16s_16_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_10s_8ns_16s_16_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_10s_8ns_16s_16_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_10s_8ns_8ns_16_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_10s_8ns_8ns_16_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_10s_8ns_8ns_16_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_3ns_28s_28_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_3ns_28s_28_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_3ns_28s_28_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_3ns_32s_32_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_3ns_32s_32_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_3ns_32s_32_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_6ns_28s_28_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_6ns_28s_28_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_6ns_28s_28_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_6ns_32s_33_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_6ns_32s_33_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_6ns_32s_33_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_7ns_15ns_19_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_7ns_15ns_19_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_7ns_15ns_19_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_7ns_28s_28_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_7ns_28s_28_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_7ns_28s_28_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_11s_7ns_32s_32_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_7ns_32s_32_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_11s_7ns_32s_32_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_17s_12ns_32s_32_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_17s_12ns_32s_32_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_17s_12ns_32s_32_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_17s_14ns_15ns_31_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_17s_14ns_15ns_31_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_17s_14ns_15ns_31_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_17s_14ns_32s_32_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_17s_14ns_32s_32_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_17s_14ns_32s_32_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_7ns_7ns_5ns_13_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_7ns_7ns_5ns_13_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_7ns_7ns_5ns_13_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_8ns_7s_9s_9_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_8ns_7s_9s_9_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_8ns_7s_9s_9_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_9ns_8ns_16s_16_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_9ns_8ns_16s_16_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_9ns_8ns_16s_16_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_9ns_9ns_11ns_19_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_9ns_9ns_11ns_19_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_9ns_9ns_11ns_19_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_muladd_9s_2ns_10ns_12_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_9s_2ns_10ns_12_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_muladd_9s_2ns_10ns_12_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_mulsub_10s_10s_10s_10_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_mulsub_10s_10s_10s_10_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_mulsub_10s_10s_10s_10_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mac_mulsub_16ns_10ns_32s_32_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_mulsub_16ns_10ns_32s_32_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module vis_layer_mac_mulsub_16ns_10ns_32s_32_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul42.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul42
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_10ns_10ns_19_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_10ns_10ns_19_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_10ns_10ns_20_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_10ns_10ns_20_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_10ns_7ns_17_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_10ns_7ns_17_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_11ns_11ns_17_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_11ns_11ns_17_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_14ns_17s_31_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_14ns_17s_31_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_10ns_26_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_10ns_26_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_12ns_28_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_12ns_28_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_16ns_19_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_16ns_19_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_16ns_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_16ns_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_17s_19_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_17s_19_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_17s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_17s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_3ns_19_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_3ns_19_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_16ns_6ns_22_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_16ns_6ns_22_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_17s_14ns_31_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_17s_14ns_31_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_24ns_17ns_41_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_24ns_17ns_41_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_25ns_17ns_42_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_25ns_17ns_42_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_25ns_17ns_42_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_25ns_17ns_42_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_2s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_2s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_32s_10ns_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_32s_10ns_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_32s_12ns_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_32s_12ns_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_32s_28s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_32s_28s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_32s_32s_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_32s_32s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_3ns_8s_11_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_3ns_8s_11_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_5s_8s_11_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_5s_8s_11_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_7ns_7ns_13_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_7ns_7ns_13_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_8ns_5ns_12_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_8ns_5ns_12_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_8ns_9ns_17_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_8ns_9ns_17_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_9ns_13ns_22_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_9ns_13ns_22_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_9ns_8ns_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_9ns_8ns_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_9ns_9ns_18_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_9ns_9ns_18_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_mul_9s_2ns_11_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_mul_9s_2ns_11_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_compute.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_compute_lb0_RAM_2P_LUTRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_compute_lb0_RAM_2P_LUTRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_compute_lb_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_compute_lb_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_compute_Pipeline_CPIX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_compute_Pipeline_CPIX
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_compute_Pipeline_LB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_compute_Pipeline_LB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_compute_Pipeline_LL.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_compute_Pipeline_LL
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_emit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_emit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_emit_bb_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_emit_bb_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_emit_Pipeline_EPIX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_emit_Pipeline_EPIX
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_emit_Pipeline_LBASE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_emit_Pipeline_LBASE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_emit_Pipeline_SOUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_emit_Pipeline_SOUT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_ovl_emit_run_ovl_ap_uint_128_ap_uint_128_const_bb_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_ovl_emit_run_ovl_ap_uint_128_ap_uint_128_const_bb_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partselect_24ns_128ns_7ns_24_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partselect_24ns_128ns_7ns_24_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partselect_24ns_384ns_9ns_24_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partselect_24ns_384ns_9ns_24_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partselect_8ns_128ns_7ns_8_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partselect_8ns_128ns_7ns_8_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partselect_8ns_384ns_7ns_8_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partselect_8ns_384ns_7ns_8_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partset_128ns_128ns_8ns_7ns_128_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partset_128ns_128ns_8ns_7ns_128_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partset_384ns_384ns_128ns_9ns_384_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partset_384ns_384ns_128ns_9ns_384_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_partset_384ns_384ns_24ns_9ns_384_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_partset_384ns_384ns_24ns_9ns_384_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_reg_eval.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_reg_eval
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_reg_eval_Pipeline_EVAL.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_reg_eval_Pipeline_EVAL
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_lut_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_lut_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_Pipeline_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_Pipeline_LUT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_Pipeline_STEP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_Pipeline_STEP
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_Pipeline_VITIS_LOOP_569_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_Pipeline_VITIS_LOOP_569_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_lut_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_lut_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_ring_RAM_2P_LUTRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_ring_RAM_2P_LUTRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_vrow_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_ovl_run_ovl_ap_uint_128_ap_uint_128_const_vrow_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_A_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_A_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_BO_RAM_T2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_Pipeline_FILL_T.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_Pipeline_FILL_T
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_Pipeline_LOAD_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_Pipeline_LOAD_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_Pipeline_LOAD_B.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_Pipeline_LOAD_B
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_Pipeline_VITIS_LOOP_155_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_Pipeline_VITIS_LOOP_155_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_run_reg_ap_uint_128_ap_uint_128_const_tab_RAM_1P_LUTRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_run_reg_ap_uint_128_ap_uint_128_const_tab_RAM_1P_LUTRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_st_px_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_st_px_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_run_reg_tw_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_run_reg_tw_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sdiv_32ns_17ns_32_36_seq_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sdiv_32ns_17ns_32_36_seq_1_divseq
+INFO: [VRFC 10-311] analyzing module vis_layer_sdiv_32ns_17ns_32_36_seq_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_17_3_24_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_17_3_24_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_17_3_8_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_17_3_8_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_7_2_128_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_7_2_128_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_7_2_1_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_7_2_1_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_7_2_1_1_1_x.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_7_2_1_1_1_x
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_9_2_128_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_9_2_128_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_9_2_30_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_9_2_30_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_9_2_6_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_9_2_6_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_9_3_24_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_9_3_24_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_sparsemux_9_3_8_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_sparsemux_9_3_8_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_udiv_32ns_16ns_32_36_seq_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_udiv_32ns_16ns_32_36_seq_1_divseq
+INFO: [VRFC 10-311] analyzing module vis_layer_udiv_32ns_16ns_32_36_seq_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_vis_layer_Pipeline_DESC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vis_layer_vis_layer_Pipeline_DESC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/file_agent/file_agent_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/axivip/axi_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/axivip/axi_if.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/vis_layer_subsystem/vis_layer_subsystem_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/svtb/misc_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/PLD/tcp_image/tcp_image_rx/ai/build/vis_ip/solution1/sim/verilog/svtb/sv_module_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sv_module_top
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/proj/primebuilds/9999.0_PRIME_0428_0031/installs/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 4356. Module uvm_pkg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_sv_module_top_sv
+Compiling package uvm.uvm_pkg
+Compiling package std.std
+Compiling package xil_defaultlib.axi_pkg
+Compiling package xil_defaultlib.vis_layer_subsystem_pkg
+Compiling package xil_defaultlib.file_agent_pkg
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.vis_layer_flow_control_loop_pipe...
+Compiling module xil_defaultlib.vis_layer_vis_layer_Pipeline_DES...
+Compiling module xil_defaultlib.vis_layer_run_ovl_lut_RAM_2P_BRA...
+Compiling module xil_defaultlib.vis_layer_run_ovl_run_ovl_ap_uin...
+Compiling module xil_defaultlib.vis_layer_run_ovl_run_ovl_ap_uin...
+Compiling module xil_defaultlib.vis_layer_run_ovl_Pipeline_STEP
+Compiling module xil_defaultlib.vis_layer_partselect_24ns_128ns_...
+Compiling module xil_defaultlib.vis_layer_run_ovl_Pipeline_LUT
+Compiling module xil_defaultlib.vis_layer_mul_8ns_5ns_12_1_1(NUM...
+Compiling module xil_defaultlib.vis_layer_run_ovl_Pipeline_VITIS...
+Compiling module xil_defaultlib.vis_layer_ovl_compute_lb_RAM_2P_...
+Compiling module xil_defaultlib.vis_layer_partselect_8ns_128ns_7...
+Compiling module xil_defaultlib.vis_layer_ovl_compute_Pipeline_L...
+Compiling module xil_defaultlib.vis_layer_ovl_compute_Pipeline_L...
+Compiling module xil_defaultlib.vis_layer_sparsemux_9_2_128_1_1(...
+Compiling module xil_defaultlib.vis_layer_bitselect_1ns_128ns_7n...
+Compiling module xil_defaultlib.vis_layer_ovl_compute_Pipeline_C...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_6ns_28s...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_6ns_28s...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_3ns_28s...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_3ns_28s...
+Compiling module xil_defaultlib.vis_layer_ovl_compute
+Compiling module xil_defaultlib.vis_layer_ovl_emit_bb_RAM_2P_BRA...
+Compiling module xil_defaultlib.vis_layer_ovl_emit_Pipeline_LBAS...
+Compiling module xil_defaultlib.vis_layer_sparsemux_7_2_1_1_1(se...
+Compiling module xil_defaultlib.vis_layer_sparsemux_9_3_24_1_1(d...
+Compiling module xil_defaultlib.vis_layer_ovl_emit_Pipeline_EPIX
+Compiling module xil_defaultlib.vis_layer_ovl_emit_Pipeline_SOUT
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_7ns_28s...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_7ns_28s...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_7ns_15n...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_11s_7ns_15n...
+Compiling module xil_defaultlib.vis_layer_ovl_emit
+Compiling module xil_defaultlib.vis_layer_mul_16ns_6ns_22_1_1(NU...
+Compiling module xil_defaultlib.vis_layer_mul_10ns_7ns_17_1_1(NU...
+Compiling module xil_defaultlib.vis_layer_sparsemux_7_2_1_1_1_x(...
+Compiling module xil_defaultlib.vis_layer_mul_16ns_3ns_19_1_1(NU...
+Compiling module xil_defaultlib.vis_layer_run_ovl
+Compiling module xil_defaultlib.vis_layer_run_reg_A_RAM_AUTO_1R1...
+Compiling module xil_defaultlib.vis_layer_run_reg_BO_RAM_T2P_BRA...
+Compiling module xil_defaultlib.vis_layer_run_reg_run_reg_ap_uin...
+Compiling module xil_defaultlib.vis_layer_run_reg_Pipeline_VITIS...
+Compiling module xil_defaultlib.vis_layer_run_reg_Pipeline_LOAD_...
+Compiling module xil_defaultlib.vis_layer_run_reg_Pipeline_LOAD_...
+Compiling module xil_defaultlib.vis_layer_run_reg_Pipeline_FILL_...
+Compiling module xil_defaultlib.vis_layer_mul_25ns_17ns_42_4_1(N...
+Compiling module xil_defaultlib.vis_layer_mul42
+Compiling module xil_defaultlib.vis_layer_reg_eval_Pipeline_EVAL
+Compiling module xil_defaultlib.vis_layer_reg_eval
+Compiling module xil_defaultlib.vis_layer_mul_7ns_7ns_13_1_1(NUM...
+Compiling module xil_defaultlib.vis_layer_sparsemux_9_2_6_1_1(di...
+Compiling module xil_defaultlib.vis_layer_mul_11ns_11ns_17_1_1(N...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_7ns_7ns_5ns...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_7ns_7ns_5ns...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_8ns_7s_9s_9...
+Compiling module xil_defaultlib.vis_layer_mac_muladd_8ns_7s_9s_9...
+Compiling module xil_defaultlib.vis_layer_run_reg
+Compiling module xil_defaultlib.vis_layer_control_s_axi
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_srl(DATA_WI...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(DATA_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(DATA_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_srl(DATA_WI...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(DATA_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(DATA_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_srl(DATA_WI...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(DATA_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_store(CONSE...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_srl(DATA_WI...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(DATA_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_load(NUM_RE...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_reg_slice(D...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_burst_seque...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_reg_slice(D...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_fifo(ADDR_W...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_reg_slice(D...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_throttle(CO...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_reg_slice(D...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_write(CONSE...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_reg_slice(D...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi_read(C_USER...
+Compiling module xil_defaultlib.vis_layer_gmem_m_axi(C_M_AXI_DAT...
+Compiling module xil_defaultlib.vis_layer
+Compiling module xil_defaultlib.misc_interface_default
+Compiling module xil_defaultlib.axi_if(STRB_WIDTH=16,LEN_WIDTH=8...
+Compiling module xil_defaultlib.axi_if(ADDR_WIDTH=6,STRB_WIDTH=4...
+Compiling module xil_defaultlib.sv_module_top
+Compiling module xil_defaultlib.nodf_module_intf_default
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=24)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=62)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_vis_layer_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot vis_layer
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 15 20:19:17 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/vis_layer/xsim_script.tcl
+# xsim {vis_layer} -testplusarg UVM_VERBOSITY=UVM_NONE -testplusarg UVM_TESTNAME=vis_layer_test_lib -testplusarg UVM_TIMEOUT=20000000000000 -autoloadwcfg -tclbatch {vis_layer.tcl}
+Time resolution is 1 ps
+source vis_layer.tcl
+## run all
+UVM_INFO E:/AMD/Xilinx/2025.2/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO E:/AMD/Xilinx/2025.2/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18648) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO E:/AMD/Xilinx/2025.2/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18752) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------------------------------
+Name                         Type                              Size  Value            
+--------------------------------------------------------------------------------------
+uvm_test_top                 vis_layer_test_lib                -     @368             
+  top_env                    vis_layer_env                     -     @379             
+    axi_lite_control         uvm_env                           -     @432             
+      item_rtr_port          uvm_analysis_port                 -     @451             
+      item_wtr_port          uvm_analysis_port                 -     @441             
+      master                 uvm_agent                         -     @844             
+        ardrv                uvm_driver #(REQ,RSP)             -     @1519            
+          item_read_imp      uvm_analysis_port                 -     @1548            
+          rsp_port           uvm_analysis_port                 -     @1538            
+          seq_item_port      uvm_seq_item_pull_port            -     @1528            
+          m_num_sent         integral                          32    'h0              
+        arsqr                axi_sequencer                     -     @1558            
+          rsp_export         uvm_analysis_export               -     @1567            
+          seq_item_export    uvm_seq_item_pull_imp             -     @1685            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        awdrv                uvm_driver #(REQ,RSP)             -     @991             
+          item_read_imp      uvm_analysis_port                 -     @1020            
+          rsp_port           uvm_analysis_port                 -     @1010            
+          seq_item_port      uvm_seq_item_pull_port            -     @1000            
+          m_num_sent         integral                          32    'h0              
+        awsqr                axi_sequencer                     -     @1030            
+          rsp_export         uvm_analysis_export               -     @1039            
+          seq_item_export    uvm_seq_item_pull_imp             -     @1157            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        bdrv                 uvm_driver #(REQ,RSP)             -     @1343            
+          item_read_imp      uvm_analysis_port                 -     @1372            
+          rsp_port           uvm_analysis_port                 -     @1362            
+          seq_item_port      uvm_seq_item_pull_port            -     @1352            
+          m_num_sent         integral                          32    'h0              
+        bsqr                 axi_sequencer                     -     @1382            
+          rsp_export         uvm_analysis_export               -     @1391            
+          seq_item_export    uvm_seq_item_pull_imp             -     @1509            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        rdrv                 uvm_driver #(REQ,RSP)             -     @1695            
+          item_read_imp      uvm_analysis_port                 -     @1724            
+          rsp_port           uvm_analysis_port                 -     @1714            
+          seq_item_port      uvm_seq_item_pull_port            -     @1704            
+          m_num_sent         integral                          32    'h0              
+        rsqr                 axi_sequencer                     -     @1734            
+          rsp_export         uvm_analysis_export               -     @1743            
+          seq_item_export    uvm_seq_item_pull_imp             -     @1861            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        wdrv                 uvm_driver #(REQ,RSP)             -     @1167            
+          item_read_imp      uvm_analysis_port                 -     @1196            
+          rsp_port           uvm_analysis_port                 -     @1186            
+          seq_item_port      uvm_seq_item_pull_port            -     @1176            
+          m_num_sent         integral                          32    'h0              
+        wsqr                 axi_sequencer                     -     @1206            
+          rsp_export         uvm_analysis_export               -     @1215            
+          seq_item_export    uvm_seq_item_pull_imp             -     @1333            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+      monitor                uvm_monitor                       -     @666             
+        item_ar2r_port       uvm_analysis_port                 -     @735             
+        item_ar_port         uvm_analysis_port                 -     @705             
+        item_aw2b_port       uvm_analysis_port                 -     @725             
+        item_aw_port         uvm_analysis_port                 -     @675             
+        item_b_port          uvm_analysis_port                 -     @695             
+        item_r_port          uvm_analysis_port                 -     @715             
+        item_w_port          uvm_analysis_port                 -     @685             
+        checks_enable        integral                          1     'h1              
+        coverage_enable      integral                          1     'h1              
+      state                  axi_state                         -     @745             
+        ar2r_imp             uvm_analysis_imp_ar2r             -     @814             
+        ar_imp               uvm_analysis_imp_ar               -     @784             
+        aw2b_imp             uvm_analysis_imp_aw2b             -     @804             
+        aw_imp               uvm_analysis_imp_aw               -     @754             
+        b_imp                uvm_analysis_imp_b                -     @774             
+        item_rtr_port        uvm_analysis_port                 -     @834             
+        item_wtr_port        uvm_analysis_port                 -     @824             
+        r_imp                uvm_analysis_imp_r                -     @794             
+        w_imp                uvm_analysis_imp_w                -     @764             
+        avg_rate             integral                          32    'h0              
+        exp_rate             integral                          32    'h0              
+        win_size             integral                          32    'h0              
+        bqnum_for_slaseq     integral                          32    'h0              
+        rq_from_model_num    integral                          32    'h0              
+      vsqr                   axi_virtual_sequencer             -     @853             
+        rsp_export           uvm_analysis_export               -     @862             
+        seq_item_export      uvm_seq_item_pull_imp             -     @980             
+        arbitration_queue    array                             0     -                
+        lock_queue           array                             0     -                
+        num_last_reqs        integral                          32    'd1              
+        num_last_rsps        integral                          32    'd1              
+      cfg                    axi_cfg                           -     @395             
+        has_checker          integral                          1     'h1              
+        has_coverage         integral                          1     'h1              
+        id_num               integral                          32    'h1              
+        reset_level          reset_level_enum                  32    RESET_LEVEL_LOW  
+        drv_type             drv_type_enum                     32    MASTER           
+        write_latency_mode   latency_mode_enum                 32    CHANNEL_FIRST    
+        read_latency_mode    latency_mode_enum                 32    CHANNEL_FIRST    
+        clatency             axi_latency                       -     @430             
+          wr_latency         integral                          32    'h0              
+          rd_latency         integral                          32    'h0              
+    axi_master_gmem          uvm_env                           -     @401             
+      item_rtr_port          uvm_analysis_port                 -     @420             
+      item_wtr_port          uvm_analysis_port                 -     @410             
+      monitor                uvm_monitor                       -     @1944            
+        item_ar2r_port       uvm_analysis_port                 -     @2013            
+        item_ar_port         uvm_analysis_port                 -     @1983            
+        item_aw2b_port       uvm_analysis_port                 -     @2003            
+        item_aw_port         uvm_analysis_port                 -     @1953            
+        item_b_port          uvm_analysis_port                 -     @1973            
+        item_r_port          uvm_analysis_port                 -     @1993            
+        item_w_port          uvm_analysis_port                 -     @1963            
+        checks_enable        integral                          1     'h1              
+        coverage_enable      integral                          1     'h1              
+      slave                  uvm_agent                         -     @2122            
+        ardrv                uvm_driver #(REQ,RSP)             -     @2799            
+          item_read_imp      uvm_analysis_port                 -     @2828            
+          rsp_port           uvm_analysis_port                 -     @2818            
+          seq_item_port      uvm_seq_item_pull_port            -     @2808            
+          m_num_sent         integral                          32    'h0              
+        arsqr                axi_sequencer                     -     @2838            
+          rsp_export         uvm_analysis_export               -     @2847            
+          seq_item_export    uvm_seq_item_pull_imp             -     @2965            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        awdrv                uvm_driver #(REQ,RSP)             -     @2271            
+          item_read_imp      uvm_analysis_port                 -     @2300            
+          rsp_port           uvm_analysis_port                 -     @2290            
+          seq_item_port      uvm_seq_item_pull_port            -     @2280            
+          m_num_sent         integral                          32    'h0              
+        awsqr                axi_sequencer                     -     @2310            
+          rsp_export         uvm_analysis_export               -     @2319            
+          seq_item_export    uvm_seq_item_pull_imp             -     @2437            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        bdrv                 uvm_driver #(REQ,RSP)             -     @2623            
+          item_read_imp      uvm_analysis_port                 -     @2652            
+          rsp_port           uvm_analysis_port                 -     @2642            
+          seq_item_port      uvm_seq_item_pull_port            -     @2632            
+          m_num_sent         integral                          32    'h0              
+        bsqr                 axi_sequencer                     -     @2662            
+          rsp_export         uvm_analysis_export               -     @2671            
+          seq_item_export    uvm_seq_item_pull_imp             -     @2789            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        rdrv                 uvm_driver #(REQ,RSP)             -     @2975            
+          item_read_imp      uvm_analysis_port                 -     @3004            
+          rsp_port           uvm_analysis_port                 -     @2994            
+          seq_item_port      uvm_seq_item_pull_port            -     @2984            
+          m_num_sent         integral                          32    'h0              
+        rsqr                 axi_sequencer                     -     @3014            
+          rsp_export         uvm_analysis_export               -     @3023            
+          seq_item_export    uvm_seq_item_pull_imp             -     @3141            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+        wdrv                 uvm_driver #(REQ,RSP)             -     @2447            
+          item_read_imp      uvm_analysis_port                 -     @2476            
+          rsp_port           uvm_analysis_port                 -     @2466            
+          seq_item_port      uvm_seq_item_pull_port            -     @2456            
+          m_num_sent         integral                          32    'h0              
+        wsqr                 axi_sequencer                     -     @2486            
+          rsp_export         uvm_analysis_export               -     @2495            
+          seq_item_export    uvm_seq_item_pull_imp             -     @2613            
+          arbitration_queue  array                             0     -                
+          lock_queue         array                             0     -                
+          num_last_reqs      integral                          32    'd1              
+          num_last_rsps      integral                          32    'd1              
+      state                  axi_state                         -     @2023            
+        ar2r_imp             uvm_analysis_imp_ar2r             -     @2092            
+        ar_imp               uvm_analysis_imp_ar               -     @2062            
+        aw2b_imp             uvm_analysis_imp_aw2b             -     @2082            
+        aw_imp               uvm_analysis_imp_aw               -     @2032            
+        b_imp                uvm_analysis_imp_b                -     @2052            
+        item_rtr_port        uvm_analysis_port                 -     @2112            
+        item_wtr_port        uvm_analysis_port                 -     @2102            
+        r_imp                uvm_analysis_imp_r                -     @2072            
+        w_imp                uvm_analysis_imp_w                -     @2042            
+        avg_rate             integral                          32    'h0              
+        exp_rate             integral                          32    'h0              
+        win_size             integral                          32    'h0              
+        bqnum_for_slaseq     integral                          32    'h0              
+        rq_from_model_num    integral                          32    'h0              
+      vsqr                   axi_virtual_sequencer             -     @2131            
+        rsp_export           uvm_analysis_export               -     @2140            
+        seq_item_export      uvm_seq_item_pull_imp             -     @2258            
+        arbitration_queue    array                             0     -                
+        lock_queue           array                             0     -                
+        num_last_reqs        integral                          32    'd1              
+        num_last_rsps        integral                          32    'd1              
+      cfg                    axi_cfg                           -     @394             
+        has_checker          integral                          1     'h1              
+        has_coverage         integral                          1     'h1              
+        id_num               integral                          32    'h1              
+        reset_level          reset_level_enum                  32    RESET_LEVEL_LOW  
+        drv_type             drv_type_enum                     32    SLAVE            
+        write_latency_mode   latency_mode_enum                 32    TRANSACTION_FIRST
+        read_latency_mode    latency_mode_enum                 32    TRANSACTION_FIRST
+        clatency             axi_latency                       -     @396             
+          wr_latency         integral                          32    'h0              
+          rd_latency         integral                          32    'h0              
+    refm                     vis_layer_reference_model         -     @461             
+      trans_num_idx          integral                          32    'h0              
+    subsys_mon               vis_layer_subsystem_monitor       -     @474             
+      control_rtr_imp        uvm_analysis_imp_axi_rtr_control  -     @513             
+      control_wtr_imp        uvm_analysis_imp_axi_wtr_control  -     @503             
+      gmem_rtr_imp           uvm_analysis_imp_axi_rtr_gmem     -     @493             
+      gmem_wtr_imp           uvm_analysis_imp_axi_wtr_gmem     -     @483             
+      scbd                   vis_layer_scoreboard              -     @3222            
+        refm                 vis_layer_reference_model         -     @461             
+          trans_num_idx      integral                          32    'h0              
+    vis_layer_virtual_sqr    vis_layer_virtual_sequencer       -     @523             
+      rsp_export             uvm_analysis_export               -     @532             
+      seq_item_export        uvm_seq_item_pull_imp             -     @650             
+      arbitration_queue      array                             0     -                
+      lock_queue             array                             0     -                
+      num_last_reqs          integral                          32    'd1              
+      num_last_rsps          integral                          32    'd1              
+    refm                     vis_layer_reference_model         -     @461             
+    vis_layer_virtual_sqr    vis_layer_virtual_sequencer       -     @523             
+    vis_layer_cfg            vis_layer_config                  -     @393             
+      gmem_cfg               axi_cfg                           -     @394             
+        has_checker          integral                          1     'h1              
+        has_coverage         integral                          1     'h1              
+        id_num               integral                          32    'h1              
+        reset_level          reset_level_enum                  32    RESET_LEVEL_LOW  
+        drv_type             drv_type_enum                     32    SLAVE            
+        write_latency_mode   latency_mode_enum                 32    TRANSACTION_FIRST
+        read_latency_mode    latency_mode_enum                 32    TRANSACTION_FIRST
+        clatency             axi_latency                       -     @396             
+          wr_latency         integral                          32    'h0              
+          rd_latency         integral                          32    'h0              
+      control_cfg            axi_cfg                           -     @395             
+        has_checker          integral                          1     'h1              
+        has_coverage         integral                          1     'h1              
+        id_num               integral                          32    'h1              
+        reset_level          reset_level_enum                  32    RESET_LEVEL_LOW  
+        drv_type             drv_type_enum                     32    MASTER           
+        write_latency_mode   latency_mode_enum                 32    CHANNEL_FIRST    
+        read_latency_mode    latency_mode_enum                 32    CHANNEL_FIRST    
+        clatency             axi_latency                       -     @430             
+          wr_latency         integral                          32    'h0              
+          rd_latency         integral                          32    'h0              
+      check_ena              integral                          32    'h0              
+      cover_ena              integral                          32    'h0              
+--------------------------------------------------------------------------------------
+
+UVM_INFO E:/AMD/Xilinx/2025.2/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 10 [0.00%] @ "125000"
+// RTL Simulation : 1 / 10 [100.00%] @ "1061735000"
+// RTL Simulation : 2 / 10 [100.00%] @ "10361245000"
+// RTL Simulation : 3 / 10 [100.00%] @ "23767155000"
+// RTL Simulation : 4 / 10 [100.00%] @ "25487985000"
+// RTL Simulation : 5 / 10 [100.00%] @ "25488335000"
+// RTL Simulation : 6 / 10 [100.00%] @ "26845685000"
+// RTL Simulation : 7 / 10 [100.00%] @ "28895435000"
+// RTL Simulation : 8 / 10 [100.00%] @ "30465065000"
+// RTL Simulation : 9 / 10 [100.00%] @ "30569175000"
+// RTL Simulation : 10 / 10 [100.00%] @ "30570245000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 30570375 ns : File "E:/AMD/Xilinx/2025.2/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:07:09 . Memory (MB): peak = 227.008 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 15540648 KB (Peak: 15540648 KB), Simulation CPU Usage: 417390 ms
+INFO: [Common 17-206] Exiting xsim at Thu Oct 15 20:27:27 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+vis_layer: 10 cases, 0 failed, 35515 expected words, 0 also vs ai_view_overlay_rgb
+VIS_TB_PASS
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-2161] Finished Command cosim_design Elapsed time: 00:10:29; Allocated memory: 1.781 MB.
+INFO: [HLS 200-112] Total CPU user time: 13 seconds. Total CPU system time: 14 seconds. Total elapsed time: 692.613 seconds; peak allocated memory: 817.160 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 11m 36s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
+EXITCODE 0 

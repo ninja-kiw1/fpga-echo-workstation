@@ -1,0 +1,15 @@
+[Unit]
+Description=Load our ai_sys bitstream into the PL (fpga_manager)
+Documentation=file:/root/tcp_image_rx/boot/README.md
+# rc.local 会 insmod 厂商的 fpgadrv(对着厂商 PL, 正常) —— 让它先跑,
+# 我们随后把 PL 换成自己的设计并卸掉 fpgadrv, 这样"最后说话的是我们"。
+After=local-fs.target rc-local.service
+Before=plbram.service tcp-image-server.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/load_ai_sys.sh
+
+[Install]
+WantedBy=multi-user.target
