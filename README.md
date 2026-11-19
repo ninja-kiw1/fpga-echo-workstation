@@ -1,108 +1,123 @@
-# FPGA 床旁超声心动图实时全心功能评估系统
+# 2026pld —— 11-13 版 + 112 直跑 + 扇形裁剪
 
-**FPGA bedside echocardiography workstation** on a Zynq UltraScale+ MPSoC board (FZ3B, XAZU3EG): a fixed-structure
-U-Net tensor engine in the PL runs every segmentation model and compiled classic operator by swapping weights only;
-the ARM cores run whole-case jobs (beat-by-beat EF, Simpson, keyframe tracking) and a PC / on-board UI displays the results.
+这个目录是**当前唯一的最新版**：源码、比特流、上位机、构建脚本、验证脚本、部署脚本、报告，按分组放。**只放一套活文件**，历史版本全部在 `E:\fpga\旧版归档_20261119\`。
 
-> 仅用于工程教学与算法演示，只做"辅助测量与复核"，**不作临床诊断依据**。Not a medical device; not for clinical use.
+**只想用起来：双击根目录的 `启动上位机.bat`。**
 
-全国大学生嵌入式芯片与系统设计竞赛 2026 · FPGA 创新设计赛道（AMD）· 自主选题赛道。
-
-## 一句话
-
-FZ3B 板上的 PL 是一台**固定结构的 U-Net 张量引擎**（30 节点、34 201 参数），换"程序"只换权重：学出来的分割模型和
-编译出来的经典算子共用同一个比特流。PL 还做图像预处理（行缓冲）和像素后处理（`pp_layer`）；
-PS 负责通信、调度、整病例任务和临床测量；上位机只选文件和显示，也可以直接在板上经 DP 显示器运行。
-
-## 平台与工具声明
-
-| 项 | 型号 / 版本 |
+| 目录 | 内容 |
 | --- | --- |
-| 板卡 | FZ3B 开发板（Zynq UltraScale+ MPSoC，器件 **XAZU3EG-1SFVC784I**，4 GB DDR4） |
-| 板上系统 | 厂商 Ubuntu 18.04 镜像，Linux 4.14.0-xilinx-v2018.3 |
-| FPGA 工具 | Vivado / Vitis HLS **2025.2** |
-| 当前固件 | `ai_sys_f150nv`：PL 时钟 MMCM 标称 150 MHz（实测参考时钟换算为 152.15 MHz），回滚版 `ai_sys_f150` |
-| 上位机 | Windows 10/11，Python 3.11（依赖见 `environment/`） |
+| `启动上位机.bat` | 一键启动（自动挑 Python、检查依赖、连 192.168.1.254:5060） |
+| `01_src/PL/` | PL 源码：`src/conv_layer.cpp`（唯一改过的 kernel）、`tb/`（csim 测试台，含 7 组扇形用例）、`tcl/`（HLS 与整片构建脚本）、`iprepo/`（conv/elt/pp 三个 IP 仓库，**构建只认这里**）、`rtl_lb/`（img_proc_axil 等 RTL）、`edgeboard/`（FZ3B 板级预设） |
+| `01_src/board/src/` | 板端 C 服务端（46 个文件，11-13 版为底 + 112 + 扇形）+ `Makefile`（板上 `make CC=gcc` 就是它；别加 `-j`） |
+| `01_src/ui/` | 上位机源码（**单文件版 `workstation.py`**） |
+| `02_bitstream/` | 新比特流 `ai_sys_pld2026.bit` / `.bin` + sha256 + 综合实现报告 |
+| `03_build/` | 构建脚本（`run_hls.bat`、`build_pl.bat`、`apply_ps_fan.py`、`make_bd_tcl.py`、**`make_board_ws.py`**＝PC 版→板端版的生成器）、构建日志、综合/实现报告 |
+| `04_verify/` | 验证：`mtest.py`（112 + 扇形的板上测量）、`verify_noimg.py`（少回图等价性）、`verify_pc_border.py`、`verify_cache.py`（拖动缓存逐像素）、`verify_echo.py`（板上端到端）、`bench_drag.py` / `probe_render.py`（换帧耗时拆解）、向量、历史 golden |
+| `05_deploy/` | 板端安装脚本（`install_2026pld.sh`、**`deploy_ws2026.sh`**） + systemd 单元 |
+| `06_report/` | 集成报告（改动清单、验证数据、保留意见）+ `改动清单.diff` |
+| `07_ui/` | **上位机可运行副本（单文件版 `workstation.py`）**，双击启动脚本时用的就是它；**自带 CAMUS 样例 `echo/samples`（三位病人 4CH+2CH，14 MB）** |
 
-## 主要结果
+---
 
-| 项 | 数值 |
-| --- | --- |
-| 资源（f150nv） | LUT 75.40 %、FF 34.0 %、BRAM 63.2 %、DSP 80.6 %；按实测时钟签核 WNS +0.486 ns |
-| 功耗 | Vivado 估计片上 4.04 W（PL 动态约 0.9 W）；整板实测 6–7 W |
-| 速度 | 512×512 整网 292.8 ms，是同板单核 NEON 分块实现的 7.6 倍；现场模式延迟 P50 29 ms |
-| EchoNet-Dynamic TEST（预注册后只评一次） | 关键帧逐拍 EF MAE 5.39，80 % 保形区间覆盖率 0.80 |
-| CAMUS TEST | 左房容积 MAE 11 mL；F1 左室 VAL Dice 0.922；双平面 Simpson 板上 450/450 逐位一致 |
-| CardiacUDA TEST | 右室 Dice 0.776 / 右房 0.877 |
-| HMC-QU TEST | 节段室壁运动异常识别 AUC 0.90 |
-| 逐位验证 | 模型库 0–22 号板上输出与参考逐位一致；5000 帧稳定性 0 个不一致 |
+## 这一版包含了哪些改动
 
-实时性能在 f150 上测得，f150nv 只去掉了心脏主线不用的 `vis_layer`，其余 IP、时钟与地址相同（见 `acceptance/board_acceptance_nv/`）。
-详细数字：`final_test_2026-10-25/final_test_results_2026-10-25.md`、`perf_j/`、`fpga_evidence/`、`report/design_report.pdf`。
+**PL / 服务端（集成版本体，2026-11-18）**
 
-## 目录对照（指南 3.3.5.4 推荐结构 → 本仓库）
+以 `f150nv` 的 PL 为底，只在 conv kernel 上做了两件事 —— **去 `%3` 取余** 与 **追加 6 个扇形列区间寄存器**；PS 侧把 **112 直跑** 与 **P15 扇形逻辑**并进 v5.27 服务端；上位机跟上 112 口径。全部改动 **14 个文件、+585 / −73 行**。
 
-本仓库按功能线组织（各线的训练、量化、导出、验证脚本放在一起），与推荐结构的对应关系如下：
+| 配置 | ai 中位 | 相对 128 档 |
+| --- | ---: | ---: |
+| 128 档（档位链，不裁） | 22.40 ms | —— |
+| **112 直跑**，扇形关 | 18.04 ms | −19.5% |
+| **112 直跑 + 扇形** | **16.97 ms** | **−24.2%** |
 
-| 推荐目录 | 内容 | 本仓库位置 |
+固件 `ai_sys_pld2026.bin` sha256 `d9917dc5…`。细节与保留意见见 `06_report/2026pld_集成报告.md`。
+
+**之后的 16 笔改动（2026-11-18 ~ 11-19，代码都已并进本目录）**
+
+| 改动 | 一句话 | 报告位置 |
 | --- | --- | --- |
-| `src/` | PL 设计源码（HLS / RTL / Block Design） | `tcp_image/tcp_image_rx/ai/`（HLS 核：`opt_hls*`、`pp_hls`、`vis_hls`；BD 脚本：`ai/bd/`）、`tcp_image/tcp_image_rx/rtl*/`、`medical_fpga/hls/` |
-| `src/` | PS 侧软件 | `tcp_image/tcp_image_rx/src/`（板上 C 服务端）、`tcp_image/tcp_image_rx/kmod/`（内核模块） |
-| `src/` | 上位机 | `tcp_image/tcp_image_ui/`（入口 `heartapp.py`） |
-| `src/` | 模型训练 / 量化 / 导出 | `echo/`、`echonet/`、`cardiac_rv/`、`ct/`、`skin/`、`fundus_cdr/`、`lwnet/`、`opcomp/`（算子编译器） |
-| `sim/` | 仿真与验证 | 各 HLS 核目录下的 csim / cosim 脚本与报告、`medical_fpga/embedded/pynq/`（逐位 NumPy 参考）、`*/deploy/*/verify_report.json` |
-| `build/` | 构建脚本 + 综合实现报告 | `tcp_image/tcp_image_rx/ai/bd/run_build_f_novis.bat`、`tcp_image/tcp_image_rx/vivado/`（`ai_sys_f150nv_util.rpt` / `_timing.rpt`、`f_clock/` 实测时钟重签核） |
-| `board/` | 上板工程、运行脚本、实测输出 | `tcp_image/tcp_image_rx/bitstream/`、`tcp_image/tcp_image_rx/boot/`（boot.bin、部署脚本）、`acceptance/`（最新上板验收记录） |
-| `data/` | 测试数据与参考结果 | 数据集需自行下载（见下）；参考结果与锁文件：`final_test_2026-10-25/`、各线 `results/` |
-| `skill/` | 技能包 | `skill/` |
-| `report/` | 设计报告 + 大模型协作记录 | `report/design_report.pdf`、`report/llm_collaboration/`（工作流设计与 7 个纠错案例） |
-| — | 性能与功能证据 | `perf_j/`、`fpga_evidence/`、`keyframe/`、`quality/`、`live/`、`wallmotion/`、`strain/` |
+| 右心程序修复 | `job_unet_hw()` 用 `unet_select_model` → 外部程序包 17..254 静默失败；改 `prog_select` 后右心能跑 | 归档 `05_2026pld变更记录\08_…` |
+| 右心触边判定 | 右室掩膜触到**扇形边界**就不给数不画线；`border_px` 写在 json，改它不用重编 | `09_…` |
+| 预览按输入分辨率 | 视频预览按原始帧 1:1（不再把 112 放大到 448） | `10_…` |
+| 板端快捷方式修复 | 图标指向的 `/data/ws2026` 被删 → 装回板端移植版 | `11_板端快捷方式…` |
+| 现场模式只用采集卡 | 内置 `.y8` 从界面移除，只留给自检脚本注入（单文件版合并时丢过，19 按原样补回） | `11_现场模式采集卡…`、`19_现场模式只认采集卡_20261119` |
+| 板端主页提速 + 文字偏移 | 拖时间轴 90.5→34.6 ms；顺手删掉「独占引擎」封 5060 | `12_板端主页提速…` |
+| 单文件版 + 像素标尺 | 上位机换单文件版；预览原分辨率 + Shift 拖拽测距 | `12_预览原分辨率…` |
+| 删两个下拉 | 「纠错保护 / 纠错影响」两档在真机上结果一样，删掉改固定值 | `13_…` |
+| 自动定标尺 | 载入即自动；原实现只认黄色刻度、真机灰白刻度读不出 → 8/8 命中、0.05 s | `14_…` |
+| 双平面测量病例 | `PLD_DIR` 默认成 `07_ui` → 只找不存在的路径；改多根搜索 + 「目录…」手选 | `15_…` |
+| 输出文字边框伸缩 | 11 个变长标签加固定 `width`，空态→满结果宽度变化 0 px | `16_…` |
+| 容积曲线拖动提速 | 底图/轮廓下标按帧缓存 + 后台预取 + 拖动只动一条光标，**40.1 → 4.1 ms** | `17_…` |
+| **右心触边补回**（11-19） | 板端判定一直在，上位机半边丢了：`heart_block` 末 8 字节发 `border_px`、json 加 `border_px`、`heart_text` 加触边分因；**另加「全心」面板的「触边判定」下拉**（不查 / 1 / 2 / 3 px，默认 1） | `18_…` |
+| **构建工具链修正**（11-19） | `make_bd_tcl.py` 改指 `iprepo`（原来指 `03_build/hls/ip_conv` + `ip/elt`、`ip/pp`，ROOT 还少一级）；`01_src/board/src/Makefile` 补上；UI 两份 `proto.py` 统一到 v9 | `18_…` |
+| **上位机「少回图」**（11-19） | 板端算完→显示这一段：回传从「预处理图+掩膜+叠加图」压到**只回 logit**，其余三幅本地逐字节复现（预处理图就是发出去的原图）。**默认 AI 一帧 −49.6 ms、全勾 −150.3 ms、心超单步 −64.9 ms**；只改上位机，不动板端 | `20_…`、`06_report/上位机少回图_20261119.md` |
+| **现场黑帧 + 原生预览 + 手动定标**（11-19） | 服务端 **v5.28**：采集卡开流头 85~108 帧纯黑**在板端就丢掉**（`black_skipped`，`.y8` 不受影响），每个 live 块多回一块**裁剪方块的原生帧**、另回 3 块**整屏**供定标；上位机现场预览改 **1:1 原画质**（480×480，不再是 112 放大）、现场自动定标（三块整屏取中位）、**三个模式都加「标尺…」手动定标**（点两个刻度 + 填几厘米，默认 5） | `21_…`、`06_report/现场黑帧与原生预览_20261119.md` |
+| **心率显示改成最近 5 拍平均**（11-19） | 现场心率老在两个数之间跳（真机 ES000108 **120 ↔ 109**，板上的「60 / 中位 RR」在拍数奇偶之间换边）；显示口径改成**最近 5 拍瞬时心率算术平均**，现场滚动 + 最终结果 + 报告统一，板上数值留在 `hr_board` 对照。**只改上位机**（板端定点打补丁） | `22_…`、`06_report/心率改成最近5拍平均_20261119.md` |
+| **板端上位机同步**（11-19） | 板端 `/data/ws2026` 那份从 11-17 分叉出去后就落后 PC 一天的功能。改成**以 PC 版为唯一来源、脚本生成板端版**（`03_build/make_board_ws.py`：术语改写 + 去地址 + 板端拖动提速层重挂），像素标尺 / 自动定标 / 原生预览 / 双平面病例 / 少回图全部上板，11-19 的拖动提速原样保留（缓存命中换帧 0.5 ms、60 事件→1 次出图）。**右心「触边判定」按用户要求 PC 与板端一起关掉** | `23_…`、`06_report/板端上位机同步_20261119.md` |
+| **板端降分辨率 + 界面缩放**（11-19） | X 输出 1920×1080 → **1280×720**；界面按 **0.72** 整体缩（兼容层 `WS_UI_SCALE`：字号 + 画布坐标/贴图一起缩，上位机代码零改动）。**拖动 P90 87.6 → 59.1 ms（−33%）、P99 −59%、198 次点击总墙钟 −18%；现场采集 P90 120.1 → 86.7 ms（−28%）**。光降分辨率只值 13%，缩放才是那一刀 | `26_…`、`06_report/板端降分辨率与界面缩放_20261119.md`、`05_deploy/board_shim_20261119/` |
 
-更早、更细的说明见 `project_notes_20261014.md`（10-14 快照，部分版本号已过时）、`tcp_image/tcp_image_rx/progress_and_handoff.md`（开发全过程记录）以及各目录下的 README。
+> **2026-11-18 补丁（已上板，两笔一起）**：① `01_src/board/src/job.c` 的 `job_unet_hw()` 原来用 `unet_select_model()`，
+> 只认内置 0..16 号，外部程序包（17..254：右心 21/22、CAMUS 17/18）一律静默失败；改成 `prog_select()` 后右心能跑（PL 160 ms / 3 对）。
+> ② `cardiac_ext.c/h` + `job_echo.c` + 上位机：右室掩膜离扇形边界 ≤ `border_px`（默认 1，写在 `echo_heart_config.json`）像素
+> 就不给这一拍的比值、也不画轮廓；HC01 末 8 字节原来固定 0，现在发这个值（老客户端发 0 = 不查）。
+> 两笔都不动主通路：`masks` / `rh_masks` 块与改前**逐位相同**。板端二进制 sha256 `eee046d8…`。
+>
+> **2026-11-19 更正**：右心「触边判定」**已按用户要求整体关闭** —— `heart_block()` 末 8 字节固定写 0，
+> 「全心」面板的档位下拉也删掉了（PC 与板端一致）。服务端仍认这个字段，恢复要同时改
+> `heart_block()` 与 `_build_middle()`。见 `06_report/板端上位机同步_20261119.md`。
 
-## 复现步骤
+---
 
-1. **准备环境**
-   - 安装 Vivado / Vitis HLS 2025.2，在 `environment/local-tools.json` 里填写本机安装路径；
-   - Python 3.11：`pip install -r environment/requirements-lock.txt`（或 `conda env create -f environment/environment.yml`）；
-   - 板卡：FZ3B 写入厂商 Ubuntu 18.04 镜像，用网线与 PC 直连（板子地址 192.168.1.254）。
-2. **构建 PL 比特流**（可跳过，直接用仓库里的 `bitstream/ai_sys_f150nv.bin`）
-   ```
-   python tcp_image/tcp_image_rx/ai/build/unpack_hls_ip.py
-   tcp_image\tcp_image_rx\ai\bd\run_build_f_novis.bat 150.0 f150nv p6757
-   ```
-   产物与报告：`tcp_image/tcp_image_rx/bitstream/ai_sys_f150nv.bin`、`tcp_image/tcp_image_rx/vivado/ai_sys_f150nv_{util,timing}.rpt`，
-   可与仓库中已有的报告逐项比对。
-3. **部署到板上**：把比特流放到板上 `/lib/firmware/ai_sys.bin`（开机由 `ai-sys-bitstream.service` 加载），
-   并把其 sha256 写入 `/lib/firmware/ai_sys_pp.sha256`；PS 服务端用
-   `python tcp_image/tcp_image_rx/boot/deploy_board_v5.py prepare` → `activate` 部署（`rollback` 回到上一版），流程见 `skill/board_deploy_rollback.md`。
-4. **运行上位机**：`python tcp_image/tcp_image_ui/heartapp.py`（快照 / 关键帧 / 现场三种模式）。
-5. **验证**：`tcp_image/tcp_image_ui/verify_board_*.py` 做板上逐位比对与回归，`acceptance/board_acceptance_nv/acceptance.py baseline|deploy_tests`
-   做比特流升级验收；结果与 `acceptance/` 中的记录比对。
-6. **重新训练 / 评测**：下载数据集后按各线 README 运行预处理、训练、量化、导出脚本；测试集只能评一次（`skill/test_set_lock.md`）。
+## 上位机怎么用
 
-公开版中所有目录名与文件名已按指南统一为英文小写，脚本中的路径同步修改；板上的安装目录也随之为小写（例如 `/root/tcp_image_rx`）。
+双击 `启动上位机.bat`：
 
-## 权重与固件
+- 默认连 `192.168.1.254 5060`（板子）
+- 想换参数就建个快捷方式，在目标后面加，例如 `启动上位机.bat --mode live`、`启动上位机.bat 127.0.0.1 5060`
+- 想看日志就加 `--console`（留在窗口里跑）
+- 加 `--check` 只做依赖 / 资产 / 连板自检，不开界面
+- 「全心」面板里有一个**「触边判定」下拉**（不查 / 1 / 2 / 3 px，默认取 `echo_heart_config.json` 的 `right_heart.border_px`）：右室掩膜离扇形边界这么近就不报这一帧的比值、也不画轮廓（板端 v5.27 判定）；**改完要重跑**才生效。
+- 它会自己找 Python：优先 `%USERPROFILE%\anaconda3\envs\srtp-vision`，其次 PATH 上的 `python`；
+  缺 numpy / scipy / opencv / Pillow 会提示安装命令
 
-- 模型库 0–22 的量化权重全部在仓库里：内置程序在 `tcp_image/tcp_image_rx/src/unet_models.c`，运行时安装的程序包
-  （`.upk`）在 `tcp_image/tcp_image_rx/programs_*/`，各线导出的逐层参数在 `*/deploy/*/params/`，浮点训练权重在 `*/results/train/`。
-- 比特流与启动镜像：`tcp_image/tcp_image_rx/bitstream/`、`tcp_image/tcp_image_rx/boot/boot.bin`。
-- HLS IP 只保留官方导出包（`solution1/impl/ip/xilinx_com_hls_*.zip`），构建前用 `unpack_hls_ip.py` 解开。
+> `07_ui/` 是 `01_src/ui/` 的副本。改代码请改 `01_src/ui/`，再把改动同步过去（或重新复制一遍）。
 
-## 数据集（不在仓库中）
+---
 
-原始数据、缓存数组、视频、测试向量图像都没有放进仓库，请自行下载：
+## 两条命令（重建用）
 
-- EchoNet-Dynamic（Stanford AIMI 研究使用协议，禁止再分发）
-- CAMUS（CC BY-NC-SA 4.0，Leclerc et al., IEEE TMI 2019）
-- CardiacUDA、HMC-QU、TED
-- MSD Task09 Spleen、ISIC 2016、STARE、DRIVE、CHASE_DB1、HRF、Chákṣu、PAPILA
+```bat
+rem PL：HLS -> 整片（约 45 分钟）
+03_build\run_hls.bat export
+03_build\build_pl.bat
 
-仓库中出现的 CAMUS / MSD / ISIC / 眼底图像仅作结果示意，版权归原数据集所有者。
+rem 板端：编译 + 安装
+rem   make CC=gcc（在板上的 src 目录）
+sh 05_deploy/install_2026pld.sh <bin> <server> <programs>
+```
 
-## 协议
+细节与实测数据见 `06_report/2026pld_集成报告.md`。
 
-代码以 [MIT License](LICENSE) 开源。用非商业或仅限研究使用的数据集训练出的权重
-（例如程序 16 `echonet_lv` 与右室 / 右房 21 / 22 用了 EchoNet-Dynamic，CAMUS 系列程序用了 CAMUS）以及结果图中的数据集图像，
-仍须遵守对应数据集的使用条款。第三方组件保留各自的协议（`lwnet/LICENSE`、`edgeboard/LICENSE`）。
+---
+
+## 历史版本在哪
+
+**全部旧版已归档到 `E:\fpga\旧版归档_20261119\`**（9.6 GB / 3.6 万文件）。那个目录里有三份说明：
+
+| 文件 | 讲什么 |
+| --- | --- |
+| `版本演进说明.md` | PL 主线 10 个里程碑版本（V00 分享包底版 → P6 → P7 → P8c → P10 → 112直跑 → P11(否决) → P13 → 扇形外跳过 → P14/P15）+ 旧版多文件上位机，逐版讲特性、实现方式、实测数字、保留意见 |
+| `专题工作说明.md` | 17 个专题：CLB 占用分解、算法段资源、提速方案、单帧耗时口径、统一驱动、上位机、板端移植、点击纠错、采集卡、清理、上板测试、博客/主页/论证 |
+| `2026pld_变更记录说明.md` | 原先堆在本目录下的 `08_` ~ `17_` 十个变更记录文件夹，逐笔说明现象、根因、改法、验证 |
+
+**换版本前先读归档 README 里那三条前提** —— 尤其「PL 与 PS 必须配套换」：P7 起的比特流删掉了 `img_proc`，而 11-13 那版服务端启动要读 `0xA0000010`，读到就 SIGBUS。
+
+---
+
+## 目录维护约定
+
+- 本目录**只放最新版**：`01_src` / `02_bitstream` / `03_build` / `04_verify` / `05_deploy` / `06_report` / `07_ui` + 本文件 + `启动上位机.bat`。
+- **不放运行残留**：`__pycache__`、`ws.log` 这类跑一次就会重新生成的东西不进本目录；换下来的旧文件一律移进归档（2026-11-19 已清过一轮：运行残留、`01_src/PL/ip/` 重复 IP、tcl 旧底稿、三份失败构建日志，共 197 文件）。
+- 每做完一笔改动：在根目录建 `NN_改动名_日期/` 放报告 + diff + 验证脚本，验完再整体移进归档的 `05_2026pld变更记录\`，并在 `2026pld_变更记录说明.md` 补一节。
+- 换下来的旧版整体移进归档的 `01_版本档案\`（新建 `V0B_…`），不要在根目录留 `_旧版_*`。

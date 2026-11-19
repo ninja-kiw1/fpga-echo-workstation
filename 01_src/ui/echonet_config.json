@@ -1,0 +1,36 @@
+{
+ "source": "echonet/results/beats_config_t3_int.json (TRAIN subset, 1,500 videos)",
+ "cfg": {
+  "smooth": 3,
+  "dist_s": 0.4,
+  "prom": 0.3,
+  "win": 0.9,
+  "agg": "median"
+ },
+ "full": {
+  "a": 0.811509698710793,
+  "b": 10.511287524327033
+ },
+ "realtime": {
+  "a": 0.784533310883141,
+  "b": 14.057323298072136
+ },
+ "qc_thresholds": [
+  0.8854061423556638,
+  1.3039859519192645
+ ],
+ "qc_note": "QC score percentiles 80 / 95 on the TRAIN subset",
+ "clinical": {
+  "full": {
+   "review_margin": 6.0,
+   "rr_cv_irregular": 0.276,
+   "min_beats_avg": 5
+  },
+  "realtime": {
+   "review_margin": 6.5,
+   "rr_cv_irregular": 0.225,
+   "min_beats_avg": 5
+  },
+  "note": "VAL only (echonet/eval_clinical.py -> results/clinical/clinical_val.json): review_margin = smallest margin (0.5 steps) flagging >= 90% of VAL videos whose LVEF band (<=40/41-49/>=50, 2021 ESC) differs from the reference; rr_cv_irregular = 90th percentile of the RR coefficient of variation (RR from consecutive ED frames, no ECG); min_beats_avg = 5 (ASE/EACVI consensus for AF). Index beat EF is shown for reference only: on VAL its error is larger than the multi-beat median."
+ }
+}

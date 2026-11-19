@@ -1,0 +1,20 @@
+# Runtime dependencies for the PC-side echo workstation (heartapp.py).
+#
+#   py -3.14 -m pip install -r requirements.txt
+#
+# Verified working combo on this PC (Python 3.14.7 + Tk 9.0.4, 2560x1440):
+#   numpy 2.5.4 / scipy 1.18.1 / opencv-python 5.0.0.93 / Pillow 13.0.0
+#   scikit-image 0.26.0
+#
+# tkinter is part of CPython itself (no pip package); if `import tkinter`
+# fails, repair the Python install rather than trying to pip install it.
+#
+# NOTE: this folder ships its own imageio.py (native PGM/PPM/AVI codec). It
+# shadows the PyPI package of the same name, which is expected - scikit-image
+# pulls imageio in as a dependency and nothing here relies on that copy.
+
+numpy>=2.0
+scipy>=1.15
+opencv-python>=4.10
+Pillow>=10.0
+scikit-image>=0.24

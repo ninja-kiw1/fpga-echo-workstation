@@ -1,0 +1,1143 @@
+--- a/tcp_image_rx/ai/opt_hls/src/conv_layer.cpp
++++ b/01_src/PL/src/conv_layer.cpp
+@@ -57,9 +57,20 @@
+     return act_t(rounded);
+ }
+ 
++// ══ 2026-11-18 集成分支：在 f150nv 的 conv（上一行所述 V12）之上只加两件事 ══
++//   A) **去掉 %3 取余**（沿用 P8c 的做法）：三处 `(iy + 6) % 3` / `ry % 3` / `(prow + 6) % 3`
++//      都是运行时量对 3 取余，综合成 srem_32ns_3ns（单实例 2283 FF / 1738 LUT、36 拍流水），
++//      把 STEP_ALL 的迭代延迟从 9 拍拖到 44 拍。改成递增计数器后语义完全等价。
++//   B) **扇形裁剪寄存器**（沿用 P14/P15 的做法）：末尾追加 6 个参数
++//      fan_on / fan_xa0 / fan_xag / fan_xb0 / fan_xbg / fan_y0，每行只算
++//      [wx0, wx1) 这段列区间；fan_on == 0 时逐位退化回本文件原来的行为。
++//   除这两件之外，本文件与 f150nv 原版逐字节相同（没有引入 P10 的静态移位、
++//   也没有 P13 的计数器窄化 —— 那两刀不在这次的需求里）。
++// ═══════════════════════════════════════════════════════════════════════════════
+ int conv_layer(const act_word_t* in, act_word_t* out, const param_word_t* params,
+                int mode, int cin, int cout, int in_h, int in_w,
+-               int relu, int shift, int qmin, int qmax) {
++               int relu, int shift, int qmin, int qmax,
++               int fan_on, int fan_xa0, int fan_xag, int fan_xb0, int fan_xbg, int fan_y0) {
+ #pragma HLS INTERFACE m_axi port=in offset=slave bundle=gmem_in depth=65536 max_read_burst_length=64
+ #pragma HLS INTERFACE m_axi port=out offset=slave bundle=gmem_out depth=131072 max_write_burst_length=64
+ #pragma HLS INTERFACE m_axi port=params offset=slave bundle=gmem_par depth=2048
+@@ -75,6 +86,13 @@
+ #pragma HLS INTERFACE s_axilite port=shift bundle=control
+ #pragma HLS INTERFACE s_axilite port=qmin bundle=control
+ #pragma HLS INTERFACE s_axilite port=qmax bundle=control
++/* 扇形裁剪：接在最后，老参数的 AXI-Lite 偏移一个都不动（fan_on 0xC0 … fan_y0 0xE8） */
++#pragma HLS INTERFACE s_axilite port=fan_on bundle=control
++#pragma HLS INTERFACE s_axilite port=fan_xa0 bundle=control
++#pragma HLS INTERFACE s_axilite port=fan_xag bundle=control
++#pragma HLS INTERFACE s_axilite port=fan_xb0 bundle=control
++#pragma HLS INTERFACE s_axilite port=fan_xbg bundle=control
++#pragma HLS INTERFACE s_axilite port=fan_y0 bundle=control
+ #pragma HLS INTERFACE s_axilite port=return bundle=control
+ 
+     if (mode < MODE_CONV3 || mode > MODE_TCONV2 || cin < 1 || cin > MAX_C ||
+@@ -84,6 +102,34 @@
+     const bool transposed = mode == MODE_TCONV2;
+     if (in_h > (transposed ? MAX_H / 2 : MAX_H) || in_w > (transposed ? MAX_W / 2 : MAX_W))
+         return CONV_BAD_CONFIG;
++
++    /* ---- 扇形裁剪：入口校验 + 本节点是否真的裁 ---------------------------------
++     * 斜率上限定成 1 像素/行（Q8 的 256）：超过它，"预取区间 = 最下面那个消费行的
++     * 区间再各放宽 3 像素"这条保守推导就不成立，直接拒掉比算错好。
++     * 转置（上采样）节点恒为全宽 —— 它 sft=1 且假设 x0 为偶，动它风险大于收益。 */
++    if (fan_on != 0 && (fan_on != 1 || fan_xag < 0 || fan_xbg < 0 ||
++                        fan_xag > 256 || fan_xbg > 256))
++        return CONV_BAD_CONFIG;
++    const bool fan = (fan_on != 0) && !transposed;
++    /* 区间由**累加器**推进，行内不出现乘法：第一版每行算一次 (fan_xag*ay)>>8 被综合成
++     * 两级级联 DSP + 一大串 CARRY8，单条路径 6.56 ns，WNS 从 +0.177 打到 -0.180。
++     * Q8 累加器：q = fan_xag * ay（未右移），每行 += fan_xag。 */
++    int fan_q0 = 0, fan_q1 = 0, fan_po0 = 0, fan_po1 = 0;
++    int fan_ay = 0;                       /* 未夹紧的「下一行要用的」绝对行号 - 1 */
++    /* 预取行相对 ay 的固定偏移：CONV3 是 +5（预取行 = y0+y+2，最下面那个消费行再 +2），
++     * CONV1 是 +1。 */
++    const int fan_poff = (mode == MODE_CONV3) ? 5 : 1;
++    if (fan) {
++        fan_ay = fan_y0 - ((mode == MODE_CONV3) ? 1 : 0);
++        const ap_uint<9>  xag = (ap_uint<9>)fan_xag;     /* 已校验 <= 256 */
++        const ap_uint<9>  xbg = (ap_uint<9>)fan_xbg;
++        const int ay0 = (fan_ay < 0) ? 0 : fan_ay;
++        const ap_uint<11> ayu = (ap_uint<11>)ay0;        /* <= 512 */
++        fan_q0  = (int)(xag * ayu);
++        fan_q1  = (int)(xbg * ayu);
++        fan_po0 = fan_xag * fan_poff;                    /* 常量乘，循环外算一次 */
++        fan_po1 = fan_xbg * fan_poff;
++    }
+ 
+     const int cig = (cin + LANES - 1) / LANES;
+     const int cog = (cout + LANES - 1) / LANES;
+@@ -189,8 +235,8 @@
+     {
+         int rmax = need0;
+         if (rmax > in_h - 1) rmax = in_h - 1;
++        int slot = 0;                       /* 去 %3：原来写 ry % 3（srem），改成递增计数器 */
+         for (int ry = 0; ry <= rmax; ++ry) {
+-            const int slot = ry % 3;
+             const act_word_t* src = in + ry * in_w * cig;
+             int px = 0, g = 0;
+             for (int n = 0; n < in_w * cig; ++n) {
+@@ -203,10 +249,15 @@
+                 }
+                 if (++g == cig) { g = 0; ++px; }
+             }
++            slot = (slot == 2) ? 0 : slot + 1;
+         }
+     }
+     // 已经驻留在 rows 里的最高输入行号（转置模式下 base_row 会连续两行相同，用它去重）
+     int pf_row = (need0 > in_h - 1) ? (in_h - 1) : need0;
++
++    /* 行槽位 = base_row mod 3。base_row 在 y=0 时只能是 -1(MODE_CONV3) 或 0，
++       所以起点就是 2 或 0；之后每行（转置每两行）+1 —— 不再做 32 位对 3 取余。 */
++    int sl0c = (mode == MODE_CONV3) ? 2 : 0;
+ 
+ ROWS:
+     for (int y = 0; y < out_h; ++y) {
+@@ -217,27 +268,46 @@
+         const int prow = base_row + kk;
+         const bool ld_en = (prow <= in_h - 1) && (prow != pf_row);
+ 
++        const int sl0 = sl0c;              /* 去 %3：原来写 (base_row + 6) % 3 */
++
++        /* ---- 扇形裁剪：本输出行要算的列区间 [wx0, wx1) --------------------------
++         * 区间按**绝对输出行号**给，行内只有加法/移位（累加器见函数开头）。
++         * 预取区间覆盖「最下面那个消费行」的区间再各放宽 3 像素（CONV1 放宽 3 也够）。 */
++        int wx0 = 0, wx1 = out_w, lx0 = 0, lx1 = in_w;
++        if (fan) {
++            wx0 = fan_xa0 - (fan_q0 >> 8);
++            wx1 = fan_xb0 + (fan_q1 >> 8);
++            lx0 = fan_xa0 - ((fan_q0 + fan_po0) >> 8) - 3;
++            lx1 = fan_xb0 + ((fan_q1 + fan_po1) >> 8) + 3;
++            if (wx0 < 0) { wx0 = 0; }
++            if (wx1 > out_w) { wx1 = out_w; }
++            if (wx1 <= wx0) { wx0 = 0; wx1 = out_w; }   /* 空区间 → 退化成整行（安全侧） */
++            if (lx0 < 0) { lx0 = 0; }
++            if (lx1 > in_w) { lx1 = in_w; }
++            if (lx1 <= lx0) { lx0 = 0; lx1 = in_w; }
++        }
++
+         // ============ 统一路径：整行一条流水线 ============
+         int phase = 0;      // 槽位相位 = s mod PER
+ 
+         // ---- 滑窗初始化：相位 0 下逻辑列 0..KC-1 落在槽位 0..KC-1 ----
+         {
+             int ir = 0, ic = 0, ig = 0;
++            int sl = sl0;                      /* 去 %3：行槽位计数器（ir 每 +1 前进一格） */
+             const int ninit = krows * KC * cig;
+             for (int n = 0; n < ninit; ++n) {
+ #pragma HLS PIPELINE II=1
+-                const int  col = col0i + ic;
++                const int  col = wx0 + col0i + ic;      /* 扇形：窗口从 wx0 起 */
+                 const int  iy  = base_row + ir;
+                 const bool v   = (iy >= 0) && (iy < in_h) && (col >= 0) && (col < in_w);
+                 const int  cc  = v ? col : 0;
+-                const int  sl  = (iy + 6) % 3;
+                 for (int i = 0; i < LANES; ++i) {
+ #pragma HLS UNROLL
+                     const act_t px = v ? rows[sl][cc][ig][i] : act_t(0);
+                     wstA[ir][ic][ig][i] = px;
+                     wstB[ir][ic][ig][i] = px;
+                 }
+-                if (++ig == cig) { ig = 0; if (++ic == KC) { ic = 0; ++ir; } }
++                if (++ig == cig) { ig = 0; if (++ic == KC) { ic = 0; ++ir; if (++sl == 3) sl = 0; } }
+             }
+         }
+ 
+@@ -247,7 +317,7 @@
+         int ncyc = work;
+         if (nfill > ncyc) ncyc = nfill;
+         if (nq    > ncyc) ncyc = nq;
+-        const int nsteps = (out_w + XU - 1) / XU;
++        const int nsteps = (wx1 - wx0 + XU - 1) / XU;      /* 扇形：只跑本行区间 */
+         const int total  = (nsteps + 2) * ncyc;  // 末尾空转 2 步，把最后两步的结果补写出去
+ 
+         acc_t acc[XU][LANES];
+@@ -259,8 +329,9 @@
+         int cg = 0, ky = 0, kx = 0, ig = 0;     // 计算计数器
+         int fr = 0, fc = 0, fg = 0;             // 补窗计数器
+         int su = 0, sg = 0;                     // requantize/存回计数器
+-        int wcol0 = col0i;                      // 窗口逻辑列 0 对应的输入列
+-        int st_x0 = -2 * XU;                    // 正在写 orow 的那一步的 x0（落后两步）
++        int wcol0 = wx0 + col0i;                // 窗口逻辑列 0 对应的输入列（扇形：从 wx0 起）
++        int st_x0 = wx0 - 2 * XU;               // 正在写 orow 的那一步的 x0（落后两步）
++        int fsl = sl0;                          // 去 %3：补窗的行槽位（跟着 fr 递增）
+ 
+ STEP_ALL:
+         for (int n = 0; n < total; ++n) {
+@@ -314,7 +385,7 @@
+             }
+ 
+             // ---- (2) 补窗：写下一步要用的槽位（与计算槽位不相交）----
+-            //   ⚠ 一拍**只读一行** rows：行槽位 sl=(iy+6)%3 是运行时索引，HLS 证明不了
++            //   ⚠ 一拍**只读一行** rows：行槽位 fsl 是运行时索引，HLS 证明不了
+             //     多条 load 落在不同分片，一次读多行会被判成撞同一块 RAM → II=2。
+             if (s < nsteps && k < nfill) {
+                 int sf = KC + fc + basew;           // 逻辑列 KC+fc 的槽位
+@@ -322,14 +393,13 @@
+                 const int  col = wcol0 + KC + fc;   // 对应的输入列
+                 const int  iy  = base_row + fr;
+                 const bool v   = (col >= 0) && (col < in_w) && (iy >= 0) && (iy < in_h);
+-                const int  sl  = (iy + 6) % 3;
+-                for (int i = 0; i < LANES; ++i) {
+-#pragma HLS UNROLL
+-                    const act_t px = v ? rows[sl][col][fg][i] : act_t(0);
++                for (int i = 0; i < LANES; ++i) {
++#pragma HLS UNROLL
++                    const act_t px = v ? rows[fsl][col][fg][i] : act_t(0);
+                     wstA[fr][sf][fg][i] = px;
+                     wstB[fr][sf][fg][i] = px;
+                 }
+-                if (++fg == cig) { fg = 0; if (++fc == sft) { fc = 0; ++fr; } }
++                if (++fg == cig) { fg = 0; if (++fc == sft) { fc = 0; ++fr; if (++fsl == 3) fsl = 0; } }
+             }
+ 
+             // ---- (3) requantize(上一步的 raw) + 存回(上上步的 resA) ----
+@@ -339,7 +409,7 @@
+             if (k < nq) {
+                 for (int o = 0; o < LANES; ++o) {
+ #pragma HLS UNROLL
+-                    if (st_x0 >= 0 && (st_x0 + su) < out_w)
++                    if (st_x0 >= wx0 && (st_x0 + su) < wx1)   /* 扇形：只写本行区间 */
+                         orow[st_x0 + su][sg][o] = resA[su][sg][o];
+                     resA[su][sg][o] = requantize(raw[(s + 1) & 1][sg][su][o], use_relu,
+                                                  mult_buf[sg][o], offset_buf[sg][o],
+@@ -353,6 +423,7 @@
+                 k = 0;
+                 cg = 0; ky = 0; kx = 0; ig = 0;
+                 fr = 0; fc = 0; fg = 0;
++                fsl = sl0;
+                 su = 0; sg = 0;
+                 ++s;
+                 wcol0 += sft;
+@@ -368,14 +439,15 @@
+         //     双口 → 一拍能同时一读一写，搬运拍数直接砍半。
+         //   ⚠ **不要**把它折进上面的计算流水线 —— 实测那样会慢 1.5~1.6 倍
+         //     （V10/V11，见 README §8.6/§8.7：把 m_axi 折进计算流水线本身就贵）。
+-        const int pslot = (prow + 6) % 3;          // 目标行退役后的那个槽
++        // 去 %3：prow = base_row + kk，所以槽位 = (sl0 + kk) mod 3；kk 只有 1 和 3 两种
++        const int pslot = (sl0 + kk >= 3) ? (sl0 + kk - 3) : (sl0 + kk);   // 目标行退役后的那个槽
+         const int psafe = ld_en ? prow : 0;
+         const act_word_t* psrc = in + psafe * in_w * cig;
+-        const int nst_w = out_w * cog;             // 本行要回写的字数
+-        const int nld_w = ld_en ? (in_w * cig) : 0;// 要预取的字数
++        const int nst_w = (wx1 - wx0) * cog;             /* 扇形：只回写本行区间 */
++        const int nld_w = ld_en ? ((lx1 - lx0) * cig) : 0;  /* 扇形：只预取要读的那段 */
+         const int nmerge = (nst_w > nld_w) ? nst_w : nld_w;
+-        int wpx = 0, wg = 0;                       // 回写：像素 / 组
+-        int lpx = 0, lg = 0;                       // 预取：像素 / 组
++        int wpx = wx0, wg = 0;                     // 回写：像素 / 组
++        int lpx = lx0, lg = 0;                     // 预取：像素 / 组
+ MERGE:
+         for (int n = 0; n < nmerge; ++n) {
+ #pragma HLS LOOP_TRIPCOUNT min=1 max=2048
+@@ -386,11 +458,11 @@
+ #pragma HLS UNROLL
+                     word.range(16 * i + 15, 16 * i) = orow[wpx][wg][i].range(15, 0);
+                 }
+-                dst[n] = word;
++                dst[wx0 * cog + n] = word;
+                 if (++wg == cog) { wg = 0; ++wpx; }
+             }
+             if (n < nld_w) {
+-                act_word_t word = psrc[n];
++                act_word_t word = psrc[lx0 * cig + n];
+                 for (int i = 0; i < LANES; ++i) {
+ #pragma HLS UNROLL
+                     rows[pslot][lpx][lg][i].range(15, 0) = word.range(16 * i + 15, 16 * i);
+@@ -399,6 +471,22 @@
+             }
+         }
+         if (ld_en) pf_row = prow;
++
++        /* 去 %3：槽位计数器前进一格（转置模式 base_row = y>>1，每两行才 +1） */
++        if (!transposed || (y & 1)) {
++            sl0c = (sl0c == 2) ? 0 : sl0c + 1;
++        }
++        /* 扇形：区间累加器推进一行（Q8，只加不乘）。
++         * ⚠ fan_ay = 未夹紧的"下一行行号"；只有它 > 0 才推进 —— 对应
++         *   ay_eff = max(0, fan_y0 + y - off)，第一条带（fan_y0=0, CONV3）的头两行
++         *   ay_eff 都还是 0，必须**停两拍**，否则整条带会系统性偏 1 行。 */
++        if (fan) {
++            fan_ay += 1;
++            if (fan_ay > 0) {
++                fan_q0 += fan_xag;
++                fan_q1 += fan_xbg;
++            }
++        }
+     }
+     return CONV_OK;
+ }
+--- a/tcp_image_rx/ai/opt_hls/src/conv_layer.hpp
++++ b/01_src/PL/src/conv_layer.hpp
+@@ -24,7 +24,9 @@
+ enum ConvStatus { CONV_OK = 0, CONV_BAD_CONFIG = 1 };
+ 
+ // Returns CONV_OK, or CONV_BAD_CONFIG without touching memory.
++// 2026-11-18：末尾追加 6 个扇形裁剪参数（fan_on=0 时行为与原来逐位相同）。
+ int conv_layer(const act_word_t* in, act_word_t* out, const param_word_t* params,
+                int mode, int cin, int cout, int in_h, int in_w,
+-               int relu, int shift, int qmin, int qmax);
++               int relu, int shift, int qmin, int qmax,
++               int fan_on, int fan_xa0, int fan_xag, int fan_xb0, int fan_xbg, int fan_y0);
+ #endif
+--- a/tcp_image_rx/ai/opt_hls/tb/test_conv_par.cpp
++++ b/01_src/PL/tb/test_conv_par.cpp
+@@ -19,10 +19,11 @@
+ #include <string>
+ #include <vector>
+ 
+-// 并行版由另一个编译单元提供
++// 并行版由另一个编译单元提供（2026-11-18：末尾多了 6 个扇形参数）
+ int conv_layer(const act_word_t* in, act_word_t* out, const param_word_t* params,
+                int mode, int cin, int cout, int in_h, int in_w,
+-               int relu, int shift, int qmin, int qmax);
++               int relu, int shift, int qmin, int qmax,
++               int fan_on, int fan_xa0, int fan_xag, int fan_xb0, int fan_xbg, int fan_y0);
+ 
+ // 参考实现(PLD 原版)在 ref_conv_layer.cpp 里被改名成 conv_layer_ref
+ int conv_layer_ref(const act_word_t* in, act_word_t* out, const param_word_t* params,
+@@ -121,7 +122,8 @@
+         int ra = conv_layer_ref(&in[0], &out_a[0], &par[0], c.mode, c.cin, c.cout,
+                                 c.in_h, c.in_w, c.relu, c.shift, c.qmin, c.qmax);
+         int rb = conv_layer(&in[0], &out_b[0], &par[0], c.mode, c.cin, c.cout,
+-                            c.in_h, c.in_w, c.relu, c.shift, c.qmin, c.qmax);
++                            c.in_h, c.in_w, c.relu, c.shift, c.qmin, c.qmax,
++                            0, 0, 0, 0, 0, 0);
+ 
+         size_t bad = 0, first = 0;
+         for (size_t n = 0; n < out_words; ++n) {
+@@ -139,6 +141,102 @@
+                     bad ? (" (first word " + std::to_string(first) + ")").c_str() : "");
+     }
+ 
+-    std::printf("\nSUMMARY cases=%d words=%llu failures=%d\n", NCASES, checked, failed);
++    // ═══ 扇形裁剪用例（2026-11-18 新增）═══════════════════════════════════════
++    //   判据两条：
++    //     ① 区间 [wx0, wx1) 内的每个输出字必须与「无扇形那一趟」逐位相同；
++    //     ② 区间外的输出字必须**一个都没被写**（仍是哨兵值）。
++    //   区间由本文件自己按 kernel 文档的公式独立算一遍，不复用被测代码。
++    struct FanCase {
++        const char* name;
++        int mode, cin, cout, in_h, in_w, relu, shift, qmin, qmax;
++        int xa0, xag, xb0, xbg, y0;
++    };
++    static const FanCase FAN[] = {
++        {"FAN conv3 8->8  64  xag=64",  0,  8,  8, 64, 64, 1, 30, -127, 127,  6,  64, 58,  64, 0},
++        {"FAN conv3 16->16 64 xag=128", 0, 16, 16, 64, 64, 1, 30, -127, 127, 10, 128, 54, 128, 0},
++        {"FAN conv1 8->16 64  梯形常数", 1,  8, 16, 64, 64, 0, 30, -127, 127,  8,   0, 56,   0, 0},
++        {"FAN conv3 8->8  64  y0=20",  0,  8,  8, 64, 64, 1, 30, -127, 127,  6,  64, 58,  64, 20},
++        {"FAN conv3 8->8  64  xag=256", 0,  8,  8, 64, 64, 1, 30, -127, 127,  4, 256, 60, 256, 0},
++        {"FAN conv1 8->1  64  全宽",    1,  8,  1, 64, 64, 0, 30, -127, 127,  0,   0, 64,   0, 0},
++        {"FAN conv3 8->8  64  全宽",    0,  8,  8, 64, 64, 1, 30, -127, 127,  0,   0, 64,   0, 0},
++    };
++    static const int NFAN = (int)(sizeof(FAN) / sizeof(FAN[0]));
++    for (int ci = 0; ci < NFAN; ++ci) {
++        const FanCase& c = FAN[ci];
++        const int cig = (c.cin + LANES - 1) / LANES;
++        const int cog = (c.cout + LANES - 1) / LANES;
++        const int out_h = c.in_h, out_w = c.in_w;
++        const size_t in_words = (size_t)c.in_h * c.in_w * cig;
++        const size_t out_words = (size_t)out_h * out_w * cog;
++
++        std::vector<act_word_t> in(in_words);
++        std::vector<param_word_t> par(2048);
++        s_seed = 20261006u + (ci + 100) * 7919u;
++        for (size_t n = 0; n < in_words; ++n) {
++            act_word_t w = 0;
++            for (int i = 0; i < LANES; ++i) {
++                int16_t v = (int16_t)((int)(rnd() % 40001) - 20000);
++                w.range(16 * i + 15, 16 * i) = (uint16_t)v;
++            }
++            in[n] = w;
++        }
++        const int weight_words = (c.mode == MODE_CONV3 ? 9 : 1) * cog * cig * LANES;
++        const int cop = cog * LANES;
++        for (int n = 0; n < weight_words; ++n) {
++            param_word_t w = 0;
++            for (int i = 0; i < LANES; ++i) {
++                w.range(8 * i + 7, 8 * i) = (uint8_t)((int)(rnd() % 255) - 127);
++            }
++            par[n] = w;
++        }
++        for (int k = 0; k < cop; ++k) {
++            par[weight_words + k] = (uint64_t)((int64_t)((int)(rnd() % 2001) - 1000) & 0xFFFFFFFFFFFFULL);
++            uint64_t m = (uint64_t)(int64_t)(int32_t)(0x40000000 | (int32_t)(rnd() & 0xFFFF));
++            par[weight_words + cop + k] = m;
++            par[weight_words + 2 * cop + k] = (uint64_t)((int64_t)(int32_t)rnd()) << 8;
++        }
++
++        const act_word_t SENT = (act_word_t)0xDEADBEEFDEADBEEFULL;
++        std::vector<act_word_t> out_a(out_words, SENT);   // 无扇形（参考）
++        std::vector<act_word_t> out_b(out_words, SENT);   // 开扇形
++
++        int ra = conv_layer_ref(&in[0], &out_a[0], &par[0], c.mode, c.cin, c.cout,
++                                c.in_h, c.in_w, c.relu, c.shift, c.qmin, c.qmax);
++        int rb = conv_layer(&in[0], &out_b[0], &par[0], c.mode, c.cin, c.cout,
++                            c.in_h, c.in_w, c.relu, c.shift, c.qmin, c.qmax,
++                            1, c.xa0, c.xag, c.xb0, c.xbg, c.y0);
++
++        size_t bad_in = 0, bad_out = 0, inside = 0, outside = 0;
++        const int ay_off = (c.mode == MODE_CONV3) ? 1 : 0;
++        for (int y = 0; y < out_h; ++y) {
++            int ay = c.y0 + y - ay_off;
++            if (ay < 0) ay = 0;
++            int wx0 = c.xa0 - ((c.xag * ay) >> 8);
++            int wx1 = c.xb0 + ((c.xbg * ay) >> 8);
++            if (wx0 < 0) wx0 = 0;
++            if (wx1 > out_w) wx1 = out_w;
++            if (wx1 <= wx0) { wx0 = 0; wx1 = out_w; }
++            for (int x = 0; x < out_w; ++x) {
++                const bool inb = (x >= wx0 && x < wx1);
++                for (int g = 0; g < cog; ++g) {
++                    const size_t idx = ((size_t)y * out_w + x) * cog + g;
++                    if (inb) {
++                        ++inside;
++                        if (out_b[idx] != out_a[idx]) ++bad_in;
++                    } else {
++                        ++outside;
++                        if (out_b[idx] != SENT) ++bad_out;
++                    }
++                }
++            }
++        }
++        checked += inside + outside;
++        const bool pass = (ra == rb) && (bad_in == 0) && (bad_out == 0);
++        if (!pass) ++failed;
++        std::printf("%s %-30s in=%zu diffs=%zu  outside=%zu written=%zu\n",
++                    pass ? "PASS" : "FAIL", c.name, inside, bad_in, outside, bad_out);
++    }
++
++    std::printf("\nSUMMARY cases=%d words=%llu failures=%d\n", NCASES + NFAN, checked, failed);
+     return failed == 0 ? 0 : 1;
+ }
+--- a/tcp_image_rx/src/ai_view.h
++++ b/01_src/board/src/ai_view.h
+@@ -30,7 +30,10 @@
+  *     came from the board-side state) | bit1 (a state is stored after this frame). */
+ /* v8: the server understands FLAG_C_PP (PL post-processing, image_proto.h); for a compact frame
+  *     "reserved" bit2 = the loaded firmware has pp_layer. */
+-#define AI_STAT_VERSION  8u
++/* v9: compact frames accept any side that is a multiple of 8 in [8, 512], not just the
++ *     512>>shift steps: the size is handed to unet_set_size(), so the 112x112 EchoNet run
++ *     needs no 112 -> 128 padding on either side. "ai_res" echoes that side length. */
++#define AI_STAT_VERSION  9u
+ 
+ /* 32-byte PL post-processing block (FLAG_C_PP), sent last; then, when mask_bytes > 0, the bit mask
+  * (rows of row_bytes, bit j of byte i = pixel 8 i + j) and its CRC16.
+--- a/tcp_image_rx/src/job.c
++++ b/01_src/board/src/job.c
+@@ -236,9 +236,34 @@
+     if (unet_ready() == 0 || prog_select(model) != 0 || unet_set_shift(shift) != 0) {
+         return -1;
+     }
++    unet_set_fan(0);            /* P15: 档位链（CAMUS / F1 / 应变）不做扇形裁剪 */
+     if (unet_run(rgb, logits, &st) != 0) {
+         return -1;
+     }
++    if (run_us != NULL) {
++        *run_us += st.run_us;
++    }
++    job_unet_account(&st);
++    return 0;
++}
++
++/* 按实际像素尺寸跑（unet_set_size）。心超 112x112 直跑走这条：112 不是 512>>k，
++ * 用不了 unet_set_shift 的档位。张量按 512 分配，小尺寸只用前一段。 */
++int job_unet_hw(unsigned model, int h, int w, const uint8_t *rgb, int8_t *logits, uint32_t *run_us)
++{
++    unet_stats_t st;
++
++    if (unet_ready() == 0 || unet_select_model((int)model) != 0 || unet_set_size(h, w) != 0) {
++        return -1;
++    }
++    /* P15: 这个入口只有心超扇形图在用（112 直跑的任意边长档）—— 扇形成像才开裁剪。
++     * 走档位的 job_unet(shift) 是 CAMUS/F1/应变那条链，保持关闭，逐位不变。 */
++    unet_set_fan(unet_model_is_sector((int)model));
++    if (unet_run(rgb, logits, &st) != 0) {
++        unet_set_fan(0);
++        return -1;
++    }
++    unet_set_fan(0);
+     if (run_us != NULL) {
+         *run_us += st.run_us;
+     }
+--- a/tcp_image_rx/src/job.h
++++ b/01_src/board/src/job.h
+@@ -95,6 +95,9 @@
+ double job_np_sum(const double *a, int n);
+ /** @brief Run built-in / installed program `model` on a (512>>shift)^2 RGB input. 0 ok. */
+ int job_unet(unsigned model, int shift, const uint8_t *rgb, int8_t *logits, uint32_t *run_us);
++/** @brief Same, but on an arbitrary h x w input (h, w multiples of 8, <= 512) via unet_set_size().
++ *  Used by the 112 x 112 straight echo run (no more 112 -> 128 padding). 0 ok. */
++int job_unet_hw(unsigned model, int h, int w, const uint8_t *rgb, int8_t *logits, uint32_t *run_us);
+ /** @brief v5.16: append ,"pl_split":{ap/put/get/zero/other ms} of this job's U-Net runs (software timers). */
+ void job_pl_split_json(jbuf_t *b);
+ void job_pl_split_reset(void);
+--- a/tcp_image_rx/src/job_echo.c
++++ b/01_src/board/src/job_echo.c
+@@ -4,7 +4,7 @@
+  *   PC  decodes the AVI (OpenCV, grey = (B + G + R + 1) // 3) and uploads the raw grey frames once; decoding
+  *       on the board was dropped (10-13): libjpeg differs from OpenCV/FFmpeg by up to 4 grey levels on ~3 % of
+  *       the pixels, so it could not be bit-exact with the offline evaluation
+- *   PS  t3 encoding (R / G / B = frames t-d / t / t+d, d = round(0.04 s * fps)), 8 px zero border -> 128
++ *   PS  t3 encoding (R / G / B = frames t-d / t / t+d, d = round(0.04 s * fps)), no border: 112 x 112 straight
+  *   PL  program echonet_lv on every analysed frame (every frame, or every k-th in realtime mode)
+  *   PL  logit >= 1 in the 112 window, largest 4-connected component + fill holes on pp_layer (default since v5.14,
+  *       user's choice: the FPGA carries the pixel work; costs PL time, 6.19 vs 6.05 s on a 174-frame clip); flag
+@@ -24,7 +24,8 @@
+  *   is closer than the margin to 40 or 50, per-beat EF spread, RR intervals from consecutive ED frames (no ECG),
+  *   RR coefficient of variation, irregular flag, index beat (k >= 2 whose two preceding RR intervals differ least)
+  * data: frames x 112 x 112 grey
+- * flags: bit0 "logits" (128 x 128 per analysed frame), bit1 "masks" (cleaned, bit-packed 112 x 112 each, zlib),
++ * flags: bit0 "logits" (ES x ES = 112 x 112 per analysed frame since the straight run), bit1 "masks"
++ *        (cleaned, bit-packed 112 x 112 each, zlib),
+  *        bit2 clean on a PS worker instead of pp_layer (until v5.13 bit2 meant the opposite), bit3 unused,
+  *        bit4 live: one "frame" blob per analysed frame while running + rolling EF in the progress messages,
+  *        bit5 pace the analysed frames at the clip's own frame rate (live-probe emulation)
+@@ -51,9 +52,10 @@
+ #include "live_src.h"
+ #include "pp_ai.h"
+ 
+-#define EN     112
+-#define EPAD   8
+-#define ES     128
++#define EN     112                     /* 真实内容边长（EchoNet 原始网格） */
++#define EPAD   0                       /* 不再补边：112 直跑（was 8 / ES 128） */
++#define ES     112                     /* 送进 U-Net 的边长 = EN，走 unet_set_size(ES, ES) */
++#define E128   128                     /* CAMUS/F1 链原生 128 帧（那条链本来就不补边），保持 128 */
+ #define NDISK  20
+ #define MAXF   4096
+ 
+@@ -451,13 +453,13 @@
+         *w0 = tp;
+         if (e->f1_model > 0 && e->g128 != NULL) {
+             /* v5.26 chain 2: F1 (CAMUS-trained) on the 128 frame, R = G = B, its logits sampled to 112
+-             * (eq_f1_to112) and put back into the padded 128 layout, so the clean / tracker / volumes below are the
++             * (eq_f1_to112) and put back into the ES x ES layout, so the clean / tracker / volumes below are the
+              * program-16 path's (E:/PLD/quality/live_camus/f1_engine.py: CAMUS VAL EF MAE 6.1 vs 7.6) */
+-            static uint8_t in128[ES * ES * 3];
+-            static int8_t  l128[ES * ES];
++            static uint8_t in128[E128 * E128 * 3];
++            static int8_t  l128[E128 * E128];
+             int            p;
+ 
+-            for (p = 0; p < ES * ES; p++) {
++            for (p = 0; p < E128 * E128; p++) {
+                 in128[3 * p] = in128[3 * p + 1] = in128[3 * p + 2] = e->g128[p];
+             }
+             if (job_unet((unsigned)e->f1_model, 2, in128, l128, &e->run_us) != 0) {
+@@ -478,7 +480,7 @@
+                     o[3 * xx + 2] = fb[y * EN + xx];
+                 }
+             }
+-            if (job_unet(c->model, 2, kfe_in, lg, &e->run_us) != 0) {
++            if (job_unet_hw((unsigned)c->model, ES, ES, kfe_in, lg, &e->run_us) != 0) {
+                 return "PL run failed";
+             }
+             for (y = 0; y < EN; y++) {
+@@ -530,7 +532,7 @@
+ /* ---- whole-heart extensions (HC01, 10-25; cardiac_ext.h). Beat pairs = the analysed beats, or (argmax, argmin) of the
+  * volume curve when there is none. "wall_motion": 6 A4C segments from the LV masks (mean fac over the usable beats,
+  * z, segment prompts, clip score / prompt with the calibrated EF). "right_heart": programs hc.rv_model / ra_model on
+- * the frames of the first RH_MAXB pairs (RV at ED and ES, RA at ES), 112 padded to 128 with R = G = B (program 16's
++ * the frames of the first RH_MAXB pairs (RV at ED and ES, RA at ES), 112 x 112 straight run with R = G = B (program 16's
+  * input chain), integer logit >= 1, largest 4-connected component, plausibility vs the LV mask of the same frame;
+  * rv_lv = mean RV_ED / LV_ED and rv_fac = mean 1 - RV_ES / RV_ED over the pairs whose two RV masks pass; ra_lv = mean
+  * RA_ES / LV_ED over the pairs whose RA passes (and lies below the RV at ES when that passes). rh: 3 packed masks per
+@@ -629,7 +631,7 @@
+                         o[3 * x] = o[3 * x + 1] = o[3 * x + 2] = fr[y * EN + x];
+                     }
+                 }
+-                if (job_unet((unsigned)mo[i], 2, rh_in, lg, &us) != 0) {
++                if (job_unet_hw((unsigned)mo[i], ES, ES, rh_in, lg, &us) != 0) {
+                     failed = mo[i];
+                     break;
+                 }
+@@ -911,7 +913,7 @@
+  *   12 i32 rv_model (0 = HC01's)  16 f64 view_t (A4C when median RV / LV area >= view_t)  24 u32 0  28 u32 0  -> 32
+  * Quality: at frame t (t + 1 >= win, (t + 1 - win) % every == 0) the mode-2 clip quality (eq_sector + eq_acc_* +
+  * eq_acc_finish with the KF01 model) over frames t - win + 1 .. t only = host echo_core.clip_features on that window.
+- * View: every view_every-th frame, program rv_model on frame t (112 padded to 128, R = G = B as HC01), logit >= 1,
++ * View: every view_every-th frame, program rv_model on frame t (112 x 112 straight, R = G = B as HC01), logit >= 1,
+  * largest 4-connected component; ratio = RV area / max(LV area of frame t, 1); A4C = median of the last view_n
+  * ratios >= view_t (no extra model: A2C shows no RV). Both start after the frame's mask is out (stamp "end"); the
+  * quality windows run on a worker thread (rq_main), the view's PL run on the job thread (its time shows up as queueing
+@@ -1156,7 +1158,7 @@
+             o[3 * x] = o[3 * x + 1] = o[3 * x + 2] = fr[y * EN + x];
+         }
+     }
+-    if (job_unet((unsigned)model, 2, in, lg, &us) != 0) {
++    if (job_unet_hw((unsigned)model, ES, ES, in, lg, &us) != 0) {
+         return -1;
+     }
+     for (y = 0; y < EN; y++) {
+@@ -2064,7 +2066,7 @@
+                     o[3 * x + 2] = fb[y * EN + x];
+                 }
+             }
+-            if (job_unet(c.model, 2, in, lg, &run_us) != 0) {
++            if (job_unet_hw((unsigned)c.model, ES, ES, in, lg, &run_us) != 0) {
+                 rc = job_fail(j, "PL run failed");
+                 goto out;
+             }
+--- a/tcp_image_rx/src/tcp_image_server.c
++++ b/01_src/board/src/tcp_image_server.c
+@@ -586,8 +586,11 @@
+         printf("[rx] v6c post-processing request incomplete\n");
+         return -1;
+     }
++    /* 尺寸：正方形、8 的倍数、<= 512（驱动 UNET_SIZE_ALIGN = 8）。
++     * 既收 512/256/128/64/32 这些 512>>shift 档位，也收其它 8 的倍数 —— 心超 112x112
++     * 直跑（去掉 112->128 补边）就是用这条通路把 112 交给 unet_set_size()。 */
+     if ((q->kind != V6C_KIND_GRAY && q->kind != V6C_KIND_RGB) || q->track > V6C_TRACK_SET ||
+-        q->w != q->h || (q->w != 32u && q->w != 64u && q->w != 128u && q->w != 256u && q->w != 512u)) {
++        q->w != q->h || q->w < 8u || q->w > 512u || (q->w % 8u) != 0u) {
+         printf("[rx] bad v6c header: kind=%u track=%u %ux%u\n",
+                (unsigned)q->kind, (unsigned)q->track, (unsigned)q->w, (unsigned)q->h);
+         return -1;
+@@ -931,7 +934,8 @@
+     return 0;
+ }
+ 
+-/* 紧凑帧快速通路: 按 w 选档位, 输入在板上拼(跟踪时把上一帧结果放进 G), 只回紧凑结果。
++/* 紧凑帧快速通路: w 是 512>>shift 档位就按档位，否则按实际 h x w（unet_set_size）；
++ * 输入在板上拼(跟踪时把上一帧结果放进 G), 只回紧凑结果。
+  * 返回 0 继续收下一帧, 非 0 断开连接。 */
+ static int handle_v6c(int cfd, const struct v6c_req *q, uint32_t frame_count, int verbose)
+ {
+@@ -944,11 +948,17 @@
+     uint32_t       n = q->w * q->h;
+     uint32_t       comps = 0u, vessels = 0u, k;
+     uint32_t       m;
+-    int            shift = 0, use_state = 0, rc = -1, reg_ok;
++    int            shift = 0, use_state = 0, rc = -1, reg_ok, by_size = 0;
+     uint64_t       t0 = now_us();
+ 
+-    while ((512u >> shift) > q->w) {
++    /* w 是 512>>shift 的档位就照旧走档位（与老行为的数值逐位相同）；
++     * 不是档位（如心超 112 直跑）就按实际 h x w 跑 —— unet_set_size()，PL 不用换。 */
++    while (shift < 5 && (512u >> shift) > q->w) {
+         shift++;
++    }
++    if ((512u >> shift) != q->w) {
++        by_size = 1;
++        shift   = 0;
+     }
+     if (q->track == V6C_TRACK_RESET) {
+         g_track.valid = 0;
+@@ -973,8 +983,16 @@
+     } else {
+         memcpy(in, q->payload, (size_t)n * 3u);
+     }
+-    if (unet_ready() != 0 && prog_select(m) == 0 && unet_set_shift(shift) == 0) {
++    if (unet_ready() != 0 && prog_select(m) == 0 &&
++        (by_size != 0 ? unet_set_size((int)q->h, (int)q->w) : unet_set_shift(shift)) == 0) {
++        /* P15：只有「心超扇形图 + 任意边长档（= 112 直跑）」才做扇形裁剪。
++         * 走档位的 512/256/128/64/32（CAMUS/F1/眼底/皮肤）一律关闭，逐位不变。 */
++        unet_set_fan((by_size != 0 && unet_model_is_sector((int)m) != 0) ? 1 : 0);
+         rc = unet_run(in, lg, &ust);
++        unet_set_fan(0);
++    } else if (by_size != 0) {
++        printf("[v6c] unet_set_size(%u, %u) rejected (needs multiples of 8 in [8, 512])\n",
++               (unsigned)q->h, (unsigned)q->w);
+     }
+     if (rc == 0) {
+         vessels = ai_view_count(lg, (int)q->w, (int)q->h, (int)q->thr, &comps);
+@@ -1121,7 +1139,7 @@
+         "                        op_median3 ... op_vessel4 = compiled operator programs,\n"
+         "                        ct_spleen = CT spleen, z3 RGB slices via compact frames,\n"
+         "                        ct_spleen_roi = its 2x ROI refinement (stage 2),\n"
+-        "                        echonet_lv = EchoNet echo LV (112 padded to 128),\n"
++        "                        echonet_lv = EchoNet echo LV (112x112 straight run),\n"
+         "                        or the index)\n"
+         "      --programs <dir> program packages (*.upk) loaded at start-up and on\n"
+         "                       SIGHUP, each self-tested on the PL; compact frames\n"
+--- a/tcp_image_rx/src/unet_ai.c
++++ b/01_src/board/src/unet_ai.c
+@@ -46,6 +46,12 @@
+ #define C_SHIFT      0x6Cu
+ #define C_QMIN       0x74u
+ #define C_QMAX       0x7Cu
++#define C_FAN_ON     0x84u    /* P15 扇形裁剪：接在最后，老参数的偏移一个都不动 */
++#define C_FAN_XA0    0x8Cu
++#define C_FAN_XAG    0x94u
++#define C_FAN_XB0    0x9Cu
++#define C_FAN_XBG    0xA4u
++#define C_FAN_Y0     0xACu
+ 
+ #define E_IN_A       0x18u
+ #define E_IN_B       0x24u
+@@ -861,6 +867,172 @@
+ }
+ 
+ /* ------------------------------------------------------------------ */
++/*  扇形裁剪（P15）：几何**逐帧从图像自己标定**                          */
++/*                                                                     */
++/*  心超图扇形外是纯黑，而「扇形内要算对」需要的外围像素也有限，逐层反  */
++/*  推下来每个 conv 节点每行只需要一段连续列区间。于是每条带只下发 6 个  */
++/*  寄存器，kernel 按「绝对输出行号」线性求区间：                       */
++/*      x0(y) = xa0 - ((xag*y)>>8)      x1(y) = xb0 + ((xbg*y)>>8)      */
++/*  **默认关闭**（g_fan_on = 0）；只有心超 job 会打开，所以眼底/皮肤/  */
++/*  CT / 512 档全部逐位不变。                                           */
++/* ------------------------------------------------------------------ */
++static int g_fan_on = 0;
++
++/* 几何余量：**按每个节点自己的分辨率**给（不能随缩放缩水 —— 112 档的 2 px
++ * 到 56 只剩 1 px、28 只剩半个，实测那会让 56/28 层少算边界一圈）。 */
++#define FAN_GMARGIN  5
++#define FAN_FIX_CX   510        /* 0.498 * 1024 */
++#define FAN_FIX_AY   336        /* 0.328 * 1024 */
++#define FAN_FIX_TAN  341        /* 0.333 * 1024 */
++
++static int g_fan_hw0_q8 = 0;    /* 第 0 行的半宽（Q8 像素，标定分辨率下） */
++static int g_fan_tq     = 0;    /* 每行增长（Q8 像素/行） */
++static int g_fan_cx_px  = 0;    /* 中心 x（标定分辨率下） */
++static int g_fan_in_w   = 0;    /* 标定时的输入边长 */
++
++/* 每行的列区间在「扇形 ⊕ d」之外再多给几像素，吸收整数式的截断误差
++ * （cx/ay 取整 + Q8 斜率 + base 向下取整 + 每行 >>8 向下取整）。 */
++static int fan_pad(int w) { return (w > 64) ? 2 : 3; }
++
++static int fan_fixed_mode(void) { return getenv("UNET_FAN_TAN") != NULL; }
++
++/* 固定几何模式（对照/兜底）：比例来自 37° 那台机器的实测 */
++static void fan_set_fixed(int w, int h)
++{
++    const char *e;
++    int cxs = FAN_FIX_CX, ays = FAN_FIX_AY, tns = FAN_FIX_TAN;
++    int ay;
++
++    (void)h;
++    if ((e = getenv("UNET_FAN_CX"))  != NULL) { cxs = atoi(e); }
++    if ((e = getenv("UNET_FAN_AY"))  != NULL) { ays = atoi(e); }
++    if ((e = getenv("UNET_FAN_TAN")) != NULL) { tns = atoi(e); }
++    g_fan_tq = (int)(((long)tns * 256 + 512) >> 10);
++    if (g_fan_tq < 0)   { g_fan_tq = 0; }
++    if (g_fan_tq > 256) { g_fan_tq = 256; }
++    ay = (int)(((long)ays * (long)w + 512) >> 10);
++    g_fan_hw0_q8 = ay * g_fan_tq;                       /* A*T 的 Q8 像素 */
++    g_fan_cx_px  = (int)(((long)cxs * (long)w + 512) >> 10);
++    g_fan_in_w   = w;
++}
++
++/* 逐帧标定；返回 0 成功，-1 失败（调用方据此整帧不裁） */
++static int fan_calib(const uint8_t *rgb, int w, int h)
++{
++    int hwbuf[512];
++    int y, x, ny = 0, ymin = -1, ymax = -1, ypeak = -1, hwpeak = -1;
++    long sy = 0, sh = 0, syy = 0, shy = 0;
++
++    if (rgb == NULL || w < 8 || h < 8 || w > 512 || h > 512) {
++        return -1;
++    }
++    for (y = 0; y < h; y++) {
++        const uint8_t *row = rgb + (size_t)y * (size_t)w * 3u;
++        int lo = w, hi = -1;
++        int ch = w / 2;
++
++        for (x = 0; x < w; x++) {
++            if ((row[3 * x] | row[3 * x + 1] | row[3 * x + 2]) != 0) {
++                if (x < lo) { lo = x; }
++                hi = x;
++            }
++        }
++        if (hi < 0) {
++            hwbuf[y] = -1;
++            continue;
++        }
++        {
++            const int a = (ch > lo) ? (ch - lo) : (lo - ch);
++            const int b = (hi > ch) ? (hi - ch) : (ch - hi);
++
++            hwbuf[y] = (a > b) ? a : b;
++        }
++        if (ymin < 0) { ymin = y; }
++        ymax = y;
++        if (hwbuf[y] > hwpeak) { hwpeak = hwbuf[y]; ypeak = y; }
++        /* 斜率只在"外弧还没切进来"的那段拟合（y <= ypeak），否则外弧会把斜率
++         * 拖小、截距拖大 —— 实测那样锥在顶部虚胖到 15 px 半宽，白白多算一大圈。 */
++        if (ypeak < 0 || y <= ypeak) {
++            sy += y; sh += hwbuf[y]; syy += (long)y * y; shy += (long)y * hwbuf[y];
++            ny++;
++        }
++    }
++    if (ny < h / 8 || ymin < 0 || ypeak <= ymin || ymax < h / 2) {
++        return -1;                          /* 内容太少 / 扇形没占到半幅 → 不裁 */
++    }
++    {
++        const long den = (long)ny * syy - sy * sy;
++        const long num = (long)ny * shy - sy * sh;
++        long b_q8, worst = -1000000L, a_q8;
++
++        if (den == 0) {
++            return -1;
++        }
++        b_q8 = (num * 256 + (num >= 0 ? den / 2 : -(den / 2))) / den;
++        if (b_q8 <= 8 || b_q8 > 256) {                  /* 不合理：< 0.03 或 > 1 px/行 */
++            return -1;
++        }
++        for (y = 0; y < h; y++) {
++            long v;
++
++            if (hwbuf[y] < 0) continue;
++            v = (long)hwbuf[y] * 256 - b_q8 * y;
++            if (v > worst) { worst = v; }
++        }
++        a_q8 = worst;                /* 整体上移 → 支配所有行（余量在 fan_params 里按层加） */
++        if (a_q8 < 0) { a_q8 = 0; }
++        g_fan_tq     = (int)b_q8;
++        g_fan_hw0_q8 = (int)a_q8;
++        g_fan_cx_px  = w / 2;
++        g_fan_in_w   = w;
++    }
++    return 0;
++}
++
++/* 把标定结果换算到某个分辨率（每个节点按自己的输出尺寸算） */
++static void fan_params(int w, int h, int *cx, int *ay, int *tanq8)
++{
++    const int W = (g_fan_in_w > 0) ? g_fan_in_w : w;
++    long hw0n;
++
++    (void)h;
++    *tanq8 = g_fan_tq;
++    *cx    = (int)(((long)g_fan_cx_px * w + W / 2) / W);
++    hw0n   = ((long)g_fan_hw0_q8 * w + W / 2) / W + (long)FAN_GMARGIN * 256;
++    *ay    = (g_fan_tq > 0) ? (int)(hw0n / g_fan_tq) : 0;   /* 行 */
++}
++
++/* 每个 conv 节点要不要裁、膨胀几像素（-1 = 不裁）。**全流程**：三层分辨率的
++ * conv 节点全带上（P15）。数值来自「在扇形上逐层反推每层必须算的集合，再求最小
++ * 的 d 使 扇形⊕d 包住它」。
++ *
++ * 不裁的三类：
++ *   - eltwise（5/10 池化、17/24 Concat）：没改 eltwise kernel，保持全宽 = 超集；
++ *   - 转置上采样（15/22）：kernel 对 transposed 直接退回全宽；
++ *   - 被吸收的 Add（4/9/14/21/28）：它们根本不单独跑。
++ */
++static const signed char g_fan_d[UNET_NODES_LEN] = {
++    -1, 22, 21, 21, -1, -1, 10,  9,  9, -1,
++    -1,  4,  3,  3, -1, -1,  4, -1,  3,  2,
++     2, -1, -1,  2, -1,  1,  0,  0, -1,  0,
++};
++
++int unet_set_fan(int on)
++{
++    /* UNET_FAN_OFF=1：一刀关掉（A/B 对照用，不用换比特流也不用重编） */
++    g_fan_on = (on != 0 && getenv("UNET_FAN_OFF") == NULL) ? 1 : 0;
++    return 0;
++}
++
++/* 这套模型是「心超扇形图」吗？—— 只有扇形图才能做扇形裁剪。
++ * 模型表（unet_models.c）：0=fundus，2=echo_lv，3=echo_inter，4=echo_seq，16=echonet_lv；
++ * 其余是空槽。 */
++int unet_model_is_sector(int idx)
++{
++    return (idx == 2 || idx == 3 || idx == 4 || idx == 16) ? 1 : 0;
++}
++
++/* ------------------------------------------------------------------ */
+ /*  CONV 节点: 按输出行切条带                                          */
+ /* ------------------------------------------------------------------ */
+ static int run_conv_body(int idx)
+@@ -957,6 +1129,36 @@
+             printf("[ai]   conv S=%d dbuf: in=%u x2 out=%u x2 par=%u rin=%d rout=%d\n",
+                    S, in_words, out_words, par_off, rin, rout);
+         }
++        /* ---- P15：本节点的扇形列区间参数（每条带只下发一次，按绝对行号） ----
++         *   x0(y) = cx - ay*T - y*T - d - 1
++         *   x1(y) = cx + ay*T + y*T + d + 1
++         * 末尾那个 ±1 是多给的安全余量（掩码反推本身已含 3x3 的膨胀）。
++         * d<0 / 未打开 / 转置模式 → fan_on=0，kernel 走原来那条整行路径。 */
++        int fan_use = 0, fan_xa0 = 0, fan_xag = 0, fan_xb0 = 0, fan_xbg = 0;
++        if (g_fan_on != 0 && g_fan_d[idx] >= 0 && n->mode != CONV_MODE_TCONV2) {
++            int cx, ay, tq;
++            const int d = (int)g_fan_d[idx];
++            const int pad = fan_pad(O->w);
++
++            fan_params(O->w, O->h, &cx, &ay, &tq);
++            fan_xag = tq;
++            fan_xbg = tq;
++            /* 左边界向下取整、右边界向上取整 —— 两边都往"宽"里走 */
++            {
++                const int bL = (int)(((long)ay * (long)tq) >> 8);
++                const int bR = (int)(((long)ay * (long)tq + 255) >> 8);
++
++                /* 第 0 行最窄；窄过 8 像素就整节点不裁（避开 nsteps 极小的退化路径） */
++                fan_xa0 = cx - bL - d - pad;
++                fan_xb0 = cx + bR + d + pad;
++                fan_use = ((bL + d + pad) + (bR + d + pad) >= 8) ? 1 : 0;
++            }
++            if (getenv("UNET_DEBUG") != NULL) {
++                printf("[ai] node %d fan: d=%d cx=%d ay=%d T=%d/256 xa0=%d xb0=%d\n",
++                       idx, d, cx, ay, tq, fan_xa0, fan_xb0);
++            }
++        }
++
+ 
+         for (y0 = 0; y0 < O->h; y0 += S) {
+             int Sact = (O->h - y0 < S) ? (O->h - y0) : S;
+@@ -1041,6 +1243,13 @@
+             wr(g_conv, C_SHIFT, n->shift);
+             wr(g_conv, C_QMIN,  (uint32_t)(int32_t)n->qmin);
+             wr(g_conv, C_QMAX,  (uint32_t)(int32_t)n->qmax);
++            /* P15 扇形裁剪：fan_use=0 时写全 0，kernel 里 fan 标志为假 → 与原行为逐位相同 */
++            wr(g_conv, C_FAN_ON,  (uint32_t)fan_use);
++            wr(g_conv, C_FAN_XA0, (uint32_t)fan_xa0);
++            wr(g_conv, C_FAN_XAG, (uint32_t)fan_xag);
++            wr(g_conv, C_FAN_XB0, (uint32_t)fan_xb0);
++            wr(g_conv, C_FAN_XBG, (uint32_t)fan_xbg);
++            wr(g_conv, C_FAN_Y0,  fan_use ? (uint32_t)y0 : 0u);
+             t_prev = now_us();
+             start_ap(g_conv);
+             bram_get_settle_hidden();  /* 上一条带的 bounce->O memcpy, 与本条带计算并行 */
+@@ -1338,6 +1547,19 @@
+     }
+ 
+     fill_input_tensor(rgb);
++    /* P15：**逐帧标定扇形几何**（从这一帧自己的黑边反推），失败就整帧不裁。
++     * 调用方（handle_v6c / job_unet_hw）每帧都会重新 unet_set_fan(1)，所以这里
++     * 把 g_fan_on 改小不会被带到下一帧。 */
++    if (g_fan_on != 0) {
++        if (fan_fixed_mode()) {
++            fan_set_fixed(g_in_w, g_in_h);
++        } else if (fan_calib(rgb, g_in_w, g_in_h) != 0) {
++            g_fan_on = 0;
++            if (getenv("UNET_DEBUG") != NULL) {
++                printf("[ai] fan: 本帧标定失败（内容太少/斜率不合理），整帧不裁\n");
++            }
++        }
++    }
+     if (getenv("UNET_DEBUG") != NULL) {
+         printf("[ai] input tensor filled (%dx%d)\n", g_ten[0].h, g_ten[0].w);
+     }
+--- a/tcp_image_rx/src/unet_ai.h
++++ b/01_src/board/src/unet_ai.h
+@@ -134,4 +134,19 @@
+  */
+ int  unet_run(const uint8_t *rgb, int8_t *logits, unet_stats_t *st);
+ 
++/**
++ * @brief Enable / disable the sector (fan) column trimming on the next runs.
++ *
++ * 心超图扇形外是纯黑；打开后每个 conv 节点每行只算「必须算」的那段列，
++ * 几何**逐帧从输入图像自己标定**（失败则整帧不裁）。默认关闭，
++ * 只有扇形图（模型 2/3/4/16）会打开，其它模型/分辨率逐位不变。
++ * 环境变量：UNET_FAN_OFF=1 强制关闭（A/B 对照），UNET_FAN_TAN 走固定几何。
++ *
++ * @return 0.
++ */
++int  unet_set_fan(int on);
++
++/** @brief 1 if built-in model `idx` is a sector image model (2/3/4/16). */
++int  unet_model_is_sector(int idx);
++
+ #endif /* UNET_AI_H */
+--- a/tcp_image_ui/echo_ws.py
++++ b/01_src/ui/echo_ws.py
+@@ -21,7 +21,8 @@
+ 
+ HERE = os.path.dirname(os.path.abspath(__file__))
+ CONFIG = os.path.join(HERE, "echonet_config.json")
+-PAD, N = 8, 112
++PAD, N = 0, 112
++NET = 112                       # 心超 U-Net 直跑边长（2026-11-15 起不再补边到 128；PAD 只为老代码留名）
+ 
+ 
+ # ---------------------------------------------------------------- 视频与负载
+@@ -89,12 +90,13 @@
+             rgb = np.stack([frames[max(t - d, 0)], frames[t], frames[min(t + d, n - 1)]], -1)
+         else:
+             rgb = np.repeat(frames[t][..., None], 3, -1)
+-        out.append(np.ascontiguousarray(np.pad(rgb, ((PAD, PAD), (PAD, PAD), (0, 0)))).tobytes())
++        out.append(np.ascontiguousarray(rgb).tobytes())     # 112x112 直跑：不补边、不重采样
+     return idx, out
+ 
+ 
+-def mask_from_logit(logit128):
+-    q = np.frombuffer(logit128, np.int8).reshape(128, 128)[PAD:PAD + N, PAD:PAD + N]
++def mask_from_logit(logit):
++    """板端 int8 logit（112x112 直跑，不再是 128 里裁中间）-> (int8 网格, >= 1 的掩膜)。"""
++    q = np.frombuffer(logit, np.int8).reshape(N, N)
+     return q, q >= 1
+ 
+ 
+@@ -226,10 +228,11 @@
+ 
+ 
+ def pp_request():
+-    """PL 后处理请求（板端 v5.10+、固件带 pp_layer）：112 裁剪窗口内 logit >= 1，保留最大连通块并填洞，
+-    与 mask_from_logit + clean 逐位相同（E:/PLD/tcp_image/tcp_image_rx/ai/pp_hls）。"""
++    """PL 后处理请求（板端 v5.10+、固件带 pp_layer）：整幅 112x112 里 logit >= 1，保留最大连通块并填洞，
++    与 mask_from_logit + clean 逐位相同（E:/PLD/tcp_image/tcp_image_rx/ai/pp_hls）。
++    112 直跑后窗口就是整帧（0, 0, 112, 112），不再是从 128 里裁 112 的偏移窗口。"""
+     import proto
+-    return dict(op=proto.PP_OP_MASK | proto.PP_OP_CLEAN, k=1, thr=1, win=(PAD, PAD, N, N))
++    return dict(op=proto.PP_OP_MASK | proto.PP_OP_CLEAN, k=1, thr=1, win=(0, 0, N, N))
+ 
+ 
+ def pp_clean(pp):
+--- a/tcp_image_ui/echowin.py
++++ b/01_src/ui/echowin.py
+@@ -361,6 +361,8 @@
+         """后台线程：紧凑帧连续发送（最多 2 帧在途）；实时模式按视频自身的节拍送帧（第 i 帧不早于 i × pace 秒）。"""
+         link = self.app.link
+         m = self.model
++        # 2026-11-15 起心超三套（3 / 4 / 16）是 112 直跑：紧凑帧边长取模型表里的 net（缺省 128）
++        net = int(m.get("net", 128))
+         flags = proto.FLAG_STATS | proto.FLAG_C_LOGIT
+         t0 = time.perf_counter()
+         try:
+@@ -377,14 +379,14 @@
+                             time.sleep(wait)
+                     # 板端说过能做 PL 后处理才带 b10（老板端不认那 12 字节）；结果与 PC 上的 clean 逐位相同
+                     pp = self.ws.pp_request() if getattr(link, "pp_available", False) else None
+-                    link.send_v6c(payloads[k], 128, kind=proto.V6C_KIND_RGB, model0=m["index"], thr=m["thr"],
++                    link.send_v6c(payloads[k], net, kind=proto.V6C_KIND_RGB, model0=m["index"], thr=m["thr"],
+                                   flags=flags, pp=pp)
+                     inflight.append((k, time.perf_counter(), flags | (proto.FLAG_C_PP if pp else 0)))
+                     k += 1
+                 if not inflight:
+                     break
+                 i, ts, fl = inflight.popleft()
+-                st, logit, _ = link.recv_v6c(fl, 128)
++                st, logit, _ = link.recv_v6c(fl, net)
+                 now = time.perf_counter()
+                 self.queue.put(("frame", i, st, logit, (now - ts) * 1000.0, now - (t0 + i * pace) if pace else None))
+             self.queue.put(("done", time.perf_counter() - t0, stop.is_set()))
+--- a/tcp_image_ui/heartview.py
++++ b/01_src/ui/heartview.py
+@@ -63,7 +63,33 @@
+ RENDER_GAP = 0.12 if getattr(tk, "_IS_GTK_SHIM", False) else 0.035
+ VIEW_TXT = {0: "切面判断中", 1: "切面：未见右室，可能不是心尖四腔", 2: "切面：心尖四腔（看得到右室）"}
+ WIN_LENS = ("全段", "放好后", "2 s", "3 s", "4 s", "5 s")   # 分析片段长度（「放好后」= 最后一次判定锁定到结束，v5.26 CAMUS 源）
+-PAD, N = 8, 112
++PAD, N = 0, 112                              # 2026-11-15 起 112 直跑，不再补边到 128（PAD 只为老代码留名）
++
++
++def click_plane_n(clicks, n=N, radius=None):
++    """点击锥形（训练口径）**直接画在 n×n 网格上**，不再先画 512 画布再抽样。
++
++    clicks = [(x, y, positive)]，坐标在 VIEW = 4n 的视图上（与改造前同一个坐标系）；
++    半径 = interactive.RADIUS / 4 = 10 **网格像素**：训练时 128 档网格里 112 的内容是
++    1:1 放的，所以 112 直跑网格上同样是 10（不是 10*112/128 —— 那不是"视场"缩放，
++    只是同一块内容换了画布）。返回 n*n 字节的 B 通道：无点击处 = 128。
++    """
++    import numpy as np
++    from interactive import RADIUS
++    r = (RADIUS / 4.0) if radius is None else float(radius)
++    if not clicks:
++        return bytes([128]) * (n * n)
++    k = n / float(VIEW)                          # 视图 448 -> n 网格
++    yy, xx = np.mgrid[0:n, 0:n]
++    pos = np.zeros((n, n), np.float64)
++    neg = np.zeros((n, n), np.float64)
++    for x, y, positive in clicks:
++        c = 1.0 - np.hypot(yy - y * k, xx - x * k) / r
++        np.clip(c, 0.0, None, out=c)
++        tgt = pos if positive else neg
++        np.maximum(tgt, c, out=tgt)
++    v = np.clip(np.rint(128.0 + 127.0 * pos - 128.0 * neg), 0, 255)
++    return v.astype(np.uint8).tobytes()
+ 
+ 
+ def live_sources():
+@@ -561,7 +587,8 @@
+         head = tk.Frame(row, bg=uistyle.C_CARD)
+         head.pack(side="left", padx=(0, 18), anchor="n")
+         uistyle.label(head, "计算过程", font=FONT_HEAD).pack(anchor="w")
+-        uistyle.label(head, "分割阈值 logit ≥ %d · 128 档" % (self.model["thr"] if self.model else 1),
++        uistyle.label(head, "分割阈值 logit ≥ %d · %d 档" % (self.model["thr"] if self.model else 1,
++                                                          self.model.get("net", 128) if self.model else 128),
+                       font=FONT_SMALL, fg=uistyle.C_MUTED).pack(anchor="w")
+         self.var_k_sched = chip(row, "运行方式", 8)
+         self.var_k_pl = chip(row, "PL 推理帧", 17)
+@@ -1452,14 +1479,13 @@
+         threading.Thread(target=self._fix_worker, args=(self._hostport(), t, end, prior, clicks), daemon=True).start()
+ 
+     def _payload(self, t, prior, clicks=None):
+-        """128 档 RGB：R = 本帧（补边到 128），G = 先验掩膜 0 / 255，B = 点击锥形（128 = 无点击）。"""
++        """N 档（112）RGB：R = 本帧（**不补边**），G = 先验掩膜 0 / 255，B = 点击锥形（128 = 无点击）。"""
+         np = self.np
+-        rgb = np.zeros((128, 128, 3), np.uint8)
+-        rgb[PAD:PAD + N, PAD:PAD + N, 0] = self.frames[t]
+-        rgb[PAD:PAD + N, PAD:PAD + N, 1] = np.where(prior, 255, 0)
+-        if clicks:                                         # 448 视图坐标 -> 128 档 -> 512 画布（click_plane128 的口径）
+-            pl = sequence.click_plane128([((x / 4.0 + PAD) * 4, (y / 4.0 + PAD) * 4, p) for x, y, p in clicks])
+-            rgb[..., 2] = np.frombuffer(pl, np.uint8).reshape(128, 128)
++        rgb = np.zeros((N, N, 3), np.uint8)
++        rgb[..., 0] = self.frames[t]
++        rgb[..., 1] = np.where(prior, 255, 0)
++        if clicks:                                         # 448 视图坐标 -> N 网格（锥形半径 10 网格像素，同训练口径）
++            rgb[..., 2] = np.frombuffer(click_plane_n(clicks, N), np.uint8).reshape(N, N)
+         else:
+             rgb[..., 2] = 128
+         return rgb.tobytes()
+@@ -1477,7 +1503,7 @@
+             for k in range(t, end):
+                 model = mi if k == t else mq
+                 pl = self._payload(k, prior if k == t else out[k - 1], clicks if k == t else None)
+-                st, logit, _, _ = link.v6c_round_trip(pl, 128, kind=proto.V6C_KIND_RGB, model0=model["index"],
++                st, logit, _, _ = link.v6c_round_trip(pl, N, kind=proto.V6C_KIND_RGB, model0=model["index"],
+                                                       thr=model["thr"], flags=flags)
+                 if st is None or st.get("model") != model["index"] or logit is None:
+                     raise RuntimeError("板端没按 %d 号模型回结果" % model["index"])
+--- a/tcp_image_ui/proto.py
++++ b/01_src/ui/proto.py
+@@ -177,11 +177,11 @@
+          scale=0.24494746350866603, roi=False, morph=False, inter=3, seq=4),
+     # 点击纠错（F2）用的配套模型：输入是 interactive.compose() 拼的“图像 + 先验 + 点击”，
+     # 不能直接拿原图跑，所以不出现在下拉框里（hidden），由「点击纠错」自动选用
+-    dict(index=3, name="echo_inter", label="心超点击纠错", target="左心室", thr=1, res=128,
++    dict(index=3, name="echo_inter", label="心超点击纠错", target="左心室", thr=1, res=128, net=112,
+          scale=0.4401192552461399, roi=False, morph=False, hidden=True),
+     # 序列传播（F3）：输入是 sequence.py 拼的“本帧 + 上一步结果 + B=128”（enc="none"，与无点击的 compose 相同），
+     # 由「序列跟踪」窗口自动选用
+-    dict(index=4, name="echo_seq", label="心超序列传播", target="左心室", thr=1, res=128,
++    dict(index=4, name="echo_seq", label="心超序列传播", target="左心室", thr=1, res=128, net=112,
+          scale=0.5600521658349225, roi=False, morph=False, hidden=True, enc="none"),
+     # 配准代价（F5）：手工构造的参数，logit ≈ |R - G| / 2；16 个候选平移拼成 4x4 一帧，PS 分块求和（FLAG_REG）。
+     # 由「连续帧配准」自动选用；门限 8 = |a - b| >= 16 算“变化像素”
+@@ -215,7 +215,7 @@
+          roi=False, morph=False, hidden=True, enc="roi_prior"),
+     # ③ EchoNet-Dynamic 左心室：112x112 灰度补边到 128，R / G / B = 前约 40 ms / 本帧 / 后约 40 ms（echo_ws.payloads），
+     # 输出裁回 112；由「实时心超工作站」窗口自动选用
+-    dict(index=16, name="echonet_lv", label="心超左心室（EchoNet）", target="左心室", thr=1, res=128,
++    dict(index=16, name="echonet_lv", label="心超左心室（EchoNet）", target="左心室", thr=1, res=128, net=112,
+          scale=0.13784920699953093, roi=False, morph=False, hidden=True, enc="t3"),
+ )
+ 
+@@ -239,7 +239,7 @@
+ 
+ AI_STAT_BYTES = 64
+ AI_STAT_MAGIC = 0x31414953   # 小端字节 'S','I','A','1'
+-AI_STAT_VERSION = 8          # 板端 ai_view.h 同名常量
++AI_STAT_VERSION = 9          # 板端 ai_view.h 同名常量
+ AI_STAT_VERSION_LOGIT = 2    # 统计块 version >= 2 的板端才会回传 logit 图
+ AI_STAT_VERSION_ROI = 3      # 统计块 version >= 3 的板端才认 v5 头（ROI）；
+                              # ROI 帧的 reserved = (裁剪高 << 16) | 裁剪宽，total = ROI 面积
+@@ -248,6 +248,8 @@
+ AI_STAT_VERSION_REG = 6      # 统计块 version >= 6 的板端认 b7；真的跟着分块求和块时，回显的 flags 里 b7 才是 1
+ AI_STAT_VERSION_COMPACT = 7  # 统计块 version >= 7 的板端认紧凑帧（v6c）、板端跟踪状态、b8 / b9
+ AI_STAT_VERSION_PP = 8       # 统计块 version >= 8 的板端认 b10（PL 后处理）；紧凑帧 reserved 的 bit2 = 这块板能做
++AI_STAT_VERSION_ARB = 9      # 统计块 version >= 9 的板端认「任意 8 的倍数边长」的紧凑帧（走 unet_set_size）；
++                             # 心超 112x112 直跑要求这一条，老板端会把 112 当成 64 档跑，必须先拦下来
+ 
+ # PL 后处理（b10，板端 image_proto.h FLAG_C_PP / ai_view.h PP_BLOCK_*，固件 xu2dp_e2b_pp 的 pp_layer）
+ # 请求：程序列表之后、负载之前 12 字节 = u8 op | u8 k | i8 thr | i8 tn | u16 x0, y0, cw, ch（cw = 0 表示整帧）
+@@ -463,7 +465,10 @@
+     if len(payload) != w * w * kind:
+         raise ValueError("v6c payload must be %d bytes, got %d" % (w * w * kind, len(payload)))
+     if w not in (32, 64, 128, 256, 512):
+-        raise ValueError("v6c size must be 512>>shift, got %d" % w)
++        # 2026-11-15 起放宽到「正方形、8 的倍数、<= 512」—— 心超 112x112 直跑要用；
++        # 板端据统计块 version >= AI_STAT_VERSION_ARB 走 unet_set_size()，老固件会拒。
++        if not (8 <= w <= 512 and w % 8 == 0):
++            raise ValueError("v6c size must be 512>>shift or a multiple of 8 in [8, 512], got %d" % w)
+     if len(extra) > V6C_MAX_EXTRA:
+         raise ValueError("at most %d extra programs" % V6C_MAX_EXTRA)
+     progs = b"".join(struct.pack("<BBBb", m, src, dst, int(t)) for m, src, dst, t in extra)

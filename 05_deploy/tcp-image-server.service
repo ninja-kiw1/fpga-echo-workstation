@@ -1,0 +1,17 @@
+[Unit]
+Description=Cardiac image + U-Net server (2026pld: f150nv + no-%3 + fan registers)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/data/pld2026
+ExecStart=/data/pld2026/tcp_image_server -p 5060 -a 0x40000000 --no-dma --echo --programs /data/pld2026/programs -n 0
+Restart=always
+RestartSec=2
+Nice=-20
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
